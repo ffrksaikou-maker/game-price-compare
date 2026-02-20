@@ -1,13 +1,14 @@
-"""Scraper for 海峡通信 (mobile-ichiban.com) - ASP.NET MVC with AJAX pagination.
+"""Scraper for 海峡通信 (mobile-ichiban.com) - ASP.NET MVC.
 
 Products in Bootstrap cards at /Prod/3/.
-Name in label.hideText (title attr), price in label[id^="NewPrice_"].
-Pagination via AJAX POST to /G01_ProdutShow/Index/{page}?kid=3.
+Name in span.item_title, price as text matching {number}円.
+Pagination via /G01_ProdutShow/Index/{page}?kid=3 (needs session cookies).
 """
 
 from __future__ import annotations
 
 import logging
+import re
 
 from .base import BaseScraper, ScrapedItem
 
@@ -37,32 +38,40 @@ class KaikyoScraper(BaseScraper):
                 page.goto(URL, wait_until="networkidle", timeout=60000)
                 page.wait_for_timeout(3000)
 
-                # Get total page count from pagination
-                pager = page.query_selector("ul.pagination.my-pagination")
-                total_pages = 3  # default
-                if pager:
-                    count_attr = pager.get_attribute("data-pagecount")
-                    if count_attr:
-                        total_pages = int(count_attr)
-
                 # Scrape page 1
                 self._extract_from_page(page, items)
 
-                # Navigate through remaining pages
-                for page_num in range(2, total_pages + 1):
-                    # Click next page link
-                    next_link = page.query_selector(
-                        f'a[data-pageindex="{page_num}"]'
-                    )
-                    if not next_link:
-                        break
+                # Find pagination links
+                page_links = page.query_selector_all(
+                    "ul.pagination .page-item:not(.disabled):not(.active) .page-link"
+                )
 
-                    next_link.click()
-                    # Wait for AJAX to update #dateAndPager
-                    page.wait_for_timeout(3000)
-                    page.wait_for_load_state("networkidle", timeout=15000)
+                # Get unique page URLs
+                visited = {URL}
+                page_urls = []
+                for link in page_links:
+                    href = link.get_attribute("href") or ""
+                    if href and "javascript" not in href and href not in visited:
+                        if not href.startswith("http"):
+                            href = f"https://www.mobile-ichiban.com{href}"
+                        visited.add(href)
+                        page_urls.append(href)
 
-                    self._extract_from_page(page, items)
+                # Navigate to remaining pages
+                for page_url in page_urls:
+                    try:
+                        page.goto(
+                            page_url,
+                            wait_until="networkidle",
+                            timeout=30000,
+                        )
+                        page.wait_for_timeout(2000)
+                        self._extract_from_page(page, items)
+                    except Exception as e:
+                        logger.warning(
+                            "%s: page navigation error: %s",
+                            self.shop_name, e,
+                        )
 
             except Exception as e:
                 logger.error("%s: scraping error: %s", self.shop_name, e)
@@ -74,33 +83,26 @@ class KaikyoScraper(BaseScraper):
 
     def _extract_from_page(self, page, items: list[ScrapedItem]) -> None:
         """Extract products from the currently displayed page."""
-        # Product cards: div.col-6 > div.card
-        cards = page.query_selector_all(
-            "div.col-6.col-md-4.col-lg-3, div.row.bg-white > div.col-6"
-        )
-
-        if not cards:
-            # Fallback: try to find cards directly
-            cards = page.query_selector_all("div.card")
+        # Product cards with .card-body
+        cards = page.query_selector_all(".card-body, .my-card-body")
 
         for card in cards:
-            # Product name from label.hideText title attribute
-            name_el = card.query_selector("label.hideText")
+            # Product name from span.item_title
+            name_el = card.query_selector("span.item_title")
             if not name_el:
                 continue
 
-            # Prefer title attr (full untruncated name)
-            name = name_el.get_attribute("title") or ""
+            name = name_el.inner_text().strip()
             if not name:
-                name = name_el.inner_text().strip()
-
-            # Price from label[id^="NewPrice_"]
-            price_el = card.query_selector('label[id^="NewPrice_"]')
-            if not price_el:
                 continue
 
-            price_text = price_el.inner_text().strip()
-            price = self.parse_price(price_text)
+            # Price: find text matching {number}円 pattern in card
+            card_text = card.inner_text()
+            price_match = re.search(r"([\d,]+)\s*円", card_text)
+            if not price_match:
+                continue
+
+            price = self.parse_price(price_match.group(1))
 
             if name and price > 0:
                 items.append(ScrapedItem(name=name, price=price))

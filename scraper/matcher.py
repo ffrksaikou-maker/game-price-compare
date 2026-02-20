@@ -14,8 +14,14 @@ logger = logging.getLogger(__name__)
 # Threshold for fuzzy matching (0-100)
 MATCH_THRESHOLD = 75
 
+# Minimum reasonable BOX buyback price (yen) - filters accessories/sleeves
+MIN_BOX_PRICE = 3000
+
 # Maximum reasonable BOX buyback price (single BOX, yen)
 MAX_BOX_PRICE = 60000
+
+# Maximum buyback-to-retail ratio (skip if price > retail * this)
+MAX_RETAIL_RATIO = 7.0
 
 # Keywords that indicate a BOX/sealed product (safe to match)
 BOX_INDICATORS = [
@@ -196,6 +202,11 @@ def match_products(
         if _is_single_card(name):
             continue
 
+        # Skip unreasonably low prices (likely accessories/sleeves)
+        if price < MIN_BOX_PRICE:
+            logger.debug("  SKIP (price too low): %s = %d", name, price)
+            continue
+
         # Skip unreasonably high prices (likely single rare cards or errors)
         if price > MAX_BOX_PRICE:
             logger.debug("  SKIP (price too high): %s = %d", name, price)
@@ -235,9 +246,21 @@ def match_products(
                 best_product = product
 
         if best_product and best_score >= MATCH_THRESHOLD:
+            # Skip if price is unreasonably high relative to retail
+            if best_product.retail_price > 0:
+                ratio = price / best_product.retail_price
+                if ratio > MAX_RETAIL_RATIO:
+                    logger.debug(
+                        "  SKIP (ratio %.1fx): %s = %d (retail=%d)",
+                        ratio, name, price, best_product.retail_price,
+                    )
+                    continue
+
             key = id(best_product)
-            # Keep the first matched price (avoid overwriting with wrong higher-priced matches)
-            if shop_id not in best_product.prices:
+            # Keep the LOWEST valid price per shop+product
+            # (single cards tend to be more expensive than BOX)
+            existing = best_product.prices.get(shop_id)
+            if existing is None or price < existing:
                 best_product.prices[shop_id] = price
             if key not in matched:
                 matched.add(key)

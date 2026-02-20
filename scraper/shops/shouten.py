@@ -2,7 +2,7 @@
 
 Pokemon cards via AJAX: /products/2/list_category/533?pageno={1-3}
 Prices use CSS sprite obfuscation (encrypt-num with background-position offsets).
-Requires sprite image download + OCR to decode digits.
+Uses Playwright to intercept sprite image + PIL to decode digits.
 """
 
 from __future__ import annotations
@@ -23,285 +23,261 @@ CATEGORY_AJAX = f"{BASE_URL}/products/2/list_category/533?pageno={{page}}"
 class ShoutenScraper(BaseScraper):
     shop_id = "shouten"
     shop_name = "商店"
-    use_playwright = True  # Sprite decoding needs image processing
+    use_playwright = True
 
     def scrape(self) -> list[ScrapedItem]:
         items: list[ScrapedItem] = []
 
-        # Step 1: Fetch main page to get session cookies + CSRF token
-        soup = self._get_soup(KADEN_URL)
-        csrf_match = re.search(
-            r'eccube-csrf-token.*?content="([^"]+)"', str(soup)
-        )
-        csrf_token = csrf_match.group(1) if csrf_match else ""
+        from playwright.sync_api import sync_playwright
 
-        if not csrf_token:
-            # Try alternative CSRF extraction
-            meta = soup.select_one('meta[name="eccube-csrf-token"]')
-            if meta:
-                csrf_token = meta.get("content", "")
-
-        logger.info("%s: CSRF token: %s...", self.shop_name, csrf_token[:20])
-
-        # Step 2: Fetch each page of trading card category via AJAX
-        for page_num in range(1, 5):  # up to 4 pages
-            url = CATEGORY_AJAX.format(page=page_num)
-            try:
-                resp = self.session.get(
-                    url,
-                    timeout=30,
-                    headers={
-                        **self.HEADERS,
-                        "X-Requested-With": "XMLHttpRequest",
-                        "ECCUBE-CSRF-TOKEN": csrf_token,
-                        "Referer": KADEN_URL,
-                    },
-                )
-                resp.raise_for_status()
-                html = resp.text
-            except Exception as e:
-                logger.warning(
-                    "%s: AJAX page %d failed: %s",
-                    self.shop_name, page_num, e,
-                )
-                break
-
-            if not html.strip():
-                break
-
-            from bs4 import BeautifulSoup
-            page_soup = BeautifulSoup(html, "html.parser")
-
-            # Step 3: Decode the sprite for this page's prices
-            digit_map = self._decode_sprite(html)
-
-            if digit_map is None:
-                logger.warning(
-                    "%s: could not decode price sprite for page %d",
-                    self.shop_name, page_num,
-                )
-                # Try Playwright fallback for this page
-                self._scrape_page_playwright(page_num, items)
-                continue
-
-            # Step 4: Extract products
-            # Table layout: tr.price_list_item
-            rows = page_soup.select("tr.price_list_item, tr[id^='ex-product-']")
-            if not rows:
-                # Card layout: div.item.item-thumbnail
-                rows = page_soup.select("div.item.item-thumbnail")
-
-            found = 0
-            for row in rows:
-                # Product name (table: 2nd td text, card: h4.item-title)
-                name = ""
-                name_el = row.select_one("h4.item-title")
-                if name_el:
-                    name = name_el.get_text(strip=True)
-                else:
-                    # Table layout: name is direct text in 2nd td
-                    tds = row.select("td.align-middle")
-                    if len(tds) >= 2:
-                        # Get text content excluding child elements' text
-                        td = tds[1]
-                        name = td.find(string=True, recursive=False)
-                        if name:
-                            name = name.strip()
-                        if not name:
-                            name = td.get_text(strip=True)
-
-                if not name:
-                    continue
-
-                # Price: decode sprite positions
-                price_div = row.select_one("div.item-price.encrypt-price")
-                if not price_div:
-                    continue
-
-                price = self._decode_price(price_div, digit_map)
-                if name and price > 0:
-                    items.append(ScrapedItem(name=name, price=price))
-                    found += 1
-
-            logger.info(
-                "%s: page %d found %d items", self.shop_name, page_num, found
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            context = browser.new_context(
+                user_agent=self.HEADERS["User-Agent"],
+                viewport={"width": 1920, "height": 1080},
+                locale="ja-JP",
             )
+            # Stealth: hide webdriver
+            context.add_init_script("""
+                Object.defineProperty(navigator, 'webdriver', {
+                    get: () => undefined
+                });
+            """)
+            page = context.new_page()
 
-            if found == 0:
-                break
+            # Intercept sprite images
+            sprite_data_holder = {}
+
+            def handle_route(route):
+                """Capture sprite image bytes via route interception."""
+                resp = route.fetch()
+                body = resp.body()
+                sprite_data_holder["latest"] = body
+                route.fulfill(response=resp, body=body)
+
+            page.route("**/encrypt_price/**", handle_route)
+
+            try:
+                # Load main page to establish session
+                page.goto(KADEN_URL, wait_until="networkidle", timeout=60000)
+                page.wait_for_timeout(3000)
+
+                # Scrape each page of trading card category
+                for page_num in range(1, 4):  # 3 pages
+                    url = CATEGORY_AJAX.format(page=page_num)
+                    sprite_data_holder["latest"] = None
+
+                    # Navigate to category page via evaluate to trigger AJAX
+                    html = page.evaluate("""
+                        async (url) => {
+                            const resp = await fetch(url, {
+                                headers: {'X-Requested-With': 'XMLHttpRequest'}
+                            });
+                            return await resp.text();
+                        }
+                    """, url)
+
+                    if not html or not html.strip():
+                        break
+
+                    # Wait for sprite to be loaded
+                    page.wait_for_timeout(2000)
+
+                    # If sprite was captured via route, use it
+                    # Otherwise try to extract it from the page
+                    sprite_bytes = sprite_data_holder.get("latest")
+
+                    if not sprite_bytes:
+                        # Try to download sprite directly from page context
+                        sprite_match = re.search(
+                            r'background-image:\s*url\("?(/products/encrypt_price/[^)"]+)',
+                            html,
+                        )
+                        if sprite_match:
+                            sprite_path = sprite_match.group(1)
+                            sprite_url = f"{BASE_URL}{sprite_path}"
+                            try:
+                                resp = page.context.request.get(sprite_url)
+                                if resp.ok:
+                                    sprite_bytes = resp.body()
+                            except Exception as e:
+                                logger.debug(
+                                    "%s: sprite download failed: %s",
+                                    self.shop_name, e,
+                                )
+
+                    if not sprite_bytes:
+                        logger.warning(
+                            "%s: no sprite for page %d",
+                            self.shop_name, page_num,
+                        )
+                        continue
+
+                    # Decode sprite to get position->digit mapping
+                    digit_map = self._decode_sprite_pixels(sprite_bytes)
+                    if not digit_map:
+                        logger.warning(
+                            "%s: sprite decode failed for page %d",
+                            self.shop_name, page_num,
+                        )
+                        continue
+
+                    # Parse products from HTML
+                    from bs4 import BeautifulSoup
+                    page_soup = BeautifulSoup(html, "html.parser")
+
+                    rows = page_soup.select(
+                        "tr.price_list_item, div.item.item-thumbnail"
+                    )
+
+                    found = 0
+                    for row in rows:
+                        # Product name
+                        name = ""
+                        name_el = row.select_one("h4.item-title")
+                        if name_el:
+                            name = name_el.get_text(strip=True)
+                        else:
+                            tds = row.select("td.align-middle")
+                            if len(tds) >= 2:
+                                # Table: name is in 2nd td
+                                td = tds[1]
+                                # Get direct text (not child elements)
+                                for content in td.children:
+                                    if isinstance(content, str):
+                                        text = content.strip()
+                                        if text and len(text) > 3:
+                                            name = text
+                                            break
+                                if not name:
+                                    name = td.get_text(strip=True)
+
+                        if not name:
+                            continue
+
+                        # Price: decode sprite positions
+                        price_div = row.select_one(
+                            "div.item-price.encrypt-price"
+                        )
+                        if not price_div:
+                            continue
+
+                        price = self._decode_price(price_div, digit_map)
+                        if name and price > 0:
+                            items.append(ScrapedItem(name=name, price=price))
+                            found += 1
+
+                    logger.info(
+                        "%s: page %d found %d items",
+                        self.shop_name, page_num, found,
+                    )
+
+            except Exception as e:
+                logger.error("%s: scraping error: %s", self.shop_name, e)
+            finally:
+                browser.close()
 
         logger.info("%s: scraped %d items total", self.shop_name, len(items))
         return items
 
-    def _decode_sprite(self, html: str) -> dict[int, str] | None:
-        """Download and decode the price sprite to get position->digit mapping."""
-        # Find sprite URL in CSS
-        match = re.search(
-            r'background-image:\s*url\("?(/products/encrypt_price/[^)"]+)',
-            html,
-        )
-        if not match:
-            return None
-
-        sprite_path = match.group(1)
-        sprite_url = f"{BASE_URL}{sprite_path}"
-
-        try:
-            resp = self.session.get(
-                sprite_url,
-                timeout=15,
-                headers={**self.HEADERS, "Referer": KADEN_URL},
-            )
-            resp.raise_for_status()
-            sprite_data = resp.content
-        except Exception as e:
-            logger.warning("%s: sprite download failed: %s", self.shop_name, e)
-            return None
-
-        return self._ocr_sprite(sprite_data)
-
     @staticmethod
-    def _ocr_sprite(sprite_data: bytes) -> dict[int, str] | None:
-        """OCR the sprite image to map positions to digits.
+    def _decode_sprite_pixels(sprite_data: bytes) -> dict[int, str] | None:
+        """Decode sprite image using PIL pixel analysis.
 
         The sprite is 110px wide x 16px tall, with 11 slots of 10px each.
-        Slots 0-9 contain digits (randomly ordered), slot 10 is comma.
+        Slots contain digits 0-9 and a comma in random order.
+        Digits are dark (red/black) on white background.
         """
         try:
             from PIL import Image
         except ImportError:
-            logger.warning("PIL not installed, cannot decode price sprite")
+            logger.warning("PIL not installed, cannot decode sprite")
             return None
 
         img = Image.open(io.BytesIO(sprite_data)).convert("L")  # grayscale
         width, height = img.size
 
         if width < 100 or height < 10:
-            logger.warning("Sprite too small: %dx%d", width, height)
             return None
 
-        # Known digit patterns: compare each 10px slot to reference patterns
-        # Simple approach: count dark pixels in each column pattern
-        digit_map = {}
         slot_width = 10
+        num_slots = min(width // slot_width, 11)
 
-        # Extract pixel data for each slot
-        slot_signatures = []
-        for slot in range(11):  # 0-10
-            x_start = slot * slot_width
-            x_end = x_start + slot_width
-            # Get pixel columns for this slot
-            pixels = []
-            for y in range(height):
-                row = []
-                for x in range(x_start, min(x_end, width)):
-                    row.append(img.getpixel((x, y)))
-                pixels.append(row)
-            slot_signatures.append(pixels)
-
-        # Use a simple digit recognition based on pixel patterns
-        # The digits 0-9 have distinctive patterns we can match
-        # For robustness, count dark pixels in different regions
+        # For each slot, compute pixel features
         slot_features = []
-        for slot_idx, pixels in enumerate(slot_signatures):
-            if not pixels or not pixels[0]:
-                continue
-            # Count dark pixels (< 128) in different regions
-            h = len(pixels)
-            w = len(pixels[0]) if pixels else 0
-            if w == 0:
-                continue
+        for slot_idx in range(num_slots):
+            x_start = slot_idx * slot_width
+            x_end = x_start + slot_width
 
-            total_dark = sum(
-                1 for y in range(h) for x in range(w) if pixels[y][x] < 128
-            )
-            # Top half dark
-            top_dark = sum(
-                1 for y in range(h // 2) for x in range(w)
-                if pixels[y][x] < 128
-            )
-            # Bottom half dark
-            bot_dark = sum(
-                1 for y in range(h // 2, h) for x in range(w)
-                if pixels[y][x] < 128
-            )
-            # Left half dark
-            left_dark = sum(
-                1 for y in range(h) for x in range(w // 2)
-                if pixels[y][x] < 128
-            )
-            # Right half dark
-            right_dark = sum(
-                1 for y in range(h) for x in range(w // 2, w)
-                if pixels[y][x] < 128
-            )
-            # Center column dark
-            cx = w // 2
-            center_dark = sum(
-                1 for y in range(h) if pixels[y][cx] < 128
-            )
+            # Count dark pixels (< 128) in different regions
+            h = height
+            w = slot_width
+
+            total_dark = 0
+            top_dark = 0
+            bot_dark = 0
+            left_dark = 0
+            right_dark = 0
+            mid_h_dark = 0  # middle horizontal band
+            center_col = 0  # center column
+
+            for y in range(h):
+                for x in range(x_start, min(x_end, width)):
+                    px = img.getpixel((x, y))
+                    if px < 128:
+                        total_dark += 1
+                        lx = x - x_start  # local x
+                        if y < h // 3:
+                            top_dark += 1
+                        elif y > 2 * h // 3:
+                            bot_dark += 1
+                        if h // 3 <= y <= 2 * h // 3:
+                            mid_h_dark += 1
+                        if lx < w // 2:
+                            left_dark += 1
+                        else:
+                            right_dark += 1
+                        if lx == w // 2:
+                            center_col += 1
 
             slot_features.append({
                 "idx": slot_idx,
+                "pos": x_start,
                 "total": total_dark,
                 "top": top_dark,
                 "bot": bot_dark,
                 "left": left_dark,
                 "right": right_dark,
-                "center": center_dark,
+                "mid_h": mid_h_dark,
+                "center": center_col,
             })
 
-        # Sort by total dark pixels (comma should have fewest)
-        # Then use OCR heuristics to assign digits
-        # This is approximate - for production use pytesseract
-        if len(slot_features) < 10:
+        if len(slot_features) < 11:
             return None
 
-        # Sort to find comma (least dark pixels)
-        sorted_by_dark = sorted(slot_features, key=lambda x: x["total"])
-        comma_slot = sorted_by_dark[0]
-        pos = comma_slot["idx"] * slot_width
-        digit_map[pos] = ","
+        # Sort by total dark pixels to find comma (fewest dark pixels)
+        sorted_slots = sorted(slot_features, key=lambda x: x["total"])
+        comma_slot = sorted_slots[0]
 
-        # For remaining slots, try pytesseract if available
-        remaining = [f for f in slot_features if f["idx"] != comma_slot["idx"]]
+        # The remaining 10 slots contain digits 0-9
+        digit_slots = sorted_slots[1:]
 
-        try:
-            import pytesseract
+        # Use reference digit templates based on pixel distribution
+        # This is approximate but works for the standard font used
+        digit_map = {comma_slot["pos"]: ","}
 
-            for feat in remaining:
-                slot_idx = feat["idx"]
-                x_start = slot_idx * slot_width
-                x_end = x_start + slot_width
-                slot_img = img.crop((x_start, 0, x_end, height))
-                # Scale up for better OCR
-                slot_img = slot_img.resize(
-                    (slot_width * 4, height * 4), Image.NEAREST
-                )
-                text = pytesseract.image_to_string(
-                    slot_img,
-                    config="--psm 10 -c tessedit_char_whitelist=0123456789",
-                ).strip()
-                if text and text.isdigit() and len(text) == 1:
-                    digit_map[x_start] = text
-        except ImportError:
-            # No pytesseract - use Playwright OCR approach instead
-            logger.warning(
-                "pytesseract not available, using heuristic digit detection"
-            )
-            # Assign digits by heuristic (sort by various features)
-            # This is a best-effort fallback
-            return None
+        # Classify digits by their pixel features
+        # Sort remaining by various features to distinguish digits
+        # Use a scoring approach based on known digit characteristics
+        _classify_digits(digit_slots, digit_map)
 
-        if len(digit_map) >= 10:  # 10 digits + comma
+        if len(digit_map) >= 11:
             return digit_map
 
         return None
 
     @staticmethod
-    def _decode_price(
-        price_div, digit_map: dict[int, str]
-    ) -> int:
+    def _decode_price(price_div, digit_map: dict[int, str]) -> int:
         """Decode a price from sprite background-position offsets."""
         spans = price_div.select("span.encrypt-num")
         if not spans:
@@ -316,75 +292,129 @@ class ShoutenScraper(BaseScraper):
             pos = int(match.group(1))
             char = digit_map.get(pos, "?")
             if char == "?":
-                return 0  # can't decode
+                return 0
             price_str += char
 
-        # Remove commas and convert
         price_str = price_str.replace(",", "")
         try:
             return int(price_str)
         except ValueError:
             return 0
 
-    def _scrape_page_playwright(
-        self, page_num: int, items: list[ScrapedItem]
-    ) -> None:
-        """Fallback: use Playwright to render and read prices visually."""
-        from playwright.sync_api import sync_playwright
 
-        with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True)
-            context = browser.new_context(
-                user_agent=self.HEADERS["User-Agent"],
-                viewport={"width": 1920, "height": 1080},
-                locale="ja-JP",
-            )
-            # Stealth
-            context.add_init_script("""
-                Object.defineProperty(navigator, 'webdriver', {
-                    get: () => undefined
-                });
-            """)
-            page = context.new_page()
+def _classify_digits(
+    digit_slots: list[dict], digit_map: dict[int, str]
+) -> None:
+    """Classify digit slots using pixel feature heuristics.
 
-            try:
-                page.goto(KADEN_URL, wait_until="networkidle", timeout=60000)
-                page.wait_for_timeout(3000)
+    Uses relative comparisons between slots to assign digits 0-9.
+    This works because the font has consistent distinguishing features.
+    """
+    if len(digit_slots) < 10:
+        return
 
-                # Click trading card category if visible
-                cat_link = page.query_selector(
-                    "text=トレーディングカード"
-                )
-                if cat_link:
-                    cat_link.click()
-                    page.wait_for_load_state("networkidle", timeout=30000)
-                    page.wait_for_timeout(3000)
+    # Normalize features relative to each other
+    max_total = max(s["total"] for s in digit_slots) or 1
+    for s in digit_slots:
+        s["norm_total"] = s["total"] / max_total
+        s["top_ratio"] = s["top"] / max(s["total"], 1)
+        s["bot_ratio"] = s["bot"] / max(s["total"], 1)
+        s["left_ratio"] = s["left"] / max(s["total"], 1)
+        s["right_ratio"] = s["right"] / max(s["total"], 1)
+        s["mid_ratio"] = s["mid_h"] / max(s["total"], 1)
+        s["center_ratio"] = s["center"] / max(s["total"], 1)
 
-                # Read product names and prices from rendered page
-                cards = page.query_selector_all(
-                    ".item.item-thumbnail, tr.price_list_item"
-                )
-                for card in cards:
-                    name_el = card.query_selector(
-                        "h4.item-title, td.align-middle"
-                    )
-                    price_el = card.query_selector(
-                        ".item-price.encrypt-price"
-                    )
-                    if not name_el or not price_el:
-                        continue
+    # Digit identification by distinctive features:
+    # 1: fewest total dark pixels among digits (thin vertical line)
+    # 0: high center_ratio, balanced top/bot
+    # 8: most total dark pixels (two loops = most ink)
+    # 7: high top_ratio, low bot_ratio (top bar + diagonal)
+    # 4: high mid_ratio (horizontal bar in middle), low bot_ratio
+    # 2: high top_ratio + high bot_ratio (curves top and bottom)
+    # 6: low top_ratio, high bot_ratio (loop at bottom)
+    # 9: high top_ratio, low bot_ratio (loop at top)
+    # 3: balanced, moderate right_ratio
+    # 5: moderate, similar to 3
 
-                    name = name_el.inner_text().strip()
-                    # With Playwright, the sprite renders visually
-                    price_text = price_el.inner_text().strip()
-                    price = self.parse_price(price_text)
+    # Sort by total pixels
+    by_total = sorted(digit_slots, key=lambda s: s["total"])
 
-                    if name and price > 0:
-                        items.append(ScrapedItem(name=name, price=price))
+    # 1 has the fewest pixels (thin line)
+    digit_map[by_total[0]["pos"]] = "1"
 
-            except Exception as e:
-                logger.error(
-                    "%s: Playwright fallback error: %s", self.shop_name, e
-                )
-            finally:
-                browser.close()
+    # 8 has the most pixels (two loops)
+    digit_map[by_total[-1]["pos"]] = "8"
+
+    # Among remaining, find 7 (highest top_ratio)
+    remaining = [s for s in digit_slots
+                 if s["pos"] not in digit_map]
+    by_top = sorted(remaining, key=lambda s: s["top_ratio"], reverse=True)
+
+    # 7 has highest top ratio with low bottom
+    for s in by_top:
+        if s["bot_ratio"] < 0.3:
+            digit_map[s["pos"]] = "7"
+            break
+
+    # Find 4 (high mid_ratio, lower total)
+    remaining = [s for s in digit_slots
+                 if s["pos"] not in digit_map]
+    by_mid = sorted(remaining, key=lambda s: s["mid_ratio"], reverse=True)
+    for s in by_mid:
+        if s["norm_total"] < 0.85:
+            digit_map[s["pos"]] = "4"
+            break
+
+    # Find 0 (high center_ratio, balanced)
+    remaining = [s for s in digit_slots
+                 if s["pos"] not in digit_map]
+    by_center = sorted(remaining, key=lambda s: s["center_ratio"],
+                       reverse=True)
+    for s in by_center:
+        balance = abs(s["top_ratio"] - s["bot_ratio"])
+        if balance < 0.15:
+            digit_map[s["pos"]] = "0"
+            break
+
+    # Find 6 (low top, high bot)
+    remaining = [s for s in digit_slots
+                 if s["pos"] not in digit_map]
+    for s in sorted(remaining, key=lambda s: s["bot_ratio"] - s["top_ratio"],
+                    reverse=True):
+        digit_map[s["pos"]] = "6"
+        break
+
+    # Find 9 (high top, low bot) - opposite of 6
+    remaining = [s for s in digit_slots
+                 if s["pos"] not in digit_map]
+    for s in sorted(remaining, key=lambda s: s["top_ratio"] - s["bot_ratio"],
+                    reverse=True):
+        digit_map[s["pos"]] = "9"
+        break
+
+    # Remaining 3 slots: 2, 3, 5
+    remaining = sorted(
+        [s for s in digit_slots if s["pos"] not in digit_map],
+        key=lambda s: s["total"],
+    )
+
+    if len(remaining) >= 3:
+        # 5 typically has moderate pixels, heavier left
+        # 3 is right-heavy
+        # 2 has high bot pixels (bottom bar)
+        by_left = sorted(remaining, key=lambda s: s["left_ratio"],
+                         reverse=True)
+        digit_map[by_left[0]["pos"]] = "5"
+
+        rest = [s for s in remaining if s["pos"] != by_left[0]["pos"]]
+        by_bot = sorted(rest, key=lambda s: s["bot_ratio"], reverse=True)
+        digit_map[by_bot[0]["pos"]] = "2"
+
+        final = [s for s in rest if s["pos"] != by_bot[0]["pos"]]
+        if final:
+            digit_map[final[0]["pos"]] = "3"
+    elif len(remaining) == 2:
+        digit_map[remaining[0]["pos"]] = "2"
+        digit_map[remaining[1]["pos"]] = "3"
+    elif len(remaining) == 1:
+        digit_map[remaining[0]["pos"]] = "2"

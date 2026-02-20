@@ -1,7 +1,8 @@
-"""Scraper for 買取一丁目 (1-chome.com) - Full SPA, requires Playwright.
+"""Scraper for 買取一丁目 (1-chome.com) - Vue.js SPA with REST API.
 
-The site is a JavaScript SPA that renders all content client-side.
-We need to navigate and interact with it via Playwright.
+The site has a REST API at /api/goods/listPage that returns JSON.
+Pokemon card category code: 6crqPbpiAbaKuH3x
+No Playwright needed - simple HTTP GET.
 """
 
 from __future__ import annotations
@@ -12,128 +13,64 @@ from .base import BaseScraper, ScrapedItem
 
 logger = logging.getLogger(__name__)
 
-URL = "https://www.1-chome.com/"
+API_URL = "https://www.1-chome.com/api/goods/listPage"
+POKEMON_CATE_CODE = "6crqPbpiAbaKuH3x"
 
 
 class IcchomeScraper(BaseScraper):
     shop_id = "icchome"
     shop_name = "一丁目"
-    use_playwright = True
+    use_playwright = False
 
     def scrape(self) -> list[ScrapedItem]:
         items: list[ScrapedItem] = []
 
-        from playwright.sync_api import sync_playwright
-
-        with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True)
-            context = browser.new_context(
-                user_agent=self.HEADERS["User-Agent"],
-                viewport={"width": 1920, "height": 1080},
-                locale="ja-JP",
+        try:
+            resp = self.session.get(
+                API_URL,
+                params={
+                    "page": 1,
+                    "size": 100,
+                    "keyword": "",
+                    "isImpo": "false",
+                    "isCampaign": "false",
+                    "cateCode": POKEMON_CATE_CODE,
+                    "kbNames": "",
+                    "cateName": "",
+                },
+                timeout=30,
+                headers=self.HEADERS,
             )
-            page = context.new_page()
+            resp.raise_for_status()
+            data = resp.json()
+        except Exception as e:
+            logger.error("%s: API request failed: %s", self.shop_name, e)
+            return items
 
-            try:
-                page.goto(URL, wait_until="networkidle", timeout=60000)
-                page.wait_for_timeout(5000)  # Wait for SPA to hydrate
+        if data.get("code") != 200:
+            logger.error(
+                "%s: API error: %s", self.shop_name, data.get("msg", "unknown")
+            )
+            return items
 
-                # Try to navigate to electronics/hobby section
-                # URL pattern: /elec/cate/{id}/{name} or /hobby
-                for nav_url in [
-                    "https://www.1-chome.com/hobby",
-                    "https://www.1-chome.com/electricAppliance",
-                ]:
-                    try:
-                        page.goto(nav_url, wait_until="networkidle", timeout=30000)
-                        page.wait_for_timeout(3000)
-                    except Exception:
-                        continue
+        content = data.get("data", {}).get("content", [])
 
-                # Try searching for Pokemon cards
-                search_input = page.query_selector(
-                    "input[type='search'], input[type='text'], "
-                    "input[placeholder*='検索'], input[placeholder*='商品名'], "
-                    ".search-input, #search"
-                )
-                if search_input:
-                    search_input.fill("ポケモンカード BOX")
-                    page.keyboard.press("Enter")
-                    page.wait_for_load_state("networkidle", timeout=30000)
-                    page.wait_for_timeout(5000)
-                else:
-                    # Try the search page directly
-                    page.goto(
-                        "https://www.1-chome.com/elec/search",
-                        wait_until="networkidle",
-                        timeout=30000,
-                    )
-                    page.wait_for_timeout(3000)
-                    search_input = page.query_selector(
-                        "input[type='search'], input[type='text'], input"
-                    )
-                    if search_input:
-                        search_input.fill("ポケモンカード BOX")
-                        page.keyboard.press("Enter")
-                        page.wait_for_load_state("networkidle", timeout=30000)
-                        page.wait_for_timeout(5000)
+        for product in content:
+            title = product.get("title", "").strip()
+            if not title:
+                continue
 
-                # Scrape whatever product listings we find
-                # Try multiple selector patterns since we can't inspect the SPA directly
-                selectors = [
-                    ".product-item", ".item-card", ".product",
-                    "[class*='product']", "[class*='item']",
-                    "table tbody tr", ".card",
-                ]
+            # Get the highest buyback price from condition tiers
+            # goodsKbDetails contains price tiers (新品未使用, 開封済, etc.)
+            kb_details = product.get("goodsKbDetails", [])
+            best_price = 0
+            for detail in kb_details:
+                price = detail.get("kbDetailPrice", 0) or 0
+                if price > best_price:
+                    best_price = price
 
-                for selector in selectors:
-                    rows = page.query_selector_all(selector)
-                    if len(rows) >= 3:  # reasonable amount of results
-                        for row in rows:
-                            name = self._extract_text(row, [
-                                ".product-name", ".item-name", ".name",
-                                "h2", "h3", "h4", "a", ".title",
-                                "[class*='name']", "[class*='title']",
-                            ])
-                            price = self._extract_price(row, [
-                                ".product-price", ".price",
-                                "[class*='price']", "[class*='amount']",
-                            ])
-                            if name and price > 0:
-                                items.append(ScrapedItem(name=name, price=price))
-                        break  # found working selectors
-
-            except Exception as e:
-                logger.error("%s: scraping error: %s", self.shop_name, e)
-            finally:
-                browser.close()
+            if best_price > 0:
+                items.append(ScrapedItem(name=title, price=best_price))
 
         logger.info("%s: scraped %d items", self.shop_name, len(items))
         return items
-
-    @staticmethod
-    def _extract_text(element, selectors: list[str]) -> str:
-        """Try multiple selectors to extract text from an element."""
-        for sel in selectors:
-            try:
-                el = element.query_selector(sel)
-                if el:
-                    text = el.inner_text().strip()
-                    if text and len(text) > 2:
-                        return text
-            except Exception:
-                continue
-        return ""
-
-    def _extract_price(self, element, selectors: list[str]) -> int:
-        """Try multiple selectors to extract a price from an element."""
-        for sel in selectors:
-            try:
-                el = element.query_selector(sel)
-                if el:
-                    price = self.parse_price(el.inner_text().strip())
-                    if price > 0:
-                        return price
-            except Exception:
-                continue
-        return 0
