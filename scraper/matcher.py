@@ -98,7 +98,7 @@ MASTER_PRODUCTS: list[MasterProduct] = [
     MasterProduct("sv", 'SV 強化拡張パック「レイジングサーフ」', 5400,
                   ["レイジングサーフ", "レイジング"]),
     MasterProduct("sv", 'SV 拡張パック「スカーレットex」', 5400,
-                  ["スカーレットex", "スカーレット"]),
+                  ["スカーレットex"]),
     MasterProduct("sv", 'SV 拡張パック「変幻の仮面」', 5400,
                   ["変幻の仮面", "変幻"]),
     MasterProduct("sv", 'SV 拡張パック「ワイルドフォース」', 5400,
@@ -116,7 +116,7 @@ MASTER_PRODUCTS: list[MasterProduct] = [
     MasterProduct("sv", 'SV 拡張パック「未来の一閃」', 5400,
                   ["未来の一閃", "未来"]),
     MasterProduct("sv", 'SV 拡張パック「バイオレットex」', 5400,
-                  ["バイオレットex", "バイオレット"]),
+                  ["バイオレットex"]),
     MasterProduct("sv", 'SV 拡張パック「バトルパートナーズ」', 5400,
                   ["バトルパートナーズ", "パートナーズ"]),
 ]

@@ -12,8 +12,8 @@ from .base import BaseScraper, ScrapedItem
 
 logger = logging.getLogger(__name__)
 
-# Trading card category (ID=14) includes Pokemon, One Piece, Yu-Gi-Oh etc.
-CATEGORY_URL = "https://kaitori-homura.com/products?q[product_sub_category_product_category_id_eq]=14"
+# Trading card category (ID=14), subcategory 128 = シュリンク有りBOX only
+CATEGORY_URL = "https://kaitori-homura.com/products?q[product_sub_category_id_eq]=128&q[product_sub_category_product_category_id_eq]=14"
 
 
 class HomuraScraper(BaseScraper):
