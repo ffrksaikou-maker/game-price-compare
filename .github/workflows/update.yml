@@ -2,9 +2,12 @@ name: Update Prices
 
 on:
   schedule:
-    # JST 8:00 / 14:00 / 20:00 = UTC 23:00 / 05:00 / 11:00
-    - cron: '0 23,5,11 * * *'
+    # JST 12:00 / 17:00 = UTC 3:00 / 8:00
+    - cron: '0 3,8 * * *'
   workflow_dispatch: # manual trigger
+
+permissions:
+  contents: write
 
 jobs:
   update:
