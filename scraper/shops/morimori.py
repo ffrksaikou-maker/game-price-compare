@@ -58,8 +58,9 @@ class MorimoriScraper(BaseScraper):
         )
 
         # Fetch pages via AJAX for each subcategory
+        # Start from page 2 because page 1 is already in the initial HTML
         for cat_id in cat_ids:
-            for page_num in range(1, 15):  # up to 14 pages
+            for page_num in range(2, 15):  # pages 2-14
                 url = AJAX_URL.format(cat_id=cat_id, page=page_num)
                 try:
                     resp = self.session.get(
