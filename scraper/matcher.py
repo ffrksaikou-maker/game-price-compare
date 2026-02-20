@@ -47,15 +47,15 @@ class MasterProduct:
 # Master product list - canonical names and keywords for matching
 MASTER_PRODUCTS: list[MasterProduct] = [
     # ===== MEGA =====
-    MasterProduct("mega", 'MEGA 拡張パック「インフェルノX」', 5800,
+    MasterProduct("mega", 'MEGA 拡張パック「インフェルノX」', 5400,
                   ["インフェルノ", "インフェルノX", "INFERNO"]),
-    MasterProduct("mega", 'MEGA 拡張パック「メガブレイブ」', 5800,
+    MasterProduct("mega", 'MEGA 拡張パック「メガブレイブ」', 5400,
                   ["メガブレイブ", "MEGABRAVE"]),
     MasterProduct("mega", 'MEGA ハイクラスパック「MEGAドリームex」', 5500,
                   ["MEGAドリーム", "メガドリーム", "MEGA DREAM"]),
-    MasterProduct("mega", 'MEGA 拡張パック「メガシンフォニア」', 5800,
+    MasterProduct("mega", 'MEGA 拡張パック「メガシンフォニア」', 5400,
                   ["メガシンフォニア", "MEGASYMPHONIA"]),
-    MasterProduct("mega", 'MEGA 拡張パック「ムニキスゼロ」', 5800,
+    MasterProduct("mega", 'MEGA 拡張パック「ムニキスゼロ」', 5400,
                   ["ムニキスゼロ", "ムニキス", "MUNIX"]),
 
     # ===== SV =====
