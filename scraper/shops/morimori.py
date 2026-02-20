@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import logging
 import re
+import time
 
 from .base import BaseScraper, ScrapedItem
 
@@ -60,7 +61,8 @@ class MorimoriScraper(BaseScraper):
         # Fetch pages via AJAX for each subcategory
         # Start from page 2 because page 1 is already in the initial HTML
         for cat_id in cat_ids:
-            for page_num in range(2, 15):  # pages 2-14
+            for page_num in range(2, 20):  # pages 2-19
+                time.sleep(1.5)  # rate limit avoidance
                 url = AJAX_URL.format(cat_id=cat_id, page=page_num)
                 try:
                     resp = self.session.get(
@@ -70,6 +72,7 @@ class MorimoriScraper(BaseScraper):
                             **self.HEADERS,
                             "X-Requested-With": "XMLHttpRequest",
                             "X-CSRF-Token": csrf_token,
+                            "Referer": URL,
                         },
                     )
                     resp.raise_for_status()
