@@ -174,6 +174,9 @@ def _disambiguate_dx(scraped_name: str) -> str | None:
         return "dx"
     if "拡張パックdx" in norm or "拡張パックDX" in scraped_name:
         return "dx"
+    # Runto uses "デラックス" instead of "DX"
+    if "デラックス" in scraped_name:
+        return "dx"
     return "normal"
 
 

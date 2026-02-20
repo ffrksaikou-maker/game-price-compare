@@ -55,15 +55,13 @@ class RuntoScraper(BaseScraper):
 
                 name = name_el.get_text(strip=True)
 
-                # For range prices (¥100 – ¥8,500), skip - these are
-                # variable products with single card prices, not BOX prices.
-                # BOX buyback prices should be a single fixed price.
+                # For range prices (¥100 – ¥14,200), take the MAX price.
+                # WooCommerce variable products show min-max ranges where
+                # the max is the BOX/sealed product price and the min is
+                # for single cards or lower conditions.
                 prices = [self.parse_price(el.get_text(strip=True)) for el in price_elements]
                 prices = [p for p in prices if p > 0]
-                if len(prices) > 1:
-                    # Price range = variable product, skip
-                    continue
-                price = prices[0] if prices else 0
+                price = max(prices) if prices else 0
 
                 if name and price > 0:
                     items.append(ScrapedItem(name=name, price=price))
