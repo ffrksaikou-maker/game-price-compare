@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="ポケモンカード未開封BOXの買取価格を8店舗横断で比較。最高値が一目でわかるポケカ買取チェッカー。">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="ポケカ買取チェッカー｜未開封BOX買取価格比較">
+<meta property="og:description" content="ポケモンカード未開封BOXの買取価格を8店舗横断で比較。最高値が一目でわかる。">
+<meta property="og:type" content="website">
+<title>ポケカ買取チェッカー｜未開封BOX買取価格比較</title>
+<style>
+:root {
+  --table-width: 1280px;
+  --header-h: 56px;
+  --fbar-h: 50px;
+  --bg: #f6f7fb;
+  --card: #fff;
+  --border: #e5e7eb;
+  --text: #111827;
+  --text-sub: #6b7280;
+  --highlight: #eddcff;
+  --mega: #fff3e0;
+  --sv: #e8f5e9;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans","Yu Gothic",sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+
+/* Header */
+.header{position:sticky;top:0;z-index:100;height:var(--header-h);background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;padding:0 20px}
+.header h1{font-size:18px;font-weight:700;background:linear-gradient(135deg,#f59e0b,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-align:center}
+.header .upd{position:absolute;right:20px;font-size:11px;color:var(--text-sub)}
+
+/* Filter bar */
+.fbar{position:sticky;top:var(--header-h);z-index:90;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:10px 20px;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:center}
+.fg{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.fg label{font-size:12px;font-weight:600;color:var(--text-sub);white-space:nowrap}
+.fb{font-size:12px;padding:5px 14px;border:1.5px solid var(--border);border-radius:20px;background:#fff;color:var(--text);cursor:pointer;transition:all .15s;white-space:nowrap;user-select:none;-webkit-tap-highlight-color:transparent}
+.fb:hover{border-color:#a5b4fc;background:#eef2ff}
+.fb.active{border-color:#6366f1;background:#6366f1;color:#fff}
+.sb{font-size:12px;padding:5px 14px;border:1.5px solid #f59e0b;border-radius:20px;background:#fffbeb;color:#92400e;cursor:pointer;transition:all .15s;white-space:nowrap;font-weight:600;-webkit-tap-highlight-color:transparent}
+.sb:hover{background:#fef3c7}.sb.active{background:#f59e0b;color:#fff}
+
+/* Table wrapper */
+/* overflow-x: clip does NOT create a scroll container, so thead sticky works relative to viewport */
+.tw{max-width:var(--table-width);margin:16px auto;background:var(--card);border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow-x:clip}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+
+/* Thead sticky: dynamic top based on measured fbar height */
+thead{position:sticky;top:calc(var(--header-h) + var(--fbar-h));z-index:80}
+thead th{background:#f9fafb}
+thead th{padding:10px 6px;font-size:11px;font-weight:700;text-align:center;background:#f9fafb;border-bottom:2px solid var(--border);white-space:nowrap}
+thead th.sc{background:linear-gradient(180deg,#e0f2fe,#f0f9ff);color:#0369a1;min-width:90px}
+thead th.sc a{color:#0369a1;text-decoration:none;border-bottom:1px dashed #0369a1;transition:all .15s}
+thead th.sc a:hover{color:#0284c7;border-bottom-style:solid}
+
+/* Body rows */
+tbody tr{transition:background .1s}
+tbody tr:hover td{background:#f5f3ff !important}
+tbody td{padding:7px 5px;font-size:13px;text-align:center;border-bottom:1px solid #f3f4f6;white-space:nowrap}
+tr.cat-mega td{background:var(--mega)}tr.cat-sv td{background:var(--sv)}
+tr.cat-mega:hover td{background:#ffe0b2 !important}tr.cat-sv:hover td{background:#c8e6c9 !important}
+tr.sh td{font-weight:800;font-size:14px;padding:14px 10px;text-align:left;border-bottom:2px solid var(--border)}
+td.p{font-weight:600}
+td.pm{background:var(--highlight) !important;font-weight:800}
+td.rp{color:var(--text-sub);font-size:12px}
+td.dp{color:#059669;font-weight:700}
+td.dm{color:#dc2626;font-weight:700}
+td.nd{color:#d1d5db}
+td.pn{text-align:left;font-weight:600;padding-left:12px;min-width:200px}
+
+/* Legend / footer */
+.lg{max-width:var(--table-width);margin:0 auto 8px;padding:0 12px;display:flex;flex-wrap:wrap;gap:12px;font-size:11px;color:var(--text-sub)}
+.li{display:flex;align-items:center;gap:4px}
+.ls{width:14px;height:14px;border-radius:3px;border:1px solid var(--border)}
+.cb{max-width:var(--table-width);margin:4px auto 0;padding:0 12px;font-size:11px;color:var(--text-sub);text-align:right}
+.ft{text-align:center;padding:24px 16px;font-size:11px;color:var(--text-sub);line-height:1.8}
+.ft a{color:#6366f1}
+
+/* ===== Mobile: <= 768px ===== */
+@media(max-width:768px){
+  :root{--header-h:48px}
+  .header{padding:0 12px}
+  .header h1{font-size:14px}
+  .header .upd{position:static;display:block;font-size:10px;margin-left:8px;flex-shrink:0}
+
+  .fbar{padding:8px 10px;gap:6px 10px;justify-content:flex-start}
+  .fg{gap:4px}
+  .fg label{font-size:11px}
+  .fb,.sb{font-size:11px;padding:6px 10px;min-height:32px}
+
+  .tw{margin:8px 6px;border-radius:8px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  table{font-size:11px}
+  thead th{font-size:10px;padding:8px 4px}
+  tbody td{font-size:11px;padding:5px 3px}
+
+  /* Sticky first column on mobile */
+  td.pn{position:sticky;left:0;z-index:10;min-width:140px;max-width:180px;overflow:hidden;text-overflow:ellipsis;font-size:11px;padding-left:8px}
+  tr.cat-mega td.pn{background:var(--mega)}
+  tr.cat-sv td.pn{background:var(--sv)}
+  tbody tr:hover td.pn{background:#f5f3ff !important}
+  tr.cat-mega:hover td.pn{background:#ffe0b2 !important}
+  tr.cat-sv:hover td.pn{background:#c8e6c9 !important}
+  thead th:first-child{position:sticky;left:0;z-index:85;background:#f9fafb}
+
+  tr.sh td{font-size:12px;padding:10px 8px}
+  .lg{padding:0 8px;gap:8px;font-size:10px}
+  .cb{padding:0 8px;font-size:10px}
+  .ft{font-size:10px;padding:16px 12px}
+}
+
+/* ===== Small mobile: <= 480px ===== */
+@media(max-width:480px){
+  .header h1{font-size:12px}
+  .fb,.sb{font-size:10px;padding:5px 8px}
+  td.pn{min-width:120px;max-width:150px;font-size:10px}
+  thead th{font-size:9px;padding:6px 3px}
+  tbody td{font-size:10px;padding:4px 2px}
+  thead th.sc{min-width:60px}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>ポケカ買取チェッカー</h1>
+  <span class="upd">更新: <span id="ud">2026/02/20 22:32</span></span>
+</div>
+
+<div class="fbar" id="fbar">
+  <div class="fg">
+    <label>シリーズ:</label>
+    <button class="fb active" data-f="cat" data-v="all">すべて</button>
+    <button class="fb" data-f="cat" data-v="mega">MEGA</button>
+    <button class="fb" data-f="cat" data-v="sv">SV</button>
+  </div>
+  <div class="fg">
+    <label>買取屋:</label>
+    <button class="fb st active" data-s="all">全店舗</button>
+    <button class="fb st active" data-s="morimori">森森</button>
+    <button class="fb st active" data-s="homura">ホムラ</button>
+    <button class="fb st active" data-s="icchome">一丁目</button>
+    <button class="fb st active" data-s="shouten">商店</button>
+    <button class="fb st active" data-s="rudeya">ルデヤ</button>
+    <button class="fb st active" data-s="kaikyo">海峡</button>
+    <button class="fb st active" data-s="sommelier">ソムリエ</button>
+    <button class="fb st active" data-s="runto">ラントゥ</button>
+  </div>
+  <div class="fg">
+    <button class="sb" id="srt">最高買取順 ▼</button>
+  </div>
+</div>
+
+<div class="lg">
+  <div class="li"><span class="ls" style="background:var(--mega)"></span>MEGA</div>
+  <div class="li"><span class="ls" style="background:var(--sv)"></span>SV</div>
+  <div class="li"><span class="ls" style="background:var(--highlight)"></span>最高値</div>
+</div>
+<div class="cb">表示: <span id="rc">0</span> 件</div>
+
+<div class="tw">
+  <table id="mt">
+    <thead>
+      <tr>
+        <th style="min-width:200px">商品名</th>
+        <th style="min-width:55px">定価</th>
+        <th style="min-width:65px">最高買取</th>
+        <th style="min-width:50px">差益</th>
+        <th class="sc" data-s="morimori"><a href="https://www.morimori-kaitori.jp/category/0112" target="_blank" rel="noopener noreferrer">森森</a></th>
+        <th class="sc" data-s="homura"><a href="https://kaitori-homura.com/categories/1340" target="_blank" rel="noopener noreferrer">ホムラ</a></th>
+        <th class="sc" data-s="icchome"><a href="https://www.1-chome.com/" target="_blank" rel="noopener noreferrer">一丁目</a></th>
+        <th class="sc" data-s="shouten"><a href="https://www.kaitorishouten-co.jp/kaden" target="_blank" rel="noopener noreferrer">商店</a></th>
+        <th class="sc" data-s="rudeya"><a href="https://kaitori-rudeya.com/category/detail/114" target="_blank" rel="noopener noreferrer">ルデヤ</a></th>
+        <th class="sc" data-s="kaikyo"><a href="https://www.mobile-ichiban.com/Prod/3/" target="_blank" rel="noopener noreferrer">海峡</a></th>
+        <th class="sc" data-s="sommelier"><a href="https://somurie-kaitori.com/products" target="_blank" rel="noopener noreferrer">ソムリエ</a></th>
+        <th class="sc" data-s="runto"><a href="https://runto666.com/product-category/card/" target="_blank" rel="noopener noreferrer">ラントゥ</a></th>
+      </tr>
+    </thead>
+    <tbody id="tb"></tbody>
+  </table>
+</div>
+
+<div class="ft">
+  ※ 各店舗公式サイトより取得した未開封シュリンク付BOXの新品買取価格<br>
+  ※ 買取価格は日々変動します。店舗名クリックで各店の買取ページへ移動できます<br>
+  出典:
+  <a href="https://www.morimori-kaitori.jp/" target="_blank" rel="noopener noreferrer">森森買取</a> /
+  <a href="https://kaitori-homura.com/" target="_blank" rel="noopener noreferrer">買取ホムラ</a> /
+  <a href="https://www.1-chome.com/" target="_blank" rel="noopener noreferrer">買取一丁目</a> /
+  <a href="https://www.kaitorishouten-co.jp/" target="_blank" rel="noopener noreferrer">買取商店</a> /
+  <a href="https://kaitori-rudeya.com/" target="_blank" rel="noopener noreferrer">買取ルデヤ</a> /
+  <a href="https://www.mobile-ichiban.com/" target="_blank" rel="noopener noreferrer">海峡通信</a> /
+  <a href="https://somurie-kaitori.com/" target="_blank" rel="noopener noreferrer">買取ソムリエ</a> /
+  <a href="https://runto666.com/" target="_blank" rel="noopener noreferrer">ラントゥ買取</a>
+</div>
+
+<script>
+"use strict";
+const S=["morimori","homura","icchome","shouten","rudeya","kaikyo","sommelier","runto"];
+const CL={"mega":"MEGA","sv":"SV"};
+
+const P=[
+// ===== MEGA =====
+{c:"mega",n:"MEGA 拡張パック「インフェルノX」",r:5800,p:{morimori:0,homura:14300,icchome:0,shouten:0,rudeya:12500,kaikyo:0,sommelier:0,runto:0}},
+{c:"mega",n:"MEGA 拡張パック「メガブレイブ」",r:5800,p:{morimori:0,homura:20000,icchome:0,shouten:0,rudeya:8800,kaikyo:0,sommelier:0,runto:0}},
+{c:"mega",n:"MEGA ハイクラスパック「MEGAドリームex」",r:5800,p:{morimori:0,homura:9300,icchome:0,shouten:0,rudeya:8000,kaikyo:0,sommelier:9300,runto:0}},
+{c:"mega",n:"MEGA 拡張パック「メガシンフォニア」",r:5800,p:{morimori:0,homura:17200,icchome:0,shouten:0,rudeya:8200,kaikyo:0,sommelier:8500,runto:0}},
+{c:"mega",n:"MEGA 拡張パック「ムニキスゼロ」",r:5800,p:{morimori:0,homura:6700,icchome:0,shouten:0,rudeya:6300,kaikyo:0,sommelier:6800,runto:0}},
+// ===== SV =====
+{c:"sv",n:"SV 強化拡張パック「151」",r:5400,p:{morimori:0,homura:36500,icchome:0,shouten:0,rudeya:32500,kaikyo:0,sommelier:0,runto:0}},
+{c:"sv",n:"SV 拡張パック「超電ブレイカー」",r:5400,p:{morimori:0,homura:25000,icchome:0,shouten:0,rudeya:22000,kaikyo:0,sommelier:0,runto:0}},
+{c:"sv",n:"SV 拡張パックDX「ブラックボルト」",r:0,p:{morimori:0,homura:20000,icchome:0,shouten:0,rudeya:0,kaikyo:0,sommelier:0,runto:0}},
+{c:"sv",n:"SV 拡張パックDX「ホワイトフレア」",r:0,p:{morimori:0,homura:17000,icchome:0,shouten:0,rudeya:0,kaikyo:0,sommelier:0,runto:0}},
+{c:"sv",n:"SV 拡張パック「ロケット団の栄光」",r:5400,p:{morimori:0,homura:19000,icchome:0,shouten:0,rudeya:14600,kaikyo:0,sommelier:18000,runto:20000}},
+{c:"sv",n:"SV 拡張パック「ブラックボルト」",r:5400,p:{morimori:0,homura:15500,icchome:0,shouten:0,rudeya:19500,kaikyo:0,sommelier:15600,runto:19000}},
+{c:"sv",n:"SV 強化拡張パック「熱風のアリーナ」",r:5400,p:{morimori:0,homura:14200,icchome:0,shouten:0,rudeya:13500,kaikyo:0,sommelier:14000,runto:0}},
+{c:"sv",n:"SV ハイクラスパック テラスタルフェスex",r:5400,p:{morimori:0,homura:14500,icchome:0,shouten:0,rudeya:12000,kaikyo:0,sommelier:0,runto:0}},
+{c:"sv",n:"SV 強化拡張パック「黒炎の支配者」",r:5400,p:{morimori:0,homura:14500,icchome:0,shouten:0,rudeya:14000,kaikyo:0,sommelier:14800,runto:0}},
+{c:"sv",n:"SV 拡張パック「ホワイトフレア」",r:5400,p:{morimori:0,homura:13500,icchome:0,shouten:0,rudeya:16500,kaikyo:0,sommelier:14000,runto:17000}},
+{c:"sv",n:"SV 強化拡張パック「トリプレットビート」",r:5400,p:{morimori:0,homura:14000,icchome:0,shouten:0,rudeya:13500,kaikyo:0,sommelier:0,runto:14000}},
+{c:"sv",n:"SV 強化拡張パック「楽園ドラゴーナ」",r:5400,p:{morimori:0,homura:13500,icchome:0,shouten:0,rudeya:12500,kaikyo:0,sommelier:13500,runto:0}},
+{c:"sv",n:"SV 拡張パック「クリムゾンヘイズ」",r:5400,p:{morimori:0,homura:13200,icchome:0,shouten:0,rudeya:12500,kaikyo:0,sommelier:13000,runto:0}},
+{c:"sv",n:"SV ハイクラスパック「シャイニートレジャーex」",r:5400,p:{morimori:0,homura:16500,icchome:0,shouten:0,rudeya:12300,kaikyo:0,sommelier:0,runto:16500}},
+{c:"sv",n:"SV 拡張パック「クレイバースト」",r:5400,p:{morimori:0,homura:19500,icchome:0,shouten:0,rudeya:10500,kaikyo:0,sommelier:0,runto:0}},
+{c:"sv",n:"SV 強化拡張パック「レイジングサーフ」",r:5400,p:{morimori:0,homura:11000,icchome:0,shouten:0,rudeya:10000,kaikyo:0,sommelier:11500,runto:10000}},
+{c:"sv",n:"SV 拡張パック「スカーレットex」",r:5400,p:{morimori:0,homura:10200,icchome:0,shouten:0,rudeya:9700,kaikyo:0,sommelier:0,runto:25000}},
+{c:"sv",n:"SV 拡張パック「変幻の仮面」",r:5400,p:{morimori:0,homura:10000,icchome:0,shouten:0,rudeya:8500,kaikyo:0,sommelier:10000,runto:0}},
+{c:"sv",n:"SV 拡張パック「ワイルドフォース」",r:5400,p:{morimori:0,homura:9400,icchome:0,shouten:0,rudeya:8900,kaikyo:0,sommelier:0,runto:0}},
+{c:"sv",n:"SV 強化拡張パック「スノーハザード」",r:5400,p:{morimori:0,homura:9300,icchome:0,shouten:0,rudeya:8400,kaikyo:0,sommelier:0,runto:0}},
+{c:"sv",n:"SV 拡張パック「古代の咆哮」",r:5400,p:{morimori:0,homura:9300,icchome:0,shouten:0,rudeya:8800,kaikyo:0,sommelier:0,runto:0}},
+{c:"sv",n:"SV 強化拡張パック「ステラミラクル」",r:5400,p:{morimori:0,homura:8800,icchome:0,shouten:0,rudeya:8200,kaikyo:0,sommelier:8800,runto:0}},
+{c:"sv",n:"SV 強化拡張パック「ナイトワンダラー」",r:5400,p:{morimori:0,homura:8800,icchome:0,shouten:0,rudeya:8300,kaikyo:0,sommelier:38500,runto:0}},
+{c:"sv",n:"SV 拡張パック「サイバージャッジ」",r:5400,p:{morimori:0,homura:8800,icchome:0,shouten:0,rudeya:8300,kaikyo:0,sommelier:0,runto:0}},
+{c:"sv",n:"SV 拡張パック「未来の一閃」",r:5400,p:{morimori:0,homura:8800,icchome:0,shouten:0,rudeya:8300,kaikyo:0,sommelier:8500,runto:0}},
+{c:"sv",n:"SV 拡張パック「バイオレットex」",r:5400,p:{morimori:0,homura:8800,icchome:0,shouten:0,rudeya:8400,kaikyo:0,sommelier:0,runto:0}},
+{c:"sv",n:"SV 拡張パック「バトルパートナーズ」",r:5400,p:{morimori:0,homura:8500,icchome:0,shouten:0,rudeya:8100,kaikyo:0,sommelier:0,runto:0}},
+];
+
+// ===== Escape utility =====
+function esc(s){
+  const d=document.createElement("div");
+  d.textContent=s;
+  return d.innerHTML;
+}
+
+let cc="all",vs=new Set(S),sm=false;
+function fp(v){if(!v||v===0)return"-";return"\u00a5"+v.toLocaleString()}
+
+// ===== Dynamic fbar height measurement =====
+function syncFbarHeight(){
+  const fb=document.getElementById("fbar");
+  if(fb){
+    const h=fb.offsetHeight;
+    document.documentElement.style.setProperty("--fbar-h",h+"px");
+  }
+}
+
+function render(){
+  const tb=document.getElementById("tb");
+  let f=P.filter(x=>cc==="all"||x.c===cc);
+  f.forEach(x=>{
+    const ap=S.filter(s=>vs.has(s)&&x.p[s]>0).map(s=>x.p[s]);
+    x._m=ap.length?Math.max(...ap):0;
+    x._d=(x.r>0&&x._m>0)?x._m-x.r:0;
+  });
+  if(sm)f.sort((a,b)=>b._m-a._m);
+
+  // Build rows using DOM to avoid innerHTML XSS
+  const frag=document.createDocumentFragment();
+  let lc="",cnt=0;
+
+  f.forEach(x=>{
+    if(x.c!==lc&&!sm){
+      lc=x.c;
+      const cs=4+S.filter(s=>vs.has(s)).length;
+      const shr=document.createElement("tr");
+      shr.className="sh cat-"+x.c;
+      const shd=document.createElement("td");
+      shd.setAttribute("colspan",cs);
+      shd.textContent=CL[x.c]+" シリーズ";
+      shr.appendChild(shd);
+      frag.appendChild(shr);
+    }
+    cnt++;
+    const tr=document.createElement("tr");
+    tr.className="cat-"+x.c;
+
+    // Product name
+    const tdN=document.createElement("td");
+    tdN.className="pn";
+    tdN.textContent=x.n;
+    tr.appendChild(tdN);
+
+    // Retail price
+    const tdR=document.createElement("td");
+    tdR.className="rp";
+    tdR.textContent=x.r>0?fp(x.r):"-";
+    tr.appendChild(tdR);
+
+    // Max buyback
+    const tdM=document.createElement("td");
+    tdM.className="p";
+    tdM.style.fontWeight="800";
+    tdM.textContent=fp(x._m);
+    tr.appendChild(tdM);
+
+    // Profit diff
+    const tdD=document.createElement("td");
+    if(x._d>0){tdD.className="dp";tdD.textContent="+\u00a5"+x._d.toLocaleString()}
+    else if(x._d<0){tdD.className="dm";tdD.textContent="-\u00a5"+Math.abs(x._d).toLocaleString()}
+    else{tdD.className="nd";tdD.textContent="-"}
+    tr.appendChild(tdD);
+
+    // Shop prices
+    S.forEach(s=>{
+      if(!vs.has(s))return;
+      const td=document.createElement("td");
+      const v=x.p[s];
+      if(!v||v===0){td.className="nd";td.textContent="-"}
+      else if(v===x._m&&x._m>0){td.className="p pm";td.textContent=fp(v)}
+      else{td.className="p";td.textContent=fp(v)}
+      tr.appendChild(td);
+    });
+
+    frag.appendChild(tr);
+  });
+
+  tb.textContent="";
+  tb.appendChild(frag);
+  document.getElementById("rc").textContent=cnt;
+  document.querySelectorAll("thead th.sc").forEach(function(th){th.style.display=vs.has(th.dataset.s)?"":"none"});
+}
+
+// ===== Event listeners =====
+document.querySelectorAll("[data-f='cat']").forEach(function(b){
+  b.addEventListener("click",function(){
+    document.querySelectorAll("[data-f='cat']").forEach(function(x){x.classList.remove("active")});
+    b.classList.add("active");
+    cc=b.dataset.v;
+    render();
+  });
+});
+
+const ab=document.querySelector("[data-s='all']");
+document.querySelectorAll(".st").forEach(function(b){
+  b.addEventListener("click",function(){
+    var s=b.dataset.s;
+    if(s==="all"){
+      var a=S.every(function(x){return vs.has(x)});
+      if(a){vs.clear();document.querySelectorAll(".st").forEach(function(x){x.classList.remove("active")})}
+      else{S.forEach(function(x){vs.add(x)});document.querySelectorAll(".st").forEach(function(x){x.classList.add("active")})}
+    }else{
+      if(vs.has(s)){vs.delete(s);b.classList.remove("active")}
+      else{vs.add(s);b.classList.add("active")}
+      ab.classList.toggle("active",S.every(function(x){return vs.has(x)}));
+    }
+    render();
+  });
+});
+
+document.getElementById("srt").addEventListener("click",function(){
+  sm=!sm;
+  this.classList.toggle("active",sm);
+  this.textContent=sm?"最高買取順 \u25b2 (ON)":"最高買取順 \u25bc";
+  render();
+});
+
+// ===== Init =====
+// Measure fbar height on load and resize
+syncFbarHeight();
+window.addEventListener("resize",syncFbarHeight);
+if(typeof ResizeObserver!=="undefined"){
+  new ResizeObserver(syncFbarHeight).observe(document.getElementById("fbar"));
+}
+
+render();
+</script>
+</body>
+</html>
