@@ -1,7 +1,8 @@
 """Scraper for 森森買取 (morimori-kaitori.jp).
 
-Parent category at /category/0112 shows initial products.
-AJAX pagination at /category/{subcategoryId}/products?page=N&pickup= for more.
+Parent category at /category/0112 links to subcategories.
+Each subcategory page at /category/{id} shows initial products.
+AJAX pagination at /category/{id}/products?page=N&pickup= loads more.
 Products in div.product-item with name in h4.product-details-name
 and price in div.price-normal-number.
 """
@@ -17,9 +18,9 @@ from .base import BaseScraper, ScrapedItem
 logger = logging.getLogger(__name__)
 
 # Pokemon card parent category page
-URL = "https://www.morimori-kaitori.jp/category/0112"
-# Default subcategory for AJAX pagination
-DEFAULT_CAT_ID = "0112001"
+PARENT_URL = "https://www.morimori-kaitori.jp/category/0112"
+# Known subcategories (fallback if parent page detection fails)
+KNOWN_CAT_IDS = ["0112001", "0112003", "0112004"]
 AJAX_URL = "https://www.morimori-kaitori.jp/category/{cat_id}/products?page={page}&pickup="
 
 
@@ -31,8 +32,8 @@ class MorimoriScraper(BaseScraper):
         items: list[ScrapedItem] = []
         seen_names: set[str] = set()
 
-        # Load the parent category page for initial products + CSRF token
-        soup = self._get_soup(URL)
+        # Load the parent category page to discover subcategories
+        soup = self._get_soup(PARENT_URL)
 
         csrf_meta = soup.select_one('meta[name="csrf-token"]')
         csrf_token = csrf_meta["content"] if csrf_meta else ""
@@ -41,28 +42,40 @@ class MorimoriScraper(BaseScraper):
             self.shop_name, "found" if csrf_token else "NOT FOUND",
         )
 
-        # Extract initial products from page HTML
-        self._extract_products(soup, items, seen_names)
-        logger.info(
-            "%s: initial page has %d products", self.shop_name, len(items),
-        )
-
         # Find all subcategory IDs
         containers = soup.select(
             "div.product-scroll-container[data-category-id]"
         )
         cat_ids = [c["data-category-id"] for c in containers]
         if not cat_ids:
-            cat_ids = [DEFAULT_CAT_ID]
-        logger.info(
-            "%s: subcategories: %s", self.shop_name, cat_ids,
-        )
+            cat_ids = list(KNOWN_CAT_IDS)
+        logger.info("%s: subcategories: %s", self.shop_name, cat_ids)
 
-        # Fetch pages via AJAX for each subcategory
-        # Start from page 2 because page 1 is already in the initial HTML
+        # For each subcategory, load its own page + AJAX pagination
         for cat_id in cat_ids:
-            for page_num in range(2, 20):  # pages 2-19
-                time.sleep(1.5)  # rate limit avoidance
+            cat_url = f"https://www.morimori-kaitori.jp/category/{cat_id}"
+            try:
+                time.sleep(1)
+                cat_soup = self._get_soup(cat_url)
+                self._extract_products(cat_soup, items, seen_names)
+                logger.info(
+                    "%s: subcategory %s initial: %d total items",
+                    self.shop_name, cat_id, len(items),
+                )
+
+                # Get CSRF from subcategory page (may differ)
+                cat_csrf = cat_soup.select_one('meta[name="csrf-token"]')
+                cat_token = cat_csrf["content"] if cat_csrf else csrf_token
+            except Exception as e:
+                logger.info(
+                    "%s: subcategory %s page failed: %s",
+                    self.shop_name, cat_id, e,
+                )
+                continue
+
+            # AJAX pagination for this subcategory
+            for page_num in range(2, 20):
+                time.sleep(1.5)
                 url = AJAX_URL.format(cat_id=cat_id, page=page_num)
                 try:
                     resp = self.session.get(
@@ -71,8 +84,8 @@ class MorimoriScraper(BaseScraper):
                         headers={
                             **self.HEADERS,
                             "X-Requested-With": "XMLHttpRequest",
-                            "X-CSRF-Token": csrf_token,
-                            "Referer": URL,
+                            "X-CSRF-Token": cat_token,
+                            "Referer": cat_url,
                         },
                     )
                     resp.raise_for_status()
@@ -86,10 +99,6 @@ class MorimoriScraper(BaseScraper):
 
                 html = data.get("html", "")
                 if not html:
-                    logger.info(
-                        "%s: AJAX page %d for %s returned empty html",
-                        self.shop_name, page_num, cat_id,
-                    )
                     break
 
                 from bs4 import BeautifulSoup
@@ -107,9 +116,6 @@ class MorimoriScraper(BaseScraper):
 
                 has_more = data.get("has_more", False)
                 if not has_more:
-                    logger.info(
-                        "%s: no more pages for %s", self.shop_name, cat_id,
-                    )
                     break
 
         logger.info("%s: scraped %d items", self.shop_name, len(items))
