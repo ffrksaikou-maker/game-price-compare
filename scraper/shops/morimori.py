@@ -35,9 +35,16 @@ class MorimoriScraper(BaseScraper):
 
         csrf_meta = soup.select_one('meta[name="csrf-token"]')
         csrf_token = csrf_meta["content"] if csrf_meta else ""
+        logger.info(
+            "%s: CSRF token %s",
+            self.shop_name, "found" if csrf_token else "NOT FOUND",
+        )
 
         # Extract initial products from page HTML
         self._extract_products(soup, items, seen_names)
+        logger.info(
+            "%s: initial page has %d products", self.shop_name, len(items),
+        )
 
         # Find all subcategory IDs
         containers = soup.select(
@@ -46,6 +53,9 @@ class MorimoriScraper(BaseScraper):
         cat_ids = [c["data-category-id"] for c in containers]
         if not cat_ids:
             cat_ids = [DEFAULT_CAT_ID]
+        logger.info(
+            "%s: subcategories: %s", self.shop_name, cat_ids,
+        )
 
         # Fetch pages via AJAX for each subcategory
         for cat_id in cat_ids:
@@ -64,7 +74,7 @@ class MorimoriScraper(BaseScraper):
                     resp.raise_for_status()
                     data = resp.json()
                 except Exception as e:
-                    logger.debug(
+                    logger.info(
                         "%s: AJAX page %d for %s failed: %s",
                         self.shop_name, page_num, cat_id, e,
                     )
@@ -72,6 +82,10 @@ class MorimoriScraper(BaseScraper):
 
                 html = data.get("html", "")
                 if not html:
+                    logger.info(
+                        "%s: AJAX page %d for %s returned empty html",
+                        self.shop_name, page_num, cat_id,
+                    )
                     break
 
                 from bs4 import BeautifulSoup
@@ -79,11 +93,19 @@ class MorimoriScraper(BaseScraper):
                 count_before = len(items)
                 self._extract_products(page_soup, items, seen_names)
 
-                if len(items) == count_before:
+                new_count = len(items) - count_before
+                logger.info(
+                    "%s: AJAX page %d for %s: %d new items",
+                    self.shop_name, page_num, cat_id, new_count,
+                )
+                if new_count == 0:
                     break
 
                 has_more = data.get("has_more", False)
                 if not has_more:
+                    logger.info(
+                        "%s: no more pages for %s", self.shop_name, cat_id,
+                    )
                     break
 
         logger.info("%s: scraped %d items", self.shop_name, len(items))
