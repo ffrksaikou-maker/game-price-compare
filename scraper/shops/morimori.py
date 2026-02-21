@@ -46,34 +46,26 @@ class MorimoriScraper(BaseScraper):
                 page.goto(SEARCH_URL, wait_until="networkidle", timeout=60000)
                 page.wait_for_timeout(5000)
 
-                # Debug: log page structure
+                # Debug: log product-item inner structure
                 debug_info = page.evaluate(
                     r"""() => {
-                        const body = document.body.innerHTML;
-                        const productItems = document.querySelectorAll('div.product-item');
-                        const allDivs = document.querySelectorAll('div[class*="product"]');
-                        const divClasses = [];
-                        for (const d of allDivs) divClasses.push(d.className);
+                        const items = document.querySelectorAll('div.product-item');
+                        const first3 = [];
+                        for (let i = 0; i < Math.min(3, items.length); i++) {
+                            first3.push(items[i].innerHTML.substring(0, 500));
+                        }
                         return {
-                            bodyLen: body.length,
-                            productItemCount: productItems.length,
-                            productDivClasses: divClasses.slice(0, 20),
-                            snippet: body.substring(0, 2000)
+                            count: items.length,
+                            samples: first3,
                         };
                     }"""
                 )
                 logger.info(
-                    "%s: page body=%d chars, product-item=%d, product divs=%s",
-                    self.shop_name,
-                    debug_info["bodyLen"],
-                    debug_info["productItemCount"],
-                    debug_info["productDivClasses"][:5],
+                    "%s: found %d product-item elements",
+                    self.shop_name, debug_info["count"],
                 )
-                if debug_info["productItemCount"] == 0:
-                    logger.info(
-                        "%s: HTML snippet: %s",
-                        self.shop_name, debug_info["snippet"][:500],
-                    )
+                for i, html in enumerate(debug_info["samples"]):
+                    logger.info("%s: product-item[%d] HTML: %s", self.shop_name, i, html[:300])
 
                 # Extract products from initial load
                 self._extract_from_page(page, items, seen_names)
