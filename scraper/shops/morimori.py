@@ -44,7 +44,36 @@ class MorimoriScraper(BaseScraper):
             try:
                 # Load search page and wait for products to render
                 page.goto(SEARCH_URL, wait_until="networkidle", timeout=60000)
-                page.wait_for_timeout(3000)
+                page.wait_for_timeout(5000)
+
+                # Debug: log page structure
+                debug_info = page.evaluate(
+                    r"""() => {
+                        const body = document.body.innerHTML;
+                        const productItems = document.querySelectorAll('div.product-item');
+                        const allDivs = document.querySelectorAll('div[class*="product"]');
+                        const divClasses = [];
+                        for (const d of allDivs) divClasses.push(d.className);
+                        return {
+                            bodyLen: body.length,
+                            productItemCount: productItems.length,
+                            productDivClasses: divClasses.slice(0, 20),
+                            snippet: body.substring(0, 2000)
+                        };
+                    }"""
+                )
+                logger.info(
+                    "%s: page body=%d chars, product-item=%d, product divs=%s",
+                    self.shop_name,
+                    debug_info["bodyLen"],
+                    debug_info["productItemCount"],
+                    debug_info["productDivClasses"][:5],
+                )
+                if debug_info["productItemCount"] == 0:
+                    logger.info(
+                        "%s: HTML snippet: %s",
+                        self.shop_name, debug_info["snippet"][:500],
+                    )
 
                 # Extract products from initial load
                 self._extract_from_page(page, items, seen_names)
