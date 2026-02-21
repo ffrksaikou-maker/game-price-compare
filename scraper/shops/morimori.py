@@ -52,7 +52,7 @@ class MorimoriScraper(BaseScraper):
                         const items = document.querySelectorAll('div.product-item');
                         const first3 = [];
                         for (let i = 0; i < Math.min(3, items.length); i++) {
-                            first3.push(items[i].innerHTML.substring(0, 500));
+                            first3.push(items[i].innerHTML.substring(0, 1500));
                         }
                         return {
                             count: items.length,
@@ -65,7 +65,7 @@ class MorimoriScraper(BaseScraper):
                     self.shop_name, debug_info["count"],
                 )
                 for i, html in enumerate(debug_info["samples"]):
-                    logger.info("%s: product-item[%d] HTML: %s", self.shop_name, i, html[:300])
+                    logger.info("%s: product-item[%d] HTML: %s", self.shop_name, i, html)
 
                 # Extract products from initial load
                 self._extract_from_page(page, items, seen_names)
