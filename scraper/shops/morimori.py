@@ -2,8 +2,8 @@
 
 Uses Playwright to load the search page /search?sk=ポケモンカード
 which renders products via JavaScript. Scrolls/paginates to load all
-results. Products in div.product-item with name in h4.product-details-name
-and price in div.price-normal-number.
+results. Products in div.product-item with name in
+h4.search-product-details-name and price in div[class*=price-normal-number].
 """
 
 from __future__ import annotations
@@ -45,27 +45,6 @@ class MorimoriScraper(BaseScraper):
                 # Load search page and wait for products to render
                 page.goto(SEARCH_URL, wait_until="networkidle", timeout=60000)
                 page.wait_for_timeout(5000)
-
-                # Debug: log product-item inner structure
-                debug_info = page.evaluate(
-                    r"""() => {
-                        const items = document.querySelectorAll('div.product-item');
-                        const first3 = [];
-                        for (let i = 0; i < Math.min(3, items.length); i++) {
-                            first3.push(items[i].innerHTML.substring(0, 1500));
-                        }
-                        return {
-                            count: items.length,
-                            samples: first3,
-                        };
-                    }"""
-                )
-                logger.info(
-                    "%s: found %d product-item elements",
-                    self.shop_name, debug_info["count"],
-                )
-                for i, html in enumerate(debug_info["samples"]):
-                    logger.info("%s: product-item[%d] HTML: %s", self.shop_name, i, html)
 
                 # Extract products from initial load
                 self._extract_from_page(page, items, seen_names)
@@ -111,13 +90,34 @@ class MorimoriScraper(BaseScraper):
                 const results = [];
                 const items = document.querySelectorAll('div.product-item');
                 for (const item of items) {
-                    const nameEl = item.querySelector('h4.product-details-name');
-                    const priceEl = item.querySelector('div.price-normal-number');
+                    // Search page uses search-product-details-name
+                    const nameEl = item.querySelector(
+                        'h4[class*="product-details-name"]'
+                    );
+                    // Price: try multiple selectors for search vs category page
+                    const priceEl = item.querySelector(
+                        'div[class*="price-normal-number"]'
+                    ) || item.querySelector(
+                        'span[class*="price-normal-number"]'
+                    ) || item.querySelector(
+                        '[class*="price"] [class*="number"]'
+                    );
                     if (nameEl && priceEl) {
                         results.push({
                             name: nameEl.textContent.trim(),
                             price: priceEl.textContent.trim()
                         });
+                    } else if (nameEl) {
+                        // Fallback: try to find any price-like text
+                        const priceText = item.querySelector(
+                            '[class*="price"]'
+                        );
+                        if (priceText) {
+                            results.push({
+                                name: nameEl.textContent.trim(),
+                                price: priceText.textContent.trim()
+                            });
+                        }
                     }
                 }
                 return results;
