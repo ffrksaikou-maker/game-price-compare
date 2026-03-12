@@ -63,6 +63,8 @@ MASTER_PRODUCTS: list[MasterProduct] = [
                   ["メガシンフォニア", "MEGASYMPHONIA"]),
     MasterProduct("mega", 'MEGA 拡張パック「ムニキスゼロ」', 5400,
                   ["ムニキスゼロ", "ムニキス", "MUNIX"]),
+    MasterProduct("mega", 'MEGA 拡張パック「ニンジャスピナー」', 5400,
+                  ["ニンジャスピナー", "NINJASPINNER", "NINJA SPINNER"]),
 
     # ===== SV =====
     MasterProduct("sv", 'SV 強化拡張パック「151」', 5400,
