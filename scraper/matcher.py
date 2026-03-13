@@ -21,7 +21,7 @@ MIN_BOX_PRICE = 3000
 MAX_BOX_PRICE = 60000
 
 # Maximum buyback-to-retail ratio (skip if price > retail * this)
-MAX_RETAIL_RATIO = 7.0
+MAX_RETAIL_RATIO = 10.0
 
 # Keywords that indicate a BOX/sealed product (safe to match)
 BOX_INDICATORS = [
