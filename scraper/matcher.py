@@ -39,6 +39,12 @@ SINGLE_CARD_INDICATORS = [
     "1枚", "シングル", "カートン",
 ]
 
+# Keywords that indicate no-shrink-wrap (lower grade, skip in favor of shrink)
+NO_SHRINK_INDICATORS = [
+    "シュリンクなし", "シュリンク無し", "シュリンク無",
+    "シュリンクナシ", "シュリンク未",
+]
+
 
 @dataclass
 class MasterProduct:
@@ -205,6 +211,11 @@ def match_products(
 
         # Skip items that are clearly single cards (not BOX)
         if _is_single_card(name):
+            continue
+
+        # Skip no-shrink-wrap items (prefer shrink-wrapped price)
+        if any(ind in name for ind in NO_SHRINK_INDICATORS):
+            logger.debug("  SKIP (no shrink): %s = %d", name, price)
             continue
 
         # Skip unreasonably low prices (likely accessories/sleeves)
