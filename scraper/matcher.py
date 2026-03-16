@@ -127,6 +127,14 @@ MASTER_PRODUCTS: list[MasterProduct] = [
                   ["バイオレットex"]),
     MasterProduct("sv", 'SV 拡張パック「バトルパートナーズ」', 5400,
                   ["バトルパートナーズ", "パートナーズ"]),
+
+    # ===== SPECIAL BOX =====
+    MasterProduct("special", 'スペシャルBOX トウホク', 2090,
+                  ["トウホク", "TOHOKU", "東北"]),
+    MasterProduct("special", 'スペシャルBOX ヒロシマ', 2090,
+                  ["ヒロシマ", "HIROSHIMA", "広島"]),
+    MasterProduct("special", 'スペシャルBOX フクオカ', 2090,
+                  ["フクオカ", "FUKUOKA", "福岡"]),
 ]
 
 

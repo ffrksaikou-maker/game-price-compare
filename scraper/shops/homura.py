@@ -12,20 +12,25 @@ from .base import BaseScraper, ScrapedItem
 
 logger = logging.getLogger(__name__)
 
-# Trading card category (ID=14), subcategory 128 = シュリンク有りBOX only
-CATEGORY_URL = "https://kaitori-homura.com/products?q[product_sub_category_id_eq]=128&q[product_sub_category_product_category_id_eq]=14"
+# Trading card category (ID=14)
+# subcategory 128 = シュリンク有りBOX, 130 = スペシャルBOX等
+CATEGORY_URLS = [
+    "https://kaitori-homura.com/products?q[product_sub_category_id_eq]=128&q[product_sub_category_product_category_id_eq]=14",
+    "https://kaitori-homura.com/products?q[product_sub_category_id_eq]=130&q[product_sub_category_product_category_id_eq]=14",
+]
 
 
 class HomuraScraper(BaseScraper):
     shop_id = "homura"
     shop_name = "ホムラ"
 
-    def scrape(self) -> list[ScrapedItem]:
+    def _scrape_category(self, category_url: str) -> list[ScrapedItem]:
+        """Scrape a single category URL with pagination."""
         items: list[ScrapedItem] = []
         page = 1
 
         while True:
-            url = f"{CATEGORY_URL}&page={page}" if page > 1 else CATEGORY_URL
+            url = f"{category_url}&page={page}" if page > 1 else category_url
             try:
                 soup = self._get_soup(url)
             except Exception:
@@ -79,5 +84,11 @@ class HomuraScraper(BaseScraper):
             if page > 30:  # safety limit
                 break
 
+        return items
+
+    def scrape(self) -> list[ScrapedItem]:
+        items: list[ScrapedItem] = []
+        for cat_url in CATEGORY_URLS:
+            items.extend(self._scrape_category(cat_url))
         logger.info("%s: scraped %d items", self.shop_name, len(items))
         return items

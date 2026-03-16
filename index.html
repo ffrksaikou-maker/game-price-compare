@@ -26,6 +26,7 @@
   --highlight: #eddcff;
   --mega: #fff3e0;
   --sv: #e8f5e9;
+  --special: #e3f2fd;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans","Yu Gothic",sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
@@ -62,8 +63,8 @@ thead th.sc a:hover{color:#0284c7;border-bottom-style:solid}
 tbody tr{transition:background .1s}
 tbody tr:hover td{background:#f5f3ff !important}
 tbody td{padding:7px 5px;font-size:13px;text-align:center;border-bottom:1px solid #f3f4f6;white-space:nowrap}
-tr.cat-mega td{background:var(--mega)}tr.cat-sv td{background:var(--sv)}
-tr.cat-mega:hover td{background:#ffe0b2 !important}tr.cat-sv:hover td{background:#c8e6c9 !important}
+tr.cat-mega td{background:var(--mega)}tr.cat-sv td{background:var(--sv)}tr.cat-special td{background:var(--special)}
+tr.cat-mega:hover td{background:#ffe0b2 !important}tr.cat-sv:hover td{background:#c8e6c9 !important}tr.cat-special:hover td{background:#bbdefb !important}
 tr.sh td{font-weight:800;font-size:14px;padding:14px 10px;text-align:left;border-bottom:2px solid var(--border)}
 td.p{font-weight:600}
 td.pm{background:var(--highlight) !important;font-weight:800}
@@ -103,9 +104,11 @@ td.pn{text-align:left;font-weight:600;padding-left:12px;min-width:200px}
   td.pn{position:sticky;left:0;z-index:10;min-width:140px;max-width:180px;overflow:hidden;text-overflow:ellipsis;font-size:11px;padding-left:8px}
   tr.cat-mega td.pn{background:var(--mega)}
   tr.cat-sv td.pn{background:var(--sv)}
+  tr.cat-special td.pn{background:var(--special)}
   tbody tr:hover td.pn{background:#f5f3ff !important}
   tr.cat-mega:hover td.pn{background:#ffe0b2 !important}
   tr.cat-sv:hover td.pn{background:#c8e6c9 !important}
+  tr.cat-special:hover td.pn{background:#bbdefb !important}
   thead th:first-child{position:sticky;left:0;z-index:85;background:#f9fafb}
 
   tr.sh td{font-size:12px;padding:10px 8px}
@@ -129,7 +132,7 @@ td.pn{text-align:left;font-weight:600;padding-left:12px;min-width:200px}
 
 <div class="header">
   <h1>ポケカ買取チェッカー</h1>
-  <span class="upd">更新: <span id="ud">2026/03/16 15:58</span></span>
+  <span class="upd">更新: <span id="ud">2026/03/16 17:14</span></span>
 </div>
 
 <div class="fbar" id="fbar">
@@ -138,6 +141,7 @@ td.pn{text-align:left;font-weight:600;padding-left:12px;min-width:200px}
     <button class="fb active" data-f="cat" data-v="all">すべて</button>
     <button class="fb" data-f="cat" data-v="mega">MEGA</button>
     <button class="fb" data-f="cat" data-v="sv">SV</button>
+    <button class="fb" data-f="cat" data-v="special">スペシャルBOX</button>
   </div>
   <div class="fg">
     <label>買取屋:</label>
@@ -159,6 +163,7 @@ td.pn{text-align:left;font-weight:600;padding-left:12px;min-width:200px}
 <div class="lg">
   <div class="li"><span class="ls" style="background:var(--mega)"></span>MEGA</div>
   <div class="li"><span class="ls" style="background:var(--sv)"></span>SV</div>
+  <div class="li"><span class="ls" style="background:var(--special)"></span>スペシャルBOX</div>
   <div class="li"><span class="ls" style="background:var(--highlight)"></span>最高値</div>
 </div>
 <div class="cb">表示: <span id="rc">0</span> 件</div>
@@ -202,7 +207,7 @@ td.pn{text-align:left;font-weight:600;padding-left:12px;min-width:200px}
 <script>
 "use strict";
 const S=["morimori","homura","icchome","shouten","rudeya","kaikyo","sommelier","runto"];
-const CL={"mega":"MEGA","sv":"SV"};
+const CL={"mega":"MEGA","sv":"SV","special":"スペシャルBOX"};
 
 const P=[
 // ===== MEGA =====
@@ -211,14 +216,14 @@ const P=[
 {c:"mega",n:"MEGA ハイクラスパック「MEGAドリームex」",r:5500,p:{morimori:9200,homura:9400,icchome:9500,shouten:9500,rudeya:8000,kaikyo:9000,sommelier:9300,runto:0}},
 {c:"mega",n:"MEGA 拡張パック「メガシンフォニア」",r:5400,p:{morimori:9000,homura:9100,icchome:8800,shouten:8000,rudeya:8700,kaikyo:8500,sommelier:9000,runto:8800}},
 {c:"mega",n:"MEGA 拡張パック「ムニキスゼロ」",r:5400,p:{morimori:6800,homura:6900,icchome:6600,shouten:5500,rudeya:6800,kaikyo:5700,sommelier:6800,runto:6900}},
-{c:"mega",n:"MEGA 拡張パック「ニンジャスピナー」",r:5400,p:{morimori:9600,homura:9700,icchome:9500,shouten:9000,rudeya:9500,kaikyo:9400,sommelier:9500,runto:0}},
+{c:"mega",n:"MEGA 拡張パック「ニンジャスピナー」",r:5400,p:{morimori:9600,homura:9700,icchome:9500,shouten:9000,rudeya:9500,kaikyo:9500,sommelier:9500,runto:0}},
 // ===== SV =====
-{c:"sv",n:"SV 強化拡張パック「151」",r:5400,p:{morimori:39000,homura:39000,icchome:40000,shouten:38000,rudeya:38600,kaikyo:38500,sommelier:0,runto:39000}},
+{c:"sv",n:"SV 強化拡張パック「151」",r:5400,p:{morimori:39000,homura:39000,icchome:40000,shouten:38000,rudeya:39100,kaikyo:38500,sommelier:0,runto:39000}},
 {c:"sv",n:"SV 拡張パック「超電ブレイカー」",r:5400,p:{morimori:25000,homura:25800,icchome:25800,shouten:25000,rudeya:25100,kaikyo:23000,sommelier:0,runto:24500}},
 {c:"sv",n:"SV 拡張パックDX「ブラックボルト」",r:5800,p:{morimori:20200,homura:21000,icchome:20000,shouten:20000,rudeya:20000,kaikyo:20000,sommelier:22500,runto:20000}},
 {c:"sv",n:"SV 拡張パックDX「ホワイトフレア」",r:5800,p:{morimori:17200,homura:18000,icchome:17000,shouten:17000,rudeya:17000,kaikyo:17000,sommelier:0,runto:0}},
 {c:"sv",n:"SV 拡張パック「ロケット団の栄光」",r:5400,p:{morimori:16600,homura:17800,icchome:18000,shouten:16000,rudeya:17600,kaikyo:16500,sommelier:17500,runto:17500}},
-{c:"sv",n:"SV 拡張パック「ブラックボルト」",r:5400,p:{morimori:16800,homura:16600,icchome:16500,shouten:15500,rudeya:16200,kaikyo:16000,sommelier:15500,runto:16500}},
+{c:"sv",n:"SV 拡張パック「ブラックボルト」",r:5400,p:{morimori:16800,homura:6000,icchome:16500,shouten:15500,rudeya:16200,kaikyo:16000,sommelier:15500,runto:16500}},
 {c:"sv",n:"SV 強化拡張パック「熱風のアリーナ」",r:5400,p:{morimori:15600,homura:16300,icchome:16300,shouten:13500,rudeya:16100,kaikyo:15500,sommelier:16000,runto:16200}},
 {c:"sv",n:"SV ハイクラスパック テラスタルフェスex",r:5500,p:{morimori:14600,homura:15800,icchome:15800,shouten:14600,rudeya:14600,kaikyo:15000,sommelier:15500,runto:15000}},
 {c:"sv",n:"SV 強化拡張パック「黒炎の支配者」",r:5400,p:{morimori:15000,homura:15000,icchome:16000,shouten:14500,rudeya:15500,kaikyo:16000,sommelier:14500,runto:14500}},
@@ -240,6 +245,10 @@ const P=[
 {c:"sv",n:"SV 拡張パック「未来の一閃」",r:5400,p:{morimori:8800,homura:9000,icchome:8700,shouten:7000,rudeya:8800,kaikyo:0,sommelier:9000,runto:8800}},
 {c:"sv",n:"SV 拡張パック「バイオレットex」",r:5400,p:{morimori:8800,homura:8800,icchome:8800,shouten:8000,rudeya:8600,kaikyo:8600,sommelier:0,runto:8800}},
 {c:"sv",n:"SV 拡張パック「バトルパートナーズ」",r:5400,p:{morimori:8500,homura:8800,icchome:8800,shouten:8000,rudeya:8600,kaikyo:8700,sommelier:0,runto:8700}},
+// ===== SPECIAL =====
+{c:"special",n:"スペシャルBOX トウホク",r:2090,p:{morimori:0,homura:14000,icchome:0,shouten:12000,rudeya:13000,kaikyo:16500,sommelier:0,runto:16000}},
+{c:"special",n:"スペシャルBOX ヒロシマ",r:2090,p:{morimori:0,homura:17000,icchome:0,shouten:14000,rudeya:16000,kaikyo:19000,sommelier:0,runto:19000}},
+{c:"special",n:"スペシャルBOX フクオカ",r:2090,p:{morimori:0,homura:16500,icchome:0,shouten:15000,rudeya:16000,kaikyo:19000,sommelier:0,runto:19000}},
 ];
 
 // ===== Escape utility =====

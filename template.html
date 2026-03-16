@@ -26,6 +26,7 @@
   --highlight: #eddcff;
   --mega: #fff3e0;
   --sv: #e8f5e9;
+  --special: #e3f2fd;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans","Yu Gothic",sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
@@ -62,8 +63,8 @@ thead th.sc a:hover{color:#0284c7;border-bottom-style:solid}
 tbody tr{transition:background .1s}
 tbody tr:hover td{background:#f5f3ff !important}
 tbody td{padding:7px 5px;font-size:13px;text-align:center;border-bottom:1px solid #f3f4f6;white-space:nowrap}
-tr.cat-mega td{background:var(--mega)}tr.cat-sv td{background:var(--sv)}
-tr.cat-mega:hover td{background:#ffe0b2 !important}tr.cat-sv:hover td{background:#c8e6c9 !important}
+tr.cat-mega td{background:var(--mega)}tr.cat-sv td{background:var(--sv)}tr.cat-special td{background:var(--special)}
+tr.cat-mega:hover td{background:#ffe0b2 !important}tr.cat-sv:hover td{background:#c8e6c9 !important}tr.cat-special:hover td{background:#bbdefb !important}
 tr.sh td{font-weight:800;font-size:14px;padding:14px 10px;text-align:left;border-bottom:2px solid var(--border)}
 td.p{font-weight:600}
 td.pm{background:var(--highlight) !important;font-weight:800}
@@ -103,9 +104,11 @@ td.pn{text-align:left;font-weight:600;padding-left:12px;min-width:200px}
   td.pn{position:sticky;left:0;z-index:10;min-width:140px;max-width:180px;overflow:hidden;text-overflow:ellipsis;font-size:11px;padding-left:8px}
   tr.cat-mega td.pn{background:var(--mega)}
   tr.cat-sv td.pn{background:var(--sv)}
+  tr.cat-special td.pn{background:var(--special)}
   tbody tr:hover td.pn{background:#f5f3ff !important}
   tr.cat-mega:hover td.pn{background:#ffe0b2 !important}
   tr.cat-sv:hover td.pn{background:#c8e6c9 !important}
+  tr.cat-special:hover td.pn{background:#bbdefb !important}
   thead th:first-child{position:sticky;left:0;z-index:85;background:#f9fafb}
 
   tr.sh td{font-size:12px;padding:10px 8px}
@@ -138,6 +141,7 @@ td.pn{text-align:left;font-weight:600;padding-left:12px;min-width:200px}
     <button class="fb active" data-f="cat" data-v="all">すべて</button>
     <button class="fb" data-f="cat" data-v="mega">MEGA</button>
     <button class="fb" data-f="cat" data-v="sv">SV</button>
+    <button class="fb" data-f="cat" data-v="special">スペシャルBOX</button>
   </div>
   <div class="fg">
     <label>買取屋:</label>
@@ -159,6 +163,7 @@ td.pn{text-align:left;font-weight:600;padding-left:12px;min-width:200px}
 <div class="lg">
   <div class="li"><span class="ls" style="background:var(--mega)"></span>MEGA</div>
   <div class="li"><span class="ls" style="background:var(--sv)"></span>SV</div>
+  <div class="li"><span class="ls" style="background:var(--special)"></span>スペシャルBOX</div>
   <div class="li"><span class="ls" style="background:var(--highlight)"></span>最高値</div>
 </div>
 <div class="cb">表示: <span id="rc">0</span> 件</div>
@@ -202,7 +207,7 @@ td.pn{text-align:left;font-weight:600;padding-left:12px;min-width:200px}
 <script>
 "use strict";
 const S=["morimori","homura","icchome","shouten","rudeya","kaikyo","sommelier","runto"];
-const CL={"mega":"MEGA","sv":"SV"};
+const CL={"mega":"MEGA","sv":"SV","special":"スペシャルBOX"};
 
 // {{PRODUCT_DATA}}
 
