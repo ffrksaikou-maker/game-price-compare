@@ -4,22 +4,65 @@ Products in [data-products] .product cards.
 Name in h2.woocommerce-loop-product__title.
 Price in span.woocommerce-Price-amount bdi.
 Pagination at /page/{N}/, 12 items per page, ~10 pages.
+
+Variable products (BOX/carton/pack variants) have range prices on listing.
+For those, we fetch the product detail page and read data-product_variations
+JSON to get the "シュリンク有" (shrink-wrapped BOX) price.
 """
 
 from __future__ import annotations
 
+import json
 import logging
+import re
+import time
 
 from .base import BaseScraper, ScrapedItem
 
 logger = logging.getLogger(__name__)
 
 BASE_URL = "https://runto666.com/product-category/card/"
+MAX_BOX_PRICE = 60000
 
 
 class RuntoScraper(BaseScraper):
     shop_id = "runto"
     shop_name = "ラントゥ"
+
+    def _get_box_price_from_detail(self, product_url: str) -> int:
+        """Fetch product detail page and extract シュリンク有 variant price."""
+        try:
+            soup = self._get_soup(product_url)
+        except Exception:
+            return 0
+
+        form = soup.select_one("form.variations_form")
+        if not form:
+            return 0
+
+        raw = form.get("data-product_variations", "")
+        if not raw:
+            return 0
+
+        try:
+            variations = json.loads(raw)
+        except (json.JSONDecodeError, TypeError):
+            return 0
+
+        # Priority: シュリンク有 (ari) > other BOX-range prices
+        for v in variations:
+            attrs = v.get("attributes", {})
+            shrink = attrs.get("attribute_pa_shrink", "")
+            if shrink == "ari":
+                return int(v.get("display_price", 0))
+
+        # Fallback: pick highest price within BOX range
+        candidates = []
+        for v in variations:
+            p = int(v.get("display_price", 0))
+            if 3000 <= p <= MAX_BOX_PRICE:
+                candidates.append(p)
+        return max(candidates) if candidates else 0
 
     def scrape(self) -> list[ScrapedItem]:
         items: list[ScrapedItem] = []
@@ -55,13 +98,27 @@ class RuntoScraper(BaseScraper):
 
                 name = name_el.get_text(strip=True)
 
-                # For range prices (¥100 – ¥14,200), take the MAX price.
-                # WooCommerce variable products show min-max ranges where
-                # the max is the BOX/sealed product price and the min is
-                # for single cards or lower conditions.
                 prices = [self.parse_price(el.get_text(strip=True)) for el in price_elements]
                 prices = [p for p in prices if p > 0]
                 price = max(prices) if prices else 0
+
+                # If max price exceeds BOX range, it's likely a carton price.
+                # Fetch the product detail page to get the correct BOX variant price.
+                if price > MAX_BOX_PRICE and len(prices) > 1:
+                    link_el = product.select_one("a[href]")
+                    if link_el:
+                        product_url = link_el.get("href", "")
+                        if product_url:
+                            logger.info(
+                                "%s: range price %d for '%s', fetching detail page",
+                                self.shop_name, price, name,
+                            )
+                            box_price = self._get_box_price_from_detail(product_url)
+                            if box_price > 0:
+                                price = box_price
+                            else:
+                                price = 0  # can't determine BOX price
+                            time.sleep(1)  # polite delay
 
                 if name and price > 0:
                     items.append(ScrapedItem(name=name, price=price))
