@@ -83,8 +83,9 @@ td.nd{color:#d1d5db}
 td.pn{text-align:left;font-weight:600;padding-left:12px;min-width:200px}
 
 /* Inventory mode */
-.inv-bar{display:none;max-width:var(--table-width);margin:8px auto;padding:12px 20px;background:linear-gradient(135deg,#6366f1,#8b5cf6);border-radius:10px;color:#fff;font-size:14px;font-weight:700;text-align:center;box-shadow:0 2px 8px rgba(99,102,241,.3)}
-.inv-bar .inv-total{font-size:22px;margin-left:8px}
+.inv-bar{display:none;max-width:var(--table-width);margin:8px auto;padding:14px 20px;background:linear-gradient(135deg,#6366f1,#8b5cf6);border-radius:10px;color:#fff;font-size:15px;font-weight:700;text-align:center;box-shadow:0 2px 8px rgba(99,102,241,.3);line-height:1.6}
+.inv-bar .inv-label{display:inline}
+.inv-bar .inv-total{font-size:24px;margin-left:8px}
 .inv-bar.show{display:block}
 td.qi{padding:4px 2px}
 td.qi input{width:52px;padding:3px 4px;border:1.5px solid var(--border);border-radius:6px;text-align:center;font-size:13px;font-weight:600;background:#fff;transition:border-color .15s}
@@ -135,6 +136,9 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
   thead th:first-child{position:sticky;left:0;z-index:85;background:#f9fafb}
 
   tr.sh td{font-size:12px;padding:10px 8px}
+  .inv-bar{margin:8px 6px;padding:12px 12px;border-radius:8px;font-size:13px}
+  .inv-bar .inv-label{display:block;font-size:11px;margin-bottom:2px}
+  .inv-bar .inv-total{font-size:22px;margin-left:0;display:block}
   .lg{padding:0 8px;gap:8px;font-size:10px}
   .cb{padding:0 8px;font-size:10px}
   .ft{font-size:10px;padding:16px 12px}
@@ -155,7 +159,7 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
 
 <div class="header">
   <h1>ポケカ買取チェッカー</h1>
-  <span class="upd">更新: <span id="ud">2026/03/21 09:39</span></span>
+  <span class="upd">更新: <span id="ud">2026/03/21 10:00</span></span>
 </div>
 
 <div class="fbar" id="fbar">
@@ -186,7 +190,7 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
   </div>
 </div>
 
-<div class="inv-bar" id="invBar">所持BOX資産合計: <span class="inv-total" id="invTotal">¥0</span></div>
+<div class="inv-bar" id="invBar"><span class="inv-label">所持BOX資産合計:</span><span class="inv-total" id="invTotal">¥0</span></div>
 
 <div class="lg">
   <div class="li"><span class="ls" style="background:var(--mega)"></span>MEGA</div>
