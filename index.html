@@ -82,6 +82,17 @@ td.dm{color:#dc2626;font-weight:700}
 td.nd{color:#d1d5db}
 td.pn{text-align:left;font-weight:600;padding-left:12px;min-width:200px}
 
+/* Inventory mode */
+.inv-bar{display:none;max-width:var(--table-width);margin:8px auto;padding:12px 20px;background:linear-gradient(135deg,#6366f1,#8b5cf6);border-radius:10px;color:#fff;font-size:14px;font-weight:700;text-align:center;box-shadow:0 2px 8px rgba(99,102,241,.3)}
+.inv-bar .inv-total{font-size:22px;margin-left:8px}
+.inv-bar.show{display:block}
+td.qi{padding:4px 2px}
+td.qi input{width:52px;padding:3px 4px;border:1.5px solid var(--border);border-radius:6px;text-align:center;font-size:13px;font-weight:600;background:#fff;transition:border-color .15s}
+td.qi input:focus{outline:none;border-color:#6366f1;box-shadow:0 0 0 2px rgba(99,102,241,.2)}
+td.qi input::-webkit-inner-spin-button{opacity:1}
+.ib{font-size:12px;padding:5px 14px;border:1.5px solid #8b5cf6;border-radius:20px;background:#f5f3ff;color:#6d28d9;cursor:pointer;transition:all .15s;white-space:nowrap;font-weight:600;-webkit-tap-highlight-color:transparent}
+.ib:hover{background:#ede9fe}.ib.active{background:#7c3aed;color:#fff;border-color:#7c3aed}
+
 /* Legend / footer */
 .lg{max-width:var(--table-width);margin:0 auto 8px;padding:0 12px;display:flex;flex-wrap:wrap;gap:12px;font-size:11px;color:var(--text-sub)}
 .li{display:flex;align-items:center;gap:4px}
@@ -113,6 +124,7 @@ td.pn{text-align:left;font-weight:600;padding-left:12px;min-width:200px}
 
   /* Sticky first column on mobile */
   td.pn{position:sticky;left:0;z-index:10;min-width:140px;max-width:180px;overflow:hidden;text-overflow:ellipsis;font-size:11px;padding-left:8px}
+  td.qi input{width:44px;font-size:11px;padding:2px 3px}
   tr.cat-mega td.pn{background:var(--mega)}
   tr.cat-sv td.pn{background:var(--sv)}
   tr.cat-special td.pn{background:var(--special)}
@@ -143,7 +155,7 @@ td.pn{text-align:left;font-weight:600;padding-left:12px;min-width:200px}
 
 <div class="header">
   <h1>ポケカ買取チェッカー</h1>
-  <span class="upd">更新: <span id="ud">2026/03/20 20:05</span></span>
+  <span class="upd">更新: <span id="ud">2026/03/21 09:39</span></span>
 </div>
 
 <div class="fbar" id="fbar">
@@ -169,7 +181,12 @@ td.pn{text-align:left;font-weight:600;padding-left:12px;min-width:200px}
   <div class="fg">
     <button class="sb" id="srt">最高買取順 ▼</button>
   </div>
+  <div class="fg">
+    <button class="ib" id="invBtn">資産モード</button>
+  </div>
 </div>
+
+<div class="inv-bar" id="invBar">所持BOX資産合計: <span class="inv-total" id="invTotal">¥0</span></div>
 
 <div class="lg">
   <div class="li"><span class="ls" style="background:var(--mega)"></span>MEGA</div>
@@ -184,8 +201,10 @@ td.pn{text-align:left;font-weight:600;padding-left:12px;min-width:200px}
     <thead>
       <tr>
         <th style="min-width:200px">商品名</th>
+        <th class="inv-col" style="min-width:50px;display:none">個数</th>
         <th style="min-width:55px">定価</th>
         <th style="min-width:65px">最高買取</th>
+        <th class="inv-col" style="min-width:65px;display:none">小計</th>
         <th style="min-width:50px">差益</th>
         <th class="sc" data-s="morimori"><a href="https://www.morimori-kaitori.jp/category/0112" target="_blank" rel="noopener noreferrer">森森</a></th>
         <th class="sc" data-s="homura"><a href="https://kaitori-homura.com/categories/1340" target="_blank" rel="noopener noreferrer">ホムラ</a></th>
@@ -274,8 +293,18 @@ function esc(s){
   return d.innerHTML;
 }
 
-let cc="all",vs=new Set(S),sm=false;
+let cc="all",vs=new Set(S),sm=false,invMode=false;
+const INV_KEY="pokeca_inventory";
 function fp(v){if(!v||v===0)return"-";return"\u00a5"+v.toLocaleString()}
+function loadInv(){try{return JSON.parse(localStorage.getItem(INV_KEY))||{}}catch(e){return{}}}
+function saveInv(inv){localStorage.setItem(INV_KEY,JSON.stringify(inv))}
+function getQty(name){return loadInv()[name]||0}
+function setQty(name,q){const inv=loadInv();if(q>0)inv[name]=q;else delete inv[name];saveInv(inv)}
+function updateTotal(){
+  const inv=loadInv();let total=0;
+  P.forEach(x=>{const q=inv[x.n]||0;if(q>0){const ap=S.filter(s=>vs.has(s)&&x.p[s]>0).map(s=>x.p[s]);const m=ap.length?Math.max(...ap):0;total+=m*q}});
+  document.getElementById("invTotal").textContent="\u00a5"+total.toLocaleString();
+}
 
 // ===== Dynamic fbar height measurement =====
 function syncFbarHeight(){
@@ -303,7 +332,8 @@ function render(){
   f.forEach(x=>{
     if(x.c!==lc&&!sm){
       lc=x.c;
-      const cs=4+S.filter(s=>vs.has(s)).length;
+      let cs=4+S.filter(s=>vs.has(s)).length;
+      if(invMode)cs+=2;
       const shr=document.createElement("tr");
       shr.className="sh cat-"+x.c;
       const shd=document.createElement("td");
@@ -322,6 +352,18 @@ function render(){
     tdN.textContent=x.n;
     tr.appendChild(tdN);
 
+    // Quantity (inventory mode)
+    if(invMode){
+      const tdQ=document.createElement("td");
+      tdQ.className="qi";
+      const inp=document.createElement("input");
+      inp.type="number";inp.min="0";inp.max="999";
+      inp.value=getQty(x.n);
+      inp.addEventListener("change",function(){const v=Math.max(0,parseInt(this.value)||0);this.value=v;setQty(x.n,v);render()});
+      tdQ.appendChild(inp);
+      tr.appendChild(tdQ);
+    }
+
     // Retail price
     const tdR=document.createElement("td");
     tdR.className="rp";
@@ -334,6 +376,16 @@ function render(){
     tdM.style.fontWeight="800";
     tdM.textContent=fp(x._m);
     tr.appendChild(tdM);
+
+    // Subtotal (inventory mode)
+    if(invMode){
+      const tdSub=document.createElement("td");
+      const q=getQty(x.n);
+      const sub=q*x._m;
+      if(sub>0){tdSub.className="p";tdSub.style.fontWeight="700";tdSub.style.color="#7c3aed";tdSub.textContent=fp(sub)}
+      else{tdSub.className="nd";tdSub.textContent="-"}
+      tr.appendChild(tdSub);
+    }
 
     // Profit diff
     const tdD=document.createElement("td");
@@ -360,6 +412,8 @@ function render(){
   tb.appendChild(frag);
   document.getElementById("rc").textContent=cnt;
   document.querySelectorAll("thead th.sc").forEach(function(th){th.style.display=vs.has(th.dataset.s)?"":"none"});
+  document.querySelectorAll("thead th.inv-col").forEach(function(th){th.style.display=invMode?"":"none"});
+  if(invMode)updateTotal();
 }
 
 // ===== Event listeners =====
@@ -393,6 +447,13 @@ document.getElementById("srt").addEventListener("click",function(){
   sm=!sm;
   this.classList.toggle("active",sm);
   this.textContent=sm?"最高買取順 \u25b2 (ON)":"最高買取順 \u25bc";
+  render();
+});
+
+document.getElementById("invBtn").addEventListener("click",function(){
+  invMode=!invMode;
+  this.classList.toggle("active",invMode);
+  document.getElementById("invBar").classList.toggle("show",invMode);
   render();
 });
 
