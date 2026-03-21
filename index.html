@@ -83,10 +83,8 @@ td.nd{color:#d1d5db}
 td.pn{text-align:left;font-weight:600;padding-left:12px;min-width:200px}
 
 /* Inventory mode */
-.inv-bar{display:none;max-width:var(--table-width);margin:8px auto;padding:14px 20px;background:linear-gradient(135deg,#6366f1,#8b5cf6);border-radius:10px;color:#fff;font-size:15px;font-weight:700;text-align:center;box-shadow:0 2px 8px rgba(99,102,241,.3);line-height:1.6}
-.inv-bar .inv-label{display:inline}
-.inv-bar .inv-total{font-size:24px;margin-left:8px}
-.inv-bar.show{display:block}
+.inv-tag{display:inline-block;padding:6px 16px;background:linear-gradient(135deg,#6366f1,#8b5cf6);border-radius:20px;color:#fff;font-size:13px;font-weight:700;box-shadow:0 2px 6px rgba(99,102,241,.3);white-space:nowrap}
+.inv-tag .inv-total{font-size:17px;margin-left:4px}
 td.qi{padding:4px 2px}
 td.qi input{width:52px;padding:3px 4px;border:1.5px solid var(--border);border-radius:6px;text-align:center;font-size:13px;font-weight:600;background:#fff;transition:border-color .15s}
 td.qi input:focus{outline:none;border-color:#6366f1;box-shadow:0 0 0 2px rgba(99,102,241,.2)}
@@ -136,9 +134,8 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
   thead th:first-child{position:sticky;left:0;z-index:85;background:#f9fafb}
 
   tr.sh td{font-size:12px;padding:10px 8px}
-  .inv-bar{margin:8px 6px;padding:12px 12px;border-radius:8px;font-size:13px}
-  .inv-bar .inv-label{display:block;font-size:11px;margin-bottom:2px}
-  .inv-bar .inv-total{font-size:22px;margin-left:0;display:block}
+  .inv-tag{font-size:12px;padding:5px 12px}
+  .inv-tag .inv-total{font-size:15px}
   .lg{padding:0 8px;gap:8px;font-size:10px}
   .cb{padding:0 8px;font-size:10px}
   .ft{font-size:10px;padding:16px 12px}
@@ -159,7 +156,7 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
 
 <div class="header">
   <h1>ポケカ買取チェッカー</h1>
-  <span class="upd">更新: <span id="ud">2026/03/21 10:00</span></span>
+  <span class="upd">更新: <span id="ud">2026/03/21 10:04</span></span>
 </div>
 
 <div class="fbar" id="fbar">
@@ -188,9 +185,10 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
   <div class="fg">
     <button class="ib" id="invBtn">資産モード</button>
   </div>
+  <div class="fg inv-fg" id="invBar" style="display:none">
+    <span class="inv-tag">資産合計 <span class="inv-total" id="invTotal">¥0</span></span>
+  </div>
 </div>
-
-<div class="inv-bar" id="invBar"><span class="inv-label">所持BOX資産合計:</span><span class="inv-total" id="invTotal">¥0</span></div>
 
 <div class="lg">
   <div class="li"><span class="ls" style="background:var(--mega)"></span>MEGA</div>
@@ -457,7 +455,7 @@ document.getElementById("srt").addEventListener("click",function(){
 document.getElementById("invBtn").addEventListener("click",function(){
   invMode=!invMode;
   this.classList.toggle("active",invMode);
-  document.getElementById("invBar").classList.toggle("show",invMode);
+  document.getElementById("invBar").style.display=invMode?"":"none";
   render();
 });
 
