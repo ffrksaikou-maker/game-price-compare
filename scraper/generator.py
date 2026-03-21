@@ -41,7 +41,7 @@ def generate_product_js(products: list[MasterProduct]) -> str:
         price_parts = ",".join(f"{sid}:{prices[sid]}" for sid in SHOP_IDS)
         line = (
             f'{{c:"{p.category}",n:"{name_escaped}",'
-            f'r:{p.retail_price},p:{{{price_parts}}}}}'
+            f'r:{p.retail_price},d:"{p.release_date}",p:{{{price_parts}}}}}'
         )
         lines.append(line + ",")
 
