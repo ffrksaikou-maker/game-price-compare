@@ -6,6 +6,7 @@ import json
 import logging
 import sys
 import traceback
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 # Add project root to path for imports
@@ -23,6 +24,8 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 CACHE_FILE = Path(__file__).resolve().parent.parent / "data" / "cache.json"
+HISTORY_DIR = Path(__file__).resolve().parent.parent / "data" / "history"
+JST = timezone(timedelta(hours=9))
 
 
 def load_cache() -> dict:
@@ -41,6 +44,31 @@ def save_cache(cache: dict) -> None:
     CACHE_FILE.write_text(
         json.dumps(cache, ensure_ascii=False, indent=2), encoding="utf-8"
     )
+
+
+def save_history(products: list) -> None:
+    """Save daily price snapshot for future graph/analysis."""
+    HISTORY_DIR.mkdir(parents=True, exist_ok=True)
+    today = datetime.now(JST).strftime("%Y-%m-%d")
+    filepath = HISTORY_DIR / f"{today}.json"
+
+    snapshot = []
+    for p in products:
+        if not p.prices:
+            continue
+        max_price = max(p.prices.values()) if p.prices else 0
+        snapshot.append({
+            "name": p.name,
+            "category": p.category,
+            "retail_price": p.retail_price,
+            "max_price": max_price,
+            "prices": dict(p.prices),
+        })
+
+    filepath.write_text(
+        json.dumps(snapshot, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+    logger.info("Price history saved: %s (%d products)", filepath, len(snapshot))
 
 
 def main() -> None:
@@ -109,6 +137,9 @@ def main() -> None:
         "Products with prices: %d/%d",
         total_with_prices, len(MASTER_PRODUCTS),
     )
+
+    # Save daily price history
+    save_history(MASTER_PRODUCTS)
 
     # Generate HTML
     generate_html(MASTER_PRODUCTS)
