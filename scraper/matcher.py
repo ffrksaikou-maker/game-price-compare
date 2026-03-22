@@ -18,10 +18,10 @@ MATCH_THRESHOLD = 75
 MIN_BOX_PRICE = 3000
 
 # Maximum reasonable BOX buyback price (single BOX, yen)
-MAX_BOX_PRICE = 60000
+MAX_BOX_PRICE = 250000
 
 # Maximum buyback-to-retail ratio (skip if price > retail * this)
-MAX_RETAIL_RATIO = 10.0
+MAX_RETAIL_RATIO = 50.0
 
 # Keywords that indicate a BOX/sealed product (safe to match)
 BOX_INDICATORS = [
@@ -107,7 +107,7 @@ MASTER_PRODUCTS: list[MasterProduct] = [
     MasterProduct("sv", 'SV 拡張パック「サイバージャッジ」', 5400, "2024-01-26",
                   ["サイバージャッジ", "サイバー"]),
     MasterProduct("sv", 'SV ハイクラスパック「シャイニートレジャーex」', 5500, "2023-12-01",
-                  ["シャイニートレジャー", "シャイニー"]),
+                  ["シャイニートレジャー"]),
     MasterProduct("sv", 'SV 拡張パック「古代の咆哮」', 5400, "2023-10-27",
                   ["古代の咆哮", "古代"]),
     MasterProduct("sv", 'SV 拡張パック「未来の一閃」', 5400, "2023-10-27",
@@ -128,6 +128,68 @@ MASTER_PRODUCTS: list[MasterProduct] = [
                   ["スカーレットex"]),
     MasterProduct("sv", 'SV 拡張パック「バイオレットex」', 5400, "2023-01-20",
                   ["バイオレットex"]),
+
+    # ===== S&S ソード&シールド (新しい順) =====
+    MasterProduct("ss", 'S&S ハイクラスパック「VSTARユニバース」', 5500, "2022-12-02",
+                  ["VSTARユニバース", "VSTAR ユニバース"]),
+    MasterProduct("ss", 'S&S 拡張パック「パラダイムトリガー」', 4950, "2022-10-21",
+                  ["パラダイムトリガー", "パラダイム"]),
+    MasterProduct("ss", 'S&S 強化拡張パック「白熱のアルカナ」', 4950, "2022-09-02",
+                  ["白熱のアルカナ", "白熱", "アルカナ"]),
+    MasterProduct("ss", 'S&S 拡張パック「ロストアビス」', 4950, "2022-07-15",
+                  ["ロストアビス", "ロスト"]),
+    MasterProduct("ss", 'S&S 強化拡張パック「ポケモンGO」', 4950, "2022-06-17",
+                  ["ポケモンGO", "ポケモン GO", "POKEMON GO"]),
+    MasterProduct("ss", 'S&S 強化拡張パック「ダークファンタズマ」', 4950, "2022-05-13",
+                  ["ダークファンタズマ", "ファンタズマ"]),
+    MasterProduct("ss", 'S&S 拡張パック「タイムゲイザー」', 4950, "2022-04-08",
+                  ["タイムゲイザー"]),
+    MasterProduct("ss", 'S&S 拡張パック「スペースジャグラー」', 4950, "2022-04-08",
+                  ["スペースジャグラー"]),
+    MasterProduct("ss", 'S&S 強化拡張パック「バトルリージョン」', 4950, "2022-02-25",
+                  ["バトルリージョン"]),
+    MasterProduct("ss", 'S&S 拡張パック「スターバース」', 4950, "2022-01-14",
+                  ["スターバース"]),
+    MasterProduct("ss", 'S&S ハイクラスパック「VMAXクライマックス」', 5500, "2021-12-03",
+                  ["VMAXクライマックス", "vmaxクライマックス", "VMAX クライマックス"]),
+    MasterProduct("ss", 'S&S 拡張パック「25th ANNIVERSARY COLLECTION」', 5500, "2021-10-22",
+                  ["25thアニバーサリー", "25th ANNIVERSARY", "ANNIVERSARY COLLECTION"]),
+    MasterProduct("ss", 'S&S 拡張パック「フュージョンアーツ」', 4950, "2021-09-24",
+                  ["フュージョンアーツ", "フュージョン"]),
+    MasterProduct("ss", 'S&S 拡張パック「蒼空ストリーム」', 4950, "2021-07-09",
+                  ["蒼空ストリーム", "蒼空"]),
+    MasterProduct("ss", 'S&S 拡張パック「摩天パーフェクト」', 4950, "2021-07-09",
+                  ["摩天パーフェクト", "摩天"]),
+    MasterProduct("ss", 'S&S 強化拡張パック「イーブイヒーローズ」', 4950, "2021-05-28",
+                  ["イーブイヒーローズ"]),
+    MasterProduct("ss", 'S&S 拡張パック「白銀のランス」', 4950, "2021-04-23",
+                  ["白銀のランス", "白銀"]),
+    MasterProduct("ss", 'S&S 拡張パック「漆黒のガイスト」', 4950, "2021-04-23",
+                  ["漆黒のガイスト", "漆黒"]),
+    MasterProduct("ss", 'S&S 強化拡張パック「双璧のファイター」', 4950, "2021-03-19",
+                  ["双璧のファイター", "双璧"]),
+    MasterProduct("ss", 'S&S 拡張パック「連撃マスター」', 4950, "2021-01-22",
+                  ["連撃マスター", "連撃"]),
+    MasterProduct("ss", 'S&S 拡張パック「一撃マスター」', 4950, "2021-01-22",
+                  ["一撃マスター", "一撃"]),
+    MasterProduct("ss", 'S&S ハイクラスパック「シャイニースターV」', 5500, "2020-11-20",
+                  ["シャイニースターV", "シャイニースター"]),
+    MasterProduct("ss", 'S&S 拡張パック「仰天のボルテッカー」', 4950, "2020-09-18",
+                  ["仰天のボルテッカー", "仰天", "ボルテッカー"]),
+    MasterProduct("ss", 'S&S 強化拡張パック「伝説の鼓動」', 4950, "2020-07-10",
+                  ["伝説の鼓動", "伝説"]),
+    MasterProduct("ss", 'S&S 拡張パック「ムゲンゾーン」', 4950, "2020-06-05",
+                  ["ムゲンゾーン"]),
+    MasterProduct("ss", 'S&S 強化拡張パック「爆炎ウォーカー」', 4950, "2020-04-24",
+                  ["爆炎ウォーカー", "爆炎"]),
+    MasterProduct("ss", 'S&S 拡張パック「反逆クラッシュ」', 4950, "2020-03-06",
+                  ["反逆クラッシュ", "反逆"]),
+    MasterProduct("ss", 'S&S 拡張パック「VMAXライジング」', 4950, "2020-02-07",
+                  ["VMAXライジング", "vmaxライジング", "VMAX ライジング"]),
+    MasterProduct("ss", 'S&S 拡張パック「ソード」', 4950, "2019-12-06",
+                  ["ソードV", "ソード V"]),
+    MasterProduct("ss", 'S&S 拡張パック「シールド」', 4950, "2019-12-06",
+                  ["シールドV", "シールド V"]),
 
     # ===== SPECIAL BOX =====
     MasterProduct("special", 'スペシャルBOX トウホク', 2090, "2025-06-13",

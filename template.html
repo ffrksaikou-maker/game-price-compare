@@ -3,6 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831186943118320" crossorigin="anonymous"></script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831186943118320" crossorigin="anonymous"></script>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPTS6CRTCS"></script>
 <script>
@@ -55,11 +59,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 
 /* Table wrapper */
 /* overflow-x: clip does NOT create a scroll container, so thead sticky works relative to viewport */
-.tw{max-width:var(--table-width);margin:16px auto;background:var(--card);border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow-x:clip}
+.tw{max-width:var(--table-width);margin:16px auto;background:var(--card);border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow-x:auto}
 table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
 
-/* Thead sticky: dynamic top based on measured fbar height */
-thead{position:sticky;top:calc(var(--header-h) + var(--fbar-h));z-index:80}
+/* Thead */
+thead{z-index:80}
 thead th{background:#f9fafb}
 thead th{padding:10px 6px;font-size:11px;font-weight:700;text-align:center;background:#f9fafb;border-bottom:2px solid var(--border);white-space:nowrap}
 thead th.sc{background:linear-gradient(180deg,#e0f2fe,#f0f9ff);color:#0369a1;min-width:90px}
@@ -70,8 +74,8 @@ thead th.sc a:hover{color:#0284c7;border-bottom-style:solid}
 tbody tr{transition:background .1s}
 tbody tr:hover td{background:#f5f3ff !important}
 tbody td{padding:7px 5px;font-size:13px;text-align:center;border-bottom:1px solid #f3f4f6;white-space:nowrap}
-tr.cat-mega td{background:var(--mega)}tr.cat-sv td{background:var(--sv)}tr.cat-special td{background:var(--special)}
-tr.cat-mega:hover td{background:#ffe0b2 !important}tr.cat-sv:hover td{background:#c8e6c9 !important}tr.cat-special:hover td{background:#bbdefb !important}
+tr.cat-mega td{background:var(--mega)}tr.cat-sv td{background:var(--sv)}tr.cat-special td{background:var(--special)}tr.cat-ss td{background:#fce4ec}
+tr.cat-mega:hover td{background:#ffe0b2 !important}tr.cat-sv:hover td{background:#c8e6c9 !important}tr.cat-special:hover td{background:#bbdefb !important}tr.cat-ss:hover td{background:#f8bbd0 !important}
 tr.sh td{font-weight:800;font-size:14px;padding:14px 10px;text-align:left;border-bottom:2px solid var(--border)}
 td.p{font-weight:600}
 td.pm{background:var(--highlight) !important;font-weight:800}
@@ -126,10 +130,12 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
   tr.cat-mega td.pn{background:var(--mega)}
   tr.cat-sv td.pn{background:var(--sv)}
   tr.cat-special td.pn{background:var(--special)}
+  tr.cat-ss td.pn{background:#fce4ec}
   tbody tr:hover td.pn{background:#f5f3ff !important}
   tr.cat-mega:hover td.pn{background:#ffe0b2 !important}
   tr.cat-sv:hover td.pn{background:#c8e6c9 !important}
   tr.cat-special:hover td.pn{background:#bbdefb !important}
+  tr.cat-ss:hover td.pn{background:#f8bbd0 !important}
   thead th:first-child{position:sticky;left:0;z-index:85;background:#f9fafb}
 
   tr.sh td{font-size:12px;padding:10px 8px}
@@ -161,9 +167,10 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
 <div class="fbar" id="fbar">
   <div class="fg">
     <label>シリーズ:</label>
-    <button class="fb active" data-f="cat" data-v="all">すべて</button>
+    <button class="fb" data-f="cat" data-v="all">ALL</button>
     <button class="fb" data-f="cat" data-v="mega">MEGA</button>
     <button class="fb" data-f="cat" data-v="sv">SV</button>
+    <button class="fb" data-f="cat" data-v="ss">S&S</button>
     <button class="fb" data-f="cat" data-v="special">スペシャルBOX</button>
   </div>
   <div class="fg">
@@ -172,11 +179,11 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
     <button class="fb st active" data-s="morimori">森森</button>
     <button class="fb st active" data-s="homura">ホムラ</button>
     <button class="fb st active" data-s="icchome">一丁目</button>
+    <button class="fb st active" data-s="runto">ラントゥ</button>
+    <button class="fb st active" data-s="sommelier">ソムリエ</button>
+    <button class="fb st active" data-s="kaikyo">海峡</button>
     <button class="fb st active" data-s="shouten">商店</button>
     <button class="fb st active" data-s="rudeya">ルデヤ</button>
-    <button class="fb st active" data-s="kaikyo">海峡</button>
-    <button class="fb st active" data-s="sommelier">ソムリエ</button>
-    <button class="fb st active" data-s="runto">ラントゥ</button>
   </div>
   <div class="fg">
     <button class="sb" id="srt">最高買取順 ▼</button>
@@ -186,12 +193,14 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
   </div>
   <div class="fg inv-fg" id="invBar" style="display:none">
     <span class="inv-tag">資産合計 <span class="inv-total" id="invTotal">¥0</span></span>
+    <button class="ib" id="assetChartBtn" onclick="showAssetChart()" style="margin-left:4px">推移</button>
   </div>
 </div>
 
 <div class="lg">
   <div class="li"><span class="ls" style="background:var(--mega)"></span>MEGA</div>
   <div class="li"><span class="ls" style="background:var(--sv)"></span>SV</div>
+  <div class="li"><span class="ls" style="background:#fce4ec"></span>S&S</div>
   <div class="li"><span class="ls" style="background:var(--special)"></span>スペシャルBOX</div>
   <div class="li"><span class="ls" style="background:var(--highlight)"></span>最高値</div>
 </div>
@@ -210,11 +219,11 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
         <th class="sc" data-s="morimori"><a href="https://www.morimori-kaitori.jp/category/0112" target="_blank" rel="noopener noreferrer">森森</a></th>
         <th class="sc" data-s="homura"><a href="https://kaitori-homura.com/categories/1340" target="_blank" rel="noopener noreferrer">ホムラ</a></th>
         <th class="sc" data-s="icchome"><a href="https://www.1-chome.com/" target="_blank" rel="noopener noreferrer">一丁目</a></th>
+        <th class="sc" data-s="runto"><a href="https://runto666.com/product-category/card/" target="_blank" rel="noopener noreferrer">ラントゥ</a></th>
+        <th class="sc" data-s="sommelier"><a href="https://somurie-kaitori.com/products" target="_blank" rel="noopener noreferrer">ソムリエ</a></th>
+        <th class="sc" data-s="kaikyo"><a href="https://www.mobile-ichiban.com/Prod/3/" target="_blank" rel="noopener noreferrer">海峡</a></th>
         <th class="sc" data-s="shouten"><a href="https://www.kaitorishouten-co.jp/kaden" target="_blank" rel="noopener noreferrer">商店</a></th>
         <th class="sc" data-s="rudeya"><a href="https://kaitori-rudeya.com/category/detail/114" target="_blank" rel="noopener noreferrer">ルデヤ</a></th>
-        <th class="sc" data-s="kaikyo"><a href="https://www.mobile-ichiban.com/Prod/3/" target="_blank" rel="noopener noreferrer">海峡</a></th>
-        <th class="sc" data-s="sommelier"><a href="https://somurie-kaitori.com/products" target="_blank" rel="noopener noreferrer">ソムリエ</a></th>
-        <th class="sc" data-s="runto"><a href="https://runto666.com/product-category/card/" target="_blank" rel="noopener noreferrer">ラントゥ</a></th>
       </tr>
     </thead>
     <tbody id="tb"></tbody>
@@ -241,12 +250,31 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
   <img border="0" width="1" height="1" src="https://www15.a8.net/0.gif?a8mat=4AZHWA+5H2I0I+1SOW+2HBG6A" alt="">
 </div>
 
+<!-- Chart modal -->
+<div id="chartModal" style="display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.5);align-items:center;justify-content:center">
+  <div style="background:#fff;border-radius:12px;padding:20px;max-width:700px;width:92%;max-height:85vh;position:relative;box-shadow:0 8px 32px rgba(0,0,0,.2)">
+    <button id="chartClose" style="position:absolute;top:10px;right:14px;background:none;border:none;font-size:22px;cursor:pointer;color:#6b7280">&times;</button>
+    <h3 id="chartTitle" style="font-size:15px;font-weight:700;margin-bottom:8px;padding-right:30px"></h3>
+    <div id="chartPeriod" style="display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap">
+      <button class="fb active" data-p="30">1か月</button>
+      <button class="fb" data-p="90">3か月</button>
+      <button class="fb" data-p="180">6か月</button>
+      <button class="fb" data-p="365">1年</button>
+      <button class="fb" data-p="0">全期間</button>
+    </div>
+    <canvas id="chartCanvas" height="300"></canvas>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
 <script>
 "use strict";
-const S=["morimori","homura","icchome","shouten","rudeya","kaikyo","sommelier","runto"];
-const CL={"mega":"MEGA","sv":"SV","special":"スペシャルBOX"};
+const S=["morimori","homura","icchome","runto","sommelier","kaikyo","shouten","rudeya"];
+const CL={"mega":"MEGA","sv":"SV","ss":"S&S ソード&シールド","special":"スペシャルBOX"};
 
 // {{PRODUCT_DATA}}
+
+// {{HISTORY_DATA}}
 
 // ===== Escape utility =====
 function esc(s){
@@ -255,7 +283,7 @@ function esc(s){
   return d.innerHTML;
 }
 
-let cc="all",vs=new Set(S),sm=false,invMode=false;
+let cc="",vs=new Set(S),sm=false,invMode=false;
 const INV_KEY="pokeca_inventory";
 function fp(v){if(!v||v===0)return"-";return"\u00a5"+v.toLocaleString()}
 function loadInv(){try{return JSON.parse(localStorage.getItem(INV_KEY))||{}}catch(e){return{}}}
@@ -279,7 +307,7 @@ function syncFbarHeight(){
 
 function render(){
   const tb=document.getElementById("tb");
-  let f=P.filter(x=>cc==="all"||x.c===cc);
+  let f=cc===""?P.filter(x=>x.c!=="ss"):cc==="all"?P.slice():P.filter(x=>x.c===cc);
   f.forEach(x=>{
     const ap=S.filter(s=>vs.has(s)&&x.p[s]>0).map(s=>x.p[s]);
     x._m=ap.length?Math.max(...ap):0;
@@ -312,6 +340,8 @@ function render(){
     const tdN=document.createElement("td");
     tdN.className="pn";
     tdN.textContent=x.n;
+    tdN.style.cursor="pointer";
+    tdN.addEventListener("click",(function(name){return function(){showChart(name)}})(x.n));
     tr.appendChild(tdN);
 
     // Quantity (inventory mode)
@@ -381,9 +411,14 @@ function render(){
 // ===== Event listeners =====
 document.querySelectorAll("[data-f='cat']").forEach(function(b){
   b.addEventListener("click",function(){
-    document.querySelectorAll("[data-f='cat']").forEach(function(x){x.classList.remove("active")});
-    b.classList.add("active");
-    cc=b.dataset.v;
+    if(b.classList.contains("active")){
+      b.classList.remove("active");
+      cc="";
+    }else{
+      document.querySelectorAll("[data-f='cat']").forEach(function(x){x.classList.remove("active")});
+      b.classList.add("active");
+      cc=b.dataset.v;
+    }
     render();
   });
 });
@@ -418,6 +453,103 @@ document.getElementById("invBtn").addEventListener("click",function(){
   document.getElementById("invBar").style.display=invMode?"":"none";
   render();
 });
+
+// ===== Chart =====
+let chartInstance=null,chartMode="",chartArg="",chartPeriod=30;
+const modal=document.getElementById("chartModal");
+const chartCtx=document.getElementById("chartCanvas").getContext("2d");
+
+function filterByPeriod(dates,days){
+  if(!days)return dates;
+  const now=new Date();
+  const cutoff=new Date(now.getTime()-days*86400000);
+  const cs=cutoff.toISOString().slice(0,10);
+  return dates.filter(d=>d>=cs);
+}
+
+function drawChart(allDates,allValues,title,color){
+  const dates=filterByPeriod(allDates,chartPeriod);
+  const start=allDates.indexOf(dates[0]);
+  const values=allValues.slice(start,start+dates.length);
+  const labels=dates.map(d=>{const p=d.split("-");return p[1]+"/"+p[2]});
+
+  if(chartInstance)chartInstance.destroy();
+  document.getElementById("chartTitle").textContent=title;
+  chartInstance=new Chart(chartCtx,{
+    type:"line",
+    data:{
+      labels:labels,
+      datasets:[{
+        label:title,
+        data:values,
+        borderColor:color,
+        backgroundColor:color.replace(")",",0.1)").replace("rgb","rgba"),
+        fill:true,
+        tension:0.3,
+        pointRadius:dates.length>90?0:4,
+        pointBackgroundColor:color
+      }]
+    },
+    options:{
+      responsive:true,
+      plugins:{
+        legend:{display:false},
+        tooltip:{callbacks:{label:function(c){return"\u00a5"+c.parsed.y.toLocaleString()}}}
+      },
+      scales:{
+        y:{ticks:{callback:function(v){return"\u00a5"+v.toLocaleString()}},grid:{color:"#f3f4f6"}},
+        x:{grid:{display:false},ticks:{maxTicksLimit:12}}
+      }
+    }
+  });
+}
+
+function showChart(name){
+  if(typeof H==="undefined"||!H[name])return;
+  chartMode="product";chartArg=name;
+  const data=H[name];
+  const dates=Object.keys(data).sort();
+  const prices=dates.map(d=>data[d]);
+  drawChart(dates,prices,name+" - 最高買取価格推移","rgb(99,102,241)");
+  modal.style.display="flex";
+}
+
+function showAssetChart(){
+  if(typeof H==="undefined")return;
+  chartMode="asset";chartArg="";
+  const inv=loadInv();
+  const allDates=new Set();
+  P.forEach(x=>{if(H[x.n])Object.keys(H[x.n]).forEach(d=>allDates.add(d))});
+  const dates=[...allDates].sort();
+  if(!dates.length)return;
+  const totals=dates.map(d=>{
+    let total=0;
+    P.forEach(x=>{
+      const q=inv[x.n]||0;
+      if(q>0&&H[x.n]&&H[x.n][d])total+=H[x.n][d]*q;
+    });
+    return total;
+  });
+  drawChart(dates,totals,"所持BOX 資産推移","rgb(124,58,237)");
+  modal.style.display="flex";
+}
+
+function refreshChart(){
+  if(chartMode==="product")showChart(chartArg);
+  else if(chartMode==="asset")showAssetChart();
+}
+
+document.querySelectorAll("#chartPeriod .fb").forEach(function(b){
+  b.addEventListener("click",function(){
+    document.querySelectorAll("#chartPeriod .fb").forEach(function(x){x.classList.remove("active")});
+    b.classList.add("active");
+    chartPeriod=parseInt(b.dataset.p);
+    refreshChart();
+  });
+});
+
+document.getElementById("chartClose").addEventListener("click",function(){modal.style.display="none"});
+modal.addEventListener("click",function(e){if(e.target===modal)modal.style.display="none"});
 
 // ===== Init =====
 // Measure fbar height on load and resize

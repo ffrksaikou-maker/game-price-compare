@@ -3,6 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831186943118320" crossorigin="anonymous"></script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831186943118320" crossorigin="anonymous"></script>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPTS6CRTCS"></script>
 <script>
@@ -55,11 +59,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 
 /* Table wrapper */
 /* overflow-x: clip does NOT create a scroll container, so thead sticky works relative to viewport */
-.tw{max-width:var(--table-width);margin:16px auto;background:var(--card);border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow-x:clip}
+.tw{max-width:var(--table-width);margin:16px auto;background:var(--card);border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow-x:auto}
 table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
 
-/* Thead sticky: dynamic top based on measured fbar height */
-thead{position:sticky;top:calc(var(--header-h) + var(--fbar-h));z-index:80}
+/* Thead */
+thead{z-index:80}
 thead th{background:#f9fafb}
 thead th{padding:10px 6px;font-size:11px;font-weight:700;text-align:center;background:#f9fafb;border-bottom:2px solid var(--border);white-space:nowrap}
 thead th.sc{background:linear-gradient(180deg,#e0f2fe,#f0f9ff);color:#0369a1;min-width:90px}
@@ -70,8 +74,8 @@ thead th.sc a:hover{color:#0284c7;border-bottom-style:solid}
 tbody tr{transition:background .1s}
 tbody tr:hover td{background:#f5f3ff !important}
 tbody td{padding:7px 5px;font-size:13px;text-align:center;border-bottom:1px solid #f3f4f6;white-space:nowrap}
-tr.cat-mega td{background:var(--mega)}tr.cat-sv td{background:var(--sv)}tr.cat-special td{background:var(--special)}
-tr.cat-mega:hover td{background:#ffe0b2 !important}tr.cat-sv:hover td{background:#c8e6c9 !important}tr.cat-special:hover td{background:#bbdefb !important}
+tr.cat-mega td{background:var(--mega)}tr.cat-sv td{background:var(--sv)}tr.cat-special td{background:var(--special)}tr.cat-ss td{background:#fce4ec}
+tr.cat-mega:hover td{background:#ffe0b2 !important}tr.cat-sv:hover td{background:#c8e6c9 !important}tr.cat-special:hover td{background:#bbdefb !important}tr.cat-ss:hover td{background:#f8bbd0 !important}
 tr.sh td{font-weight:800;font-size:14px;padding:14px 10px;text-align:left;border-bottom:2px solid var(--border)}
 td.p{font-weight:600}
 td.pm{background:var(--highlight) !important;font-weight:800}
@@ -126,10 +130,12 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
   tr.cat-mega td.pn{background:var(--mega)}
   tr.cat-sv td.pn{background:var(--sv)}
   tr.cat-special td.pn{background:var(--special)}
+  tr.cat-ss td.pn{background:#fce4ec}
   tbody tr:hover td.pn{background:#f5f3ff !important}
   tr.cat-mega:hover td.pn{background:#ffe0b2 !important}
   tr.cat-sv:hover td.pn{background:#c8e6c9 !important}
   tr.cat-special:hover td.pn{background:#bbdefb !important}
+  tr.cat-ss:hover td.pn{background:#f8bbd0 !important}
   thead th:first-child{position:sticky;left:0;z-index:85;background:#f9fafb}
 
   tr.sh td{font-size:12px;padding:10px 8px}
@@ -155,15 +161,16 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
 
 <div class="header">
   <h1>ポケカ買取チェッカー</h1>
-  <span class="upd">更新: <span id="ud">2026/03/22 17:58</span></span>
+  <span class="upd">更新: <span id="ud">2026/03/22 18:01</span></span>
 </div>
 
 <div class="fbar" id="fbar">
   <div class="fg">
     <label>シリーズ:</label>
-    <button class="fb active" data-f="cat" data-v="all">すべて</button>
+    <button class="fb" data-f="cat" data-v="all">ALL</button>
     <button class="fb" data-f="cat" data-v="mega">MEGA</button>
     <button class="fb" data-f="cat" data-v="sv">SV</button>
+    <button class="fb" data-f="cat" data-v="ss">S&S</button>
     <button class="fb" data-f="cat" data-v="special">スペシャルBOX</button>
   </div>
   <div class="fg">
@@ -172,11 +179,11 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
     <button class="fb st active" data-s="morimori">森森</button>
     <button class="fb st active" data-s="homura">ホムラ</button>
     <button class="fb st active" data-s="icchome">一丁目</button>
+    <button class="fb st active" data-s="runto">ラントゥ</button>
+    <button class="fb st active" data-s="sommelier">ソムリエ</button>
+    <button class="fb st active" data-s="kaikyo">海峡</button>
     <button class="fb st active" data-s="shouten">商店</button>
     <button class="fb st active" data-s="rudeya">ルデヤ</button>
-    <button class="fb st active" data-s="kaikyo">海峡</button>
-    <button class="fb st active" data-s="sommelier">ソムリエ</button>
-    <button class="fb st active" data-s="runto">ラントゥ</button>
   </div>
   <div class="fg">
     <button class="sb" id="srt">最高買取順 ▼</button>
@@ -186,12 +193,14 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
   </div>
   <div class="fg inv-fg" id="invBar" style="display:none">
     <span class="inv-tag">資産合計 <span class="inv-total" id="invTotal">¥0</span></span>
+    <button class="ib" id="assetChartBtn" onclick="showAssetChart()" style="margin-left:4px">推移</button>
   </div>
 </div>
 
 <div class="lg">
   <div class="li"><span class="ls" style="background:var(--mega)"></span>MEGA</div>
   <div class="li"><span class="ls" style="background:var(--sv)"></span>SV</div>
+  <div class="li"><span class="ls" style="background:#fce4ec"></span>S&S</div>
   <div class="li"><span class="ls" style="background:var(--special)"></span>スペシャルBOX</div>
   <div class="li"><span class="ls" style="background:var(--highlight)"></span>最高値</div>
 </div>
@@ -210,11 +219,11 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
         <th class="sc" data-s="morimori"><a href="https://www.morimori-kaitori.jp/category/0112" target="_blank" rel="noopener noreferrer">森森</a></th>
         <th class="sc" data-s="homura"><a href="https://kaitori-homura.com/categories/1340" target="_blank" rel="noopener noreferrer">ホムラ</a></th>
         <th class="sc" data-s="icchome"><a href="https://www.1-chome.com/" target="_blank" rel="noopener noreferrer">一丁目</a></th>
+        <th class="sc" data-s="runto"><a href="https://runto666.com/product-category/card/" target="_blank" rel="noopener noreferrer">ラントゥ</a></th>
+        <th class="sc" data-s="sommelier"><a href="https://somurie-kaitori.com/products" target="_blank" rel="noopener noreferrer">ソムリエ</a></th>
+        <th class="sc" data-s="kaikyo"><a href="https://www.mobile-ichiban.com/Prod/3/" target="_blank" rel="noopener noreferrer">海峡</a></th>
         <th class="sc" data-s="shouten"><a href="https://www.kaitorishouten-co.jp/kaden" target="_blank" rel="noopener noreferrer">商店</a></th>
         <th class="sc" data-s="rudeya"><a href="https://kaitori-rudeya.com/category/detail/114" target="_blank" rel="noopener noreferrer">ルデヤ</a></th>
-        <th class="sc" data-s="kaikyo"><a href="https://www.mobile-ichiban.com/Prod/3/" target="_blank" rel="noopener noreferrer">海峡</a></th>
-        <th class="sc" data-s="sommelier"><a href="https://somurie-kaitori.com/products" target="_blank" rel="noopener noreferrer">ソムリエ</a></th>
-        <th class="sc" data-s="runto"><a href="https://runto666.com/product-category/card/" target="_blank" rel="noopener noreferrer">ラントゥ</a></th>
       </tr>
     </thead>
     <tbody id="tb"></tbody>
@@ -241,52 +250,102 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
   <img border="0" width="1" height="1" src="https://www15.a8.net/0.gif?a8mat=4AZHWA+5H2I0I+1SOW+2HBG6A" alt="">
 </div>
 
+<!-- Chart modal -->
+<div id="chartModal" style="display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.5);align-items:center;justify-content:center">
+  <div style="background:#fff;border-radius:12px;padding:20px;max-width:700px;width:92%;max-height:85vh;position:relative;box-shadow:0 8px 32px rgba(0,0,0,.2)">
+    <button id="chartClose" style="position:absolute;top:10px;right:14px;background:none;border:none;font-size:22px;cursor:pointer;color:#6b7280">&times;</button>
+    <h3 id="chartTitle" style="font-size:15px;font-weight:700;margin-bottom:8px;padding-right:30px"></h3>
+    <div id="chartPeriod" style="display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap">
+      <button class="fb active" data-p="30">1か月</button>
+      <button class="fb" data-p="90">3か月</button>
+      <button class="fb" data-p="180">6か月</button>
+      <button class="fb" data-p="365">1年</button>
+      <button class="fb" data-p="0">全期間</button>
+    </div>
+    <canvas id="chartCanvas" height="300"></canvas>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
 <script>
 "use strict";
-const S=["morimori","homura","icchome","shouten","rudeya","kaikyo","sommelier","runto"];
-const CL={"mega":"MEGA","sv":"SV","special":"スペシャルBOX"};
+const S=["morimori","homura","icchome","runto","sommelier","kaikyo","shouten","rudeya"];
+const CL={"mega":"MEGA","sv":"SV","ss":"S&S ソード&シールド","special":"スペシャルBOX"};
 
 const P=[
 // ===== MEGA =====
-{c:"mega",n:"MEGA 拡張パック「ニンジャスピナー」",r:5400,d:"2026-03-13",p:{morimori:9800,homura:9900,icchome:10500,shouten:10000,rudeya:9500,kaikyo:9500,sommelier:10200,runto:9800}},
-{c:"mega",n:"MEGA 拡張パック「ムニキスゼロ」",r:5400,d:"2026-01-23",p:{morimori:7000,homura:7000,icchome:6800,shouten:5500,rudeya:6900,kaikyo:5700,sommelier:7200,runto:6800}},
-{c:"mega",n:"MEGA ハイクラスパック「MEGAドリームex」",r:5500,d:"2025-11-28",p:{morimori:10000,homura:10000,icchome:9500,shouten:9500,rudeya:8000,kaikyo:9700,sommelier:9800,runto:9800}},
-{c:"mega",n:"MEGA 拡張パック「インフェルノX」",r:5400,d:"2025-09-26",p:{morimori:18000,homura:18000,icchome:17800,shouten:14000,rudeya:17800,kaikyo:17500,sommelier:17200,runto:18000}},
-{c:"mega",n:"MEGA 拡張パック「メガブレイブ」",r:5400,d:"2025-08-01",p:{morimori:10200,homura:10200,icchome:9800,shouten:9800,rudeya:10000,kaikyo:10000,sommelier:10300,runto:10000}},
-{c:"mega",n:"MEGA 拡張パック「メガシンフォニア」",r:5400,d:"2025-08-01",p:{morimori:9200,homura:9200,icchome:9100,shouten:8000,rudeya:9000,kaikyo:8500,sommelier:9500,runto:9000}},
+{c:"mega",n:"MEGA 拡張パック「ニンジャスピナー」",r:5400,d:"2026-03-13",p:{morimori:9800,homura:9900,icchome:10500,runto:9800,sommelier:10200,kaikyo:9500,shouten:10000,rudeya:9500}},
+{c:"mega",n:"MEGA 拡張パック「ムニキスゼロ」",r:5400,d:"2026-01-23",p:{morimori:7000,homura:7000,icchome:6800,runto:6800,sommelier:7200,kaikyo:5700,shouten:5500,rudeya:6900}},
+{c:"mega",n:"MEGA ハイクラスパック「MEGAドリームex」",r:5500,d:"2025-11-28",p:{morimori:10000,homura:10000,icchome:9500,runto:9800,sommelier:9800,kaikyo:9700,shouten:9500,rudeya:8000}},
+{c:"mega",n:"MEGA 拡張パック「インフェルノX」",r:5400,d:"2025-09-26",p:{morimori:18000,homura:18000,icchome:17800,runto:18000,sommelier:17200,kaikyo:17500,shouten:14000,rudeya:17800}},
+{c:"mega",n:"MEGA 拡張パック「メガブレイブ」",r:5400,d:"2025-08-01",p:{morimori:10200,homura:10200,icchome:9800,runto:10000,sommelier:10300,kaikyo:10000,shouten:9800,rudeya:10000}},
+{c:"mega",n:"MEGA 拡張パック「メガシンフォニア」",r:5400,d:"2025-08-01",p:{morimori:9200,homura:9200,icchome:9100,runto:9000,sommelier:9500,kaikyo:8500,shouten:8000,rudeya:9000}},
 // ===== SV =====
-{c:"sv",n:"SV 拡張パックDX「ブラックボルト」",r:5800,d:"2025-06-06",p:{morimori:20200,homura:22500,icchome:20000,shouten:20000,rudeya:21500,kaikyo:20000,sommelier:23000,runto:20000}},
-{c:"sv",n:"SV 拡張パックDX「ホワイトフレア」",r:5800,d:"2025-06-06",p:{morimori:17200,homura:18000,icchome:17000,shouten:17000,rudeya:17500,kaikyo:17000,sommelier:0,runto:17000}},
-{c:"sv",n:"SV 拡張パック「ブラックボルト」",r:5400,d:"2025-06-06",p:{morimori:17800,homura:6000,icchome:16500,shouten:15500,rudeya:17100,kaikyo:16000,sommelier:15500,runto:16500}},
-{c:"sv",n:"SV 拡張パック「ホワイトフレア」",r:5400,d:"2025-06-06",p:{morimori:16800,homura:16700,icchome:15600,shouten:14500,rudeya:16100,kaikyo:14700,sommelier:15000,runto:15500}},
-{c:"sv",n:"SV 拡張パック「ロケット団の栄光」",r:5400,d:"2025-04-18",p:{morimori:17000,homura:18300,icchome:18200,shouten:16000,rudeya:18100,kaikyo:16500,sommelier:17500,runto:18000}},
-{c:"sv",n:"SV 強化拡張パック「熱風のアリーナ」",r:5400,d:"2025-03-14",p:{morimori:15600,homura:16600,icchome:16300,shouten:13500,rudeya:16500,kaikyo:15500,sommelier:16500,runto:16200}},
-{c:"sv",n:"SV 拡張パック「バトルパートナーズ」",r:5400,d:"2025-01-24",p:{morimori:8500,homura:8800,icchome:8800,shouten:8500,rudeya:8700,kaikyo:8700,sommelier:8500,runto:8700}},
-{c:"sv",n:"SV ハイクラスパック テラスタルフェスex",r:5500,d:"2024-12-06",p:{morimori:15500,homura:16000,icchome:16000,shouten:14600,rudeya:15000,kaikyo:15000,sommelier:0,runto:16000}},
-{c:"sv",n:"SV 拡張パック「超電ブレイカー」",r:5400,d:"2024-10-18",p:{morimori:25800,homura:25800,icchome:24000,shouten:25000,rudeya:25800,kaikyo:23000,sommelier:0,runto:24800}},
-{c:"sv",n:"SV 強化拡張パック「楽園ドラゴーナ」",r:5400,d:"2024-09-13",p:{morimori:15000,homura:16000,icchome:14800,shouten:14000,rudeya:15800,kaikyo:12500,sommelier:16500,runto:14800}},
-{c:"sv",n:"SV 強化拡張パック「ステラミラクル」",r:5400,d:"2024-07-19",p:{morimori:9000,homura:9000,icchome:8800,shouten:8800,rudeya:8800,kaikyo:6500,sommelier:9000,runto:8800}},
-{c:"sv",n:"SV 強化拡張パック「ナイトワンダラー」",r:5400,d:"2024-06-07",p:{morimori:9000,homura:9000,icchome:9200,shouten:8000,rudeya:8800,kaikyo:0,sommelier:8800,runto:8800}},
-{c:"sv",n:"SV 拡張パック「変幻の仮面」",r:5400,d:"2024-04-26",p:{morimori:10600,homura:10500,icchome:11000,shouten:8000,rudeya:10300,kaikyo:10500,sommelier:10000,runto:10000}},
-{c:"sv",n:"SV 拡張パック「クリムゾンヘイズ」",r:5400,d:"2024-03-22",p:{morimori:13800,homura:13800,icchome:13700,shouten:11500,rudeya:13900,kaikyo:14200,sommelier:13000,runto:13700}},
-{c:"sv",n:"SV 拡張パック「ワイルドフォース」",r:5400,d:"2024-01-26",p:{morimori:10500,homura:10400,icchome:10700,shouten:8000,rudeya:10500,kaikyo:10000,sommelier:10000,runto:10000}},
-{c:"sv",n:"SV 拡張パック「サイバージャッジ」",r:5400,d:"2024-01-26",p:{morimori:8800,homura:8800,icchome:9000,shouten:8500,rudeya:8800,kaikyo:8000,sommelier:0,runto:8800}},
-{c:"sv",n:"SV ハイクラスパック「シャイニートレジャーex」",r:5500,d:"2023-12-01",p:{morimori:13800,homura:13700,icchome:13500,shouten:12500,rudeya:13600,kaikyo:13000,sommelier:0,runto:13300}},
-{c:"sv",n:"SV 拡張パック「古代の咆哮」",r:5400,d:"2023-10-27",p:{morimori:9200,homura:9100,icchome:9000,shouten:8000,rudeya:9000,kaikyo:0,sommelier:9200,runto:9200}},
-{c:"sv",n:"SV 拡張パック「未来の一閃」",r:5400,d:"2023-10-27",p:{morimori:9200,homura:9100,icchome:8800,shouten:7000,rudeya:9000,kaikyo:0,sommelier:9000,runto:8800}},
-{c:"sv",n:"SV 強化拡張パック「レイジングサーフ」",r:5400,d:"2023-09-22",p:{morimori:11800,homura:11700,icchome:11600,shouten:9500,rudeya:11500,kaikyo:10500,sommelier:11700,runto:11500}},
-{c:"sv",n:"SV 強化拡張パック「黒炎の支配者」",r:5400,d:"2023-07-28",p:{morimori:15800,homura:15500,icchome:16000,shouten:14500,rudeya:15600,kaikyo:16000,sommelier:0,runto:14800}},
-{c:"sv",n:"SV 強化拡張パック「151」",r:5400,d:"2023-06-16",p:{morimori:40500,homura:40000,icchome:40000,shouten:38000,rudeya:40500,kaikyo:38500,sommelier:38000,runto:40000}},
-{c:"sv",n:"SV 拡張パック「クレイバースト」",r:5400,d:"2023-04-14",p:{morimori:10800,homura:10800,icchome:10800,shouten:9500,rudeya:10600,kaikyo:11000,sommelier:0,runto:10800}},
-{c:"sv",n:"SV 強化拡張パック「スノーハザード」",r:5400,d:"2023-04-14",p:{morimori:9200,homura:9200,icchome:9200,shouten:7500,rudeya:9000,kaikyo:8700,sommelier:0,runto:9000}},
-{c:"sv",n:"SV 強化拡張パック「トリプレットビート」",r:5400,d:"2023-03-10",p:{morimori:14800,homura:14500,icchome:14500,shouten:11500,rudeya:14600,kaikyo:14500,sommelier:0,runto:14000}},
-{c:"sv",n:"SV 拡張パック「スカーレットex」",r:5400,d:"2023-01-20",p:{morimori:10600,homura:10500,icchome:10700,shouten:9000,rudeya:10600,kaikyo:9800,sommelier:0,runto:10000}},
-{c:"sv",n:"SV 拡張パック「バイオレットex」",r:5400,d:"2023-01-20",p:{morimori:9000,homura:8800,icchome:8800,shouten:8000,rudeya:8600,kaikyo:8600,sommelier:0,runto:8800}},
+{c:"sv",n:"SV 拡張パックDX「ブラックボルト」",r:5800,d:"2025-06-06",p:{morimori:20200,homura:22500,icchome:20000,runto:20000,sommelier:23000,kaikyo:20000,shouten:20000,rudeya:21500}},
+{c:"sv",n:"SV 拡張パックDX「ホワイトフレア」",r:5800,d:"2025-06-06",p:{morimori:17200,homura:18000,icchome:17000,runto:17000,sommelier:0,kaikyo:17000,shouten:17000,rudeya:17500}},
+{c:"sv",n:"SV 拡張パック「ブラックボルト」",r:5400,d:"2025-06-06",p:{morimori:17800,homura:6000,icchome:16500,runto:16500,sommelier:15500,kaikyo:16000,shouten:15500,rudeya:17100}},
+{c:"sv",n:"SV 拡張パック「ホワイトフレア」",r:5400,d:"2025-06-06",p:{morimori:16800,homura:16700,icchome:15600,runto:15500,sommelier:15000,kaikyo:14700,shouten:14500,rudeya:16100}},
+{c:"sv",n:"SV 拡張パック「ロケット団の栄光」",r:5400,d:"2025-04-18",p:{morimori:17000,homura:18300,icchome:18200,runto:18000,sommelier:17500,kaikyo:16500,shouten:16000,rudeya:18100}},
+{c:"sv",n:"SV 強化拡張パック「熱風のアリーナ」",r:5400,d:"2025-03-14",p:{morimori:15600,homura:16600,icchome:16300,runto:16200,sommelier:16500,kaikyo:15500,shouten:13500,rudeya:16500}},
+{c:"sv",n:"SV 拡張パック「バトルパートナーズ」",r:5400,d:"2025-01-24",p:{morimori:8500,homura:8800,icchome:8800,runto:8700,sommelier:8500,kaikyo:8700,shouten:8500,rudeya:8700}},
+{c:"sv",n:"SV ハイクラスパック テラスタルフェスex",r:5500,d:"2024-12-06",p:{morimori:15500,homura:16000,icchome:16000,runto:16000,sommelier:0,kaikyo:15000,shouten:14600,rudeya:15000}},
+{c:"sv",n:"SV 拡張パック「超電ブレイカー」",r:5400,d:"2024-10-18",p:{morimori:25800,homura:25800,icchome:24000,runto:24800,sommelier:0,kaikyo:23000,shouten:25000,rudeya:25800}},
+{c:"sv",n:"SV 強化拡張パック「楽園ドラゴーナ」",r:5400,d:"2024-09-13",p:{morimori:15000,homura:16000,icchome:14800,runto:14800,sommelier:16500,kaikyo:12500,shouten:14000,rudeya:15800}},
+{c:"sv",n:"SV 強化拡張パック「ステラミラクル」",r:5400,d:"2024-07-19",p:{morimori:9000,homura:9000,icchome:8800,runto:8800,sommelier:9000,kaikyo:6500,shouten:8800,rudeya:8800}},
+{c:"sv",n:"SV 強化拡張パック「ナイトワンダラー」",r:5400,d:"2024-06-07",p:{morimori:9000,homura:9000,icchome:9200,runto:8800,sommelier:8800,kaikyo:0,shouten:8000,rudeya:8800}},
+{c:"sv",n:"SV 拡張パック「変幻の仮面」",r:5400,d:"2024-04-26",p:{morimori:10600,homura:10500,icchome:11000,runto:10000,sommelier:10000,kaikyo:10500,shouten:8000,rudeya:10300}},
+{c:"sv",n:"SV 拡張パック「クリムゾンヘイズ」",r:5400,d:"2024-03-22",p:{morimori:13800,homura:13800,icchome:13700,runto:13700,sommelier:13000,kaikyo:14200,shouten:11500,rudeya:13900}},
+{c:"sv",n:"SV 拡張パック「ワイルドフォース」",r:5400,d:"2024-01-26",p:{morimori:10500,homura:10400,icchome:10700,runto:10000,sommelier:10000,kaikyo:10000,shouten:8000,rudeya:10500}},
+{c:"sv",n:"SV 拡張パック「サイバージャッジ」",r:5400,d:"2024-01-26",p:{morimori:8800,homura:8800,icchome:9000,runto:8800,sommelier:0,kaikyo:8000,shouten:8500,rudeya:8800}},
+{c:"sv",n:"SV ハイクラスパック「シャイニートレジャーex」",r:5500,d:"2023-12-01",p:{morimori:13800,homura:13700,icchome:13500,runto:13300,sommelier:0,kaikyo:13000,shouten:12500,rudeya:13600}},
+{c:"sv",n:"SV 拡張パック「古代の咆哮」",r:5400,d:"2023-10-27",p:{morimori:9200,homura:9100,icchome:9000,runto:9200,sommelier:9200,kaikyo:0,shouten:8000,rudeya:9000}},
+{c:"sv",n:"SV 拡張パック「未来の一閃」",r:5400,d:"2023-10-27",p:{morimori:9200,homura:9100,icchome:8800,runto:8800,sommelier:9000,kaikyo:0,shouten:7000,rudeya:9000}},
+{c:"sv",n:"SV 強化拡張パック「レイジングサーフ」",r:5400,d:"2023-09-22",p:{morimori:11800,homura:11700,icchome:11600,runto:11500,sommelier:11700,kaikyo:10500,shouten:9500,rudeya:11500}},
+{c:"sv",n:"SV 強化拡張パック「黒炎の支配者」",r:5400,d:"2023-07-28",p:{morimori:15800,homura:15500,icchome:16000,runto:14800,sommelier:0,kaikyo:16000,shouten:14500,rudeya:15600}},
+{c:"sv",n:"SV 強化拡張パック「151」",r:5400,d:"2023-06-16",p:{morimori:40500,homura:40000,icchome:40000,runto:40000,sommelier:38000,kaikyo:38500,shouten:38000,rudeya:40500}},
+{c:"sv",n:"SV 拡張パック「クレイバースト」",r:5400,d:"2023-04-14",p:{morimori:10800,homura:10800,icchome:10800,runto:10800,sommelier:0,kaikyo:11000,shouten:9500,rudeya:10600}},
+{c:"sv",n:"SV 強化拡張パック「スノーハザード」",r:5400,d:"2023-04-14",p:{morimori:9200,homura:9200,icchome:9200,runto:9000,sommelier:0,kaikyo:8700,shouten:7500,rudeya:9000}},
+{c:"sv",n:"SV 強化拡張パック「トリプレットビート」",r:5400,d:"2023-03-10",p:{morimori:14800,homura:14500,icchome:14500,runto:14000,sommelier:0,kaikyo:14500,shouten:11500,rudeya:14600}},
+{c:"sv",n:"SV 拡張パック「スカーレットex」",r:5400,d:"2023-01-20",p:{morimori:10600,homura:10500,icchome:10700,runto:10000,sommelier:0,kaikyo:9800,shouten:9000,rudeya:10600}},
+{c:"sv",n:"SV 拡張パック「バイオレットex」",r:5400,d:"2023-01-20",p:{morimori:9000,homura:8800,icchome:8800,runto:8800,sommelier:0,kaikyo:8600,shouten:8000,rudeya:8600}},
+// ===== SS =====
+{c:"ss",n:"S&S ハイクラスパック「VSTARユニバース」",r:5500,d:"2022-12-02",p:{morimori:0,homura:23000,icchome:23000,runto:22800,sommelier:0,kaikyo:22500,shouten:19000,rudeya:23100}},
+{c:"ss",n:"S&S 拡張パック「パラダイムトリガー」",r:4950,d:"2022-10-21",p:{morimori:18500,homura:18000,icchome:0,runto:18000,sommelier:0,kaikyo:18000,shouten:0,rudeya:0}},
+{c:"ss",n:"S&S 強化拡張パック「白熱のアルカナ」",r:4950,d:"2022-09-02",p:{morimori:9000,homura:9500,icchome:0,runto:8800,sommelier:0,kaikyo:8000,shouten:0,rudeya:0}},
+{c:"ss",n:"S&S 拡張パック「ロストアビス」",r:4950,d:"2022-07-15",p:{morimori:0,homura:42000,icchome:0,runto:40000,sommelier:0,kaikyo:40000,shouten:0,rudeya:0}},
+{c:"ss",n:"S&S 強化拡張パック「ポケモンGO」",r:4950,d:"2022-06-17",p:{morimori:0,homura:14200,icchome:0,runto:7000,sommelier:0,kaikyo:0,shouten:0,rudeya:0}},
+{c:"ss",n:"S&S 強化拡張パック「ダークファンタズマ」",r:4950,d:"2022-05-13",p:{morimori:0,homura:14000,icchome:0,runto:12500,sommelier:14500,kaikyo:0,shouten:0,rudeya:0}},
+{c:"ss",n:"S&S 拡張パック「タイムゲイザー」",r:4950,d:"2022-04-08",p:{morimori:0,homura:16000,icchome:0,runto:11500,sommelier:0,kaikyo:0,shouten:0,rudeya:0}},
+{c:"ss",n:"S&S 拡張パック「スペースジャグラー」",r:4950,d:"2022-04-08",p:{morimori:0,homura:13000,icchome:0,runto:0,sommelier:0,kaikyo:0,shouten:0,rudeya:0}},
+{c:"ss",n:"S&S 強化拡張パック「バトルリージョン」",r:4950,d:"2022-02-25",p:{morimori:0,homura:11500,icchome:0,runto:10000,sommelier:0,kaikyo:0,shouten:0,rudeya:0}},
+{c:"ss",n:"S&S 拡張パック「スターバース」",r:4950,d:"2022-01-14",p:{morimori:0,homura:16000,icchome:0,runto:15500,sommelier:0,kaikyo:0,shouten:0,rudeya:0}},
+{c:"ss",n:"S&S ハイクラスパック「VMAXクライマックス」",r:5500,d:"2021-12-03",p:{morimori:0,homura:24200,icchome:0,runto:22000,sommelier:0,kaikyo:21500,shouten:0,rudeya:0}},
+{c:"ss",n:"S&S 拡張パック「25th ANNIVERSARY COLLECTION」",r:5500,d:"2021-10-22",p:{morimori:0,homura:38000,icchome:0,runto:9000,sommelier:0,kaikyo:0,shouten:0,rudeya:0}},
+{c:"ss",n:"S&S 拡張パック「フュージョンアーツ」",r:4950,d:"2021-09-24",p:{morimori:0,homura:38000,icchome:0,runto:35000,sommelier:0,kaikyo:0,shouten:0,rudeya:0}},
+{c:"ss",n:"S&S 拡張パック「蒼空ストリーム」",r:4950,d:"2021-07-09",p:{morimori:0,homura:215000,icchome:0,runto:155000,sommelier:0,kaikyo:148000,shouten:0,rudeya:0}},
+{c:"ss",n:"S&S 拡張パック「摩天パーフェクト」",r:4950,d:"2021-07-09",p:{morimori:0,homura:18000,icchome:0,runto:0,sommelier:0,kaikyo:0,shouten:0,rudeya:0}},
+{c:"ss",n:"S&S 強化拡張パック「イーブイヒーローズ」",r:4950,d:"2021-05-28",p:{morimori:0,homura:122000,icchome:0,runto:118000,sommelier:0,kaikyo:105000,shouten:0,rudeya:0}},
+{c:"ss",n:"S&S 拡張パック「白銀のランス」",r:4950,d:"2021-04-23",p:{morimori:0,homura:16500,icchome:0,runto:13000,sommelier:0,kaikyo:0,shouten:0,rudeya:0}},
+{c:"ss",n:"S&S 拡張パック「漆黒のガイスト」",r:4950,d:"2021-04-23",p:{morimori:0,homura:21200,icchome:0,runto:0,sommelier:0,kaikyo:0,shouten:0,rudeya:0}},
+{c:"ss",n:"S&S 強化拡張パック「双璧のファイター」",r:4950,d:"2021-03-19",p:{morimori:0,homura:30000,icchome:0,runto:0,sommelier:0,kaikyo:0,shouten:9000,rudeya:0}},
+{c:"ss",n:"S&S 拡張パック「連撃マスター」",r:4950,d:"2021-01-22",p:{morimori:0,homura:50000,icchome:0,runto:0,sommelier:0,kaikyo:0,shouten:0,rudeya:0}},
+{c:"ss",n:"S&S 拡張パック「一撃マスター」",r:4950,d:"2021-01-22",p:{morimori:0,homura:30000,icchome:0,runto:0,sommelier:0,kaikyo:0,shouten:0,rudeya:0}},
+{c:"ss",n:"S&S ハイクラスパック「シャイニースターV」",r:5500,d:"2020-11-20",p:{morimori:0,homura:17200,icchome:0,runto:17200,sommelier:0,kaikyo:0,shouten:0,rudeya:0}},
+{c:"ss",n:"S&S 拡張パック「仰天のボルテッカー」",r:4950,d:"2020-09-18",p:{morimori:0,homura:36500,icchome:0,runto:30000,sommelier:0,kaikyo:0,shouten:0,rudeya:0}},
+{c:"ss",n:"S&S 強化拡張パック「伝説の鼓動」",r:4950,d:"2020-07-10",p:{morimori:0,homura:27000,icchome:0,runto:0,sommelier:0,kaikyo:0,shouten:4500,rudeya:0}},
+{c:"ss",n:"S&S 拡張パック「ムゲンゾーン」",r:4950,d:"2020-06-05",p:{morimori:0,homura:42000,icchome:0,runto:0,sommelier:0,kaikyo:0,shouten:0,rudeya:0}},
+{c:"ss",n:"S&S 強化拡張パック「爆炎ウォーカー」",r:4950,d:"2020-04-24",p:{morimori:0,homura:32000,icchome:0,runto:0,sommelier:0,kaikyo:0,shouten:0,rudeya:0}},
+{c:"ss",n:"S&S 拡張パック「反逆クラッシュ」",r:4950,d:"2020-03-06",p:{morimori:0,homura:39000,icchome:0,runto:0,sommelier:0,kaikyo:0,shouten:0,rudeya:0}},
+{c:"ss",n:"S&S 拡張パック「VMAXライジング」",r:4950,d:"2020-02-07",p:{morimori:0,homura:85000,icchome:0,runto:0,sommelier:0,kaikyo:0,shouten:0,rudeya:0}},
+{c:"ss",n:"S&S 拡張パック「ソード」",r:4950,d:"2019-12-06",p:{morimori:0,homura:50000,icchome:0,runto:0,sommelier:0,kaikyo:0,shouten:0,rudeya:0}},
+{c:"ss",n:"S&S 拡張パック「シールド」",r:4950,d:"2019-12-06",p:{morimori:0,homura:60000,icchome:0,runto:0,sommelier:0,kaikyo:0,shouten:0,rudeya:0}},
 // ===== SPECIAL =====
-{c:"special",n:"スペシャルBOX トウホク",r:2090,d:"2025-06-13",p:{morimori:0,homura:13000,icchome:14000,shouten:12000,rudeya:13000,kaikyo:15000,sommelier:0,runto:15000}},
-{c:"special",n:"スペシャルBOX ヒロシマ",r:2090,d:"2025-06-13",p:{morimori:0,homura:16000,icchome:17000,shouten:14000,rudeya:16000,kaikyo:18000,sommelier:0,runto:19000}},
-{c:"special",n:"スペシャルBOX フクオカ",r:2090,d:"2025-06-13",p:{morimori:0,homura:16000,icchome:16500,shouten:15000,rudeya:16000,kaikyo:17000,sommelier:0,runto:18000}},
+{c:"special",n:"スペシャルBOX トウホク",r:2090,d:"2025-06-13",p:{morimori:0,homura:13000,icchome:14000,runto:15000,sommelier:0,kaikyo:15000,shouten:12000,rudeya:13000}},
+{c:"special",n:"スペシャルBOX ヒロシマ",r:2090,d:"2025-06-13",p:{morimori:0,homura:16000,icchome:17000,runto:19000,sommelier:0,kaikyo:18000,shouten:14000,rudeya:16000}},
+{c:"special",n:"スペシャルBOX フクオカ",r:2090,d:"2025-06-13",p:{morimori:0,homura:16000,icchome:16500,runto:18000,sommelier:0,kaikyo:17000,shouten:15000,rudeya:16000}},
 ];
+
+const H={"MEGA 拡張パック「ニンジャスピナー」": {"2026-03-08": 10854, "2026-03-09": 10931, "2026-03-10": 10979, "2026-03-11": 10795, "2026-03-12": 10901, "2026-03-13": 10629, "2026-03-14": 10794, "2026-03-15": 10479, "2026-03-16": 10921, "2026-03-17": 10545, "2026-03-18": 10760, "2026-03-19": 10503, "2026-03-20": 10180, "2026-03-21": 10387, "2026-03-22": 10500}, "MEGA 拡張パック「ムニキスゼロ」": {"2026-03-08": 7243, "2026-03-09": 7168, "2026-03-10": 7118, "2026-03-11": 7500, "2026-03-12": 7408, "2026-03-13": 7484, "2026-03-14": 7023, "2026-03-15": 7184, "2026-03-16": 7087, "2026-03-17": 7034, "2026-03-18": 7032, "2026-03-19": 6973, "2026-03-20": 7460, "2026-03-21": 7409, "2026-03-22": 7200}, "MEGA ハイクラスパック「MEGAドリームex」": {"2026-03-08": 10312, "2026-03-09": 9744, "2026-03-10": 10214, "2026-03-11": 9621, "2026-03-12": 9973, "2026-03-13": 10213, "2026-03-14": 9961, "2026-03-15": 9728, "2026-03-16": 10062, "2026-03-17": 9774, "2026-03-18": 9801, "2026-03-19": 9719, "2026-03-20": 10064, "2026-03-21": 9990, "2026-03-22": 10000}, "MEGA 拡張パック「インフェルノX」": {"2026-03-08": 18195, "2026-03-09": 17772, "2026-03-10": 18218, "2026-03-11": 17598, "2026-03-12": 17998, "2026-03-13": 18899, "2026-03-14": 17790, "2026-03-15": 18060, "2026-03-16": 17101, "2026-03-17": 17467, "2026-03-18": 17154, "2026-03-19": 17681, "2026-03-20": 17358, "2026-03-21": 18607, "2026-03-22": 18000}, "MEGA 拡張パック「メガブレイブ」": {"2026-03-08": 9794, "2026-03-09": 10232, "2026-03-10": 10171, "2026-03-11": 9902, "2026-03-12": 10245, "2026-03-13": 9908, "2026-03-14": 9843, "2026-03-15": 9849, "2026-03-16": 9773, "2026-03-17": 10079, "2026-03-18": 10544, "2026-03-19": 10029, "2026-03-20": 10146, "2026-03-21": 10019, "2026-03-22": 10300}, "MEGA 拡張パック「メガシンフォニア」": {"2026-03-08": 9508, "2026-03-09": 8807, "2026-03-10": 8813, "2026-03-11": 9396, "2026-03-12": 9197, "2026-03-13": 8772, "2026-03-14": 8859, "2026-03-15": 9532, "2026-03-16": 9552, "2026-03-17": 9492, "2026-03-18": 9101, "2026-03-19": 9076, "2026-03-20": 9135, "2026-03-21": 8869, "2026-03-22": 9500}, "SV 拡張パックDX「ブラックボルト」": {"2026-03-08": 22376, "2026-03-09": 21940, "2026-03-10": 22010, "2026-03-11": 22117, "2026-03-12": 23658, "2026-03-13": 22744, "2026-03-14": 23214, "2026-03-15": 22487, "2026-03-16": 22819, "2026-03-17": 22576, "2026-03-18": 23625, "2026-03-19": 23219, "2026-03-20": 21895, "2026-03-21": 23476, "2026-03-22": 23000}, "SV 拡張パックDX「ホワイトフレア」": {"2026-03-08": 17335, "2026-03-09": 18241, "2026-03-10": 17763, "2026-03-11": 18324, "2026-03-12": 17899, "2026-03-13": 18852, "2026-03-14": 18022, "2026-03-15": 17169, "2026-03-16": 17326, "2026-03-17": 17582, "2026-03-18": 18797, "2026-03-19": 18079, "2026-03-20": 18785, "2026-03-21": 17292, "2026-03-22": 18000}, "SV 拡張パック「ブラックボルト」": {"2026-03-08": 18191, "2026-03-09": 17714, "2026-03-10": 17630, "2026-03-11": 18090, "2026-03-12": 17392, "2026-03-13": 18151, "2026-03-14": 17926, "2026-03-15": 18600, "2026-03-16": 18123, "2026-03-17": 18222, "2026-03-18": 18269, "2026-03-19": 16932, "2026-03-20": 18413, "2026-03-21": 18191, "2026-03-22": 17800}, "SV 拡張パック「ホワイトフレア」": {"2026-03-08": 17537, "2026-03-09": 17187, "2026-03-10": 16157, "2026-03-11": 16755, "2026-03-12": 15973, "2026-03-13": 16412, "2026-03-14": 17027, "2026-03-15": 16576, "2026-03-16": 16854, "2026-03-17": 17334, "2026-03-18": 15981, "2026-03-19": 16611, "2026-03-20": 16460, "2026-03-21": 17278, "2026-03-22": 16800}, "SV 拡張パック「ロケット団の栄光」": {"2026-03-08": 19079, "2026-03-09": 18648, "2026-03-10": 18752, "2026-03-11": 17947, "2026-03-12": 18021, "2026-03-13": 17612, "2026-03-14": 18059, "2026-03-15": 18890, "2026-03-16": 18935, "2026-03-17": 18073, "2026-03-18": 17826, "2026-03-19": 18958, "2026-03-20": 18800, "2026-03-21": 18935, "2026-03-22": 18300}, "SV 強化拡張パック「熱風のアリーナ」": {"2026-03-08": 16439, "2026-03-09": 16738, "2026-03-10": 16670, "2026-03-11": 16463, "2026-03-12": 16990, "2026-03-13": 17418, "2026-03-14": 16423, "2026-03-15": 16900, "2026-03-16": 16666, "2026-03-17": 17037, "2026-03-18": 16013, "2026-03-19": 16062, "2026-03-20": 15858, "2026-03-21": 17233, "2026-03-22": 16600}, "SV 拡張パック「バトルパートナーズ」": {"2026-03-08": 8668, "2026-03-09": 8800, "2026-03-10": 8765, "2026-03-11": 8600, "2026-03-12": 9194, "2026-03-13": 9153, "2026-03-14": 8927, "2026-03-15": 8949, "2026-03-16": 8370, "2026-03-17": 8677, "2026-03-18": 8501, "2026-03-19": 8985, "2026-03-20": 8368, "2026-03-21": 8842, "2026-03-22": 8800}, "SV ハイクラスパック テラスタルフェスex": {"2026-03-08": 16498, "2026-03-09": 15891, "2026-03-10": 16456, "2026-03-11": 15660, "2026-03-12": 15287, "2026-03-13": 16786, "2026-03-14": 15797, "2026-03-15": 15643, "2026-03-16": 15470, "2026-03-17": 16400, "2026-03-18": 16469, "2026-03-19": 16536, "2026-03-20": 16684, "2026-03-21": 15230, "2026-03-22": 16000}, "SV 拡張パック「超電ブレイカー」": {"2026-03-08": 25164, "2026-03-09": 26371, "2026-03-10": 25631, "2026-03-11": 26972, "2026-03-12": 26556, "2026-03-13": 26072, "2026-03-14": 26137, "2026-03-15": 26323, "2026-03-16": 26944, "2026-03-17": 24999, "2026-03-18": 26772, "2026-03-19": 26800, "2026-03-20": 25531, "2026-03-21": 26316, "2026-03-22": 25800}, "SV 強化拡張パック「楽園ドラゴーナ」": {"2026-03-08": 16636, "2026-03-09": 16339, "2026-03-10": 16567, "2026-03-11": 15519, "2026-03-12": 16148, "2026-03-13": 15962, "2026-03-14": 16546, "2026-03-15": 15255, "2026-03-16": 16662, "2026-03-17": 16260, "2026-03-18": 16326, "2026-03-19": 16526, "2026-03-20": 15511, "2026-03-21": 16521, "2026-03-22": 16500}, "SV 強化拡張パック「ステラミラクル」": {"2026-03-08": 8861, "2026-03-09": 9127, "2026-03-10": 9045, "2026-03-11": 8669, "2026-03-12": 8573, "2026-03-13": 8646, "2026-03-14": 8986, "2026-03-15": 9327, "2026-03-16": 8979, "2026-03-17": 8675, "2026-03-18": 9334, "2026-03-19": 8738, "2026-03-20": 9079, "2026-03-21": 8621, "2026-03-22": 9000}, "SV 強化拡張パック「ナイトワンダラー」": {"2026-03-08": 9637, "2026-03-09": 8987, "2026-03-10": 8901, "2026-03-11": 9221, "2026-03-12": 9257, "2026-03-13": 9190, "2026-03-14": 9611, "2026-03-15": 8841, "2026-03-16": 8936, "2026-03-17": 8931, "2026-03-18": 9170, "2026-03-19": 9095, "2026-03-20": 9155, "2026-03-21": 8801, "2026-03-22": 9200}, "SV 拡張パック「変幻の仮面」": {"2026-03-08": 10801, "2026-03-09": 11092, "2026-03-10": 10547, "2026-03-11": 10829, "2026-03-12": 10963, "2026-03-13": 10635, "2026-03-14": 11465, "2026-03-15": 11254, "2026-03-16": 11124, "2026-03-17": 11333, "2026-03-18": 11001, "2026-03-19": 10884, "2026-03-20": 10934, "2026-03-21": 10988, "2026-03-22": 11000}, "SV 拡張パック「クリムゾンヘイズ」": {"2026-03-08": 14424, "2026-03-09": 13751, "2026-03-10": 13852, "2026-03-11": 14205, "2026-03-12": 13665, "2026-03-13": 13593, "2026-03-14": 14611, "2026-03-15": 13633, "2026-03-16": 14621, "2026-03-17": 14882, "2026-03-18": 13994, "2026-03-19": 14884, "2026-03-20": 14181, "2026-03-21": 13716, "2026-03-22": 14200}, "SV 拡張パック「ワイルドフォース」": {"2026-03-08": 10376, "2026-03-09": 10729, "2026-03-10": 10251, "2026-03-11": 11154, "2026-03-12": 10795, "2026-03-13": 10180, "2026-03-14": 10978, "2026-03-15": 10822, "2026-03-16": 11153, "2026-03-17": 10359, "2026-03-18": 10415, "2026-03-19": 10627, "2026-03-20": 10867, "2026-03-21": 10515, "2026-03-22": 10700}, "SV 拡張パック「サイバージャッジ」": {"2026-03-08": 8830, "2026-03-09": 9449, "2026-03-10": 8966, "2026-03-11": 9280, "2026-03-12": 9414, "2026-03-13": 8629, "2026-03-14": 8565, "2026-03-15": 9127, "2026-03-16": 9197, "2026-03-17": 8963, "2026-03-18": 9046, "2026-03-19": 8787, "2026-03-20": 8643, "2026-03-21": 8732, "2026-03-22": 9000}, "SV ハイクラスパック「シャイニートレジャーex」": {"2026-03-08": 18324, "2026-03-09": 18027, "2026-03-10": 18644, "2026-03-11": 17019, "2026-03-12": 17301, "2026-03-13": 17258, "2026-03-14": 17988, "2026-03-15": 17931, "2026-03-16": 17294, "2026-03-17": 18329, "2026-03-18": 17697, "2026-03-19": 17530, "2026-03-20": 17215, "2026-03-21": 18249, "2026-03-22": 13800}, "SV 拡張パック「古代の咆哮」": {"2026-03-08": 8979, "2026-03-09": 9095, "2026-03-10": 9100, "2026-03-11": 9212, "2026-03-12": 9348, "2026-03-13": 9455, "2026-03-14": 8933, "2026-03-15": 9152, "2026-03-16": 9283, "2026-03-17": 9545, "2026-03-18": 9212, "2026-03-19": 8897, "2026-03-20": 9063, "2026-03-21": 8838, "2026-03-22": 9200}, "SV 拡張パック「未来の一閃」": {"2026-03-08": 9552, "2026-03-09": 9484, "2026-03-10": 9018, "2026-03-11": 8932, "2026-03-12": 9135, "2026-03-13": 9058, "2026-03-14": 8868, "2026-03-15": 9264, "2026-03-16": 9109, "2026-03-17": 9218, "2026-03-18": 8877, "2026-03-19": 9477, "2026-03-20": 9404, "2026-03-21": 9487, "2026-03-22": 9200}, "SV 強化拡張パック「レイジングサーフ」": {"2026-03-08": 11352, "2026-03-09": 11536, "2026-03-10": 11494, "2026-03-11": 11707, "2026-03-12": 11718, "2026-03-13": 11456, "2026-03-14": 11206, "2026-03-15": 12113, "2026-03-16": 11347, "2026-03-17": 11458, "2026-03-18": 11981, "2026-03-19": 11077, "2026-03-20": 11091, "2026-03-21": 11080, "2026-03-22": 11800}, "SV 強化拡張パック「黒炎の支配者」": {"2026-03-08": 15590, "2026-03-09": 15906, "2026-03-10": 16202, "2026-03-11": 15727, "2026-03-12": 16259, "2026-03-13": 15837, "2026-03-14": 16426, "2026-03-15": 16451, "2026-03-16": 15748, "2026-03-17": 15807, "2026-03-18": 16328, "2026-03-19": 15601, "2026-03-20": 15804, "2026-03-21": 15599, "2026-03-22": 16000}, "SV 強化拡張パック「151」": {"2026-03-08": 40950, "2026-03-09": 40807, "2026-03-10": 40079, "2026-03-11": 41159, "2026-03-12": 39967, "2026-03-13": 39147, "2026-03-14": 39157, "2026-03-15": 42411, "2026-03-16": 41875, "2026-03-17": 38755, "2026-03-18": 40473, "2026-03-19": 40482, "2026-03-20": 41793, "2026-03-21": 38844, "2026-03-22": 40500}, "SV 拡張パック「クレイバースト」": {"2026-03-08": 10797, "2026-03-09": 10741, "2026-03-10": 11249, "2026-03-11": 11012, "2026-03-12": 11396, "2026-03-13": 11210, "2026-03-14": 10545, "2026-03-15": 11217, "2026-03-16": 11294, "2026-03-17": 10532, "2026-03-18": 11435, "2026-03-19": 11354, "2026-03-20": 10983, "2026-03-21": 11063, "2026-03-22": 11000}, "SV 強化拡張パック「スノーハザード」": {"2026-03-08": 9136, "2026-03-09": 9638, "2026-03-10": 9003, "2026-03-11": 9583, "2026-03-12": 9587, "2026-03-13": 9453, "2026-03-14": 9085, "2026-03-15": 9510, "2026-03-16": 9121, "2026-03-17": 9285, "2026-03-18": 9161, "2026-03-19": 8890, "2026-03-20": 9011, "2026-03-21": 9382, "2026-03-22": 9200}, "SV 強化拡張パック「トリプレットビート」": {"2026-03-08": 15158, "2026-03-09": 14247, "2026-03-10": 14181, "2026-03-11": 14403, "2026-03-12": 15106, "2026-03-13": 14640, "2026-03-14": 14644, "2026-03-15": 14775, "2026-03-16": 14576, "2026-03-17": 14164, "2026-03-18": 14764, "2026-03-19": 15334, "2026-03-20": 15244, "2026-03-21": 14470, "2026-03-22": 14800}, "SV 拡張パック「スカーレットex」": {"2026-03-08": 11205, "2026-03-09": 10905, "2026-03-10": 10389, "2026-03-11": 10882, "2026-03-12": 10920, "2026-03-13": 10336, "2026-03-14": 11170, "2026-03-15": 11031, "2026-03-16": 10640, "2026-03-17": 11265, "2026-03-18": 10814, "2026-03-19": 11336, "2026-03-20": 11152, "2026-03-21": 10720, "2026-03-22": 10700}, "SV 拡張パック「バイオレットex」": {"2026-03-08": 9194, "2026-03-09": 9391, "2026-03-10": 9341, "2026-03-11": 9225, "2026-03-12": 9092, "2026-03-13": 8928, "2026-03-14": 8811, "2026-03-15": 8857, "2026-03-16": 9193, "2026-03-17": 8722, "2026-03-18": 9186, "2026-03-19": 8654, "2026-03-20": 8808, "2026-03-21": 8588, "2026-03-22": 9000}, "スペシャルBOX トウホク": {"2026-03-08": 15284, "2026-03-09": 14424, "2026-03-10": 15224, "2026-03-11": 14479, "2026-03-12": 14919, "2026-03-13": 15045, "2026-03-14": 15134, "2026-03-15": 14622, "2026-03-16": 15717, "2026-03-17": 14870, "2026-03-18": 14338, "2026-03-19": 15490, "2026-03-20": 15733, "2026-03-21": 14695, "2026-03-22": 15000}, "スペシャルBOX ヒロシマ": {"2026-03-08": 18183, "2026-03-09": 18300, "2026-03-10": 18224, "2026-03-11": 19267, "2026-03-12": 19639, "2026-03-13": 18515, "2026-03-14": 19905, "2026-03-15": 18565, "2026-03-16": 18894, "2026-03-17": 19083, "2026-03-18": 19128, "2026-03-19": 18781, "2026-03-20": 18654, "2026-03-21": 19083, "2026-03-22": 19000}, "スペシャルBOX フクオカ": {"2026-03-08": 17910, "2026-03-09": 17214, "2026-03-10": 18303, "2026-03-11": 17936, "2026-03-12": 17911, "2026-03-13": 18133, "2026-03-14": 17892, "2026-03-15": 17425, "2026-03-16": 18483, "2026-03-17": 17558, "2026-03-18": 17532, "2026-03-19": 18866, "2026-03-20": 17448, "2026-03-21": 18660, "2026-03-22": 18000}};
 
 // ===== Escape utility =====
 function esc(s){
@@ -295,7 +354,7 @@ function esc(s){
   return d.innerHTML;
 }
 
-let cc="all",vs=new Set(S),sm=false,invMode=false;
+let cc="",vs=new Set(S),sm=false,invMode=false;
 const INV_KEY="pokeca_inventory";
 function fp(v){if(!v||v===0)return"-";return"\u00a5"+v.toLocaleString()}
 function loadInv(){try{return JSON.parse(localStorage.getItem(INV_KEY))||{}}catch(e){return{}}}
@@ -319,7 +378,7 @@ function syncFbarHeight(){
 
 function render(){
   const tb=document.getElementById("tb");
-  let f=P.filter(x=>cc==="all"||x.c===cc);
+  let f=cc===""?P.filter(x=>x.c!=="ss"):cc==="all"?P.slice():P.filter(x=>x.c===cc);
   f.forEach(x=>{
     const ap=S.filter(s=>vs.has(s)&&x.p[s]>0).map(s=>x.p[s]);
     x._m=ap.length?Math.max(...ap):0;
@@ -352,6 +411,8 @@ function render(){
     const tdN=document.createElement("td");
     tdN.className="pn";
     tdN.textContent=x.n;
+    tdN.style.cursor="pointer";
+    tdN.addEventListener("click",(function(name){return function(){showChart(name)}})(x.n));
     tr.appendChild(tdN);
 
     // Quantity (inventory mode)
@@ -421,9 +482,14 @@ function render(){
 // ===== Event listeners =====
 document.querySelectorAll("[data-f='cat']").forEach(function(b){
   b.addEventListener("click",function(){
-    document.querySelectorAll("[data-f='cat']").forEach(function(x){x.classList.remove("active")});
-    b.classList.add("active");
-    cc=b.dataset.v;
+    if(b.classList.contains("active")){
+      b.classList.remove("active");
+      cc="";
+    }else{
+      document.querySelectorAll("[data-f='cat']").forEach(function(x){x.classList.remove("active")});
+      b.classList.add("active");
+      cc=b.dataset.v;
+    }
     render();
   });
 });
@@ -458,6 +524,103 @@ document.getElementById("invBtn").addEventListener("click",function(){
   document.getElementById("invBar").style.display=invMode?"":"none";
   render();
 });
+
+// ===== Chart =====
+let chartInstance=null,chartMode="",chartArg="",chartPeriod=30;
+const modal=document.getElementById("chartModal");
+const chartCtx=document.getElementById("chartCanvas").getContext("2d");
+
+function filterByPeriod(dates,days){
+  if(!days)return dates;
+  const now=new Date();
+  const cutoff=new Date(now.getTime()-days*86400000);
+  const cs=cutoff.toISOString().slice(0,10);
+  return dates.filter(d=>d>=cs);
+}
+
+function drawChart(allDates,allValues,title,color){
+  const dates=filterByPeriod(allDates,chartPeriod);
+  const start=allDates.indexOf(dates[0]);
+  const values=allValues.slice(start,start+dates.length);
+  const labels=dates.map(d=>{const p=d.split("-");return p[1]+"/"+p[2]});
+
+  if(chartInstance)chartInstance.destroy();
+  document.getElementById("chartTitle").textContent=title;
+  chartInstance=new Chart(chartCtx,{
+    type:"line",
+    data:{
+      labels:labels,
+      datasets:[{
+        label:title,
+        data:values,
+        borderColor:color,
+        backgroundColor:color.replace(")",",0.1)").replace("rgb","rgba"),
+        fill:true,
+        tension:0.3,
+        pointRadius:dates.length>90?0:4,
+        pointBackgroundColor:color
+      }]
+    },
+    options:{
+      responsive:true,
+      plugins:{
+        legend:{display:false},
+        tooltip:{callbacks:{label:function(c){return"\u00a5"+c.parsed.y.toLocaleString()}}}
+      },
+      scales:{
+        y:{ticks:{callback:function(v){return"\u00a5"+v.toLocaleString()}},grid:{color:"#f3f4f6"}},
+        x:{grid:{display:false},ticks:{maxTicksLimit:12}}
+      }
+    }
+  });
+}
+
+function showChart(name){
+  if(typeof H==="undefined"||!H[name])return;
+  chartMode="product";chartArg=name;
+  const data=H[name];
+  const dates=Object.keys(data).sort();
+  const prices=dates.map(d=>data[d]);
+  drawChart(dates,prices,name+" - 最高買取価格推移","rgb(99,102,241)");
+  modal.style.display="flex";
+}
+
+function showAssetChart(){
+  if(typeof H==="undefined")return;
+  chartMode="asset";chartArg="";
+  const inv=loadInv();
+  const allDates=new Set();
+  P.forEach(x=>{if(H[x.n])Object.keys(H[x.n]).forEach(d=>allDates.add(d))});
+  const dates=[...allDates].sort();
+  if(!dates.length)return;
+  const totals=dates.map(d=>{
+    let total=0;
+    P.forEach(x=>{
+      const q=inv[x.n]||0;
+      if(q>0&&H[x.n]&&H[x.n][d])total+=H[x.n][d]*q;
+    });
+    return total;
+  });
+  drawChart(dates,totals,"所持BOX 資産推移","rgb(124,58,237)");
+  modal.style.display="flex";
+}
+
+function refreshChart(){
+  if(chartMode==="product")showChart(chartArg);
+  else if(chartMode==="asset")showAssetChart();
+}
+
+document.querySelectorAll("#chartPeriod .fb").forEach(function(b){
+  b.addEventListener("click",function(){
+    document.querySelectorAll("#chartPeriod .fb").forEach(function(x){x.classList.remove("active")});
+    b.classList.add("active");
+    chartPeriod=parseInt(b.dataset.p);
+    refreshChart();
+  });
+});
+
+document.getElementById("chartClose").addEventListener("click",function(){modal.style.display="none"});
+modal.addEventListener("click",function(e){if(e.target===modal)modal.style.display="none"});
 
 // ===== Init =====
 // Measure fbar height on load and resize

@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 JST = timezone(timedelta(hours=9))
 
 # Shop IDs in display order
-SHOP_IDS = ["morimori", "homura", "icchome", "shouten", "rudeya", "kaikyo", "sommelier", "runto"]
+SHOP_IDS = ["morimori", "homura", "icchome", "runto", "sommelier", "kaikyo", "shouten", "rudeya"]
 
 
 def generate_product_js(products: list[MasterProduct]) -> str:
@@ -49,6 +49,29 @@ def generate_product_js(products: list[MasterProduct]) -> str:
     return "\n".join(lines)
 
 
+def generate_history_js(history_dir: Path) -> str:
+    """Generate JS object with price history data from daily snapshots."""
+    if not history_dir.exists():
+        return "const H={};"
+
+    # Load all history files, sorted by date
+    history = {}
+    for f in sorted(history_dir.glob("*.json")):
+        date = f.stem  # "2026-03-22"
+        try:
+            data = json.loads(f.read_text(encoding="utf-8"))
+            for item in data:
+                name = item["name"]
+                if name not in history:
+                    history[name] = {}
+                history[name][date] = item["max_price"]
+        except (json.JSONDecodeError, KeyError):
+            continue
+
+    # Build JS: H = { "product name": { "2026-03-22": 18000, ... }, ... }
+    return "const H=" + json.dumps(history, ensure_ascii=False) + ";"
+
+
 def generate_html(
     products: list[MasterProduct],
     template_path: Path | None = None,
@@ -75,12 +98,16 @@ def generate_html(
     # Generate product data JS
     product_js = generate_product_js(products)
 
+    # Generate history data JS
+    history_js = generate_history_js(project_root / "data" / "history")
+
     # Generate update date in JST
     now = datetime.now(JST)
     update_date = now.strftime("%Y/%m/%d %H:%M")
 
     # Replace placeholders
     html = template.replace("// {{PRODUCT_DATA}}", product_js)
+    html = html.replace("// {{HISTORY_DATA}}", history_js)
     html = html.replace("{{UPDATE_DATE}}", update_date)
 
     # Write output
