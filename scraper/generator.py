@@ -23,9 +23,11 @@ def generate_product_js(products: list[MasterProduct]) -> str:
     lines = []
     lines.append("const P=[")
 
-    # Group by category
+    # Group by category (S&S is on hold, skip)
     current_cat = None
     for p in products:
+        if p.category == "ss":
+            continue
         if p.category != current_cat:
             current_cat = p.category
             lines.append(f"// ===== {current_cat.upper()} =====")
@@ -98,16 +100,12 @@ def generate_html(
     # Generate product data JS
     product_js = generate_product_js(products)
 
-    # Generate history data JS
-    history_js = generate_history_js(project_root / "data" / "history")
-
     # Generate update date in JST
     now = datetime.now(JST)
     update_date = now.strftime("%Y/%m/%d %H:%M")
 
     # Replace placeholders
     html = template.replace("// {{PRODUCT_DATA}}", product_js)
-    html = html.replace("// {{HISTORY_DATA}}", history_js)
     html = html.replace("{{UPDATE_DATE}}", update_date)
 
     # Write output
