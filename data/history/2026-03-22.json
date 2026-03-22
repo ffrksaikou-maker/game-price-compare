@@ -514,6 +514,308 @@
     }
   },
   {
+    "name": "S&S ハイクラスパック「VSTARユニバース」",
+    "category": "ss",
+    "retail_price": 5500,
+    "max_price": 23100,
+    "prices": {
+      "homura": 23000,
+      "rudeya": 23100,
+      "runto": 22800,
+      "icchome": 23000,
+      "shouten": 19000,
+      "kaikyo": 22500
+    }
+  },
+  {
+    "name": "S&S 拡張パック「パラダイムトリガー」",
+    "category": "ss",
+    "retail_price": 4950,
+    "max_price": 18500,
+    "prices": {
+      "morimori": 18500,
+      "homura": 18000,
+      "runto": 18000,
+      "kaikyo": 18000
+    }
+  },
+  {
+    "name": "S&S 強化拡張パック「白熱のアルカナ」",
+    "category": "ss",
+    "retail_price": 4950,
+    "max_price": 9500,
+    "prices": {
+      "morimori": 9000,
+      "homura": 9500,
+      "runto": 8800,
+      "kaikyo": 8000
+    }
+  },
+  {
+    "name": "S&S 拡張パック「ロストアビス」",
+    "category": "ss",
+    "retail_price": 4950,
+    "max_price": 42000,
+    "prices": {
+      "homura": 42000,
+      "runto": 40000,
+      "kaikyo": 40000
+    }
+  },
+  {
+    "name": "S&S 強化拡張パック「ポケモンGO」",
+    "category": "ss",
+    "retail_price": 4950,
+    "max_price": 14200,
+    "prices": {
+      "homura": 14200,
+      "runto": 7000
+    }
+  },
+  {
+    "name": "S&S 強化拡張パック「ダークファンタズマ」",
+    "category": "ss",
+    "retail_price": 4950,
+    "max_price": 14500,
+    "prices": {
+      "homura": 14000,
+      "runto": 12500,
+      "sommelier": 14500
+    }
+  },
+  {
+    "name": "S&S 拡張パック「タイムゲイザー」",
+    "category": "ss",
+    "retail_price": 4950,
+    "max_price": 16000,
+    "prices": {
+      "homura": 16000,
+      "runto": 11500
+    }
+  },
+  {
+    "name": "S&S 拡張パック「スペースジャグラー」",
+    "category": "ss",
+    "retail_price": 4950,
+    "max_price": 13000,
+    "prices": {
+      "homura": 13000
+    }
+  },
+  {
+    "name": "S&S 強化拡張パック「バトルリージョン」",
+    "category": "ss",
+    "retail_price": 4950,
+    "max_price": 11500,
+    "prices": {
+      "homura": 11500,
+      "runto": 10000
+    }
+  },
+  {
+    "name": "S&S 拡張パック「スターバース」",
+    "category": "ss",
+    "retail_price": 4950,
+    "max_price": 16000,
+    "prices": {
+      "homura": 16000,
+      "runto": 15500
+    }
+  },
+  {
+    "name": "S&S ハイクラスパック「VMAXクライマックス」",
+    "category": "ss",
+    "retail_price": 5500,
+    "max_price": 24200,
+    "prices": {
+      "homura": 24200,
+      "runto": 22000,
+      "kaikyo": 21500
+    }
+  },
+  {
+    "name": "S&S 拡張パック「25th ANNIVERSARY COLLECTION」",
+    "category": "ss",
+    "retail_price": 5500,
+    "max_price": 38000,
+    "prices": {
+      "homura": 38000,
+      "runto": 9000
+    }
+  },
+  {
+    "name": "S&S 拡張パック「フュージョンアーツ」",
+    "category": "ss",
+    "retail_price": 4950,
+    "max_price": 38000,
+    "prices": {
+      "homura": 38000,
+      "runto": 35000
+    }
+  },
+  {
+    "name": "S&S 拡張パック「蒼空ストリーム」",
+    "category": "ss",
+    "retail_price": 4950,
+    "max_price": 215000,
+    "prices": {
+      "homura": 215000,
+      "runto": 155000,
+      "kaikyo": 148000
+    }
+  },
+  {
+    "name": "S&S 拡張パック「摩天パーフェクト」",
+    "category": "ss",
+    "retail_price": 4950,
+    "max_price": 18000,
+    "prices": {
+      "homura": 18000
+    }
+  },
+  {
+    "name": "S&S 強化拡張パック「イーブイヒーローズ」",
+    "category": "ss",
+    "retail_price": 4950,
+    "max_price": 122000,
+    "prices": {
+      "homura": 122000,
+      "runto": 118000,
+      "kaikyo": 105000
+    }
+  },
+  {
+    "name": "S&S 拡張パック「白銀のランス」",
+    "category": "ss",
+    "retail_price": 4950,
+    "max_price": 16500,
+    "prices": {
+      "homura": 16500,
+      "runto": 13000
+    }
+  },
+  {
+    "name": "S&S 拡張パック「漆黒のガイスト」",
+    "category": "ss",
+    "retail_price": 4950,
+    "max_price": 21200,
+    "prices": {
+      "homura": 21200
+    }
+  },
+  {
+    "name": "S&S 強化拡張パック「双璧のファイター」",
+    "category": "ss",
+    "retail_price": 4950,
+    "max_price": 30000,
+    "prices": {
+      "homura": 30000,
+      "shouten": 9000
+    }
+  },
+  {
+    "name": "S&S 拡張パック「連撃マスター」",
+    "category": "ss",
+    "retail_price": 4950,
+    "max_price": 50000,
+    "prices": {
+      "homura": 50000
+    }
+  },
+  {
+    "name": "S&S 拡張パック「一撃マスター」",
+    "category": "ss",
+    "retail_price": 4950,
+    "max_price": 30000,
+    "prices": {
+      "homura": 30000
+    }
+  },
+  {
+    "name": "S&S ハイクラスパック「シャイニースターV」",
+    "category": "ss",
+    "retail_price": 5500,
+    "max_price": 17200,
+    "prices": {
+      "homura": 17200,
+      "runto": 17200
+    }
+  },
+  {
+    "name": "S&S 拡張パック「仰天のボルテッカー」",
+    "category": "ss",
+    "retail_price": 4950,
+    "max_price": 36500,
+    "prices": {
+      "homura": 36500,
+      "runto": 30000
+    }
+  },
+  {
+    "name": "S&S 強化拡張パック「伝説の鼓動」",
+    "category": "ss",
+    "retail_price": 4950,
+    "max_price": 27000,
+    "prices": {
+      "homura": 27000,
+      "shouten": 4500
+    }
+  },
+  {
+    "name": "S&S 拡張パック「ムゲンゾーン」",
+    "category": "ss",
+    "retail_price": 4950,
+    "max_price": 42000,
+    "prices": {
+      "homura": 42000
+    }
+  },
+  {
+    "name": "S&S 強化拡張パック「爆炎ウォーカー」",
+    "category": "ss",
+    "retail_price": 4950,
+    "max_price": 32000,
+    "prices": {
+      "homura": 32000
+    }
+  },
+  {
+    "name": "S&S 拡張パック「反逆クラッシュ」",
+    "category": "ss",
+    "retail_price": 4950,
+    "max_price": 39000,
+    "prices": {
+      "homura": 39000
+    }
+  },
+  {
+    "name": "S&S 拡張パック「VMAXライジング」",
+    "category": "ss",
+    "retail_price": 4950,
+    "max_price": 85000,
+    "prices": {
+      "homura": 85000
+    }
+  },
+  {
+    "name": "S&S 拡張パック「ソード」",
+    "category": "ss",
+    "retail_price": 4950,
+    "max_price": 50000,
+    "prices": {
+      "homura": 50000
+    }
+  },
+  {
+    "name": "S&S 拡張パック「シールド」",
+    "category": "ss",
+    "retail_price": 4950,
+    "max_price": 60000,
+    "prices": {
+      "homura": 60000
+    }
+  },
+  {
     "name": "スペシャルBOX トウホク",
     "category": "special",
     "retail_price": 2090,
