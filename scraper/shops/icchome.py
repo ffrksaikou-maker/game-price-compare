@@ -14,7 +14,7 @@ from .base import BaseScraper, ScrapedItem
 logger = logging.getLogger(__name__)
 
 API_URL = "https://www.1-chome.com/api/goods/listPage"
-POKEMON_CATE_CODE = "6crqPbpiAbaKuH3x"
+POKEMON_CATE_CODE = "IIzyMdayU5wp7T4G"
 
 
 class IcchomeScraper(BaseScraper):
@@ -60,14 +60,19 @@ class IcchomeScraper(BaseScraper):
             if not title:
                 continue
 
-            # Get the highest buyback price from condition tiers
-            # goodsKbDetails contains price tiers (新品未使用, 開封済, etc.)
+            # Get the "新品" (new/sealed) buyback price from condition tiers
             kb_details = product.get("goodsKbDetails", [])
             best_price = 0
             for detail in kb_details:
                 price = detail.get("kbDetailPrice", 0) or 0
-                if price > best_price:
+                name = detail.get("kbDetailName", "")
+                # Prefer "新品" tier; skip シュリンクなし variants
+                if "新品" in name:
                     best_price = price
+                    break
+            # Fallback: use first tier if no "新品" found
+            if best_price == 0 and kb_details:
+                best_price = kb_details[0].get("kbDetailPrice", 0) or 0
 
             if best_price > 0:
                 items.append(ScrapedItem(name=title, price=best_price))
