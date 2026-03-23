@@ -1,0 +1,558 @@
+[
+  {
+    "name": "MEGA 拡張パック「ニンジャスピナー」",
+    "category": "mega",
+    "retail_price": 5400,
+    "max_price": 10180,
+    "prices": {
+      "morimori": 10127,
+      "homura": 9573,
+      "rudeya": 9281,
+      "runto": 10165,
+      "icchome": 10888,
+      "shouten": 9693,
+      "kaikyo": 9728,
+      "sommelier": 10543
+    }
+  },
+  {
+    "name": "MEGA 拡張パック「ムニキスゼロ」",
+    "category": "mega",
+    "retail_price": 5400,
+    "max_price": 7460,
+    "prices": {
+      "morimori": 7178,
+      "homura": 6859,
+      "rudeya": 6628,
+      "runto": 6661,
+      "icchome": 6824,
+      "shouten": 5397,
+      "kaikyo": 5913,
+      "sommelier": 7402
+    }
+  },
+  {
+    "name": "MEGA ハイクラスパック「MEGAドリームex」",
+    "category": "mega",
+    "retail_price": 5500,
+    "max_price": 10064,
+    "prices": {
+      "morimori": 9961,
+      "homura": 9740,
+      "rudeya": 8143,
+      "runto": 10107,
+      "icchome": 9414,
+      "shouten": 9724,
+      "kaikyo": 9528,
+      "sommelier": 9935
+    }
+  },
+  {
+    "name": "MEGA 拡張パック「インフェルノX」",
+    "category": "mega",
+    "retail_price": 5400,
+    "max_price": 17358,
+    "prices": {
+      "morimori": 17269,
+      "homura": 18498,
+      "rudeya": 17574,
+      "runto": 17891,
+      "icchome": 18553,
+      "shouten": 13993,
+      "kaikyo": 17988,
+      "sommelier": 17728
+    }
+  },
+  {
+    "name": "MEGA 拡張パック「メガブレイブ」",
+    "category": "mega",
+    "retail_price": 5400,
+    "max_price": 10146,
+    "prices": {
+      "morimori": 10204,
+      "homura": 9836,
+      "rudeya": 9994,
+      "runto": 9531,
+      "icchome": 9605,
+      "shouten": 9566,
+      "kaikyo": 10151,
+      "sommelier": 10471
+    }
+  },
+  {
+    "name": "MEGA 拡張パック「メガシンフォニア」",
+    "category": "mega",
+    "retail_price": 5400,
+    "max_price": 9135,
+    "prices": {
+      "morimori": 9540,
+      "homura": 9412,
+      "rudeya": 8472,
+      "runto": 8970,
+      "icchome": 9002,
+      "shouten": 7662,
+      "kaikyo": 8112,
+      "sommelier": 9496
+    }
+  },
+  {
+    "name": "SV 拡張パックDX「ブラックボルト」",
+    "category": "sv",
+    "retail_price": 5800,
+    "max_price": 21895,
+    "prices": {
+      "morimori": 19897,
+      "homura": 21607,
+      "rudeya": 21109,
+      "runto": 19650,
+      "icchome": 20759,
+      "shouten": 19020,
+      "kaikyo": 20199,
+      "sommelier": 23144
+    }
+  },
+  {
+    "name": "SV 拡張パックDX「ホワイトフレア」",
+    "category": "sv",
+    "retail_price": 5800,
+    "max_price": 18785,
+    "prices": {
+      "morimori": 17839,
+      "homura": 17680,
+      "rudeya": 17713,
+      "runto": 17609,
+      "icchome": 16957,
+      "shouten": 17743,
+      "kaikyo": 16865
+    }
+  },
+  {
+    "name": "SV 拡張パック「ブラックボルト」",
+    "category": "sv",
+    "retail_price": 5400,
+    "max_price": 18413,
+    "prices": {
+      "morimori": 18056,
+      "homura": 5895,
+      "rudeya": 16771,
+      "runto": 16871,
+      "icchome": 16963,
+      "shouten": 14763,
+      "kaikyo": 16273,
+      "sommelier": 14844
+    }
+  },
+  {
+    "name": "SV 拡張パック「ホワイトフレア」",
+    "category": "sv",
+    "retail_price": 5400,
+    "max_price": 16460,
+    "prices": {
+      "morimori": 16793,
+      "homura": 17211,
+      "rudeya": 15670,
+      "runto": 15650,
+      "icchome": 15374,
+      "shouten": 14196,
+      "kaikyo": 14155,
+      "sommelier": 14652
+    }
+  },
+  {
+    "name": "SV 拡張パック「ロケット団の栄光」",
+    "category": "sv",
+    "retail_price": 5400,
+    "max_price": 18800,
+    "prices": {
+      "morimori": 17078,
+      "homura": 18359,
+      "rudeya": 18158,
+      "runto": 18366,
+      "icchome": 18471,
+      "shouten": 15552,
+      "kaikyo": 17258,
+      "sommelier": 17608
+    }
+  },
+  {
+    "name": "SV 強化拡張パック「熱風のアリーナ」",
+    "category": "sv",
+    "retail_price": 5400,
+    "max_price": 15858,
+    "prices": {
+      "morimori": 15576,
+      "homura": 16942,
+      "rudeya": 16135,
+      "runto": 15716,
+      "icchome": 16470,
+      "shouten": 14090,
+      "kaikyo": 15012,
+      "sommelier": 17149
+    }
+  },
+  {
+    "name": "SV 拡張パック「バトルパートナーズ」",
+    "category": "sv",
+    "retail_price": 5400,
+    "max_price": 8368,
+    "prices": {
+      "morimori": 8662,
+      "homura": 8835,
+      "rudeya": 8458,
+      "runto": 8694,
+      "icchome": 9172,
+      "shouten": 8559,
+      "kaikyo": 8593,
+      "sommelier": 8426
+    }
+  },
+  {
+    "name": "SV ハイクラスパック テラスタルフェスex",
+    "category": "sv",
+    "retail_price": 5500,
+    "max_price": 16684,
+    "prices": {
+      "morimori": 15029,
+      "homura": 16374,
+      "rudeya": 14918,
+      "runto": 16631,
+      "icchome": 15499,
+      "shouten": 15248,
+      "kaikyo": 14942
+    }
+  },
+  {
+    "name": "SV 拡張パック「超電ブレイカー」",
+    "category": "sv",
+    "retail_price": 5400,
+    "max_price": 25531,
+    "prices": {
+      "morimori": 26455,
+      "homura": 24627,
+      "rudeya": 24462,
+      "runto": 25845,
+      "icchome": 23148,
+      "shouten": 24289,
+      "kaikyo": 23428
+    }
+  },
+  {
+    "name": "SV 強化拡張パック「楽園ドラゴーナ」",
+    "category": "sv",
+    "retail_price": 5400,
+    "max_price": 15511,
+    "prices": {
+      "morimori": 15593,
+      "homura": 14823,
+      "rudeya": 14996,
+      "runto": 14237,
+      "icchome": 14702,
+      "shouten": 13626,
+      "kaikyo": 12578,
+      "sommelier": 16134
+    }
+  },
+  {
+    "name": "SV 強化拡張パック「ステラミラクル」",
+    "category": "sv",
+    "retail_price": 5400,
+    "max_price": 9079,
+    "prices": {
+      "morimori": 8878,
+      "homura": 9046,
+      "rudeya": 8908,
+      "runto": 8905,
+      "icchome": 9219,
+      "shouten": 8512,
+      "kaikyo": 6333,
+      "sommelier": 8594
+    }
+  },
+  {
+    "name": "SV 強化拡張パック「ナイトワンダラー」",
+    "category": "sv",
+    "retail_price": 5400,
+    "max_price": 9155,
+    "prices": {
+      "morimori": 9086,
+      "homura": 9074,
+      "rudeya": 8385,
+      "runto": 8754,
+      "icchome": 9273,
+      "shouten": 7618,
+      "sommelier": 9090
+    }
+  },
+  {
+    "name": "SV 拡張パック「変幻の仮面」",
+    "category": "sv",
+    "retail_price": 5400,
+    "max_price": 10934,
+    "prices": {
+      "morimori": 10173,
+      "homura": 10754,
+      "rudeya": 9879,
+      "runto": 9635,
+      "icchome": 10910,
+      "shouten": 8245,
+      "kaikyo": 10515,
+      "sommelier": 9797
+    }
+  },
+  {
+    "name": "SV 拡張パック「クリムゾンヘイズ」",
+    "category": "sv",
+    "retail_price": 5400,
+    "max_price": 14181,
+    "prices": {
+      "morimori": 13585,
+      "homura": 14389,
+      "rudeya": 13788,
+      "runto": 13677,
+      "icchome": 13168,
+      "shouten": 10939,
+      "kaikyo": 14588,
+      "sommelier": 12756
+    }
+  },
+  {
+    "name": "SV 拡張パック「ワイルドフォース」",
+    "category": "sv",
+    "retail_price": 5400,
+    "max_price": 10867,
+    "prices": {
+      "morimori": 10494,
+      "homura": 10547,
+      "rudeya": 10708,
+      "runto": 10498,
+      "icchome": 10336,
+      "shouten": 8391,
+      "kaikyo": 9835,
+      "sommelier": 10292
+    }
+  },
+  {
+    "name": "SV 拡張パック「サイバージャッジ」",
+    "category": "sv",
+    "retail_price": 5400,
+    "max_price": 8643,
+    "prices": {
+      "morimori": 8549,
+      "homura": 8515,
+      "rudeya": 8941,
+      "runto": 8598,
+      "icchome": 8643,
+      "shouten": 8517,
+      "kaikyo": 7687
+    }
+  },
+  {
+    "name": "SV ハイクラスパック「シャイニートレジャーex」",
+    "category": "sv",
+    "retail_price": 5500,
+    "max_price": 17215,
+    "prices": {
+      "morimori": 13426,
+      "homura": 13693,
+      "rudeya": 13640,
+      "runto": 13504,
+      "icchome": 14164,
+      "shouten": 12638,
+      "kaikyo": 12438,
+      "sommelier": 17615
+    }
+  },
+  {
+    "name": "SV 拡張パック「古代の咆哮」",
+    "category": "sv",
+    "retail_price": 5400,
+    "max_price": 9063,
+    "prices": {
+      "morimori": 9372,
+      "homura": 9031,
+      "rudeya": 9286,
+      "runto": 9503,
+      "icchome": 8731,
+      "shouten": 8304,
+      "sommelier": 8740
+    }
+  },
+  {
+    "name": "SV 拡張パック「未来の一閃」",
+    "category": "sv",
+    "retail_price": 5400,
+    "max_price": 9404,
+    "prices": {
+      "morimori": 9644,
+      "homura": 8672,
+      "rudeya": 9228,
+      "runto": 8398,
+      "icchome": 8662,
+      "shouten": 6907,
+      "sommelier": 8858
+    }
+  },
+  {
+    "name": "SV 強化拡張パック「レイジングサーフ」",
+    "category": "sv",
+    "retail_price": 5400,
+    "max_price": 11091,
+    "prices": {
+      "morimori": 10100,
+      "homura": 11945,
+      "rudeya": 11061,
+      "runto": 11609,
+      "icchome": 11781,
+      "shouten": 9382,
+      "kaikyo": 10673,
+      "sommelier": 11476
+    }
+  },
+  {
+    "name": "SV 強化拡張パック「黒炎の支配者」",
+    "category": "sv",
+    "retail_price": 5400,
+    "max_price": 15804,
+    "prices": {
+      "morimori": 15873,
+      "homura": 14861,
+      "rudeya": 15845,
+      "runto": 15378,
+      "icchome": 16015,
+      "shouten": 14209,
+      "kaikyo": 15674
+    }
+  },
+  {
+    "name": "SV 強化拡張パック「151」",
+    "category": "sv",
+    "retail_price": 5400,
+    "max_price": 41793,
+    "prices": {
+      "morimori": 42092,
+      "homura": 39569,
+      "rudeya": 39419,
+      "runto": 39503,
+      "icchome": 41684,
+      "shouten": 37034,
+      "kaikyo": 37810
+    }
+  },
+  {
+    "name": "SV 拡張パック「クレイバースト」",
+    "category": "sv",
+    "retail_price": 5400,
+    "max_price": 10983,
+    "prices": {
+      "morimori": 10351,
+      "homura": 10280,
+      "rudeya": 10096,
+      "runto": 10963,
+      "icchome": 11258,
+      "shouten": 9410,
+      "kaikyo": 10885
+    }
+  },
+  {
+    "name": "SV 強化拡張パック「スノーハザード」",
+    "category": "sv",
+    "retail_price": 5400,
+    "max_price": 9011,
+    "prices": {
+      "morimori": 9174,
+      "homura": 9440,
+      "rudeya": 8848,
+      "runto": 8935,
+      "icchome": 9129,
+      "shouten": 7742,
+      "kaikyo": 8602
+    }
+  },
+  {
+    "name": "SV 強化拡張パック「トリプレットビート」",
+    "category": "sv",
+    "retail_price": 5400,
+    "max_price": 15244,
+    "prices": {
+      "morimori": 14702,
+      "homura": 14864,
+      "rudeya": 14334,
+      "runto": 13597,
+      "icchome": 14466,
+      "shouten": 11614,
+      "kaikyo": 14417
+    }
+  },
+  {
+    "name": "SV 拡張パック「スカーレットex」",
+    "category": "sv",
+    "retail_price": 5400,
+    "max_price": 11152,
+    "prices": {
+      "morimori": 10671,
+      "homura": 10497,
+      "rudeya": 10128,
+      "runto": 10204,
+      "icchome": 10180,
+      "shouten": 9096,
+      "kaikyo": 10093
+    }
+  },
+  {
+    "name": "SV 拡張パック「バイオレットex」",
+    "category": "sv",
+    "retail_price": 5400,
+    "max_price": 8808,
+    "prices": {
+      "morimori": 8800,
+      "homura": 8915,
+      "rudeya": 8423,
+      "runto": 9203,
+      "icchome": 9116,
+      "shouten": 8079,
+      "kaikyo": 8518
+    }
+  },
+  {
+    "name": "スペシャルBOX トウホク",
+    "category": "special",
+    "retail_price": 2090,
+    "max_price": 15733,
+    "prices": {
+      "homura": 14260,
+      "rudeya": 12450,
+      "runto": 15493,
+      "icchome": 13477,
+      "shouten": 11588,
+      "kaikyo": 14643
+    }
+  },
+  {
+    "name": "スペシャルBOX ヒロシマ",
+    "category": "special",
+    "retail_price": 2090,
+    "max_price": 18654,
+    "prices": {
+      "homura": 16957,
+      "rudeya": 16029,
+      "runto": 18557,
+      "icchome": 16402,
+      "shouten": 13907,
+      "kaikyo": 17772
+    }
+  },
+  {
+    "name": "スペシャルBOX フクオカ",
+    "category": "special",
+    "retail_price": 2090,
+    "max_price": 17448,
+    "prices": {
+      "homura": 16333,
+      "rudeya": 16780,
+      "runto": 17338,
+      "icchome": 16651,
+      "shouten": 14372,
+      "kaikyo": 17796
+    }
+  }
+]

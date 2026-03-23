@@ -70,7 +70,7 @@
     "max_price": 10300,
     "prices": {
       "morimori": 10200,
-      "homura": 10300,
+      "homura": 10200,
       "rudeya": 10000,
       "runto": 10000,
       "icchome": 10000,
@@ -86,7 +86,7 @@
     "max_price": 9500,
     "prices": {
       "morimori": 9200,
-      "homura": 9500,
+      "homura": 9200,
       "rudeya": 9000,
       "runto": 9000,
       "icchome": 9000,
@@ -149,7 +149,7 @@
     "max_price": 16800,
     "prices": {
       "morimori": 16800,
-      "homura": 16700,
+      "homura": 16800,
       "rudeya": 16100,
       "runto": 15500,
       "icchome": 16000,
@@ -350,10 +350,10 @@
     "name": "SV ハイクラスパック「シャイニートレジャーex」",
     "category": "sv",
     "retail_price": 5500,
-    "max_price": 13800,
+    "max_price": 14000,
     "prices": {
-      "morimori": 13800,
-      "homura": 13700,
+      "morimori": 14000,
+      "homura": 13800,
       "rudeya": 13600,
       "runto": 13300,
       "icchome": 13500,
@@ -426,7 +426,7 @@
     "name": "SV 強化拡張パック「151」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 40500,
+    "max_price": 41000,
     "prices": {
       "morimori": 40500,
       "homura": 40000,
@@ -434,7 +434,7 @@
       "runto": 40000,
       "icchome": 40500,
       "shouten": 38000,
-      "kaikyo": 38500,
+      "kaikyo": 41000,
       "sommelier": 38000
     }
   },
@@ -677,9 +677,9 @@
     "name": "S&S 強化拡張パック「イーブイヒーローズ」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 122000,
+    "max_price": 124000,
     "prices": {
-      "homura": 122000,
+      "homura": 124000,
       "runto": 118000,
       "kaikyo": 105000
     }
@@ -821,7 +821,7 @@
     "retail_price": 2090,
     "max_price": 15000,
     "prices": {
-      "homura": 13000,
+      "homura": 12000,
       "rudeya": 13000,
       "runto": 15000,
       "icchome": 14000,
@@ -835,7 +835,7 @@
     "retail_price": 2090,
     "max_price": 19000,
     "prices": {
-      "homura": 16000,
+      "homura": 15000,
       "rudeya": 16000,
       "runto": 19000,
       "icchome": 17000,
@@ -849,7 +849,7 @@
     "retail_price": 2090,
     "max_price": 18000,
     "prices": {
-      "homura": 16000,
+      "homura": 15500,
       "rudeya": 16000,
       "runto": 18000,
       "icchome": 16000,
