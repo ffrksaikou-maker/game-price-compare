@@ -42,7 +42,7 @@
       "rudeya": 8000,
       "runto": 10000,
       "icchome": 9600,
-      "shouten": 10000,
+      "shouten": 9600,
       "kaikyo": 10000,
       "sommelier": 9800
     }
@@ -434,8 +434,7 @@
       "runto": 40000,
       "icchome": 40500,
       "shouten": 38000,
-      "kaikyo": 41000,
-      "sommelier": 38000
+      "kaikyo": 41000
     }
   },
   {
@@ -826,7 +825,8 @@
       "runto": 13000,
       "icchome": 14000,
       "shouten": 12000,
-      "kaikyo": 15000
+      "kaikyo": 15000,
+      "sommelier": 13000
     }
   },
   {
