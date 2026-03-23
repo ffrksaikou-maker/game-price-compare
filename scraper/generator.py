@@ -109,6 +109,47 @@ def generate_jsonld(products: list[MasterProduct]) -> str:
     return '<script type="application/ld+json">\n' + json.dumps(ld, ensure_ascii=False, indent=2) + "\n</script>"
 
 
+def generate_ai_summary(products: list[MasterProduct]) -> str:
+    """Generate a natural language summary for AI crawlers."""
+    now = datetime.now(JST)
+    date_str = now.strftime("%Y年%m月%d日")
+
+    # Collect top products by max buyback price
+    ranked = []
+    for p in products:
+        if p.category == "ss":
+            continue
+        active = {k: v for k, v in p.prices.items() if v > 0}
+        if not active:
+            continue
+        max_shop = max(active, key=active.get)
+        ranked.append((p, active, max_shop))
+
+    ranked.sort(key=lambda x: max(x[1].values()), reverse=True)
+
+    shop_names = {
+        "morimori": "森森買取", "homura": "買取ホムラ", "icchome": "買取一丁目",
+        "runto": "ラントゥ買取", "sommelier": "買取ソムリエ", "kaikyo": "海峡通信",
+        "shouten": "買取商店", "rudeya": "買取ルデヤ",
+    }
+
+    lines = []
+    lines.append(f"ポケカ買取チェッカー - {date_str}更新。ポケモンカード未開封BOXの買取価格を8店舗で横断比較。")
+
+    # Top 5 products
+    lines.append(f"【{date_str}時点の買取価格ランキング TOP5】")
+    for i, (p, active, max_shop) in enumerate(ranked[:5]):
+        max_price = max(active.values())
+        min_price = min(active.values())
+        shop = shop_names.get(max_shop, max_shop)
+        lines.append(f"{i+1}位: {p.name} - 最高¥{max_price:,}({shop}) / 最安¥{min_price:,} / {len(active)}店舗掲載")
+
+    lines.append(f"対応店舗: {', '.join(shop_names.values())}。毎日3回（11:00/15:00/18:00）自動更新。")
+
+    summary_text = "\n".join(lines)
+    return f'<div style="position:absolute;left:-9999px;font-size:1px;color:transparent" aria-hidden="true">{summary_text}</div>'
+
+
 def generate_html(
     products: list[MasterProduct],
     template_path: Path | None = None,
@@ -142,9 +183,13 @@ def generate_html(
     # Generate JSON-LD structured data
     jsonld = generate_jsonld(products)
 
+    # Generate AI-friendly summary
+    ai_summary = generate_ai_summary(products)
+
     # Replace placeholders
     html = template.replace("// {{PRODUCT_DATA}}", product_js)
     html = html.replace("<!-- {{JSONLD}} -->", jsonld)
+    html = html.replace("<!-- {{AI_SUMMARY}} -->", ai_summary)
     html = html.replace("{{UPDATE_DATE}}", update_date)
 
     # Write output
