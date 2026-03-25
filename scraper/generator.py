@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 JST = timezone(timedelta(hours=9))
 
 # Shop IDs in display order
-SHOP_IDS = ["morimori", "homura", "icchome", "runto", "sommelier", "kaikyo", "shouten", "rudeya"]
+SHOP_IDS = ["morimori", "homura", "runto", "icchome", "sommelier", "kaikyo", "shouten", "rudeya"]
 
 
 def generate_product_js(products: list[MasterProduct]) -> str:
@@ -23,11 +23,9 @@ def generate_product_js(products: list[MasterProduct]) -> str:
     lines = []
     lines.append("const P=[")
 
-    # Group by category (S&S is on hold, skip)
+    # Group by category
     current_cat = None
     for p in products:
-        if p.category == "ss":
-            continue
         if p.category != current_cat:
             current_cat = p.category
             lines.append(f"// ===== {current_cat.upper()} =====")
@@ -78,8 +76,6 @@ def generate_jsonld(products: list[MasterProduct]) -> str:
     """Generate JSON-LD structured data for Google rich results."""
     items = []
     for p in products:
-        if p.category == "ss":
-            continue
         active_prices = [v for v in p.prices.values() if v > 0]
         if not active_prices:
             continue
@@ -117,8 +113,6 @@ def generate_ai_summary(products: list[MasterProduct]) -> str:
     # Collect top products by max buyback price
     ranked = []
     for p in products:
-        if p.category == "ss":
-            continue
         active = {k: v for k, v in p.prices.items() if v > 0}
         if not active:
             continue
