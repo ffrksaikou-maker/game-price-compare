@@ -190,7 +190,6 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
     <button class="fb" data-f="cat" data-v="sv">SV</button>
 
     <button class="fb" data-f="cat" data-v="special">スペシャルBOX</button>
-    <button class="fb" data-f="cat" data-v="ss">S&S</button>
   </div>
   <div class="fg">
     <label>買取屋:</label>
@@ -219,7 +218,6 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
   <div class="li"><span class="ls" style="background:var(--mega)"></span>MEGA</div>
   <div class="li"><span class="ls" style="background:var(--sv)"></span>SV</div>
   <div class="li"><span class="ls" style="background:var(--special)"></span>スペシャルBOX</div>
-  <div class="li"><span class="ls" style="background:#fce4ec"></span>S&S</div>
   <div class="li"><span class="ls" style="background:var(--highlight)"></span>最高値</div>
 </div>
 <div class="cb">表示: <span id="rc">0</span> 件</div>
@@ -272,9 +270,6 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
   <a href="https://somurie-kaitori.com/" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'sommelier',shop_name:'ソムリエ'})">買取ソムリエ</a> /
   <a href="https://runto666.com/" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'runto',shop_name:'ラントゥ'})">ラントゥ買取</a><br>
   <a href="privacy.html" style="color:#9ca3af;font-size:10px">プライバシーポリシー</a>
-  <div style="margin-top:12px">
-    <a href="#" id="shareX" style="display:inline-block;padding:6px 16px;background:#000;color:#fff;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;transition:opacity .15s" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">𝕏 でシェア</a>
-  </div>
 </div>
 
 <div class="ad">
@@ -283,10 +278,8 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
 
 <script>
 "use strict";
-const S=["morimori","homura","runto","icchome","sommelier","kaikyo","shouten","rudeya"];
-const S_SS=["homura","runto","morimori","icchome","sommelier","kaikyo","shouten","rudeya"];
-const CL={"mega":"MEGA","sv":"SV","special":"スペシャルBOX","ss":"S&S ソード&シールド"};
-function getSO(){return cc==="ss"?S_SS:S;}
+const S=["morimori","homura","icchome","runto","sommelier","kaikyo","shouten","rudeya"];
+const CL={"mega":"MEGA","sv":"SV","special":"スペシャルBOX"};
 
 // {{PRODUCT_DATA}}
 
@@ -306,7 +299,7 @@ function getQty(name){return loadInv()[name]||0}
 function setQty(name,q){const inv=loadInv();if(q>0)inv[name]=q;else delete inv[name];saveInv(inv)}
 function updateTotal(){
   const inv=loadInv();let total=0;
-  P.forEach(x=>{const q=inv[x.n]||0;if(q>0){const ap=getSO().filter(s=>vs.has(s)&&x.p[s]>0).map(s=>x.p[s]);const m=ap.length?Math.max(...ap):0;total+=m*q}});
+  P.forEach(x=>{const q=inv[x.n]||0;if(q>0){const ap=S.filter(s=>vs.has(s)&&x.p[s]>0).map(s=>x.p[s]);const m=ap.length?Math.max(...ap):0;total+=m*q}});
   document.getElementById("invTotal").textContent="\u00a5"+total.toLocaleString();
 }
 
@@ -321,10 +314,9 @@ function syncFbarHeight(){
 
 function render(){
   const tb=document.getElementById("tb");
-  const SO=getSO();
   let f=cc===""?P.filter(x=>x.c!=="ss"):cc==="all"?P.slice():P.filter(x=>x.c===cc);
   f.forEach(x=>{
-    const ap=SO.filter(s=>vs.has(s)&&x.p[s]>0).map(s=>x.p[s]);
+    const ap=S.filter(s=>vs.has(s)&&x.p[s]>0).map(s=>x.p[s]);
     x._m=ap.length?Math.max(...ap):0;
     x._d=(x.r>0&&x._m>0)?x._m-x.r:0;
   });
@@ -337,7 +329,7 @@ function render(){
   f.forEach(x=>{
     if(x.c!==lc&&!sm){
       lc=x.c;
-      let cs=4+SO.filter(s=>vs.has(s)).length;
+      let cs=4+S.filter(s=>vs.has(s)).length;
       if(invMode)cs+=2;
       const shr=document.createElement("tr");
       shr.className="sh cat-"+x.c;
@@ -400,7 +392,7 @@ function render(){
     tr.appendChild(tdD);
 
     // Shop prices
-    SO.forEach(s=>{
+    S.forEach(s=>{
       if(!vs.has(s))return;
       const td=document.createElement("td");
       const v=x.p[s];
@@ -416,11 +408,6 @@ function render(){
   tb.textContent="";
   tb.appendChild(frag);
   document.getElementById("rc").textContent=cnt;
-  // Reorder thead shop columns to match SO
-  const theadRow=document.querySelector("thead tr");
-  const shopThs=Array.from(theadRow.querySelectorAll("th.sc"));
-  const thMap={};shopThs.forEach(function(th){thMap[th.dataset.s]=th});
-  SO.forEach(function(s){if(thMap[s]){theadRow.appendChild(thMap[s])}});
   document.querySelectorAll("thead th.sc").forEach(function(th){th.style.display=vs.has(th.dataset.s)?"":"none"});
   document.querySelectorAll("thead th.inv-col").forEach(function(th){th.style.display=invMode?"":"none"});
   if(invMode)updateTotal();
@@ -470,15 +457,6 @@ document.getElementById("invBtn").addEventListener("click",function(){
   this.classList.toggle("active",invMode);
   document.getElementById("invBar").style.display=invMode?"":"none";
   render();
-});
-
-// ===== X Share =====
-document.getElementById("shareX").addEventListener("click",function(e){
-  e.preventDefault();
-  var text="ポケカ未開封BOXの買取価格を8店舗で比較できるサイト。最高値が一目でわかる！";
-  var url="https://pokeca-kaitorihikau.netlify.app/";
-  window.open("https://x.com/intent/tweet?text="+encodeURIComponent(text)+"&url="+encodeURIComponent(url),"_blank","width=550,height=420");
-  gtag("event","share",{method:"twitter",content_type:"website"});
 });
 
 // ===== Init =====
