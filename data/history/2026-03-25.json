@@ -38,11 +38,11 @@
     "max_price": 11000,
     "prices": {
       "morimori": 10600,
-      "homura": 10300,
+      "homura": 10500,
       "rudeya": 8000,
       "runto": 11000,
       "icchome": 10800,
-      "shouten": 9600,
+      "shouten": 10000,
       "kaikyo": 10800,
       "sommelier": 10200
     }
@@ -54,9 +54,9 @@
     "max_price": 18200,
     "prices": {
       "morimori": 18000,
-      "homura": 18100,
+      "homura": 18200,
       "rudeya": 17800,
-      "runto": 18000,
+      "runto": 18100,
       "icchome": 18200,
       "shouten": 14000,
       "kaikyo": 18000,
@@ -70,8 +70,8 @@
     "max_price": 10500,
     "prices": {
       "morimori": 10400,
-      "homura": 10300,
-      "rudeya": 10000,
+      "homura": 10400,
+      "rudeya": 10100,
       "runto": 10000,
       "icchome": 10500,
       "shouten": 9800,
@@ -86,8 +86,8 @@
     "max_price": 9600,
     "prices": {
       "morimori": 9200,
-      "homura": 9300,
-      "rudeya": 9000,
+      "homura": 9400,
+      "rudeya": 9100,
       "runto": 9000,
       "icchome": 9300,
       "shouten": 8000,
@@ -103,7 +103,7 @@
     "prices": {
       "morimori": 20200,
       "homura": 23000,
-      "rudeya": 21500,
+      "rudeya": 22700,
       "runto": 21500,
       "icchome": 23000,
       "shouten": 20000,
@@ -119,7 +119,7 @@
     "prices": {
       "morimori": 17200,
       "homura": 18000,
-      "rudeya": 17500,
+      "rudeya": 18000,
       "runto": 18000,
       "icchome": 18500,
       "shouten": 17000,
@@ -134,7 +134,7 @@
     "prices": {
       "morimori": 18200,
       "homura": 6000,
-      "rudeya": 17100,
+      "rudeya": 18000,
       "runto": 18000,
       "icchome": 18500,
       "shouten": 15500,
@@ -149,8 +149,8 @@
     "max_price": 17200,
     "prices": {
       "morimori": 17200,
-      "homura": 17000,
-      "rudeya": 16100,
+      "homura": 17200,
+      "rudeya": 16800,
       "runto": 17000,
       "icchome": 17000,
       "shouten": 14500,
@@ -166,7 +166,7 @@
     "prices": {
       "morimori": 18500,
       "homura": 18500,
-      "rudeya": 18100,
+      "rudeya": 18300,
       "runto": 18500,
       "icchome": 19000,
       "shouten": 16000,
@@ -182,7 +182,7 @@
     "prices": {
       "morimori": 15600,
       "homura": 16600,
-      "rudeya": 16500,
+      "rudeya": 16600,
       "runto": 16500,
       "icchome": 16800,
       "shouten": 15000,
@@ -212,7 +212,7 @@
     "max_price": 16300,
     "prices": {
       "morimori": 15500,
-      "homura": 16100,
+      "homura": 16200,
       "rudeya": 15000,
       "runto": 16300,
       "icchome": 16000,
@@ -227,7 +227,7 @@
     "max_price": 26000,
     "prices": {
       "morimori": 25800,
-      "homura": 25500,
+      "homura": 25800,
       "rudeya": 25800,
       "runto": 24800,
       "icchome": 26000,
@@ -243,7 +243,7 @@
     "prices": {
       "morimori": 15000,
       "homura": 16200,
-      "rudeya": 15800,
+      "rudeya": 16200,
       "runto": 16000,
       "icchome": 16500,
       "shouten": 14000,
@@ -290,7 +290,7 @@
     "prices": {
       "morimori": 10600,
       "homura": 10500,
-      "rudeya": 10300,
+      "rudeya": 10500,
       "runto": 10300,
       "icchome": 11100,
       "shouten": 8000,
@@ -322,7 +322,7 @@
     "prices": {
       "morimori": 10500,
       "homura": 10500,
-      "rudeya": 10500,
+      "rudeya": 10600,
       "runto": 10200,
       "icchome": 10800,
       "shouten": 8000,
@@ -354,7 +354,7 @@
     "prices": {
       "morimori": 14000,
       "homura": 14000,
-      "rudeya": 13600,
+      "rudeya": 14000,
       "runto": 13600,
       "icchome": 14500,
       "shouten": 13000,
@@ -370,7 +370,7 @@
     "prices": {
       "morimori": 9200,
       "homura": 9200,
-      "rudeya": 9000,
+      "rudeya": 9100,
       "runto": 9200,
       "icchome": 9300,
       "shouten": 8000,
@@ -399,7 +399,7 @@
     "prices": {
       "morimori": 12000,
       "homura": 12000,
-      "rudeya": 11500,
+      "rudeya": 11700,
       "runto": 11500,
       "icchome": 12000,
       "shouten": 9500,
@@ -415,7 +415,7 @@
     "prices": {
       "morimori": 15800,
       "homura": 15500,
-      "rudeya": 15600,
+      "rudeya": 15700,
       "runto": 15500,
       "icchome": 16300,
       "shouten": 14500,
@@ -429,8 +429,8 @@
     "max_price": 45000,
     "prices": {
       "morimori": 43500,
-      "homura": 40500,
-      "rudeya": 40500,
+      "homura": 41000,
+      "rudeya": 42500,
       "runto": 42000,
       "icchome": 45000,
       "shouten": 38000,
@@ -445,7 +445,7 @@
     "prices": {
       "morimori": 10800,
       "homura": 10800,
-      "rudeya": 10600,
+      "rudeya": 10900,
       "runto": 10800,
       "icchome": 11500,
       "shouten": 9500,
@@ -460,7 +460,7 @@
     "prices": {
       "morimori": 9200,
       "homura": 9200,
-      "rudeya": 9000,
+      "rudeya": 9200,
       "runto": 9200,
       "icchome": 9500,
       "shouten": 7500,
@@ -505,7 +505,7 @@
     "prices": {
       "morimori": 9000,
       "homura": 8800,
-      "rudeya": 8600,
+      "rudeya": 8800,
       "runto": 8800,
       "icchome": 9000,
       "shouten": 8000,
@@ -519,7 +519,7 @@
     "max_price": 24000,
     "prices": {
       "homura": 23000,
-      "rudeya": 23100,
+      "rudeya": 23300,
       "runto": 23000,
       "icchome": 24000,
       "shouten": 19000,
@@ -542,10 +542,10 @@
     "name": "S&S 強化拡張パック「白熱のアルカナ」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 9500,
+    "max_price": 10000,
     "prices": {
       "morimori": 9000,
-      "homura": 9500,
+      "homura": 10000,
       "runto": 8800,
       "kaikyo": 8000
     }
@@ -687,9 +687,9 @@
     "name": "S&S 拡張パック「白銀のランス」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 16500,
+    "max_price": 17000,
     "prices": {
-      "homura": 16500,
+      "homura": 17000,
       "runto": 14000
     }
   },
@@ -697,9 +697,9 @@
     "name": "S&S 拡張パック「漆黒のガイスト」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 21500,
+    "max_price": 22000,
     "prices": {
-      "homura": 21500
+      "homura": 22000
     }
   },
   {
@@ -734,9 +734,9 @@
     "name": "S&S ハイクラスパック「シャイニースターV」",
     "category": "ss",
     "retail_price": 5500,
-    "max_price": 17300,
+    "max_price": 17500,
     "prices": {
-      "homura": 17300,
+      "homura": 17500,
       "runto": 17300
     }
   },
