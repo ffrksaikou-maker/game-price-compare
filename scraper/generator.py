@@ -17,6 +17,15 @@ JST = timezone(timedelta(hours=9))
 # Shop IDs in display order
 SHOP_IDS = ["morimori", "homura", "icchome", "runto", "sommelier", "kaikyo", "shouten", "rudeya"]
 
+# Blog articles (newest first) - 記事追加時はここに1行足すだけ
+BLOG_ARTICLES = [
+    {"url": "mercari-hikaku.html", "title": "メルカリ・スニダン・買取店どれが得？", "desc": "手数料・送料込みで3つの売却方法を徹底比較。具体的な計算例で最適な売り方がわかります。", "date": "2026-03-26"},
+    {"url": "psa-guide.html", "title": "PSA鑑定とは？ポケカの価値を最大化する方法", "desc": "鑑定の流れ、グレードの意味、費用対効果まで。PSA 10で価値が3〜10倍に跳ね上がる具体例も紹介。", "date": "2026-03-24"},
+    {"url": "single-card-tips.html", "title": "ポケカBOX開封→シングル売りで利益を出す方法", "desc": "高額カードの当たり例、レアリティの封入率、トレンド変化まで。開封vs未開封売りの判断基準も解説。", "date": "2026-03-24"},
+    {"url": "shop-hikaku.html", "title": "ポケカ買取8店舗の特徴を徹底比較", "desc": "当サイトで掲載している8店舗それぞれの強み・特徴をまとめました。自分に合った買取店選びの参考に。", "date": "2026-03-23"},
+    {"url": "kaitori-tips.html", "title": "ポケカBOX買取で損しない5つのコツ", "desc": "シュリンク付きの重要性、複数店舗比較のメリット、売り時の見極め方など、高価買取のポイントを解説。", "date": "2026-03-23"},
+]
+
 
 def generate_product_js(products: list[MasterProduct]) -> str:
     """Generate the JavaScript `const P = [...]` array from product data."""
@@ -150,6 +159,20 @@ def generate_ai_summary(products: list[MasterProduct]) -> str:
     return f'<div style="position:absolute;left:-9999px;font-size:1px;color:transparent" aria-hidden="true">{summary_text}</div>'
 
 
+def generate_blog_links(count: int = 2) -> str:
+    """Generate blog link cards HTML from BLOG_ARTICLES (newest first)."""
+    html = '<div class="blog-links">\n'
+    for article in BLOG_ARTICLES[:count]:
+        html += (
+            f'  <a href="{article["url"]}" class="blog-card">\n'
+            f'    <h3>{article["title"]}</h3>\n'
+            f'    <p>{article["desc"]}</p>\n'
+            f'  </a>\n'
+        )
+    html += '</div>'
+    return html
+
+
 def generate_html(
     products: list[MasterProduct],
     template_path: Path | None = None,
@@ -191,6 +214,7 @@ def generate_html(
     html = html.replace("<!-- {{JSONLD}} -->", jsonld)
     html = html.replace("<!-- {{AI_SUMMARY}} -->", ai_summary)
     html = html.replace("{{UPDATE_DATE}}", update_date)
+    html = html.replace("<!-- {{BLOG_LINKS}} -->", generate_blog_links())
 
     # Write output
     output_path.write_text(html, encoding="utf-8")
