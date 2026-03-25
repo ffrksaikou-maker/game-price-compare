@@ -159,10 +159,18 @@ def generate_ai_summary(products: list[MasterProduct]) -> str:
     return f'<div style="position:absolute;left:-9999px;font-size:1px;color:transparent" aria-hidden="true">{summary_text}</div>'
 
 
-def generate_blog_links(count: int = 2) -> str:
-    """Generate blog link cards HTML from BLOG_ARTICLES (newest first)."""
+def generate_blog_links() -> str:
+    """Generate blog link cards: left=fixed(買取のコツ), right=newest article."""
+    # Left: fixed
+    fixed = {
+        "url": "kaitori-tips.html",
+        "title": "ポケカBOX買取で損しない5つのコツ",
+        "desc": "シュリンク付きの重要性、複数店舗比較のメリット、売り時の見極め方など、高価買取のポイントを解説。",
+    }
+    # Right: newest article (skip kaitori-tips since it's fixed on left)
+    newest = next((a for a in BLOG_ARTICLES if a["url"] != "kaitori-tips.html"), BLOG_ARTICLES[0])
     html = '<div class="blog-links">\n'
-    for article in BLOG_ARTICLES[:count]:
+    for article in [fixed, newest]:
         html += (
             f'  <a href="{article["url"]}" class="blog-card">\n'
             f'    <h3>{article["title"]}</h3>\n'
