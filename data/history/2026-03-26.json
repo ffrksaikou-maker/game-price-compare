@@ -19,7 +19,7 @@
     "name": "MEGA 拡張パック「ムニキスゼロ」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 7100,
+    "max_price": 7200,
     "prices": {
       "morimori": 6900,
       "homura": 7000,
@@ -28,7 +28,7 @@
       "icchome": 7100,
       "shouten": 5500,
       "kaikyo": 6200,
-      "sommelier": 7000
+      "sommelier": 7200
     }
   },
   {
@@ -42,7 +42,7 @@
       "rudeya": 8000,
       "runto": 11500,
       "icchome": 11500,
-      "shouten": 10000,
+      "shouten": 11000,
       "kaikyo": 11000,
       "sommelier": 11000
     }
@@ -117,7 +117,7 @@
     "retail_price": 5800,
     "max_price": 18500,
     "prices": {
-      "morimori": 17200,
+      "morimori": 18000,
       "homura": 18000,
       "rudeya": 18000,
       "runto": 18000,
@@ -373,7 +373,7 @@
       "rudeya": 9100,
       "runto": 9200,
       "icchome": 9500,
-      "shouten": 8000,
+      "shouten": 9000,
       "sommelier": 9500
     }
   },
@@ -837,7 +837,7 @@
     "prices": {
       "homura": 18500,
       "rudeya": 16000,
-      "runto": 17500,
+      "runto": 18000,
       "icchome": 17000,
       "shouten": 14000,
       "kaikyo": 17000,
@@ -852,7 +852,7 @@
     "prices": {
       "homura": 18500,
       "rudeya": 16000,
-      "runto": 17500,
+      "runto": 18000,
       "icchome": 16000,
       "shouten": 15000,
       "kaikyo": 15000,
