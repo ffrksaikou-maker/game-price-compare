@@ -19,13 +19,13 @@
     "name": "MEGA 拡張パック「ムニキスゼロ」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 7200,
+    "max_price": 7100,
     "prices": {
       "morimori": 6900,
       "homura": 7000,
       "rudeya": 6800,
       "runto": 7000,
-      "icchome": 7200,
+      "icchome": 7100,
       "shouten": 5500,
       "kaikyo": 6200,
       "sommelier": 7000
@@ -41,7 +41,7 @@
       "homura": 11500,
       "rudeya": 8000,
       "runto": 11500,
-      "icchome": 11000,
+      "icchome": 11500,
       "shouten": 10000,
       "kaikyo": 11000,
       "sommelier": 11000
