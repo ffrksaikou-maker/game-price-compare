@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import json
 import logging
+import re
+import unicodedata
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
@@ -48,9 +50,10 @@ def generate_product_js(products: list[MasterProduct]) -> str:
         # Escape product name for JS string
         name_escaped = p.name.replace("\\", "\\\\").replace('"', '\\"')
 
+        slug = _generate_slug(p.name)
         price_parts = ",".join(f"{sid}:{prices[sid]}" for sid in SHOP_IDS)
         line = (
-            f'{{c:"{p.category}",n:"{name_escaped}",'
+            f'{{c:"{p.category}",n:"{name_escaped}",s:"{slug}",'
             f'r:{p.retail_price},d:"{p.release_date}",p:{{{price_parts}}}}}'
         )
         lines.append(line + ",")
@@ -230,4 +233,329 @@ def generate_html(
     output_path.write_text(html, encoding="utf-8")
     logger.info("Generated %s (updated: %s)", output_path, update_date)
 
+    # Generate individual product pages
+    generate_product_pages(products, project_root, update_date)
+
     return html
+
+
+# ===== Slug generation =====
+
+# Manual slug overrides for products with tricky names
+SLUG_OVERRIDES = {
+    "S&S 拡張パック「25th ANNIVERSARY COLLECTION」": "25th-anniversary-collection",
+    "S&S 拡張パック「ソード」": "sword",
+    "S&S 拡張パック「シールド」": "shield",
+    "S&S 強化拡張パック「ポケモンGO」": "pokemon-go",
+}
+
+# Romanization map for common Pokemon TCG terms
+ROMAJI_MAP = {
+    "ニンジャスピナー": "ninja-spinner",
+    "ムニキスゼロ": "munikis-zero",
+    "メガドリーム": "mega-dream",
+    "インフェルノ": "inferno",
+    "メガブレイブ": "mega-brave",
+    "メガシンフォニア": "mega-sinfonia",
+    "ブラックボルト": "black-bolt",
+    "ホワイトフレア": "white-flare",
+    "ロケット団の栄光": "rocket-dan-no-eiko",
+    "熱風のアリーナ": "neppuu-arena",
+    "バトルパートナーズ": "battle-partners",
+    "テラスタルフェス": "terastal-fes",
+    "超電ブレイカー": "chouden-breaker",
+    "楽園ドラゴーナ": "rakuen-dragona",
+    "ステラミラクル": "stellar-miracle",
+    "ナイトワンダラー": "night-wanderer",
+    "変幻の仮面": "hengen-no-kamen",
+    "クリムゾンヘイズ": "crimson-haze",
+    "シャイニートレジャー": "shiny-treasure",
+    "黒炎の支配者": "ruler-of-black-flame",
+    "古代の咆哮": "ancient-roar",
+    "未来の一閃": "future-flash",
+    "レイジングサーフ": "raging-surf",
+    "スカーレット": "scarlet",
+    "バイオレット": "violet",
+    "スノーハザード": "snow-hazard",
+    "クレイバースト": "clay-burst",
+    "トリプレットビート": "triplet-beat",
+    "白熱のアルカナ": "incandescent-arcana",
+    "ロストアビス": "lost-abyss",
+    "パラダイムトリガー": "paradigm-trigger",
+    "トウホク": "tohoku",
+    "ヒロシマ": "hiroshima",
+    "フクオカ": "fukuoka",
+    "イーブイヒーローズ": "eevee-heroes",
+    "バトルリージョン": "battle-region",
+    "スターバース": "star-birth",
+    "フュージョンアーツ": "fusion-arts",
+    "蒼空ストリーム": "blue-sky-stream",
+    "摩天パーフェクト": "skyscraping-perfect",
+    "白銀のランス": "silver-lance",
+    "漆黒のガイスト": "jet-black-geist",
+    "双璧のファイター": "matchless-fighters",
+    "連撃マスター": "rapid-strike-master",
+    "一撃マスター": "single-strike-master",
+    "シャイニースター": "shiny-star",
+    "仰天のボルテッカー": "astonishing-voltecker",
+    "伝説の鼓動": "legendary-heartbeat",
+    "ムゲンゾーン": "infinity-zone",
+    "爆炎ウォーカー": "eruption-walker",
+    "反逆クラッシュ": "rebellion-crash",
+    "ダークファンタズマ": "dark-phantasma",
+    "タイムゲイザー": "time-gazer",
+    "スペースジャグラー": "space-juggler",
+    "VMAXクライマックス": "vmax-climax",
+    "VSTARユニバース": "vstar-universe",
+    "VMAXライジング": "vmax-rising",
+}
+
+
+def _generate_slug(product_name: str) -> str:
+    """Generate a URL-friendly slug from a product name."""
+    if product_name in SLUG_OVERRIDES:
+        return SLUG_OVERRIDES[product_name]
+
+    # Extract the part in quotes (e.g., 「xxx」)
+    m = re.search(r"[「『](.+?)[」』]", product_name)
+    if m:
+        core = m.group(1)
+    else:
+        # For special BOX, use the last part
+        core = product_name.split()[-1] if " " in product_name else product_name
+
+    # Try romaji map first
+    for jp, en in ROMAJI_MAP.items():
+        if jp in core:
+            # Handle suffixes like "ex"
+            slug = en
+            if "ex" in core.lower() and "ex" not in en:
+                slug += "-ex"
+            return slug
+
+    # Fallback: normalize and transliterate
+    slug = core.lower()
+    slug = unicodedata.normalize("NFKC", slug)
+    slug = re.sub(r"[^a-z0-9]+", "-", slug)
+    slug = slug.strip("-")
+    return slug or "unknown"
+
+
+SHOP_NAMES = {
+    "morimori": "森森買取",
+    "homura": "買取ホムラ",
+    "icchome": "買取一丁目",
+    "runto": "ラントゥ買取",
+    "sommelier": "買取ソムリエ",
+    "kaikyo": "海峡通信",
+    "shouten": "買取商店",
+    "rudeya": "買取ルデヤ",
+}
+
+SHOP_URLS = {
+    "morimori": "https://www.morimori-kaitori.jp/",
+    "homura": "https://kaitori-homura.com/",
+    "icchome": "https://www.1-chome.com/",
+    "runto": "https://runto666.com/",
+    "sommelier": "https://somurie-kaitori.com/",
+    "kaikyo": "https://www.mobile-ichiban.com/",
+    "shouten": "https://www.kaitorishouten-co.jp/",
+    "rudeya": "https://kaitori-rudeya.com/",
+}
+
+CATEGORY_LABELS = {
+    "mega": "MEGA シリーズ",
+    "sv": "SV シリーズ",
+    "special": "スペシャルBOX",
+    "ss": "S&S ソード&シールド",
+}
+
+
+def _format_price(price: int) -> str:
+    if price <= 0:
+        return "-"
+    return f"\u00a5{price:,}"
+
+
+def generate_product_pages(
+    products: list[MasterProduct],
+    project_root: Path,
+    update_date: str,
+) -> None:
+    """Generate individual product pages for all BOX products."""
+    box_dir = project_root / "box"
+    box_dir.mkdir(exist_ok=True)
+
+    template_path = project_root / "box-template.html"
+    if not template_path.exists():
+        logger.warning("box-template.html not found, skipping product pages")
+        return
+
+    template = template_path.read_text(encoding="utf-8")
+
+    # Group products by category for related links
+    by_cat: dict[str, list[MasterProduct]] = {}
+    slug_map: dict[str, str] = {}  # product name -> slug
+    for p in products:
+        by_cat.setdefault(p.category, []).append(p)
+        slug_map[p.name] = _generate_slug(p.name)
+
+    total_products = len(products)
+    generated = 0
+
+    for p in products:
+        slug = slug_map[p.name]
+        active_prices = {sid: p.prices.get(sid, 0) for sid in SHOP_IDS if p.prices.get(sid, 0) > 0}
+
+        if not active_prices:
+            continue
+
+        max_price = max(active_prices.values())
+        max_shop_id = max(active_prices, key=active_prices.get)
+        max_shop_name = SHOP_NAMES.get(max_shop_id, max_shop_id)
+        shop_count = len(active_prices)
+        diff = max_price - p.retail_price if p.retail_price > 0 and max_price > 0 else 0
+
+        # Build price table rows (sorted by price desc)
+        sorted_shops = sorted(
+            [(sid, p.prices.get(sid, 0)) for sid in SHOP_IDS],
+            key=lambda x: x[1],
+            reverse=True,
+        )
+        table_rows = []
+        for sid, price in sorted_shops:
+            name = SHOP_NAMES.get(sid, sid)
+            url = SHOP_URLS.get(sid, "#")
+            if price > 0:
+                is_best = price == max_price
+                tr_class = ' class="best"' if is_best else ""
+                table_rows.append(
+                    f'<tr{tr_class}>'
+                    f'<td class="shop-name"><a href="{url}" target="_blank" rel="noopener noreferrer">{name}</a></td>'
+                    f'<td>{_format_price(price)}</td>'
+                    f'</tr>'
+                )
+            else:
+                table_rows.append(
+                    f'<tr><td class="shop-name">{name}</td><td class="no-price">取扱なし</td></tr>'
+                )
+
+        price_table = (
+            '<table class="price-table">\n'
+            '<tr><th>買取店</th><th>買取価格</th></tr>\n'
+            + "\n".join(table_rows)
+            + "\n</table>"
+        )
+
+        # Related links (same category, exclude self)
+        related = [
+            r for r in by_cat.get(p.category, [])
+            if r.name != p.name and any(r.prices.get(s, 0) > 0 for s in SHOP_IDS)
+        ]
+        related_html = "\n".join(
+            f'    <a href="{slug_map[r.name]}.html" class="related-link">{r.name}</a>'
+            for r in related
+        )
+
+        # Diff text
+        if diff > 0:
+            diff_text = f"+\u00a5{diff:,}"
+        elif diff < 0:
+            diff_text = f"-\u00a5{abs(diff):,}"
+        else:
+            diff_text = "-"
+
+        # JSON-LD for individual product
+        product_jsonld = json.dumps({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": p.name,
+            "description": f"ポケモンカード {p.name} 未開封BOX 買取価格比較",
+            "offers": {
+                "@type": "AggregateOffer",
+                "lowPrice": min(active_prices.values()),
+                "highPrice": max_price,
+                "priceCurrency": "JPY",
+                "offerCount": shop_count,
+            },
+        }, ensure_ascii=False, indent=2)
+        jsonld_tag = f'<script type="application/ld+json">\n{product_jsonld}\n</script>'
+
+        # Replace all placeholders
+        html = template
+        html = html.replace("{{PRODUCT_NAME}}", p.name)
+        html = html.replace("{{SLUG}}", slug)
+        html = html.replace("{{MAX_PRICE_TEXT}}", _format_price(max_price))
+        html = html.replace("{{MAX_SHOP_NAME}}", max_shop_name)
+        html = html.replace("{{SHOP_COUNT}}", str(shop_count))
+        html = html.replace("{{RETAIL_PRICE_TEXT}}", _format_price(p.retail_price))
+        html = html.replace("{{DIFF_TEXT}}", diff_text)
+        html = html.replace("{{CATEGORY_LABEL}}", CATEGORY_LABELS.get(p.category, p.category))
+        html = html.replace("{{PRICE_TABLE}}", price_table)
+        html = html.replace("{{RELATED_LINKS}}", related_html)
+        html = html.replace("{{TOTAL_PRODUCTS}}", str(total_products))
+        html = html.replace("{{UPDATE_DATE}}", update_date)
+        html = html.replace("{{JSONLD}}", jsonld_tag)
+
+        # Write file
+        out_path = box_dir / f"{slug}.html"
+        out_path.write_text(html, encoding="utf-8")
+        generated += 1
+
+    logger.info("Generated %d product pages in %s", generated, box_dir)
+
+    # Update sitemap
+    _update_sitemap(products, slug_map, project_root)
+
+
+def _update_sitemap(
+    products: list[MasterProduct],
+    slug_map: dict[str, str],
+    project_root: Path,
+) -> None:
+    """Regenerate sitemap.xml including all product pages."""
+    base = "https://pokeca-kaitorihikau.netlify.app"
+
+    # Static pages
+    static_pages = [
+        ("/", "daily", "1.0"),
+        ("/kaitori-tips.html", "monthly", "0.8"),
+        ("/shop-hikaku.html", "monthly", "0.8"),
+        ("/single-card-tips.html", "monthly", "0.8"),
+        ("/psa-guide.html", "monthly", "0.8"),
+        ("/mercari-hikaku.html", "monthly", "0.8"),
+        ("/shrink-nashi.html", "monthly", "0.8"),
+        ("/privacy.html", "yearly", "0.3"),
+    ]
+
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ]
+
+    for path, freq, priority in static_pages:
+        lines.append(f"  <url>")
+        lines.append(f"    <loc>{base}{path}</loc>")
+        lines.append(f"    <changefreq>{freq}</changefreq>")
+        lines.append(f"    <priority>{priority}</priority>")
+        lines.append(f"  </url>")
+
+    # Product pages
+    for p in products:
+        slug = slug_map.get(p.name)
+        if not slug:
+            continue
+        if not any(p.prices.get(s, 0) > 0 for s in SHOP_IDS):
+            continue
+        lines.append(f"  <url>")
+        lines.append(f"    <loc>{base}/box/{slug}.html</loc>")
+        lines.append(f"    <changefreq>daily</changefreq>")
+        lines.append(f"    <priority>0.7</priority>")
+        lines.append(f"  </url>")
+
+    lines.append("</urlset>")
+    lines.append("")
+
+    sitemap_path = project_root / "sitemap.xml"
+    sitemap_path.write_text("\n".join(lines), encoding="utf-8")
+    logger.info("Updated sitemap.xml (%d URLs)", len([l for l in lines if "<loc>" in l]))

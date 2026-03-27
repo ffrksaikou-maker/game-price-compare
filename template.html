@@ -353,10 +353,14 @@ function render(){
     const tr=document.createElement("tr");
     tr.className="cat-"+x.c;
 
-    // Product name
+    // Product name (links to individual page)
     const tdN=document.createElement("td");
     tdN.className="pn";
-    tdN.textContent=x.n;
+    const aName=document.createElement("a");
+    aName.href="box/"+x.s+".html";
+    aName.textContent=x.n;
+    aName.style.cssText="color:inherit;text-decoration:none;border-bottom:1px dashed #c4b5fd";
+    tdN.appendChild(aName);
     tr.appendChild(tdN);
 
     // Quantity (inventory mode)
