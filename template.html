@@ -123,6 +123,13 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
 .ad a{color:var(--text-sub);text-decoration:none;border-bottom:1px dashed #d1d5db}
 .ad a:hover{color:#6366f1;border-bottom-color:#6366f1}
 
+/* SNS share */
+.sns-share{max-width:var(--table-width);margin:16px auto 0;padding:0 16px;display:flex;align-items:center;gap:10px;justify-content:center}
+.sns-share span{font-size:12px;color:var(--text-sub);font-weight:600}
+.sns-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:20px;font-size:13px;font-weight:700;text-decoration:none;transition:opacity .15s}
+.sns-btn:hover{opacity:.85}
+.sns-btn.x{background:#000;color:#fff}
+
 /* ===== Mobile: <= 768px ===== */
 @media(max-width:768px){
   :root{--header-h:48px}
@@ -190,6 +197,7 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
     <button class="fb" data-f="cat" data-v="sv">SV</button>
 
     <button class="fb" data-f="cat" data-v="special">スペシャルBOX</button>
+    <button class="fb" data-f="cat" data-v="ss">S&amp;S</button>
   </div>
   <div class="fg">
     <label>買取屋:</label>
@@ -218,6 +226,7 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
   <div class="li"><span class="ls" style="background:var(--mega)"></span>MEGA</div>
   <div class="li"><span class="ls" style="background:var(--sv)"></span>SV</div>
   <div class="li"><span class="ls" style="background:var(--special)"></span>スペシャルBOX</div>
+  <div class="li"><span class="ls" style="background:#fce4ec"></span>S&amp;S</div>
   <div class="li"><span class="ls" style="background:var(--highlight)"></span>最高値</div>
 </div>
 <div class="cb">表示: <span id="rc">0</span> 件</div>
@@ -263,6 +272,14 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
   <a href="privacy.html" style="color:#9ca3af;font-size:10px">プライバシーポリシー</a>
 </div>
 
+<div class="sns-share">
+  <span>シェア:</span>
+  <a class="sns-btn x" href="https://twitter.com/intent/tweet?text=%E3%83%9D%E3%82%B1%E3%82%AB%E8%B2%B7%E5%8F%96%E3%83%81%E3%82%A7%E3%83%83%E3%82%AB%E3%83%BC%EF%BD%9C8%E5%BA%97%E8%88%97%E3%81%AE%E8%B2%B7%E5%8F%96%E4%BE%A1%E6%A0%BC%E3%82%92%E6%AF%8E%E6%97%A5%E8%87%AA%E5%8B%95%E6%9B%B4%E6%96%B0%EF%BC%81&url=https%3A%2F%2Fpokeca-kaitorihikau.netlify.app%2F" target="_blank" rel="noopener noreferrer" onclick="gtag('event','sns_share',{platform:'x'})">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    Xでシェア
+  </a>
+</div>
+
 <div class="ad">
   <a href="https://h.accesstrade.net/sp/cc?rk=0100p4pe00opz3" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" onclick="gtag('event','affiliate_click',{event_category:'ad',event_label:'toretoku'})"><img src="https://h.accesstrade.net/sp/rr?rk=0100p4pe00opz3" alt="トレトク" border="0" width="640" height="100" style="max-width:100%;height:auto"></a>
 </div>
@@ -270,7 +287,8 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
 <script>
 "use strict";
 const S=["morimori","homura","icchome","runto","sommelier","kaikyo","shouten","rudeya"];
-const CL={"mega":"MEGA","sv":"SV","special":"スペシャルBOX"};
+const S_SS=["homura","runto","morimori","icchome","sommelier","kaikyo","shouten","rudeya"];
+const CL={"mega":"MEGA","sv":"SV","special":"スペシャルBOX","ss":"S&S ソード&シールド"};
 
 // {{PRODUCT_DATA}}
 
@@ -305,9 +323,10 @@ function syncFbarHeight(){
 
 function render(){
   const tb=document.getElementById("tb");
+  const SO=cc==="ss"?S_SS:S;
   let f=cc===""?P.filter(x=>x.c!=="ss"):cc==="all"?P.slice():P.filter(x=>x.c===cc);
   f.forEach(x=>{
-    const ap=S.filter(s=>vs.has(s)&&x.p[s]>0).map(s=>x.p[s]);
+    const ap=SO.filter(s=>vs.has(s)&&x.p[s]>0).map(s=>x.p[s]);
     x._m=ap.length?Math.max(...ap):0;
     x._d=(x.r>0&&x._m>0)?x._m-x.r:0;
   });
@@ -320,7 +339,7 @@ function render(){
   f.forEach(x=>{
     if(x.c!==lc&&!sm){
       lc=x.c;
-      let cs=4+S.filter(s=>vs.has(s)).length;
+      let cs=4+SO.filter(s=>vs.has(s)).length;
       if(invMode)cs+=2;
       const shr=document.createElement("tr");
       shr.className="sh cat-"+x.c;
@@ -383,7 +402,7 @@ function render(){
     tr.appendChild(tdD);
 
     // Shop prices
-    S.forEach(s=>{
+    SO.forEach(s=>{
       if(!vs.has(s))return;
       const td=document.createElement("td");
       const v=x.p[s];
@@ -399,7 +418,11 @@ function render(){
   tb.textContent="";
   tb.appendChild(frag);
   document.getElementById("rc").textContent=cnt;
-  document.querySelectorAll("thead th.sc").forEach(function(th){th.style.display=vs.has(th.dataset.s)?"":"none"});
+  // Reorder thead shop columns to match SO
+  var thr=document.querySelector("thead tr");
+  var scThs={};
+  document.querySelectorAll("thead th.sc").forEach(function(th){scThs[th.dataset.s]=th;th.style.display=vs.has(th.dataset.s)?"":"none"});
+  SO.forEach(function(s){if(scThs[s])thr.appendChild(scThs[s])});
   document.querySelectorAll("thead th.inv-col").forEach(function(th){th.style.display=invMode?"":"none"});
   if(invMode)updateTotal();
 }

@@ -33,11 +33,9 @@ def generate_product_js(products: list[MasterProduct]) -> str:
     lines = []
     lines.append("const P=[")
 
-    # Group by category (S&S is on hold, skip)
+    # Group by category
     current_cat = None
     for p in products:
-        if p.category == "ss":
-            continue
         if p.category != current_cat:
             current_cat = p.category
             lines.append(f"// ===== {current_cat.upper()} =====")
@@ -88,8 +86,6 @@ def generate_jsonld(products: list[MasterProduct]) -> str:
     """Generate JSON-LD structured data for Google rich results."""
     items = []
     for p in products:
-        if p.category == "ss":
-            continue
         active_prices = [v for v in p.prices.values() if v > 0]
         if not active_prices:
             continue
@@ -127,8 +123,6 @@ def generate_ai_summary(products: list[MasterProduct]) -> str:
     # Collect top products by max buyback price
     ranked = []
     for p in products:
-        if p.category == "ss":
-            continue
         active = {k: v for k, v in p.prices.items() if v > 0}
         if not active:
             continue
