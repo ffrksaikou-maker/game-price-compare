@@ -459,6 +459,14 @@ if(typeof ResizeObserver!=="undefined"){
 }
 
 render();
+
+// ===== Random blog card (right slot) =====
+(function(){
+  var cards=document.querySelectorAll("#blogLinks .blog-random");
+  if(!cards.length)return;
+  var pick=Math.floor(Math.random()*cards.length);
+  cards[pick].style.display="";
+})();
 </script>
 </body>
 </html>
