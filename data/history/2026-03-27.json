@@ -24,7 +24,7 @@
       "morimori": 7200,
       "homura": 7200,
       "rudeya": 7000,
-      "runto": 7100,
+      "runto": 7200,
       "icchome": 7100,
       "shouten": 6500,
       "kaikyo": 6200,
@@ -434,7 +434,7 @@
       "runto": 44000,
       "icchome": 45500,
       "shouten": 38000,
-      "kaikyo": 41000
+      "kaikyo": 45000
     }
   },
   {
@@ -833,11 +833,11 @@
     "name": "スペシャルBOX ヒロシマ",
     "category": "special",
     "retail_price": 2090,
-    "max_price": 19500,
+    "max_price": 19000,
     "prices": {
       "homura": 18500,
       "rudeya": 16000,
-      "runto": 19500,
+      "runto": 19000,
       "icchome": 17000,
       "shouten": 14000,
       "kaikyo": 17000,
