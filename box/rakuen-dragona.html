@@ -49,7 +49,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 .header{position:sticky;top:0;z-index:100;height:56px;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;padding:0 20px}
 .header a{text-decoration:none}
 .header h1{font-size:18px;font-weight:700;background:linear-gradient(135deg,#f59e0b,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.wrap{max-width:800px;margin:0 auto;padding:32px 16px 48px}
+.wrap{max-width:1240px;margin:0 auto;padding:32px 16px 48px}
+.content-layout{display:flex;gap:24px;align-items:flex-start}
+.content-layout .main-card{flex:1;min-width:0;max-width:800px}
+.article-nav{width:180px;flex-shrink:0;position:sticky;top:72px;max-height:calc(100vh - 88px);overflow-y:auto}
+.article-nav-title{font-size:13px;font-weight:700;margin-bottom:8px;color:var(--text)}
+.article-nav a{display:block;font-size:12px;color:var(--text-sub);text-decoration:none;padding:5px 0 5px 12px;border-left:2px solid var(--border);line-height:1.4;transition:all .2s}
+.article-nav a:hover{color:var(--accent);border-left-color:var(--accent)}
+@media(max-width:1023px){.content-layout{display:block}.article-nav{display:none}}
 .breadcrumb{font-size:12px;color:var(--text-sub);margin-bottom:20px}
 .breadcrumb a{color:var(--accent);text-decoration:none}
 .main-card{background:var(--card);border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.06);padding:32px 28px}
@@ -97,9 +104,21 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 <div class="wrap">
 <div class="breadcrumb"><a href="../index.html">トップ</a> &gt; <a href="../index.html">買取価格比較</a> &gt; SV 強化拡張パック「楽園ドラゴーナ」</div>
 
+<div class="content-layout">
+<nav class="article-nav">
+<div class="article-nav-title">記事一覧</div>
+<a href="../index.html">買取価格比較</a>
+<a href="../kaitori-tips.html">BOX買取のコツ</a>
+<a href="../shop-hikaku.html">8店舗比較</a>
+<a href="../single-card-tips.html">シングル売り</a>
+<a href="../psa-guide.html">PSA鑑定ガイド</a>
+<a href="../mercari-hikaku.html">メルカリ・スニダン比較</a>
+<a href="../shrink-nashi.html">シュリンクなしBOX</a>
+</nav>
+
 <div class="main-card">
 <h2>SV 強化拡張パック「楽園ドラゴーナ」</h2>
-<div class="meta"><span>更新: 2026/03/27 21:11</span><span>SV シリーズ</span></div>
+<div class="meta"><span>更新: 2026/03/27 21:25</span><span>SV シリーズ</span></div>
 
 <div class="best-price">
   <div class="label">最高買取価格</div>
@@ -162,6 +181,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 
 <a href="../index.html" class="back">&larr; 買取価格比較に戻る</a>
 </div><!-- /main-card -->
+</div><!-- /content-layout -->
 </div>
 
 <div style="text-align:center;padding:16px;font-size:11px;color:#6b7280">
