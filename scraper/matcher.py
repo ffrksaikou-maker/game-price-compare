@@ -45,6 +45,22 @@ NO_SHRINK_INDICATORS = [
     "シュリンクナシ", "シュリンク未",
 ]
 
+# Non-Pokemon products to exclude (e.g., One Piece, other TCGs)
+NON_POKEMON_INDICATORS = [
+    "ONE PIECE", "ワンピース", "遊戯王", "デュエル・マスターズ",
+    "ドラゴンボール", "ヴァイスシュヴァルツ", "バトルスピリッツ",
+    "ヴァンガード", "ウィクロス",
+]
+
+# Non-BOX Pokemon products to exclude
+NON_BOX_INDICATORS = [
+    "プロモカードパック", "カードファイルセット", "カードファイル",
+    "GOLDEN BOX", "ゴールデンボックス",
+    "スペシャルセット", "ジムセット",
+    "ハッピーセット", "記念デッキ", "プレシャスコレクター",
+    "イーブイズセット",
+]
+
 
 @dataclass
 class MasterProduct:
@@ -167,7 +183,7 @@ MASTER_PRODUCTS: list[MasterProduct] = [
     MasterProduct("ss", 'S&S 拡張パック「漆黒のガイスト」', 4950, "2021-04-23",
                   ["漆黒のガイスト", "漆黒"]),
     MasterProduct("ss", 'S&S 強化拡張パック「双璧のファイター」', 4950, "2021-03-19",
-                  ["双璧のファイター", "双璧"]),
+                  ["双璧のファイター"]),
     MasterProduct("ss", 'S&S 拡張パック「連撃マスター」', 4950, "2021-01-22",
                   ["連撃マスター", "連撃"]),
     MasterProduct("ss", 'S&S 拡張パック「一撃マスター」', 4950, "2021-01-22",
@@ -177,7 +193,7 @@ MASTER_PRODUCTS: list[MasterProduct] = [
     MasterProduct("ss", 'S&S 拡張パック「仰天のボルテッカー」', 4950, "2020-09-18",
                   ["仰天のボルテッカー", "仰天", "ボルテッカー"]),
     MasterProduct("ss", 'S&S 強化拡張パック「伝説の鼓動」', 4950, "2020-07-10",
-                  ["伝説の鼓動", "伝説"]),
+                  ["伝説の鼓動"]),
     MasterProduct("ss", 'S&S 拡張パック「ムゲンゾーン」', 4950, "2020-06-05",
                   ["ムゲンゾーン"]),
     MasterProduct("ss", 'S&S 強化拡張パック「爆炎ウォーカー」', 4950, "2020-04-24",
@@ -282,6 +298,16 @@ def match_products(
 
         # Skip items that are clearly single cards (not BOX)
         if _is_single_card(name):
+            continue
+
+        # Skip non-Pokemon products (One Piece, etc.)
+        if any(ind in name for ind in NON_POKEMON_INDICATORS):
+            logger.debug("  SKIP (non-pokemon): %s = %d", name, price)
+            continue
+
+        # Skip non-BOX Pokemon products (promo packs, file sets, etc.)
+        if any(ind in name for ind in NON_BOX_INDICATORS):
+            logger.debug("  SKIP (non-box): %s = %d", name, price)
             continue
 
         # Skip no-shrink-wrap items (prefer shrink-wrapped price)
