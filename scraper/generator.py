@@ -514,7 +514,7 @@ def _update_sitemap(
     project_root: Path,
 ) -> None:
     """Regenerate sitemap.xml including all product pages."""
-    base = "https://pokeca-kaitorihikau.netlify.app"
+    base = "https://pokeca-box-hikaku.com"
 
     # Static pages
     static_pages = [

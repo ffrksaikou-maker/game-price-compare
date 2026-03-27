@@ -1,0 +1,157 @@
+Phase 1: Scanning for candidates...
+  Scanned 200 IDs, candidates: 43  Scanned 400 IDs, candidates: 81  Scanned 600 IDs, candidates: 103  Scanned 800 IDs, candidates: 116  Scanned 1000 IDs, candidates: 135  Scanned 1200 IDs, candidates: 150  Scanned 1400 IDs, candidates: 151  Scanned 1600 IDs, candidates: 151  Scanned 1800 IDs, candidates: 160  Scanned 2000 IDs, candidates: 160
+  Range 10000-20000 done. Candidates: 160
+  Scanned 2200 IDs, candidates: 161  Scanned 2400 IDs, candidates: 163  Scanned 2600 IDs, candidates: 168  Scanned 2800 IDs, candidates: 175  Scanned 3000 IDs, candidates: 175  Scanned 3200 IDs, candidates: 179  Scanned 3400 IDs, candidates: 186  Scanned 3600 IDs, candidates: 188  Scanned 3800 IDs, candidates: 188  Scanned 4000 IDs, candidates: 195  Scanned 4200 IDs, candidates: 200  Scanned 4400 IDs, candidates: 202  Scanned 4600 IDs, candidates: 212  Scanned 4800 IDs, candidates: 223  Scanned 5000 IDs, candidates: 232  Scanned 5200 IDs, candidates: 234  Scanned 5400 IDs, candidates: 252  Scanned 5600 IDs, candidates: 257  Scanned 5800 IDs, candidates: 257  Scanned 6000 IDs, candidates: 261  Scanned 6200 IDs, candidates: 280  Scanned 6400 IDs, candidates: 282  Scanned 6600 IDs, candidates: 284  Scanned 6800 IDs, candidates: 297  Scanned 7000 IDs, candidates: 306  Scanned 7200 IDs, candidates: 310  Scanned 7400 IDs, candidates: 313  Scanned 7600 IDs, candidates: 325  Scanned 7800 IDs, candidates: 333  Scanned 8000 IDs, candidates: 337  Scanned 8200 IDs, candidates: 344  Scanned 8400 IDs, candidates: 348  Scanned 8600 IDs, candidates: 358  Scanned 8800 IDs, candidates: 371  Scanned 9000 IDs, candidates: 386  Scanned 9200 IDs, candidates: 392  Scanned 9400 IDs, candidates: 396  Scanned 9600 IDs, candidates: 407  Scanned 9800 IDs, candidates: 425  Scanned 10000 IDs, candidates: 436
+  Range 20000-100000 done. Candidates: 436
+  Scanned 10200 IDs, candidates: 450  Scanned 10400 IDs, candidates: 462  Scanned 10600 IDs, candidates: 468  Scanned 10800 IDs, candidates: 474  Scanned 11000 IDs, candidates: 485  Scanned 11200 IDs, candidates: 498  Scanned 11400 IDs, candidates: 507  Scanned 11600 IDs, candidates: 521  Scanned 11800 IDs, candidates: 539  Scanned 12000 IDs, candidates: 544  Scanned 12200 IDs, candidates: 550  Scanned 12400 IDs, candidates: 561  Scanned 12600 IDs, candidates: 569  Scanned 12800 IDs, candidates: 593  Scanned 13000 IDs, candidates: 598  Scanned 13200 IDs, candidates: 608  Scanned 13400 IDs, candidates: 617  Scanned 13600 IDs, candidates: 624  Scanned 13800 IDs, candidates: 633  Scanned 14000 IDs, candidates: 643  Scanned 14200 IDs, candidates: 644  Scanned 14400 IDs, candidates: 661  Scanned 14600 IDs, candidates: 669  Scanned 14800 IDs, candidates: 683  Scanned 15000 IDs, candidates: 696  Scanned 15200 IDs, candidates: 704  Scanned 15400 IDs, candidates: 709  Scanned 15600 IDs, candidates: 717  Scanned 15800 IDs, candidates: 727  Scanned 16000 IDs, candidates: 736  Scanned 16200 IDs, candidates: 744  Scanned 16400 IDs, candidates: 755  Scanned 16600 IDs, candidates: 762  Scanned 16800 IDs, candidates: 767  Scanned 17000 IDs, candidates: 792  Scanned 17200 IDs, candidates: 794  Scanned 17400 IDs, candidates: 802  Scanned 17600 IDs, candidates: 814  Scanned 17800 IDs, candidates: 821  Scanned 18000 IDs, candidates: 821
+  Range 100000-140000 done. Candidates: 821
+  Scanned 18200 IDs, candidates: 825  Scanned 18400 IDs, candidates: 828  Scanned 18600 IDs, candidates: 834  Scanned 18800 IDs, candidates: 836  Scanned 19000 IDs, candidates: 839  Scanned 19200 IDs, candidates: 842  Scanned 19400 IDs, candidates: 845  Scanned 19600 IDs, candidates: 849  Scanned 19800 IDs, candidates: 849  Scanned 20000 IDs, candidates: 849  Scanned 20200 IDs, candidates: 849  Scanned 20400 IDs, candidates: 852  Scanned 20600 IDs, candidates: 852  Scanned 20800 IDs, candidates: 852  Scanned 21000 IDs, candidates: 852  Scanned 21200 IDs, candidates: 858  Scanned 21400 IDs, candidates: 858  Scanned 21600 IDs, candidates: 858  Scanned 21800 IDs, candidates: 862  Scanned 22000 IDs, candidates: 864  Scanned 22200 IDs, candidates: 866  Scanned 22400 IDs, candidates: 871  Scanned 22600 IDs, candidates: 871  Scanned 22800 IDs, candidates: 874  Scanned 23000 IDs, candidates: 874  Scanned 23200 IDs, candidates: 878  Scanned 23400 IDs, candidates: 880  Scanned 23600 IDs, candidates: 887  Scanned 23800 IDs, candidates: 890  Scanned 24000 IDs, candidates: 898  Scanned 24200 IDs, candidates: 902  Scanned 24400 IDs, candidates: 902  Scanned 24600 IDs, candidates: 903  Scanned 24800 IDs, candidates: 903  Scanned 25000 IDs, candidates: 905  Scanned 25200 IDs, candidates: 908  Scanned 25400 IDs, candidates: 911  Scanned 25600 IDs, candidates: 911  Scanned 25800 IDs, candidates: 914  Scanned 26000 IDs, candidates: 918  Scanned 26200 IDs, candidates: 919  Scanned 26400 IDs, candidates: 920  Scanned 26600 IDs, candidates: 920  Scanned 26800 IDs, candidates: 921  Scanned 27000 IDs, candidates: 922  Scanned 27200 IDs, candidates: 924  Scanned 27400 IDs, candidates: 924  Scanned 27600 IDs, candidates: 924  Scanned 27800 IDs, candidates: 926  Scanned 28000 IDs, candidates: 926  Scanned 28200 IDs, candidates: 927  Scanned 28400 IDs, candidates: 928  Scanned 28600 IDs, candidates: 929  Scanned 28800 IDs, candidates: 929  Scanned 29000 IDs, candidates: 929  Scanned 29200 IDs, candidates: 942  Scanned 29400 IDs, candidates: 942  Scanned 29600 IDs, candidates: 942  Scanned 29800 IDs, candidates: 943  Scanned 30000 IDs, candidates: 949  Scanned 30200 IDs, candidates: 949  Scanned 30400 IDs, candidates: 951  Scanned 30600 IDs, candidates: 952  Scanned 30800 IDs, candidates: 955  Scanned 31000 IDs, candidates: 955  Scanned 31200 IDs, candidates: 959  Scanned 31400 IDs, candidates: 960  Scanned 31600 IDs, candidates: 960  Scanned 31800 IDs, candidates: 962  Scanned 32000 IDs, candidates: 966  Scanned 32200 IDs, candidates: 966  Scanned 32400 IDs, candidates: 969
+  Range 140000-430000 done. Candidates: 969
+  Scanned 32600 IDs, candidates: 970  Scanned 32800 IDs, candidates: 972  Scanned 33000 IDs, candidates: 972  Scanned 33200 IDs, candidates: 973  Scanned 33400 IDs, candidates: 974  Scanned 33600 IDs, candidates: 978  Scanned 33800 IDs, candidates: 980  Scanned 34000 IDs, candidates: 980  Scanned 34200 IDs, candidates: 980  Scanned 34400 IDs, candidates: 980  Scanned 34600 IDs, candidates: 985  Scanned 34800 IDs, candidates: 985  Scanned 35000 IDs, candidates: 985  Scanned 35200 IDs, candidates: 990  Scanned 35400 IDs, candidates: 990  Scanned 35600 IDs, candidates: 990  Scanned 35800 IDs, candidates: 990  Scanned 36000 IDs, candidates: 993  Scanned 36200 IDs, candidates: 993  Scanned 36400 IDs, candidates: 994  Scanned 36600 IDs, candidates: 994  Scanned 36800 IDs, candidates: 998  Scanned 37000 IDs, candidates: 998  Scanned 37200 IDs, candidates: 1001  Scanned 37400 IDs, candidates: 1001  Scanned 37600 IDs, candidates: 1002  Scanned 37800 IDs, candidates: 1002  Scanned 38000 IDs, candidates: 1007  Scanned 38200 IDs, candidates: 1007  Scanned 38400 IDs, candidates: 1010  Scanned 38600 IDs, candidates: 1012  Scanned 38800 IDs, candidates: 1012  Scanned 39000 IDs, candidates: 1014  Scanned 39200 IDs, candidates: 1015  Scanned 39400 IDs, candidates: 1016  Scanned 39600 IDs, candidates: 1017  Scanned 39800 IDs, candidates: 1018  Scanned 40000 IDs, candidates: 1018  Scanned 40200 IDs, candidates: 1019  Scanned 40400 IDs, candidates: 1019  Scanned 40600 IDs, candidates: 1021  Scanned 40800 IDs, candidates: 1021  Scanned 41000 IDs, candidates: 1023  Scanned 41200 IDs, candidates: 1024  Scanned 41400 IDs, candidates: 1024  Scanned 41600 IDs, candidates: 1024  Scanned 41800 IDs, candidates: 1025  Scanned 42000 IDs, candidates: 1027  Scanned 42200 IDs, candidates: 1028  Scanned 42400 IDs, candidates: 1029  Scanned 42600 IDs, candidates: 1041  Scanned 42800 IDs, candidates: 1041  Scanned 43000 IDs, candidates: 1041  Scanned 43200 IDs, candidates: 1041  Scanned 43400 IDs, candidates: 1043  Scanned 43600 IDs, candidates: 1045  Scanned 43800 IDs, candidates: 1051  Scanned 44000 IDs, candidates: 1053  Scanned 44200 IDs, candidates: 1056  Scanned 44400 IDs, candidates: 1059  Scanned 44600 IDs, candidates: 1063  Scanned 44800 IDs, candidates: 1066  Scanned 45000 IDs, candidates: 1071  Scanned 45200 IDs, candidates: 1073  Scanned 45400 IDs, candidates: 1076  Scanned 45600 IDs, candidates: 1077  Scanned 45800 IDs, candidates: 1077  Scanned 46000 IDs, candidates: 1081  Scanned 46200 IDs, candidates: 1081  Scanned 46400 IDs, candidates: 1086
+  Range 430000-570000 done. Candidates: 1089
+  Scanned 46600 IDs, candidates: 1089  Scanned 46800 IDs, candidates: 1089  Scanned 47000 IDs, candidates: 1089  Scanned 47200 IDs, candidates: 1090  Scanned 47400 IDs, candidates: 1090  Scanned 47600 IDs, candidates: 1090  Scanned 47800 IDs, candidates: 1090  Scanned 48000 IDs, candidates: 1094  Scanned 48200 IDs, candidates: 1097  Scanned 48400 IDs, candidates: 1097  Scanned 48600 IDs, candidates: 1098  Scanned 48800 IDs, candidates: 1100  Scanned 49000 IDs, candidates: 1100  Scanned 49200 IDs, candidates: 1104  Scanned 49400 IDs, candidates: 1105  Scanned 49600 IDs, candidates: 1108  Scanned 49800 IDs, candidates: 1109  Scanned 50000 IDs, candidates: 1117  Scanned 50200 IDs, candidates: 1118  Scanned 50400 IDs, candidates: 1118  Scanned 50600 IDs, candidates: 1118  Scanned 50800 IDs, candidates: 1118  Scanned 51000 IDs, candidates: 1121  Scanned 51200 IDs, candidates: 1121  Scanned 51400 IDs, candidates: 1121  Scanned 51600 IDs, candidates: 1121  Scanned 51800 IDs, candidates: 1124  Scanned 52000 IDs, candidates: 1128  Scanned 52200 IDs, candidates: 1133  Scanned 52400 IDs, candidates: 1133  Scanned 52600 IDs, candidates: 1135  Scanned 52800 IDs, candidates: 1136  Scanned 53000 IDs, candidates: 1136  Scanned 53200 IDs, candidates: 1136  Scanned 53400 IDs, candidates: 1140  Scanned 53600 IDs, candidates: 1143  Scanned 53800 IDs, candidates: 1143  Scanned 54000 IDs, candidates: 1145  Scanned 54200 IDs, candidates: 1145  Scanned 54400 IDs, candidates: 1155  Scanned 54600 IDs, candidates: 1155  Scanned 54800 IDs, candidates: 1155  Scanned 55000 IDs, candidates: 1155  Scanned 55200 IDs, candidates: 1155  Scanned 55400 IDs, candidates: 1155  Scanned 55600 IDs, candidates: 1155  Scanned 55800 IDs, candidates: 1158  Scanned 56000 IDs, candidates: 1164  Scanned 56200 IDs, candidates: 1165  Scanned 56400 IDs, candidates: 1166  Scanned 56600 IDs, candidates: 1166  Scanned 56800 IDs, candidates: 1166  Scanned 57000 IDs, candidates: 1166  Scanned 57200 IDs, candidates: 1167  Scanned 57400 IDs, candidates: 1168  Scanned 57600 IDs, candidates: 1173  Scanned 57800 IDs, candidates: 1174  Scanned 58000 IDs, candidates: 1176  Scanned 58200 IDs, candidates: 1178  Scanned 58400 IDs, candidates: 1178  Scanned 58600 IDs, candidates: 1179  Scanned 58800 IDs, candidates: 1184  Scanned 59000 IDs, candidates: 1184  Scanned 59200 IDs, candidates: 1185  Scanned 59400 IDs, candidates: 1186  Scanned 59600 IDs, candidates: 1190  Scanned 59800 IDs, candidates: 1191  Scanned 60000 IDs, candidates: 1191  Scanned 60200 IDs, candidates: 1192  Scanned 60400 IDs, candidates: 1192  Scanned 60600 IDs, candidates: 1192  Scanned 60800 IDs, candidates: 1195  Scanned 61000 IDs, candidates: 1195  Scanned 61200 IDs, candidates: 1195  Scanned 61400 IDs, candidates: 1195  Scanned 61600 IDs, candidates: 1195  Scanned 61800 IDs, candidates: 1195  Scanned 62000 IDs, candidates: 1195  Scanned 62200 IDs, candidates: 1195  Scanned 62400 IDs, candidates: 1195  Scanned 62600 IDs, candidates: 1195  Scanned 62800 IDs, candidates: 1196  Scanned 63000 IDs, candidates: 1196  Scanned 63200 IDs, candidates: 1196  Scanned 63400 IDs, candidates: 1197  Scanned 63600 IDs, candidates: 1197  Scanned 63800 IDs, candidates: 1198  Scanned 64000 IDs, candidates: 1198  Scanned 64200 IDs, candidates: 1205  Scanned 64400 IDs, candidates: 1208  Scanned 64600 IDs, candidates: 1209  Scanned 64800 IDs, candidates: 1209  Scanned 65000 IDs, candidates: 1210  Scanned 65200 IDs, candidates: 1210  Scanned 65400 IDs, candidates: 1213  Scanned 65600 IDs, candidates: 1214  Scanned 65800 IDs, candidates: 1215  Scanned 66000 IDs, candidates: 1215  Scanned 66200 IDs, candidates: 1215  Scanned 66400 IDs, candidates: 1216  Scanned 66600 IDs, candidates: 1216  Scanned 66800 IDs, candidates: 1217  Scanned 67000 IDs, candidates: 1217  Scanned 67200 IDs, candidates: 1218  Scanned 67400 IDs, candidates: 1218  Scanned 67600 IDs, candidates: 1218  Scanned 67800 IDs, candidates: 1218  Scanned 68000 IDs, candidates: 1218  Scanned 68200 IDs, candidates: 1223  Scanned 68400 IDs, candidates: 1223  Scanned 68600 IDs, candidates: 1225  Scanned 68800 IDs, candidates: 1225  Scanned 69000 IDs, candidates: 1225  Scanned 69200 IDs, candidates: 1227  Scanned 69400 IDs, candidates: 1233  Scanned 69600 IDs, candidates: 1233  Scanned 69800 IDs, candidates: 1234  Scanned 70000 IDs, candidates: 1256  Scanned 70200 IDs, candidates: 1256  Scanned 70400 IDs, candidates: 1257  Scanned 70600 IDs, candidates: 1257  Scanned 70800 IDs, candidates: 1257  Scanned 71000 IDs, candidates: 1263  Scanned 71200 IDs, candidates: 1263  Scanned 71400 IDs, candidates: 1263  Scanned 71600 IDs, candidates: 1267  Scanned 71800 IDs, candidates: 1267  Scanned 72000 IDs, candidates: 1268  Scanned 72200 IDs, candidates: 1273  Scanned 72400 IDs, candidates: 1273  Scanned 72600 IDs, candidates: 1274  Scanned 72800 IDs, candidates: 1274  Scanned 73000 IDs, candidates: 1274  Scanned 73200 IDs, candidates: 1281  Scanned 73400 IDs, candidates: 1282  Scanned 73600 IDs, candidates: 1287  Scanned 73800 IDs, candidates: 1288  Scanned 74000 IDs, candidates: 1289  Scanned 74200 IDs, candidates: 1294  Scanned 74400 IDs, candidates: 1300  Scanned 74600 IDs, candidates: 1312  Scanned 74800 IDs, candidates: 1312  Scanned 75000 IDs, candidates: 1312  Scanned 75200 IDs, candidates: 1320  Scanned 75400 IDs, candidates: 1324  Scanned 75600 IDs, candidates: 1326  Scanned 75800 IDs, candidates: 1326  Scanned 76000 IDs, candidates: 1326  Scanned 76200 IDs, candidates: 1328  Scanned 76400 IDs, candidates: 1332  Scanned 76600 IDs, candidates: 1332  Scanned 76800 IDs, candidates: 1333  Scanned 77000 IDs, candidates: 1336  Scanned 77200 IDs, candidates: 1336  Scanned 77400 IDs, candidates: 1336  Scanned 77600 IDs, candidates: 1345  Scanned 77800 IDs, candidates: 1345  Scanned 78000 IDs, candidates: 1352  Scanned 78200 IDs, candidates: 1354  Scanned 78400 IDs, candidates: 1357  Scanned 78600 IDs, candidates: 1361  Scanned 78800 IDs, candidates: 1370  Scanned 79000 IDs, candidates: 1370  Scanned 79200 IDs, candidates: 1372  Scanned 79400 IDs, candidates: 1374  Scanned 79600 IDs, candidates: 1376  Scanned 79800 IDs, candidates: 1388  Scanned 80000 IDs, candidates: 1388  Scanned 80200 IDs, candidates: 1389  Scanned 80400 IDs, candidates: 1391  Scanned 80600 IDs, candidates: 1392  Scanned 80800 IDs, candidates: 1393  Scanned 81000 IDs, candidates: 1398  Scanned 81200 IDs, candidates: 1400  Scanned 81400 IDs, candidates: 1402  Scanned 81600 IDs, candidates: 1406  Scanned 81800 IDs, candidates: 1406  Scanned 82000 IDs, candidates: 1410  Scanned 82200 IDs, candidates: 1411  Scanned 82400 IDs, candidates: 1411  Scanned 82600 IDs, candidates: 1412  Scanned 82800 IDs, candidates: 1413  Scanned 83000 IDs, candidates: 1414  Scanned 83200 IDs, candidates: 1416  Scanned 83400 IDs, candidates: 1416  Scanned 83600 IDs, candidates: 1419  Scanned 83800 IDs, candidates: 1419  Scanned 84000 IDs, candidates: 1422  Scanned 84200 IDs, candidates: 1423  Scanned 84400 IDs, candidates: 1424  Scanned 84600 IDs, candidates: 1426  Scanned 84800 IDs, candidates: 1426  Scanned 85000 IDs, candidates: 1426  Scanned 85200 IDs, candidates: 1428  Scanned 85400 IDs, candidates: 1429  Scanned 85600 IDs, candidates: 1429  Scanned 85800 IDs, candidates: 1429  Scanned 86000 IDs, candidates: 1429  Scanned 86200 IDs, candidates: 1429  Scanned 86400 IDs, candidates: 1429  Scanned 86600 IDs, candidates: 1435  Scanned 86800 IDs, candidates: 1436  Scanned 87000 IDs, candidates: 1437  Scanned 87200 IDs, candidates: 1437  Scanned 87400 IDs, candidates: 1437  Scanned 87600 IDs, candidates: 1438  Scanned 87800 IDs, candidates: 1438  Scanned 88000 IDs, candidates: 1440  Scanned 88200 IDs, candidates: 1440  Scanned 88400 IDs, candidates: 1441
+  Range 570000-780000 done. Candidates: 1441
+
+Phase 1 done: 1441 candidates from 88500 IDs
+
+Phase 2: Checking titles...
+  Checked 10/1441  Checked 20/1441  Checked 30/1441  Checked 40/1441  Checked 50/1441  Checked 60/1441  Checked 70/1441  Checked 80/1441  Checked 90/1441  BOX: 12875: ポケモンカードゲーム ソード &amp; シールド ハイクラスパック シャイニースターV ボックス (1319pts)
+  BOX: 12880: ポケモンカードゲーム ソード &amp; シールド 拡張パック 白銀のランス ボックス (646pts)
+  BOX: 12890: ポケモンカードゲーム ソード＆シールド 拡張パック 反逆クラッシュ ボックス (73pts)
+  BOX: 12895: ポケモンカードゲーム サン&amp;ムーン 強化拡張パック スカイレジェンド ボックス (349pts)
+  BOX: 12900: ポケモンカードゲーム サン＆ムーン 拡張パック オルタージェネシス ボックス (430pts)
+  Checked 100/1441  Checked 110/1441  BOX: 14025: ポケモンカードゲーム ソード&amp;シールド 拡張パック 25th アニバーサリー コレクション ボックス (1157pts)
+  BOX: 14125: ポケモンカードゲーム ハイクラスパック THE BEST OF XY ボックス (30pts)
+  Checked 120/1441  BOX: 14670: ポケモンカードゲーム ソード&amp;シールド 拡張パック 爆炎ウォーカー ボックス (119pts)
+  Checked 130/1441  BOX: 15235: ポケモンカードゲーム サン&amp;ムーン 拡張パック キミを待つ島々 ボックス (11pts)
+  Checked 140/1441  BOX: 15440: ポケモンカードゲーム サン&amp;ムーン 強化拡張パック ドラゴンストーム ボックス (67pts)
+  BOX: 15530: ポケモンカードゲーム サン&amp;ムーン 拡張パック 裂空のカリスマ  ボックス (125pts)
+  BOX: 15535: ポケモンカードゲーム サン&amp;ムーン 拡張パック 超爆インパクト ボックス (121pts)
+  BOX: 15540: ポケモンカードゲーム サン&amp;ムーン 強化拡張パック ダークオーダー ボックス (115pts)
+  BOX: 15555: ポケモンカードゲーム サン&amp;ムーン ムービースペシャルパック 名探偵ピカチュウ ボックス (123pts)
+  BOX: 15570: ポケモンカードゲーム サン&amp;ムーン 強化拡張パック リミックスバウト  ボックス (148pts)
+  BOX: 15595: ポケモンカードゲーム 25th アニバーサリー ゴールデンボックス (1129pts)
+  Checked 150/1441  Checked 160/1441  Checked 170/1441  Checked 180/1441  BOX: 32870: ポケモンカードゲーム ソード&amp;シールド 拡張パック スターバース ボックス (スタバ) (874pts)
+  Checked 190/1441  Checked 200/1441  Checked 210/1441  Checked 220/1441  Checked 230/1441  Checked 240/1441  Checked 250/1441  BOX: 58920: ポケモンカードゲーム ソード＆シールド 強化拡張パック ポケモン GO ボックス (ポケGO) (666pts)
+  Checked 260/1441  Checked 270/1441  Checked 280/1441  Checked 290/1441  Checked 300/1441  Checked 310/1441  Checked 320/1441  Checked 330/1441  Checked 340/1441  Checked 350/1441  Checked 360/1441  Checked 370/1441  Checked 380/1441  Checked 390/1441  Checked 400/1441  Checked 410/1441  Checked 420/1441  Checked 430/1441  Checked 440/1441  Checked 450/1441  Checked 460/1441  BOX: 101885: ポケモンカードゲーム ソード＆シールド ハイクラスパック VSTARユニバース ボックス (Vユニ) (1198pts)
+  Checked 470/1441  Checked 480/1441  Checked 490/1441  Checked 500/1441  Checked 510/1441  Checked 520/1441  Checked 530/1441  Checked 540/1441  Checked 550/1441  Checked 560/1441  Checked 570/1441  Checked 580/1441  Checked 590/1441  Checked 600/1441  Checked 610/1441  Checked 620/1441  Checked 630/1441  Checked 640/1441  Checked 650/1441  Checked 660/1441  Checked 670/1441  Checked 680/1441  Checked 690/1441  Checked 700/1441  Checked 710/1441  Checked 720/1441  Checked 730/1441  Checked 740/1441  Checked 750/1441  Checked 760/1441  Checked 770/1441  Checked 780/1441  Checked 790/1441  Checked 800/1441  Checked 810/1441  Checked 820/1441  Checked 830/1441  Checked 840/1441  Checked 850/1441  Checked 860/1441  Checked 870/1441  BOX: 235120: ポケモンカードゲーム 【英語版】 スカーレット&amp;バイオレット パルデアンフェイツ エリートトレーナーボ (11pts)
+  Checked 880/1441  Checked 890/1441  Checked 900/1441  Checked 910/1441  Checked 920/1441  Checked 930/1441  Checked 940/1441  Checked 950/1441  Checked 960/1441  Checked 970/1441  Checked 980/1441  Checked 990/1441  Checked 1000/1441  Checked 1010/1441  Checked 1020/1441  Checked 1030/1441  Checked 1040/1441  Checked 1050/1441  Checked 1060/1441  Checked 1070/1441  Checked 1080/1441  Checked 1090/1441  Checked 1100/1441  BOX: 584770: ポケモンカードゲーム スカーレット&amp;バイオレット 拡張パック「ブラックボルト」ボックス (300pts)
+  Checked 1110/1441  Checked 1120/1441  Checked 1130/1441  Checked 1140/1441  Checked 1150/1441  Checked 1160/1441  Checked 1170/1441  BOX: 628150: ポケモンカードゲームMEGA プレミアムトレーナーボックスMEGA (177pts)
+  Checked 1180/1441  Checked 1190/1441  Checked 1200/1441  Checked 1210/1441  Checked 1220/1441  Checked 1230/1441  Checked 1240/1441  Checked 1250/1441  BOX: 687430: ポケモンカードゲームMEGA 拡張パック「インフェルノX」ボックス (197pts)
+  Checked 1260/1441  Checked 1270/1441  Checked 1280/1441  Checked 1290/1441  Checked 1300/1441  Checked 1310/1441  Checked 1320/1441  Checked 1330/1441  Checked 1340/1441  Checked 1350/1441  Checked 1360/1441  Checked 1370/1441  Checked 1380/1441  Checked 1390/1441  Checked 1400/1441  Checked 1410/1441  Checked 1420/1441  Checked 1430/1441  Checked 1440/1441
+Phase 2 done: 23 BOX products
+
+Phase 3: Scanning nearby found IDs...
+  NEW: 12876: ポケモンカードゲーム ソード &amp; シールド 拡張パック 連撃マスター ボックス (165pts)
+  NEW: 12877: ポケモンカードゲーム ソード &amp; シールド 拡張パック 一撃マスター ボックス (146pts)
+  NEW: 12878: ポケモンカードゲーム ソード &amp; シールド 強化拡張パック 双璧のファイター ボックス (290pts)
+  NEW: 12879: ポケモンカードゲーム ソード &amp; シールド 拡張パック 仰天のボルテッカー ボックス (743pts)
+  NEW: 12881: ポケモンカードゲーム ソード &amp; シールド 拡張パック 漆黒のガイスト ボックス (736pts)
+  NEW: 12883: ポケモンカードゲーム ソード ＆ シールド 強化拡張パック イーブイヒーローズ ボックス (1488pts)
+  NEW: 12887: ポケモンカードゲーム ソード＆シールド ハイクラスデッキダブルBOX ゲンガー VMAX ＆ インテレオン V (182pts)
+  NEW: 12888: ポケモンカードゲーム ソード ＆ シールド 拡張パック 摩天パーフェクト ボックス (492pts)
+  NEW: 12889: ポケモンカードゲーム ソード ＆ シールド 拡張パック 蒼空ストリーム ボックス (蒼空) (826pts)
+  NEW: 12891: ポケモンカードゲーム ソード＆シールド シャイニー ボックス クロバットV (93pts)
+  NEW: 12893: ポケモンカードゲーム サン＆ムーン ハイクラスパック GXウルトラシャイニー ボックス (229pts)
+  NEW: 12894: ポケモンカードゲーム サン＆ムーン ハイクラスパック タッグチームGX タッグオールスターズ ボックス (591pts)
+  NEW: 12896: ポケモンカードゲーム サン&amp;ムーン 強化拡張パック ジージーエンド ボックス (164pts)
+  NEW: 12897: ポケモンカードゲーム サン&amp;ムーン 強化拡張パック フェアリーライズ ボックス (108pts)
+  NEW: 12898: ポケモンカードゲーム サン＆ムーン 強化拡張パック ドリームリーグ ボックス (525pts)
+  NEW: 12899: ポケモンカードゲーム サン＆ムーン 強化拡張パック フルメタルウォール ボックス (185pts)
+  NEW: 12901: ポケモンカードゲーム スペシャルBOX ポケモンセンターカナザワオープン記念 (476pts)
+  NEW: 12902: Yu NAGABA × ポケモンカードゲーム スペシャル ボックス (191pts)
+  NEW: 14024: ポケモンカードゲーム ソード&amp;シールド 拡張パック フュージョンアーツ ボックス (1135pts)
+  NEW: 14668: ポケモンカードゲーム ソード&amp;シールド 強化拡張パック 伝説の鼓動 ボックス (197pts)
+  NEW: 14669: ポケモンカードゲーム ソード&amp;シールド 拡張パック ムゲンゾーン ボックス (99pts)
+  NEW: 14671: ポケモンカードゲーム ソード&amp;シールド 強化拡張パック VMAXライジング ボックス (113pts)
+  NEW: 14672: ポケモンカードゲーム ソード&amp;シールド 拡張パック ソード ボックス (100pts)
+  NEW: 14673: ポケモンカードゲーム ソード&amp;シールド 拡張パック シールド ボックス (223pts)
+  NEW: 15223: ポケモンカードゲーム サン&amp;ムーン 強化拡張パック サン&amp;ムーン ボックス (26pts)
+  NEW: 15237: ポケモンカードゲーム サン&amp;ムーン 拡張パック 超次元の暴獣 ボックス 初回製造版 (13pts)
+  NEW: 15436: ポケモンカードゲーム サン&amp;ムーン 拡張パック ウルトラムーン ボックス (99pts)
+  NEW: 15437: ポケモンカードゲーム サン&amp;ムーン 拡張パック ウルトラサン ボックス (89pts)
+  NEW: 15438: ポケモンカードゲーム サン&amp;ムーン 強化拡張パック ウルトラフォース ボックス (79pts)
+  NEW: 15439: ポケモンカードゲーム サン&amp;ムーン 拡張パック 禁断の光 ボックス (126pts)
+  NEW: 15526: ポケモンカードゲーム サン&amp;ムーン 強化拡張パック チャンピオンロード ボックス (66pts)
+  NEW: 15532: ポケモンカードゲーム サン&amp;ムーン 拡張パック 迅雷スパーク  ボックス (88pts)
+  NEW: 15544: ポケモンカードゲーム サン&amp;ムーン 強化拡張パック ナイトユニゾン ボックス (143pts)
+  NEW: 15549: ポケモンカードゲーム サン&amp;ムーン 拡張パック ダブルブレイズ ボックス (338pts)
+  NEW: 15568: ポケモンカードゲーム サン&amp;ムーン 拡張パック ミラクルツイン ボックス (251pts)
+  NEW: 15573: ポケモンカードゲーム ソード&amp;シールド ハイクラスパック VMAXクライマックス ボックス (1230pts)
+  NEW: 32862: ポケモンカードゲーム ソード＆シールド プレミアムトレーナーボックス ICHIGEKI (29pts)
+  NEW: 32863: ポケモンカードゲーム ソード＆シールド プレミアムトレーナーボックス RENGEKI (29pts)
+  NEW: 32875: ポケモンカードゲーム ソード&amp;シールド プレミアムトレーナーボックス VSTAR (320pts)
+  NEW: 584772: ポケモンカードゲーム スカーレット&amp;バイオレット 拡張パック「ホワイトフレア」ボックス (300pts)
+  NEW: 584774: ポケモンカードゲーム スカーレット&amp;バイオレット 拡張パックデラックス「ブラックボルト」ボックス (273pts)
+  NEW: 584776: ポケモンカードゲーム スカーレット&amp;バイオレット 拡張パックデラックス「ホワイトフレア」ボックス (263pts)
+  NEW: 628146: ポケモンカードゲームMEGA 拡張パック「メガブレイブ」ボックス (247pts)
+  NEW: 628148: ポケモンカードゲームMEGA 拡張パック「メガシンフォニア」ボックス (246pts)
+
+=== DONE! 67 Pokemon BOX products saved to C:\Users\fifty\game-price-compare\data\snkrdunk ===
+  12875: ポケモンカードゲーム ソード &amp; シールド ハイクラスパック シャイニースターV ボックス (1319pts)
+  12876: ポケモンカードゲーム ソード &amp; シールド 拡張パック 連撃マスター ボックス (165pts)
+  12877: ポケモンカードゲーム ソード &amp; シールド 拡張パック 一撃マスター ボックス (146pts)
+  12878: ポケモンカードゲーム ソード &amp; シールド 強化拡張パック 双璧のファイター ボックス (290pts)
+  12879: ポケモンカードゲーム ソード &amp; シールド 拡張パック 仰天のボルテッカー ボックス (743pts)
+  12880: ポケモンカードゲーム ソード &amp; シールド 拡張パック 白銀のランス ボックス (646pts)
+  12881: ポケモンカードゲーム ソード &amp; シールド 拡張パック 漆黒のガイスト ボックス (736pts)
+  12883: ポケモンカードゲーム ソード ＆ シールド 強化拡張パック イーブイヒーローズ ボックス (1488pts)
+  12887: ポケモンカードゲーム ソード＆シールド ハイクラスデッキダブルBOX ゲンガー VMAX ＆ インテレオン V (182pts)
+  12888: ポケモンカードゲーム ソード ＆ シールド 拡張パック 摩天パーフェクト ボックス (492pts)
+  12889: ポケモンカードゲーム ソード ＆ シールド 拡張パック 蒼空ストリーム ボックス (蒼空) (826pts)
+  12890: ポケモンカードゲーム ソード＆シールド 拡張パック 反逆クラッシュ ボックス (73pts)
+  12891: ポケモンカードゲーム ソード＆シールド シャイニー ボックス クロバットV (93pts)
+  12893: ポケモンカードゲーム サン＆ムーン ハイクラスパック GXウルトラシャイニー ボックス (229pts)
+  12894: ポケモンカードゲーム サン＆ムーン ハイクラスパック タッグチームGX タッグオールスターズ ボックス (591pts)
+  12895: ポケモンカードゲーム サン&amp;ムーン 強化拡張パック スカイレジェンド ボックス (349pts)
+  12896: ポケモンカードゲーム サン&amp;ムーン 強化拡張パック ジージーエンド ボックス (164pts)
+  12897: ポケモンカードゲーム サン&amp;ムーン 強化拡張パック フェアリーライズ ボックス (108pts)
+  12898: ポケモンカードゲーム サン＆ムーン 強化拡張パック ドリームリーグ ボックス (525pts)
+  12899: ポケモンカードゲーム サン＆ムーン 強化拡張パック フルメタルウォール ボックス (185pts)
+  12900: ポケモンカードゲーム サン＆ムーン 拡張パック オルタージェネシス ボックス (430pts)
+  12901: ポケモンカードゲーム スペシャルBOX ポケモンセンターカナザワオープン記念 (476pts)
+  12902: Yu NAGABA × ポケモンカードゲーム スペシャル ボックス (191pts)
+  14024: ポケモンカードゲーム ソード&amp;シールド 拡張パック フュージョンアーツ ボックス (1135pts)
+  14025: ポケモンカードゲーム ソード&amp;シールド 拡張パック 25th アニバーサリー コレクション ボックス (1157pts)
+  14125: ポケモンカードゲーム ハイクラスパック THE BEST OF XY ボックス (30pts)
+  14668: ポケモンカードゲーム ソード&amp;シールド 強化拡張パック 伝説の鼓動 ボックス (197pts)
+  14669: ポケモンカードゲーム ソード&amp;シールド 拡張パック ムゲンゾーン ボックス (99pts)
+  14670: ポケモンカードゲーム ソード&amp;シールド 拡張パック 爆炎ウォーカー ボックス (119pts)
+  14671: ポケモンカードゲーム ソード&amp;シールド 強化拡張パック VMAXライジング ボックス (113pts)
+  14672: ポケモンカードゲーム ソード&amp;シールド 拡張パック ソード ボックス (100pts)
+  14673: ポケモンカードゲーム ソード&amp;シールド 拡張パック シールド ボックス (223pts)
+  15223: ポケモンカードゲーム サン&amp;ムーン 強化拡張パック サン&amp;ムーン ボックス (26pts)
+  15235: ポケモンカードゲーム サン&amp;ムーン 拡張パック キミを待つ島々 ボックス (11pts)
+  15237: ポケモンカードゲーム サン&amp;ムーン 拡張パック 超次元の暴獣 ボックス 初回製造版 (13pts)
+  15436: ポケモンカードゲーム サン&amp;ムーン 拡張パック ウルトラムーン ボックス (99pts)
+  15437: ポケモンカードゲーム サン&amp;ムーン 拡張パック ウルトラサン ボックス (89pts)
+  15438: ポケモンカードゲーム サン&amp;ムーン 強化拡張パック ウルトラフォース ボックス (79pts)
+  15439: ポケモンカードゲーム サン&amp;ムーン 拡張パック 禁断の光 ボックス (126pts)
+  15440: ポケモンカードゲーム サン&amp;ムーン 強化拡張パック ドラゴンストーム ボックス (67pts)
+  15526: ポケモンカードゲーム サン&amp;ムーン 強化拡張パック チャンピオンロード ボックス (66pts)
+  15530: ポケモンカードゲーム サン&amp;ムーン 拡張パック 裂空のカリスマ  ボックス (125pts)
+  15532: ポケモンカードゲーム サン&amp;ムーン 拡張パック 迅雷スパーク  ボックス (88pts)
+  15535: ポケモンカードゲーム サン&amp;ムーン 拡張パック 超爆インパクト ボックス (121pts)
+  15540: ポケモンカードゲーム サン&amp;ムーン 強化拡張パック ダークオーダー ボックス (115pts)
+  15544: ポケモンカードゲーム サン&amp;ムーン 強化拡張パック ナイトユニゾン ボックス (143pts)
+  15549: ポケモンカードゲーム サン&amp;ムーン 拡張パック ダブルブレイズ ボックス (338pts)
+  15555: ポケモンカードゲーム サン&amp;ムーン ムービースペシャルパック 名探偵ピカチュウ ボックス (123pts)
+  15568: ポケモンカードゲーム サン&amp;ムーン 拡張パック ミラクルツイン ボックス (251pts)
+  15570: ポケモンカードゲーム サン&amp;ムーン 強化拡張パック リミックスバウト  ボックス (148pts)
+  15573: ポケモンカードゲーム ソード&amp;シールド ハイクラスパック VMAXクライマックス ボックス (1230pts)
+  15595: ポケモンカードゲーム 25th アニバーサリー ゴールデンボックス (1129pts)
+  32862: ポケモンカードゲーム ソード＆シールド プレミアムトレーナーボックス ICHIGEKI (29pts)
+  32863: ポケモンカードゲーム ソード＆シールド プレミアムトレーナーボックス RENGEKI (29pts)
+  32870: ポケモンカードゲーム ソード&amp;シールド 拡張パック スターバース ボックス (スタバ) (874pts)
+  32875: ポケモンカードゲーム ソード&amp;シールド プレミアムトレーナーボックス VSTAR (320pts)
+  58920: ポケモンカードゲーム ソード＆シールド 強化拡張パック ポケモン GO ボックス (ポケGO) (666pts)
+  101885: ポケモンカードゲーム ソード＆シールド ハイクラスパック VSTARユニバース ボックス (Vユニ) (1198pts)
+  235120: ポケモンカードゲーム 【英語版】 スカーレット&amp;バイオレット パルデアンフェイツ エリートトレーナーボ (11pts)
+  584770: ポケモンカードゲーム スカーレット&amp;バイオレット 拡張パック「ブラックボルト」ボックス (300pts)
+  584772: ポケモンカードゲーム スカーレット&amp;バイオレット 拡張パック「ホワイトフレア」ボックス (300pts)
+  584774: ポケモンカードゲーム スカーレット&amp;バイオレット 拡張パックデラックス「ブラックボルト」ボックス (273pts)
+  584776: ポケモンカードゲーム スカーレット&amp;バイオレット 拡張パックデラックス「ホワイトフレア」ボックス (263pts)
+  628146: ポケモンカードゲームMEGA 拡張パック「メガブレイブ」ボックス (247pts)
+  628148: ポケモンカードゲームMEGA 拡張パック「メガシンフォニア」ボックス (246pts)
+  628150: ポケモンカードゲームMEGA プレミアムトレーナーボックスMEGA (177pts)
+  687430: ポケモンカードゲームMEGA 拡張パック「インフェルノX」ボックス (197pts)
