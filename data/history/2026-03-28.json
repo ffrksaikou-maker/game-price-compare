@@ -28,7 +28,7 @@
       "icchome": 7100,
       "shouten": 6500,
       "kaikyo": 6200,
-      "sommelier": 7000
+      "sommelier": 7200
     }
   },
   {
@@ -43,7 +43,7 @@
       "runto": 12000,
       "icchome": 12500,
       "shouten": 11000,
-      "kaikyo": 12500,
+      "kaikyo": 12000,
       "sommelier": 11500
     }
   },
@@ -60,7 +60,7 @@
       "icchome": 18800,
       "shouten": 14000,
       "kaikyo": 18000,
-      "sommelier": 17200
+      "sommelier": 18500
     }
   },
   {
@@ -76,14 +76,14 @@
       "icchome": 10500,
       "shouten": 9800,
       "kaikyo": 10000,
-      "sommelier": 10000
+      "sommelier": 10200
     }
   },
   {
     "name": "MEGA 拡張パック「メガシンフォニア」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 9500,
+    "max_price": 9600,
     "prices": {
       "morimori": 9400,
       "homura": 9500,
@@ -92,7 +92,7 @@
       "icchome": 9500,
       "shouten": 8000,
       "kaikyo": 8500,
-      "sommelier": 9500
+      "sommelier": 9600
     }
   },
   {
@@ -139,7 +139,7 @@
       "icchome": 19000,
       "shouten": 15500,
       "kaikyo": 16000,
-      "sommelier": 17000
+      "sommelier": 18000
     }
   },
   {
@@ -155,7 +155,7 @@
       "icchome": 17000,
       "shouten": 14500,
       "kaikyo": 14700,
-      "sommelier": 16500
+      "sommelier": 17500
     }
   },
   {
@@ -165,7 +165,7 @@
     "max_price": 19500,
     "prices": {
       "morimori": 19000,
-      "homura": 18900,
+      "homura": 19000,
       "rudeya": 19000,
       "runto": 19000,
       "icchome": 19500,
@@ -202,7 +202,8 @@
       "runto": 8900,
       "icchome": 8900,
       "shouten": 8500,
-      "kaikyo": 8700
+      "kaikyo": 8700,
+      "sommelier": 8800
     }
   },
   {
@@ -217,7 +218,8 @@
       "runto": 16000,
       "icchome": 16700,
       "shouten": 14600,
-      "kaikyo": 16000
+      "kaikyo": 16000,
+      "sommelier": 15800
     }
   },
   {
@@ -227,7 +229,7 @@
     "max_price": 26500,
     "prices": {
       "morimori": 26200,
-      "homura": 26000,
+      "homura": 26200,
       "rudeya": 26300,
       "runto": 25000,
       "icchome": 26500,
@@ -258,13 +260,13 @@
     "max_price": 9100,
     "prices": {
       "morimori": 9000,
-      "homura": 9000,
+      "homura": 9100,
       "rudeya": 8800,
       "runto": 9000,
       "icchome": 9100,
       "shouten": 8800,
       "kaikyo": 8700,
-      "sommelier": 9000
+      "sommelier": 9100
     }
   },
   {
@@ -274,7 +276,7 @@
     "max_price": 9200,
     "prices": {
       "morimori": 9000,
-      "homura": 9000,
+      "homura": 9200,
       "rudeya": 8800,
       "runto": 9000,
       "icchome": 9200,
@@ -294,8 +296,7 @@
       "runto": 10300,
       "icchome": 11200,
       "shouten": 8000,
-      "kaikyo": 11200,
-      "sommelier": 10000
+      "kaikyo": 11200
     }
   },
   {
@@ -310,8 +311,7 @@
       "runto": 14000,
       "icchome": 14500,
       "shouten": 11500,
-      "kaikyo": 14400,
-      "sommelier": 13500
+      "kaikyo": 14400
     }
   },
   {
@@ -359,7 +359,7 @@
       "icchome": 15000,
       "shouten": 13000,
       "kaikyo": 14900,
-      "sommelier": 14200
+      "sommelier": 14300
     }
   },
   {
@@ -396,13 +396,13 @@
     "retail_price": 5400,
     "max_price": 12000,
     "prices": {
+      "morimori": 12000,
       "homura": 12000,
       "rudeya": 11800,
       "runto": 11500,
       "icchome": 12000,
       "shouten": 9500,
-      "kaikyo": 11600,
-      "sommelier": 12000
+      "kaikyo": 11600
     }
   },
   {
@@ -432,7 +432,8 @@
       "runto": 44000,
       "icchome": 47500,
       "shouten": 38000,
-      "kaikyo": 46000
+      "kaikyo": 46000,
+      "sommelier": 45000
     }
   },
   {
@@ -501,6 +502,7 @@
     "retail_price": 5400,
     "max_price": 9100,
     "prices": {
+      "morimori": 9000,
       "homura": 8800,
       "rudeya": 8900,
       "runto": 8800,
@@ -513,12 +515,12 @@
     "name": "S&S ハイクラスパック「VSTARユニバース」",
     "category": "ss",
     "retail_price": 5500,
-    "max_price": 24200,
+    "max_price": 24500,
     "prices": {
-      "homura": 23000,
+      "homura": 23300,
       "rudeya": 24000,
       "runto": 24000,
-      "icchome": 24200,
+      "icchome": 24500,
       "shouten": 19000,
       "kaikyo": 24200
     }
@@ -541,6 +543,7 @@
     "retail_price": 4950,
     "max_price": 10000,
     "prices": {
+      "morimori": 9500,
       "homura": 10000,
       "runto": 8800,
       "kaikyo": 8800
@@ -812,7 +815,7 @@
     "name": "スペシャルBOX トウホク",
     "category": "special",
     "retail_price": 2090,
-    "max_price": 16000,
+    "max_price": 16500,
     "prices": {
       "homura": 12000,
       "rudeya": 13000,
@@ -820,7 +823,7 @@
       "icchome": 14000,
       "shouten": 12000,
       "kaikyo": 15500,
-      "sommelier": 16000
+      "sommelier": 16500
     }
   },
   {
