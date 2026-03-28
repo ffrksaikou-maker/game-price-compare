@@ -51,13 +51,13 @@
     "name": "MEGA 拡張パック「インフェルノX」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 18800,
+    "max_price": 19000,
     "prices": {
       "morimori": 18800,
       "homura": 18500,
       "rudeya": 18300,
       "runto": 18500,
-      "icchome": 18800,
+      "icchome": 19000,
       "shouten": 14000,
       "kaikyo": 18000,
       "sommelier": 18500
