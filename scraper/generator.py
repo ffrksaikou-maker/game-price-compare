@@ -186,6 +186,38 @@ def generate_blog_links() -> str:
     return html
 
 
+def generate_chart_data(products: list[MasterProduct], project_root: Path) -> str:
+    """Generate JS variable with snkrdunk price history for chart display."""
+    mapping_path = project_root / "data" / "snkrdunk" / "product_mapping.json"
+    if not mapping_path.exists():
+        return "const SC={};"
+
+    try:
+        mapping = json.loads(mapping_path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return "const SC={};"
+
+    snkrdunk_dir = project_root / "data" / "snkrdunk"
+    chart_data: dict[str, list] = {}
+    product_names = {p.name for p in products}
+
+    for product_name, snkrdunk_id in mapping.items():
+        if product_name not in product_names:
+            continue
+        data_path = snkrdunk_dir / f"{snkrdunk_id}.json"
+        if not data_path.exists():
+            continue
+        try:
+            data = json.loads(data_path.read_text(encoding="utf-8"))
+            points = data.get("points", [])
+            if points:
+                chart_data[product_name] = points
+        except (json.JSONDecodeError, OSError):
+            continue
+
+    return "const SC=" + json.dumps(chart_data, ensure_ascii=False) + ";"
+
+
 def generate_html(
     products: list[MasterProduct],
     template_path: Path | None = None,
@@ -222,8 +254,12 @@ def generate_html(
     # Generate AI-friendly summary
     ai_summary = generate_ai_summary(products)
 
+    # Generate snkrdunk chart data
+    chart_js = generate_chart_data(products, project_root)
+
     # Replace placeholders
     html = template.replace("// {{PRODUCT_DATA}}", product_js)
+    html = html.replace("// {{CHART_DATA}}", chart_js)
     html = html.replace("<!-- {{JSONLD}} -->", jsonld)
     html = html.replace("<!-- {{AI_SUMMARY}} -->", ai_summary)
     html = html.replace("{{UPDATE_DATE}}", update_date)
@@ -371,6 +407,43 @@ CATEGORY_LABELS = {
 }
 
 
+def _find_product_url(
+    product_urls: dict[str, dict[str, str]],
+    shop_id: str,
+    product: MasterProduct,
+) -> str | None:
+    """Find product-specific URL from the URL mapping.
+
+    Matches by checking if any of the product's keywords appear in the
+    scraped product name from the URL mapping.
+    """
+    shop_map = product_urls.get(shop_id, {})
+    if not shop_map:
+        return None
+
+    # Try exact keyword match against scraped names
+    for kw in product.keywords:
+        if not kw:
+            continue
+        kw_lower = kw.lower()
+        for scraped_name, url in shop_map.items():
+            if kw_lower in scraped_name.lower():
+                # Avoid matching DX vs non-DX
+                is_dx_product = "DX" in product.name
+                is_dx_scraped = "dx" in scraped_name.lower() or "デラックス" in scraped_name
+                if is_dx_product != is_dx_scraped:
+                    continue
+                # Avoid matching shrink-nashi / carton
+                name_lower = scraped_name.lower()
+                if "シュリンクなし" in scraped_name or "シュリンク無" in scraped_name:
+                    continue
+                if "カートン" in scraped_name or "carton" in name_lower:
+                    continue
+                return url
+
+    return None
+
+
 def _format_price(price: int) -> str:
     if price <= 0:
         return "-"
@@ -392,6 +465,15 @@ def generate_product_pages(
         return
 
     template = template_path.read_text(encoding="utf-8")
+
+    # Load product URL mapping (shop_id -> {scraped_name -> url})
+    product_urls: dict[str, dict[str, str]] = {}
+    urls_path = project_root / "data" / "product_urls.json"
+    if urls_path.exists():
+        try:
+            product_urls = json.loads(urls_path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            pass
 
     # Group products by category for related links
     by_cat: dict[str, list[MasterProduct]] = {}
@@ -424,20 +506,21 @@ def generate_product_pages(
         )
         table_rows = []
         for sid, price in sorted_shops:
-            name = SHOP_NAMES.get(sid, sid)
-            url = SHOP_URLS.get(sid, "#")
+            shop_name = SHOP_NAMES.get(sid, sid)
+            # Try to find product-specific URL from mapping
+            shop_url = _find_product_url(product_urls, sid, p) or SHOP_URLS.get(sid, "#")
             if price > 0:
                 is_best = price == max_price
                 tr_class = ' class="best"' if is_best else ""
                 table_rows.append(
                     f'<tr{tr_class}>'
-                    f'<td class="shop-name"><a href="{url}" target="_blank" rel="noopener noreferrer">{name}</a></td>'
+                    f'<td class="shop-name"><a href="{shop_url}" target="_blank" rel="noopener noreferrer">{shop_name}</a></td>'
                     f'<td>{_format_price(price)}</td>'
                     f'</tr>'
                 )
             else:
                 table_rows.append(
-                    f'<tr><td class="shop-name">{name}</td><td class="no-price">取扱なし</td></tr>'
+                    f'<tr><td class="shop-name">{shop_name}</td><td class="no-price">取扱なし</td></tr>'
                 )
 
         price_table = (
