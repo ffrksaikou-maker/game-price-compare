@@ -283,6 +283,8 @@ SLUG_OVERRIDES = {
     "S&S 拡張パック「ソード」": "sword",
     "S&S 拡張パック「シールド」": "shield",
     "S&S 強化拡張パック「ポケモンGO」": "pokemon-go",
+    "SV 拡張パックDX「ブラックボルト」": "black-bolt-dx",
+    "SV 拡張パックDX「ホワイトフレア」": "white-flare-dx",
 }
 
 # Romanization map for common Pokemon TCG terms
