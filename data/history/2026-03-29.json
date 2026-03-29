@@ -19,7 +19,7 @@
     "name": "MEGA 拡張パック「ムニキスゼロ」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 7200,
+    "max_price": 7300,
     "prices": {
       "morimori": 7200,
       "homura": 7200,
@@ -28,7 +28,7 @@
       "icchome": 7200,
       "shouten": 6500,
       "kaikyo": 6200,
-      "sommelier": 7200
+      "sommelier": 7300
     }
   },
   {
@@ -171,7 +171,7 @@
       "icchome": 19500,
       "shouten": 16000,
       "kaikyo": 19000,
-      "sommelier": 18000
+      "sommelier": 18500
     }
   },
   {
@@ -219,7 +219,7 @@
       "icchome": 16700,
       "shouten": 14600,
       "kaikyo": 16000,
-      "sommelier": 15800
+      "sommelier": 16000
     }
   },
   {
@@ -266,7 +266,7 @@
       "icchome": 9100,
       "shouten": 8800,
       "kaikyo": 8700,
-      "sommelier": 9100
+      "sommelier": 9200
     }
   },
   {
@@ -297,7 +297,7 @@
       "icchome": 11200,
       "shouten": 8000,
       "kaikyo": 11200,
-      "sommelier": 10000
+      "sommelier": 11000
     }
   },
   {
@@ -322,6 +322,7 @@
     "retail_price": 5400,
     "max_price": 11000,
     "prices": {
+      "morimori": 10600,
       "homura": 10500,
       "rudeya": 10700,
       "runto": 10500,
@@ -443,6 +444,7 @@
     "retail_price": 5400,
     "max_price": 11500,
     "prices": {
+      "morimori": 11000,
       "homura": 11000,
       "rudeya": 11100,
       "runto": 11200,
@@ -543,6 +545,7 @@
     "retail_price": 4950,
     "max_price": 10000,
     "prices": {
+      "morimori": 9500,
       "homura": 10000,
       "runto": 8800,
       "kaikyo": 8800
@@ -573,11 +576,11 @@
     "name": "S&S 強化拡張パック「ダークファンタズマ」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 15000,
+    "max_price": 15500,
     "prices": {
       "homura": 15000,
       "runto": 15000,
-      "sommelier": 15000
+      "sommelier": 15500
     }
   },
   {
