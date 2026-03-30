@@ -67,12 +67,12 @@
     "name": "MEGA 拡張パック「メガブレイブ」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 10600,
+    "max_price": 10700,
     "prices": {
       "morimori": 10600,
       "homura": 10400,
       "rudeya": 10500,
-      "runto": 10400,
+      "runto": 10700,
       "icchome": 10600,
       "shouten": 9800,
       "kaikyo": 10000,
@@ -89,7 +89,7 @@
       "homura": 9500,
       "rudeya": 9300,
       "runto": 9300,
-      "icchome": 9500,
+      "icchome": 9300,
       "shouten": 9000,
       "kaikyo": 8500,
       "sommelier": 9500
@@ -449,12 +449,12 @@
     "name": "SV 強化拡張パック「スノーハザード」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 9600,
+    "max_price": 9800,
     "prices": {
       "morimori": 9500,
       "homura": 9500,
       "rudeya": 9400,
-      "runto": 9600,
+      "runto": 9800,
       "icchome": 9500,
       "shouten": 7500,
       "kaikyo": 9600
