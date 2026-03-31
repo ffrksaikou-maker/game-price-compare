@@ -7,7 +7,7 @@
     "prices": {
       "morimori": 10000,
       "homura": 10000,
-      "rudeya": 9500,
+      "rudeya": 10000,
       "runto": 10200,
       "icchome": 10000,
       "shouten": 9500,
@@ -35,13 +35,13 @@
     "name": "MEGA ハイクラスパック「MEGAドリームex」",
     "category": "mega",
     "retail_price": 5500,
-    "max_price": 13700,
+    "max_price": 14000,
     "prices": {
-      "morimori": 13600,
-      "homura": 13600,
+      "morimori": 14000,
+      "homura": 14000,
       "rudeya": 13000,
       "runto": 13700,
-      "icchome": 12800,
+      "icchome": 13300,
       "shouten": 12500,
       "kaikyo": 13000,
       "sommelier": 12000
@@ -55,7 +55,7 @@
     "prices": {
       "morimori": 19600,
       "homura": 19200,
-      "rudeya": 19000,
+      "rudeya": 19500,
       "runto": 20500,
       "icchome": 19500,
       "shouten": 18500,
@@ -201,12 +201,12 @@
     "name": "SV ハイクラスパック テラスタルフェスex",
     "category": "sv",
     "retail_price": 5500,
-    "max_price": 17200,
+    "max_price": 17500,
     "prices": {
       "morimori": 17200,
       "homura": 17000,
       "rudeya": 17000,
-      "runto": 17000,
+      "runto": 17500,
       "icchome": 16700,
       "shouten": 16000,
       "kaikyo": 16000,
@@ -640,9 +640,9 @@
     "name": "S&S 拡張パック「蒼空ストリーム」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 228000,
+    "max_price": 200000,
     "prices": {
-      "homura": 228000,
+      "homura": 130000,
       "runto": 200000,
       "kaikyo": 148000
     }
