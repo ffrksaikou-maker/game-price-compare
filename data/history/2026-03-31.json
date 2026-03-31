@@ -74,8 +74,7 @@
       "runto": 10700,
       "icchome": 10600,
       "shouten": 9800,
-      "kaikyo": 10000,
-      "sommelier": 10000
+      "kaikyo": 10000
     }
   },
   {
@@ -90,8 +89,7 @@
       "runto": 9700,
       "icchome": 9100,
       "shouten": 9000,
-      "kaikyo": 8500,
-      "sommelier": 9500
+      "kaikyo": 8500
     }
   },
   {
@@ -106,8 +104,7 @@
       "runto": 21500,
       "icchome": 23000,
       "shouten": 20000,
-      "kaikyo": 20000,
-      "sommelier": 24000
+      "kaikyo": 20000
     }
   },
   {
@@ -197,8 +194,7 @@
       "runto": 9000,
       "icchome": 8900,
       "shouten": 8500,
-      "kaikyo": 8700,
-      "sommelier": 9000
+      "kaikyo": 8700
     }
   },
   {
@@ -236,7 +232,7 @@
     "name": "SV 強化拡張パック「楽園ドラゴーナ」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 18000,
+    "max_price": 17500,
     "prices": {
       "morimori": 17200,
       "homura": 17000,
@@ -244,8 +240,7 @@
       "runto": 17500,
       "icchome": 17000,
       "shouten": 14000,
-      "kaikyo": 15200,
-      "sommelier": 18000
+      "kaikyo": 15200
     }
   },
   {
@@ -423,8 +418,7 @@
       "runto": 50000,
       "icchome": 50000,
       "shouten": 45000,
-      "kaikyo": 46000,
-      "sommelier": 50000
+      "kaikyo": 46000
     }
   },
   {
@@ -465,7 +459,7 @@
     "prices": {
       "morimori": 15800,
       "homura": 15200,
-      "rudeya": 15300,
+      "rudeya": 15500,
       "runto": 15000,
       "icchome": 15800,
       "shouten": 11500,
@@ -480,7 +474,7 @@
     "prices": {
       "morimori": 11000,
       "homura": 11000,
-      "rudeya": 10700,
+      "rudeya": 10800,
       "runto": 10000,
       "icchome": 11000,
       "shouten": 9000,
@@ -821,11 +815,11 @@
     "name": "スペシャルBOX ヒロシマ",
     "category": "special",
     "retail_price": 2090,
-    "max_price": 19500,
+    "max_price": 20000,
     "prices": {
       "homura": 19000,
       "rudeya": 17000,
-      "runto": 19500,
+      "runto": 20000,
       "icchome": 17000,
       "shouten": 14000,
       "kaikyo": 18000,
@@ -836,11 +830,11 @@
     "name": "スペシャルBOX フクオカ",
     "category": "special",
     "retail_price": 2090,
-    "max_price": 19000,
+    "max_price": 19500,
     "prices": {
       "homura": 19000,
       "rudeya": 17000,
-      "runto": 19000,
+      "runto": 19500,
       "icchome": 16000,
       "shouten": 15000,
       "kaikyo": 16000,
