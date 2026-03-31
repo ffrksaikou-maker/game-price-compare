@@ -39,11 +39,11 @@
     "prices": {
       "morimori": 14000,
       "homura": 14000,
-      "rudeya": 13000,
+      "rudeya": 13300,
       "runto": 13700,
       "icchome": 13300,
-      "shouten": 12500,
-      "kaikyo": 13000,
+      "shouten": 13000,
+      "kaikyo": 13500,
       "sommelier": 12000
     }
   },
@@ -53,7 +53,7 @@
     "retail_price": 5400,
     "max_price": 20500,
     "prices": {
-      "morimori": 19600,
+      "morimori": 20000,
       "homura": 19200,
       "rudeya": 19500,
       "runto": 20500,
