@@ -17,6 +17,8 @@
 <meta name="twitter:description" content="{{PRODUCT_NAME}}の買取価格を{{SHOP_COUNT}}店舗で比較。最高値{{MAX_PRICE_TEXT}}。">
 <meta name="twitter:image" content="https://pokeca-box-hikaku.com/ogp.jpg">
 <title>{{PRODUCT_NAME}} 買取価格比較｜ポケカ買取チェッカー</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831186943118320" crossorigin="anonymous"></script>
 <!-- Google Analytics -->
@@ -76,6 +78,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 .back{display:inline-block;margin-top:16px;color:var(--accent);text-decoration:none;font-size:14px;font-weight:600}
 .ft{text-align:center;padding:24px 16px;font-size:11px;color:var(--text-sub)}
 .ft a{color:var(--accent)}
+.chart-wrap{margin:20px 0}
+.chart-wrap canvas{width:100%!important;max-height:360px}
+.chart-periods{display:flex;gap:6px;margin-bottom:12px}
+.chart-periods .cp-btn{font-size:12px;padding:4px 14px;border:1.5px solid var(--border);border-radius:16px;background:#fff;color:var(--text);cursor:pointer;transition:all .15s}
+.chart-periods .cp-btn:hover{border-color:#a5b4fc;background:#eef2ff}
+.chart-periods .cp-btn.active{border-color:var(--accent);background:var(--accent);color:#fff}
+.chart-note{font-size:11px;color:var(--text-sub);margin-top:8px}
 @media(max-width:600px){
   .main-card{padding:20px 16px}
   .main-card h2{font-size:18px}
@@ -100,6 +109,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 <a href="../psa-guide.html">PSA鑑定ガイド</a>
 <a href="../mercari-hikaku.html">メルカリ・スニダン比較</a>
 <a href="../shrink-nashi.html">シュリンクなしBOX</a>
+<a href="../monthly-ranking-2026-03.html">3月値上がりランキング</a>
 </nav>
 
 <div class="main-card">
@@ -120,6 +130,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 
 <h3 class="section-title">店舗別 買取価格</h3>
 {{PRICE_TABLE}}
+
+<!-- {{CHART_SECTION}} -->
 
 <a href="../index.html" class="cta">全{{TOTAL_PRODUCTS}}商品の買取価格を比較する &rarr;</a>
 
