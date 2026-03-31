@@ -1328,7 +1328,7 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
 </div>
 
 <div class="blog-links" id="blogLinks">
-  <a href="shop-hikaku.html" class="blog-card" onclick="gtag('event','blog_click',{article:'shop-hikaku.html'})">
+  <a href="shop-hikaku.html" class="blog-card blog-random" style="display:none" onclick="gtag('event','blog_click',{article:'shop-hikaku.html'})">
     <h3>ポケカ買取8店舗の特徴を徹底比較</h3>
     <p>当サイトで掲載している8店舗それぞれの強み・特徴をまとめました。自分に合った買取店選びの参考に。</p>
   </a>
@@ -1351,6 +1351,10 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
   <a href="kaitori-tips.html" class="blog-card blog-random" style="display:none" onclick="gtag('event','blog_click',{article:'kaitori-tips.html'})">
     <h3>ポケカBOX買取で損しない5つのコツ</h3>
     <p>シュリンク付きの重要性、複数店舗比較のメリット、売り時の見極め方など、高価買取のポイントを解説。</p>
+  </a>
+  <a href="monthly-ranking-2026-03.html" class="blog-card blog-latest" onclick="gtag('event','blog_click',{article:'monthly-ranking-2026-03.html'})">
+    <h3>【2026年3月】月間値上がりランキング</h3>
+    <p>3月に最も値上がりしたBOXは？151が+10,650円で1位。8店舗の実データに基づく月間レポート。</p>
   </a>
 </div>
 
@@ -1655,12 +1659,15 @@ if(typeof ResizeObserver!=="undefined"){
 
 render();
 
-// ===== Random blog card (right slot) =====
+// ===== Blog cards: left=random, right=latest =====
 (function(){
   var cards=document.querySelectorAll("#blogLinks .blog-random");
-  if(!cards.length)return;
-  var pick=Math.floor(Math.random()*cards.length);
-  cards[pick].style.display="";
+  if(cards.length){
+    var pick=Math.floor(Math.random()*cards.length);
+    cards[pick].style.display="";
+  }
+  var latest=document.querySelector("#blogLinks .blog-latest");
+  if(latest) latest.style.display="";
 })();
 </script>
 </body>
