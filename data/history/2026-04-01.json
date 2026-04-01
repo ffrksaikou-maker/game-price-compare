@@ -7,7 +7,7 @@
     "prices": {
       "morimori": 10200,
       "homura": 10200,
-      "rudeya": 10200,
+      "rudeya": 10300,
       "runto": 10200,
       "icchome": 10500,
       "shouten": 9500,
@@ -55,24 +55,24 @@
     "prices": {
       "morimori": 21000,
       "homura": 20000,
-      "rudeya": 20000,
+      "rudeya": 22500,
       "runto": 22500,
       "icchome": 22500,
       "shouten": 18500,
-      "kaikyo": 19800
+      "kaikyo": 22500
     }
   },
   {
     "name": "MEGA 拡張パック「メガブレイブ」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 11000,
+    "max_price": 11200,
     "prices": {
       "morimori": 10800,
       "homura": 10500,
-      "rudeya": 10800,
+      "rudeya": 11000,
       "runto": 10800,
-      "icchome": 11000,
+      "icchome": 11200,
       "shouten": 9800,
       "kaikyo": 10000
     }
@@ -131,7 +131,7 @@
     "prices": {
       "morimori": 19800,
       "homura": 19500,
-      "rudeya": 19600,
+      "rudeya": 19700,
       "runto": 19500,
       "icchome": 19700,
       "shouten": 18500,
@@ -146,7 +146,7 @@
     "prices": {
       "morimori": 18600,
       "homura": 18500,
-      "rudeya": 18600,
+      "rudeya": 18700,
       "runto": 18500,
       "icchome": 18700,
       "shouten": 17500,
@@ -206,7 +206,7 @@
     "prices": {
       "morimori": 18000,
       "homura": 17500,
-      "rudeya": 18000,
+      "rudeya": 18500,
       "runto": 17500,
       "icchome": 18500,
       "shouten": 16000,
