@@ -17,6 +17,8 @@
 <meta name="twitter:description" content="S&S 拡張パック「パラダイムトリガー」の買取価格を4店舗で比較。最高値¥19,800。">
 <meta name="twitter:image" content="https://pokeca-box-hikaku.com/ogp.jpg">
 <title>S&S 拡張パック「パラダイムトリガー」 買取価格比較｜ポケカ買取チェッカー</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831186943118320" crossorigin="anonymous"></script>
 <!-- Google Analytics -->
@@ -90,6 +92,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 .back{display:inline-block;margin-top:16px;color:var(--accent);text-decoration:none;font-size:14px;font-weight:600}
 .ft{text-align:center;padding:24px 16px;font-size:11px;color:var(--text-sub)}
 .ft a{color:var(--accent)}
+.chart-wrap{margin:20px 0}
+.chart-wrap canvas{width:100%!important;max-height:360px}
+.chart-periods{display:flex;gap:6px;margin-bottom:12px}
+.chart-periods .cp-btn{font-size:12px;padding:4px 14px;border:1.5px solid var(--border);border-radius:16px;background:#fff;color:var(--text);cursor:pointer;transition:all .15s}
+.chart-periods .cp-btn:hover{border-color:#a5b4fc;background:#eef2ff}
+.chart-periods .cp-btn.active{border-color:var(--accent);background:var(--accent);color:#fff}
+.chart-note{font-size:11px;color:var(--text-sub);margin-top:8px}
 @media(max-width:600px){
   .main-card{padding:20px 16px}
   .main-card h2{font-size:18px}
@@ -114,11 +123,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 <a href="../psa-guide.html">PSA鑑定ガイド</a>
 <a href="../mercari-hikaku.html">メルカリ・スニダン比較</a>
 <a href="../shrink-nashi.html">シュリンクなしBOX</a>
+<a href="../monthly-ranking-2026-03.html">3月値上がりランキング</a>
 </nav>
 
 <div class="main-card">
 <h2>S&S 拡張パック「パラダイムトリガー」</h2>
-<div class="meta"><span>更新: 2026/03/31 23:17</span><span>S&S ソード&シールド</span></div>
+<div class="meta"><span>更新: 2026/04/01 11:01</span><span>S&S ソード&シールド</span></div>
 
 <div class="best-price">
   <div class="label">最高買取価格</div>
@@ -136,7 +146,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 <table class="price-table">
 <tr><th>買取店</th><th>買取価格</th></tr>
 <tr class="best"><td class="shop-name"><a href="https://www.morimori-kaitori.jp/category/0112001/product/174680" target="_blank" rel="noopener noreferrer">森森買取</a></td><td>¥19,800</td></tr>
-<tr><td class="shop-name"><a href="https://www.mobile-ichiban.com/" target="_blank" rel="noopener noreferrer">海峡通信</a></td><td>¥19,000</td></tr>
+<tr class="best"><td class="shop-name"><a href="https://www.mobile-ichiban.com/" target="_blank" rel="noopener noreferrer">海峡通信</a></td><td>¥19,800</td></tr>
 <tr><td class="shop-name"><a href="https://kaitori-homura.com/products/3433?page=2&q%5Bproduct_sub_category_id_eq%5D=128&q%5Bproduct_sub_category_product_category_id_eq%5D=14" target="_blank" rel="noopener noreferrer">買取ホムラ</a></td><td>¥18,500</td></tr>
 <tr><td class="shop-name"><a href="https://runto666.com/product/%e3%83%9d%e3%82%b1%e3%83%a2%e3%83%b3%e3%82%ab%e3%83%bc%e3%83%89%e3%82%b2%e3%83%bc%e3%83%a0-%e3%82%bd%e3%83%bc%e3%83%89%ef%bc%86%e3%82%b7%e3%83%bc%e3%83%ab%e3%83%89-%e6%8b%a1%e5%bc%b5%e3%83%91-3/" target="_blank" rel="noopener noreferrer">ラントゥ買取</a></td><td>¥18,000</td></tr>
 <tr><td class="shop-name">買取一丁目</td><td class="no-price">取扱なし</td></tr>
@@ -144,6 +154,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 <tr><td class="shop-name">買取商店</td><td class="no-price">取扱なし</td></tr>
 <tr><td class="shop-name">買取ルデヤ</td><td class="no-price">取扱なし</td></tr>
 </table>
+
+<!-- {{CHART_SECTION}} -->
 
 <a href="../index.html" class="cta">全66商品の買取価格を比較する &rarr;</a>
 
