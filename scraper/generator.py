@@ -21,6 +21,7 @@ SHOP_IDS = ["morimori", "homura", "icchome", "runto", "sommelier", "kaikyo", "sh
 
 # Blog articles (newest first) - 記事追加時はここに1行足すだけ
 BLOG_ARTICLES = [
+    {"url": "box-toushi.html", "title": "ポケカBOX投資の始め方", "desc": "値上がりしやすいBOXの特徴、予算別の始め方、保管方法、リスクまで初心者向けに解説。", "date": "2026-04-02"},
     {"url": "shrink-nashi.html", "title": "シュリンクなしBOXの買取事情", "desc": "シュリンクなしポケカBOXの買取対応を買取店・メルカリ・スニダンで比較。高く売るコツも解説。", "date": "2026-03-27"},
     {"url": "mercari-hikaku.html", "title": "メルカリ・スニダン・買取店どれが得？", "desc": "手数料・送料込みで3つの売却方法を徹底比較。具体的な計算例で最適な売り方がわかります。", "date": "2026-03-26"},
     {"url": "psa-guide.html", "title": "PSA鑑定とは？ポケカの価値を最大化する方法", "desc": "鑑定の流れ、グレードの意味、費用対効果まで。PSA 10で価値が3〜10倍に跳ね上がる具体例も紹介。", "date": "2026-03-24"},
@@ -198,11 +199,11 @@ def generate_chart_data(products: list[MasterProduct], project_root: Path) -> st
         return "const SC={};"
 
     snkrdunk_dir = project_root / "data" / "snkrdunk"
-    chart_data: dict[str, list] = {}
-    product_names = {p.name for p in products}
+    chart_data: dict[str, dict] = {}
+    product_map = {p.name: p for p in products}
 
     for product_name, snkrdunk_id in mapping.items():
-        if product_name not in product_names:
+        if product_name not in product_map:
             continue
         data_path = snkrdunk_dir / f"{snkrdunk_id}.json"
         if not data_path.exists():
@@ -211,7 +212,11 @@ def generate_chart_data(products: list[MasterProduct], project_root: Path) -> st
             data = json.loads(data_path.read_text(encoding="utf-8"))
             points = data.get("points", [])
             if points:
-                chart_data[product_name] = points
+                entry: dict = {"p": points}
+                rd = product_map[product_name].release_date
+                if rd:
+                    entry["d"] = rd
+                chart_data[product_name] = entry
         except (json.JSONDecodeError, OSError):
             continue
 
@@ -254,12 +259,8 @@ def generate_html(
     # Generate AI-friendly summary
     ai_summary = generate_ai_summary(products)
 
-    # Generate snkrdunk chart data
-    chart_js = generate_chart_data(products, project_root)
-
     # Replace placeholders
     html = template.replace("// {{PRODUCT_DATA}}", product_js)
-    html = html.replace("// {{CHART_DATA}}", chart_js)
     html = html.replace("<!-- {{JSONLD}} -->", jsonld)
     html = html.replace("<!-- {{AI_SUMMARY}} -->", ai_summary)
     html = html.replace("{{UPDATE_DATE}}", update_date)
@@ -452,6 +453,85 @@ def _format_price(price: int) -> str:
     return f"\u00a5{price:,}"
 
 
+def _generate_box_chart_section(product: MasterProduct, project_root: Path) -> str:
+    """Generate inline chart HTML+JS for an individual product page."""
+    mapping_path = project_root / "data" / "snkrdunk" / "product_mapping.json"
+    if not mapping_path.exists():
+        return ""
+
+    try:
+        mapping = json.loads(mapping_path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return ""
+
+    snkrdunk_id = mapping.get(product.name)
+    if not snkrdunk_id:
+        return ""
+
+    data_path = project_root / "data" / "snkrdunk" / f"{snkrdunk_id}.json"
+    if not data_path.exists():
+        return ""
+
+    try:
+        data = json.loads(data_path.read_text(encoding="utf-8"))
+        points = data.get("points", [])
+    except (json.JSONDecodeError, OSError):
+        return ""
+
+    if not points:
+        return ""
+
+    release_date = product.release_date or ""
+    points_json = json.dumps(points, ensure_ascii=False)
+
+    return f"""<h3 class="section-title">価格推移</h3>
+<div class="chart-wrap">
+<div class="chart-periods">
+  <button class="cp-btn active" data-period="all">全期間</button>
+  <button class="cp-btn" data-period="3m">3ヶ月</button>
+  <button class="cp-btn" data-period="1m">1ヶ月</button>
+</div>
+<canvas id="boxChart"></canvas>
+<div class="chart-note">※ 参考データ</div>
+</div>
+<script>
+(function(){{
+var pts={points_json};
+var rd="{release_date}";
+var ci=null;
+function draw(period){{
+  var now=Date.now(),cutoff=0;
+  if(period==="3m")cutoff=now-90*86400000;
+  else if(period==="1m")cutoff=now-30*86400000;
+  var f=cutoff?pts.filter(function(p){{return p[0]>=cutoff}}):pts;
+  if(!f.length)f=pts;
+  var labels=f.map(function(p){{var d=new Date(p[0]);return d.getFullYear()+"/"+(d.getMonth()+1)+"/"+d.getDate()}});
+  var data=f.map(function(p){{return Math.round(p[1]*0.9)}});
+  var ridx=-1;
+  if(rd){{var rt=new Date(rd+"T00:00:00+09:00").getTime();for(var i=0;i<f.length;i++){{if(f[i][0]>=rt){{ridx=i;break}}}}}}
+  var ann=undefined;
+  if(ridx>=0){{ann={{annotations:{{rl:{{type:"line",drawTime:"beforeDatasetsDraw",xMin:ridx,xMax:ridx,borderColor:"#ef4444",borderWidth:2,borderDash:[6,4],label:{{display:true,content:"発売日",position:"end",backgroundColor:"#ef4444",color:"#fff",font:{{size:11,weight:"bold"}},padding:{{top:3,bottom:3,left:6,right:6}},borderRadius:4}}}}}}}};}}
+  if(ci)ci.destroy();
+  ci=new Chart(document.getElementById("boxChart").getContext("2d"),{{
+    type:"line",
+    data:{{labels:labels,datasets:[{{label:"参考価格",data:data,borderColor:"#6366f1",backgroundColor:"rgba(99,102,241,.1)",fill:true,tension:0.3,pointRadius:f.length>60?0:2,pointHoverRadius:5,borderWidth:2}}]}},
+    options:{{responsive:true,maintainAspectRatio:false,interaction:{{mode:"index",intersect:false}},
+      plugins:{{legend:{{display:false}},annotation:ann,tooltip:{{callbacks:{{label:function(c){{return"\\u00a5"+c.parsed.y.toLocaleString()}}}}}}}},
+      scales:{{x:{{ticks:{{maxTicksLimit:8,font:{{size:11}},color:"#6b7280"}},grid:{{display:false}}}},y:{{ticks:{{callback:function(v){{return"\\u00a5"+v.toLocaleString()}},font:{{size:11}},color:"#6b7280"}},grid:{{color:"#f3f4f6"}}}}}}
+    }}
+  }});
+}}
+draw("all");
+document.querySelectorAll(".cp-btn").forEach(function(b){{
+  b.addEventListener("click",function(){{
+    document.querySelectorAll(".cp-btn").forEach(function(x){{x.classList.remove("active")}});
+    b.classList.add("active");draw(b.dataset.period);
+  }});
+}});
+}})();
+</script>"""
+
+
 def generate_product_pages(
     products: list[MasterProduct],
     project_root: Path,
@@ -566,6 +646,9 @@ def generate_product_pages(
         }, ensure_ascii=False, indent=2)
         jsonld_tag = f'<script type="application/ld+json">\n{product_jsonld}\n</script>'
 
+        # Generate chart section for this product
+        chart_section = _generate_box_chart_section(p, project_root)
+
         # Replace all placeholders
         html = template
         html = html.replace("{{PRODUCT_NAME}}", p.name)
@@ -581,6 +664,7 @@ def generate_product_pages(
         html = html.replace("{{TOTAL_PRODUCTS}}", str(total_products))
         html = html.replace("{{UPDATE_DATE}}", update_date)
         html = html.replace("{{JSONLD}}", jsonld_tag)
+        html = html.replace("<!-- {{CHART_SECTION}} -->", chart_section)
 
         # Write file
         out_path = box_dir / f"{slug}.html"
@@ -610,6 +694,7 @@ def _update_sitemap(
         ("/psa-guide.html", "monthly", "0.8"),
         ("/mercari-hikaku.html", "monthly", "0.8"),
         ("/shrink-nashi.html", "monthly", "0.8"),
+        ("/box-toushi.html", "monthly", "0.8"),
         ("/privacy.html", "yearly", "0.3"),
     ]
 
