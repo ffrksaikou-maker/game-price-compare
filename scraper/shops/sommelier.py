@@ -1,6 +1,6 @@
 """Scraper for 買取ソムリエ (somurie-kaitori.com) - Next.js React SPA.
 
-All products at /products (single page, ~38 items).
+Products at /products with Ant Design pagination (multiple pages).
 Ant Design cards: .ant-card with name in p.text-dark-gray, price in p.text-price-red.
 """
 
@@ -19,6 +19,36 @@ class SommelierScraper(BaseScraper):
     shop_id = "sommelier"
     shop_name = "ソムリエ"
     use_playwright = True
+
+    def _scrape_current_page(self, page) -> list[ScrapedItem]:
+        """Scrape all product cards on the current page."""
+        items: list[ScrapedItem] = []
+        cards = page.query_selector_all(".ant-card")
+
+        for card in cards:
+            # Product name
+            name_el = card.query_selector("p.text-dark-gray")
+            if not name_el:
+                name_el = card.query_selector(
+                    "p.font-bold.text-lg, p.font-bold"
+                )
+            if not name_el:
+                continue
+
+            name = name_el.inner_text().strip()
+
+            # Price (first p.text-price-red is the number)
+            price_el = card.query_selector("p.text-price-red")
+            if not price_el:
+                continue
+
+            price_text = price_el.inner_text().strip()
+            price = self.parse_price(price_text)
+
+            if name and price > 0:
+                items.append(ScrapedItem(name=name, price=price))
+
+        return items
 
     def scrape(self) -> list[ScrapedItem]:
         items: list[ScrapedItem] = []
@@ -43,37 +73,39 @@ class SommelierScraper(BaseScraper):
                     )
                     page.wait_for_timeout(1500)
 
-                # Ant Design product cards
-                cards = page.query_selector_all(".ant-card")
+                # Scrape page 1
+                items.extend(self._scrape_current_page(page))
+                logger.info("%s: page 1 scraped %d items", self.shop_name, len(items))
 
-                for card in cards:
-                    # Product name
-                    name_el = card.query_selector("p.text-dark-gray")
-                    if not name_el:
-                        # Fallback selectors
-                        name_el = card.query_selector(
-                            "p.font-bold.text-lg, p.font-bold"
+                # Click through remaining pages
+                while True:
+                    next_btn = page.query_selector(
+                        ".ant-pagination-next:not(.ant-pagination-disabled)"
+                    )
+                    if not next_btn:
+                        break
+
+                    next_btn.click()
+                    page.wait_for_timeout(3000)
+
+                    # Scroll to load lazy content on new page
+                    for _ in range(3):
+                        page.evaluate(
+                            "window.scrollTo(0, document.body.scrollHeight)"
                         )
-                    if not name_el:
-                        continue
+                        page.wait_for_timeout(1000)
 
-                    name = name_el.inner_text().strip()
-
-                    # Price (first p.text-price-red is the number)
-                    price_el = card.query_selector("p.text-price-red")
-                    if not price_el:
-                        continue
-
-                    price_text = price_el.inner_text().strip()
-                    price = self.parse_price(price_text)
-
-                    if name and price > 0:
-                        items.append(ScrapedItem(name=name, price=price))
+                    page_items = self._scrape_current_page(page)
+                    items.extend(page_items)
+                    logger.info(
+                        "%s: next page scraped %d items (total %d)",
+                        self.shop_name, len(page_items), len(items),
+                    )
 
             except Exception as e:
                 logger.error("%s: scraping error: %s", self.shop_name, e)
             finally:
                 browser.close()
 
-        logger.info("%s: scraped %d items", self.shop_name, len(items))
+        logger.info("%s: scraped %d items total", self.shop_name, len(items))
         return items
