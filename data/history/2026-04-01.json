@@ -25,7 +25,7 @@
       "homura": 7300,
       "rudeya": 7400,
       "runto": 7500,
-      "icchome": 7500,
+      "icchome": 7300,
       "shouten": 7000,
       "kaikyo": 6200,
       "sommelier": 7500
@@ -35,13 +35,13 @@
     "name": "MEGA ハイクラスパック「MEGAドリームex」",
     "category": "mega",
     "retail_price": 5500,
-    "max_price": 14500,
+    "max_price": 14200,
     "prices": {
       "morimori": 14200,
       "homura": 14000,
       "rudeya": 14200,
       "runto": 14000,
-      "icchome": 14500,
+      "icchome": 14000,
       "shouten": 13000,
       "kaikyo": 14000,
       "sommelier": 14000
@@ -279,7 +279,6 @@
     "retail_price": 5400,
     "max_price": 11600,
     "prices": {
-      "morimori": 11000,
       "homura": 11500,
       "rudeya": 11500,
       "runto": 10500,
@@ -428,7 +427,6 @@
     "retail_price": 5400,
     "max_price": 11200,
     "prices": {
-      "morimori": 11200,
       "homura": 11200,
       "rudeya": 11200,
       "runto": 11200,
@@ -530,7 +528,6 @@
     "retail_price": 4950,
     "max_price": 10000,
     "prices": {
-      "morimori": 9500,
       "homura": 10000,
       "runto": 9400,
       "kaikyo": 8800
