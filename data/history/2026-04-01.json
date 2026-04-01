@@ -35,13 +35,13 @@
     "name": "MEGA ハイクラスパック「MEGAドリームex」",
     "category": "mega",
     "retail_price": 5500,
-    "max_price": 14200,
+    "max_price": 14500,
     "prices": {
       "morimori": 14200,
       "homura": 14000,
       "rudeya": 14000,
       "runto": 14000,
-      "icchome": 14000,
+      "icchome": 14500,
       "shouten": 13000,
       "kaikyo": 14000,
       "sommelier": 14000
@@ -51,13 +51,13 @@
     "name": "MEGA 拡張パック「インフェルノX」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 22500,
+    "max_price": 23200,
     "prices": {
-      "morimori": 21000,
+      "morimori": 23200,
       "homura": 20000,
       "rudeya": 22500,
       "runto": 22500,
-      "icchome": 22500,
+      "icchome": 23000,
       "shouten": 18500,
       "kaikyo": 22500
     }
@@ -501,12 +501,12 @@
     "name": "S&S ハイクラスパック「VSTARユニバース」",
     "category": "ss",
     "retail_price": 5500,
-    "max_price": 25300,
+    "max_price": 25500,
     "prices": {
       "homura": 24000,
       "rudeya": 25300,
       "runto": 25000,
-      "icchome": 25300,
+      "icchome": 25500,
       "shouten": 23500,
       "kaikyo": 24200,
       "sommelier": 24000
