@@ -159,22 +159,14 @@ def generate_ai_summary(products: list[MasterProduct]) -> str:
 
 
 def generate_blog_links() -> str:
-    """Generate blog cards: left=shop-hikaku(fixed), right=random from others."""
-    # Left: 買取店比較 (固定)
-    fixed = next(a for a in BLOG_ARTICLES if a["url"] == "shop-hikaku.html")
-    # Right candidates: shop-hikaku以外の全記事（JSでランダム選択）
-    candidates = [a for a in BLOG_ARTICLES if a["url"] != "shop-hikaku.html"]
+    """Generate blog cards: left=random, right=latest article."""
+    # Right: 最新記事 (固定 = BLOG_ARTICLES[0])
+    latest = BLOG_ARTICLES[0]
+    # Left candidates: 最新記事以外の全記事（JSでランダム選択）
+    candidates = [a for a in BLOG_ARTICLES if a["url"] != latest["url"]]
 
     html = '<div class="blog-links" id="blogLinks">\n'
-    # 左: 固定カード
-    html += (
-        f'  <a href="{fixed["url"]}" class="blog-card"'
-        f' onclick="gtag(\'event\',\'blog_click\',{{article:\'{fixed["url"]}\'}})">\n'
-        f'    <h3>{fixed["title"]}</h3>\n'
-        f'    <p>{fixed["desc"]}</p>\n'
-        f'  </a>\n'
-    )
-    # 右: ランダム候補（非表示、JSで1つ選んで表示）
+    # 左: ランダム候補（非表示、JSで1つ選んで表示）
     for article in candidates:
         html += (
             f'  <a href="{article["url"]}" class="blog-card blog-random" style="display:none"'
@@ -183,6 +175,14 @@ def generate_blog_links() -> str:
             f'    <p>{article["desc"]}</p>\n'
             f'  </a>\n'
         )
+    # 右: 最新記事（固定）
+    html += (
+        f'  <a href="{latest["url"]}" class="blog-card"'
+        f' onclick="gtag(\'event\',\'blog_click\',{{article:\'{latest["url"]}\'}})">\n'
+        f'    <h3>{latest["title"]}</h3>\n'
+        f'    <p>{latest["desc"]}</p>\n'
+        f'  </a>\n'
+    )
     html += '</div>'
     return html
 
