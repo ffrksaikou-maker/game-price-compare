@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="MEGA 拡張パック「インフェルノX」の買取価格を8店舗で比較。最高値は¥24,500（海峡通信）。毎日自動更新。">
+<meta name="description" content="MEGA 拡張パック「インフェルノX」の買取価格を8店舗で比較。最高値は¥24,500（買取一丁目）。毎日自動更新。">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://pokeca-box-hikaku.com/box/inferno.html">
 <meta property="og:title" content="MEGA 拡張パック「インフェルノX」 買取価格比較｜ポケカ買取チェッカー">
@@ -155,13 +155,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 
 <div class="main-card">
 <h2>MEGA 拡張パック「インフェルノX」</h2>
-<div class="meta"><span>更新: 2026/04/02 18:03</span><span>MEGA シリーズ</span></div>
+<div class="meta"><span>更新: 2026/04/02 19:04</span><span>MEGA シリーズ</span></div>
 <p class="product-desc">MEGAシリーズ第2弾。メガリザードンXex SARが目玉カード。2025年9月発売。</p>
 
 <div class="best-price">
   <div class="label">最高買取価格</div>
   <div class="price">¥24,500</div>
-  <div class="shop">海峡通信</div>
+  <div class="shop">買取一丁目</div>
 </div>
 
 <div class="info-row">
@@ -173,9 +173,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 <h3 class="section-title">店舗別 買取価格</h3>
 <table class="price-table">
 <tr><th>買取店</th><th>買取価格</th></tr>
+<tr class="best"><td class="shop-name"><a href="https://www.1-chome.com/wineDetail/7553/7583" target="_blank" rel="noopener noreferrer">買取一丁目</a></td><td>¥24,500</td></tr>
 <tr class="best"><td class="shop-name"><a href="https://www.mobile-ichiban.com/" target="_blank" rel="noopener noreferrer">海峡通信</a></td><td>¥24,500</td></tr>
 <tr><td class="shop-name"><a href="https://www.morimori-kaitori.jp/category/2401/product/299678" target="_blank" rel="noopener noreferrer">森森買取</a></td><td>¥24,000</td></tr>
-<tr><td class="shop-name"><a href="https://www.1-chome.com/wineDetail/7553/7583" target="_blank" rel="noopener noreferrer">買取一丁目</a></td><td>¥24,000</td></tr>
 <tr><td class="shop-name"><a href="https://runto666.com/product/%e3%83%9d%e3%82%b1%e3%83%a2%e3%83%b3%e3%82%ab%e3%83%bc%e3%83%89%e3%82%b2%e3%83%bc%e3%83%a0-mega-%e6%8b%a1%e5%bc%b5%e3%83%91%e3%83%83%e3%82%af%e3%80%8c%e3%82%a4%e3%83%b3%e3%83%95%e3%82%a7%e3%83%ab/" target="_blank" rel="noopener noreferrer">ラントゥ買取</a></td><td>¥23,500</td></tr>
 <tr><td class="shop-name"><a href="https://www.kaitorishouten-co.jp/" target="_blank" rel="noopener noreferrer">買取商店</a></td><td>¥23,000</td></tr>
 <tr><td class="shop-name"><a href="https://kaitori-rudeya.com/product/item/6329" target="_blank" rel="noopener noreferrer">買取ルデヤ</a></td><td>¥23,000</td></tr>
@@ -207,7 +207,7 @@ function draw(period){
   var labels=f.map(function(p){var d=new Date(p[0]);return d.getFullYear()+"/"+(d.getMonth()+1)+"/"+d.getDate()});
   var data=f.map(function(p){return Math.round(p[1]*0.9)});
   var ridx=-1;
-  if(rd){var rt=new Date(rd+"T00:00:00+09:00").getTime();for(var i=0;i<f.length;i++){if(f[i][0]>=rt){ridx=i;break}}}
+  if(rd){var rt=new Date(rd+"T00:00:00+09:00").getTime();if(!cutoff||rt>=cutoff){for(var i=0;i<f.length;i++){if(f[i][0]>=rt){ridx=i;break}}}}
   var ann=undefined;
   if(ridx>=0){ann={annotations:{rl:{type:"line",drawTime:"beforeDatasetsDraw",xMin:ridx,xMax:ridx,borderColor:"#ef4444",borderWidth:2,borderDash:[6,4],label:{display:true,content:"発売日",position:"end",backgroundColor:"#ef4444",color:"#fff",font:{size:11,weight:"bold"},padding:{top:3,bottom:3,left:6,right:6},borderRadius:4}}}};}
   if(ci)ci.destroy();

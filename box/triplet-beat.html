@@ -155,7 +155,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 
 <div class="main-card">
 <h2>SV 強化拡張パック「トリプレットビート」</h2>
-<div class="meta"><span>更新: 2026/04/02 18:03</span><span>SV シリーズ</span></div>
+<div class="meta"><span>更新: 2026/04/02 19:04</span><span>SV シリーズ</span></div>
 <p class="product-desc">パルデア御三家（ニャオハ・ホゲータ・クワッス）のexが初登場した強化拡張パック。</p>
 
 <div class="best-price">
@@ -207,7 +207,7 @@ function draw(period){
   var labels=f.map(function(p){var d=new Date(p[0]);return d.getFullYear()+"/"+(d.getMonth()+1)+"/"+d.getDate()});
   var data=f.map(function(p){return Math.round(p[1]*0.9)});
   var ridx=-1;
-  if(rd){var rt=new Date(rd+"T00:00:00+09:00").getTime();for(var i=0;i<f.length;i++){if(f[i][0]>=rt){ridx=i;break}}}
+  if(rd){var rt=new Date(rd+"T00:00:00+09:00").getTime();if(!cutoff||rt>=cutoff){for(var i=0;i<f.length;i++){if(f[i][0]>=rt){ridx=i;break}}}}
   var ann=undefined;
   if(ridx>=0){ann={annotations:{rl:{type:"line",drawTime:"beforeDatasetsDraw",xMin:ridx,xMax:ridx,borderColor:"#ef4444",borderWidth:2,borderDash:[6,4],label:{display:true,content:"発売日",position:"end",backgroundColor:"#ef4444",color:"#fff",font:{size:11,weight:"bold"},padding:{top:3,bottom:3,left:6,right:6},borderRadius:4}}}};}
   if(ci)ci.destroy();
