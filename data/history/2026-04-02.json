@@ -34,7 +34,7 @@
     "name": "MEGA ハイクラスパック「MEGAドリームex」",
     "category": "mega",
     "retail_price": 5500,
-    "max_price": 13800,
+    "max_price": 14000,
     "prices": {
       "morimori": 13800,
       "homura": 13500,
@@ -42,14 +42,14 @@
       "runto": 13000,
       "icchome": 13500,
       "shouten": 13500,
-      "kaikyo": 13500
+      "kaikyo": 14000
     }
   },
   {
     "name": "MEGA 拡張パック「インフェルノX」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 24000,
+    "max_price": 24500,
     "prices": {
       "morimori": 24000,
       "homura": 22500,
@@ -57,7 +57,7 @@
       "runto": 23500,
       "icchome": 24000,
       "shouten": 23000,
-      "kaikyo": 23500,
+      "kaikyo": 24500,
       "sommelier": 20000
     }
   },
