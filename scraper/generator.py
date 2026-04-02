@@ -674,6 +674,7 @@ def generate_product_pages(
         # Replace all placeholders
         html = template
         html = html.replace("{{PRODUCT_NAME}}", p.name)
+        html = html.replace("{{PRODUCT_DESC}}", p.desc or "")
         html = html.replace("{{SLUG}}", slug)
         html = html.replace("{{MAX_PRICE_TEXT}}", _format_price(max_price))
         html = html.replace("{{MAX_SHOP_NAME}}", max_shop_name)
