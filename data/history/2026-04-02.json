@@ -10,7 +10,7 @@
       "rudeya": 10800,
       "runto": 11000,
       "icchome": 11000,
-      "shouten": 10000,
+      "shouten": 11000,
       "kaikyo": 10000
     }
   },
@@ -34,11 +34,11 @@
     "name": "MEGA ハイクラスパック「MEGAドリームex」",
     "category": "mega",
     "retail_price": 5500,
-    "max_price": 14000,
+    "max_price": 13800,
     "prices": {
-      "morimori": 14000,
+      "morimori": 13800,
       "homura": 13500,
-      "rudeya": 14000,
+      "rudeya": 13500,
       "runto": 13000,
       "icchome": 13500,
       "shouten": 13500,
@@ -315,9 +315,8 @@
     "name": "SV 拡張パック「ワイルドフォース」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 11400,
+    "max_price": 11300,
     "prices": {
-      "morimori": 11400,
       "homura": 11000,
       "rudeya": 11100,
       "runto": 11000,
@@ -395,7 +394,6 @@
     "retail_price": 5400,
     "max_price": 12300,
     "prices": {
-      "morimori": 12200,
       "homura": 12000,
       "rudeya": 12100,
       "runto": 12000,
@@ -543,7 +541,6 @@
     "retail_price": 4950,
     "max_price": 10100,
     "prices": {
-      "morimori": 9500,
       "homura": 10100,
       "runto": 9400,
       "kaikyo": 8800,

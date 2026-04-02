@@ -155,7 +155,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 
 <div class="main-card">
 <h2>SV 強化拡張パック「ナイトワンダラー」</h2>
-<div class="meta"><span>更新: 2026/04/02 16:16</span><span>SV シリーズ</span></div>
+<div class="meta"><span>更新: 2026/04/02 17:25</span><span>SV シリーズ</span></div>
 <p class="product-desc">キタカミの里がテーマ。モモワロウexが初収録された強化拡張パック。</p>
 
 <div class="best-price">
@@ -183,7 +183,52 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 <tr><td class="shop-name">海峡通信</td><td class="no-price">取扱なし</td></tr>
 </table>
 
-
+<h3 class="section-title">価格推移</h3>
+<div class="chart-wrap">
+<div class="chart-periods">
+  <button class="cp-btn active" data-period="all">全期間</button>
+  <button class="cp-btn" data-period="3m">3ヶ月</button>
+  <button class="cp-btn" data-period="1m">1ヶ月</button>
+</div>
+<canvas id="boxChart"></canvas>
+<div class="chart-note">※ 8店舗の最高買取価格の推移（過去分は参考データ）</div>
+</div>
+<script>
+(function(){
+var pts=[[1772895600000, 9637], [1772982000000, 8987], [1773068400000, 8901], [1773154800000, 9221], [1773241200000, 9257], [1773327600000, 9190], [1773414000000, 9611], [1773500400000, 8841], [1773586800000, 8936], [1773673200000, 8931], [1773759600000, 9170], [1773846000000, 9095], [1773932400000, 9155], [1774018800000, 8801], [1774105200000, 9200], [1774191600000, 9200], [1774278000000, 9200], [1774364400000, 9100], [1774450800000, 9200], [1774537200000, 9200], [1774623600000, 9200], [1774710000000, 9200], [1774796400000, 9300], [1774882800000, 9300], [1774969200000, 9500], [1775055600000, 9600]];
+var rd="2024-06-07";
+var ci=null;
+function draw(period){
+  var now=Date.now(),cutoff=0;
+  if(period==="3m")cutoff=now-90*86400000;
+  else if(period==="1m")cutoff=now-30*86400000;
+  var f=cutoff?pts.filter(function(p){return p[0]>=cutoff}):pts;
+  if(!f.length)f=pts;
+  var labels=f.map(function(p){var d=new Date(p[0]);return d.getFullYear()+"/"+(d.getMonth()+1)+"/"+d.getDate()});
+  var data=f.map(function(p){return Math.round(p[1]*0.9)});
+  var ridx=-1;
+  if(rd){var rt=new Date(rd+"T00:00:00+09:00").getTime();for(var i=0;i<f.length;i++){if(f[i][0]>=rt){ridx=i;break}}}
+  var ann=undefined;
+  if(ridx>=0){ann={annotations:{rl:{type:"line",drawTime:"beforeDatasetsDraw",xMin:ridx,xMax:ridx,borderColor:"#ef4444",borderWidth:2,borderDash:[6,4],label:{display:true,content:"発売日",position:"end",backgroundColor:"#ef4444",color:"#fff",font:{size:11,weight:"bold"},padding:{top:3,bottom:3,left:6,right:6},borderRadius:4}}}};}
+  if(ci)ci.destroy();
+  ci=new Chart(document.getElementById("boxChart").getContext("2d"),{
+    type:"line",
+    data:{labels:labels,datasets:[{label:"参考価格",data:data,borderColor:"#6366f1",backgroundColor:"rgba(99,102,241,.1)",fill:true,tension:0.3,pointRadius:f.length>60?0:2,pointHoverRadius:5,borderWidth:2}]},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:"index",intersect:false},
+      plugins:{legend:{display:false},annotation:ann,tooltip:{callbacks:{label:function(c){return"\u00a5"+c.parsed.y.toLocaleString()}}}},
+      scales:{x:{ticks:{maxTicksLimit:8,font:{size:11},color:"#6b7280"},grid:{display:false}},y:{ticks:{callback:function(v){return"\u00a5"+v.toLocaleString()},font:{size:11},color:"#6b7280"},grid:{color:"#f3f4f6"}}}
+    }
+  });
+}
+draw("all");
+document.querySelectorAll(".cp-btn").forEach(function(b){
+  b.addEventListener("click",function(){
+    document.querySelectorAll(".cp-btn").forEach(function(x){x.classList.remove("active")});
+    b.classList.add("active");draw(b.dataset.period);
+  });
+});
+})();
+</script>
 
 <a href="../index.html" class="cta">全66商品の買取価格を比較する &rarr;</a>
 
