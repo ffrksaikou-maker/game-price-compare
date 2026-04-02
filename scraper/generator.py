@@ -464,29 +464,54 @@ def _format_price(price: int) -> str:
 
 
 def _generate_box_chart_section(product: MasterProduct, project_root: Path) -> str:
-    """Generate inline chart HTML+JS for an individual product page."""
+    """Generate inline chart HTML+JS for an individual product page.
+
+    Uses snkrdunk data for historical prices, then switches to our own
+    history data (data/history/) from the date our collection started.
+    """
+    # --- Load snkrdunk data ---
+    snkrdunk_points: list[list] = []
     mapping_path = project_root / "data" / "snkrdunk" / "product_mapping.json"
-    if not mapping_path.exists():
-        return ""
+    if mapping_path.exists():
+        try:
+            mapping = json.loads(mapping_path.read_text(encoding="utf-8"))
+            snkrdunk_id = mapping.get(product.name)
+            if snkrdunk_id:
+                data_path = project_root / "data" / "snkrdunk" / f"{snkrdunk_id}.json"
+                if data_path.exists():
+                    data = json.loads(data_path.read_text(encoding="utf-8"))
+                    snkrdunk_points = data.get("points", [])
+        except (json.JSONDecodeError, OSError):
+            pass
 
-    try:
-        mapping = json.loads(mapping_path.read_text(encoding="utf-8"))
-    except (json.JSONDecodeError, OSError):
-        return ""
+    # --- Load our own history data ---
+    history_dir = project_root / "data" / "history"
+    own_points: list[list] = []  # [timestamp_ms, max_price]
+    if history_dir.exists():
+        for hist_file in sorted(history_dir.glob("*.json")):
+            try:
+                date_str = hist_file.stem  # "2026-03-08"
+                ts = int(datetime.strptime(date_str, "%Y-%m-%d")
+                         .replace(tzinfo=JST).timestamp() * 1000)
+                items = json.loads(hist_file.read_text(encoding="utf-8"))
+                for item in items:
+                    if item.get("name") == product.name:
+                        max_price = item.get("max_price", 0)
+                        if max_price > 0:
+                            own_points.append([ts, max_price])
+                        break
+            except (json.JSONDecodeError, OSError, ValueError):
+                continue
 
-    snkrdunk_id = mapping.get(product.name)
-    if not snkrdunk_id:
-        return ""
-
-    data_path = project_root / "data" / "snkrdunk" / f"{snkrdunk_id}.json"
-    if not data_path.exists():
-        return ""
-
-    try:
-        data = json.loads(data_path.read_text(encoding="utf-8"))
-        points = data.get("points", [])
-    except (json.JSONDecodeError, OSError):
-        return ""
+    # --- Merge: snkrdunk before own data starts, then own data ---
+    if own_points:
+        own_start = own_points[0][0]
+        # Keep snkrdunk points before our data starts
+        merged = [p for p in snkrdunk_points if p[0] < own_start]
+        merged.extend(own_points)
+        points = merged
+    else:
+        points = snkrdunk_points
 
     if not points:
         return ""
@@ -502,7 +527,7 @@ def _generate_box_chart_section(product: MasterProduct, project_root: Path) -> s
   <button class="cp-btn" data-period="1m">1ヶ月</button>
 </div>
 <canvas id="boxChart"></canvas>
-<div class="chart-note">※ 参考データ</div>
+<div class="chart-note">※ 8店舗の最高買取価格の推移（過去分は参考データ）</div>
 </div>
 <script>
 (function(){{
