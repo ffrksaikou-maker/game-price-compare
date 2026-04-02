@@ -88,7 +88,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 .breadcrumb a{color:var(--accent);text-decoration:none}
 .main-card{background:var(--card);border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.06);padding:32px 28px}
 .main-card h2{font-size:22px;font-weight:800;margin-bottom:4px;line-height:1.4}
-.meta{font-size:12px;color:var(--text-sub);margin-bottom:20px}
+.meta{font-size:12px;color:var(--text-sub);margin-bottom:8px}
+.product-desc{font-size:14px;color:var(--text-sub);margin-bottom:20px;line-height:1.6}
 .meta span{margin-right:16px}
 .best-price{background:linear-gradient(135deg,#f5f3ff,#ede9fe);border:2px solid #c4b5fd;border-radius:12px;padding:20px;margin-bottom:24px;text-align:center}
 .best-price .label{font-size:13px;color:var(--text-sub);font-weight:600}
@@ -155,6 +156,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 <div class="main-card">
 <h2>MEGA ハイクラスパック「MEGAドリームex」</h2>
 <div class="meta"><span>更新: 2026/04/02 15:02</span><span>MEGA シリーズ</span></div>
+<p class="product-desc">MEGAシリーズ初のハイクラスパック。2025年11月発売。</p>
 
 <div class="best-price">
   <div class="label">最高買取価格</div>
@@ -181,7 +183,52 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 <tr><td class="shop-name">買取ソムリエ</td><td class="no-price">取扱なし</td></tr>
 </table>
 
-
+<h3 class="section-title">価格推移</h3>
+<div class="chart-wrap">
+<div class="chart-periods">
+  <button class="cp-btn active" data-period="all">全期間</button>
+  <button class="cp-btn" data-period="3m">3ヶ月</button>
+  <button class="cp-btn" data-period="1m">1ヶ月</button>
+</div>
+<canvas id="boxChart"></canvas>
+<div class="chart-note">※ 参考データ</div>
+</div>
+<script>
+(function(){
+var pts=[[1762786800000, 17300], [1763046000000, 15800], [1763132400000, 15900], [1763218800000, 15999], [1763478000000, 15400], [1763564400000, 15466], [1763650800000, 15698], [1763737200000, 15599], [1763823600000, 15595], [1763910000000, 13961], [1763996400000, 12687], [1764082800000, 12995], [1764169200000, 13307], [1764255600000, 12202], [1764342000000, 11767], [1764428400000, 12154], [1764514800000, 12531], [1764601200000, 12660], [1764687600000, 12646], [1764774000000, 12424], [1764860400000, 11846], [1764946800000, 11924], [1765033200000, 11544], [1765119600000, 11378], [1765206000000, 11231], [1765292400000, 11237], [1765378800000, 11197], [1765465200000, 11193], [1765551600000, 11218], [1765638000000, 11242], [1765724400000, 10675], [1765810800000, 10565], [1765897200000, 10185], [1765983600000, 10099], [1766070000000, 9513], [1766156400000, 9261], [1766242800000, 9332], [1766329200000, 9195], [1766415600000, 9582], [1766502000000, 9183], [1766588400000, 9245], [1766674800000, 9079], [1766761200000, 9259], [1766847600000, 9100], [1766934000000, 9191], [1767020400000, 9155], [1767106800000, 9431], [1767193200000, 9377], [1767279600000, 9312], [1767366000000, 9329], [1767452400000, 9737], [1767538800000, 10535], [1767625200000, 10606], [1767711600000, 11145], [1767798000000, 10883], [1767884400000, 10612], [1767970800000, 10312], [1768057200000, 10362], [1768143600000, 9932], [1768230000000, 9676], [1768316400000, 9537], [1768402800000, 10011], [1768489200000, 10292], [1768575600000, 10337], [1768662000000, 10375], [1768748400000, 10154], [1768834800000, 10024], [1768921200000, 9910], [1769007600000, 9682], [1769094000000, 9522], [1769180400000, 9358], [1769266800000, 9446], [1769353200000, 9577], [1769439600000, 9879], [1769526000000, 9789], [1769612400000, 9753], [1769698800000, 9844], [1769785200000, 9792], [1769871600000, 9697], [1769958000000, 9845], [1770044400000, 9943], [1770130800000, 9634], [1770217200000, 9818], [1770303600000, 9571], [1770390000000, 9748], [1770476400000, 9751], [1770562800000, 9979], [1770649200000, 9857], [1770735600000, 9908], [1770822000000, 9614], [1770908400000, 9800], [1770994800000, 9661], [1771081200000, 9444], [1771167600000, 9448], [1771254000000, 9660], [1771340400000, 9465], [1771426800000, 9441], [1771513200000, 9479], [1771599600000, 9298], [1771686000000, 9411], [1771772400000, 9410], [1771858800000, 9496], [1771945200000, 9630], [1772031600000, 9391], [1772118000000, 9382], [1772204400000, 9246], [1772290800000, 9340], [1772377200000, 9291], [1772463600000, 9341], [1772550000000, 9303], [1772636400000, 9341], [1772722800000, 9364], [1772809200000, 9361], [1772895600000, 9544], [1772982000000, 9886], [1773068400000, 10071], [1773154800000, 9650], [1773241200000, 9948], [1773327600000, 9718], [1773414000000, 9771], [1773500400000, 9854], [1773586800000, 9961], [1773673200000, 9934], [1773759600000, 10005], [1773846000000, 10175], [1773932400000, 10112], [1774018800000, 10200], [1774105200000, 10305], [1774191600000, 10301], [1774278000000, 10468], [1774364400000, 11180], [1774450800000, 12095], [1774537200000, 12413], [1774623600000, 12641], [1774710000000, 12836]];
+var rd="2025-11-28";
+var ci=null;
+function draw(period){
+  var now=Date.now(),cutoff=0;
+  if(period==="3m")cutoff=now-90*86400000;
+  else if(period==="1m")cutoff=now-30*86400000;
+  var f=cutoff?pts.filter(function(p){return p[0]>=cutoff}):pts;
+  if(!f.length)f=pts;
+  var labels=f.map(function(p){var d=new Date(p[0]);return d.getFullYear()+"/"+(d.getMonth()+1)+"/"+d.getDate()});
+  var data=f.map(function(p){return Math.round(p[1]*0.9)});
+  var ridx=-1;
+  if(rd){var rt=new Date(rd+"T00:00:00+09:00").getTime();for(var i=0;i<f.length;i++){if(f[i][0]>=rt){ridx=i;break}}}
+  var ann=undefined;
+  if(ridx>=0){ann={annotations:{rl:{type:"line",drawTime:"beforeDatasetsDraw",xMin:ridx,xMax:ridx,borderColor:"#ef4444",borderWidth:2,borderDash:[6,4],label:{display:true,content:"発売日",position:"end",backgroundColor:"#ef4444",color:"#fff",font:{size:11,weight:"bold"},padding:{top:3,bottom:3,left:6,right:6},borderRadius:4}}}};}
+  if(ci)ci.destroy();
+  ci=new Chart(document.getElementById("boxChart").getContext("2d"),{
+    type:"line",
+    data:{labels:labels,datasets:[{label:"参考価格",data:data,borderColor:"#6366f1",backgroundColor:"rgba(99,102,241,.1)",fill:true,tension:0.3,pointRadius:f.length>60?0:2,pointHoverRadius:5,borderWidth:2}]},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:"index",intersect:false},
+      plugins:{legend:{display:false},annotation:ann,tooltip:{callbacks:{label:function(c){return"\u00a5"+c.parsed.y.toLocaleString()}}}},
+      scales:{x:{ticks:{maxTicksLimit:8,font:{size:11},color:"#6b7280"},grid:{display:false}},y:{ticks:{callback:function(v){return"\u00a5"+v.toLocaleString()},font:{size:11},color:"#6b7280"},grid:{color:"#f3f4f6"}}}
+    }
+  });
+}
+draw("all");
+document.querySelectorAll(".cp-btn").forEach(function(b){
+  b.addEventListener("click",function(){
+    document.querySelectorAll(".cp-btn").forEach(function(x){x.classList.remove("active")});
+    b.classList.add("active");draw(b.dataset.period);
+  });
+});
+})();
+</script>
 
 <a href="../index.html" class="cta">全66商品の買取価格を比較する &rarr;</a>
 

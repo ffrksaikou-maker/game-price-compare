@@ -273,13 +273,13 @@ MASTER_PRODUCTS: list[MasterProduct] = [
 
     # ===== SPECIAL BOX =====
     MasterProduct("special", 'スペシャルBOX トウホク', 2090, "2025-06-13",
-                  desc="ポケモンセンタートウホク限定のスペシャルBOX。地域限定で流通量が少ない。",
+                  desc="ポケモンセンタートウホク限定のスペシャルBOX。",
                   keywords=["トウホク", "TOHOKU", "東北"]),
     MasterProduct("special", 'スペシャルBOX ヒロシマ', 2090, "2025-06-13",
-                  desc="ポケモンセンターヒロシマ限定のスペシャルBOX。地域限定で流通量が少ない。",
+                  desc="ポケモンセンターヒロシマ限定のスペシャルBOX。",
                   keywords=["ヒロシマ", "HIROSHIMA", "広島"]),
     MasterProduct("special", 'スペシャルBOX フクオカ', 2090, "2025-06-13",
-                  desc="ポケモンセンターフクオカ限定のスペシャルBOX。地域限定で流通量が少ない。",
+                  desc="ポケモンセンターフクオカ限定のスペシャルBOX。",
                   keywords=["フクオカ", "FUKUOKA", "福岡"]),
 ]
 

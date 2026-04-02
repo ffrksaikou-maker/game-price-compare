@@ -88,7 +88,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 .breadcrumb a{color:var(--accent);text-decoration:none}
 .main-card{background:var(--card);border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.06);padding:32px 28px}
 .main-card h2{font-size:22px;font-weight:800;margin-bottom:4px;line-height:1.4}
-.meta{font-size:12px;color:var(--text-sub);margin-bottom:20px}
+.meta{font-size:12px;color:var(--text-sub);margin-bottom:8px}
+.product-desc{font-size:14px;color:var(--text-sub);margin-bottom:20px;line-height:1.6}
 .meta span{margin-right:16px}
 .best-price{background:linear-gradient(135deg,#f5f3ff,#ede9fe);border:2px solid #c4b5fd;border-radius:12px;padding:20px;margin-bottom:24px;text-align:center}
 .best-price .label{font-size:13px;color:var(--text-sub);font-weight:600}
@@ -155,6 +156,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 <div class="main-card">
 <h2>MEGA 拡張パック「ムニキスゼロ」</h2>
 <div class="meta"><span>更新: 2026/04/02 15:02</span><span>MEGA シリーズ</span></div>
+<p class="product-desc">MEGAシリーズ第3弾。2026年1月発売。</p>
 
 <div class="best-price">
   <div class="label">最高買取価格</div>
@@ -181,7 +183,52 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 <tr><td class="shop-name"><a href="https://www.mobile-ichiban.com/" target="_blank" rel="noopener noreferrer">海峡通信</a></td><td>¥6,200</td></tr>
 </table>
 
-
+<h3 class="section-title">価格推移</h3>
+<div class="chart-wrap">
+<div class="chart-periods">
+  <button class="cp-btn active" data-period="all">全期間</button>
+  <button class="cp-btn" data-period="3m">3ヶ月</button>
+  <button class="cp-btn" data-period="1m">1ヶ月</button>
+</div>
+<canvas id="boxChart"></canvas>
+<div class="chart-note">※ 参考データ</div>
+</div>
+<script>
+(function(){
+var pts=[[1767625200000, 11055], [1767711600000, 11500], [1767884400000, 11100], [1768230000000, 12800], [1768316400000, 12912], [1768402800000, 12250], [1768489200000, 12099], [1768575600000, 12099], [1768662000000, 11399], [1768748400000, 9901], [1768834800000, 8927], [1768921200000, 8830], [1769007600000, 9027], [1769094000000, 8293], [1769180400000, 7929], [1769266800000, 7962], [1769353200000, 7898], [1769439600000, 7845], [1769526000000, 7824], [1769612400000, 7887], [1769698800000, 7804], [1769785200000, 7700], [1769871600000, 7735], [1769958000000, 7462], [1770044400000, 7327], [1770130800000, 7278], [1770217200000, 7215], [1770303600000, 7125], [1770390000000, 7183], [1770476400000, 7001], [1770562800000, 7224], [1770649200000, 7200], [1770735600000, 7140], [1770822000000, 7192], [1770908400000, 7116], [1770994800000, 7190], [1771081200000, 7221], [1771167600000, 7060], [1771254000000, 7196], [1771340400000, 7000], [1771426800000, 7085], [1771513200000, 7070], [1771599600000, 6808], [1771686000000, 6973], [1771772400000, 6918], [1771858800000, 7079], [1771945200000, 6687], [1772031600000, 6755], [1772118000000, 6743], [1772204400000, 6887], [1772290800000, 6839], [1772377200000, 6740], [1772463600000, 6778], [1772550000000, 6700], [1772636400000, 6753], [1772722800000, 6819], [1772809200000, 6797], [1772895600000, 6943], [1772982000000, 6982], [1773068400000, 6882], [1773154800000, 6684], [1773241200000, 6911], [1773327600000, 6766], [1773414000000, 6683], [1773500400000, 6817], [1773586800000, 7039], [1773673200000, 6964], [1773759600000, 6917], [1773846000000, 6927], [1773932400000, 6631], [1774018800000, 6994], [1774105200000, 6954], [1774191600000, 6907], [1774278000000, 6872], [1774364400000, 6914], [1774450800000, 6956], [1774537200000, 6921], [1774623600000, 7213], [1774710000000, 7449]];
+var rd="2026-01-23";
+var ci=null;
+function draw(period){
+  var now=Date.now(),cutoff=0;
+  if(period==="3m")cutoff=now-90*86400000;
+  else if(period==="1m")cutoff=now-30*86400000;
+  var f=cutoff?pts.filter(function(p){return p[0]>=cutoff}):pts;
+  if(!f.length)f=pts;
+  var labels=f.map(function(p){var d=new Date(p[0]);return d.getFullYear()+"/"+(d.getMonth()+1)+"/"+d.getDate()});
+  var data=f.map(function(p){return Math.round(p[1]*0.9)});
+  var ridx=-1;
+  if(rd){var rt=new Date(rd+"T00:00:00+09:00").getTime();for(var i=0;i<f.length;i++){if(f[i][0]>=rt){ridx=i;break}}}
+  var ann=undefined;
+  if(ridx>=0){ann={annotations:{rl:{type:"line",drawTime:"beforeDatasetsDraw",xMin:ridx,xMax:ridx,borderColor:"#ef4444",borderWidth:2,borderDash:[6,4],label:{display:true,content:"発売日",position:"end",backgroundColor:"#ef4444",color:"#fff",font:{size:11,weight:"bold"},padding:{top:3,bottom:3,left:6,right:6},borderRadius:4}}}};}
+  if(ci)ci.destroy();
+  ci=new Chart(document.getElementById("boxChart").getContext("2d"),{
+    type:"line",
+    data:{labels:labels,datasets:[{label:"参考価格",data:data,borderColor:"#6366f1",backgroundColor:"rgba(99,102,241,.1)",fill:true,tension:0.3,pointRadius:f.length>60?0:2,pointHoverRadius:5,borderWidth:2}]},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:"index",intersect:false},
+      plugins:{legend:{display:false},annotation:ann,tooltip:{callbacks:{label:function(c){return"\u00a5"+c.parsed.y.toLocaleString()}}}},
+      scales:{x:{ticks:{maxTicksLimit:8,font:{size:11},color:"#6b7280"},grid:{display:false}},y:{ticks:{callback:function(v){return"\u00a5"+v.toLocaleString()},font:{size:11},color:"#6b7280"},grid:{color:"#f3f4f6"}}}
+    }
+  });
+}
+draw("all");
+document.querySelectorAll(".cp-btn").forEach(function(b){
+  b.addEventListener("click",function(){
+    document.querySelectorAll(".cp-btn").forEach(function(x){x.classList.remove("active")});
+    b.classList.add("active");draw(b.dataset.period);
+  });
+});
+})();
+</script>
 
 <a href="../index.html" class="cta">全66商品の買取価格を比較する &rarr;</a>
 

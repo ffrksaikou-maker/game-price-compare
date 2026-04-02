@@ -88,7 +88,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 .breadcrumb a{color:var(--accent);text-decoration:none}
 .main-card{background:var(--card);border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.06);padding:32px 28px}
 .main-card h2{font-size:22px;font-weight:800;margin-bottom:4px;line-height:1.4}
-.meta{font-size:12px;color:var(--text-sub);margin-bottom:20px}
+.meta{font-size:12px;color:var(--text-sub);margin-bottom:8px}
+.product-desc{font-size:14px;color:var(--text-sub);margin-bottom:20px;line-height:1.6}
 .meta span{margin-right:16px}
 .best-price{background:linear-gradient(135deg,#f5f3ff,#ede9fe);border:2px solid #c4b5fd;border-radius:12px;padding:20px;margin-bottom:24px;text-align:center}
 .best-price .label{font-size:13px;color:var(--text-sub);font-weight:600}
@@ -155,6 +156,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 <div class="main-card">
 <h2>S&S 拡張パック「VMAXライジング」</h2>
 <div class="meta"><span>更新: 2026/04/02 15:02</span><span>S&S ソード&シールド</span></div>
+<p class="product-desc">VMAX進化が初登場した拡張パック。2020年2月発売。</p>
 
 <div class="best-price">
   <div class="label">最高買取価格</div>
@@ -181,7 +183,52 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 <tr><td class="shop-name">買取ルデヤ</td><td class="no-price">取扱なし</td></tr>
 </table>
 
-
+<h3 class="section-title">価格推移</h3>
+<div class="chart-wrap">
+<div class="chart-periods">
+  <button class="cp-btn active" data-period="all">全期間</button>
+  <button class="cp-btn" data-period="3m">3ヶ月</button>
+  <button class="cp-btn" data-period="1m">1ヶ月</button>
+</div>
+<canvas id="boxChart"></canvas>
+<div class="chart-note">※ 参考データ</div>
+</div>
+<script>
+(function(){
+var pts=[[1641567600000, 9999], [1664550000000, 30000], [1666710000000, 32700], [1666969200000, 34900], [1667919600000, 38000], [1670338800000, 37500], [1672239600000, 30500], [1672585200000, 33000], [1677078000000, 44999], [1677510000000, 43000], [1678806000000, 40000], [1680447600000, 35000], [1680879600000, 35000], [1682262000000, 43000], [1685545200000, 44500], [1691506800000, 43980], [1694012400000, 38000], [1696950000000, 79499], [1697122800000, 79500], [1699542000000, 58000], [1699628400000, 56000], [1699887600000, 60000], [1700146800000, 53500], [1701183600000, 52500], [1701442800000, 53000], [1701702000000, 55800], [1703775600000, 53800], [1704380400000, 45800], [1705503600000, 53500], [1706022000000, 53900], [1706108400000, 53000], [1706281200000, 53500], [1706626800000, 52000], [1706713200000, 50000], [1707318000000, 51000], [1708354800000, 51000], [1708441200000, 49999], [1709305200000, 49800], [1709910000000, 49250], [1710428400000, 50500], [1711292400000, 53849], [1711378800000, 55000], [1712588400000, 53453], [1713279600000, 50000], [1713452400000, 44000], [1713970800000, 58900], [1714575600000, 56000], [1714748400000, 56000], [1715094000000, 59800], [1718290800000, 37500], [1720623600000, 43666], [1720969200000, 55000], [1721228400000, 60000], [1722178800000, 45000], [1722265200000, 49000], [1723734000000, 50000], [1725202800000, 50000], [1726758000000, 51399], [1727535600000, 52000], [1735225200000, 51999], [1735743600000, 51799], [1736089200000, 51600], [1736175600000, 51999], [1736262000000, 52000], [1736953200000, 53000], [1737471600000, 59999], [1738076400000, 59950], [1739545200000, 62000], [1740409200000, 57800], [1740582000000, 61500], [1741359600000, 63000], [1743692400000, 69800], [1745593200000, 70000], [1746370800000, 70000], [1746543600000, 85000], [1746889200000, 69500], [1746975600000, 70000], [1747666800000, 69999], [1749567600000, 60000], [1751209200000, 67499], [1751727600000, 66999], [1752073200000, 69450], [1753628400000, 68500], [1754492400000, 67799], [1754924400000, 67200], [1756047600000, 66500], [1756134000000, 66800], [1756566000000, 68200], [1757257200000, 69899], [1757343600000, 86500], [1759417200000, 79990], [1760022000000, 73998], [1761058800000, 71999], [1761231600000, 75666], [1763046000000, 80999], [1763132400000, 63555], [1763650800000, 75000], [1766502000000, 84066], [1767279600000, 83900], [1767625200000, 82497], [1767711600000, 88973], [1768230000000, 99000], [1768489200000, 97375], [1769958000000, 95494], [1771599600000, 92375], [1771686000000, 93666], [1772031600000, 94600], [1772290800000, 95248], [1773759600000, 122500], [1774191600000, 124800], [1774450800000, 117998]];
+var rd="2020-02-07";
+var ci=null;
+function draw(period){
+  var now=Date.now(),cutoff=0;
+  if(period==="3m")cutoff=now-90*86400000;
+  else if(period==="1m")cutoff=now-30*86400000;
+  var f=cutoff?pts.filter(function(p){return p[0]>=cutoff}):pts;
+  if(!f.length)f=pts;
+  var labels=f.map(function(p){var d=new Date(p[0]);return d.getFullYear()+"/"+(d.getMonth()+1)+"/"+d.getDate()});
+  var data=f.map(function(p){return Math.round(p[1]*0.9)});
+  var ridx=-1;
+  if(rd){var rt=new Date(rd+"T00:00:00+09:00").getTime();for(var i=0;i<f.length;i++){if(f[i][0]>=rt){ridx=i;break}}}
+  var ann=undefined;
+  if(ridx>=0){ann={annotations:{rl:{type:"line",drawTime:"beforeDatasetsDraw",xMin:ridx,xMax:ridx,borderColor:"#ef4444",borderWidth:2,borderDash:[6,4],label:{display:true,content:"発売日",position:"end",backgroundColor:"#ef4444",color:"#fff",font:{size:11,weight:"bold"},padding:{top:3,bottom:3,left:6,right:6},borderRadius:4}}}};}
+  if(ci)ci.destroy();
+  ci=new Chart(document.getElementById("boxChart").getContext("2d"),{
+    type:"line",
+    data:{labels:labels,datasets:[{label:"参考価格",data:data,borderColor:"#6366f1",backgroundColor:"rgba(99,102,241,.1)",fill:true,tension:0.3,pointRadius:f.length>60?0:2,pointHoverRadius:5,borderWidth:2}]},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:"index",intersect:false},
+      plugins:{legend:{display:false},annotation:ann,tooltip:{callbacks:{label:function(c){return"\u00a5"+c.parsed.y.toLocaleString()}}}},
+      scales:{x:{ticks:{maxTicksLimit:8,font:{size:11},color:"#6b7280"},grid:{display:false}},y:{ticks:{callback:function(v){return"\u00a5"+v.toLocaleString()},font:{size:11},color:"#6b7280"},grid:{color:"#f3f4f6"}}}
+    }
+  });
+}
+draw("all");
+document.querySelectorAll(".cp-btn").forEach(function(b){
+  b.addEventListener("click",function(){
+    document.querySelectorAll(".cp-btn").forEach(function(x){x.classList.remove("active")});
+    b.classList.add("active");draw(b.dataset.period);
+  });
+});
+})();
+</script>
 
 <a href="../index.html" class="cta">全66商品の買取価格を比較する &rarr;</a>
 
