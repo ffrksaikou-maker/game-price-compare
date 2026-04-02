@@ -116,7 +116,17 @@ def generate_jsonld(products: list[MasterProduct]) -> str:
             for i, item in enumerate(items)
         ],
     }
-    return '<script type="application/ld+json">\n' + json.dumps(ld, ensure_ascii=False, indent=2) + "\n</script>"
+    breadcrumb = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "ポケカ買取チェッカー", "item": "https://pokeca-box-hikaku.com/"},
+        ],
+    }
+    return (
+        '<script type="application/ld+json">\n' + json.dumps(ld, ensure_ascii=False, indent=2) + "\n</script>\n"
+        '<script type="application/ld+json">\n' + json.dumps(breadcrumb, ensure_ascii=False, indent=2) + "\n</script>"
+    )
 
 
 def generate_ai_summary(products: list[MasterProduct]) -> str:
@@ -644,7 +654,19 @@ def generate_product_pages(
                 "offerCount": shop_count,
             },
         }, ensure_ascii=False, indent=2)
-        jsonld_tag = f'<script type="application/ld+json">\n{product_jsonld}\n</script>'
+        breadcrumb_jsonld = json.dumps({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "ポケカ買取チェッカー", "item": "https://pokeca-box-hikaku.com/"},
+                {"@type": "ListItem", "position": 2, "name": "買取価格比較", "item": "https://pokeca-box-hikaku.com/"},
+                {"@type": "ListItem", "position": 3, "name": p.name},
+            ],
+        }, ensure_ascii=False, indent=2)
+        jsonld_tag = (
+            f'<script type="application/ld+json">\n{product_jsonld}\n</script>\n'
+            f'<script type="application/ld+json">\n{breadcrumb_jsonld}\n</script>'
+        )
 
         # Generate chart section for this product
         chart_section = _generate_box_chart_section(p, project_root)
