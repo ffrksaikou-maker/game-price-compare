@@ -315,8 +315,9 @@
     "name": "SV 拡張パック「ワイルドフォース」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 11300,
+    "max_price": 11400,
     "prices": {
+      "morimori": 11400,
       "homura": 11000,
       "rudeya": 11100,
       "runto": 11000,
@@ -394,6 +395,7 @@
     "retail_price": 5400,
     "max_price": 12300,
     "prices": {
+      "morimori": 12200,
       "homura": 12000,
       "rudeya": 12100,
       "runto": 12000,
@@ -541,6 +543,7 @@
     "retail_price": 4950,
     "max_price": 10100,
     "prices": {
+      "morimori": 9500,
       "homura": 10100,
       "runto": 9400,
       "kaikyo": 8800,
