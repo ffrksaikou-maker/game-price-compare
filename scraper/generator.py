@@ -656,11 +656,12 @@ def generate_product_pages(
             + "\n</table>"
         )
 
-        # Related links (same category, exclude self)
+        # Related links (same category, exclude self, 同時発売BOXを先頭に)
         related = [
             r for r in by_cat.get(p.category, [])
             if r.name != p.name and any(r.prices.get(s, 0) > 0 for s in SHOP_IDS)
         ]
+        related.sort(key=lambda r: (0 if r.release_date == p.release_date and p.release_date else 1))
         related_html = "\n".join(
             f'    <a href="{slug_map[r.name]}.html" class="related-link">{r.name}</a>'
             for r in related
@@ -725,6 +726,13 @@ def generate_product_pages(
         else:
             cards_html = ""
         html = html.replace("{{HIT_CARDS}}", cards_html)
+        # description用の当たりカード名テキスト
+        if p.hit_cards:
+            card_names = [c[0] if isinstance(c, (list, tuple)) else c for c in p.hit_cards[:3]]
+            hit_text = "当たりカード: " + "、".join(card_names) + "。"
+        else:
+            hit_text = ""
+        html = html.replace("{{HIT_CARDS_TEXT}}", hit_text)
         html = html.replace("{{SLUG}}", slug)
         html = html.replace("{{MAX_PRICE_TEXT}}", _format_price(max_price))
         html = html.replace("{{MAX_SHOP_NAME}}", max_shop_name)
