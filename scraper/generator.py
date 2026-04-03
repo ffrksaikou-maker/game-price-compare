@@ -518,8 +518,15 @@ def _generate_box_chart_section(product: MasterProduct, project_root: Path) -> s
 
     release_date = product.release_date or ""
     points_json = json.dumps(points, ensure_ascii=False)
+    # Number of snkrdunk points at the beginning of merged list
+    if own_points:
+        own_start = own_points[0][0]
+        snkr_count = len([p for p in points if p[0] < own_start])
+    else:
+        snkr_count = len(points)
+    box_name = product.name
 
-    return f"""<h3 class="section-title">価格推移</h3>
+    return f"""<h3 class="section-title">{box_name} 価格推移</h3>
 <div class="chart-wrap">
 <div class="chart-periods">
   <button class="cp-btn active" data-period="all">全期間</button>
@@ -533,6 +540,7 @@ def _generate_box_chart_section(product: MasterProduct, project_root: Path) -> s
 (function(){{
 var pts={points_json};
 var rd="{release_date}";
+var snkrCount={snkr_count};
 var ci=null;
 function draw(period){{
   var now=Date.now(),cutoff=0;
@@ -541,7 +549,8 @@ function draw(period){{
   var f=cutoff?pts.filter(function(p){{return p[0]>=cutoff}}):pts;
   if(!f.length)f=pts;
   var labels=f.map(function(p){{var d=new Date(p[0]);return d.getFullYear()+"/"+(d.getMonth()+1)+"/"+d.getDate()}});
-  var data=f.map(function(p){{return Math.round(p[1]*0.9)}});
+  var sc=cutoff?pts.slice(0,snkrCount).filter(function(p){{return p[0]>=cutoff}}).length:snkrCount;
+  var data=f.map(function(p,i){{return i<sc?Math.round(p[1]*0.9):p[1]}});
   var ridx=-1;
   if(rd){{var rt=new Date(rd+"T00:00:00+09:00").getTime();if(!cutoff||rt>=cutoff){{for(var i=0;i<f.length;i++){{if(f[i][0]>=rt){{ridx=i;break}}}}}}}}
   var ann=undefined;

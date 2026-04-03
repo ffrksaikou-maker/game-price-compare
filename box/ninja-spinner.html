@@ -155,7 +155,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 
 <div class="main-card">
 <h2>MEGA 拡張パック「ニンジャスピナー」</h2>
-<div class="meta"><span>更新: 2026/04/03 18:56</span><span>MEGA シリーズ</span></div>
+<div class="meta"><span>更新: 2026/04/03 19:25</span><span>MEGA シリーズ</span></div>
 <p class="product-desc">MEGAシリーズ第4弾。2026年3月発売。</p>
 
 <div class="best-price">
@@ -183,7 +183,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 <tr><td class="shop-name">買取ソムリエ</td><td class="no-price">取扱なし</td></tr>
 </table>
 
-<h3 class="section-title">価格推移</h3>
+<h3 class="section-title">MEGA 拡張パック「ニンジャスピナー」 価格推移</h3>
 <div class="chart-wrap">
 <div class="chart-periods">
   <button class="cp-btn active" data-period="all">全期間</button>
@@ -197,6 +197,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 (function(){
 var pts=[[1771858800000, 13999], [1772118000000, 13800], [1772636400000, 14800], [1772722800000, 14500], [1772809200000, 14399], [1772895600000, 10854], [1772982000000, 10931], [1773068400000, 10979], [1773154800000, 10795], [1773241200000, 10901], [1773327600000, 10629], [1773414000000, 10794], [1773500400000, 10479], [1773586800000, 10921], [1773673200000, 10545], [1773759600000, 10760], [1773846000000, 10503], [1773932400000, 10180], [1774018800000, 10387], [1774105200000, 10500], [1774191600000, 10000], [1774278000000, 10000], [1774364400000, 10200], [1774450800000, 10000], [1774537200000, 10000], [1774623600000, 10000], [1774710000000, 10000], [1774796400000, 10000], [1774882800000, 10300], [1774969200000, 10500], [1775055600000, 11500], [1775142000000, 11500]];
 var rd="2026-03-13";
+var snkrCount=5;
 var ci=null;
 function draw(period){
   var now=Date.now(),cutoff=0;
@@ -205,7 +206,8 @@ function draw(period){
   var f=cutoff?pts.filter(function(p){return p[0]>=cutoff}):pts;
   if(!f.length)f=pts;
   var labels=f.map(function(p){var d=new Date(p[0]);return d.getFullYear()+"/"+(d.getMonth()+1)+"/"+d.getDate()});
-  var data=f.map(function(p){return Math.round(p[1]*0.9)});
+  var sc=cutoff?pts.slice(0,snkrCount).filter(function(p){return p[0]>=cutoff}).length:snkrCount;
+  var data=f.map(function(p,i){return i<sc?Math.round(p[1]*0.9):p[1]});
   var ridx=-1;
   if(rd){var rt=new Date(rd+"T00:00:00+09:00").getTime();if(!cutoff||rt>=cutoff){for(var i=0;i<f.length;i++){if(f[i][0]>=rt){ridx=i;break}}}}
   var ann=undefined;
