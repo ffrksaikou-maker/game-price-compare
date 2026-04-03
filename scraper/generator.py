@@ -709,6 +709,22 @@ def generate_product_pages(
         html = template
         html = html.replace("{{PRODUCT_NAME}}", p.name)
         html = html.replace("{{PRODUCT_DESC}}", p.desc or "")
+        # 当たりカードセクション
+        if p.hit_cards:
+            top_cards = p.hit_cards[:3]
+            cards_html = '<div class="hit-cards"><h3>当たりカード</h3><dl class="hit-list">'
+            for card in top_cards:
+                if isinstance(card, (list, tuple)) and len(card) >= 2:
+                    name, comment = card[0], card[1]
+                else:
+                    name, comment = card, ""
+                cards_html += f"<dt>{name}</dt>"
+                if comment:
+                    cards_html += f"<dd>{comment}</dd>"
+            cards_html += '</dl></div>'
+        else:
+            cards_html = ""
+        html = html.replace("{{HIT_CARDS}}", cards_html)
         html = html.replace("{{SLUG}}", slug)
         html = html.replace("{{MAX_PRICE_TEXT}}", _format_price(max_price))
         html = html.replace("{{MAX_SHOP_NAME}}", max_shop_name)
