@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ポケカ未開封BOXの買取価格 週間高騰・暴落ランキング。直近7日間で最も値上がり・値下がりしたBOXをグラフ付きで紹介。毎日自動更新。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://pokeca-box-hikaku.com/ranking.html">
+<meta property="og:title" content="ポケカBOX 高騰・暴落ランキング｜ポケカ買取チェッカー">
+<meta property="og:description" content="ポケカ未開封BOXの買取価格 週間高騰・暴落ランキング。直近7日間の変動をグラフ付きで紹介。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://pokeca-box-hikaku.com/ranking.html">
+<meta property="og:image" content="https://pokeca-box-hikaku.com/ogp.jpg">
+<meta property="og:site_name" content="ポケカ買取チェッカー">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ポケカBOX 高騰・暴落ランキング｜ポケカ買取チェッカー">
+<meta name="twitter:description" content="ポケカ未開封BOXの買取価格 週間高騰・暴落ランキング。毎日自動更新。">
+<title>ポケカBOX 週間高騰・暴落ランキング｜ポケカ買取チェッカー</title>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831186943118320" crossorigin="anonymous"></script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPTS6CRTCS"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-RPTS6CRTCS');
+</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--border:#e5e7eb;--text:#111827;--text-sub:#6b7280;--accent:#6366f1}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans","Yu Gothic",sans-serif;background:var(--bg);color:var(--text);line-height:1.8}
+.header{position:sticky;top:0;z-index:100;height:56px;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;padding:0 20px}
+.header a{text-decoration:none}
+.header h1{font-size:18px;font-weight:700;background:linear-gradient(135deg,#f59e0b,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.wrap{max-width:1240px;margin:0 auto;padding:32px 16px 48px}
+.content-layout{display:flex;gap:24px;align-items:flex-start}
+.content-layout .main-card{flex:1;min-width:0}
+.article-nav{width:180px;flex-shrink:0;position:sticky;top:72px;max-height:calc(100vh - 88px);overflow-y:auto}
+.article-nav-title{font-size:13px;font-weight:700;margin-bottom:8px;color:var(--text)}
+.article-nav a{display:block;font-size:12px;color:var(--text-sub);text-decoration:none;padding:5px 0 5px 12px;border-left:2px solid var(--border);line-height:1.4;transition:all .2s}
+.article-nav a:hover{color:var(--accent);border-left-color:var(--accent)}
+@media(max-width:1023px){.content-layout{display:block}.article-nav{display:none}}
+.breadcrumb{font-size:12px;color:var(--text-sub);margin-bottom:20px}
+.breadcrumb a{color:var(--accent);text-decoration:none}
+.main-card{background:var(--card);border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.06);padding:32px 28px;margin-bottom:24px}
+.main-card h2{font-size:22px;font-weight:700;margin-bottom:8px}
+.meta{font-size:12px;color:var(--text-sub);margin-bottom:24px}
+.section-title{font-size:17px;font-weight:700;margin:32px 0 16px;padding-bottom:8px;border-bottom:2px solid var(--accent)}
+.section-title.up{color:#dc2626}
+.section-title.down{color:#2563eb}
+.chart-wrap{margin:24px 0;background:#fff;border-radius:8px;padding:16px}
+.chart-wrap canvas{max-height:320px}
+.ranking-table{width:100%;border-collapse:collapse;font-size:14px}
+.ranking-table th{background:#f9fafb;padding:10px 12px;text-align:left;font-size:12px;color:var(--text-sub);border-bottom:2px solid var(--border)}
+.ranking-table td{padding:10px 12px;border-bottom:1px solid var(--border)}
+.ranking-table .rank{width:40px;text-align:center;font-weight:700;color:var(--accent)}
+.ranking-table .pname a{color:var(--text);text-decoration:none}
+.ranking-table .pname a:hover{color:var(--accent);text-decoration:underline}
+.ranking-table .price{white-space:nowrap}
+.no-data{color:var(--text-sub);font-size:14px}
+.mini-charts{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:8px}
+.mini-chart-card{background:#fff;border-radius:10px;border:1px solid var(--border);padding:14px 16px}
+.mc-header{margin-bottom:8px}
+.mc-name{font-size:14px;font-weight:700;color:var(--text);text-decoration:none;display:block}
+.mc-name:hover{color:var(--accent)}
+.mc-price{font-size:18px;font-weight:700;margin-right:8px}
+.mc-diff{font-size:13px;font-weight:700}
+.cta{display:block;text-align:center;padding:14px;background:linear-gradient(135deg,#6366f1,#818cf8);color:#fff;border-radius:10px;text-decoration:none;font-weight:600;margin-top:32px}
+.footer{text-align:center;color:var(--text-sub);font-size:12px;margin-top:32px}
+@media(max-width:640px){.ranking-table{font-size:12px}.ranking-table td,.ranking-table th{padding:8px 6px}.main-card{padding:20px 16px}}
+</style>
+</head>
+<body>
+<div class="header"><a href="index.html"><h1>ポケカ買取チェッカー</h1></a></div>
+<div class="wrap">
+<div class="breadcrumb"><a href="index.html">トップ</a> &gt; 週間高騰・暴落ランキング</div>
+
+<div class="content-layout">
+<nav class="article-nav">
+<div class="article-nav-title">コンテンツ</div>
+<a href="index.html">買取価格比較</a>
+<a href="kaitori-tips.html">BOX買取のコツ</a>
+<a href="shop-hikaku.html">8店舗比較</a>
+<a href="single-card-tips.html">シングル売り</a>
+<a href="psa-guide.html">PSA鑑定ガイド</a>
+<a href="mercari-hikaku.html">メルカリ・スニダン比較</a>
+<a href="shrink-nashi.html">シュリンクなしBOX</a>
+<a href="box-toushi.html">BOX投資の始め方</a>
+</nav>
+
+<div class="main-card">
+<h2>ポケカBOX 週間高騰・暴落ランキング</h2>
+<div class="meta">更新: 2026/04/04 07:54　比較期間: 2026-03-28 → 2026-04-04（直近7日間）</div>
+
+<h3 class="section-title up">SV・MEGA 高騰 TOP5</h3>
+<div class="mini-charts"><div class="mini-chart-card"><div class="mc-header"><a href="box/151.html" class="mc-name">151</a><span class="mc-price">¥52,600</span><span class="mc-diff" style="color:#dc2626">↑+¥5,100 (+10.7%)</span></div><canvas id="svUpChart0" height="120"></canvas></div>
+<div class="mini-chart-card"><div class="mc-header"><a href="box/inferno.html" class="mc-name">インフェルノX</a><span class="mc-price">¥23,500</span><span class="mc-diff" style="color:#dc2626">↑+¥4,500 (+23.7%)</span></div><canvas id="svUpChart1" height="120"></canvas></div>
+<div class="mini-chart-card"><div class="mc-header"><a href="box/chouden-breaker.html" class="mc-name">超電ブレイカー</a><span class="mc-price">¥30,000</span><span class="mc-diff" style="color:#dc2626">↑+¥3,500 (+13.2%)</span></div><canvas id="svUpChart2" height="120"></canvas></div>
+<div class="mini-chart-card"><div class="mc-header"><a href="box/terastal-fes-ex.html" class="mc-name">テラスタルフェスex</a><span class="mc-price">¥19,100</span><span class="mc-diff" style="color:#dc2626">↑+¥2,400 (+14.4%)</span></div><canvas id="svUpChart3" height="120"></canvas></div>
+<div class="mini-chart-card"><div class="mc-header"><a href="box/ninja-spinner.html" class="mc-name">ニンジャスピナー</a><span class="mc-price">¥11,500</span><span class="mc-diff" style="color:#dc2626">↑+¥1,500 (+15.0%)</span></div><canvas id="svUpChart4" height="120"></canvas></div></div>
+
+<h3 class="section-title down">SV・MEGA 暴落 TOP5</h3>
+<div class="mini-charts"></div>
+
+<h3 class="section-title up" style="margin-top:48px">S&amp;S 上昇 TOP3</h3>
+<div class="mini-charts"><div class="mini-chart-card"><div class="mc-header"><a href="box/rebellion-crash.html" class="mc-name">反逆クラッシュ</a><span class="mc-price">¥56,000</span><span class="mc-diff" style="color:#dc2626">↑+¥17,000 (+43.6%)</span></div><canvas id="ssUpChart0" height="120"></canvas></div>
+<div class="mini-chart-card"><div class="mc-header"><a href="box/infinity-zone.html" class="mc-name">ムゲンゾーン</a><span class="mc-price">¥57,000</span><span class="mc-diff" style="color:#dc2626">↑+¥15,000 (+35.7%)</span></div><canvas id="ssUpChart1" height="120"></canvas></div>
+<div class="mini-chart-card"><div class="mc-header"><a href="box/sword.html" class="mc-name">ソード</a><span class="mc-price">¥62,000</span><span class="mc-diff" style="color:#dc2626">↑+¥12,000 (+24.0%)</span></div><canvas id="ssUpChart2" height="120"></canvas></div></div>
+
+<a href="index.html" class="cta">全66商品の買取価格を比較する &rarr;</a>
+
+<div class="adsense-bottom" style="margin-top:32px;text-align:center">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5831186943118320" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</div>
+</div>
+
+<div class="footer">&copy; ポケカ買取チェッカー</div>
+</div>
+<script>
+
+new Chart(document.getElementById('svUpChart0'), {
+  type: 'line',
+  data: {
+    labels: ["2026-03-28", "2026-03-29", "2026-03-30", "2026-03-31", "2026-04-01", "2026-04-02", "2026-04-03", "2026-04-04"],
+    datasets: [{ data: [47500, 52200, 51000, 51600, 52400, 52800, 52600, 52600], borderColor: '#dc2626', borderWidth: 2, fill: true,
+      backgroundColor: '#dc262622', tension: 0.3, pointRadius: 2 }]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { ticks: { font: { size: 10 }, maxRotation: 0 } },
+      y: { ticks: { callback: v => '¥' + v.toLocaleString(), font: { size: 10 } } }
+    }
+  }
+});
+
+new Chart(document.getElementById('svUpChart1'), {
+  type: 'line',
+  data: {
+    labels: ["2026-03-28", "2026-03-29", "2026-03-30", "2026-03-31", "2026-04-01", "2026-04-02", "2026-04-03", "2026-04-04"],
+    datasets: [{ data: [19000, 19200, 19500, 21000, 23200, 24500, 23500, 23500], borderColor: '#dc2626', borderWidth: 2, fill: true,
+      backgroundColor: '#dc262622', tension: 0.3, pointRadius: 2 }]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { ticks: { font: { size: 10 }, maxRotation: 0 } },
+      y: { ticks: { callback: v => '¥' + v.toLocaleString(), font: { size: 10 } } }
+    }
+  }
+});
+
+new Chart(document.getElementById('svUpChart2'), {
+  type: 'line',
+  data: {
+    labels: ["2026-03-28", "2026-03-29", "2026-03-30", "2026-03-31", "2026-04-01", "2026-04-02", "2026-04-03", "2026-04-04"],
+    datasets: [{ data: [26500, 27000, 27000, 27400, 27600, 30000, 30000, 30000], borderColor: '#dc2626', borderWidth: 2, fill: true,
+      backgroundColor: '#dc262622', tension: 0.3, pointRadius: 2 }]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { ticks: { font: { size: 10 }, maxRotation: 0 } },
+      y: { ticks: { callback: v => '¥' + v.toLocaleString(), font: { size: 10 } } }
+    }
+  }
+});
+
+new Chart(document.getElementById('svUpChart3'), {
+  type: 'line',
+  data: {
+    labels: ["2026-03-28", "2026-03-29", "2026-03-30", "2026-03-31", "2026-04-01", "2026-04-02", "2026-04-03", "2026-04-04"],
+    datasets: [{ data: [16700, 17000, 17000, 17800, 18500, 18900, 19100, 19100], borderColor: '#dc2626', borderWidth: 2, fill: true,
+      backgroundColor: '#dc262622', tension: 0.3, pointRadius: 2 }]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { ticks: { font: { size: 10 }, maxRotation: 0 } },
+      y: { ticks: { callback: v => '¥' + v.toLocaleString(), font: { size: 10 } } }
+    }
+  }
+});
+
+new Chart(document.getElementById('svUpChart4'), {
+  type: 'line',
+  data: {
+    labels: ["2026-03-28", "2026-03-29", "2026-03-30", "2026-03-31", "2026-04-01", "2026-04-02", "2026-04-03", "2026-04-04"],
+    datasets: [{ data: [10000, 10000, 10000, 10300, 10500, 11500, 11500, 11500], borderColor: '#dc2626', borderWidth: 2, fill: true,
+      backgroundColor: '#dc262622', tension: 0.3, pointRadius: 2 }]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { ticks: { font: { size: 10 }, maxRotation: 0 } },
+      y: { ticks: { callback: v => '¥' + v.toLocaleString(), font: { size: 10 } } }
+    }
+  }
+});
+
+
+new Chart(document.getElementById('ssUpChart0'), {
+  type: 'line',
+  data: {
+    labels: ["2026-03-28", "2026-03-29", "2026-03-30", "2026-03-31", "2026-04-01", "2026-04-02", "2026-04-03", "2026-04-04"],
+    datasets: [{ data: [39000, 40000, 44000, 56000, 56000, 56000, 56000, 56000], borderColor: '#f59e0b', borderWidth: 2, fill: true,
+      backgroundColor: '#f59e0b22', tension: 0.3, pointRadius: 2 }]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { ticks: { font: { size: 10 }, maxRotation: 0 } },
+      y: { ticks: { callback: v => '¥' + v.toLocaleString(), font: { size: 10 } } }
+    }
+  }
+});
+
+new Chart(document.getElementById('ssUpChart1'), {
+  type: 'line',
+  data: {
+    labels: ["2026-03-28", "2026-03-29", "2026-03-30", "2026-03-31", "2026-04-01", "2026-04-02", "2026-04-03", "2026-04-04"],
+    datasets: [{ data: [42000, 42000, 42000, 57000, 57000, 57000, 57000, 57000], borderColor: '#f59e0b', borderWidth: 2, fill: true,
+      backgroundColor: '#f59e0b22', tension: 0.3, pointRadius: 2 }]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { ticks: { font: { size: 10 }, maxRotation: 0 } },
+      y: { ticks: { callback: v => '¥' + v.toLocaleString(), font: { size: 10 } } }
+    }
+  }
+});
+
+new Chart(document.getElementById('ssUpChart2'), {
+  type: 'line',
+  data: {
+    labels: ["2026-03-28", "2026-03-29", "2026-03-30", "2026-03-31", "2026-04-01", "2026-04-02", "2026-04-03", "2026-04-04"],
+    datasets: [{ data: [50000, 55000, 60000, 62000, 62000, 62000, 62000, 62000], borderColor: '#f59e0b', borderWidth: 2, fill: true,
+      backgroundColor: '#f59e0b22', tension: 0.3, pointRadius: 2 }]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { ticks: { font: { size: 10 }, maxRotation: 0 } },
+      y: { ticks: { callback: v => '¥' + v.toLocaleString(), font: { size: 10 } } }
+    }
+  }
+});
+</script>
+</body>
+</html>

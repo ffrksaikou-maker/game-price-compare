@@ -276,12 +276,19 @@ def generate_html(
     html = html.replace("{{UPDATE_DATE}}", update_date)
     html = html.replace("<!-- {{BLOG_LINKS}} -->", generate_blog_links())
 
+    # Generate ranking page (before summary, so we can use the data)
+    ranking_summary = _generate_ranking_summary(products, project_root)
+    html = html.replace("<!-- {{RANKING_SUMMARY}} -->", ranking_summary)
+
     # Write output
     output_path.write_text(html, encoding="utf-8")
     logger.info("Generated %s (updated: %s)", output_path, update_date)
 
     # Generate individual product pages
     generate_product_pages(products, project_root, update_date)
+
+    # Generate ranking page
+    generate_ranking_page(products, project_root, update_date)
 
     return html
 
@@ -776,6 +783,7 @@ def _update_sitemap(
         ("/mercari-hikaku.html", "monthly", "0.8"),
         ("/shrink-nashi.html", "monthly", "0.8"),
         ("/box-toushi.html", "monthly", "0.8"),
+        ("/ranking.html", "daily", "0.9"),
         ("/privacy.html", "yearly", "0.3"),
     ]
 
@@ -810,3 +818,340 @@ def _update_sitemap(
     sitemap_path = project_root / "sitemap.xml"
     sitemap_path.write_text("\n".join(lines), encoding="utf-8")
     logger.info("Updated sitemap.xml (%d URLs)", len([l for l in lines if "<loc>" in l]))
+
+
+def _generate_ranking_summary(
+    products: list[MasterProduct],
+    project_root: Path,
+) -> str:
+    """トップページ用の週間上昇ランキングサマリーを生成する。"""
+    history_dir = project_root / "data" / "history"
+    if not history_dir.exists():
+        return ""
+
+    files = sorted(history_dir.glob("*.json"))
+    if len(files) < 2:
+        return ""
+
+    today_file = files[-1]
+    week_ago_idx = max(0, len(files) - 8)
+    week_ago_file = files[week_ago_idx]
+
+    today_data = json.loads(today_file.read_text(encoding="utf-8"))
+    week_ago_data = json.loads(week_ago_file.read_text(encoding="utf-8"))
+
+    today_prices = {item["name"]: item.get("max_price", 0) for item in today_data}
+    week_ago_prices = {item["name"]: item.get("max_price", 0) for item in week_ago_data}
+
+    slug_map = {p.name: _generate_slug(p.name) for p in products}
+    changes = []
+    for p in products:
+        if p.category not in ("sv", "mega"):
+            continue
+        tp = today_prices.get(p.name, 0)
+        wp = week_ago_prices.get(p.name, 0)
+        if tp <= 0 or wp <= 0:
+            continue
+        diff = tp - wp
+        if diff > 0:
+            pct = (diff / wp) * 100
+            changes.append({"name": p.name, "slug": slug_map.get(p.name, ""), "diff": diff, "pct": pct})
+
+    top5 = sorted(changes, key=lambda x: x["diff"], reverse=True)[:5]
+    if not top5:
+        return ""
+
+    items_html = ""
+    for c in top5:
+        items_html += (
+            f'<li>'
+            f'<span class="rs-name"><a href="box/{c["slug"]}.html">{c["name"]}</a></span>'
+            f'<span class="rs-change" style="color:#dc2626">+¥{c["diff"]:,} (+{c["pct"]:.1f}%)</span>'
+            f'</li>'
+        )
+
+    return (
+        '<div class="ranking-summary">'
+        '<div class="rs-card">'
+        '<h3><a href="ranking.html">週間 上昇ランキング</a></h3>'
+        f'<ul class="rs-list">{items_html}</ul>'
+        '<a href="ranking.html" class="rs-more">もっと見る &rarr;</a>'
+        '</div>'
+        '</div>'
+    )
+
+
+def generate_ranking_page(
+    products: list[MasterProduct],
+    project_root: Path,
+    update_date: str,
+) -> None:
+    """週間の高騰・暴落ランキングページをグラフ付きで生成する。"""
+    history_dir = project_root / "data" / "history"
+    if not history_dir.exists():
+        return
+
+    files = sorted(history_dir.glob("*.json"))
+    if len(files) < 2:
+        logger.info("Not enough history data for ranking page")
+        return
+
+    today_file = files[-1]
+    # 7日前のデータ（なければ最も古いデータ）
+    week_ago_idx = max(0, len(files) - 8)
+    week_ago_file = files[week_ago_idx]
+
+    today_data = json.loads(today_file.read_text(encoding="utf-8"))
+    week_ago_data = json.loads(week_ago_file.read_text(encoding="utf-8"))
+
+    today_prices = {item["name"]: item.get("max_price", 0) for item in today_data}
+    week_ago_prices = {item["name"]: item.get("max_price", 0) for item in week_ago_data}
+
+    # 差分計算（カテゴリ付き）
+    changes = []
+    slug_map = {p.name: _generate_slug(p.name) for p in products}
+    cat_map = {p.name: p.category for p in products}
+    for p in products:
+        tp = today_prices.get(p.name, 0)
+        wp = week_ago_prices.get(p.name, 0)
+        if tp <= 0 or wp <= 0:
+            continue
+        diff = tp - wp
+        pct = (diff / wp) * 100 if wp > 0 else 0
+        changes.append({
+            "name": p.name,
+            "slug": slug_map.get(p.name, ""),
+            "category": cat_map.get(p.name, ""),
+            "today": tp,
+            "week_ago": wp,
+            "diff": diff,
+            "pct": pct,
+        })
+
+    # MEGA+SV: 高騰TOP5 / 暴落TOP5
+    sv_mega = [c for c in changes if c["category"] in ("sv", "mega")]
+    sv_gainers = sorted([c for c in sv_mega if c["diff"] > 0], key=lambda x: x["diff"], reverse=True)[:5]
+    sv_losers = sorted([c for c in sv_mega if c["diff"] < 0], key=lambda x: x["diff"])[:5]
+
+    # S&S: 高騰TOP3のみ
+    ss = [c for c in changes if c["category"] == "ss"]
+    ss_gainers = sorted([c for c in ss if c["diff"] > 0], key=lambda x: x["diff"], reverse=True)[:3]
+
+    today_str = today_file.stem
+    week_ago_str = week_ago_file.stem
+
+    # 直近7日分の価格推移データ（グラフ用）
+    recent_files = files[-8:] if len(files) >= 8 else files
+    chart_dates = [f.stem for f in recent_files]
+
+    # 日次データキャッシュ（何度も読まないように）
+    daily_cache = []
+    for f in recent_files:
+        data = json.loads(f.read_text(encoding="utf-8"))
+        daily_cache.append({d["name"]: d.get("max_price", 0) for d in data})
+
+    def _short_name(name: str) -> str:
+        short = re.sub(r"^(MEGA|SV|S&S)\s*(拡張パック|強化拡張パック|ハイクラスパック|拡張パックDX)\s*", "", name)
+        return re.sub(r"[「」]", "", short)
+
+    chart_labels_js = json.dumps(chart_dates, ensure_ascii=False)
+
+    def _build_mini_charts(items: list, prefix: str, color: str) -> str:
+        """各BOXごとの個別ミニグラフHTMLとJSを生成"""
+        html_parts = []
+        js_parts = []
+        for i, item in enumerate(items):
+            daily_prices = [dc.get(item["name"], 0) for dc in daily_cache]
+            canvas_id = f"{prefix}Chart{i}"
+            short = _short_name(item["name"])
+            sign = "+" if item["diff"] > 0 else ""
+            diff_color = "#dc2626" if item["diff"] > 0 else "#2563eb"
+            arrow = "↑" if item["diff"] > 0 else "↓"
+            html_parts.append(
+                f'<div class="mini-chart-card">'
+                f'<div class="mc-header">'
+                f'<a href="box/{item["slug"]}.html" class="mc-name">{short}</a>'
+                f'<span class="mc-price">¥{item["today"]:,}</span>'
+                f'<span class="mc-diff" style="color:{diff_color}">{arrow}{sign}¥{item["diff"]:,} ({sign}{item["pct"]:.1f}%)</span>'
+                f'</div>'
+                f'<canvas id="{canvas_id}" height="120"></canvas>'
+                f'</div>'
+            )
+            data_js = json.dumps(daily_prices)
+            js_parts.append(f"""
+new Chart(document.getElementById('{canvas_id}'), {{
+  type: 'line',
+  data: {{
+    labels: {chart_labels_js},
+    datasets: [{{ data: {data_js}, borderColor: '{color}', borderWidth: 2, fill: true,
+      backgroundColor: '{color}22', tension: 0.3, pointRadius: 2 }}]
+  }},
+  options: {{
+    responsive: true,
+    plugins: {{ legend: {{ display: false }} }},
+    scales: {{
+      x: {{ ticks: {{ font: {{ size: 10 }}, maxRotation: 0 }} }},
+      y: {{ ticks: {{ callback: v => '¥' + v.toLocaleString(), font: {{ size: 10 }} }} }}
+    }}
+  }}
+}});""")
+        return "\n".join(html_parts), "\n".join(js_parts)
+
+    sv_gain_html, sv_gain_js = _build_mini_charts(sv_gainers, "svUp", "#dc2626")
+    sv_loss_html, sv_loss_js = _build_mini_charts(sv_losers, "svDn", "#2563eb")
+    ss_gain_html, ss_gain_js = _build_mini_charts(ss_gainers, "ssUp", "#f59e0b")
+
+    def _make_table(items: list) -> str:
+        if not items:
+            return '<p class="no-data">変動なし</p>'
+        rows = []
+        for i, c in enumerate(items, 1):
+            sign = "+" if c["diff"] > 0 else ""
+            color = "#dc2626" if c["diff"] > 0 else "#2563eb"
+            arrow = "↑" if c["diff"] > 0 else "↓"
+            rows.append(
+                f'<tr>'
+                f'<td class="rank">{i}</td>'
+                f'<td class="pname"><a href="box/{c["slug"]}.html">{c["name"]}</a></td>'
+                f'<td class="price">¥{c["today"]:,}</td>'
+                f'<td style="color:{color};font-weight:700">{arrow} {sign}¥{c["diff"]:,} ({sign}{c["pct"]:.1f}%)</td>'
+                f'</tr>'
+            )
+        return (
+            '<table class="ranking-table">'
+            '<tr><th>順位</th><th>商品名</th><th>現在価格</th><th>週間変動</th></tr>'
+            + "\n".join(rows)
+            + '</table>'
+        )
+
+    sv_gainers_table = _make_table(sv_gainers)
+    sv_losers_table = _make_table(sv_losers)
+    ss_gainers_table = _make_table(ss_gainers)
+
+    html = f"""<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ポケカ未開封BOXの買取価格 週間高騰・暴落ランキング。直近7日間で最も値上がり・値下がりしたBOXをグラフ付きで紹介。毎日自動更新。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://pokeca-box-hikaku.com/ranking.html">
+<meta property="og:title" content="ポケカBOX 高騰・暴落ランキング｜ポケカ買取チェッカー">
+<meta property="og:description" content="ポケカ未開封BOXの買取価格 週間高騰・暴落ランキング。直近7日間の変動をグラフ付きで紹介。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://pokeca-box-hikaku.com/ranking.html">
+<meta property="og:image" content="https://pokeca-box-hikaku.com/ogp.jpg">
+<meta property="og:site_name" content="ポケカ買取チェッカー">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ポケカBOX 高騰・暴落ランキング｜ポケカ買取チェッカー">
+<meta name="twitter:description" content="ポケカ未開封BOXの買取価格 週間高騰・暴落ランキング。毎日自動更新。">
+<title>ポケカBOX 週間高騰・暴落ランキング｜ポケカ買取チェッカー</title>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831186943118320" crossorigin="anonymous"></script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPTS6CRTCS"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){{dataLayer.push(arguments);}}
+gtag('js', new Date());
+gtag('config', 'G-RPTS6CRTCS');
+</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{{--bg:#f6f7fb;--card:#fff;--border:#e5e7eb;--text:#111827;--text-sub:#6b7280;--accent:#6366f1}}
+*,*::before,*::after{{box-sizing:border-box;margin:0;padding:0}}
+body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans","Yu Gothic",sans-serif;background:var(--bg);color:var(--text);line-height:1.8}}
+.header{{position:sticky;top:0;z-index:100;height:56px;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;padding:0 20px}}
+.header a{{text-decoration:none}}
+.header h1{{font-size:18px;font-weight:700;background:linear-gradient(135deg,#f59e0b,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}}
+.wrap{{max-width:1240px;margin:0 auto;padding:32px 16px 48px}}
+.content-layout{{display:flex;gap:24px;align-items:flex-start}}
+.content-layout .main-card{{flex:1;min-width:0}}
+.article-nav{{width:180px;flex-shrink:0;position:sticky;top:72px;max-height:calc(100vh - 88px);overflow-y:auto}}
+.article-nav-title{{font-size:13px;font-weight:700;margin-bottom:8px;color:var(--text)}}
+.article-nav a{{display:block;font-size:12px;color:var(--text-sub);text-decoration:none;padding:5px 0 5px 12px;border-left:2px solid var(--border);line-height:1.4;transition:all .2s}}
+.article-nav a:hover{{color:var(--accent);border-left-color:var(--accent)}}
+@media(max-width:1023px){{.content-layout{{display:block}}.article-nav{{display:none}}}}
+.breadcrumb{{font-size:12px;color:var(--text-sub);margin-bottom:20px}}
+.breadcrumb a{{color:var(--accent);text-decoration:none}}
+.main-card{{background:var(--card);border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.06);padding:32px 28px;margin-bottom:24px}}
+.main-card h2{{font-size:22px;font-weight:700;margin-bottom:8px}}
+.meta{{font-size:12px;color:var(--text-sub);margin-bottom:24px}}
+.section-title{{font-size:17px;font-weight:700;margin:32px 0 16px;padding-bottom:8px;border-bottom:2px solid var(--accent)}}
+.section-title.up{{color:#dc2626}}
+.section-title.down{{color:#2563eb}}
+.chart-wrap{{margin:24px 0;background:#fff;border-radius:8px;padding:16px}}
+.chart-wrap canvas{{max-height:320px}}
+.ranking-table{{width:100%;border-collapse:collapse;font-size:14px}}
+.ranking-table th{{background:#f9fafb;padding:10px 12px;text-align:left;font-size:12px;color:var(--text-sub);border-bottom:2px solid var(--border)}}
+.ranking-table td{{padding:10px 12px;border-bottom:1px solid var(--border)}}
+.ranking-table .rank{{width:40px;text-align:center;font-weight:700;color:var(--accent)}}
+.ranking-table .pname a{{color:var(--text);text-decoration:none}}
+.ranking-table .pname a:hover{{color:var(--accent);text-decoration:underline}}
+.ranking-table .price{{white-space:nowrap}}
+.no-data{{color:var(--text-sub);font-size:14px}}
+.mini-charts{{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:8px}}
+.mini-chart-card{{background:#fff;border-radius:10px;border:1px solid var(--border);padding:14px 16px}}
+.mc-header{{margin-bottom:8px}}
+.mc-name{{font-size:14px;font-weight:700;color:var(--text);text-decoration:none;display:block}}
+.mc-name:hover{{color:var(--accent)}}
+.mc-price{{font-size:18px;font-weight:700;margin-right:8px}}
+.mc-diff{{font-size:13px;font-weight:700}}
+.cta{{display:block;text-align:center;padding:14px;background:linear-gradient(135deg,#6366f1,#818cf8);color:#fff;border-radius:10px;text-decoration:none;font-weight:600;margin-top:32px}}
+.footer{{text-align:center;color:var(--text-sub);font-size:12px;margin-top:32px}}
+@media(max-width:640px){{.ranking-table{{font-size:12px}}.ranking-table td,.ranking-table th{{padding:8px 6px}}.main-card{{padding:20px 16px}}}}
+</style>
+</head>
+<body>
+<div class="header"><a href="index.html"><h1>ポケカ買取チェッカー</h1></a></div>
+<div class="wrap">
+<div class="breadcrumb"><a href="index.html">トップ</a> &gt; 週間高騰・暴落ランキング</div>
+
+<div class="content-layout">
+<nav class="article-nav">
+<div class="article-nav-title">コンテンツ</div>
+<a href="index.html">買取価格比較</a>
+<a href="kaitori-tips.html">BOX買取のコツ</a>
+<a href="shop-hikaku.html">8店舗比較</a>
+<a href="single-card-tips.html">シングル売り</a>
+<a href="psa-guide.html">PSA鑑定ガイド</a>
+<a href="mercari-hikaku.html">メルカリ・スニダン比較</a>
+<a href="shrink-nashi.html">シュリンクなしBOX</a>
+<a href="box-toushi.html">BOX投資の始め方</a>
+</nav>
+
+<div class="main-card">
+<h2>ポケカBOX 週間高騰・暴落ランキング</h2>
+<div class="meta">更新: {update_date}　比較期間: {week_ago_str} → {today_str}（直近7日間）</div>
+
+<h3 class="section-title up">SV・MEGA 高騰 TOP5</h3>
+<div class="mini-charts">{sv_gain_html}</div>
+
+<h3 class="section-title down">SV・MEGA 暴落 TOP5</h3>
+<div class="mini-charts">{sv_loss_html}</div>
+
+<h3 class="section-title up" style="margin-top:48px">S&amp;S 上昇 TOP3</h3>
+<div class="mini-charts">{ss_gain_html}</div>
+
+<a href="index.html" class="cta">全66商品の買取価格を比較する &rarr;</a>
+
+<div class="adsense-bottom" style="margin-top:32px;text-align:center">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5831186943118320" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({{}});</script>
+</div>
+</div>
+</div>
+
+<div class="footer">&copy; ポケカ買取チェッカー</div>
+</div>
+<script>
+{sv_gain_js}
+{sv_loss_js}
+{ss_gain_js}
+</script>
+</body>
+</html>"""
+
+    out_path = project_root / "ranking.html"
+    out_path.write_text(html, encoding="utf-8")
+    logger.info("Generated ranking page: %s", out_path)
