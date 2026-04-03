@@ -886,7 +886,7 @@ def generate_ranking_page(
     project_root: Path,
     update_date: str,
 ) -> None:
-    """週間の高騰・暴落ランキングページをグラフ付きで生成する。"""
+    """週間の上昇ランキングページをグラフ付きで生成する。"""
     history_dir = project_root / "data" / "history"
     if not history_dir.exists():
         return
@@ -928,14 +928,22 @@ def generate_ranking_page(
             "pct": pct,
         })
 
-    # MEGA+SV: 高騰TOP5 / 暴落TOP5
+    # MEGA+SV: 上昇TOP5
     sv_mega = [c for c in changes if c["category"] in ("sv", "mega")]
     sv_gainers = sorted([c for c in sv_mega if c["diff"] > 0], key=lambda x: x["diff"], reverse=True)[:5]
-    sv_losers = sorted([c for c in sv_mega if c["diff"] < 0], key=lambda x: x["diff"])[:5]
 
     # S&S: 高騰TOP3のみ
     ss = [c for c in changes if c["category"] == "ss"]
     ss_gainers = sorted([c for c in ss if c["diff"] > 0], key=lambda x: x["diff"], reverse=True)[:3]
+
+    # SV+MEGA全BOXの平均上昇額・上昇率
+    sv_mega_all = [c for c in changes if c["category"] in ("sv", "mega") and c["week_ago"] > 0]
+    if sv_mega_all:
+        avg_diff = sum(c["diff"] for c in sv_mega_all) / len(sv_mega_all)
+        avg_pct = sum(c["pct"] for c in sv_mega_all) / len(sv_mega_all)
+    else:
+        avg_diff = 0
+        avg_pct = 0
 
     today_str = today_file.stem
     week_ago_str = week_ago_file.stem
@@ -955,6 +963,14 @@ def generate_ranking_page(
         return re.sub(r"[「」]", "", short)
 
     chart_labels_js = json.dumps(chart_dates, ensure_ascii=False)
+
+    # SV+MEGA全BOXの日次平均価格
+    sv_mega_names = [p.name for p in products if p.category in ("sv", "mega")]
+    daily_avgs = []
+    for dc in daily_cache:
+        prices = [dc.get(n, 0) for n in sv_mega_names if dc.get(n, 0) > 0]
+        daily_avgs.append(round(sum(prices) / len(prices)) if prices else 0)
+    avg_chart_data_js = json.dumps(daily_avgs)
 
     def _build_mini_charts(items: list, prefix: str, color: str) -> str:
         """各BOXごとの個別ミニグラフHTMLとJSを生成"""
@@ -998,7 +1014,6 @@ new Chart(document.getElementById('{canvas_id}'), {{
         return "\n".join(html_parts), "\n".join(js_parts)
 
     sv_gain_html, sv_gain_js = _build_mini_charts(sv_gainers, "svUp", "#dc2626")
-    sv_loss_html, sv_loss_js = _build_mini_charts(sv_losers, "svDn", "#2563eb")
     ss_gain_html, ss_gain_js = _build_mini_charts(ss_gainers, "ssUp", "#f59e0b")
 
     def _make_table(items: list) -> str:
@@ -1025,7 +1040,6 @@ new Chart(document.getElementById('{canvas_id}'), {{
         )
 
     sv_gainers_table = _make_table(sv_gainers)
-    sv_losers_table = _make_table(sv_losers)
     ss_gainers_table = _make_table(ss_gainers)
 
     html = f"""<!DOCTYPE html>
@@ -1033,19 +1047,19 @@ new Chart(document.getElementById('{canvas_id}'), {{
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="ポケカ未開封BOXの買取価格 週間高騰・暴落ランキング。直近7日間で最も値上がり・値下がりしたBOXをグラフ付きで紹介。毎日自動更新。">
+<meta name="description" content="ポケカ未開封BOXの買取価格 週間上昇ランキング。直近7日間で最も値上がり・値下がりしたBOXをグラフ付きで紹介。毎日自動更新。">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://pokeca-box-hikaku.com/ranking.html">
-<meta property="og:title" content="ポケカBOX 高騰・暴落ランキング｜ポケカ買取チェッカー">
-<meta property="og:description" content="ポケカ未開封BOXの買取価格 週間高騰・暴落ランキング。直近7日間の変動をグラフ付きで紹介。">
+<meta property="og:title" content="ポケカBOX 上昇ランキング｜ポケカ買取チェッカー">
+<meta property="og:description" content="ポケカ未開封BOXの買取価格 週間上昇ランキング。直近7日間の変動をグラフ付きで紹介。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://pokeca-box-hikaku.com/ranking.html">
 <meta property="og:image" content="https://pokeca-box-hikaku.com/ogp.jpg">
 <meta property="og:site_name" content="ポケカ買取チェッカー">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="ポケカBOX 高騰・暴落ランキング｜ポケカ買取チェッカー">
-<meta name="twitter:description" content="ポケカ未開封BOXの買取価格 週間高騰・暴落ランキング。毎日自動更新。">
-<title>ポケカBOX 週間高騰・暴落ランキング｜ポケカ買取チェッカー</title>
+<meta name="twitter:title" content="ポケカBOX 上昇ランキング｜ポケカ買取チェッカー">
+<meta name="twitter:description" content="ポケカ未開封BOXの買取価格 週間上昇ランキング。毎日自動更新。">
+<title>ポケカBOX 週間上昇ランキング｜ポケカ買取チェッカー</title>
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831186943118320" crossorigin="anonymous"></script>
 <!-- Google Analytics -->
@@ -1097,6 +1111,10 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 .mc-name:hover{{color:var(--accent)}}
 .mc-price{{font-size:18px;font-weight:700;margin-right:8px}}
 .mc-diff{{font-size:13px;font-weight:700}}
+.avg-stats{{display:flex;gap:24px;flex-wrap:wrap}}
+.avg-item{{background:#f9fafb;border-radius:8px;padding:12px 20px;flex:1;min-width:140px;text-align:center}}
+.avg-label{{display:block;font-size:12px;color:var(--text-sub);margin-bottom:4px}}
+.avg-value{{font-size:22px;font-weight:700}}
 .cta{{display:block;text-align:center;padding:14px;background:linear-gradient(135deg,#6366f1,#818cf8);color:#fff;border-radius:10px;text-decoration:none;font-weight:600;margin-top:32px}}
 .footer{{text-align:center;color:var(--text-sub);font-size:12px;margin-top:32px}}
 @media(max-width:640px){{.ranking-table{{font-size:12px}}.ranking-table td,.ranking-table th{{padding:8px 6px}}.main-card{{padding:20px 16px}}}}
@@ -1105,7 +1123,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <body>
 <div class="header"><a href="index.html"><h1>ポケカ買取チェッカー</h1></a></div>
 <div class="wrap">
-<div class="breadcrumb"><a href="index.html">トップ</a> &gt; 週間高騰・暴落ランキング</div>
+<div class="breadcrumb"><a href="index.html">トップ</a> &gt; 週間上昇ランキング</div>
 
 <div class="content-layout">
 <nav class="article-nav">
@@ -1121,17 +1139,23 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 </nav>
 
 <div class="main-card">
-<h2>ポケカBOX 週間高騰・暴落ランキング</h2>
+<h2>ポケカBOX 週間上昇ランキング</h2>
 <div class="meta">更新: {update_date}　比較期間: {week_ago_str} → {today_str}（直近7日間）</div>
 
-<h3 class="section-title up">SV・MEGA 高騰 TOP5</h3>
+<h3 class="section-title up">SV・MEGA 上昇 TOP5</h3>
 <div class="mini-charts">{sv_gain_html}</div>
-
-<h3 class="section-title down">SV・MEGA 暴落 TOP5</h3>
-<div class="mini-charts">{sv_loss_html}</div>
 
 <h3 class="section-title up" style="margin-top:48px">S&amp;S 上昇 TOP3</h3>
 <div class="mini-charts">{ss_gain_html}</div>
+
+<h3 class="section-title" style="margin-top:48px">SV・MEGA 全BOX平均</h3>
+<div class="avg-stats">
+<div class="avg-item"><span class="avg-label">平均上昇額</span><span class="avg-value" style="color:{'#dc2626' if avg_diff >= 0 else '#2563eb'}">{"+" if avg_diff >= 0 else ""}¥{avg_diff:,.0f}</span></div>
+<div class="avg-item"><span class="avg-label">平均上昇率</span><span class="avg-value" style="color:{'#dc2626' if avg_pct >= 0 else '#2563eb'}">{"+" if avg_pct >= 0 else ""}{avg_pct:.1f}%</span></div>
+</div>
+<div class="chart-wrap" style="margin-top:16px">
+<canvas id="avgChart" height="200"></canvas>
+</div>
 
 <a href="index.html" class="cta">全66商品の買取価格を比較する &rarr;</a>
 
@@ -1146,8 +1170,30 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 </div>
 <script>
 {sv_gain_js}
-{sv_loss_js}
 {ss_gain_js}
+new Chart(document.getElementById('avgChart'), {{
+  type: 'line',
+  data: {{
+    labels: {chart_labels_js},
+    datasets: [{{
+      label: 'SV・MEGA 平均買取価格',
+      data: {avg_chart_data_js},
+      borderColor: '#6366f1',
+      backgroundColor: '#6366f122',
+      borderWidth: 2,
+      fill: true,
+      tension: 0.3,
+      pointRadius: 3
+    }}]
+  }},
+  options: {{
+    responsive: true,
+    plugins: {{ legend: {{ display: true, position: 'bottom' }} }},
+    scales: {{
+      y: {{ ticks: {{ callback: v => '¥' + v.toLocaleString() }} }}
+    }}
+  }}
+}});
 </script>
 </body>
 </html>"""
