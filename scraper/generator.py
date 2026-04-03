@@ -930,7 +930,7 @@ def generate_ranking_page(
 
     # MEGA+SV: 上昇TOP5
     sv_mega = [c for c in changes if c["category"] in ("sv", "mega")]
-    sv_gainers = sorted([c for c in sv_mega if c["diff"] > 0], key=lambda x: x["diff"], reverse=True)[:5]
+    sv_gainers = sorted([c for c in sv_mega if c["diff"] > 0], key=lambda x: x["diff"], reverse=True)[:10]
 
     # S&S: 高騰TOP3のみ
     ss = [c for c in changes if c["category"] == "ss"]
@@ -1142,7 +1142,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <h2>ポケカBOX 週間上昇ランキング</h2>
 <div class="meta">更新: {update_date}　比較期間: {week_ago_str} → {today_str}（直近7日間）</div>
 
-<h3 class="section-title up">SV・MEGA 上昇 TOP5</h3>
+<h3 class="section-title up">SV・MEGA 上昇 TOP10</h3>
 <div class="mini-charts">{sv_gain_html}</div>
 
 <h3 class="section-title up" style="margin-top:48px">S&amp;S 上昇 TOP3</h3>
