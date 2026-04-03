@@ -1159,9 +1159,11 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 
 <a href="index.html" class="cta">全66商品の買取価格を比較する &rarr;</a>
 
-<div class="adsense-bottom" style="margin-top:32px;text-align:center">
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5831186943118320" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({{}});</script>
+<div class="ad" style="margin-top:32px;text-align:center">
+  <a href="https://h.accesstrade.net/sp/cc?rk=0100p4pe00opz3" rel="nofollow" referrerpolicy="no-referrer-when-downgrade"><img src="https://h.accesstrade.net/sp/rr?rk=0100p4pe00opz3" alt="トレトク" border="0" width="640" height="100" style="max-width:100%;height:auto"></a>
+</div>
+<div class="ad" style="margin-top:16px;text-align:center">
+  <a href="https://h.accesstrade.net/sp/cc?rk=0100pumf00opz3" rel="nofollow" referrerpolicy="no-referrer-when-downgrade"><img src="https://h.accesstrade.net/sp/rr?rk=0100pumf00opz3" alt="オリくじ" border="0" width="728" height="90" style="max-width:100%;height:auto"></a>
 </div>
 </div>
 </div>
