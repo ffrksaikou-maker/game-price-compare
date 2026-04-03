@@ -109,7 +109,7 @@ def generate_jsonld(products: list[MasterProduct]) -> str:
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "ポケカ買取チェッカー - 未開封BOX買取価格比較",
-        "description": "ポケモンカード未開封BOXの買取価格を8店舗横断で比較",
+        "description": "ポケモンカード未開封BOXの買取価格をラントゥ・ホムラ・一丁目・森森買取等8店舗横断で比較",
         "numberOfItems": len(items),
         "itemListElement": [
             {"@type": "ListItem", "position": i + 1, "item": item}
