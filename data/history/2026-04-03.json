@@ -9,7 +9,7 @@
       "homura": 11000,
       "rudeya": 11100,
       "runto": 11000,
-      "icchome": 11300,
+      "icchome": 11400,
       "shouten": 11000,
       "kaikyo": 11500
     }
@@ -18,13 +18,13 @@
     "name": "MEGA 拡張パック「ムニキスゼロ」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 7500,
+    "max_price": 7600,
     "prices": {
       "morimori": 7500,
       "homura": 7500,
       "rudeya": 7400,
       "runto": 7500,
-      "icchome": 7500,
+      "icchome": 7600,
       "shouten": 7500,
       "kaikyo": 6200,
       "sommelier": 7500
@@ -86,7 +86,7 @@
       "homura": 9700,
       "rudeya": 9500,
       "runto": 9700,
-      "icchome": 9400,
+      "icchome": 9500,
       "shouten": 9000,
       "kaikyo": 8500,
       "sommelier": 9500
@@ -188,13 +188,13 @@
     "name": "SV 拡張パック「バトルパートナーズ」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 10000,
+    "max_price": 9800,
     "prices": {
       "morimori": 9200,
       "homura": 9200,
       "rudeya": 9500,
       "runto": 9500,
-      "icchome": 10000,
+      "icchome": 9800,
       "shouten": 8500,
       "kaikyo": 8900,
       "sommelier": 9000
@@ -220,13 +220,13 @@
     "name": "SV 拡張パック「超電ブレイカー」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 29600,
+    "max_price": 30000,
     "prices": {
       "morimori": 29600,
       "homura": 28500,
       "rudeya": 29500,
       "runto": 25000,
-      "icchome": 29500,
+      "icchome": 30000,
       "shouten": 25000,
       "kaikyo": 27000,
       "sommelier": 29000
@@ -252,13 +252,13 @@
     "name": "SV 強化拡張パック「ステラミラクル」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 9800,
+    "max_price": 9700,
     "prices": {
       "morimori": 9400,
       "homura": 9500,
       "rudeya": 9500,
       "runto": 9500,
-      "icchome": 9800,
+      "icchome": 9700,
       "shouten": 8800,
       "kaikyo": 8700,
       "sommelier": 9500
@@ -292,7 +292,7 @@
       "icchome": 12000,
       "shouten": 8000,
       "kaikyo": 11500,
-      "sommelier": 11500
+      "sommelier": 11000
     }
   },
   {
@@ -308,7 +308,7 @@
       "icchome": 15000,
       "shouten": 11500,
       "kaikyo": 14600,
-      "sommelier": 14500
+      "sommelier": 14000
     }
   },
   {
