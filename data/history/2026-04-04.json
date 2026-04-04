@@ -352,7 +352,7 @@
       "morimori": 15500,
       "homura": 15500,
       "rudeya": 15800,
-      "runto": 15500,
+      "runto": 15800,
       "icchome": 15700,
       "shouten": 15000,
       "kaikyo": 15200,
@@ -535,7 +535,7 @@
     "prices": {
       "morimori": 20500,
       "homura": 19500,
-      "runto": 18000,
+      "runto": 19000,
       "kaikyo": 19800
     }
   },
@@ -559,7 +559,7 @@
     "max_price": 48500,
     "prices": {
       "homura": 48500,
-      "runto": 45000,
+      "runto": 46000,
       "kaikyo": 44000
     }
   },
@@ -567,20 +567,20 @@
     "name": "S&S 強化拡張パック「ポケモンGO」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 14500,
+    "max_price": 16000,
     "prices": {
       "homura": 14500,
-      "runto": 14200
+      "runto": 16000
     }
   },
   {
     "name": "S&S 強化拡張パック「ダークファンタズマ」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 15500,
+    "max_price": 16000,
     "prices": {
       "homura": 15500,
-      "runto": 15500,
+      "runto": 16000,
       "sommelier": 15500
     }
   },
@@ -622,7 +622,7 @@
     "max_price": 18000,
     "prices": {
       "homura": 18000,
-      "runto": 16000,
+      "runto": 17500,
       "sommelier": 16500
     }
   },
@@ -630,10 +630,10 @@
     "name": "S&S ハイクラスパック「VMAXクライマックス」",
     "category": "ss",
     "retail_price": 5500,
-    "max_price": 25500,
+    "max_price": 25800,
     "prices": {
       "homura": 25500,
-      "runto": 25500,
+      "runto": 25800,
       "kaikyo": 23300
     }
   },
@@ -652,10 +652,10 @@
     "name": "S&S 拡張パック「フュージョンアーツ」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 41000,
+    "max_price": 42000,
     "prices": {
       "homura": 41000,
-      "runto": 39000,
+      "runto": 42000,
       "sommelier": 38500
     }
   },
