@@ -3,12 +3,12 @@
     "name": "MEGA 拡張パック「ニンジャスピナー」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 11300,
+    "max_price": 11400,
     "prices": {
       "morimori": 11000,
       "homura": 11000,
       "rudeya": 11200,
-      "runto": 11000,
+      "runto": 11400,
       "icchome": 11300,
       "shouten": 11000,
       "kaikyo": 11000
@@ -18,12 +18,12 @@
     "name": "MEGA 拡張パック「ムニキスゼロ」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 7500,
+    "max_price": 7600,
     "prices": {
       "morimori": 7500,
       "homura": 7500,
       "rudeya": 7500,
-      "runto": 7500,
+      "runto": 7600,
       "icchome": 7500,
       "shouten": 7500,
       "kaikyo": 6200,
@@ -54,7 +54,7 @@
       "morimori": 23000,
       "homura": 23500,
       "rudeya": 23500,
-      "runto": 23000,
+      "runto": 23500,
       "icchome": 23000,
       "shouten": 23000,
       "kaikyo": 23000,
@@ -70,7 +70,7 @@
       "morimori": 11000,
       "homura": 11000,
       "rudeya": 11100,
-      "runto": 11000,
+      "runto": 11400,
       "icchome": 11400,
       "shouten": 11000,
       "kaikyo": 10000
@@ -133,7 +133,7 @@
       "homura": 20500,
       "rudeya": 20600,
       "runto": 20000,
-      "icchome": 20200,
+      "icchome": 20300,
       "shouten": 20000,
       "kaikyo": 19500
     }
@@ -148,7 +148,7 @@
       "homura": 19500,
       "rudeya": 19600,
       "runto": 19000,
-      "icchome": 19200,
+      "icchome": 19300,
       "shouten": 19000,
       "kaikyo": 18500
     }
@@ -612,7 +612,7 @@
     "max_price": 11500,
     "prices": {
       "homura": 11500,
-      "runto": 10000
+      "runto": 10500
     }
   },
   {
