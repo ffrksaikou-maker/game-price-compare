@@ -56,11 +56,11 @@
       "morimori": 25200,
       "homura": 23800,
       "rudeya": 24000,
-      "runto": 23500,
+      "runto": 24000,
       "icchome": 24000,
       "shouten": 24000,
       "kaikyo": 23000,
-      "sommelier": 20000
+      "sommelier": 23500
     }
   },
   {
@@ -72,7 +72,7 @@
       "morimori": 11500,
       "homura": 11500,
       "rudeya": 11500,
-      "runto": 11300,
+      "runto": 11500,
       "icchome": 11500,
       "shouten": 11000,
       "kaikyo": 10000
@@ -159,9 +159,9 @@
     "name": "SV 拡張パック「ロケット団の栄光」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 21500,
+    "max_price": 22000,
     "prices": {
-      "morimori": 21400,
+      "morimori": 22000,
       "homura": 21000,
       "rudeya": 21100,
       "runto": 21000,
@@ -350,12 +350,12 @@
     "name": "SV ハイクラスパック「シャイニートレジャーex」",
     "category": "sv",
     "retail_price": 5500,
-    "max_price": 16200,
+    "max_price": 16400,
     "prices": {
       "morimori": 16200,
       "homura": 16000,
       "rudeya": 16100,
-      "runto": 16000,
+      "runto": 16400,
       "icchome": 16000,
       "shouten": 15500,
       "kaikyo": 15200,
@@ -430,10 +430,10 @@
     "retail_price": 5400,
     "max_price": 56100,
     "prices": {
-      "morimori": 55200,
+      "morimori": 56000,
       "homura": 55000,
       "rudeya": 56100,
-      "runto": 51000,
+      "runto": 52000,
       "icchome": 56000,
       "shouten": 56000,
       "kaikyo": 52300,
@@ -744,10 +744,10 @@
     "name": "S&S ハイクラスパック「シャイニースターV」",
     "category": "ss",
     "retail_price": 5500,
-    "max_price": 18300,
+    "max_price": 18500,
     "prices": {
       "homura": 18000,
-      "runto": 18300,
+      "runto": 18500,
       "sommelier": 17500
     }
   },
