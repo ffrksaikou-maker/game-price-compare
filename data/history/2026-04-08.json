@@ -11,7 +11,7 @@
       "runto": 11300,
       "icchome": 11100,
       "shouten": 10000,
-      "kaikyo": 11000,
+      "kaikyo": 11200,
       "sommelier": 10000
     }
   },
@@ -27,7 +27,7 @@
       "runto": 8100,
       "icchome": 7800,
       "shouten": 7500,
-      "kaikyo": 6200,
+      "kaikyo": 8000,
       "sommelier": 8000
     }
   },
@@ -43,7 +43,7 @@
       "runto": 13700,
       "icchome": 14500,
       "shouten": 12500,
-      "kaikyo": 13000,
+      "kaikyo": 14400,
       "sommelier": 13800
     }
   },
@@ -59,7 +59,7 @@
       "runto": 24500,
       "icchome": 25000,
       "shouten": 24000,
-      "kaikyo": 23000,
+      "kaikyo": 25000,
       "sommelier": 23500
     }
   },
@@ -75,7 +75,7 @@
       "runto": 11500,
       "icchome": 11800,
       "shouten": 11000,
-      "kaikyo": 10000
+      "kaikyo": 11800
     }
   },
   {
@@ -90,7 +90,7 @@
       "runto": 9700,
       "icchome": 9600,
       "shouten": 9000,
-      "kaikyo": 8500,
+      "kaikyo": 9200,
       "sommelier": 9500
     }
   },
@@ -106,7 +106,7 @@
       "runto": 21500,
       "icchome": 23000,
       "shouten": 23000,
-      "kaikyo": 22800,
+      "kaikyo": 24000,
       "sommelier": 25000
     }
   },
@@ -122,14 +122,14 @@
       "runto": 19000,
       "icchome": 19000,
       "shouten": 18500,
-      "kaikyo": 18000
+      "kaikyo": 20000
     }
   },
   {
     "name": "SV 拡張パック「ブラックボルト」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 21400,
+    "max_price": 21700,
     "prices": {
       "morimori": 21400,
       "homura": 21000,
@@ -137,7 +137,7 @@
       "runto": 21000,
       "icchome": 21000,
       "shouten": 21000,
-      "kaikyo": 19500
+      "kaikyo": 21700
     }
   },
   {
@@ -152,14 +152,14 @@
       "runto": 20000,
       "icchome": 20000,
       "shouten": 20000,
-      "kaikyo": 18500
+      "kaikyo": 20000
     }
   },
   {
     "name": "SV 拡張パック「ロケット団の栄光」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 21600,
+    "max_price": 22000,
     "prices": {
       "morimori": 21600,
       "homura": 21500,
@@ -167,7 +167,7 @@
       "runto": 21500,
       "icchome": 21500,
       "shouten": 20000,
-      "kaikyo": 20100,
+      "kaikyo": 22000,
       "sommelier": 20000
     }
   },
@@ -199,7 +199,7 @@
       "runto": 10000,
       "icchome": 9500,
       "shouten": 8500,
-      "kaikyo": 8900,
+      "kaikyo": 10000,
       "sommelier": 9000
     }
   },
@@ -215,7 +215,7 @@
       "runto": 19500,
       "icchome": 19800,
       "shouten": 16000,
-      "kaikyo": 17700,
+      "kaikyo": 19800,
       "sommelier": 19500
     }
   },
@@ -247,7 +247,7 @@
       "runto": 18500,
       "icchome": 18500,
       "shouten": 14000,
-      "kaikyo": 16700,
+      "kaikyo": 18000,
       "sommelier": 19000
     }
   },
@@ -279,6 +279,7 @@
       "runto": 9700,
       "icchome": 9900,
       "shouten": 9500,
+      "kaikyo": 9600,
       "sommelier": 9300
     }
   },
@@ -294,7 +295,7 @@
       "runto": 12000,
       "icchome": 12500,
       "shouten": 8000,
-      "kaikyo": 11500,
+      "kaikyo": 12500,
       "sommelier": 11000
     }
   },
@@ -302,7 +303,7 @@
     "name": "SV 拡張パック「クリムゾンヘイズ」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 15200,
+    "max_price": 16700,
     "prices": {
       "morimori": 15200,
       "homura": 15200,
@@ -310,7 +311,7 @@
       "runto": 15000,
       "icchome": 15200,
       "shouten": 11500,
-      "kaikyo": 14600,
+      "kaikyo": 16700,
       "sommelier": 14000
     }
   },
@@ -326,7 +327,7 @@
       "runto": 11500,
       "icchome": 11500,
       "shouten": 8000,
-      "kaikyo": 11000,
+      "kaikyo": 11400,
       "sommelier": 10500
     }
   },
@@ -358,7 +359,7 @@
       "runto": 17000,
       "icchome": 16000,
       "shouten": 15500,
-      "kaikyo": 15200,
+      "kaikyo": 17000,
       "sommelier": 17000
     }
   },
@@ -420,7 +421,7 @@
       "runto": 17500,
       "icchome": 18800,
       "shouten": 18500,
-      "kaikyo": 17000,
+      "kaikyo": 18000,
       "sommelier": 17500
     }
   },
@@ -436,7 +437,7 @@
       "runto": 59000,
       "icchome": 60000,
       "shouten": 56000,
-      "kaikyo": 52300,
+      "kaikyo": 60000,
       "sommelier": 58000
     }
   },
@@ -452,7 +453,7 @@
       "runto": 11200,
       "icchome": 11500,
       "shouten": 9500,
-      "kaikyo": 10700
+      "kaikyo": 11000
     }
   },
   {
@@ -482,7 +483,7 @@
       "runto": 15500,
       "icchome": 15600,
       "shouten": 11500,
-      "kaikyo": 15100
+      "kaikyo": 15800
     }
   },
   {
@@ -504,7 +505,7 @@
     "name": "SV 拡張パック「バイオレットex」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 10000,
+    "max_price": 9800,
     "prices": {
       "morimori": 9500,
       "homura": 9500,
@@ -512,8 +513,8 @@
       "runto": 9400,
       "icchome": 9500,
       "shouten": 8000,
-      "kaikyo": 9000,
-      "sommelier": 10000
+      "kaikyo": 9400,
+      "sommelier": 9800
     }
   },
   {
@@ -527,7 +528,7 @@
       "runto": 27000,
       "icchome": 28000,
       "shouten": 25000,
-      "kaikyo": 26000,
+      "kaikyo": 28000,
       "sommelier": 28000
     }
   },
@@ -535,12 +536,12 @@
     "name": "S&S 拡張パック「パラダイムトリガー」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 22200,
+    "max_price": 22400,
     "prices": {
       "morimori": 22200,
       "homura": 20000,
       "runto": 19500,
-      "kaikyo": 19800
+      "kaikyo": 22400
     }
   },
   {
@@ -560,11 +561,11 @@
     "name": "S&S 拡張パック「ロストアビス」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 50000,
+    "max_price": 54500,
     "prices": {
       "homura": 50000,
       "runto": 46000,
-      "kaikyo": 44000
+      "kaikyo": 54500
     }
   },
   {
@@ -835,7 +836,7 @@
       "runto": 16500,
       "icchome": 14000,
       "shouten": 12000,
-      "kaikyo": 16000,
+      "kaikyo": 16500,
       "sommelier": 15500
     }
   },
@@ -850,7 +851,7 @@
       "runto": 20000,
       "icchome": 17000,
       "shouten": 14000,
-      "kaikyo": 19000,
+      "kaikyo": 20200,
       "sommelier": 22000
     }
   },
