@@ -837,14 +837,14 @@
       "icchome": 14000,
       "shouten": 12000,
       "kaikyo": 16500,
-      "sommelier": 15500
+      "sommelier": 16000
     }
   },
   {
     "name": "スペシャルBOX ヒロシマ",
     "category": "special",
     "retail_price": 2090,
-    "max_price": 22000,
+    "max_price": 21000,
     "prices": {
       "homura": 21000,
       "rudeya": 18000,
@@ -852,7 +852,7 @@
       "icchome": 17000,
       "shouten": 14000,
       "kaikyo": 20200,
-      "sommelier": 22000
+      "sommelier": 21000
     }
   },
   {
@@ -867,7 +867,7 @@
       "icchome": 16000,
       "shouten": 15000,
       "kaikyo": 16000,
-      "sommelier": 20000
+      "sommelier": 19000
     }
   }
 ]
