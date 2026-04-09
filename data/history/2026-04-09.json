@@ -159,9 +159,9 @@
     "name": "SV 拡張パック「ロケット団の栄光」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 23500,
+    "max_price": 23600,
     "prices": {
-      "morimori": 23400,
+      "morimori": 23600,
       "homura": 23500,
       "rudeya": 22300,
       "runto": 22200,
