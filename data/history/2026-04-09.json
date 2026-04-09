@@ -12,7 +12,7 @@
       "icchome": 11200,
       "shouten": 10000,
       "kaikyo": 11200,
-      "sommelier": 10000
+      "sommelier": 11000
     }
   },
   {
@@ -28,7 +28,7 @@
       "icchome": 8000,
       "shouten": 7500,
       "kaikyo": 8000,
-      "sommelier": 8000
+      "sommelier": 8200
     }
   },
   {
@@ -60,7 +60,7 @@
       "icchome": 25200,
       "shouten": 24000,
       "kaikyo": 25000,
-      "sommelier": 23500
+      "sommelier": 24000
     }
   },
   {
@@ -91,7 +91,7 @@
       "icchome": 9600,
       "shouten": 9500,
       "kaikyo": 9200,
-      "sommelier": 9500
+      "sommelier": 9200
     }
   },
   {
@@ -168,7 +168,7 @@
       "icchome": 22000,
       "shouten": 20000,
       "kaikyo": 22000,
-      "sommelier": 20000
+      "sommelier": 22000
     }
   },
   {
@@ -184,7 +184,7 @@
       "icchome": 19800,
       "shouten": 15000,
       "kaikyo": 17600,
-      "sommelier": 17500
+      "sommelier": 20000
     }
   },
   {
@@ -216,7 +216,7 @@
       "icchome": 20800,
       "shouten": 16000,
       "kaikyo": 19800,
-      "sommelier": 19500
+      "sommelier": 20000
     }
   },
   {
@@ -232,7 +232,7 @@
       "icchome": 32000,
       "shouten": 25000,
       "kaikyo": 27000,
-      "sommelier": 29500
+      "sommelier": 32000
     }
   },
   {
@@ -296,7 +296,7 @@
       "icchome": 12500,
       "shouten": 8000,
       "kaikyo": 12500,
-      "sommelier": 11000
+      "sommelier": 11500
     }
   },
   {
@@ -360,7 +360,7 @@
       "icchome": 18000,
       "shouten": 15500,
       "kaikyo": 17000,
-      "sommelier": 17000
+      "sommelier": 17200
     }
   },
   {
@@ -375,14 +375,14 @@
       "runto": 10000,
       "icchome": 9800,
       "shouten": 9000,
-      "sommelier": 9800
+      "sommelier": 10000
     }
   },
   {
     "name": "SV 拡張パック「未来の一閃」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 9700,
+    "max_price": 9800,
     "prices": {
       "morimori": 9000,
       "homura": 9600,
@@ -390,7 +390,7 @@
       "runto": 9600,
       "icchome": 9600,
       "shouten": 9000,
-      "sommelier": 9500
+      "sommelier": 9800
     }
   },
   {
@@ -422,7 +422,7 @@
       "icchome": 18800,
       "shouten": 18500,
       "kaikyo": 18000,
-      "sommelier": 17500
+      "sommelier": 18000
     }
   },
   {
@@ -438,7 +438,7 @@
       "icchome": 62000,
       "shouten": 56000,
       "kaikyo": 60000,
-      "sommelier": 58000
+      "sommelier": 60000
     }
   },
   {
@@ -529,7 +529,7 @@
       "icchome": 28500,
       "shouten": 25000,
       "kaikyo": 28000,
-      "sommelier": 28000
+      "sommelier": 28200
     }
   },
   {
@@ -554,7 +554,7 @@
       "homura": 10500,
       "runto": 9500,
       "kaikyo": 8800,
-      "sommelier": 10000
+      "sommelier": 10500
     }
   },
   {
@@ -586,18 +586,18 @@
     "prices": {
       "homura": 15500,
       "runto": 19000,
-      "sommelier": 15500
+      "sommelier": 16000
     }
   },
   {
     "name": "S&S 拡張パック「タイムゲイザー」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 16000,
+    "max_price": 16500,
     "prices": {
       "homura": 16000,
       "runto": 11500,
-      "sommelier": 16000
+      "sommelier": 16500
     }
   },
   {
@@ -646,11 +646,11 @@
     "name": "S&S 拡張パック「25th ANNIVERSARY COLLECTION」",
     "category": "ss",
     "retail_price": 5500,
-    "max_price": 60000,
+    "max_price": 61000,
     "prices": {
       "homura": 60000,
       "runto": 54000,
-      "sommelier": 54500
+      "sommelier": 61000
     }
   },
   {
