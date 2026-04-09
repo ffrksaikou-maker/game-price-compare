@@ -132,7 +132,7 @@
     "max_price": 22200,
     "prices": {
       "morimori": 22200,
-      "homura": 22000,
+      "homura": 22200,
       "rudeya": 22100,
       "runto": 21000,
       "icchome": 21000,
@@ -159,10 +159,10 @@
     "name": "SV 拡張パック「ロケット団の栄光」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 23400,
+    "max_price": 23500,
     "prices": {
       "morimori": 23400,
-      "homura": 23000,
+      "homura": 23500,
       "rudeya": 22300,
       "runto": 22200,
       "icchome": 22000,
@@ -264,7 +264,7 @@
       "icchome": 9700,
       "shouten": 9500,
       "kaikyo": 8700,
-      "sommelier": 9600
+      "sommelier": 10000
     }
   },
   {
@@ -280,7 +280,7 @@
       "icchome": 9900,
       "shouten": 9500,
       "kaikyo": 9600,
-      "sommelier": 9300
+      "sommelier": 10000
     }
   },
   {
@@ -435,7 +435,7 @@
       "homura": 65000,
       "rudeya": 65100,
       "runto": 59000,
-      "icchome": 60000,
+      "icchome": 62000,
       "shouten": 56000,
       "kaikyo": 60000,
       "sommelier": 58000
