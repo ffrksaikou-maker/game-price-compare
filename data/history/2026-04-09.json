@@ -25,7 +25,7 @@
       "homura": 8200,
       "rudeya": 7800,
       "runto": 8200,
-      "icchome": 7800,
+      "icchome": 8000,
       "shouten": 7500,
       "kaikyo": 8000,
       "sommelier": 8000
@@ -37,13 +37,13 @@
     "retail_price": 5500,
     "max_price": 14400,
     "prices": {
-      "morimori": 14200,
+      "morimori": 14400,
       "homura": 14200,
       "rudeya": 14000,
       "runto": 14000,
-      "icchome": 14000,
+      "icchome": 14200,
       "shouten": 13500,
-      "kaikyo": 14400,
+      "kaikyo": 14200,
       "sommelier": 13800
     }
   },
@@ -57,7 +57,7 @@
       "homura": 26000,
       "rudeya": 26000,
       "runto": 24500,
-      "icchome": 24500,
+      "icchome": 25200,
       "shouten": 24000,
       "kaikyo": 25000,
       "sommelier": 23500
@@ -69,7 +69,7 @@
     "retail_price": 5400,
     "max_price": 12000,
     "prices": {
-      "morimori": 11500,
+      "morimori": 12000,
       "homura": 11800,
       "rudeya": 11900,
       "runto": 11600,
@@ -82,9 +82,9 @@
     "name": "MEGA 拡張パック「メガシンフォニア」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 9800,
+    "max_price": 10000,
     "prices": {
-      "morimori": 9800,
+      "morimori": 10000,
       "homura": 9800,
       "rudeya": 9700,
       "runto": 9800,
@@ -207,9 +207,9 @@
     "name": "SV ハイクラスパック テラスタルフェスex",
     "category": "sv",
     "retail_price": 5500,
-    "max_price": 20900,
+    "max_price": 21200,
     "prices": {
-      "morimori": 20600,
+      "morimori": 21200,
       "homura": 20000,
       "rudeya": 20900,
       "runto": 19500,
@@ -223,9 +223,9 @@
     "name": "SV 拡張パック「超電ブレイカー」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 34000,
+    "max_price": 35500,
     "prices": {
-      "morimori": 34000,
+      "morimori": 35500,
       "homura": 33000,
       "rudeya": 33100,
       "runto": 29000,
