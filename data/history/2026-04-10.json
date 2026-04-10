@@ -32,6 +32,19 @@
     }
   },
   {
+    "name": "MEGA スタートデッキ100「バトルコレクション」",
+    "category": "mega",
+    "retail_price": 891,
+    "max_price": 4050,
+    "prices": {
+      "homura": 3000,
+      "rudeya": 4050,
+      "runto": 4000,
+      "shouten": 3600,
+      "sommelier": 3000
+    }
+  },
+  {
     "name": "MEGA ハイクラスパック「MEGAドリームex」",
     "category": "mega",
     "retail_price": 5500,
