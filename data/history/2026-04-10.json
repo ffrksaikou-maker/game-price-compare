@@ -8,7 +8,7 @@
       "morimori": 11500,
       "homura": 11300,
       "rudeya": 11300,
-      "runto": 11300,
+      "runto": 11400,
       "icchome": 11700,
       "shouten": 11300,
       "kaikyo": 11200,
@@ -56,7 +56,7 @@
       "morimori": 26000,
       "homura": 26000,
       "rudeya": 26100,
-      "runto": 24500,
+      "runto": 25000,
       "icchome": 25200,
       "shouten": 24000,
       "kaikyo": 25000,
@@ -67,12 +67,12 @@
     "name": "MEGA 拡張パック「メガブレイブ」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 12000,
+    "max_price": 12200,
     "prices": {
       "morimori": 12000,
       "homura": 12000,
       "rudeya": 12000,
-      "runto": 12000,
+      "runto": 12200,
       "icchome": 12000,
       "shouten": 11000,
       "kaikyo": 11800
@@ -564,7 +564,7 @@
     "max_price": 55000,
     "prices": {
       "homura": 55000,
-      "runto": 46000,
+      "runto": 48000,
       "kaikyo": 54500
     }
   },
@@ -572,10 +572,10 @@
     "name": "S&S 強化拡張パック「ポケモンGO」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 19000,
+    "max_price": 19500,
     "prices": {
       "homura": 15200,
-      "runto": 19000
+      "runto": 19500
     }
   },
   {
@@ -635,10 +635,10 @@
     "name": "S&S ハイクラスパック「VMAXクライマックス」",
     "category": "ss",
     "retail_price": 5500,
-    "max_price": 26000,
+    "max_price": 26500,
     "prices": {
       "homura": 26000,
-      "runto": 26000,
+      "runto": 26500,
       "kaikyo": 23300
     }
   },
@@ -668,9 +668,9 @@
     "name": "S&S 拡張パック「蒼空ストリーム」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 220000,
+    "max_price": 230000,
     "prices": {
-      "runto": 220000,
+      "runto": 230000,
       "kaikyo": 148000
     }
   },
@@ -690,7 +690,7 @@
     "max_price": 138000,
     "prices": {
       "homura": 138000,
-      "runto": 136000,
+      "runto": 138000,
       "kaikyo": 131000
     }
   },
