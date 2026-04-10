@@ -298,6 +298,7 @@ def generate_html(
 
 # Manual slug overrides for products with tricky names
 SLUG_OVERRIDES = {
+    "MEGA スタートデッキ100「バトルコレクション」": "battle-collection",
     "S&S 拡張パック「25th ANNIVERSARY COLLECTION」": "25th-anniversary-collection",
     "S&S 拡張パック「ソード」": "sword",
     "S&S 拡張パック「シールド」": "shield",
@@ -527,7 +528,11 @@ def _generate_box_chart_section(product: MasterProduct, project_root: Path) -> s
     release_date = product.release_date or ""
     points_json = json.dumps(points, ensure_ascii=False)
     # Number of snkrdunk points at the beginning of merged list
-    if own_points:
+    # スタートデッキ等（定価2000円未満）は単品取引なので0.9倍補正しない
+    no_correction = product.retail_price < 2000
+    if no_correction:
+        snkr_count = 0
+    elif own_points:
         own_start = own_points[0][0]
         snkr_count = len([p for p in points if p[0] < own_start])
     else:
