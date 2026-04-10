@@ -21,6 +21,7 @@ SHOP_IDS = ["morimori", "homura", "icchome", "runto", "sommelier", "kaikyo", "sh
 
 # Blog articles (newest first) - 記事追加時はここに1行足すだけ
 BLOG_ARTICLES = [
+    {"url": "restock-guide.html", "title": "再販情報の見つけ方", "desc": "ポケカBOXの再販入荷パターン、通知設定、抽選vs先着の攻略法まで。最速で再販情報をキャッチする方法を解説。", "date": "2026-04-10"},
     {"url": "box-toushi.html", "title": "ポケカBOX投資の始め方", "desc": "値上がりしやすいBOXの特徴、予算別の始め方、保管方法、リスクまで初心者向けに解説。", "date": "2026-04-02"},
     {"url": "shrink-nashi.html", "title": "シュリンクなしBOXの買取事情", "desc": "シュリンクなしポケカBOXの買取対応を買取店・メルカリ・スニダンで比較。高く売るコツも解説。", "date": "2026-03-27"},
     {"url": "mercari-hikaku.html", "title": "メルカリ・スニダン・買取店どれが得？", "desc": "手数料・送料込みで3つの売却方法を徹底比較。具体的な計算例で最適な売り方がわかります。", "date": "2026-03-26"},
@@ -783,6 +784,7 @@ def _update_sitemap(
         ("/mercari-hikaku.html", "monthly", "0.8"),
         ("/shrink-nashi.html", "monthly", "0.8"),
         ("/box-toushi.html", "monthly", "0.8"),
+        ("/restock-guide.html", "monthly", "0.8"),
         ("/ranking.html", "daily", "0.9"),
         ("/privacy.html", "yearly", "0.3"),
     ]
