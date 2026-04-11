@@ -1,0 +1,83 @@
+# ポケカ買取チェッカー
+
+> ポケモンカード未開封BOXの買取価格を8店舗横断で比較できる無料サイト。毎日3回自動更新で最新の最高買取額がわかる。
+
+## サイト概要
+
+ポケカ買取チェッカー (pokeca-box-hikaku.com) は、ポケモンカードゲームの未開封BOX商品の買取価格を、主要8店舗から自動収集し、商品別・価格別に横断比較できる無料の価格比較サイトです。
+
+対応店舗（8店舗、2026年4月時点）:
+- 森森買取
+- 買取ホムラ
+- 買取一丁目
+- ラントゥ買取
+- 買取ソムリエ
+- 海峡通信
+- 買取商店
+- 買取ルデヤ
+
+収録BOX: ポケモンカード未開封BOX 67商品（MEGA 7種 + スカーレット&バイオレット 27種 + スペシャル 3種 + ソード&シールド 30種）
+
+更新頻度: 毎日3回 (JST 11:00 / 15:00 / 18:00) GitHub Actions による自動スクレイピング
+
+## 主要ページ
+
+### トップ
+- [買取価格比較トップ](https://pokeca-box-hikaku.com/): 全67BOXの買取価格を8店舗で一覧比較。カテゴリフィルタ・並び替え対応
+- [週間上昇ランキング](https://pokeca-box-hikaku.com/ranking.html): 直近7日間で最も値上がりしたBOX TOP10をグラフ付きで表示。毎日更新
+
+### BOXページ (商品別)
+各BOX個別ページでは、8店舗の買取価格・店舗別比較表・価格推移グラフ・当たりカード情報を掲載。
+
+人気BOX例:
+- [MEGA 拡張パック「インフェルノX」](https://pokeca-box-hikaku.com/box/inferno.html)
+- [ポケモンカード151](https://pokeca-box-hikaku.com/box/151.html)
+- [黒炎の支配者](https://pokeca-box-hikaku.com/box/ruler-of-black-flame.html)
+- [メガブレイブ](https://pokeca-box-hikaku.com/box/mega-brave.html)
+- [イーブイヒーローズ](https://pokeca-box-hikaku.com/box/eevee-heroes.html)
+
+全BOX一覧はトップページのテーブルまたは sitemap.xml から取得できます。
+
+### 解説記事 (9本)
+- [ポケカBOX買取で損しない5つのコツ](https://pokeca-box-hikaku.com/kaitori-tips.html): シュリンク付き・複数店舗比較・売り時の見極めなど基本ガイド
+- [ポケカ買取8店舗の特徴を徹底比較](https://pokeca-box-hikaku.com/shop-hikaku.html): 各店舗の強み・得意ジャンル・送料・振込までの日数を一覧比較
+- [ポケカBOX開封→シングル売りで利益を出す方法](https://pokeca-box-hikaku.com/single-card-tips.html): 開封vs未開封売りの損益分岐点
+- [PSA鑑定ガイド](https://pokeca-box-hikaku.com/psa-guide.html): 鑑定の流れ・グレードの意味・費用対効果
+- [メルカリ・スニダン・買取店どれが得？](https://pokeca-box-hikaku.com/mercari-hikaku.html): 手数料・送料込み3方式の比較
+- [シュリンクなしBOXの買取事情](https://pokeca-box-hikaku.com/shrink-nashi.html): シュリンク剥がれ時の買取対応を店舗別に解説
+- [2026年3月 値上がりランキング](https://pokeca-box-hikaku.com/monthly-ranking-2026-03.html): 月別の上昇BOX TOP10
+- [ポケカBOX投資の始め方](https://pokeca-box-hikaku.com/box-toushi.html): 値上がりしやすいBOXの特徴・予算別の始め方・保管方法
+- [再販情報の見つけ方](https://pokeca-box-hikaku.com/restock-guide.html): 再販入荷パターン・通知設定・抽選vs先着攻略
+
+## よくある質問 (FAQ)
+
+**Q: 買取価格はどうやって取得していますか?**
+A: 各店舗の公式買取ページから毎日3回 (11:00/15:00/18:00) スクレイピングで取得し、商品名をあいまい一致 (rapidfuzz) で突合して一覧化しています。
+
+**Q: シュリンクなしBOXの買取にも対応していますか?**
+A: 本サイトは「シュリンク付き未開封BOX」の買取価格を掲載しています。シュリンクなしBOXの買取対応は店舗ごとに異なるため、[シュリンクなしBOXの買取事情](https://pokeca-box-hikaku.com/shrink-nashi.html) 記事で解説しています。
+
+**Q: 価格はどのくらい正確ですか?**
+A: 各店舗の公式掲載価格を1日3回取得しており、最新のもので最大約8時間の遅延があります。実際に売却する際は必ず店舗で最終確認してください。
+
+**Q: シングルカード (バラ) の買取価格は掲載していますか?**
+A: いいえ、本サイトは**未開封BOX**の買取価格に特化しています。シングル価格はカードラッシュ・カードラボなどの専門サイトをご参照ください。
+
+**Q: どの店舗が一番高く買い取ってくれますか?**
+A: BOX商品によって最高値の店舗は変動します。直近の傾向は [週間上昇ランキング](https://pokeca-box-hikaku.com/ranking.html) と各BOX個別ページでご確認ください。
+
+## サイト運営者
+
+ポケカ買取チェッカー編集部
+
+## 連絡先
+
+- Webサイト: https://pokeca-box-hikaku.com/
+- プライバシーポリシー: https://pokeca-box-hikaku.com/privacy.html
+
+## クローラー向けガイド
+
+- 本サイトはAI検索エンジン (ChatGPT, Claude, Perplexity, Google Gemini 等) からのクロール・引用を歓迎します
+- 商品情報・価格データの引用は自由ですが、価格の正確性は取得時点のものである旨を明記してください
+- sitemap.xml: https://pokeca-box-hikaku.com/sitemap.xml
+- 全ページは構造化データ (Schema.org Product / AggregateOffer / BreadcrumbList / Article) を備えています

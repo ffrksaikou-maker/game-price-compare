@@ -98,6 +98,9 @@ def generate_jsonld(products: list[MasterProduct]) -> str:
             "@type": "Product",
             "name": p.name,
             "description": f"ポケモンカード {p.name} 未開封BOX 買取価格比較",
+            "image": "https://pokeca-box-hikaku.com/ogp.jpg",
+            "brand": {"@type": "Brand", "name": "ポケモンカードゲーム"},
+            "category": "トレーディングカードゲーム / ポケモンカード / 未開封BOX",
             "offers": {
                 "@type": "AggregateOffer",
                 "lowPrice": min(active_prices),
@@ -694,12 +697,18 @@ def generate_product_pages(
             "@type": "Product",
             "name": p.name,
             "description": f"ポケモンカード {p.name} 未開封BOX 買取価格比較",
+            "image": "https://pokeca-box-hikaku.com/ogp.jpg",
+            "brand": {"@type": "Brand", "name": "ポケモンカードゲーム"},
+            "category": "トレーディングカードゲーム / ポケモンカード / 未開封BOX",
+            "sku": f"pokeca-box-{slug}",
+            "url": f"https://pokeca-box-hikaku.com/box/{slug}.html",
             "offers": {
                 "@type": "AggregateOffer",
                 "lowPrice": min(active_prices.values()),
                 "highPrice": max_price,
                 "priceCurrency": "JPY",
                 "offerCount": shop_count,
+                "availability": "https://schema.org/InStock",
             },
         }, ensure_ascii=False, indent=2)
         breadcrumb_jsonld = json.dumps({
@@ -778,20 +787,23 @@ def _update_sitemap(
 ) -> None:
     """Regenerate sitemap.xml including all product pages."""
     base = "https://pokeca-box-hikaku.com"
+    today = datetime.now(JST).strftime("%Y-%m-%d")
 
-    # Static pages
+    # Static pages: (path, changefreq, priority, lastmod)
+    # 記事ページは lastmod を個別管理 (手動更新日)
     static_pages = [
-        ("/", "daily", "1.0"),
-        ("/kaitori-tips.html", "monthly", "0.8"),
-        ("/shop-hikaku.html", "monthly", "0.8"),
-        ("/single-card-tips.html", "monthly", "0.8"),
-        ("/psa-guide.html", "monthly", "0.8"),
-        ("/mercari-hikaku.html", "monthly", "0.8"),
-        ("/shrink-nashi.html", "monthly", "0.8"),
-        ("/box-toushi.html", "monthly", "0.8"),
-        ("/restock-guide.html", "monthly", "0.8"),
-        ("/ranking.html", "daily", "0.9"),
-        ("/privacy.html", "yearly", "0.3"),
+        ("/", "daily", "1.0", today),
+        ("/ranking.html", "daily", "0.9", today),
+        ("/restock-guide.html", "monthly", "0.8", "2026-04-10"),
+        ("/box-toushi.html", "monthly", "0.8", "2026-04-02"),
+        ("/shrink-nashi.html", "monthly", "0.8", "2026-03-27"),
+        ("/mercari-hikaku.html", "monthly", "0.8", "2026-03-26"),
+        ("/psa-guide.html", "monthly", "0.8", "2026-03-24"),
+        ("/single-card-tips.html", "monthly", "0.8", "2026-03-24"),
+        ("/shop-hikaku.html", "monthly", "0.8", "2026-03-23"),
+        ("/kaitori-tips.html", "monthly", "0.8", "2026-03-23"),
+        ("/monthly-ranking-2026-03.html", "monthly", "0.7", "2026-04-01"),
+        ("/privacy.html", "yearly", "0.3", "2026-03-23"),
     ]
 
     lines = [
@@ -799,22 +811,26 @@ def _update_sitemap(
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
     ]
 
-    for path, freq, priority in static_pages:
+    for path, freq, priority, lastmod in static_pages:
         lines.append(f"  <url>")
         lines.append(f"    <loc>{base}{path}</loc>")
+        lines.append(f"    <lastmod>{lastmod}</lastmod>")
         lines.append(f"    <changefreq>{freq}</changefreq>")
         lines.append(f"    <priority>{priority}</priority>")
         lines.append(f"  </url>")
 
-    # Product pages
+    # Product pages (重複URL防止のため slug を set で管理)
+    seen_slugs: set[str] = set()
     for p in products:
         slug = slug_map.get(p.name)
-        if not slug:
+        if not slug or slug in seen_slugs:
             continue
         if not any(p.prices.get(s, 0) > 0 for s in SHOP_IDS):
             continue
+        seen_slugs.add(slug)
         lines.append(f"  <url>")
         lines.append(f"    <loc>{base}/box/{slug}.html</loc>")
+        lines.append(f"    <lastmod>{today}</lastmod>")
         lines.append(f"    <changefreq>daily</changefreq>")
         lines.append(f"    <priority>0.7</priority>")
         lines.append(f"  </url>")
@@ -1049,6 +1065,70 @@ new Chart(document.getElementById('{canvas_id}'), {{
     sv_gainers_table = _make_table(sv_gainers)
     ss_gainers_table = _make_table(ss_gainers)
 
+    # JSON-LD 構造化データ (ItemList + BreadcrumbList + Article)
+    ranking_products = []
+    for c in sv_gainers + ss_gainers:
+        ranking_products.append({
+            "@type": "Product",
+            "name": c["name"],
+            "url": f"https://pokeca-box-hikaku.com/box/{c['slug']}.html",
+            "image": "https://pokeca-box-hikaku.com/ogp.jpg",
+            "brand": {"@type": "Brand", "name": "ポケモンカードゲーム"},
+            "offers": {
+                "@type": "Offer",
+                "price": c["today"],
+                "priceCurrency": "JPY",
+                "availability": "https://schema.org/InStock",
+            },
+        })
+
+    ranking_itemlist_obj = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "ポケカBOX 週間上昇ランキング",
+        "description": f"ポケモンカード未開封BOX 週間上昇ランキング ({week_ago_str} → {today_str})",
+        "numberOfItems": len(ranking_products),
+        "itemListElement": [
+            {"@type": "ListItem", "position": i + 1, "item": item}
+            for i, item in enumerate(ranking_products)
+        ],
+    }
+    ranking_breadcrumb_obj = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "ポケカ買取チェッカー", "item": "https://pokeca-box-hikaku.com/"},
+            {"@type": "ListItem", "position": 2, "name": "週間上昇ランキング", "item": "https://pokeca-box-hikaku.com/ranking.html"},
+        ],
+    }
+    ranking_article_obj = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "ポケカBOX 週間上昇ランキング",
+        "description": "ポケモンカード未開封BOXの買取価格 週間上昇ランキング。直近7日間で最も値上がり・値下がりしたBOXをグラフ付きで紹介。毎日自動更新。",
+        "datePublished": today_str,
+        "dateModified": today_str,
+        "image": "https://pokeca-box-hikaku.com/ogp.jpg",
+        "author": {"@type": "Organization", "name": "ポケカ買取チェッカー編集部"},
+        "publisher": {
+            "@type": "Organization",
+            "name": "ポケカ買取チェッカー",
+            "logo": {"@type": "ImageObject", "url": "https://pokeca-box-hikaku.com/ogp.png"},
+        },
+        "mainEntityOfPage": "https://pokeca-box-hikaku.com/ranking.html",
+    }
+    ranking_jsonld = (
+        '<script type="application/ld+json">\n'
+        + json.dumps(ranking_itemlist_obj, ensure_ascii=False, indent=2)
+        + '\n</script>\n'
+        '<script type="application/ld+json">\n'
+        + json.dumps(ranking_breadcrumb_obj, ensure_ascii=False, indent=2)
+        + '\n</script>\n'
+        '<script type="application/ld+json">\n'
+        + json.dumps(ranking_article_obj, ensure_ascii=False, indent=2)
+        + '\n</script>'
+    )
+
     html = f"""<!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -1067,6 +1147,7 @@ new Chart(document.getElementById('{canvas_id}'), {{
 <meta name="twitter:title" content="ポケカBOX 上昇ランキング｜ポケカ買取チェッカー">
 <meta name="twitter:description" content="ポケカ未開封BOXの買取価格 週間上昇ランキング。毎日自動更新。">
 <title>ポケカBOX 週間上昇ランキング｜ポケカ買取チェッカー</title>
+{ranking_jsonld}
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831186943118320" crossorigin="anonymous"></script>
 <!-- Google Analytics -->

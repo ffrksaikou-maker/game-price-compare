@@ -7,3 +7,6 @@ venv/
 dist/
 build/
 .pytest_cache/
+credentials.json
+authorized_user.json
+oauth_client.json
