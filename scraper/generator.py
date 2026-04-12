@@ -834,6 +834,18 @@ def generate_product_pages(
         html = html.replace("{{TOTAL_PRODUCTS}}", str(total_products))
         html = html.replace("{{UPDATE_DATE}}", update_date)
         html = html.replace("{{BOX_IMAGE_URL}}", box_image_url)
+        # ヒーロー画像 (マップされたBOXのみ表示、それ以外は空)
+        if slug in BOX_IMAGE_FILES:
+            box_hero_html = (
+                f'<div class="box-hero">'
+                f'<img src="../images/boxes/{BOX_IMAGE_FILES[slug]}" '
+                f'alt="{p.name} パッケージ画像" '
+                f'loading="lazy" decoding="async">'
+                f'</div>'
+            )
+        else:
+            box_hero_html = ""
+        html = html.replace("{{BOX_HERO}}", box_hero_html)
         html = html.replace("{{JSONLD}}", jsonld_tag)
         html = html.replace("<!-- {{CHART_SECTION}} -->", chart_section)
 
