@@ -23,12 +23,15 @@ SHOP_IDS = ["morimori", "homura", "icchome", "runto", "sommelier", "kaikyo", "sh
 # slug -> image filename under /images/boxes/
 # Boxes not in this dict fall back to the site-wide ogp.jpg.
 BOX_IMAGE_FILES: dict[str, str] = {
+    # MEGA series
     "mega-brave": "mega-brave.png",
     "mega-sinfonia": "mega-sinfonia.png",
     "inferno": "inferno.png",
     "mega-ex": "mega-ex.png",
     "munikis-zero": "munikis-zero.png",
     "ninja-spinner": "ninja-spinner.png",
+    "battle-collection": "battle-collection.jpg",
+    # Scarlet & Violet series
     "scarlet-ex": "scarlet-ex.jpg",
     "violet-ex": "violet-ex.jpg",
     "151": "151.png",
@@ -44,13 +47,22 @@ BOX_IMAGE_FILES: dict[str, str] = {
     "rocket-dan-no-eiko": "rocket-dan-no-eiko.jpg",
     "black-bolt": "black-bolt.png",
     "white-flare": "white-flare.png",
+    # Sword & Shield series (old Nuxt.js pages use /images/ogp.jpg)
+    "sword": "sword.jpg",
+    "shield": "shield.jpg",
+    "rebellion-crash": "rebellion-crash.jpg",
+    "infinity-zone": "infinity-zone.jpg",
+    "astonishing-voltecker": "astonishing-voltecker.jpg",
+    "shiny-star": "shiny-star.png",
+    "eevee-heroes": "eevee-heroes.png",
+    "vmax-climax": "vmax-climax.png",
     "star-birth": "star-birth.png",
     "time-gazer": "time-gazer.png",
     "space-juggler": "space-juggler.png",
+    "lost-abyss": "lost-abyss.png",
     "pokemon-go": "pokemon-go.png",
     "paradigm-trigger": "paradigm-trigger.png",
     "vstar-universe": "vstar-universe.png",
-    "vmax-climax": "vmax-climax.png",
 }
 
 BASE_URL = "https://pokeca-box-hikaku.com"
@@ -340,6 +352,9 @@ def generate_html(
 
     # Generate ranking page
     generate_ranking_page(products, project_root, update_date)
+
+    # Generate weekly hot-boxes article (task 10)
+    generate_weekly_article(products, project_root, update_date)
 
     return html
 
@@ -845,6 +860,8 @@ def _update_sitemap(
     static_pages = [
         ("/", "daily", "1.0", today),
         ("/ranking.html", "daily", "0.9", today),
+        ("/weekly/", "weekly", "0.9", today),
+        ("/inferno-x-spotlight.html", "monthly", "0.8", "2026-04-12"),
         ("/restock-guide.html", "monthly", "0.8", "2026-04-10"),
         ("/box-toushi.html", "monthly", "0.8", "2026-04-02"),
         ("/shrink-nashi.html", "monthly", "0.8", "2026-03-27"),
@@ -885,6 +902,19 @@ def _update_sitemap(
         lines.append(f"    <changefreq>daily</changefreq>")
         lines.append(f"    <priority>0.7</priority>")
         lines.append(f"  </url>")
+
+    # Weekly hot-boxes articles (archived)
+    weekly_dir = project_root / "weekly"
+    if weekly_dir.exists():
+        for wf in sorted(weekly_dir.glob("*.html")):
+            if wf.name == "index.html":
+                continue
+            lines.append(f"  <url>")
+            lines.append(f"    <loc>{base}/weekly/{wf.name}</loc>")
+            lines.append(f"    <lastmod>{today}</lastmod>")
+            lines.append(f"    <changefreq>weekly</changefreq>")
+            lines.append(f"    <priority>0.8</priority>")
+            lines.append(f"  </url>")
 
     lines.append("</urlset>")
     lines.append("")
@@ -1214,7 +1244,7 @@ function gtag(){{dataLayer.push(arguments);}}
 gtag('js', new Date());
 gtag('config', 'G-RPTS6CRTCS');
 </script>
-<script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
 :root{{--bg:#f6f7fb;--card:#fff;--border:#e5e7eb;--text:#111827;--text-sub:#6b7280;--accent:#6366f1}}
 *,*::before,*::after{{box-sizing:border-box;margin:0;padding:0}}
@@ -1347,3 +1377,161 @@ new Chart(document.getElementById('avgChart'), {{
     out_path = project_root / "ranking.html"
     out_path.write_text(html, encoding="utf-8")
     logger.info("Generated ranking page: %s", out_path)
+
+
+def generate_weekly_article(
+    products: list[MasterProduct],
+    project_root: Path,
+    update_date: str,
+) -> None:
+    """Generate /weekly/YYYY-wWW.html and /weekly/index.html archive.
+
+    The file for the current ISO week is overwritten on each cron run
+    with the latest data. Past weeks' files are left untouched and serve
+    as permanent archives.
+    """
+    history_dir = project_root / "data" / "history"
+    if not history_dir.exists():
+        logger.info("No history dir; skipping weekly article")
+        return
+
+    files = sorted(history_dir.glob("*.json"))
+    if len(files) < 8:
+        logger.info("Insufficient history for weekly article (need >= 8 days)")
+        return
+
+    # Import the template module lazily to keep top-level lean
+    import sys
+    sys.path.insert(0, str(project_root))
+    from scripts.weekly_article_template import build_weekly_html, build_weekly_index_html
+
+    # Today = latest snapshot, week ago = 7 days before
+    today_file = files[-1]
+    week_ago_idx = max(0, len(files) - 8)
+    week_ago_file = files[week_ago_idx]
+
+    today_data = json.loads(today_file.read_text(encoding="utf-8"))
+    week_ago_data = json.loads(week_ago_file.read_text(encoding="utf-8"))
+
+    today_prices = {item["name"]: item.get("max_price", 0) for item in today_data}
+    week_ago_prices = {item["name"]: item.get("max_price", 0) for item in week_ago_data}
+
+    # Build changes list
+    slug_map = {p.name: _generate_slug(p.name) for p in products}
+    cat_map = {p.name: p.category for p in products}
+
+    all_changes = []
+    for p in products:
+        tp = today_prices.get(p.name, 0)
+        wp = week_ago_prices.get(p.name, 0)
+        if tp <= 0 or wp <= 0:
+            continue
+        diff = tp - wp
+        pct = (diff / wp) * 100 if wp > 0 else 0
+        all_changes.append({
+            "name": p.name,
+            "slug": slug_map.get(p.name, ""),
+            "category": cat_map.get(p.name, ""),
+            "today": tp,
+            "week_ago": wp,
+            "diff": diff,
+            "pct": pct,
+        })
+
+    # Split by category: SV+MEGA main ranking (TOP10), S&S secondary (TOP3)
+    sv_mega_changes = [c for c in all_changes if c["category"] in ("sv", "mega")]
+    ss_changes = [c for c in all_changes if c["category"] == "ss"]
+
+    sv_mega_gainers = sorted([c for c in sv_mega_changes if c["diff"] > 0],
+                             key=lambda x: x["diff"], reverse=True)
+    ss_gainers = sorted([c for c in ss_changes if c["diff"] > 0],
+                        key=lambda x: x["diff"], reverse=True)
+
+    top_gainers = sv_mega_gainers[:10]       # main TOP10 (SV+MEGA)
+    minor_gainers = sv_mega_gainers[10:15]   # next 5 (SV+MEGA)
+    ss_top_gainers = ss_gainers[:3]          # S&S TOP3 secondary section
+
+    if not top_gainers:
+        logger.info("No SV+MEGA gainers this week; skipping weekly article")
+        return
+
+    # Build per-BOX 7-day price history for mini charts
+    recent_files = files[-8:]  # last 8 days (including today)
+    chart_dates = [f.stem for f in recent_files]
+    daily_cache: list[dict[str, int]] = []
+    for f in recent_files:
+        data = json.loads(f.read_text(encoding="utf-8"))
+        daily_cache.append({d["name"]: d.get("max_price", 0) for d in data})
+
+    chart_history: dict[str, list[int]] = {}
+    for c in top_gainers + ss_top_gainers:
+        series = [dc.get(c["name"], 0) for dc in daily_cache]
+        chart_history[c["slug"]] = series
+
+    # Determine ISO week from today_file filename (YYYY-MM-DD.json)
+    today_str = today_file.stem
+    week_ago_str = week_ago_file.stem
+    today_dt = datetime.strptime(today_str, "%Y-%m-%d").date()
+    iso_year, iso_week, _ = today_dt.isocalendar()
+
+    weekly_dir = project_root / "weekly"
+    weekly_dir.mkdir(exist_ok=True)
+
+    # Generate the current week's article
+    out_path = weekly_dir / f"{iso_year}-w{iso_week:02d}.html"
+    html = build_weekly_html(
+        year=iso_year,
+        week_no=iso_week,
+        today_str=today_str,
+        week_ago_str=week_ago_str,
+        update_date=update_date,
+        top_gainers=top_gainers,
+        minor_gainers=minor_gainers,
+        ss_top_gainers=ss_top_gainers,
+        all_changes=sv_mega_changes,  # stats use SV+MEGA only (main set)
+        chart_dates=chart_dates,
+        chart_history=chart_history,
+    )
+    out_path.write_text(html, encoding="utf-8")
+    logger.info("Generated weekly article: %s (%d gainers)", out_path, len(top_gainers))
+
+    # Build archive index from all existing weekly files
+    all_weekly_files = sorted(weekly_dir.glob("*.html"), reverse=True)
+    week_entries = []
+    for wf in all_weekly_files:
+        if wf.name == "index.html":
+            continue
+        # Parse filename: 2026-w15.html
+        m = re.match(r"(\d{4})-w(\d{2})\.html", wf.name)
+        if not m:
+            continue
+        y, w = int(m.group(1)), int(m.group(2))
+
+        # Extract published date and top gainer from the file if possible
+        try:
+            content = wf.read_text(encoding="utf-8")
+            date_m = re.search(r"公開日:\s*(\d{4}-\d{2}-\d{2})", content)
+            published_date = date_m.group(1) if date_m else f"{y}年第{w}週"
+            # First BOX name in the ranking table (th after "順位")
+            top_m = re.search(
+                r'<td class="rank">1</td>\s*<td class="pname"><a[^>]*>([^<]+)</a>',
+                content,
+            )
+            top_gainer_name = top_m.group(1) if top_m else "データなし"
+        except Exception:
+            published_date = f"{y}年第{w}週"
+            top_gainer_name = "データなし"
+
+        week_entries.append({
+            "year": y,
+            "week": w,
+            "filename": wf.name,
+            "title": f"{y}年 第{w}週 急上昇TOP10",
+            "published_date": published_date,
+            "top_gainer_name": top_gainer_name,
+        })
+
+    # Write archive index
+    index_path = weekly_dir / "index.html"
+    index_path.write_text(build_weekly_index_html(week_entries), encoding="utf-8")
+    logger.info("Generated weekly index: %s (%d entries)", index_path, len(week_entries))
