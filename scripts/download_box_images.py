@@ -66,6 +66,38 @@ BOX_IMAGES: dict[str, tuple[str, str, str]] = {
     "lost-abyss": ("s11", "assets/images", "ogp.png"),
 }
 
+# Additional images using direct /products/{year}/images/ paths
+# (these don't follow the /ex/{code}/ structure)
+BOX_IMAGES_DIRECT: dict[str, str] = {
+    # SV pkg pattern
+    "triplet-beat": "https://www.pokemon-card.com/products/2023/images/sv1a_pkg.jpg",
+    "raging-surf": "https://www.pokemon-card.com/products/2023/images/1512_SV3a_pkg.jpg",
+    # SV2 dual: SV2P=Snow Hazard, SV2D=Clay Burst
+    "snow-hazard": "https://www.pokemon-card.com/products/2023/images/1508_SV2P_pillow_img.png",
+    "clay-burst": "https://www.pokemon-card.com/products/2023/images/1509_SV2D_pillow_img.png",
+    # S&S pillow_img pattern
+    "single-strike-master": "https://www.pokemon-card.com/products/2020/images/1418_S5_ICHIGEKI_pillow_img.jpg",
+    "rapid-strike-master": "https://www.pokemon-card.com/products/2020/images/1418_S5_RENGEEKI_pillow_img.jpg",
+    "silver-lance": "https://www.pokemon-card.com/products/2021/images/1423_S6H_pillow_img.jpg",
+    "jet-black-geist": "https://www.pokemon-card.com/products/2021/images/1423_S6K_pillow_img.jpg",
+    "fusion-arts": "https://www.pokemon-card.com/products/2021/images/1431_S8_pillow_img.png",
+    # vmax-rising = s1a era, sequential 01_S1a.jpg etc
+    "vmax-rising": "https://www.pokemon-card.com/products/2020/images/01_S1a.jpg",
+    # SV later sub-series
+    "neppuu-arena": "https://www.pokemon-card.com/products/2025/images/sv9a_pillow.jpg",
+    "crimson-haze": "https://www.pokemon-card.com/products/2024/images/SV5a_1.jpg",
+    "night-wanderer": "https://www.pokemon-card.com/products/2024/images/SV6a_1.png",
+    "rakuen-dragona": "https://www.pokemon-card.com/products/2024/images/sv7a_1.png",
+    # Older SS hash images (smallest hash = likely BOX product shot)
+    "25th-anniversary-collection": "https://www.pokemon-card.com/ex/25th/assets/images/ogp.png",
+    "legendary-heartbeat": "https://www.pokemon-card.com/products/2020/images/eb668ccf27a31544008326b25c3d9fede7f13c44.jpg",
+    "battle-region": "https://www.pokemon-card.com/products/2022/images/79746767519b5ba6dd56f6db2b0cc45f7b339239.jpg",
+    "dark-phantasma": "https://www.pokemon-card.com/products/2022/images/37473c1c891bda09413eba43ee4026dff189d231.jpg",
+    "incandescent-arcana": "https://www.pokemon-card.com/products/2022/images/448a6c0644b25b43d1b7797a87acc3cf5956a12d.png",
+    "skyscraping-perfect": "https://www.pokemon-card.com/products/2021/images/e7ea10f26dd5be124ed3d4a4c4093a25010e2b5d.jpg",
+    "blue-sky-stream": "https://www.pokemon-card.com/products/2021/images/65230c1563ea750dd0bd17ad6f820e84fc4a9c3c.jpg",
+}
+
 
 def download(url: str, dest: Path) -> int:
     """Download URL to dest. Returns size in bytes. Raises on error."""
@@ -96,6 +128,22 @@ def main():
         try:
             size = download(url, dest)
             print(f"OK:   {slug} -> {dest.name} ({size:,} bytes)")
+            total += 1
+        except Exception as e:
+            print(f"FAIL: {slug} [{url}]: {e}")
+            failed += 1
+
+    # Direct URL group
+    for slug, url in BOX_IMAGES_DIRECT.items():
+        ext = Path(url.split("?")[0]).suffix.lower()
+        dest = OUT_DIR / f"{slug}{ext}"
+        if dest.exists():
+            print(f"SKIP: {slug} (exists at {dest.name})")
+            skipped += 1
+            continue
+        try:
+            size = download(url, dest)
+            print(f"OK:   {slug} -> {dest.name} ({size:,} bytes) [direct]")
             total += 1
         except Exception as e:
             print(f"FAIL: {slug} [{url}]: {e}")
