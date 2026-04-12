@@ -19,6 +19,53 @@ JST = timezone(timedelta(hours=9))
 # Shop IDs in display order
 SHOP_IDS = ["morimori", "homura", "icchome", "runto", "sommelier", "kaikyo", "shouten", "rudeya"]
 
+# BOX individual images (downloaded from pokemon-card.com official).
+# slug -> image filename under /images/boxes/
+# Boxes not in this dict fall back to the site-wide ogp.jpg.
+BOX_IMAGE_FILES: dict[str, str] = {
+    "mega-brave": "mega-brave.png",
+    "mega-sinfonia": "mega-sinfonia.png",
+    "inferno": "inferno.png",
+    "mega-ex": "mega-ex.png",
+    "munikis-zero": "munikis-zero.png",
+    "ninja-spinner": "ninja-spinner.png",
+    "scarlet-ex": "scarlet-ex.jpg",
+    "violet-ex": "violet-ex.jpg",
+    "151": "151.png",
+    "ruler-of-black-flame": "ruler-of-black-flame.jpg",
+    "ancient-roar": "ancient-roar.jpg",
+    "future-flash": "future-flash.jpg",
+    "shiny-treasure-ex": "shiny-treasure-ex.png",
+    "hengen-no-kamen": "hengen-no-kamen.jpg",
+    "stellar-miracle": "stellar-miracle.jpg",
+    "chouden-breaker": "chouden-breaker.jpg",
+    "terastal-fes-ex": "terastal-fes-ex.png",
+    "battle-partners": "battle-partners.jpg",
+    "rocket-dan-no-eiko": "rocket-dan-no-eiko.jpg",
+    "black-bolt": "black-bolt.png",
+    "white-flare": "white-flare.png",
+    "star-birth": "star-birth.png",
+    "time-gazer": "time-gazer.png",
+    "space-juggler": "space-juggler.png",
+    "pokemon-go": "pokemon-go.png",
+    "paradigm-trigger": "paradigm-trigger.png",
+    "vstar-universe": "vstar-universe.png",
+    "vmax-climax": "vmax-climax.png",
+}
+
+BASE_URL = "https://pokeca-box-hikaku.com"
+DEFAULT_OG_IMAGE = f"{BASE_URL}/ogp.jpg"
+
+
+def get_box_image_url(slug: str) -> str:
+    """Return the full URL for a BOX's primary image.
+    Returns the individual image if available, else the default OGP image.
+    """
+    filename = BOX_IMAGE_FILES.get(slug)
+    if filename:
+        return f"{BASE_URL}/images/boxes/{filename}"
+    return DEFAULT_OG_IMAGE
+
 # Blog articles (newest first) - 記事追加時はここに1行足すだけ
 BLOG_ARTICLES = [
     {"url": "restock-guide.html", "title": "再販情報の見つけ方", "desc": "ポケカBOXの再販入荷パターン、通知設定、抽選vs先着の攻略法まで。最速で再販情報をキャッチする方法を解説。", "date": "2026-04-10"},
@@ -691,13 +738,16 @@ def generate_product_pages(
         else:
             diff_text = "-"
 
+        # Individual BOX image (falls back to ogp.jpg for slugs not yet mapped)
+        box_image_url = get_box_image_url(slug)
+
         # JSON-LD for individual product
         product_jsonld = json.dumps({
             "@context": "https://schema.org",
             "@type": "Product",
             "name": p.name,
             "description": f"ポケモンカード {p.name} 未開封BOX 買取価格比較",
-            "image": "https://pokeca-box-hikaku.com/ogp.jpg",
+            "image": box_image_url,
             "brand": {"@type": "Brand", "name": "ポケモンカードゲーム"},
             "category": "トレーディングカードゲーム / ポケモンカード / 未開封BOX",
             "sku": f"pokeca-box-{slug}",
@@ -766,6 +816,7 @@ def generate_product_pages(
         html = html.replace("{{RELATED_LINKS}}", related_html)
         html = html.replace("{{TOTAL_PRODUCTS}}", str(total_products))
         html = html.replace("{{UPDATE_DATE}}", update_date)
+        html = html.replace("{{BOX_IMAGE_URL}}", box_image_url)
         html = html.replace("{{JSONLD}}", jsonld_tag)
         html = html.replace("<!-- {{CHART_SECTION}} -->", chart_section)
 
@@ -1134,6 +1185,11 @@ new Chart(document.getElementById('{canvas_id}'), {{
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Preconnect hints for Core Web Vitals -->
+<link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://h.accesstrade.net">
 <meta name="description" content="ポケカ未開封BOXの買取価格 週間上昇ランキング。直近7日間で最も値上がり・値下がりしたBOXをグラフ付きで紹介。毎日自動更新。">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://pokeca-box-hikaku.com/ranking.html">
@@ -1158,7 +1214,7 @@ function gtag(){{dataLayer.push(arguments);}}
 gtag('js', new Date());
 gtag('config', 'G-RPTS6CRTCS');
 </script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
 :root{{--bg:#f6f7fb;--card:#fff;--border:#e5e7eb;--text:#111827;--text-sub:#6b7280;--accent:#6366f1}}
 *,*::before,*::after{{box-sizing:border-box;margin:0;padding:0}}
@@ -1248,10 +1304,10 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <a href="index.html" class="cta">全66商品の買取価格を比較する &rarr;</a>
 
 <div class="ad" style="margin-top:32px;text-align:center">
-  <a href="https://h.accesstrade.net/sp/cc?rk=0100p4pe00opz3" rel="nofollow" referrerpolicy="no-referrer-when-downgrade"><img src="https://h.accesstrade.net/sp/rr?rk=0100p4pe00opz3" alt="トレトク" border="0" width="640" height="100" style="max-width:100%;height:auto"></a>
+  <a href="https://h.accesstrade.net/sp/cc?rk=0100p4pe00opz3" rel="nofollow" referrerpolicy="no-referrer-when-downgrade"><img src="https://h.accesstrade.net/sp/rr?rk=0100p4pe00opz3" alt="トレトク" border="0" width="640" height="100" loading="lazy" decoding="async" style="max-width:100%;height:auto"></a>
 </div>
 <div class="ad" style="margin-top:16px;text-align:center">
-  <a href="https://h.accesstrade.net/sp/cc?rk=0100pumf00opz3" rel="nofollow" referrerpolicy="no-referrer-when-downgrade"><img src="https://h.accesstrade.net/sp/rr?rk=0100pumf00opz3" alt="オリくじ" border="0" width="728" height="90" style="max-width:100%;height:auto"></a>
+  <a href="https://h.accesstrade.net/sp/cc?rk=0100pumf00opz3" rel="nofollow" referrerpolicy="no-referrer-when-downgrade"><img src="https://h.accesstrade.net/sp/rr?rk=0100pumf00opz3" alt="オリくじ" border="0" width="728" height="90" loading="lazy" decoding="async" style="max-width:100%;height:auto"></a>
 </div>
 </div>
 </div>
