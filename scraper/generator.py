@@ -62,6 +62,7 @@ BOX_IMAGE_FILES: dict[str, str] = {
     "rebellion-crash": "rebellion-crash.jpg",
     "infinity-zone": "infinity-zone.jpg",
     "astonishing-voltecker": "astonishing-voltecker.jpg",
+    "eruption-walker": "eruption-walker.jpg",
     "shiny-star": "shiny-star.jpg",
     "single-strike-master": "single-strike-master.jpg",
     "rapid-strike-master": "rapid-strike-master.jpg",
