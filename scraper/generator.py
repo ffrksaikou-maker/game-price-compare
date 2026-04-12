@@ -19,77 +19,10 @@ JST = timezone(timedelta(hours=9))
 # Shop IDs in display order
 SHOP_IDS = ["morimori", "homura", "icchome", "runto", "sommelier", "kaikyo", "shouten", "rudeya"]
 
-# BOX individual images (downloaded from pokemon-card.com official).
-# slug -> image filename under /images/boxes/
-# Boxes not in this dict fall back to the site-wide ogp.jpg.
-BOX_IMAGE_FILES: dict[str, str] = {
-    # MEGA series
-    "mega-brave": "mega-brave.jpg",
-    "mega-sinfonia": "mega-sinfonia.jpg",
-    "inferno": "inferno.jpg",
-    "mega-ex": "mega-ex.jpg",
-    "munikis-zero": "munikis-zero.jpg",
-    "ninja-spinner": "ninja-spinner.jpg",
-    "battle-collection": "battle-collection.jpg",
-    # Scarlet & Violet series
-    "scarlet-ex": "scarlet-ex.jpg",
-    "violet-ex": "violet-ex.jpg",
-    "151": "151.jpg",
-    "ruler-of-black-flame": "ruler-of-black-flame.jpg",
-    "ancient-roar": "ancient-roar.jpg",
-    "future-flash": "future-flash.jpg",
-    "shiny-treasure-ex": "shiny-treasure-ex.jpg",
-    "hengen-no-kamen": "hengen-no-kamen.jpg",
-    "stellar-miracle": "stellar-miracle.jpg",
-    "chouden-breaker": "chouden-breaker.jpg",
-    "terastal-fes-ex": "terastal-fes-ex.jpg",
-    "battle-partners": "battle-partners.jpg",
-    "rocket-dan-no-eiko": "rocket-dan-no-eiko.jpg",
-    "black-bolt": "black-bolt.jpg",
-    "white-flare": "white-flare.jpg",
-    "black-bolt-dx": "black-bolt-dx.jpg",
-    "white-flare-dx": "white-flare-dx.jpg",
-    "unknown": "unknown.jpg",
-    "matchless-fighters": "matchless-fighters.jpg",
-    "triplet-beat": "triplet-beat.jpg",
-    "snow-hazard": "snow-hazard.jpg",
-    "clay-burst": "clay-burst.jpg",
-    "raging-surf": "raging-surf.jpg",
-    "crimson-haze": "crimson-haze.jpg",
-    "night-wanderer": "night-wanderer.jpg",
-    "rakuen-dragona": "rakuen-dragona.jpg",
-    "neppuu-arena": "neppuu-arena.jpg",
-    # Sword & Shield series (old Nuxt.js pages use /images/ogp.jpg or pillow_img)
-    "vmax-rising": "vmax-rising.jpg",
-    "sword": "sword.jpg",
-    "shield": "shield.jpg",
-    "rebellion-crash": "rebellion-crash.jpg",
-    "infinity-zone": "infinity-zone.jpg",
-    "astonishing-voltecker": "astonishing-voltecker.jpg",
-    "eruption-walker": "eruption-walker.jpg",
-    "shiny-star": "shiny-star.jpg",
-    "single-strike-master": "single-strike-master.jpg",
-    "rapid-strike-master": "rapid-strike-master.jpg",
-    "silver-lance": "silver-lance.jpg",
-    "jet-black-geist": "jet-black-geist.jpg",
-    "eevee-heroes": "eevee-heroes.jpg",
-    "fusion-arts": "fusion-arts.jpg",
-    "vmax-climax": "vmax-climax.jpg",
-    "star-birth": "star-birth.jpg",
-    "time-gazer": "time-gazer.jpg",
-    "space-juggler": "space-juggler.jpg",
-    "lost-abyss": "lost-abyss.jpg",
-    "pokemon-go": "pokemon-go.jpg",
-    "legendary-heartbeat": "legendary-heartbeat.jpg",
-    "blue-sky-stream": "blue-sky-stream.jpg",
-    "skyscraping-perfect": "skyscraping-perfect.jpg",
-    "25th-anniversary-collection": "25th-anniversary-collection.jpg",
-    "battle-region": "battle-region.jpg",
-    "dark-phantasma": "dark-phantasma.jpg",
-    "incandescent-arcana": "incandescent-arcana.jpg",
-    "paradigm-trigger": "paradigm-trigger.jpg",
-    "vstar-universe": "vstar-universe.jpg",
-}
+# BOX individual images — 一時無効化中
+# ユーザーがローカルで目視確認してからslugを1個ずつ有効化する
+# images/boxes/*.jpg にファイルは残っているので、確認後にここに追加すれば即反映
+BOX_IMAGE_FILES: dict[str, str] = {}
 
 BASE_URL = "https://pokeca-box-hikaku.com"
 DEFAULT_OG_IMAGE = f"{BASE_URL}/ogp.jpg"
