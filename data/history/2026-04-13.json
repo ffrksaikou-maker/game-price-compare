@@ -442,12 +442,12 @@
     "name": "SV 強化拡張パック「151」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 68000,
+    "max_price": 68200,
     "prices": {
       "morimori": 65000,
       "homura": 68000,
-      "rudeya": 66200,
-      "runto": 62000,
+      "rudeya": 68200,
+      "runto": 63000,
       "icchome": 68000,
       "shouten": 56000,
       "kaikyo": 66000,
@@ -477,7 +477,7 @@
     "prices": {
       "morimori": 10800,
       "homura": 10800,
-      "rudeya": 10300,
+      "rudeya": 10700,
       "runto": 10200,
       "icchome": 10600,
       "shouten": 7500,
@@ -522,7 +522,7 @@
     "prices": {
       "morimori": 10400,
       "homura": 10300,
-      "rudeya": 10000,
+      "rudeya": 10400,
       "runto": 10400,
       "icchome": 10200,
       "shouten": 8000,
