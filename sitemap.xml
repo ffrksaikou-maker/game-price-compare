@@ -211,7 +211,13 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://pokeca-box-hikaku.com/box/unknown.html</loc>
+    <loc>https://pokeca-box-hikaku.com/box/wild-force.html</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://pokeca-box-hikaku.com/box/cyber-judge.html</loc>
     <lastmod>2026-04-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
