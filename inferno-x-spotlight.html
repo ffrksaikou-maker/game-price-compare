@@ -143,12 +143,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 .header h1{font-size:18px;font-weight:700;background:linear-gradient(135deg,#f59e0b,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .wrap{max-width:1240px;margin:0 auto;padding:32px 16px 48px}
 .content-layout{display:flex;gap:24px;align-items:flex-start}
-.content-layout article{flex:1;min-width:0;max-width:800px}
+.content-layout article,.content-layout .main-card{flex:1;min-width:0}
 .article-nav{width:180px;flex-shrink:0;position:sticky;top:72px;max-height:calc(100vh - 88px);overflow-y:auto}
 .article-nav-title{font-size:13px;font-weight:700;margin-bottom:8px;color:var(--text)}
 .article-nav a{display:block;font-size:12px;color:var(--text-sub);text-decoration:none;padding:5px 0 5px 12px;border-left:2px solid var(--border);line-height:1.4;transition:all .2s}
 .article-nav a:hover{color:var(--accent);border-left-color:var(--accent)}
 .article-nav a.current{color:var(--accent);border-left-color:var(--accent);font-weight:600}
+.article-nav-sub{font-size:12px;font-weight:700;margin:14px 0 6px;color:#b91c1c;padding-top:10px;border-top:1px solid var(--border)}
 @media(max-width:1023px){.content-layout{display:block}.article-nav{display:none}}
 .breadcrumb{font-size:12px;color:var(--text-sub);margin-bottom:20px}
 .breadcrumb a{color:var(--accent);text-decoration:none}
@@ -177,6 +178,11 @@ article li{margin-bottom:8px}
 .disclaimer strong{color:#c2410c}
 .cta{display:block;text-align:center;padding:16px;background:linear-gradient(135deg,#f59e0b,#ef4444);color:#fff;border-radius:12px;text-decoration:none;font-weight:700;margin:24px 0}
 .back{display:inline-block;margin-top:16px;color:var(--accent);text-decoration:none;font-size:14px;font-weight:600;margin-right:16px}
+.next-spotlight{display:block;background:linear-gradient(135deg,#fef3c7,#fed7aa);border:1px solid #fbbf24;border-radius:10px;padding:16px 18px;margin:28px 0 8px;text-decoration:none;color:var(--text);transition:filter .2s}
+.next-spotlight:hover{filter:brightness(1.03)}
+.next-spotlight .tag{font-size:11px;color:#92400e;font-weight:700;letter-spacing:.5px}
+.next-spotlight .title{font-size:15px;font-weight:800;color:#b91c1c;margin-top:4px;line-height:1.4}
+.next-spotlight .desc{font-size:12px;color:#78350f;margin-top:4px;line-height:1.5}
 .ad{text-align:center;padding:12px 0}
 .ft{text-align:center;padding:24px 16px;font-size:11px;color:var(--text-sub)}
 .ft a{color:var(--accent)}
@@ -196,10 +202,9 @@ article li{margin-bottom:8px}
 
 <div class="content-layout">
 <nav class="article-nav">
-<div class="article-nav-title">記事一覧</div>
+<div class="article-nav-title">一般記事</div>
 <a href="index.html">買取価格比較</a>
 <a href="weekly/">🔥 今週の急上昇記事</a>
-<a href="inferno-x-spotlight.html" class="current">【特集】インフェルノX高騰</a>
 <a href="ranking.html">上昇ランキング</a>
 <a href="kaitori-tips.html">BOX買取のコツ</a>
 <a href="shop-hikaku.html">8店舗比較</a>
@@ -208,6 +213,10 @@ article li{margin-bottom:8px}
 <a href="mercari-hikaku.html">メルカリ・スニダン比較</a>
 <a href="shrink-nashi.html">シュリンクなしBOX</a>
 <a href="box-toushi.html">BOX投資の始め方</a>
+<a href="restock-guide.html">再販情報の見つけ方</a>
+<div class="article-nav-sub">🔥 BOX深掘り特集</div>
+<a href="151-spotlight.html">【特集】ポケモンカード151高騰</a>
+<a href="inferno-x-spotlight.html" class="current">【特集】インフェルノX高騰</a>
 </nav>
 
 <article>
@@ -292,8 +301,15 @@ article li{margin-bottom:8px}
 <strong>ご注意:</strong> 本記事は当サイトが自動収集した8店舗の買取価格データに基づく参考情報です。投資助言を目的とするものではありません。相場は需給・再販情報・新弾発売等で急変する場合があります。売買判断はご自身の責任で行ってください。価格データは2026年4月11日時点のものです。
 </div>
 
+<a href="151-spotlight.html" class="next-spotlight">
+<div class="tag">▶ 次の特集記事</div>
+<div class="title">【特集】ポケモンカード151がなぜ高い？定価12倍超え</div>
+<div class="desc">2023年発売の151 BOXが¥5,400→¥68,200(約12.6倍)に高騰。エリカの招待SAR人気・マスターボールミラー仕様・Hレギュレーション切り替えによる絶版観測など5つの高騰理由と、今後どこまで上がるかの3シナリオを実データで解説。</div>
+</a>
+
 <h2>関連BOXもチェック</h2>
 <ul>
+<li><a href="151-spotlight.html">【特集】ポケモンカード151 高騰解説</a> — リザードン繋がりで同時注目の定番人気BOXの深掘り</li>
 <li><a href="box/mega-brave.html">MEGA 拡張パック「メガブレイブ」</a> — MEGAシリーズ第1弾、インフェルノXと同じMEGA枠の比較対象</li>
 <li><a href="box/mega-sinfonia.html">MEGA 拡張パック「メガシンフォニア」</a> — メガブレイブとの同時発売、姉妹BOX</li>
 <li><a href="box/ruler-of-black-flame.html">拡張パック「黒炎の支配者」</a> — 過去のリザードン封入人気BOX</li>
