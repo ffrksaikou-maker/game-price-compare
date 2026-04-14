@@ -356,13 +356,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 .header h1{font-size:18px;font-weight:700;background:linear-gradient(135deg,#f59e0b,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .wrap{max-width:1240px;margin:0 auto;padding:32px 16px 48px}
 .content-layout{display:flex;gap:24px;align-items:flex-start}
-.content-layout article,.content-layout .main-card{flex:1;min-width:0}
+.content-layout .main-card{flex:1;min-width:0}
 .article-nav{width:180px;flex-shrink:0;position:sticky;top:72px;max-height:calc(100vh - 88px);overflow-y:auto}
 .article-nav-title{font-size:13px;font-weight:700;margin-bottom:8px;color:var(--text)}
 .article-nav a{display:block;font-size:12px;color:var(--text-sub);text-decoration:none;padding:5px 0 5px 12px;border-left:2px solid var(--border);line-height:1.4;transition:all .2s}
 .article-nav a:hover{color:var(--accent);border-left-color:var(--accent)}
-.article-nav a.current{color:var(--accent);border-left-color:var(--accent);font-weight:600}
-.article-nav-sub{font-size:12px;font-weight:700;margin:14px 0 6px;color:#b91c1c;padding-top:10px;border-top:1px solid var(--border)}
 @media(max-width:1023px){.content-layout{display:block}.article-nav{display:none}}
 .breadcrumb{font-size:12px;color:var(--text-sub);margin-bottom:20px}
 .breadcrumb a{color:var(--accent);text-decoration:none}
@@ -408,6 +406,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 <div class="article-nav-title">コンテンツ</div>
 <a href="index.html">買取価格比較</a>
 <a href="weekly/">🔥 今週の急上昇記事</a>
+<a href="inferno-x-spotlight.html">【特集】インフェルノX高騰</a>
 <a href="kaitori-tips.html">BOX買取のコツ</a>
 <a href="shop-hikaku.html">8店舗比較</a>
 <a href="single-card-tips.html">シングル売り</a>
@@ -419,7 +418,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 
 <div class="main-card">
 <h2>ポケカBOX 週間上昇ランキング</h2>
-<div class="meta">更新: 2026/04/14 16:50　比較期間: 2026-04-06 → 2026-04-14（直近7日間）</div>
+<div class="meta">更新: 2026/04/14 18:02　比較期間: 2026-04-06 → 2026-04-14（直近7日間）</div>
 
 <h3 class="section-title up">SV・MEGA 上昇 TOP10</h3>
 <div class="mini-charts"><div class="mini-chart-card"><div class="mc-header"><a href="box/151.html" class="mc-name">151</a><span class="mc-price">¥68,200</span><span class="mc-diff" style="color:#dc2626">↑+¥15,400 (+29.2%)</span></div><canvas id="svUpChart0" height="120"></canvas></div>
@@ -440,8 +439,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 
 <h3 class="section-title" style="margin-top:48px">SV・MEGA 全BOX平均</h3>
 <div class="avg-stats">
-<div class="avg-item"><span class="avg-label">平均上昇額</span><span class="avg-value" style="color:#dc2626">+¥3,000</span></div>
-<div class="avg-item"><span class="avg-label">平均上昇率</span><span class="avg-value" style="color:#dc2626">+15.7%</span></div>
+<div class="avg-item"><span class="avg-label">平均上昇額</span><span class="avg-value" style="color:#dc2626">+¥3,003</span></div>
+<div class="avg-item"><span class="avg-label">平均上昇率</span><span class="avg-value" style="color:#dc2626">+15.8%</span></div>
 </div>
 <div class="chart-wrap" style="margin-top:16px">
 <canvas id="avgChart" height="200"></canvas>
@@ -688,7 +687,7 @@ new Chart(document.getElementById('avgChart'), {
     labels: ["2026-04-06", "2026-04-07", "2026-04-08", "2026-04-09", "2026-04-10", "2026-04-11", "2026-04-13", "2026-04-14"],
     datasets: [{
       label: 'SV・MEGA 平均買取価格',
-      data: [15973, 16285, 16588, 17124, 16846, 17760, 18359, 18532],
+      data: [15973, 16285, 16588, 17124, 16846, 17760, 18359, 18535],
       borderColor: '#6366f1',
       backgroundColor: '#6366f122',
       borderWidth: 2,
