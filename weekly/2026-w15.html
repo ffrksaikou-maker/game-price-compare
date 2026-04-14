@@ -374,6 +374,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 .article-nav a:hover{color:var(--accent);border-left-color:var(--accent)}
 .article-nav a.current{color:var(--accent);border-left-color:var(--accent);font-weight:600}
 .article-nav-sub{font-size:12px;font-weight:700;margin:14px 0 6px;color:#b91c1c;padding-top:10px;border-top:1px solid var(--border)}
+.mobile-footer-nav{display:none;margin:24px 0;padding:18px 16px;background:#f9fafb;border:1px solid var(--border);border-radius:12px}
+.mfn-title{font-size:14px;font-weight:700;margin-bottom:10px;color:var(--text)}
+.mfn-section{margin-top:14px}
+.mfn-section-title{font-size:12px;font-weight:700;color:#b91c1c;margin-bottom:8px;letter-spacing:.5px}
+.mobile-footer-nav a{display:block;font-size:13px;padding:10px 12px;border-radius:8px;color:var(--text);text-decoration:none;background:#fff;margin-bottom:6px;border:1px solid var(--border);transition:all .2s}
+.mobile-footer-nav a:hover,.mobile-footer-nav a:active{color:var(--accent);border-color:var(--accent);background:#f5f3ff}
+.mobile-footer-nav a.spot{border-left:3px solid #b91c1c;font-weight:600}
+@media(max-width:1023px){.mobile-footer-nav{display:block}}
 @media(max-width:1023px){.content-layout{display:block}.article-nav{display:none}}
 .breadcrumb{font-size:12px;color:var(--text-sub);margin-bottom:20px}
 .breadcrumb a{color:var(--accent);text-decoration:none}
@@ -540,6 +548,30 @@ article p{font-size:14px;margin-bottom:14px}
 <a href="index.html" class="back" style="margin-left:16px">&larr; 週間急上昇記事 一覧</a>
 </article>
 </div><!-- /content-layout -->
+<nav class="mobile-footer-nav">
+  <div class="mfn-title">📚 他の記事を読む</div>
+  <div class="mfn-section">
+    <div class="mfn-section-title">🔥 BOX深掘り特集</div>
+    <a class="spot" href="../151-spotlight.html">【特集】ポケモンカード151がなぜ高い？12倍超え解説</a>
+    <a class="spot" href="../inferno-x-spotlight.html">【特集】インフェルノXが定価の5倍に高騰</a>
+    <a class="spot" href="../kokuen-spotlight.html">【特集】黒炎の支配者がなぜ高い？定価の約4倍</a>
+  </div>
+  <div class="mfn-section">
+    <div class="mfn-section-title">📰 一般記事</div>
+    <a href="../index.html">買取価格比較トップ</a>
+    <a href="../weekly/">🔥 今週の急上昇記事</a>
+    <a href="../ranking.html">上昇ランキング</a>
+    <a href="../kaitori-tips.html">BOX買取のコツ</a>
+    <a href="../shop-hikaku.html">8店舗比較</a>
+    <a href="../box-toushi.html">BOX投資の始め方</a>
+    <a href="../restock-guide.html">再販情報の見つけ方</a>
+    <a href="../shrink-nashi.html">シュリンクなしBOX</a>
+    <a href="../psa-guide.html">PSA鑑定ガイド</a>
+    <a href="../mercari-hikaku.html">メルカリ・スニダン比較</a>
+    <a href="../single-card-tips.html">シングル売り</a>
+  </div>
+</nav>
+
 </div>
 <div class="ft"><a href="../index.html">ポケカ買取チェッカー</a> / <a href="../privacy.html">プライバシーポリシー</a></div>
 <script>
