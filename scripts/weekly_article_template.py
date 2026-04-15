@@ -506,6 +506,7 @@ article p{{font-size:14px;margin-bottom:14px}}
 <a href="../151-spotlight.html">【特集】ポケモンカード151高騰</a>
 <a href="../inferno-x-spotlight.html">【特集】インフェルノX高騰</a>
 <a href="../kokuen-spotlight.html">【特集】黒炎の支配者高騰</a>
+<a href="../chouden-breaker-spotlight.html">【特集】超電ブレイカー高騰</a>
 <div class="article-nav-sub" style="color:#6d28d9">📘 掘り下げガイド</div>
 <a href="../zeppan-ranking-2026-03.html">📊 S&amp;S以降 絶版BOXランキング</a>
 <a href="../lizardon-box-guide.html">🔥 リザードン高騰BOX完全ガイド</a>
@@ -705,6 +706,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <a href="../151-spotlight.html">【特集】ポケモンカード151高騰</a>
 <a href="../inferno-x-spotlight.html">【特集】インフェルノX高騰</a>
 <a href="../kokuen-spotlight.html">【特集】黒炎の支配者高騰</a>
+<a href="../chouden-breaker-spotlight.html">【特集】超電ブレイカー高騰</a>
 <div class="article-nav-sub" style="color:#6d28d9">📘 掘り下げガイド</div>
 <a href="../zeppan-ranking-2026-03.html">📊 S&amp;S以降 絶版BOXランキング</a>
 <a href="../lizardon-box-guide.html">🔥 リザードン高騰BOX完全ガイド</a>
