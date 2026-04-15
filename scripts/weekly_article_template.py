@@ -502,6 +502,7 @@ article p{{font-size:14px;margin-bottom:14px}}
 <a href="../shrink-nashi.html">シュリンクなしBOX</a>
 <a href="../box-toushi.html">BOX投資の始め方</a>
 <a href="../restock-guide.html">再販情報の見つけ方</a>
+<a href="../release-schedule-2026.html">📅 2026年 新弾カレンダー</a>
 <div class="article-nav-sub">🔥 BOX深掘り特集</div>
 <a href="../151-spotlight.html">【特集】ポケモンカード151高騰</a>
 <a href="../inferno-x-spotlight.html">【特集】インフェルノX高騰</a>
@@ -703,6 +704,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <a href="../shrink-nashi.html">シュリンクなしBOX</a>
 <a href="../box-toushi.html">BOX投資の始め方</a>
 <a href="../restock-guide.html">再販情報の見つけ方</a>
+<a href="../release-schedule-2026.html">📅 2026年 新弾カレンダー</a>
 <div class="article-nav-sub">🔥 BOX深掘り特集</div>
 <a href="../151-spotlight.html">【特集】ポケモンカード151高騰</a>
 <a href="../inferno-x-spotlight.html">【特集】インフェルノX高騰</a>
