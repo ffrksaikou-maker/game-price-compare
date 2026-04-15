@@ -106,10 +106,10 @@ def get_box_image_url(slug: str) -> str:
 # Blog articles (newest first) - 記事追加時はここに1行足すだけ
 BLOG_ARTICLES = [
     {"url": "weekly/", "title": "【今週】ポケカBOX 週間急上昇ランキング", "desc": "SV・MEGA TOP10 + S&S TOP3を毎日自動更新。8店舗実データから抽出した直近7日間で最も値上がりしたBOXをグラフ付きで掲載。", "date": "2026-04-12"},
+    {"url": "release-schedule-2026.html", "title": "2026年ポケカ新弾発売カレンダー", "desc": "2026年の発売済み/予想パックを完全整理。ムニキスゼロ・ニンジャスピナー発売済み、5月値上げ(180→200円)、アビスアイ等の商標予想、30周年記念商品(世界同時発売)まで解説。", "date": "2026-04-15"},
     {"url": "inferno-x-spotlight.html", "title": "インフェルノXが定価の5倍に高騰", "desc": "発売半年で定価¥5,400→¥27,000(約5倍)に急騰したインフェルノXの相場推移、収録カード、3つの高騰理由を実データで徹底解説。", "date": "2026-04-12"},
     {"url": "chouden-breaker-spotlight.html", "title": "超電ブレイカーが定価7.5倍に高騰", "desc": "BOX買取¥40,700、定価の7.5倍に達した超電ブレイカー(SV8)。ピカチュウex SAR¥55,000・ぎどら氏イラストの高騰5つの理由、Jレギュ前のスタン現役期の今後を解説。", "date": "2026-04-15"},
     {"url": "clay-burst-spotlight.html", "title": "クレイバーストとナンジャモSAR相場解説", "desc": "BOX買取¥12,200、Gレギュ絶版観測で再評価中のクレイバースト(SV2D)。ナンジャモSAR¥50,000・PSA10で¥108,000・kirisAki氏イラストを含む5つの注目理由を解説。", "date": "2026-04-15"},
-    {"url": "release-schedule-2026.html", "title": "2026年ポケカ新弾発売カレンダー", "desc": "2026年の発売済み/予想パックを完全整理。ムニキスゼロ・ニンジャスピナー発売済み、5月値上げ(180→200円)、アビスアイ等の商標予想、30周年記念商品(世界同時発売)まで解説。", "date": "2026-04-15"},
     {"url": "151-spotlight.html", "title": "ポケモンカード151がなぜ高い？定価12倍超え", "desc": "BOX買取¥68,200、定価の12.6倍に達した151の絶版観測、5つの高騰理由、今後どこまで上がるかの3シナリオを実データで解説。", "date": "2026-04-14"},
     {"url": "kokuen-spotlight.html", "title": "黒炎の支配者が定価の約4倍に高騰", "desc": "BOX買取¥21,200、Gレギュ絶版観測で上昇継続中。リザードンex SAR(悪テラスタル)を筆頭に5つの高騰理由と今後の予想を解説。", "date": "2026-04-14"},
     {"url": "zeppan-ranking-2026-03.html", "title": "S&S以降 絶版BOXランキング", "desc": "Gレギュスタン落ち済みBOXを中心に、絶版観測・事実上絶版のBOXを相場順ランキング。中長期投資の判断材料に。", "date": "2026-04-14"},
@@ -274,14 +274,15 @@ def generate_ai_summary(products: list[MasterProduct]) -> str:
 
 
 def generate_blog_links() -> str:
-    """Generate blog cards: left=random, right=latest article."""
-    # Right: 最新記事 (固定 = BLOG_ARTICLES[0])
-    latest = BLOG_ARTICLES[0]
-    # Left candidates: 最新記事以外の全記事（JSでランダム選択）
-    candidates = [a for a in BLOG_ARTICLES if a["url"] != latest["url"]]
+    """Generate blog cards: random + two pinned (weekly + new schedule article)."""
+    # Pinned固定: BLOG_ARTICLES[0] = weekly, [1] = release-schedule-2026
+    pinned = BLOG_ARTICLES[:2]
+    pinned_urls = {a["url"] for a in pinned}
+    # 残りはJSでランダム選択
+    candidates = [a for a in BLOG_ARTICLES if a["url"] not in pinned_urls]
 
     html = '<div class="blog-links" id="blogLinks">\n'
-    # 左: ランダム候補（非表示、JSで1つ選んで表示）
+    # ランダム候補（非表示、JSで1つ選んで表示）
     for article in candidates:
         html += (
             f'  <a href="{article["url"]}" class="blog-card blog-random" style="display:none"'
@@ -290,14 +291,15 @@ def generate_blog_links() -> str:
             f'    <p>{article["desc"]}</p>\n'
             f'  </a>\n'
         )
-    # 右: 最新記事（固定）
-    html += (
-        f'  <a href="{latest["url"]}" class="blog-card"'
-        f' onclick="gtag(\'event\',\'blog_click\',{{article:\'{latest["url"]}\'}})">\n'
-        f'    <h3>{latest["title"]}</h3>\n'
-        f'    <p>{latest["desc"]}</p>\n'
-        f'  </a>\n'
-    )
+    # Pinned 2枚を常時表示
+    for article in pinned:
+        html += (
+            f'  <a href="{article["url"]}" class="blog-card"'
+            f' onclick="gtag(\'event\',\'blog_click\',{{article:\'{article["url"]}\'}})">\n'
+            f'    <h3>{article["title"]}</h3>\n'
+            f'    <p>{article["desc"]}</p>\n'
+            f'  </a>\n'
+        )
     html += '</div>'
     return html
 
