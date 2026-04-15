@@ -108,6 +108,7 @@ BLOG_ARTICLES = [
     {"url": "weekly/", "title": "【今週】ポケカBOX 週間急上昇ランキング", "desc": "SV・MEGA TOP10 + S&S TOP3を毎日自動更新。8店舗実データから抽出した直近7日間で最も値上がりしたBOXをグラフ付きで掲載。", "date": "2026-04-12"},
     {"url": "inferno-x-spotlight.html", "title": "インフェルノXが定価の5倍に高騰", "desc": "発売半年で定価¥5,400→¥27,000(約5倍)に急騰したインフェルノXの相場推移、収録カード、3つの高騰理由を実データで徹底解説。", "date": "2026-04-12"},
     {"url": "chouden-breaker-spotlight.html", "title": "超電ブレイカーが定価7.5倍に高騰", "desc": "BOX買取¥40,700、定価の7.5倍に達した超電ブレイカー(SV8)。ピカチュウex SAR¥55,000・ぎどら氏イラストの高騰5つの理由、Jレギュ前のスタン現役期の今後を解説。", "date": "2026-04-15"},
+    {"url": "clay-burst-spotlight.html", "title": "クレイバーストとナンジャモSAR相場解説", "desc": "BOX買取¥12,200、Gレギュ絶版観測で再評価中のクレイバースト(SV2D)。ナンジャモSAR¥50,000・PSA10で¥108,000・kirisAki氏イラストを含む5つの注目理由を解説。", "date": "2026-04-15"},
     {"url": "151-spotlight.html", "title": "ポケモンカード151がなぜ高い？定価12倍超え", "desc": "BOX買取¥68,200、定価の12.6倍に達した151の絶版観測、5つの高騰理由、今後どこまで上がるかの3シナリオを実データで解説。", "date": "2026-04-14"},
     {"url": "kokuen-spotlight.html", "title": "黒炎の支配者が定価の約4倍に高騰", "desc": "BOX買取¥21,200、Gレギュ絶版観測で上昇継続中。リザードンex SAR(悪テラスタル)を筆頭に5つの高騰理由と今後の予想を解説。", "date": "2026-04-14"},
     {"url": "zeppan-ranking-2026-03.html", "title": "S&S以降 絶版BOXランキング", "desc": "Gレギュスタン落ち済みBOXを中心に、絶版観測・事実上絶版のBOXを相場順ランキング。中長期投資の判断材料に。", "date": "2026-04-14"},
@@ -927,6 +928,7 @@ def _update_sitemap(
         ("/151-spotlight.html", "monthly", "0.8", "2026-04-14"),
         ("/kokuen-spotlight.html", "monthly", "0.8", "2026-04-14"),
         ("/chouden-breaker-spotlight.html", "monthly", "0.8", "2026-04-15"),
+        ("/clay-burst-spotlight.html", "monthly", "0.8", "2026-04-15"),
         ("/zeppan-ranking-2026-03.html", "monthly", "0.8", "2026-04-14"),
         ("/lizardon-box-guide.html", "monthly", "0.8", "2026-04-14"),
         ("/mega-pack-compare.html", "monthly", "0.8", "2026-04-14"),
@@ -1396,6 +1398,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <a href="inferno-x-spotlight.html">【特集】インフェルノX高騰</a>
 <a href="kokuen-spotlight.html">【特集】黒炎の支配者高騰</a>
 <a href="chouden-breaker-spotlight.html">【特集】超電ブレイカー高騰</a>
+<a href="clay-burst-spotlight.html">【特集】クレイバースト高騰</a>
 <div class="article-nav-sub" style="color:#6d28d9">📘 掘り下げガイド</div>
 <a href="zeppan-ranking-2026-03.html">📊 S&amp;S以降 絶版BOXランキング</a>
 <a href="lizardon-box-guide.html">🔥 リザードン高騰BOX完全ガイド</a>
