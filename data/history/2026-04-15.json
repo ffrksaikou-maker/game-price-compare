@@ -3,7 +3,7 @@
     "name": "MEGA 拡張パック「ニンジャスピナー」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 13500,
+    "max_price": 13400,
     "prices": {
       "morimori": 13400,
       "homura": 13300,
@@ -12,7 +12,7 @@
       "icchome": 13300,
       "shouten": 11300,
       "kaikyo": 13000,
-      "sommelier": 13500
+      "sommelier": 13300
     }
   },
   {
@@ -21,7 +21,7 @@
     "retail_price": 5400,
     "max_price": 9000,
     "prices": {
-      "morimori": 8600,
+      "morimori": 8800,
       "homura": 8700,
       "rudeya": 8700,
       "runto": 9000,
@@ -862,7 +862,7 @@
       "icchome": 22000,
       "shouten": 14000,
       "kaikyo": 21000,
-      "sommelier": 23500
+      "sommelier": 24000
     }
   },
   {
