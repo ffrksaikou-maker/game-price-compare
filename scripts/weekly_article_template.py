@@ -430,6 +430,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 .article-nav a{{display:block;font-size:12px;color:var(--text-sub);text-decoration:none;padding:5px 0 5px 12px;border-left:2px solid var(--border);line-height:1.4;transition:all .2s}}
 .article-nav a:hover{{color:var(--accent);border-left-color:var(--accent)}}
 .article-nav a.current{{color:var(--accent);border-left-color:var(--accent);font-weight:600}}
+.article-nav-sub{{font-size:12px;font-weight:700;margin:14px 0 6px;color:#b91c1c;padding-top:10px;border-top:1px solid var(--border)}}
 @media(max-width:1023px){{.content-layout{{display:block}}.article-nav{{display:none}}}}
 .breadcrumb{{font-size:12px;color:var(--text-sub);margin-bottom:20px}}
 .breadcrumb a{{color:var(--accent);text-decoration:none}}
@@ -489,10 +490,9 @@ article p{{font-size:14px;margin-bottom:14px}}
 
 <div class="content-layout">
 <nav class="article-nav">
-<div class="article-nav-title">記事一覧</div>
+<div class="article-nav-title">一般記事</div>
 <a href="../index.html">買取価格比較</a>
 <a href="index.html" class="current">🔥 今週の急上昇記事</a>
-<a href="../inferno-x-spotlight.html">【特集】インフェルノX高騰</a>
 <a href="../ranking.html">上昇ランキング</a>
 <a href="../kaitori-tips.html">BOX買取のコツ</a>
 <a href="../shop-hikaku.html">8店舗比較</a>
@@ -501,6 +501,22 @@ article p{{font-size:14px;margin-bottom:14px}}
 <a href="../mercari-hikaku.html">メルカリ・スニダン比較</a>
 <a href="../shrink-nashi.html">シュリンクなしBOX</a>
 <a href="../box-toushi.html">BOX投資の始め方</a>
+<a href="../restock-guide.html">再販情報の見つけ方</a>
+<div class="article-nav-sub">🔥 BOX深掘り特集</div>
+<a href="../151-spotlight.html">【特集】ポケモンカード151高騰</a>
+<a href="../inferno-x-spotlight.html">【特集】インフェルノX高騰</a>
+<a href="../kokuen-spotlight.html">【特集】黒炎の支配者高騰</a>
+<div class="article-nav-sub" style="color:#6d28d9">📘 掘り下げガイド</div>
+<a href="../zeppan-ranking-2026-03.html">📊 S&amp;S以降 絶版BOXランキング</a>
+<a href="../lizardon-box-guide.html">🔥 リザードン高騰BOX完全ガイド</a>
+<a href="../mega-pack-compare.html">⚡ MEGA拡張パック完全比較</a>
+<a href="../kokuen-vs-rocket.html">⚔️ 黒炎 vs ロケット団の栄光</a>
+<a href="../mega-lizardon-x-guide.html">メガリザードンXex MUR/SAR</a>
+<a href="../lizardon-sar-kokuen-guide.html">リザードンex SAR(黒炎)</a>
+<a href="../erika-sar-guide.html">エリカの招待 SAR</a>
+<a href="../pigeot-sar-guide.html">ピジョットex SAR</a>
+<a href="../masterball-mirror-guide.html">151マスターボールミラー</a>
+<a href="../kokuen-atari-guide.html">黒炎 当たりカード完全ガイド</a>
 </nav>
 
 <article>
@@ -648,6 +664,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 .article-nav a{{display:block;font-size:12px;color:var(--text-sub);text-decoration:none;padding:5px 0 5px 12px;border-left:2px solid var(--border);line-height:1.4;transition:all .2s}}
 .article-nav a:hover{{color:var(--accent);border-left-color:var(--accent)}}
 .article-nav a.current{{color:var(--accent);border-left-color:var(--accent);font-weight:600}}
+.article-nav-sub{{font-size:12px;font-weight:700;margin:14px 0 6px;color:#b91c1c;padding-top:10px;border-top:1px solid var(--border)}}
 @media(max-width:1023px){{.content-layout{{display:block}}.article-nav{{display:none}}}}
 .breadcrumb{{font-size:12px;color:var(--text-sub);margin-bottom:20px}}
 .breadcrumb a{{color:var(--accent);text-decoration:none}}
@@ -672,10 +689,9 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <div class="breadcrumb"><a href="../index.html">トップ</a> &gt; 週間急上昇記事</div>
 <div class="content-layout">
 <nav class="article-nav">
-<div class="article-nav-title">記事一覧</div>
+<div class="article-nav-title">一般記事</div>
 <a href="../index.html">買取価格比較</a>
 <a href="index.html" class="current">🔥 今週の急上昇記事</a>
-<a href="../inferno-x-spotlight.html">【特集】インフェルノX高騰</a>
 <a href="../ranking.html">上昇ランキング</a>
 <a href="../kaitori-tips.html">BOX買取のコツ</a>
 <a href="../shop-hikaku.html">8店舗比較</a>
@@ -684,6 +700,22 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <a href="../mercari-hikaku.html">メルカリ・スニダン比較</a>
 <a href="../shrink-nashi.html">シュリンクなしBOX</a>
 <a href="../box-toushi.html">BOX投資の始め方</a>
+<a href="../restock-guide.html">再販情報の見つけ方</a>
+<div class="article-nav-sub">🔥 BOX深掘り特集</div>
+<a href="../151-spotlight.html">【特集】ポケモンカード151高騰</a>
+<a href="../inferno-x-spotlight.html">【特集】インフェルノX高騰</a>
+<a href="../kokuen-spotlight.html">【特集】黒炎の支配者高騰</a>
+<div class="article-nav-sub" style="color:#6d28d9">📘 掘り下げガイド</div>
+<a href="../zeppan-ranking-2026-03.html">📊 S&amp;S以降 絶版BOXランキング</a>
+<a href="../lizardon-box-guide.html">🔥 リザードン高騰BOX完全ガイド</a>
+<a href="../mega-pack-compare.html">⚡ MEGA拡張パック完全比較</a>
+<a href="../kokuen-vs-rocket.html">⚔️ 黒炎 vs ロケット団の栄光</a>
+<a href="../mega-lizardon-x-guide.html">メガリザードンXex MUR/SAR</a>
+<a href="../lizardon-sar-kokuen-guide.html">リザードンex SAR(黒炎)</a>
+<a href="../erika-sar-guide.html">エリカの招待 SAR</a>
+<a href="../pigeot-sar-guide.html">ピジョットex SAR</a>
+<a href="../masterball-mirror-guide.html">151マスターボールミラー</a>
+<a href="../kokuen-atari-guide.html">黒炎 当たりカード完全ガイド</a>
 </nav>
 <div class="main-card">
 <h2>週間急上昇記事 アーカイブ</h2>

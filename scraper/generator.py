@@ -107,6 +107,18 @@ def get_box_image_url(slug: str) -> str:
 BLOG_ARTICLES = [
     {"url": "weekly/", "title": "【今週】ポケカBOX 週間急上昇ランキング", "desc": "SV・MEGA TOP10 + S&S TOP3を毎日自動更新。8店舗実データから抽出した直近7日間で最も値上がりしたBOXをグラフ付きで掲載。", "date": "2026-04-12"},
     {"url": "inferno-x-spotlight.html", "title": "インフェルノXが定価の5倍に高騰", "desc": "発売半年で定価¥5,400→¥27,000(約5倍)に急騰したインフェルノXの相場推移、収録カード、3つの高騰理由を実データで徹底解説。", "date": "2026-04-12"},
+    {"url": "151-spotlight.html", "title": "ポケモンカード151がなぜ高い？定価12倍超え", "desc": "BOX買取¥68,200、定価の12.6倍に達した151の絶版観測、5つの高騰理由、今後どこまで上がるかの3シナリオを実データで解説。", "date": "2026-04-14"},
+    {"url": "kokuen-spotlight.html", "title": "黒炎の支配者が定価の約4倍に高騰", "desc": "BOX買取¥21,200、Gレギュ絶版観測で上昇継続中。リザードンex SAR(悪テラスタル)を筆頭に5つの高騰理由と今後の予想を解説。", "date": "2026-04-14"},
+    {"url": "zeppan-ranking-2026-03.html", "title": "S&S以降 絶版BOXランキング", "desc": "Gレギュスタン落ち済みBOXを中心に、絶版観測・事実上絶版のBOXを相場順ランキング。中長期投資の判断材料に。", "date": "2026-04-14"},
+    {"url": "lizardon-box-guide.html", "title": "リザードン高騰BOX完全ガイド", "desc": "151・黒炎の支配者・インフェルノXなどリザードン封入BOXを横断比較。なぜリザードン系は例外なく高額化するのかを解説。", "date": "2026-04-14"},
+    {"url": "mega-pack-compare.html", "title": "MEGA拡張パック完全比較", "desc": "メガブレイブ・メガシンフォニア・インフェルノX・MEGAドリームex・ニンジャスピナーのMEGAシリーズ全体を相場・封入率で徹底比較。", "date": "2026-04-14"},
+    {"url": "kokuen-vs-rocket.html", "title": "黒炎 vs ロケット団の栄光 徹底比較", "desc": "人気対決BOX2つを相場・目玉SAR・絶版観測・開封期待値で多角比較。どちらに投資すべきかを6観点で評価。", "date": "2026-04-14"},
+    {"url": "mega-lizardon-x-guide.html", "title": "メガリザードンXex MUR/SAR 相場解説", "desc": "MUR¥200,000/SAR¥95,000に急騰したインフェルノX目玉カード。1ヶ月で1.8倍急騰の理由と今後の予想を徹底解説。", "date": "2026-04-14"},
+    {"url": "lizardon-sar-kokuen-guide.html", "title": "リザードンex SAR(黒炎)相場解説", "desc": "買取¥37,000・PSA10で¥65,900の黒炎SAR。江川あきら氏イラストと悪テラスタル形態で高騰継続中のカードを詳解。", "date": "2026-04-14"},
+    {"url": "erika-sar-guide.html", "title": "エリカの招待SAR 相場解説", "desc": "買取¥8,000・PSA10で¥33,400の151人気SAR。初動¥128,200からの調整と151絶版観測での再上昇を予想。", "date": "2026-04-14"},
+    {"url": "pigeot-sar-guide.html", "title": "ピジョットex SAR 相場解説", "desc": "「ピジョリザ」デッキ必須の対戦用SAR。マッハサーチ特性とプレイヤー需要で安定相場の実用SARを徹底解説。", "date": "2026-04-14"},
+    {"url": "masterball-mirror-guide.html", "title": "151マスターボールミラー 相場解説", "desc": "全153種のマスターボールミラーをピカチュウ¥55,000・ゲンガー¥60,000などの相場と封入率・コンプ難易度で解説。", "date": "2026-04-14"},
+    {"url": "kokuen-atari-guide.html", "title": "黒炎の支配者 当たりカード完全ガイド", "desc": "SAR/UR/SR/AR/RR 全41種の当たりカードを買取相場・封入率・期待値で徹底整理。リザードンex SAR一強の実態も解説。", "date": "2026-04-14"},
     {"url": "restock-guide.html", "title": "再販情報の見つけ方", "desc": "ポケカBOXの再販入荷パターン、通知設定、抽選vs先着の攻略法まで。最速で再販情報をキャッチする方法を解説。", "date": "2026-04-10"},
     {"url": "box-toushi.html", "title": "ポケカBOX投資の始め方", "desc": "値上がりしやすいBOXの特徴、予算別の始め方、保管方法、リスクまで初心者向けに解説。", "date": "2026-04-02"},
     {"url": "shrink-nashi.html", "title": "シュリンクなしBOXの買取事情", "desc": "シュリンクなしポケカBOXの買取対応を買取店・メルカリ・スニダンで比較。高く売るコツも解説。", "date": "2026-03-27"},
@@ -863,10 +875,18 @@ def generate_product_pages(
         html = html.replace("{{BOX_IMAGE_URL}}", box_image_url)
         # ヒーロー画像 (マップされたBOXのみ表示、それ以外は空)
         if slug in BOX_IMAGE_FILES:
+            # SEO alt: 商品名 + 未開封BOX + 買取価格 + 定価倍率(retailがあれば)
+            if p.retail_price and p.retail_price > 0 and max_price > 0:
+                ratio = max_price / p.retail_price
+                alt_text = f"{p.name} 未開封BOX 買取価格¥{max_price:,} 定価{ratio:.1f}倍"
+            elif max_price > 0:
+                alt_text = f"{p.name} 未開封BOX 買取価格¥{max_price:,}"
+            else:
+                alt_text = f"{p.name} 未開封BOX"
             box_hero_html = (
                 f'<div class="box-hero">'
                 f'<img src="../images/boxes/{BOX_IMAGE_FILES[slug]}" '
-                f'alt="{p.name} パッケージ画像" '
+                f'alt="{alt_text}" '
                 f'loading="lazy" decoding="async">'
                 f'</div>'
             )
@@ -1300,6 +1320,8 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 .article-nav-title{{font-size:13px;font-weight:700;margin-bottom:8px;color:var(--text)}}
 .article-nav a{{display:block;font-size:12px;color:var(--text-sub);text-decoration:none;padding:5px 0 5px 12px;border-left:2px solid var(--border);line-height:1.4;transition:all .2s}}
 .article-nav a:hover{{color:var(--accent);border-left-color:var(--accent)}}
+.article-nav a.current{{color:var(--accent);border-left-color:var(--accent);font-weight:600}}
+.article-nav-sub{{font-size:12px;font-weight:700;margin:14px 0 6px;color:#b91c1c;padding-top:10px;border-top:1px solid var(--border)}}
 @media(max-width:1023px){{.content-layout{{display:block}}.article-nav{{display:none}}}}
 .breadcrumb{{font-size:12px;color:var(--text-sub);margin-bottom:20px}}
 .breadcrumb a{{color:var(--accent);text-decoration:none}}
@@ -1342,10 +1364,10 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 
 <div class="content-layout">
 <nav class="article-nav">
-<div class="article-nav-title">コンテンツ</div>
+<div class="article-nav-title">一般記事</div>
 <a href="index.html">買取価格比較</a>
 <a href="weekly/">🔥 今週の急上昇記事</a>
-<a href="inferno-x-spotlight.html">【特集】インフェルノX高騰</a>
+<a href="ranking.html" class="current">上昇ランキング</a>
 <a href="kaitori-tips.html">BOX買取のコツ</a>
 <a href="shop-hikaku.html">8店舗比較</a>
 <a href="single-card-tips.html">シングル売り</a>
@@ -1353,6 +1375,22 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <a href="mercari-hikaku.html">メルカリ・スニダン比較</a>
 <a href="shrink-nashi.html">シュリンクなしBOX</a>
 <a href="box-toushi.html">BOX投資の始め方</a>
+<a href="restock-guide.html">再販情報の見つけ方</a>
+<div class="article-nav-sub">🔥 BOX深掘り特集</div>
+<a href="151-spotlight.html">【特集】ポケモンカード151高騰</a>
+<a href="inferno-x-spotlight.html">【特集】インフェルノX高騰</a>
+<a href="kokuen-spotlight.html">【特集】黒炎の支配者高騰</a>
+<div class="article-nav-sub" style="color:#6d28d9">📘 掘り下げガイド</div>
+<a href="zeppan-ranking-2026-03.html">📊 S&amp;S以降 絶版BOXランキング</a>
+<a href="lizardon-box-guide.html">🔥 リザードン高騰BOX完全ガイド</a>
+<a href="mega-pack-compare.html">⚡ MEGA拡張パック完全比較</a>
+<a href="kokuen-vs-rocket.html">⚔️ 黒炎 vs ロケット団の栄光</a>
+<a href="mega-lizardon-x-guide.html">メガリザードンXex MUR/SAR</a>
+<a href="lizardon-sar-kokuen-guide.html">リザードンex SAR(黒炎)</a>
+<a href="erika-sar-guide.html">エリカの招待 SAR</a>
+<a href="pigeot-sar-guide.html">ピジョットex SAR</a>
+<a href="masterball-mirror-guide.html">151マスターボールミラー</a>
+<a href="kokuen-atari-guide.html">黒炎 当たりカード完全ガイド</a>
 </nav>
 
 <div class="main-card">
