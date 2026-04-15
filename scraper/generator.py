@@ -1577,23 +1577,31 @@ def generate_weekly_article(
     weekly_dir = project_root / "weekly"
     weekly_dir.mkdir(exist_ok=True)
 
-    # Generate the current week's article
-    out_path = weekly_dir / f"{iso_year}-w{iso_week:02d}.html"
-    html = build_weekly_html(
-        year=iso_year,
-        week_no=iso_week,
-        today_str=today_str,
-        week_ago_str=week_ago_str,
-        update_date=update_date,
-        top_gainers=top_gainers,
-        minor_gainers=minor_gainers,
-        ss_top_gainers=ss_top_gainers,
-        all_changes=sv_mega_changes,  # stats use SV+MEGA only (main set)
-        chart_dates=chart_dates,
-        chart_history=chart_history,
-    )
-    out_path.write_text(html, encoding="utf-8")
-    logger.info("Generated weekly article: %s (%d gainers)", out_path, len(top_gainers))
+    # Only publish weekly article on Sunday (Python weekday=6).
+    # On other days, keep the existing file untouched and only regenerate the
+    # archive index below.
+    if today_dt.weekday() == 6:
+        out_path = weekly_dir / f"{iso_year}-w{iso_week:02d}.html"
+        html = build_weekly_html(
+            year=iso_year,
+            week_no=iso_week,
+            today_str=today_str,
+            week_ago_str=week_ago_str,
+            update_date=update_date,
+            top_gainers=top_gainers,
+            minor_gainers=minor_gainers,
+            ss_top_gainers=ss_top_gainers,
+            all_changes=sv_mega_changes,  # stats use SV+MEGA only (main set)
+            chart_dates=chart_dates,
+            chart_history=chart_history,
+        )
+        out_path.write_text(html, encoding="utf-8")
+        logger.info("Generated weekly article: %s (%d gainers)", out_path, len(top_gainers))
+    else:
+        logger.info(
+            "Weekly article publish is Sunday-only; today=%s (weekday=%d), skipping write",
+            today_dt, today_dt.weekday()
+        )
 
     # Build archive index from all existing weekly files
     all_weekly_files = sorted(weekly_dir.glob("*.html"), reverse=True)
