@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 JST = timezone(timedelta(hours=9))
 
 # Shop IDs in display order
-SHOP_IDS = ["morimori", "homura", "icchome", "runto", "sommelier", "kaikyo", "shouten", "rudeya"]
+SHOP_IDS = ["morimori", "homura", "icchome", "runto", "sommelier", "kaikyo", "oku", "rudeya"]
 
 # BOX individual images (gamepedia.jp + 楽天から取得、ユーザー目視確認済み)
 BOX_IMAGE_FILES: dict[str, str] = {
@@ -253,7 +253,7 @@ def generate_ai_summary(products: list[MasterProduct]) -> str:
     shop_names = {
         "morimori": "森森買取", "homura": "買取ホムラ", "icchome": "買取一丁目",
         "runto": "ラントゥ買取", "sommelier": "買取ソムリエ", "kaikyo": "海峡通信",
-        "shouten": "買取商店", "rudeya": "買取ルデヤ",
+        "oku": "買取オク", "rudeya": "買取ルデヤ",
     }
 
     lines = []
@@ -517,7 +517,7 @@ SHOP_NAMES = {
     "runto": "ラントゥ買取",
     "sommelier": "買取ソムリエ",
     "kaikyo": "海峡通信",
-    "shouten": "買取商店",
+    "oku": "買取オク",
     "rudeya": "買取ルデヤ",
 }
 
@@ -528,7 +528,7 @@ SHOP_URLS = {
     "runto": "https://runto666.com/",
     "sommelier": "https://somurie-kaitori.com/",
     "kaikyo": "https://www.mobile-ichiban.com/",
-    "shouten": "https://www.kaitorishouten-co.jp/",
+    "oku": "https://kaitori-oku.jp/",
     "rudeya": "https://kaitori-rudeya.com/",
 }
 
