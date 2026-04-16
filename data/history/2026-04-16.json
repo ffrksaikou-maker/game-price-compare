@@ -11,7 +11,7 @@
       "runto": 13500,
       "icchome": 13500,
       "oku": 13500,
-      "kaikyo": 13000,
+      "kaikyo": 13500,
       "sommelier": 13300
     }
   },
@@ -27,7 +27,7 @@
       "runto": 9000,
       "icchome": 9000,
       "oku": 8900,
-      "kaikyo": 8000,
+      "kaikyo": 9000,
       "sommelier": 8700
     }
   },
@@ -55,7 +55,7 @@
       "runto": 15300,
       "icchome": 15300,
       "oku": 15300,
-      "kaikyo": 15000,
+      "kaikyo": 15300,
       "sommelier": 14000
     }
   },
@@ -71,7 +71,6 @@
       "runto": 28500,
       "icchome": 29300,
       "oku": 29300,
-      "kaikyo": 27000,
       "sommelier": 27000
     }
   },
@@ -87,7 +86,7 @@
       "runto": 13800,
       "icchome": 14200,
       "oku": 14000,
-      "kaikyo": 12500
+      "kaikyo": 14100
     }
   },
   {
@@ -99,10 +98,10 @@
       "morimori": 11600,
       "homura": 11500,
       "rudeya": 11500,
-      "runto": 11500,
+      "runto": 11600,
       "icchome": 11400,
       "oku": 11500,
-      "kaikyo": 9200,
+      "kaikyo": 11000,
       "sommelier": 9500
     }
   },
@@ -208,7 +207,7 @@
       "runto": 11000,
       "icchome": 10600,
       "oku": 10800,
-      "kaikyo": 10500,
+      "kaikyo": 11000,
       "sommelier": 10500
     }
   },
@@ -336,7 +335,7 @@
       "runto": 13000,
       "icchome": 12900,
       "oku": 13000,
-      "kaikyo": 12000,
+      "kaikyo": 12800,
       "sommelier": 13000
     }
   },
@@ -362,13 +361,13 @@
     "retail_price": 5500,
     "max_price": 20100,
     "prices": {
-      "morimori": 20000,
+      "morimori": 19600,
       "homura": 19500,
       "rudeya": 20100,
       "runto": 19500,
       "icchome": 20000,
       "oku": 19500,
-      "kaikyo": 17000,
+      "kaikyo": 17800,
       "sommelier": 18500
     }
   },
@@ -446,7 +445,7 @@
       "runto": 65000,
       "icchome": 68800,
       "oku": 69000,
-      "kaikyo": 66000,
+      "kaikyo": 69000,
       "sommelier": 66500
     }
   },
@@ -462,7 +461,7 @@
       "runto": 12500,
       "icchome": 12700,
       "oku": 12700,
-      "kaikyo": 12000
+      "kaikyo": 12700
     }
   },
   {
@@ -534,9 +533,9 @@
     "prices": {
       "homura": 31000,
       "rudeya": 32500,
-      "runto": 31000,
+      "runto": 31500,
       "icchome": 32300,
-      "kaikyo": 29000,
+      "kaikyo": 32400,
       "sommelier": 31000
     }
   },
@@ -664,7 +663,7 @@
     "retail_price": 5500,
     "max_price": 70000,
     "prices": {
-      "homura": 66000,
+      "homura": 70000,
       "runto": 60500,
       "oku": 70000,
       "sommelier": 65000
@@ -674,9 +673,9 @@
     "name": "S&S 拡張パック「フュージョンアーツ」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 63000,
+    "max_price": 65000,
     "prices": {
-      "homura": 63000,
+      "homura": 65000,
       "runto": 55000,
       "oku": 62000,
       "sommelier": 60000
@@ -695,9 +694,9 @@
     "name": "S&S 拡張パック「摩天パーフェクト」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 21000,
+    "max_price": 22000,
     "prices": {
-      "homura": 21000,
+      "homura": 22000,
       "oku": 18000
     }
   },
@@ -717,9 +716,9 @@
     "name": "S&S 拡張パック「白銀のランス」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 18500,
+    "max_price": 19000,
     "prices": {
-      "homura": 18500,
+      "homura": 19000,
       "runto": 15000,
       "oku": 18500
     }
@@ -767,7 +766,7 @@
     "retail_price": 5500,
     "max_price": 19000,
     "prices": {
-      "homura": 18600,
+      "homura": 19000,
       "runto": 18500,
       "oku": 19000,
       "sommelier": 18500
@@ -853,11 +852,11 @@
     "retail_price": 2090,
     "max_price": 18000,
     "prices": {
-      "homura": 17500,
+      "homura": 18000,
       "rudeya": 17000,
       "runto": 18000,
       "icchome": 18000,
-      "kaikyo": 16000
+      "kaikyo": 17500
     }
   },
   {
@@ -866,11 +865,11 @@
     "retail_price": 2090,
     "max_price": 26000,
     "prices": {
-      "homura": 24000,
+      "homura": 25000,
       "rudeya": 24500,
-      "runto": 25000,
+      "runto": 26000,
       "icchome": 24000,
-      "kaikyo": 21000,
+      "kaikyo": 25500,
       "sommelier": 26000
     }
   },
@@ -880,11 +879,11 @@
     "retail_price": 2090,
     "max_price": 25000,
     "prices": {
-      "homura": 20000,
+      "homura": 22000,
       "rudeya": 23000,
       "runto": 25000,
       "icchome": 24000,
-      "kaikyo": 20800
+      "kaikyo": 25000
     }
   }
 ]
