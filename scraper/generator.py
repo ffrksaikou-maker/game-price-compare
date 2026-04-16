@@ -111,6 +111,7 @@ BLOG_ARTICLES = [
     {"url": "chouden-breaker-spotlight.html", "title": "超電ブレイカーが定価7.5倍に高騰", "desc": "BOX買取¥40,700、定価の7.5倍に達した超電ブレイカー(SV8)。ピカチュウex SAR¥55,000・ぎどら氏イラストの高騰5つの理由、Jレギュ前のスタン現役期の今後を解説。", "date": "2026-04-15"},
     {"url": "clay-burst-spotlight.html", "title": "クレイバーストとナンジャモSAR相場解説", "desc": "BOX買取¥12,200、Gレギュ絶版観測で再評価中のクレイバースト(SV2D)。ナンジャモSAR¥50,000・PSA10で¥108,000・kirisAki氏イラストを含む5つの注目理由を解説。", "date": "2026-04-15"},
     {"url": "ninja-spinner-spotlight.html", "title": "ニンジャスピナー(M4)が定価2.5倍に高騰", "desc": "BOX買取¥13,400、メガゲッコウガex MUR¥95,000(封入率約0.9〜2%)・SAR¥40,000(前屋進氏イラスト進化ライン一枚絵)・HP350の対戦実需・180円定価最後のMEGA弾の5つの高騰理由を解説。", "date": "2026-04-16"},
+    {"url": "price-pattern-guide.html", "title": "BOX買取価格の5段階パターン", "desc": "発売前プレ値→初動高値→調整期→底打ち→絶版急騰の5段階を当サイト40日観測データと5スポットライトBOXの具体値で実証解説。買い時売り時の3判断基準、2024年バブル崩壊の教訓も紹介。", "date": "2026-04-16"},
     {"url": "151-spotlight.html", "title": "ポケモンカード151がなぜ高い？定価12倍超え", "desc": "BOX買取¥68,200、定価の12.6倍に達した151の絶版観測、5つの高騰理由、今後どこまで上がるかの3シナリオを実データで解説。", "date": "2026-04-14"},
     {"url": "kokuen-spotlight.html", "title": "黒炎の支配者が定価の約4倍に高騰", "desc": "BOX買取¥21,200、Gレギュ絶版観測で上昇継続中。リザードンex SAR(悪テラスタル)を筆頭に5つの高騰理由と今後の予想を解説。", "date": "2026-04-14"},
     {"url": "zeppan-ranking-2026-03.html", "title": "S&S以降 絶版BOXランキング", "desc": "Gレギュスタン落ち済みBOXを中心に、絶版観測・事実上絶版のBOXを相場順ランキング。中長期投資の判断材料に。", "date": "2026-04-14"},
@@ -946,6 +947,7 @@ def _update_sitemap(
         ("/kokuen-atari-guide.html", "monthly", "0.8", "2026-04-14"),
         ("/restock-guide.html", "monthly", "0.8", "2026-04-10"),
         ("/release-schedule-2026.html", "monthly", "0.8", "2026-04-15"),
+        ("/price-pattern-guide.html", "monthly", "0.8", "2026-04-16"),
         ("/box-toushi.html", "monthly", "0.8", "2026-04-02"),
         ("/shrink-nashi.html", "monthly", "0.8", "2026-03-27"),
         ("/mercari-hikaku.html", "monthly", "0.8", "2026-03-26"),
@@ -1400,6 +1402,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <a href="box-toushi.html">BOX投資の始め方</a>
 <a href="restock-guide.html">再販情報の見つけ方</a>
 <a href="release-schedule-2026.html">📅 2026年 新弾カレンダー</a>
+<a href="price-pattern-guide.html">📈 相場5段階パターン</a>
 <div class="article-nav-sub">🔥 BOX深掘り特集</div>
 <a href="151-spotlight.html">【特集】ポケモンカード151高騰</a>
 <a href="inferno-x-spotlight.html">【特集】インフェルノX高騰</a>
