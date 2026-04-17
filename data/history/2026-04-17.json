@@ -534,7 +534,7 @@
     "prices": {
       "homura": 31500,
       "rudeya": 32500,
-      "runto": 31500,
+      "runto": 32000,
       "icchome": 32300,
       "kaikyo": 32400,
       "sommelier": 31000
@@ -851,10 +851,10 @@
     "name": "スペシャルBOX トウホク",
     "category": "special",
     "retail_price": 2090,
-    "max_price": 18500,
+    "max_price": 18200,
     "prices": {
       "homura": 18000,
-      "rudeya": 18500,
+      "rudeya": 18200,
       "runto": 18000,
       "icchome": 18000,
       "kaikyo": 17500
