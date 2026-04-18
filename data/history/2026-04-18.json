@@ -6,7 +6,7 @@
     "max_price": 13600,
     "prices": {
       "morimori": 13500,
-      "homura": 13500,
+      "homura": 13600,
       "rudeya": 13550,
       "runto": 13500,
       "icchome": 13500,
@@ -35,9 +35,9 @@
     "name": "MEGA スタートデッキ100「バトルコレクション」",
     "category": "mega",
     "retail_price": 891,
-    "max_price": 4200,
+    "max_price": 4300,
     "prices": {
-      "homura": 4000,
+      "homura": 4300,
       "rudeya": 4200,
       "runto": 4200,
       "icchome": 4200,
@@ -83,7 +83,7 @@
     "max_price": 14600,
     "prices": {
       "morimori": 14600,
-      "homura": 14000,
+      "homura": 14500,
       "rudeya": 14100,
       "runto": 14000,
       "icchome": 14200,
@@ -98,7 +98,7 @@
     "max_price": 11800,
     "prices": {
       "morimori": 11800,
-      "homura": 11700,
+      "homura": 11800,
       "rudeya": 11700,
       "runto": 11700,
       "icchome": 11400,
@@ -139,10 +139,10 @@
     "name": "SV 拡張パック「ブラックボルト」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 28600,
+    "max_price": 28700,
     "prices": {
       "morimori": 28600,
-      "homura": 28500,
+      "homura": 28700,
       "rudeya": 28500,
       "runto": 28000,
       "icchome": 27000,
@@ -168,10 +168,10 @@
     "name": "SV 拡張パック「ロケット団の栄光」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 30600,
+    "max_price": 30800,
     "prices": {
       "morimori": 30600,
-      "homura": 30500,
+      "homura": 30800,
       "rudeya": 30300,
       "runto": 30000,
       "icchome": 29500,
@@ -187,7 +187,7 @@
     "max_price": 22600,
     "prices": {
       "morimori": 22600,
-      "homura": 22000,
+      "homura": 22600,
       "rudeya": 22100,
       "runto": 22000,
       "icchome": 22000,
@@ -219,7 +219,7 @@
     "max_price": 24200,
     "prices": {
       "morimori": 24200,
-      "homura": 24000,
+      "homura": 24200,
       "rudeya": 24100,
       "runto": 23500,
       "icchome": 23900,
@@ -235,7 +235,7 @@
     "max_price": 41000,
     "prices": {
       "morimori": 40600,
-      "homura": 40500,
+      "homura": 41000,
       "rudeya": 40800,
       "runto": 36000,
       "icchome": 40600,
@@ -251,7 +251,7 @@
     "max_price": 21000,
     "prices": {
       "morimori": 21000,
-      "homura": 20500,
+      "homura": 21000,
       "rudeya": 20600,
       "runto": 20500,
       "icchome": 20500,
@@ -267,7 +267,7 @@
     "max_price": 10800,
     "prices": {
       "morimori": 10800,
-      "homura": 10600,
+      "homura": 10800,
       "rudeya": 10700,
       "runto": 10800,
       "icchome": 10500,
@@ -299,7 +299,7 @@
     "max_price": 13700,
     "prices": {
       "morimori": 13700,
-      "homura": 13200,
+      "homura": 13700,
       "rudeya": 13300,
       "runto": 12500,
       "icchome": 13500,
@@ -312,10 +312,10 @@
     "name": "SV 拡張パック「クリムゾンヘイズ」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 16200,
+    "max_price": 16300,
     "prices": {
       "morimori": 16200,
-      "homura": 16000,
+      "homura": 16300,
       "rudeya": 16000,
       "runto": 16000,
       "icchome": 16000,
@@ -331,7 +331,7 @@
     "max_price": 13200,
     "prices": {
       "morimori": 13200,
-      "homura": 13000,
+      "homura": 13200,
       "rudeya": 13000,
       "runto": 13000,
       "icchome": 12900,
@@ -347,7 +347,7 @@
     "max_price": 10800,
     "prices": {
       "morimori": 10800,
-      "homura": 10700,
+      "homura": 10800,
       "rudeya": 10600,
       "runto": 10600,
       "icchome": 10500,
@@ -363,7 +363,7 @@
     "max_price": 21200,
     "prices": {
       "morimori": 21200,
-      "homura": 20000,
+      "homura": 20200,
       "rudeya": 20100,
       "runto": 20000,
       "icchome": 20000,
@@ -409,7 +409,7 @@
     "max_price": 13800,
     "prices": {
       "morimori": 13800,
-      "homura": 13500,
+      "homura": 13800,
       "rudeya": 13700,
       "runto": 13700,
       "icchome": 13500,
@@ -441,7 +441,7 @@
     "max_price": 70000,
     "prices": {
       "morimori": 69500,
-      "homura": 68000,
+      "homura": 70000,
       "rudeya": 68800,
       "runto": 65000,
       "icchome": 68800,
@@ -457,7 +457,7 @@
     "max_price": 12800,
     "prices": {
       "morimori": 12800,
-      "homura": 12500,
+      "homura": 12700,
       "rudeya": 12600,
       "runto": 12500,
       "icchome": 12700,
@@ -472,7 +472,7 @@
     "max_price": 11500,
     "prices": {
       "morimori": 11000,
-      "homura": 11000,
+      "homura": 11200,
       "rudeya": 11100,
       "runto": 10500,
       "icchome": 11000,
@@ -485,10 +485,10 @@
     "name": "SV 強化拡張パック「トリプレットビート」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 17400,
+    "max_price": 17500,
     "prices": {
       "morimori": 17400,
-      "homura": 17000,
+      "homura": 17500,
       "rudeya": 17100,
       "runto": 15500,
       "icchome": 17000,
@@ -534,7 +534,7 @@
     "retail_price": 5500,
     "max_price": 32500,
     "prices": {
-      "homura": 31500,
+      "homura": 32000,
       "rudeya": 32500,
       "runto": 32000,
       "icchome": 32300,
@@ -546,10 +546,10 @@
     "name": "S&S 拡張パック「パラダイムトリガー」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 33400,
+    "max_price": 34000,
     "prices": {
       "morimori": 33400,
-      "homura": 32000,
+      "homura": 34000,
       "runto": 32000,
       "oku": 33000,
       "kaikyo": 22400
@@ -559,10 +559,10 @@
     "name": "S&S 強化拡張パック「白熱のアルカナ」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 12000,
+    "max_price": 12200,
     "prices": {
       "morimori": 10000,
-      "homura": 12000,
+      "homura": 12200,
       "runto": 10500,
       "oku": 12000,
       "kaikyo": 8800,
@@ -585,9 +585,9 @@
     "name": "S&S 強化拡張パック「ポケモンGO」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 23000,
+    "max_price": 24000,
     "prices": {
-      "homura": 23000,
+      "homura": 24000,
       "runto": 22000,
       "oku": 22000
     }
@@ -596,9 +596,9 @@
     "name": "S&S 強化拡張パック「ダークファンタズマ」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 23000,
+    "max_price": 25000,
     "prices": {
-      "homura": 22500,
+      "homura": 25000,
       "runto": 22500,
       "oku": 23000,
       "sommelier": 22500
@@ -620,9 +620,9 @@
     "name": "S&S 拡張パック「スペースジャグラー」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 15500,
+    "max_price": 16000,
     "prices": {
-      "homura": 15500,
+      "homura": 16000,
       "sommelier": 15500
     }
   },
@@ -630,9 +630,9 @@
     "name": "S&S 強化拡張パック「バトルリージョン」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 14300,
+    "max_price": 15500,
     "prices": {
-      "homura": 14300,
+      "homura": 15500,
       "runto": 13000,
       "oku": 12500
     }
@@ -643,7 +643,7 @@
     "retail_price": 4950,
     "max_price": 25000,
     "prices": {
-      "homura": 24500,
+      "homura": 25000,
       "runto": 22000,
       "oku": 21000,
       "sommelier": 25000
@@ -653,9 +653,9 @@
     "name": "S&S ハイクラスパック「VMAXクライマックス」",
     "category": "ss",
     "retail_price": 5500,
-    "max_price": 33000,
+    "max_price": 34000,
     "prices": {
-      "homura": 33000,
+      "homura": 34000,
       "runto": 27500,
       "kaikyo": 23300
     }
@@ -676,9 +676,9 @@
     "name": "S&S 拡張パック「フュージョンアーツ」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 65000,
+    "max_price": 66000,
     "prices": {
-      "homura": 65000,
+      "homura": 66000,
       "runto": 55000,
       "oku": 62000,
       "sommelier": 63000
@@ -707,9 +707,9 @@
     "name": "S&S 強化拡張パック「イーブイヒーローズ」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 170000,
+    "max_price": 172000,
     "prices": {
-      "homura": 170000,
+      "homura": 172000,
       "runto": 165000,
       "oku": 164000,
       "kaikyo": 145000
