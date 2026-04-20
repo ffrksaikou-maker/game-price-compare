@@ -78,6 +78,10 @@ class MasterProduct:
 # Master product list - canonical names and keywords for matching
 MASTER_PRODUCTS: list[MasterProduct] = [
     # ===== MEGA (新しい順) =====
+    MasterProduct("mega", '🔥 NEW: MEGA 拡張パック「アビスアイ」(2026-05-22発売予定)', 6000, "2026-05-22",
+                  desc="MEGAシリーズ第5弾。値上げ後初の拡張パック(定価200円/BOX 6,000円)。メガダークライex収録、2026年5月22日発売。",
+                  keywords=["アビスアイ", "ABYSSEYE", "ABYSS EYE"],
+                  hit_cards=[("メガダークライex MUR", "MUR封入率約45BOXに1枚予想。ダークライ人気で初動10万円超が予想される最注目カード(メディア予想)"), ("メガダークライex SAR", "パッケージ目玉のSAR版。ワザ『アビスアイ』は特殊状態なら残HP無視できぜつの強力効果"), ("カラマネロ SAR", "マーイーカ進化ポケモン。こんらん付与でメガダークライexと連携する特殊状態デッキの核")]),
     MasterProduct("mega", 'MEGA 拡張パック「ニンジャスピナー」', 5400, "2026-03-13",
                   desc="MEGAシリーズ第4弾。2026年3月発売。",
                   keywords=["ニンジャスピナー", "NINJASPINNER", "NINJA SPINNER"],

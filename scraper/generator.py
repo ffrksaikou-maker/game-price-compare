@@ -106,7 +106,7 @@ def get_box_image_url(slug: str) -> str:
 # Blog articles (newest first) - 記事追加時はここに1行足すだけ
 BLOG_ARTICLES = [
     {"url": "weekly/", "title": "【今週】ポケカBOX 週間急上昇ランキング", "desc": "SV・MEGA TOP10 + S&S TOP3を毎日自動更新。8店舗実データから抽出した直近7日間で最も値上がりしたBOXをグラフ付きで掲載。", "date": "2026-04-12"},
-    {"url": "release-schedule-2026.html", "title": "2026年ポケカ新弾発売カレンダー", "desc": "2026年の発売済み/予想パックを完全整理。ムニキスゼロ・ニンジャスピナー発売済み、5月値上げ(180→200円)、アビスアイ等の商標予想、30周年記念商品(世界同時発売)まで解説。", "date": "2026-04-15"},
+    {"url": "release-schedule-2026.html", "title": "2026年ポケカ新弾発売カレンダー", "desc": "ムニキスゼロ・ニンジャスピナー発売済み、アビスアイ(5/22発売決定・メガダークライex)、5月値上げ(180→200円)、商標予想(ストームエメラルダ等)、30周年記念商品(世界同時発売)まで完全整理。", "date": "2026-04-21"},
     {"url": "inferno-x-spotlight.html", "title": "インフェルノXが定価の5倍に高騰", "desc": "発売半年で定価¥5,400→¥27,000(約5倍)に急騰したインフェルノXの相場推移、収録カード、3つの高騰理由を実データで徹底解説。", "date": "2026-04-12"},
     {"url": "chouden-breaker-spotlight.html", "title": "超電ブレイカーが定価7.5倍に高騰", "desc": "BOX買取¥40,700、定価の7.5倍に達した超電ブレイカー(SV8)。ピカチュウex SAR¥55,000・ぎどら氏イラストの高騰5つの理由、Jレギュ前のスタン現役期の今後を解説。", "date": "2026-04-15"},
     {"url": "clay-burst-spotlight.html", "title": "クレイバーストとナンジャモSAR相場解説", "desc": "BOX買取¥12,200、Gレギュ絶版観測で再評価中のクレイバースト(SV2D)。ナンジャモSAR¥50,000・PSA10で¥108,000・kirisAki氏イラストを含む5つの注目理由を解説。", "date": "2026-04-15"},
@@ -420,6 +420,7 @@ SLUG_OVERRIDES = {
 
 # Romanization map for common Pokemon TCG terms
 ROMAJI_MAP = {
+    "アビスアイ": "abyss-eye",
     "ニンジャスピナー": "ninja-spinner",
     "ムニキスゼロ": "munikis-zero",
     "メガドリーム": "mega-dream",
