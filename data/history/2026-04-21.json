@@ -72,8 +72,7 @@
       "runto": 28500,
       "icchome": 29000,
       "oku": 29500,
-      "kaikyo": 29300,
-      "sommelier": 29000
+      "kaikyo": 29300
     }
   },
   {
@@ -88,8 +87,7 @@
       "runto": 14500,
       "icchome": 14500,
       "oku": 14500,
-      "kaikyo": 14800,
-      "sommelier": 14500
+      "kaikyo": 14800
     }
   },
   {
@@ -226,7 +224,7 @@
       "icchome": 24500,
       "oku": 24700,
       "kaikyo": 24200,
-      "sommelier": 24000
+      "sommelier": 23500
     }
   },
   {
@@ -274,7 +272,7 @@
       "icchome": 10500,
       "oku": 10800,
       "kaikyo": 8700,
-      "sommelier": 11000
+      "sommelier": 10800
     }
   },
   {
@@ -321,8 +319,7 @@
       "runto": 16500,
       "icchome": 16300,
       "oku": 16500,
-      "kaikyo": 16000,
-      "sommelier": 16000
+      "kaikyo": 16000
     }
   },
   {
@@ -447,8 +444,7 @@
       "runto": 68000,
       "icchome": 69500,
       "oku": 71000,
-      "kaikyo": 70000,
-      "sommelier": 68500
+      "kaikyo": 70000
     }
   },
   {
