@@ -277,9 +277,9 @@ def generate_ai_summary(products: list[MasterProduct]) -> str:
 
 
 def generate_blog_links() -> str:
-    """Generate blog cards: random + two pinned (weekly + new schedule article)."""
-    # Pinned固定: BLOG_ARTICLES[0] = weekly, [1] = release-schedule-2026
-    pinned = BLOG_ARTICLES[:2]
+    """Generate blog cards: random + three pinned (weekly + schedule + abyss forecast)."""
+    # Pinned固定: BLOG_ARTICLES[0] = weekly, [1] = release-schedule-2026, [2] = abyss-eye-forecast
+    pinned = BLOG_ARTICLES[:3]
     pinned_urls = {a["url"] for a in pinned}
     # 残りはJSでランダム選択
     candidates = [a for a in BLOG_ARTICLES if a["url"] not in pinned_urls]
