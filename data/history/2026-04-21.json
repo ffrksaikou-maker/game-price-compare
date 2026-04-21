@@ -53,7 +53,7 @@
       "morimori": 15800,
       "homura": 15800,
       "rudeya": 15800,
-      "runto": 15800,
+      "runto": 15900,
       "icchome": 15800,
       "oku": 16100,
       "kaikyo": 16000,
@@ -70,7 +70,7 @@
       "homura": 29200,
       "rudeya": 29300,
       "runto": 28500,
-      "icchome": 29200,
+      "icchome": 29000,
       "oku": 29500,
       "kaikyo": 29300,
       "sommelier": 29000
@@ -201,12 +201,12 @@
     "name": "SV 拡張パック「バトルパートナーズ」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 11400,
+    "max_price": 11000,
     "prices": {
       "morimori": 11000,
       "homura": 11000,
       "rudeya": 11000,
-      "runto": 11400,
+      "runto": 11000,
       "icchome": 10800,
       "oku": 10800,
       "kaikyo": 11000,
@@ -265,7 +265,7 @@
     "name": "SV 強化拡張パック「ステラミラクル」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 12000,
+    "max_price": 11000,
     "prices": {
       "morimori": 10800,
       "homura": 10800,
@@ -274,19 +274,19 @@
       "icchome": 10500,
       "oku": 10800,
       "kaikyo": 8700,
-      "sommelier": 12000
+      "sommelier": 11000
     }
   },
   {
     "name": "SV 強化拡張パック「ナイトワンダラー」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 11000,
+    "max_price": 10800,
     "prices": {
       "morimori": 10800,
       "homura": 10800,
       "rudeya": 10700,
-      "runto": 11000,
+      "runto": 10800,
       "icchome": 10500,
       "oku": 10800,
       "kaikyo": 9600,
@@ -334,7 +334,7 @@
       "morimori": 13500,
       "homura": 13200,
       "rudeya": 13300,
-      "runto": 13500,
+      "runto": 13200,
       "icchome": 13200,
       "oku": 13500,
       "kaikyo": 12800,
@@ -350,7 +350,7 @@
       "morimori": 10800,
       "homura": 10800,
       "rudeya": 10900,
-      "runto": 11000,
+      "runto": 10600,
       "icchome": 10800,
       "oku": 10600,
       "kaikyo": 8700,
@@ -382,9 +382,9 @@
       "morimori": 11000,
       "homura": 11000,
       "rudeya": 10800,
-      "runto": 11000,
+      "runto": 10800,
       "icchome": 10600,
-      "oku": 10600,
+      "oku": 11000,
       "sommelier": 11000
     }
   },
@@ -392,14 +392,14 @@
     "name": "SV 拡張パック「未来の一閃」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 10700,
+    "max_price": 10600,
     "prices": {
       "morimori": 10000,
       "homura": 10500,
       "rudeya": 10300,
-      "runto": 10700,
+      "runto": 10600,
       "icchome": 10200,
-      "oku": 10200,
+      "oku": 10500,
       "sommelier": 10500
     }
   },
@@ -407,12 +407,12 @@
     "name": "SV 強化拡張パック「レイジングサーフ」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 14200,
+    "max_price": 14000,
     "prices": {
       "morimori": 13800,
       "homura": 13800,
       "rudeya": 13900,
-      "runto": 14200,
+      "runto": 13600,
       "icchome": 13800,
       "oku": 14000,
       "kaikyo": 11600,
@@ -462,7 +462,7 @@
       "rudeya": 12900,
       "runto": 12500,
       "icchome": 13000,
-      "oku": 13200,
+      "oku": 12500,
       "kaikyo": 12700
     }
   },
