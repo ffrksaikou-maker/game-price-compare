@@ -118,6 +118,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 .faq-item summary::after{content:"+";position:absolute;right:0;top:0;color:var(--accent);font-size:18px;font-weight:700;transition:transform .2s}
 .faq-item[open] summary::after{content:"−"}
 .faq-item .faq-answer{font-size:13px;color:var(--text-sub);margin-top:10px;line-height:1.7}
+.trend-comment{display:flex;align-items:center;gap:8px;padding:10px 14px;margin:0 0 14px;background:#f9fafb;border-radius:8px;border-left:3px solid currentColor;font-size:13px;font-weight:600}
+.trend-comment .trend-icon{font-size:16px}
 @media(max-width:600px){
   .main-card{padding:20px 16px}
   .main-card h2{font-size:18px}
@@ -172,6 +174,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 <h2>{{PRODUCT_NAME}}</h2>
 <div class="meta"><span>更新: {{UPDATE_DATE}}</span><span>{{CATEGORY_LABEL}}</span></div>
 {{BOX_HERO}}
+{{TREND_COMMENT}}
 <p class="product-desc">{{PRODUCT_DESC}}</p>
 
 <div class="best-price">

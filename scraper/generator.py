@@ -587,6 +587,128 @@ def _format_price(price: int) -> str:
     return f"\u00a5{price:,}"
 
 
+def _generate_trend_comment(
+    product_name: str,
+    history_dir: Path,
+    current_price: int,
+) -> str:
+    """Generate a 1-line price trend comment from history data.
+
+    Returns HTML string with trend indicator. Empty if insufficient data.
+    """
+    if current_price <= 0 or not history_dir.exists():
+        return ""
+
+    # Load last 30 days of own history
+    files = sorted(history_dir.glob("*.json"))
+    if len(files) < 7:
+        return ""
+
+    # Build time series: [(date_str, max_price), ...] for this product
+    series: list[tuple[str, int]] = []
+    for f in files[-60:]:  # up to 60 days
+        try:
+            items = json.loads(f.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            continue
+        for item in items:
+            if item.get("name") == product_name:
+                price = item.get("max_price", 0)
+                if price > 0:
+                    series.append((f.stem, price))
+                break
+
+    if len(series) < 7:
+        return ""
+
+    # 7 days ago point
+    idx_7 = max(0, len(series) - 8)
+    d_7d, p_7d = series[idx_7]
+    # 30 days ago point
+    idx_30 = max(0, len(series) - 31)
+    d_30d, p_30d = series[idx_30]
+    today_str = series[-1][0]
+
+    diff_7 = current_price - p_7d
+    pct_7 = (diff_7 / p_7d * 100) if p_7d > 0 else 0
+
+    # Check for high/low updates (within last 30 days excluding today)
+    recent30 = [p for _, p in series[-31:-1]] if len(series) > 30 else [p for _, p in series[:-1]]
+    high_30 = max(recent30) if recent30 else 0
+    low_30 = min(recent30) if recent30 else 0
+
+    icon = ""
+    color = ""
+    text = ""
+
+    if current_price > high_30 and high_30 > 0:
+        icon = "📈"
+        color = "#dc2626"
+        text = (
+            f"{today_str}時点で過去30日の最高値を更新中 "
+            f"({d_7d}比 {'+' if diff_7 >= 0 else ''}¥{abs(diff_7):,} / "
+            f"{'+' if pct_7 >= 0 else ''}{pct_7:.1f}%)"
+        )
+    elif current_price < low_30 and low_30 > 0:
+        icon = "📉"
+        color = "#2563eb"
+        text = (
+            f"{today_str}時点で過去30日の底値を更新中 "
+            f"({d_7d}比 {'+' if diff_7 >= 0 else ''}¥{abs(diff_7):,} / "
+            f"{'+' if pct_7 >= 0 else ''}{pct_7:.1f}%)"
+        )
+    elif abs(pct_7) >= 5:
+        if pct_7 > 0:
+            icon = "📈"
+            color = "#dc2626"
+            text = f"{d_7d}→{today_str}の7日間で+¥{diff_7:,} (+{pct_7:.1f}%) 上昇中"
+        else:
+            icon = "📉"
+            color = "#2563eb"
+            text = f"{d_7d}→{today_str}の7日間で-¥{abs(diff_7):,} ({pct_7:.1f}%) 下落中"
+    elif p_30d > 0:
+        diff_30 = current_price - p_30d
+        pct_30 = (diff_30 / p_30d * 100) if p_30d > 0 else 0
+        if abs(pct_30) < 3:
+            icon = "➡️"
+            color = "#6b7280"
+            text = f"{d_30d}→{today_str}の30日間で±3%以内の横ばい推移"
+        elif pct_30 >= 25:
+            icon = "🚀"
+            color = "#dc2626"
+            text = f"{d_30d}→{today_str}の30日間で+¥{diff_30:,} (+{pct_30:.1f}%) 急騰中"
+        elif pct_30 >= 10:
+            icon = "📈"
+            color = "#dc2626"
+            text = f"{d_30d}→{today_str}の30日間で+¥{diff_30:,} (+{pct_30:.1f}%) 上昇トレンド"
+        elif pct_30 > 0:
+            icon = "📈"
+            color = "#dc2626"
+            text = f"{d_30d}→{today_str}の30日間で+¥{diff_30:,} (+{pct_30:.1f}%) 緩やか上昇"
+        elif pct_30 <= -25:
+            icon = "⚠️"
+            color = "#2563eb"
+            text = f"{d_30d}→{today_str}の30日間で-¥{abs(diff_30):,} ({pct_30:.1f}%) 急落"
+        elif pct_30 <= -10:
+            icon = "📉"
+            color = "#2563eb"
+            text = f"{d_30d}→{today_str}の30日間で-¥{abs(diff_30):,} ({pct_30:.1f}%) 下落トレンド"
+        else:
+            icon = "📉"
+            color = "#2563eb"
+            text = f"{d_30d}→{today_str}の30日間で-¥{abs(diff_30):,} ({pct_30:.1f}%) 緩やか下落"
+
+    if not text:
+        return ""
+
+    return (
+        f'<div class="trend-comment" style="color:{color}">'
+        f'<span class="trend-icon">{icon}</span>'
+        f'<span class="trend-text">{text}</span>'
+        f'</div>'
+    )
+
+
 def _generate_box_chart_section(product: MasterProduct, project_root: Path) -> str:
     """Generate inline chart HTML+JS for an individual product page.
 
@@ -940,6 +1062,13 @@ def generate_product_pages(
         # Generate chart section for this product
         chart_section = _generate_box_chart_section(p, project_root)
 
+        # Generate trend comment (1-liner above product description)
+        trend_comment_html = _generate_trend_comment(
+            p.name,
+            project_root / "data" / "history",
+            max_price,
+        )
+
         # Replace all placeholders
         html = template
         html = html.replace("{{PRODUCT_NAME}}", p.name)
@@ -1014,6 +1143,7 @@ def generate_product_pages(
         html = html.replace("{{HERO_PRELOAD}}", hero_preload)
         html = html.replace("{{JSONLD}}", jsonld_tag)
         html = html.replace("{{FAQ_SECTION}}", faq_html)
+        html = html.replace("{{TREND_COMMENT}}", trend_comment_html)
         html = html.replace("<!-- {{CHART_SECTION}} -->", chart_section)
 
         # Write file
