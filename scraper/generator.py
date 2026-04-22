@@ -807,6 +807,22 @@ def generate_product_pages(
         box_image_url = get_box_image_url(slug)
 
         # JSON-LD for individual product
+        # 個別店舗 Offer リスト (AggregateOffer.offers として埋め込み)
+        shop_offers = []
+        for sid, price in sorted_shops:
+            if price <= 0:
+                continue
+            shop_offers.append({
+                "@type": "Offer",
+                "seller": {
+                    "@type": "Organization",
+                    "name": SHOP_NAMES.get(sid, sid),
+                },
+                "price": price,
+                "priceCurrency": "JPY",
+                "availability": "https://schema.org/InStock",
+                "url": _find_product_url(product_urls, sid, p) or SHOP_URLS.get(sid, "#"),
+            })
         product_jsonld = json.dumps({
             "@context": "https://schema.org",
             "@type": "Product",
@@ -824,6 +840,7 @@ def generate_product_pages(
                 "priceCurrency": "JPY",
                 "offerCount": shop_count,
                 "availability": "https://schema.org/InStock",
+                "offers": shop_offers,
             },
         }, ensure_ascii=False, indent=2)
         breadcrumb_jsonld = json.dumps({
@@ -835,10 +852,90 @@ def generate_product_pages(
                 {"@type": "ListItem", "position": 3, "name": p.name},
             ],
         }, ensure_ascii=False, indent=2)
-        jsonld_tag = (
-            f'<script type="application/ld+json">\n{product_jsonld}\n</script>\n'
-            f'<script type="application/ld+json">\n{breadcrumb_jsonld}\n</script>'
-        )
+
+        # FAQ: 事実ベースのQ&A (絶版・再販など推測要素は入れない)
+        faq_items: list[dict] = []
+        if p.release_date:
+            try:
+                rd = datetime.strptime(p.release_date, "%Y-%m-%d").date()
+                faq_items.append({
+                    "q": f"{p.name}はいつ発売されましたか？",
+                    "a": f"{p.name}は{rd.year}年{rd.month}月{rd.day}日に発売されたBOXです。",
+                })
+            except ValueError:
+                pass
+        if p.retail_price > 0:
+            faq_items.append({
+                "q": f"{p.name}の定価はいくらですか？",
+                "a": f"{p.name}の定価(メーカー希望小売価格)は1BOXあたり¥{p.retail_price:,}(税込)です。",
+            })
+        if max_price > 0:
+            faq_items.append({
+                "q": f"{p.name}の最高買取価格はいくらですか？",
+                "a": (
+                    f"{update_date}時点の最高買取価格は¥{max_price:,}({max_shop_name})です。"
+                    f"当サイトでは{shop_count}店舗の買取価格を毎日自動比較しています。"
+                ),
+            })
+        if p.retail_price > 0 and max_price > 0:
+            ratio = max_price / p.retail_price
+            if ratio >= 1.3:
+                faq_items.append({
+                    "q": f"{p.name}は定価より高く売れますか？",
+                    "a": (
+                        f"現在の最高買取価格¥{max_price:,}は定価¥{p.retail_price:,}の約{ratio:.1f}倍です。"
+                        f"ただしシュリンク有無・外箱の状態により実際の買取額は変動します。"
+                    ),
+                })
+        if p.hit_cards:
+            card_names = [
+                c[0] if isinstance(c, (list, tuple)) else c
+                for c in p.hit_cards[:3]
+            ]
+            faq_items.append({
+                "q": f"{p.name}の当たりカードは何ですか？",
+                "a": (
+                    f"主な当たりカードは「{'」「'.join(card_names)}」です。"
+                    f"これらの高額レアカードを引けるかどうかがBOX相場に影響しています。"
+                ),
+            })
+
+        if faq_items:
+            faq_jsonld = json.dumps({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": it["q"],
+                        "acceptedAnswer": {"@type": "Answer", "text": it["a"]},
+                    }
+                    for it in faq_items
+                ],
+            }, ensure_ascii=False, indent=2)
+            faq_html = (
+                '<h3 class="section-title">よくある質問</h3>\n'
+                '<div class="faq-list">\n'
+                + "\n".join(
+                    f'<details class="faq-item"><summary>{it["q"]}</summary>'
+                    f'<div class="faq-answer">{it["a"]}</div></details>'
+                    for it in faq_items
+                )
+                + '\n</div>'
+            )
+        else:
+            faq_jsonld = ""
+            faq_html = ""
+
+        jsonld_parts = [
+            f'<script type="application/ld+json">\n{product_jsonld}\n</script>',
+            f'<script type="application/ld+json">\n{breadcrumb_jsonld}\n</script>',
+        ]
+        if faq_jsonld:
+            jsonld_parts.append(
+                f'<script type="application/ld+json">\n{faq_jsonld}\n</script>'
+            )
+        jsonld_tag = "\n".join(jsonld_parts)
 
         # Generate chart section for this product
         chart_section = _generate_box_chart_section(p, project_root)
@@ -900,14 +997,23 @@ def generate_product_pages(
                 f'<source srcset="../images/boxes/{webp_name}" type="image/webp">'
                 f'<img src="../images/boxes/{jpg_name}" '
                 f'alt="{alt_text}" '
-                f'loading="lazy" decoding="async">'
+                f'loading="eager" fetchpriority="high" decoding="async" '
+                f'width="280" height="280">'
                 f'</picture>'
                 f'</div>'
             )
+            hero_preload = (
+                f'<link rel="preload" as="image" '
+                f'href="../images/boxes/{webp_name}" '
+                f'type="image/webp" fetchpriority="high">'
+            )
         else:
             box_hero_html = ""
+            hero_preload = ""
         html = html.replace("{{BOX_HERO}}", box_hero_html)
+        html = html.replace("{{HERO_PRELOAD}}", hero_preload)
         html = html.replace("{{JSONLD}}", jsonld_tag)
+        html = html.replace("{{FAQ_SECTION}}", faq_html)
         html = html.replace("<!-- {{CHART_SECTION}} -->", chart_section)
 
         # Write file
