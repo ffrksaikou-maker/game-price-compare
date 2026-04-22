@@ -3,14 +3,14 @@
     "name": "MEGA 拡張パック「ニンジャスピナー」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 13700,
+    "max_price": 13500,
     "prices": {
       "morimori": 13000,
       "homura": 13500,
       "rudeya": 13500,
       "runto": 13000,
       "icchome": 13300,
-      "oku": 13700,
+      "oku": 13500,
       "kaikyo": 13500,
       "sommelier": 13500
     }
@@ -19,14 +19,14 @@
     "name": "MEGA 拡張パック「ムニキスゼロ」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 9100,
+    "max_price": 9000,
     "prices": {
       "morimori": 8800,
       "homura": 9000,
       "rudeya": 9000,
       "runto": 9000,
       "icchome": 9000,
-      "oku": 9100,
+      "oku": 9000,
       "kaikyo": 9000,
       "sommelier": 9000
     }
@@ -48,14 +48,14 @@
     "name": "MEGA ハイクラスパック「MEGAドリームex」",
     "category": "mega",
     "retail_price": 5500,
-    "max_price": 16100,
+    "max_price": 16000,
     "prices": {
       "morimori": 15800,
       "homura": 15800,
       "rudeya": 15800,
       "runto": 15900,
       "icchome": 15800,
-      "oku": 16100,
+      "oku": 16000,
       "kaikyo": 16000,
       "sommelier": 16000
     }
@@ -64,14 +64,14 @@
     "name": "MEGA 拡張パック「インフェルノX」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 29500,
+    "max_price": 29300,
     "prices": {
       "morimori": 28600,
       "homura": 29200,
       "rudeya": 29300,
       "runto": 28500,
       "icchome": 29000,
-      "oku": 29500,
+      "oku": 29200,
       "kaikyo": 29300
     }
   },
@@ -86,7 +86,7 @@
       "rudeya": 14500,
       "runto": 14500,
       "icchome": 14500,
-      "oku": 14500,
+      "oku": 14600,
       "kaikyo": 14800
     }
   },
@@ -167,14 +167,14 @@
     "name": "SV 拡張パック「ロケット団の栄光」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 32500,
+    "max_price": 33000,
     "prices": {
       "morimori": 32000,
-      "homura": 31200,
+      "homura": 31500,
       "rudeya": 31300,
       "runto": 31500,
       "icchome": 31500,
-      "oku": 32500,
+      "oku": 33000,
       "kaikyo": 31500,
       "sommelier": 31000
     }
@@ -185,12 +185,12 @@
     "retail_price": 5400,
     "max_price": 24000,
     "prices": {
-      "morimori": 22800,
+      "morimori": 23000,
       "homura": 22600,
       "rudeya": 22700,
       "runto": 23500,
       "icchome": 22600,
-      "oku": 22700,
+      "oku": 23500,
       "kaikyo": 17600,
       "sommelier": 24000
     }
@@ -201,12 +201,12 @@
     "retail_price": 5400,
     "max_price": 11000,
     "prices": {
-      "morimori": 10800,
+      "morimori": 10400,
       "homura": 11000,
       "rudeya": 11000,
       "runto": 11000,
       "icchome": 10800,
-      "oku": 10800,
+      "oku": 11000,
       "kaikyo": 11000,
       "sommelier": 11000
     }
@@ -217,7 +217,7 @@
     "retail_price": 5500,
     "max_price": 24700,
     "prices": {
-      "morimori": 24400,
+      "morimori": 24500,
       "homura": 24200,
       "rudeya": 24500,
       "runto": 23500,
@@ -231,14 +231,14 @@
     "name": "SV 拡張パック「超電ブレイカー」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 43000,
+    "max_price": 43600,
     "prices": {
-      "morimori": 43000,
-      "homura": 41200,
+      "morimori": 43600,
+      "homura": 42500,
       "rudeya": 42700,
       "runto": 40000,
       "icchome": 43000,
-      "oku": 43000,
+      "oku": 42500,
       "kaikyo": 38000,
       "sommelier": 40000
     }
@@ -250,7 +250,7 @@
     "max_price": 21600,
     "prices": {
       "morimori": 21600,
-      "homura": 21000,
+      "homura": 21500,
       "rudeya": 21100,
       "runto": 20500,
       "icchome": 21500,
@@ -302,7 +302,7 @@
       "rudeya": 13700,
       "runto": 13500,
       "icchome": 13900,
-      "oku": 13900,
+      "oku": 13800,
       "kaikyo": 13500,
       "sommelier": 13500
     }
@@ -311,9 +311,9 @@
     "name": "SV 拡張パック「クリムゾンヘイズ」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 16500,
+    "max_price": 16600,
     "prices": {
-      "morimori": 16500,
+      "morimori": 16600,
       "homura": 16300,
       "rudeya": 16300,
       "runto": 16500,
@@ -326,9 +326,9 @@
     "name": "SV 拡張パック「ワイルドフォース」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 13500,
+    "max_price": 13600,
     "prices": {
-      "morimori": 13500,
+      "morimori": 13600,
       "homura": 13200,
       "rudeya": 13300,
       "runto": 13200,
@@ -345,11 +345,11 @@
     "max_price": 11000,
     "prices": {
       "morimori": 10800,
-      "homura": 10800,
+      "homura": 11000,
       "rudeya": 10900,
       "runto": 10600,
       "icchome": 10800,
-      "oku": 10600,
+      "oku": 11000,
       "kaikyo": 8700,
       "sommelier": 11000
     }
@@ -360,12 +360,12 @@
     "retail_price": 5500,
     "max_price": 21300,
     "prices": {
-      "morimori": 21000,
+      "morimori": 21200,
       "homura": 20200,
       "rudeya": 20300,
       "runto": 20000,
       "icchome": 21000,
-      "oku": 21000,
+      "oku": 21200,
       "kaikyo": 21300,
       "sommelier": 20000
     }
@@ -406,8 +406,8 @@
     "retail_price": 5400,
     "max_price": 14000,
     "prices": {
-      "morimori": 13800,
-      "homura": 13800,
+      "morimori": 14000,
+      "homura": 14000,
       "rudeya": 13900,
       "runto": 13600,
       "icchome": 14000,
@@ -420,9 +420,9 @@
     "name": "SV 強化拡張パック「黒炎の支配者」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 23500,
+    "max_price": 24000,
     "prices": {
-      "morimori": 23500,
+      "morimori": 24000,
       "homura": 4000,
       "rudeya": 23300,
       "runto": 23000,
@@ -436,14 +436,14 @@
     "name": "SV 強化拡張パック「151」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 71000,
+    "max_price": 70200,
     "prices": {
-      "morimori": 70000,
+      "morimori": 70200,
       "homura": 70000,
       "rudeya": 70000,
       "runto": 68000,
       "icchome": 69500,
-      "oku": 71000,
+      "oku": 70000,
       "kaikyo": 70000
     }
   },
@@ -451,14 +451,14 @@
     "name": "SV 拡張パック「クレイバースト」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 13200,
+    "max_price": 13600,
     "prices": {
-      "morimori": 13200,
+      "morimori": 13600,
       "homura": 12800,
       "rudeya": 12900,
       "runto": 12500,
       "icchome": 13100,
-      "oku": 12500,
+      "oku": 13500,
       "kaikyo": 12700
     }
   },
@@ -482,14 +482,14 @@
     "name": "SV 強化拡張パック「トリプレットビート」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 18600,
+    "max_price": 19000,
     "prices": {
-      "morimori": 18600,
-      "homura": 17500,
+      "morimori": 19000,
+      "homura": 17800,
       "rudeya": 17800,
       "runto": 15500,
       "icchome": 18500,
-      "oku": 18500,
+      "oku": 19000,
       "kaikyo": 15800,
       "sommelier": 16500
     }
@@ -498,14 +498,14 @@
     "name": "SV 拡張パック「スカーレットex」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 13200,
+    "max_price": 13500,
     "prices": {
-      "morimori": 13200,
+      "morimori": 13500,
       "homura": 13000,
       "rudeya": 13100,
       "runto": 12000,
       "icchome": 13000,
-      "oku": 13000,
+      "oku": 13500,
       "kaikyo": 10200
     }
   },
@@ -516,7 +516,7 @@
     "max_price": 10800,
     "prices": {
       "morimori": 10600,
-      "homura": 10500,
+      "homura": 10600,
       "rudeya": 10800,
       "runto": 10500,
       "icchome": 10500,
@@ -543,12 +543,12 @@
     "name": "S&S 拡張パック「パラダイムトリガー」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 34200,
+    "max_price": 35000,
     "prices": {
-      "morimori": 34200,
+      "morimori": 34500,
       "homura": 34000,
       "runto": 33000,
-      "oku": 34000,
+      "oku": 35000,
       "kaikyo": 22400
     }
   },
@@ -570,11 +570,11 @@
     "name": "S&S 拡張パック「ロストアビス」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 75000,
+    "max_price": 76500,
     "prices": {
       "homura": 75000,
       "runto": 45000,
-      "oku": 70000,
+      "oku": 76500,
       "kaikyo": 54500
     }
   },
@@ -582,11 +582,11 @@
     "name": "S&S 強化拡張パック「ポケモンGO」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 25000,
+    "max_price": 39000,
     "prices": {
       "homura": 25000,
       "runto": 22000,
-      "oku": 22000
+      "oku": 39000
     }
   },
   {
@@ -663,7 +663,7 @@
     "retail_price": 5500,
     "max_price": 72000,
     "prices": {
-      "homura": 70000,
+      "homura": 72000,
       "runto": 65500,
       "oku": 70000,
       "sommelier": 72000
@@ -766,9 +766,9 @@
     "name": "S&S ハイクラスパック「シャイニースターV」",
     "category": "ss",
     "retail_price": 5500,
-    "max_price": 20000,
+    "max_price": 22200,
     "prices": {
-      "homura": 20000,
+      "homura": 22200,
       "runto": 19500,
       "oku": 19000,
       "sommelier": 19500
@@ -778,9 +778,9 @@
     "name": "S&S 拡張パック「仰天のボルテッカー」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 55000,
+    "max_price": 56000,
     "prices": {
-      "homura": 55000,
+      "homura": 56000,
       "runto": 44500,
       "oku": 44000
     }
@@ -825,9 +825,9 @@
     "name": "S&S 拡張パック「VMAXライジング」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 120000,
+    "max_price": 125000,
     "prices": {
-      "homura": 120000
+      "homura": 125000
     }
   },
   {
