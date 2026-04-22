@@ -121,6 +121,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://pokeca-box-hikaku.com/sv-box-list.html</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pokeca-box-hikaku.com/mega-box-list.html</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pokeca-box-hikaku.com/ss-box-list.html</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://pokeca-box-hikaku.com/release-schedule-2026.html</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>monthly</changefreq>

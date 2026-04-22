@@ -106,6 +106,9 @@ def get_box_image_url(slug: str) -> str:
 # Blog articles (newest first) - 記事追加時はここに1行足すだけ
 BLOG_ARTICLES = [
     {"url": "weekly/", "title": "【今週】ポケカBOX 週間急上昇ランキング", "desc": "SV・MEGA TOP10 + S&S TOP3を毎日自動更新。8店舗実データから抽出した直近7日間で最も値上がりしたBOXをグラフ付きで掲載。", "date": "2026-04-12"},
+    {"url": "sv-box-list.html", "title": "SV(スカーレット&バイオレット) 全BOX一覧", "desc": "SVシリーズ全BOXの買取価格・定価・発売日・相場トレンドを8店舗実データで一覧化。151/黒炎の支配者/超電ブレイカー/ロケット団の栄光などの最新相場を毎日自動更新。", "date": "2026-04-22"},
+    {"url": "mega-box-list.html", "title": "MEGA(メガシンカ) 全BOX一覧", "desc": "MEGAシリーズ全BOXの買取価格・定価・発売日・相場トレンドを8店舗実データで一覧化。メガブレイブ/メガシンフォニア/インフェルノX/ニンジャスピナー/ムニキスゼロの相場を毎日自動更新。", "date": "2026-04-22"},
+    {"url": "ss-box-list.html", "title": "S&S(ソード&シールド) 全BOX一覧", "desc": "S&Sシリーズ全BOXの買取価格・定価・発売日・相場トレンドを8店舗実データで一覧化。イーブイヒーローズ/VMAXクライマックス/25thアニバーサリーなど絶版BOX中心。", "date": "2026-04-22"},
     {"url": "release-schedule-2026.html", "title": "2026年ポケカ新弾発売カレンダー", "desc": "ムニキスゼロ・ニンジャスピナー発売済み、アビスアイ(5/22発売決定・メガダークライex)、5月値上げ(180→200円)、商標予想(ストームエメラルダ等)、30周年記念商品(世界同時発売)まで完全整理。", "date": "2026-04-21"},
     {"url": "abyss-eye-forecast.html", "title": "【発売前予想】アビスアイ BOX相場3シナリオ", "desc": "2026-05-22発売のアビスアイBOX相場を、過去MEGA弾M1〜M4の実データ+ダークライ人気+値上げ後初パックの歴史から3シナリオ(弱気¥9,600/中立¥15,000/強気¥30,000)で徹底予想。投資判断3基準とリスク要因も解説。", "date": "2026-04-21"},
     {"url": "inferno-x-spotlight.html", "title": "インフェルノXが定価の5倍に高騰", "desc": "発売半年で定価¥5,400→¥27,000(約5倍)に急騰したインフェルノXの相場推移、収録カード、3つの高騰理由を実データで徹底解説。", "date": "2026-04-12"},
@@ -402,6 +405,9 @@ def generate_html(
 
     # Generate weekly hot-boxes article (task 10)
     generate_weekly_article(products, project_root, update_date)
+
+    # Generate category summary pages (SV / MEGA / S&S)
+    generate_category_pages(products, project_root, update_date)
 
     return html
 
@@ -1189,6 +1195,9 @@ def _update_sitemap(
         ("/masterball-mirror-guide.html", "monthly", "0.8", "2026-04-14"),
         ("/kokuen-atari-guide.html", "monthly", "0.8", "2026-04-14"),
         ("/restock-guide.html", "monthly", "0.8", "2026-04-10"),
+        ("/sv-box-list.html", "daily", "0.8", today),
+        ("/mega-box-list.html", "daily", "0.8", today),
+        ("/ss-box-list.html", "daily", "0.8", today),
         ("/release-schedule-2026.html", "monthly", "0.8", "2026-04-15"),
         ("/price-pattern-guide.html", "monthly", "0.8", "2026-04-16"),
         ("/box-toushi.html", "monthly", "0.8", "2026-04-02"),
@@ -1897,3 +1906,374 @@ def generate_weekly_article(
     index_path = weekly_dir / "index.html"
     index_path.write_text(build_weekly_index_html(week_entries), encoding="utf-8")
     logger.info("Generated weekly index: %s (%d entries)", index_path, len(week_entries))
+
+
+CATEGORY_PAGE_CONFIG = [
+    {
+        "cat_id": "sv",
+        "filename": "sv-box-list.html",
+        "title": "SV(スカーレット&バイオレット) 全BOX 買取価格一覧",
+        "short": "SVシリーズ",
+        "desc_meta": "SV(スカーレット&バイオレット)シリーズ全BOXの買取価格・定価・発売日・相場トレンドを8店舗の実データで一覧化。151/黒炎の支配者/超電ブレイカー/ロケット団の栄光など全商品の相場を毎日自動更新。",
+        "lead": (
+            "SV(スカーレット&バイオレット)シリーズは2023年1月の「スカーレットex/バイオレットex」を起点に、"
+            "レギュレーションマークG/H/I/Jで展開された現行ポケカのメインシリーズです。"
+            "151・黒炎の支配者・超電ブレイカー・ロケット団の栄光など高騰BOXが多数含まれ、"
+            "スタン落ち観測のタイミングで相場が動きやすいのが特徴。"
+            "本ページではSVシリーズ全BOXの買取価格・発売日・定価倍率を一覧化し、相場動向を毎日自動更新しています。"
+        ),
+    },
+    {
+        "cat_id": "mega",
+        "filename": "mega-box-list.html",
+        "title": "MEGA(メガシンカ) 全BOX 買取価格一覧",
+        "short": "MEGAシリーズ",
+        "desc_meta": "MEGAシリーズ全BOXの買取価格・定価・発売日・相場トレンドを8店舗の実データで一覧化。メガブレイブ/メガシンフォニア/インフェルノX/ニンジャスピナー/ムニキスゼロ/メガドリームexの相場を毎日自動更新。",
+        "lead": (
+            "MEGA(メガシンカ)シリーズは2025年春の「メガブレイブ/メガシンフォニア」から始まった新シリーズで、"
+            "メガ進化ポケモンを主軸にしたBOX群です。"
+            "メガリザードンXexが収録されたインフェルノXが定価の5倍超に高騰するなど、"
+            "各弾の看板メガ進化ポケモンex の相場牽引力が極めて強いシリーズです。"
+            "本ページではMEGAシリーズ全BOXの買取価格・発売日・定価倍率を一覧化しています。"
+        ),
+    },
+    {
+        "cat_id": "ss",
+        "filename": "ss-box-list.html",
+        "title": "S&S(ソード&シールド) 全BOX 買取価格一覧",
+        "short": "S&Sシリーズ",
+        "desc_meta": "S&S(ソード&シールド)シリーズ全BOXの買取価格・定価・発売日・相場トレンドを8店舗の実データで一覧化。イーブイヒーローズ/VMAXクライマックス/25thアニバーサリー/蒼空ストリームなど絶版BOX中心。毎日自動更新。",
+        "lead": (
+            "S&S(ソード&シールド)シリーズは2019年12月の「ソード/シールド」から2022年12月の「VSTARユニバース」まで約3年間展開された旧世代シリーズで、"
+            "Gレギュ以降はスタン落ち済み。そのためほぼ全BOXが生産終了(絶版)状態にあり、中長期投資対象として根強い需要があります。"
+            "特にイーブイヒーローズ(¥150,000超)・VMAXクライマックス・蒼空ストリームなどは5桁〜6桁の高値相場。"
+            "本ページではS&Sシリーズ全BOXの買取価格・発売日・定価倍率を一覧化しています。"
+        ),
+    },
+]
+
+
+def _build_category_crosslinks(current_cat_id: str) -> str:
+    """Build cross-reference links to the other 2 category pages."""
+    parts = []
+    for c in CATEGORY_PAGE_CONFIG:
+        if c["cat_id"] == current_cat_id:
+            continue
+        parts.append(f'<a href="{c["filename"]}">📋 {c["short"]} 全BOX一覧</a>')
+    # Also link to weekly ranking and home
+    parts.append('<a href="weekly/">🔥 今週の急上昇ランキング</a>')
+    parts.append('<a href="ranking.html">📈 上昇ランキング</a>')
+    return "\n".join(parts)
+
+
+def _category_summary_stats(
+    items: list[dict],
+) -> dict:
+    """Compute aggregate stats for a category page."""
+    with_price = [x for x in items if x["max_price"] > 0]
+    if not with_price:
+        return {}
+    total = len(with_price)
+    avg_price = sum(x["max_price"] for x in with_price) // total
+    top = max(with_price, key=lambda x: x["max_price"])
+    low = min(with_price, key=lambda x: x["max_price"])
+    premium_count = len([x for x in with_price if x["retail_price"] > 0 and x["max_price"] > x["retail_price"]])
+    return {
+        "total": total,
+        "avg_price": avg_price,
+        "top_name": top["name"],
+        "top_price": top["max_price"],
+        "top_slug": top["slug"],
+        "low_name": low["name"],
+        "low_price": low["max_price"],
+        "premium_count": premium_count,
+    }
+
+
+def _build_category_page_html(
+    config: dict,
+    products: list[MasterProduct],
+    project_root: Path,
+    update_date: str,
+) -> str:
+    """Build a category summary page (SV/MEGA/S&S)."""
+    cat_id = config["cat_id"]
+    category_products = [p for p in products if p.category == cat_id]
+
+    # Build item rows with pricing + trend
+    history_dir = project_root / "data" / "history"
+    items: list[dict] = []
+    for p in category_products:
+        active = {sid: p.prices.get(sid, 0) for sid in SHOP_IDS if p.prices.get(sid, 0) > 0}
+        if not active:
+            continue
+        max_price = max(active.values())
+        max_shop_id = max(active, key=active.get)
+        slug = _generate_slug(p.name)
+        ratio = (max_price / p.retail_price) if p.retail_price > 0 else 0
+        items.append({
+            "name": p.name,
+            "slug": slug,
+            "release_date": p.release_date or "",
+            "retail_price": p.retail_price,
+            "max_price": max_price,
+            "max_shop": SHOP_NAMES.get(max_shop_id, max_shop_id),
+            "ratio": ratio,
+            "shop_count": len(active),
+        })
+    # Sort by release_date desc (newest first); empty dates last
+    items.sort(key=lambda x: x["release_date"], reverse=True)
+
+    stats = _category_summary_stats(items)
+
+    # Build ranking table rows
+    rows_html = []
+    for x in items:
+        ratio_text = f"{x['ratio']:.1f}倍" if x["ratio"] > 0 else "-"
+        retail_text = f"¥{x['retail_price']:,}" if x["retail_price"] > 0 else "-"
+        rows_html.append(
+            f'<tr>'
+            f'<td class="bx-name"><a href="box/{x["slug"]}.html">{x["name"]}</a></td>'
+            f'<td class="bx-date">{x["release_date"] or "-"}</td>'
+            f'<td class="bx-retail">{retail_text}</td>'
+            f'<td class="bx-max">¥{x["max_price"]:,}</td>'
+            f'<td class="bx-ratio">{ratio_text}</td>'
+            f'<td class="bx-shop">{x["shop_count"]}店</td>'
+            f'</tr>'
+        )
+    table_html = (
+        '<table class="cat-table"><thead><tr>'
+        '<th>商品名</th><th>発売日</th><th>定価</th><th>最高買取</th><th>倍率</th><th>掲載</th>'
+        '</tr></thead><tbody>\n' + "\n".join(rows_html) + '\n</tbody></table>'
+    )
+
+    # Summary box
+    summary_html = ""
+    if stats:
+        summary_html = (
+            '<div class="cat-summary"><div class="cs-row">'
+            f'<div class="cs-cell"><div class="cs-label">掲載BOX</div><div class="cs-value">{stats["total"]}商品</div></div>'
+            f'<div class="cs-cell"><div class="cs-label">平均最高買取</div><div class="cs-value">¥{stats["avg_price"]:,}</div></div>'
+            f'<div class="cs-cell"><div class="cs-label">定価超え</div><div class="cs-value">{stats["premium_count"]}商品</div></div>'
+            '</div>'
+            f'<div class="cs-top">🏆 TOP: <a href="box/{stats["top_slug"]}.html">{stats["top_name"]}</a> ¥{stats["top_price"]:,}</div>'
+            '</div>'
+        )
+
+    # FAQ
+    faq_items = [
+        {
+            "q": f"{config['short']}には何種類のBOXがありますか？",
+            "a": f"当サイトで追跡中の{config['short']}は全{stats.get('total', len(items))}商品です(買取価格掲載ベース)。未開封BOX・拡張パック・ハイクラスパック・強化拡張パックなどを含みます。",
+        },
+        {
+            "q": f"{config['short']}で現在最も高価なBOXは？",
+            "a": f"{update_date}時点で最も高い買取価格が付いているのは「{stats.get('top_name', '-')}」で¥{stats.get('top_price', 0):,}です。",
+        } if stats else None,
+        {
+            "q": f"{config['short']}の定価より高く売れるBOXは何商品ありますか？",
+            "a": f"{stats.get('premium_count', 0)}商品が定価を上回る買取価格を付けています(全{stats.get('total', 0)}商品中)。",
+        } if stats else None,
+        {
+            "q": f"{config['short']}の買取価格はどのくらいの頻度で更新されますか？",
+            "a": "毎日3回(11時・15時・18時 JST)、8店舗の公式サイトから自動取得して反映しています。",
+        },
+    ]
+    faq_items = [f for f in faq_items if f]
+    faq_html = (
+        '<h2>よくある質問</h2>\n<div class="faq-list">\n'
+        + "\n".join(
+            f'<details class="faq-item"><summary>{it["q"]}</summary>'
+            f'<div class="faq-answer">{it["a"]}</div></details>'
+            for it in faq_items
+        )
+        + '\n</div>'
+    )
+
+    # JSON-LD
+    breadcrumb_jsonld = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "ポケカ買取チェッカー", "item": "https://pokeca-box-hikaku.com/"},
+            {"@type": "ListItem", "position": 2, "name": config["title"]},
+        ],
+    }
+    faq_jsonld = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": it["q"],
+             "acceptedAnswer": {"@type": "Answer", "text": it["a"]}}
+            for it in faq_items
+        ],
+    }
+    article_jsonld = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": config["title"],
+        "description": config["desc_meta"],
+        "url": f"https://pokeca-box-hikaku.com/{config['filename']}",
+        "inLanguage": "ja",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "ポケカ買取チェッカー",
+            "url": "https://pokeca-box-hikaku.com/",
+        },
+    }
+    jsonld_block = (
+        '<script type="application/ld+json">\n'
+        + json.dumps(article_jsonld, ensure_ascii=False, indent=2) + '\n</script>\n'
+        '<script type="application/ld+json">\n'
+        + json.dumps(breadcrumb_jsonld, ensure_ascii=False, indent=2) + '\n</script>\n'
+        '<script type="application/ld+json">\n'
+        + json.dumps(faq_jsonld, ensure_ascii=False, indent=2) + '\n</script>'
+    )
+
+    return f"""<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="preconnect" href="https://h.accesstrade.net">
+<meta name="description" content="{config['desc_meta']}">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://pokeca-box-hikaku.com/{config['filename']}">
+<meta property="og:title" content="{config['title']}｜ポケカ買取チェッカー">
+<meta property="og:description" content="{config['desc_meta']}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://pokeca-box-hikaku.com/{config['filename']}">
+<meta property="og:image" content="https://pokeca-box-hikaku.com/ogp.jpg">
+<meta property="og:site_name" content="ポケカ買取チェッカー">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{config['title']}｜ポケカ買取チェッカー">
+<meta name="twitter:description" content="{config['desc_meta']}">
+<meta name="twitter:image" content="https://pokeca-box-hikaku.com/ogp.jpg">
+<title>{config['title']}｜ポケカ買取チェッカー</title>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831186943118320" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPTS6CRTCS"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){{dataLayer.push(arguments);}}
+gtag('js', new Date());
+gtag('config', 'G-RPTS6CRTCS');
+</script>
+{jsonld_block}
+<style>
+:root{{--bg:#f6f7fb;--card:#fff;--border:#e5e7eb;--text:#111827;--text-sub:#6b7280;--accent:#6366f1}}
+*,*::before,*::after{{box-sizing:border-box;margin:0;padding:0}}
+body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans","Yu Gothic",sans-serif;background:var(--bg);color:var(--text);line-height:1.8}}
+.header{{position:sticky;top:0;z-index:100;height:56px;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;padding:0 20px}}
+.header a{{text-decoration:none}}
+.header h1{{font-size:18px;font-weight:700;background:linear-gradient(135deg,#f59e0b,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}}
+.wrap{{max-width:1240px;margin:0 auto;padding:32px 16px 48px}}
+.content-layout{{display:flex;gap:24px;align-items:flex-start}}
+.content-layout article{{flex:1;min-width:0}}
+.article-nav{{width:180px;flex-shrink:0;position:sticky;top:72px;max-height:calc(100vh - 88px);overflow-y:auto}}
+.article-nav-title{{font-size:13px;font-weight:700;margin-bottom:8px;color:var(--text)}}
+.article-nav a{{display:block;font-size:12px;color:var(--text-sub);text-decoration:none;padding:5px 0 5px 12px;border-left:2px solid var(--border);line-height:1.4}}
+.article-nav a:hover{{color:var(--accent);border-left-color:var(--accent)}}
+.article-nav a.current{{color:var(--accent);border-left-color:var(--accent);font-weight:600}}
+.article-nav-sub{{font-size:12px;font-weight:700;margin:14px 0 6px;color:#b91c1c;padding-top:10px;border-top:1px solid var(--border)}}
+@media(max-width:1023px){{.content-layout{{display:block}}.article-nav{{display:none}}}}
+.breadcrumb{{font-size:12px;color:var(--text-sub);margin-bottom:20px}}
+.breadcrumb a{{color:var(--accent);text-decoration:none}}
+article{{background:var(--card);border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.06);padding:32px 28px;margin-bottom:24px}}
+article h1{{font-size:22px;font-weight:800;margin-bottom:8px;line-height:1.4}}
+.meta{{font-size:12px;color:var(--text-sub);margin-bottom:24px}}
+article h2{{font-size:17px;font-weight:700;margin:32px 0 14px;padding-bottom:6px;border-bottom:2px solid var(--accent)}}
+article p{{font-size:14px;margin-bottom:14px}}
+.lead{{background:#f5f3ff;border:1px solid #c4b5fd;border-radius:8px;padding:16px 20px;margin-bottom:24px;font-size:14px}}
+.cat-summary{{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:18px 20px;margin:16px 0 24px}}
+.cs-row{{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:10px}}
+.cs-cell{{text-align:center}}
+.cs-label{{font-size:11px;color:var(--text-sub);font-weight:600}}
+.cs-value{{font-size:18px;font-weight:800;color:var(--text);margin-top:2px}}
+.cs-top{{font-size:14px;color:var(--text);padding-top:10px;border-top:1px dashed #fde68a;text-align:center}}
+.cs-top a{{color:var(--accent);text-decoration:none;font-weight:700}}
+.cat-table{{width:100%;border-collapse:collapse;font-size:13px;margin:14px 0}}
+.cat-table th{{background:#f9fafb;padding:10px 8px;text-align:left;font-size:11px;color:var(--text-sub);border-bottom:2px solid var(--border)}}
+.cat-table td{{padding:10px 8px;border-bottom:1px solid var(--border)}}
+.cat-table td.bx-name a{{color:var(--text);text-decoration:none;font-weight:600}}
+.cat-table td.bx-name a:hover{{color:var(--accent);text-decoration:underline}}
+.cat-table td.bx-date,.cat-table td.bx-retail,.cat-table td.bx-shop{{color:var(--text-sub);white-space:nowrap;font-size:12px}}
+.cat-table td.bx-max,.cat-table td.bx-ratio{{white-space:nowrap;font-weight:700;font-variant-numeric:tabular-nums;color:#dc2626}}
+.faq-list{{margin:8px 0 20px}}
+.faq-item{{background:#f9fafb;border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin-bottom:8px}}
+.faq-item summary{{font-size:14px;font-weight:700;color:var(--text);cursor:pointer;list-style:none;position:relative;padding-right:24px}}
+.faq-item summary::-webkit-details-marker{{display:none}}
+.faq-item summary::after{{content:"+";position:absolute;right:0;top:0;color:var(--accent);font-size:18px;font-weight:700}}
+.faq-item[open] summary::after{{content:"−"}}
+.faq-item .faq-answer{{font-size:13px;color:var(--text-sub);margin-top:10px;line-height:1.7}}
+.series-links{{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 24px}}
+.series-links a{{display:inline-block;padding:10px 18px;background:#f5f3ff;border:1px solid #c4b5fd;border-radius:8px;text-decoration:none;color:var(--text);font-size:14px;font-weight:600;transition:all .15s}}
+.series-links a:hover{{background:var(--accent);color:#fff;border-color:var(--accent)}}
+.cta{{display:block;margin-top:24px;padding:16px;background:linear-gradient(135deg,#6366f1,#8b5cf6);border-radius:12px;text-align:center;text-decoration:none;color:#fff;font-size:15px;font-weight:700}}
+.back{{display:inline-block;margin-top:24px;color:var(--accent);text-decoration:none;font-size:14px;font-weight:600}}
+.ad{{text-align:center;padding:12px 16px}}
+.ft{{text-align:center;padding:24px 16px;font-size:11px;color:var(--text-sub)}}
+.ft a{{color:var(--accent)}}
+@media(max-width:640px){{
+  .cat-table{{font-size:12px}}
+  .cat-table th,.cat-table td{{padding:8px 6px}}
+  .cat-table td.bx-date,.cat-table td.bx-retail,.cat-table td.bx-shop{{display:none}}
+  .cat-table th:nth-child(2),.cat-table th:nth-child(3),.cat-table th:nth-child(6){{display:none}}
+  .cs-row{{grid-template-columns:repeat(3,1fr)}}
+  article{{padding:20px 16px}}
+}}
+</style>
+</head>
+<body>
+<div class="header"><a href="index.html"><h1>ポケカ買取チェッカー</h1></a></div>
+<div class="wrap">
+<div class="breadcrumb"><a href="index.html">トップ</a> &gt; {config['short']} 一覧</div>
+
+<article>
+<h1>{config['title']}</h1>
+<div class="meta">更新: {update_date} / データ源: 8店舗買取価格の自動収集</div>
+
+<div class="lead"><p>{config['lead']}</p></div>
+
+<h2>{config['short']} 相場サマリー</h2>
+{summary_html}
+
+<h2>{config['short']} 全BOX一覧 (発売日順)</h2>
+<p>発売日の新しい順。商品名クリックで個別BOXの8店舗比較ページへ。</p>
+{table_html}
+
+{faq_html}
+
+<h2>他のシリーズを見る</h2>
+<div class="series-links">
+{_build_category_crosslinks(config['cat_id'])}
+</div>
+
+<div class="ad">
+  <a href="https://h.accesstrade.net/sp/cc?rk=0100p4pe00opz3" rel="nofollow" referrerpolicy="no-referrer-when-downgrade"><img src="https://h.accesstrade.net/sp/rr?rk=0100p4pe00opz3" alt="トレトク" border="0" width="640" height="100" loading="lazy" decoding="async" style="max-width:100%;height:auto"></a>
+</div>
+<div class="ad">
+  <a href="https://h.accesstrade.net/sp/cc?rk=0100pumf00opz3" rel="nofollow" referrerpolicy="no-referrer-when-downgrade"><img src="https://h.accesstrade.net/sp/rr?rk=0100pumf00opz3" alt="オリくじ" border="0" width="728" height="90" loading="lazy" decoding="async" style="max-width:100%;height:auto"></a>
+</div>
+
+<a href="index.html" class="cta">全商品の買取価格比較を見る &rarr;</a>
+<a href="index.html" class="back">&larr; トップに戻る</a>
+</article>
+</div>
+<div class="ft"><a href="index.html">ポケカ買取チェッカー</a> / <a href="privacy.html">プライバシーポリシー</a></div>
+</body>
+</html>"""
+
+
+def generate_category_pages(
+    products: list[MasterProduct],
+    project_root: Path,
+    update_date: str,
+) -> None:
+    """Generate category summary pages (SV / MEGA / S&S)."""
+    for config in CATEGORY_PAGE_CONFIG:
+        html = _build_category_page_html(config, products, project_root, update_date)
+        out_path = project_root / config["filename"]
+        out_path.write_text(html, encoding="utf-8")
+        logger.info("Generated category page: %s", out_path)
