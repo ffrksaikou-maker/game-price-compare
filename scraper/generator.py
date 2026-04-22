@@ -892,11 +892,16 @@ def generate_product_pages(
                 alt_text = f"{p.name} 未開封BOX 買取価格¥{max_price:,}"
             else:
                 alt_text = f"{p.name} 未開封BOX"
+            jpg_name = BOX_IMAGE_FILES[slug]
+            webp_name = jpg_name.rsplit(".", 1)[0] + ".webp"
             box_hero_html = (
                 f'<div class="box-hero">'
-                f'<img src="../images/boxes/{BOX_IMAGE_FILES[slug]}" '
+                f'<picture>'
+                f'<source srcset="../images/boxes/{webp_name}" type="image/webp">'
+                f'<img src="../images/boxes/{jpg_name}" '
                 f'alt="{alt_text}" '
                 f'loading="lazy" decoding="async">'
+                f'</picture>'
                 f'</div>'
             )
         else:
