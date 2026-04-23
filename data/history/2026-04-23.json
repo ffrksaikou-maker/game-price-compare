@@ -9,7 +9,7 @@
       "homura": 13300,
       "rudeya": 13300,
       "runto": 13000,
-      "icchome": 13300,
+      "icchome": 13500,
       "oku": 13500,
       "kaikyo": 13300
     }
@@ -55,7 +55,7 @@
       "icchome": 16000,
       "oku": 16200,
       "kaikyo": 16000,
-      "sommelier": 15500
+      "sommelier": 15000
     }
   },
   {
@@ -85,7 +85,8 @@
       "runto": 14500,
       "icchome": 14500,
       "oku": 14700,
-      "kaikyo": 14800
+      "kaikyo": 14800,
+      "sommelier": 13000
     }
   },
   {
@@ -100,7 +101,8 @@
       "runto": 12200,
       "icchome": 11800,
       "oku": 12000,
-      "kaikyo": 11800
+      "kaikyo": 11800,
+      "sommelier": 11500
     }
   },
   {
