@@ -409,6 +409,12 @@ def generate_html(
     # Generate category summary pages (SV / MEGA / S&S)
     generate_category_pages(products, project_root, update_date)
 
+    # Update time-sensitive article banners (発売日超過で自動切替)
+    update_timed_articles(project_root)
+
+    # Update spotlight article live-data summary blocks
+    update_spotlight_summaries(products, project_root)
+
     return html
 
 
@@ -2277,3 +2283,167 @@ def generate_category_pages(
         out_path = project_root / config["filename"]
         out_path.write_text(html, encoding="utf-8")
         logger.info("Generated category page: %s", out_path)
+
+
+# 時限記事: 発売日到達で自動バナー切替
+# file: 記事ファイル名
+# release_date: 発売日 (YYYY-MM-DD)
+# post_release_link: 発売後の誘導先
+# post_release_label: 誘導先のラベル
+TIMED_ARTICLES = [
+    {
+        "file": "abyss-eye-forecast.html",
+        "release_date": "2026-05-22",
+        "post_release_link": "box/abyss-eye.html",
+        "post_release_label": "アビスアイBOXの現在の買取価格を8店舗比較で見る",
+        "pre_text_prefix": "🔮 発売前予想記事 — 発売まで",
+    },
+]
+
+
+# スポットライト記事(slug → 対応BOX名) マッピング。
+# generator がBOXの最新データを使って記事冒頭の「最新データ」ボックスを上書きする。
+SPOTLIGHT_ARTICLES = [
+    {"file": "151-spotlight.html", "box_name": "SV 強化拡張パック「151」", "box_slug": "151"},
+    {"file": "kokuen-spotlight.html", "box_name": "SV 強化拡張パック「黒炎の支配者」", "box_slug": "ruler-of-black-flame"},
+    {"file": "inferno-x-spotlight.html", "box_name": "MEGA 拡張パック「インフェルノX」", "box_slug": "inferno"},
+    {"file": "chouden-breaker-spotlight.html", "box_name": "SV 拡張パック「超電ブレイカー」", "box_slug": "chouden-breaker"},
+    {"file": "clay-burst-spotlight.html", "box_name": "SV 拡張パック「クレイバースト」", "box_slug": "clay-burst"},
+    {"file": "ninja-spinner-spotlight.html", "box_name": "MEGA 拡張パック「ニンジャスピナー」", "box_slug": "ninja-spinner"},
+]
+
+
+def update_spotlight_summaries(
+    products: list[MasterProduct],
+    project_root: Path,
+) -> None:
+    """Populate <!-- AUTO:SPOT_SUMMARY --> blocks in spotlight articles.
+
+    Shows: current max-price, retail multiplier, 7-day trend, last update.
+    Runs daily via cron so figures stay fresh even when article prose is frozen.
+    """
+    pattern = re.compile(
+        r"<!-- AUTO:SPOT_SUMMARY -->.*?<!-- /AUTO:SPOT_SUMMARY -->",
+        re.DOTALL,
+    )
+    today = datetime.now(JST).date().isoformat()
+    history_dir = project_root / "data" / "history"
+
+    by_name = {p.name: p for p in products}
+
+    for spot in SPOTLIGHT_ARTICLES:
+        fpath = project_root / spot["file"]
+        if not fpath.exists():
+            continue
+        product = by_name.get(spot["box_name"])
+        if not product:
+            continue
+        active = {sid: product.prices.get(sid, 0) for sid in SHOP_IDS if product.prices.get(sid, 0) > 0}
+        if not active:
+            continue
+        max_price = max(active.values())
+        max_shop = SHOP_NAMES.get(max(active, key=active.get), "-")
+        ratio = (max_price / product.retail_price) if product.retail_price > 0 else 0
+        trend_html = _generate_trend_comment(product.name, history_dir, max_price)
+        # Strip outer wrapper (it has its own styling for box pages) and use inner text only
+        trend_text = ""
+        trend_color = "#6b7280"
+        m = re.search(r'color:(#[0-9a-fA-F]+)".*?<span class="trend-icon">([^<]+)</span><span class="trend-text">([^<]+)</span>', trend_html)
+        if m:
+            trend_color = m.group(1)
+            trend_text = f'{m.group(2)} {m.group(3)}'
+
+        block = (
+            '<!-- AUTO:SPOT_SUMMARY -->'
+            '<div class="spot-live-summary" '
+            'style="background:linear-gradient(135deg,#eef2ff,#f5f3ff);'
+            'border:1px solid #c4b5fd;border-radius:10px;padding:14px 18px;'
+            'margin:14px 0 22px;display:grid;'
+            'grid-template-columns:repeat(3,1fr);gap:12px;align-items:center">'
+            f'<div><div style="font-size:11px;color:#6b7280;font-weight:600">最新BOX買取最高額</div>'
+            f'<div style="font-size:20px;font-weight:800;color:#7c3aed">¥{max_price:,}</div>'
+            f'<div style="font-size:11px;color:#6b7280">{max_shop}</div></div>'
+            f'<div><div style="font-size:11px;color:#6b7280;font-weight:600">定価倍率</div>'
+            f'<div style="font-size:20px;font-weight:800;color:#111827">{f"{ratio:.1f}倍" if ratio > 0 else "-"}</div>'
+            f'<div style="font-size:11px;color:#6b7280">定価¥{product.retail_price:,}</div></div>'
+            f'<div><div style="font-size:11px;color:#6b7280;font-weight:600">相場トレンド</div>'
+            f'<div style="font-size:13px;font-weight:700;color:{trend_color};line-height:1.4">'
+            f'{trend_text or "データ蓄積中"}</div>'
+            f'<div style="font-size:10px;color:#6b7280;margin-top:2px">更新日: {today} (毎日自動)</div></div>'
+            '</div>'
+            '<!-- /AUTO:SPOT_SUMMARY -->'
+        )
+
+        content = fpath.read_text(encoding="utf-8")
+        if not pattern.search(content):
+            continue
+        new_content = pattern.sub(block, content)
+        if new_content != content:
+            fpath.write_text(new_content, encoding="utf-8")
+            logger.info("Updated spotlight summary: %s (¥%d)", fpath.name, max_price)
+
+
+def update_timed_articles(project_root: Path) -> None:
+    """Insert/update a time-sensitive banner inside <!-- AUTO:TIMED_BANNER --> blocks.
+
+    - Before release_date: show countdown banner
+    - After release_date: show 'released, see current price' banner
+    """
+    today = datetime.now(JST).date()
+    pattern = re.compile(
+        r"<!-- AUTO:TIMED_BANNER -->.*?<!-- /AUTO:TIMED_BANNER -->",
+        re.DOTALL,
+    )
+    banner_style = (
+        "background:linear-gradient(135deg,#fef3c7,#fde68a);"
+        "border:2px solid #f59e0b;border-radius:10px;"
+        "padding:14px 18px;margin:12px 0 20px;"
+        "font-size:14px;font-weight:600;color:#78350f;"
+        "display:flex;gap:10px;align-items:center;flex-wrap:wrap"
+    )
+    released_style = (
+        "background:linear-gradient(135deg,#dcfce7,#bbf7d0);"
+        "border:2px solid #16a34a;border-radius:10px;"
+        "padding:14px 18px;margin:12px 0 20px;"
+        "font-size:14px;font-weight:600;color:#14532d;"
+        "display:flex;gap:10px;align-items:center;flex-wrap:wrap"
+    )
+
+    for t in TIMED_ARTICLES:
+        fpath = project_root / t["file"]
+        if not fpath.exists():
+            continue
+        try:
+            rd = datetime.strptime(t["release_date"], "%Y-%m-%d").date()
+        except ValueError:
+            continue
+
+        if today < rd:
+            days = (rd - today).days
+            banner = (
+                f'<!-- AUTO:TIMED_BANNER -->'
+                f'<div class="timed-banner" style="{banner_style}">'
+                f'<span>{t["pre_text_prefix"]}あと{days}日 '
+                f'({rd.year}年{rd.month}月{rd.day}日発売予定)</span>'
+                f'</div>'
+                f'<!-- /AUTO:TIMED_BANNER -->'
+            )
+        else:
+            banner = (
+                f'<!-- AUTO:TIMED_BANNER -->'
+                f'<div class="timed-banner" style="{released_style}">'
+                f'<span>✅ {rd.year}年{rd.month}月{rd.day}日 発売済み</span>'
+                f'<a href="{t["post_release_link"]}" '
+                f'style="color:#14532d;text-decoration:underline;font-weight:700">'
+                f'{t["post_release_label"]} →</a>'
+                f'</div>'
+                f'<!-- /AUTO:TIMED_BANNER -->'
+            )
+
+        content = fpath.read_text(encoding="utf-8")
+        if not pattern.search(content):
+            continue
+        new_content = pattern.sub(banner, content)
+        if new_content != content:
+            fpath.write_text(new_content, encoding="utf-8")
+            logger.info("Updated timed banner: %s", fpath.name)
