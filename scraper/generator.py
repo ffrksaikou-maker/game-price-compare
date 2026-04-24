@@ -281,9 +281,14 @@ def generate_ai_summary(products: list[MasterProduct]) -> str:
 
 
 def generate_blog_links() -> str:
-    """Generate blog cards: random + three pinned (weekly + schedule + abyss forecast)."""
-    # Pinned固定: BLOG_ARTICLES[0] = weekly, [1] = release-schedule-2026, [2] = abyss-eye-forecast
-    pinned = BLOG_ARTICLES[:3]
+    """Generate blog cards: 1 random (left) + 3 latest pinned (right)."""
+    # 最新3記事を date 降順で抽出(同日は元の並び順を維持)
+    sorted_articles = sorted(
+        BLOG_ARTICLES,
+        key=lambda a: a.get("date", ""),
+        reverse=True,
+    )
+    pinned = sorted_articles[:3]
     pinned_urls = {a["url"] for a in pinned}
     # 残りはJSでランダム選択
     candidates = [a for a in BLOG_ARTICLES if a["url"] not in pinned_urls]
