@@ -27,7 +27,7 @@
       "icchome": 9000,
       "oku": 9200,
       "kaikyo": 9000,
-      "sommelier": 9000
+      "sommelier": 9200
     }
   },
   {
@@ -459,7 +459,8 @@
       "runto": 12500,
       "icchome": 13100,
       "oku": 13500,
-      "kaikyo": 12700
+      "kaikyo": 12700,
+      "sommelier": 13200
     }
   },
   {
@@ -575,7 +576,8 @@
       "homura": 77000,
       "runto": 45000,
       "oku": 76500,
-      "kaikyo": 54500
+      "kaikyo": 54500,
+      "sommelier": 13200
     }
   },
   {
