@@ -1935,6 +1935,23 @@ CATEGORY_PAGE_CONFIG = [
             "スタン落ち観測のタイミングで相場が動きやすいのが特徴。"
             "本ページではSVシリーズ全BOXの買取価格・発売日・定価倍率を一覧化し、相場動向を毎日自動更新しています。"
         ),
+        "narrative": [
+            ("レギュレーションと相場連動", (
+                "SVシリーズはレギュレーションマークG/H/I/Jで展開され、最古のGレギュは2026年1月にスタンダード落ちしました。"
+                "Gレギュ落ちのタイミングで「151」「黒炎の支配者」「クレイバースト」など主力BOXが軒並み再上昇しており、"
+                "今後はH→I→Jの順に段階的なスタン落ちが続くため、レギュ別の在庫動向と相場が連動しやすい構造です。"
+            )),
+            ("看板SARの相場が直接BOX相場を動かす構造", (
+                "SVシリーズはSAR(スペシャルアートレア)の高騰がBOX相場を牽引する典型例です。"
+                "リザードンex SAR(黒炎)/エリカの招待SAR(151)/ピカチュウex SAR(超電ブレイカー)/ナンジャモSAR(クレイバースト)/ミュウツーex SAR(ロケット団の栄光)など、"
+                "高額SARを擁するBOXが順番に高騰しており、SAR単体相場のチェックがBOX投資判断に直結します。"
+            )),
+            ("180円→200円の値上げが分水嶺", (
+                "2026年5月発売のアビスアイから1パック200円に値上げされる予定で、180円定価の最後のSV弾(ロケット団の栄光・熱風のアリーナ周辺)は"
+                "「最後の旧定価BOX」としてのコレクション価値が意識されています。"
+                "値上げ後初期は相場形成が読みづらいため、180円定価BOXの希少性が再評価される流れも見込まれます。"
+            )),
+        ],
     },
     {
         "cat_id": "mega",
@@ -1949,6 +1966,22 @@ CATEGORY_PAGE_CONFIG = [
             "各弾の看板メガ進化ポケモンex の相場牽引力が極めて強いシリーズです。"
             "本ページではMEGAシリーズ全BOXの買取価格・発売日・定価倍率を一覧化しています。"
         ),
+        "narrative": [
+            ("メガ進化人気とSAR/MUR封入率", (
+                "MEGAシリーズは1弾につき主役メガ進化ポケモンexのMUR(ミュウツー級)とSAR(美麗版)が同時収録される構成です。"
+                "MUR封入率は約45BOXに1枚と稀少で、引き当てれば10万円超もある単発高額カードのため、BOX期待値が他シリーズより跳ね上がりやすい特徴があります。"
+            )),
+            ("発売直後の高値→数ヶ月底値→絶版観測で再上昇", (
+                "MEGAシリーズBOXの典型的な相場パターンは「発売初動2〜3倍 → 再販で底値¥7,000〜¥9,000台 → 在庫薄観測で再上昇」です。"
+                "メガブレイブ/メガシンフォニア/メガドリームexは底値圏から¥10,000台に戻し、インフェルノXは¥27,000超まで上昇しています。"
+                "底値で仕込めば数倍リターンの可能性があり、メガ進化人気の継続性を見極めるシリーズです。"
+            )),
+            ("値上げ後初パック「アビスアイ」が転換点", (
+                "2026年5月22日発売のアビスアイ(M5)が値上げ後初のメガ弾。1BOX定価は¥6,000(税込)に上がります。"
+                "メガダークライexを軸にした新基準BOXとして、相場が¥9,600(弱気)〜¥30,000(強気)で形成されると予想されます。"
+                "詳細は別記事「アビスアイ発売前予想」で解説しています。"
+            )),
+        ],
     },
     {
         "cat_id": "ss",
@@ -1962,6 +1995,23 @@ CATEGORY_PAGE_CONFIG = [
             "特にイーブイヒーローズ(¥150,000超)・VMAXクライマックス・蒼空ストリームなどは5桁〜6桁の高値相場。"
             "本ページではS&Sシリーズ全BOXの買取価格・発売日・定価倍率を一覧化しています。"
         ),
+        "narrative": [
+            ("Gレギュ落ち以降は実質全BOX絶版", (
+                "S&SシリーズはレギュレーションマークA/B/C/D/E/Fで構成され、2023年〜2026年1月にかけて段階的にスタンダード落ちが完了しました。"
+                "公式の生産は既に終了しており、市場流通は中古/未開封の在庫のみ。"
+                "在庫が枯れるほど相場が上昇する『絶版プレミア相場』の典型シリーズで、BOX買取は需給バランスのみで決まります。"
+            )),
+            ("VMAX/VSTAR 看板カードが相場を支える", (
+                "S&Sシリーズの目玉はVMAX(全身イラストの大型レア)とVSTAR(技付き全身イラスト)です。"
+                "イーブイヒーローズのイーブイズセットVMAX HRやVMAXクライマックスのリザードンVMAX HR、"
+                "蒼空ストリームのレックウザVMAX HRなど、5万円超のVMAX HR収録BOXは10万円台で安定します。"
+            )),
+            ("過去の暴落と再上昇のサイクル", (
+                "S&Sシリーズも2024年バブル崩壊で一時的に大幅下落しましたが、その後の絶版進行で再び上昇基調に転じています。"
+                "2026年に入り、イーブイヒーローズは¥150,000超、VMAXライジング・パラダイムトリガーも上昇トレンド入り。"
+                "新弾発売(SV/MEGA)のたびに相場の物差しがずれるため、タイミングを見ての分散売却が無難な投資戦略です。"
+            )),
+        ],
     },
 ]
 
@@ -2013,8 +2063,25 @@ def _build_category_page_html(
     cat_id = config["cat_id"]
     category_products = [p for p in products if p.category == cat_id]
 
-    # Build item rows with pricing + trend
+    # Pre-load history snapshots for 7d/30d comparison
     history_dir = project_root / "data" / "history"
+    hist_files = sorted(history_dir.glob("*.json")) if history_dir.exists() else []
+    price_7d_ago: dict[str, int] = {}
+    price_30d_ago: dict[str, int] = {}
+    if len(hist_files) >= 8:
+        try:
+            data = json.loads(hist_files[-8].read_text(encoding="utf-8"))
+            price_7d_ago = {x["name"]: x.get("max_price", 0) for x in data}
+        except (json.JSONDecodeError, OSError):
+            pass
+    if len(hist_files) >= 31:
+        try:
+            data = json.loads(hist_files[-31].read_text(encoding="utf-8"))
+            price_30d_ago = {x["name"]: x.get("max_price", 0) for x in data}
+        except (json.JSONDecodeError, OSError):
+            pass
+
+    # Build item rows with pricing + trend
     items: list[dict] = []
     for p in category_products:
         active = {sid: p.prices.get(sid, 0) for sid in SHOP_IDS if p.prices.get(sid, 0) > 0}
@@ -2024,6 +2091,12 @@ def _build_category_page_html(
         max_shop_id = max(active, key=active.get)
         slug = _generate_slug(p.name)
         ratio = (max_price / p.retail_price) if p.retail_price > 0 else 0
+        p7 = price_7d_ago.get(p.name, 0)
+        p30 = price_30d_ago.get(p.name, 0)
+        diff_7d = max_price - p7 if p7 > 0 else 0
+        pct_7d = (diff_7d / p7 * 100) if p7 > 0 else 0
+        diff_30d = max_price - p30 if p30 > 0 else 0
+        pct_30d = (diff_30d / p30 * 100) if p30 > 0 else 0
         items.append({
             "name": p.name,
             "slug": slug,
@@ -2033,6 +2106,12 @@ def _build_category_page_html(
             "max_shop": SHOP_NAMES.get(max_shop_id, max_shop_id),
             "ratio": ratio,
             "shop_count": len(active),
+            "p7": p7,
+            "p30": p30,
+            "diff_7d": diff_7d,
+            "pct_7d": pct_7d,
+            "diff_30d": diff_30d,
+            "pct_30d": pct_30d,
         })
     # Sort by release_date desc (newest first); empty dates last
     items.sort(key=lambda x: x["release_date"], reverse=True)
@@ -2060,6 +2139,79 @@ def _build_category_page_html(
         '</tr></thead><tbody>\n' + "\n".join(rows_html) + '\n</tbody></table>'
     )
 
+    # Ranking 3 types: 定価倍率TOP5 / 7日上昇率TOP5 / 30日上昇率TOP5
+    def _mini_rank_table(title: str, sub: str, rows: list[dict], value_key: str, value_fmt) -> str:
+        if not rows:
+            return ""
+        lines = [
+            f'<div class="rank-card"><div class="rk-title">{title}</div>'
+            f'<div class="rk-sub">{sub}</div>'
+            '<ol class="rk-list">'
+        ]
+        for i, r in enumerate(rows, 1):
+            value = value_fmt(r[value_key], r)
+            lines.append(
+                f'<li><span class="rk-num">#{i}</span>'
+                f'<a href="box/{r["slug"]}.html" class="rk-name">{r["name"]}</a>'
+                f'<span class="rk-val">{value}</span></li>'
+            )
+        lines.append('</ol></div>')
+        return "".join(lines)
+
+    ratio_top = sorted([x for x in items if x["ratio"] > 0], key=lambda x: x["ratio"], reverse=True)[:5]
+    pct7_top = sorted([x for x in items if x["pct_7d"] > 0], key=lambda x: x["pct_7d"], reverse=True)[:5]
+    pct30_top = sorted([x for x in items if x["pct_30d"] > 0], key=lambda x: x["pct_30d"], reverse=True)[:5]
+
+    rank_html = (
+        '<div class="rank-grid">'
+        + _mini_rank_table(
+            "💰 定価倍率TOP5", "現在の最高買取÷定価で算出",
+            ratio_top, "ratio", lambda v, r: f"{v:.1f}倍 (¥{r['max_price']:,})",
+        )
+        + _mini_rank_table(
+            "📈 7日上昇率TOP5", "直近1週間の最高買取上昇率",
+            pct7_top, "pct_7d", lambda v, r: f"+{v:.1f}% (+¥{r['diff_7d']:,})",
+        )
+        + _mini_rank_table(
+            "🚀 30日上昇率TOP5", "直近1ヶ月の最高買取上昇率",
+            pct30_top, "pct_30d", lambda v, r: f"+{v:.1f}% (+¥{r['diff_30d']:,})",
+        )
+        + '</div>'
+    )
+
+    # Timeline: 年次別グルーピング(発売日昇順)
+    timeline_groups: dict[str, list[dict]] = {}
+    for x in items:
+        if not x["release_date"]:
+            continue
+        year = x["release_date"][:4]
+        timeline_groups.setdefault(year, []).append(x)
+    timeline_html = ""
+    if timeline_groups:
+        parts = ['<div class="timeline">']
+        for year in sorted(timeline_groups.keys()):
+            entries = sorted(timeline_groups[year], key=lambda x: x["release_date"])
+            parts.append(f'<div class="tl-year"><div class="tl-year-label">{year}年</div><ul class="tl-list">')
+            for x in entries:
+                ratio_t = f"{x['ratio']:.1f}倍" if x["ratio"] > 0 else "-"
+                parts.append(
+                    f'<li><span class="tl-date">{x["release_date"][5:]}</span>'
+                    f'<a href="box/{x["slug"]}.html" class="tl-name">{x["name"]}</a>'
+                    f'<span class="tl-price">¥{x["max_price"]:,} ({ratio_t})</span></li>'
+                )
+            parts.append('</ul></div>')
+        parts.append('</div>')
+        timeline_html = "".join(parts)
+
+    # Series narrative blocks
+    narrative_html = ""
+    if config.get("narrative"):
+        nb = ['<div class="series-narrative">']
+        for h, p in config["narrative"]:
+            nb.append(f'<h3>{h}</h3><p>{p}</p>')
+        nb.append('</div>')
+        narrative_html = "".join(nb)
+
     # Summary box
     summary_html = ""
     if stats:
@@ -2073,26 +2225,72 @@ def _build_category_page_html(
             '</div>'
         )
 
-    # FAQ
-    faq_items = [
+    # FAQ (拡充: シリーズ別の特徴・データ・投資視点を含む7-8問)
+    faq_items_base = [
         {
             "q": f"{config['short']}には何種類のBOXがありますか？",
             "a": f"当サイトで追跡中の{config['short']}は全{stats.get('total', len(items))}商品です(買取価格掲載ベース)。未開封BOX・拡張パック・ハイクラスパック・強化拡張パックなどを含みます。",
         },
         {
             "q": f"{config['short']}で現在最も高価なBOXは？",
-            "a": f"{update_date}時点で最も高い買取価格が付いているのは「{stats.get('top_name', '-')}」で¥{stats.get('top_price', 0):,}です。",
-        } if stats else None,
+            "a": f"{update_date}時点で最も高い買取価格が付いているのは「{stats.get('top_name', '-')}」で¥{stats.get('top_price', 0):,}です。" if stats else "",
+        },
         {
             "q": f"{config['short']}の定価より高く売れるBOXは何商品ありますか？",
-            "a": f"{stats.get('premium_count', 0)}商品が定価を上回る買取価格を付けています(全{stats.get('total', 0)}商品中)。",
-        } if stats else None,
-        {
-            "q": f"{config['short']}の買取価格はどのくらいの頻度で更新されますか？",
-            "a": "毎日3回(11時・15時・18時 JST)、8店舗の公式サイトから自動取得して反映しています。",
+            "a": f"{stats.get('premium_count', 0)}商品が定価を上回る買取価格を付けています(全{stats.get('total', 0)}商品中)。" if stats else "",
         },
     ]
-    faq_items = [f for f in faq_items if f]
+    if ratio_top:
+        top_ratio = ratio_top[0]
+        faq_items_base.append({
+            "q": f"{config['short']}で定価倍率が最も高いBOXは？",
+            "a": f"定価倍率TOP1は「{top_ratio['name']}」で約{top_ratio['ratio']:.1f}倍(現在最高買取¥{top_ratio['max_price']:,}/定価¥{top_ratio['retail_price']:,})です。",
+        })
+    if pct7_top:
+        top_p7 = pct7_top[0]
+        faq_items_base.append({
+            "q": f"{config['short']}で直近1週間に最も上昇したBOXは？",
+            "a": f"7日上昇率TOP1は「{top_p7['name']}」で+{top_p7['pct_7d']:.1f}% (+¥{top_p7['diff_7d']:,})です。短期の急騰は調整を伴いやすいので、追随購入は押し目を待つのが無難です。",
+        })
+    # シリーズ固有のFAQ
+    if cat_id == "sv":
+        faq_items_base.extend([
+            {
+                "q": "SVシリーズのスタン落ちはいつですか？",
+                "a": "SVシリーズはレギュレーションマークG/H/I/Jで構成され、Gレギュは2026年1月にスタンダード落ちが完了しました。今後はH→I→Jの順に毎年スタン落ちが進むため、Gレギュ落ち後のBOX相場推移は他レギュの参考データになります。",
+            },
+            {
+                "q": "SVシリーズで投資対象として注目すべきBOXは？",
+                "a": "高騰実績がある151・黒炎の支配者・クレイバースト・超電ブレイカーは既に高値圏。投資視点では(1)定価倍率がまだ低めで看板SARが強いBOX、(2)スタン落ち1年前後のBOX、(3)180円定価最後の弾(ロケット団の栄光・熱風のアリーナ周辺)が注目候補です。",
+            },
+        ])
+    elif cat_id == "mega":
+        faq_items_base.extend([
+            {
+                "q": "MEGAシリーズのMUR封入率はどれくらいですか？",
+                "a": "MEGAシリーズの主役メガ進化ポケモンexのMUR(ミュウツー級)封入率は、メディア予想で約45BOXに1枚(約2.19%)とされています。MUR単体相場は10万円超もあり、引き当てれば1BOXで定価の20倍以上の回収が可能な「夢のある」シリーズです。",
+            },
+            {
+                "q": "MEGAシリーズの定価値上げはいつから？",
+                "a": "2026年5月22日発売のアビスアイ(M5)から、1パックの希望小売価格が180円→200円に値上げされ、1BOX定価は¥6,000(税込)になります。値上げ後の初動相場形成は不確実性が高く、値上げ前の180円定価最後のメガ弾(ニンジャスピナー周辺)はコレクション価値が意識されています。",
+            },
+        ])
+    elif cat_id == "ss":
+        faq_items_base.extend([
+            {
+                "q": "S&SシリーズのBOXは絶版ですか？",
+                "a": "S&Sシリーズの公式の生産は終了しており、市場流通は中古/未開封の在庫のみです。レギュレーションマークA〜Fで構成され、2023年〜2026年1月にかけて段階的にスタンダード落ちが完了しました。需要が在庫を上回るほど相場が上昇する『絶版プレミア相場』のシリーズです。",
+            },
+            {
+                "q": "S&Sシリーズで最も高額なBOXは？",
+                "a": f"{update_date}時点で当サイト掲載の最高額BOXは「{stats.get('top_name', 'イーブイヒーローズ')}」で¥{stats.get('top_price', 0):,}です。S&Sシリーズはイーブイヒーローズ・VMAXクライマックス・蒼空ストリーム・パラダイムトリガーなどが5桁〜6桁の高値圏で安定しています。" if stats else "",
+            },
+        ])
+    faq_items_base.append({
+        "q": f"{config['short']}の買取価格はどのくらいの頻度で更新されますか？",
+        "a": "毎日3回(11時・15時・18時 JST)、8店舗の公式サイトから自動取得して反映しています。本ページの順位・上昇率も毎回再計算されます。",
+    })
+    faq_items = [f for f in faq_items_base if f.get("a")]
     faq_html = (
         '<h2>よくある質問</h2>\n<div class="faq-list">\n'
         + "\n".join(
@@ -2213,6 +2411,30 @@ article p{{font-size:14px;margin-bottom:14px}}
 .cat-table td.bx-name a:hover{{color:var(--accent);text-decoration:underline}}
 .cat-table td.bx-date,.cat-table td.bx-retail,.cat-table td.bx-shop{{color:var(--text-sub);white-space:nowrap;font-size:12px}}
 .cat-table td.bx-max,.cat-table td.bx-ratio{{white-space:nowrap;font-weight:700;font-variant-numeric:tabular-nums;color:#dc2626}}
+.rank-grid{{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:14px 0 28px}}
+.rank-card{{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px}}
+.rk-title{{font-size:13px;font-weight:800;color:var(--text);margin-bottom:2px}}
+.rk-sub{{font-size:11px;color:var(--text-sub);margin-bottom:10px}}
+.rk-list{{list-style:none;padding:0;margin:0}}
+.rk-list li{{display:flex;align-items:center;gap:8px;padding:7px 0;border-top:1px solid #f3f4f6;font-size:12px}}
+.rk-list li:first-child{{border-top:none}}
+.rk-num{{font-weight:800;color:var(--accent);width:22px;flex-shrink:0;font-size:11px}}
+.rk-name{{flex:1;color:var(--text);text-decoration:none;line-height:1.4}}
+.rk-name:hover{{color:var(--accent);text-decoration:underline}}
+.rk-val{{font-weight:700;color:#dc2626;font-variant-numeric:tabular-nums;white-space:nowrap;font-size:11px}}
+.series-narrative{{background:#f5f3ff;border-radius:10px;padding:18px 22px;margin:14px 0 28px;border-left:3px solid var(--accent)}}
+.series-narrative h3{{font-size:14px;font-weight:800;color:#4338ca;margin:14px 0 6px}}
+.series-narrative h3:first-child{{margin-top:0}}
+.series-narrative p{{font-size:13px;color:var(--text);line-height:1.8;margin-bottom:0}}
+.timeline{{margin:14px 0 28px}}
+.tl-year{{margin-bottom:14px;padding:14px 18px;background:#f9fafb;border-radius:10px;border:1px solid var(--border)}}
+.tl-year-label{{font-size:13px;font-weight:800;color:var(--accent);margin-bottom:8px;padding-bottom:6px;border-bottom:1px dashed var(--border)}}
+.tl-list{{list-style:none;padding:0;margin:0}}
+.tl-list li{{display:flex;gap:10px;align-items:baseline;padding:5px 0;font-size:12px}}
+.tl-date{{color:var(--text-sub);font-variant-numeric:tabular-nums;width:42px;flex-shrink:0;font-size:11px}}
+.tl-name{{flex:1;color:var(--text);text-decoration:none;line-height:1.4}}
+.tl-name:hover{{color:var(--accent);text-decoration:underline}}
+.tl-price{{color:#dc2626;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap;font-size:11px}}
 .faq-list{{margin:8px 0 20px}}
 .faq-item{{background:#f9fafb;border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin-bottom:8px}}
 .faq-item summary{{font-size:14px;font-weight:700;color:var(--text);cursor:pointer;list-style:none;position:relative;padding-right:24px}}
@@ -2251,6 +2473,17 @@ article p{{font-size:14px;margin-bottom:14px}}
 
 <h2>{config['short']} 相場サマリー</h2>
 {summary_html}
+
+<h2>{config['short']} 注目ランキング</h2>
+<p>定価倍率と直近の上昇率で見る、シリーズ内の注目BOXトップ5を3軸で抽出しました。投資・コレクション判断の入口として活用できます。</p>
+{rank_html}
+
+<h2>{config['short']} の特徴と相場の見方</h2>
+{narrative_html}
+
+<h2>{config['short']} 発売タイムライン</h2>
+<p>{config['short']}の主要BOXを発売年別に並べました。新シリーズほど相場の伸びしろが大きく、旧シリーズほど絶版プレミア相場の比重が高い傾向があります。</p>
+{timeline_html}
 
 <h2>{config['short']} 全BOX一覧 (発売日順)</h2>
 <p>発売日の新しい順。商品名クリックで個別BOXの8店舗比較ページへ。</p>
