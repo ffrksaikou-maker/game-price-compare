@@ -46,14 +46,14 @@
     "name": "MEGA ハイクラスパック「MEGAドリームex」",
     "category": "mega",
     "retail_price": 5500,
-    "max_price": 17000,
+    "max_price": 17500,
     "prices": {
       "morimori": 17000,
       "homura": 17000,
       "rudeya": 16500,
       "runto": 16500,
       "icchome": 17000,
-      "oku": 17000,
+      "oku": 17500,
       "kaikyo": 16000,
       "sommelier": 16000
     }
