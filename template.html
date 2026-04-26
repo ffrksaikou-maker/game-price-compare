@@ -197,21 +197,29 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
   thead th.sc{min-width:60px}
 }
 
-.site-intro{max-width:var(--table-width);margin:18px auto 8px;padding:0 16px}
-.si-card{background:linear-gradient(135deg,#f5f3ff,#ede9fe);border:1px solid #c4b5fd;border-radius:12px;padding:18px 22px}
-.si-lead{font-size:14px;color:#3730a3;font-weight:600;line-height:1.7;margin-bottom:12px}
-.si-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-bottom:12px}
-.si-item{background:#fff;border:1px solid #ddd6fe;border-radius:8px;padding:10px 14px}
-.si-item h3{font-size:12px;font-weight:800;color:#6d28d9;margin-bottom:4px}
-.si-item p{font-size:12px;color:#1f2937;line-height:1.6;margin:0}
-.si-howto{font-size:12px;color:#3730a3;line-height:1.7;background:#fff;border-left:3px solid #7c3aed;padding:10px 14px;border-radius:0 6px 6px 0}
-.si-howto strong{color:#6d28d9}
-.si-meta{font-size:11px;color:#4338ca;margin-top:10px;text-align:right}
-.si-meta a{color:#6d28d9;text-decoration:none;font-weight:600}
+.site-intro{max-width:var(--table-width);margin:14px auto 0;padding:0 16px}
+.si-card{background:#f9fafb;border:1px solid var(--border);border-radius:10px;padding:0;overflow:hidden}
+.si-summary{font-size:13px;font-weight:700;color:var(--text-sub);cursor:pointer;list-style:none;padding:12px 18px;user-select:none}
+.si-summary::-webkit-details-marker{display:none}
+.si-summary::after{content:"▼";float:right;font-size:10px;color:var(--text-sub);transition:transform .2s}
+details[open] .si-summary{border-bottom:1px solid var(--border);color:var(--text)}
+details[open] .si-summary::after{transform:rotate(180deg)}
+.si-body{padding:14px 18px 16px}
+.si-lead{font-size:13px;color:var(--text);line-height:1.7;margin-bottom:12px}
+.si-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;margin-bottom:12px}
+.si-item{background:#fff;border:1px solid var(--border);border-radius:8px;padding:10px 14px}
+.si-item h3{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4px}
+.si-item p{font-size:12px;color:var(--text-sub);line-height:1.6;margin:0}
+.si-item a{color:var(--accent)}
+.si-howto{font-size:12px;color:var(--text-sub);line-height:1.7;background:#fff;border-left:3px solid var(--accent);padding:10px 14px;border-radius:0 6px 6px 0;margin-bottom:10px}
+.si-howto strong{color:var(--text)}
+.si-meta{font-size:11px;color:var(--text-sub);text-align:right}
+.si-meta a{color:var(--accent);text-decoration:none;font-weight:600}
 @media(max-width:640px){
-  .si-card{padding:14px 16px}
-  .si-lead{font-size:13px}
-  .si-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .si-summary{font-size:12px;padding:10px 14px}
+  .si-body{padding:12px 14px}
+  .si-lead{font-size:12px}
+  .si-grid{grid-template-columns:1fr;gap:6px}
   .si-item{padding:8px 10px}
   .si-item h3{font-size:11px}
   .si-item p{font-size:11px}
@@ -225,24 +233,6 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
   <h1>ポケカ買取チェッカー</h1>
   <span class="upd">更新: <span id="ud">{{UPDATE_DATE}}</span></span>
 </div>
-
-<section class="site-intro" aria-label="サイトについて">
-  <div class="si-card">
-    <p class="si-lead">ポケカ買取チェッカーは、ポケモンカード未開封BOX 67商品×8店舗の買取価格を毎日3回(11:00/15:00/18:00 JST)自動収集し、最高値をワンクリックで比較できる個人運営の情報サイトです。</p>
-    <div class="si-grid">
-      <div class="si-item"><h3>📊 8店舗を一括比較</h3><p>森森買取・買取ホムラ・買取一丁目・ラントゥ買取・買取ソムリエ・海峡通信・買取オク・買取ルデヤの公式買取表を自動収集。最高値は黄色のハイライトで一目でわかります。</p></div>
-      <div class="si-item"><h3>📈 価格推移グラフ</h3><p>各BOXの個別ページで過去1ヶ月・3ヶ月・全期間の買取価格推移をChart.jsで可視化。発売日も赤線で明示。底値・高値の把握に。</p></div>
-      <div class="si-item"><h3>💰 資産モード</h3><p>右上の「資産モード」ON→保有BOX個数を入力すると、合計資産額をリアルタイム計算。開封前のシュリンク付きBOX在庫管理に。</p></div>
-      <div class="si-item"><h3>🔥 急上昇ランキング</h3><p>毎週日曜公開の<a href="weekly/">週間急上昇ランキング</a>と、上位の<a href="ranking.html">グラフ版上昇ランキング</a>で市場の流れをキャッチ。</p></div>
-    </div>
-    <div class="si-howto">
-      <strong>使い方</strong>: 上部のシリーズ(ALL/MEGA/SV/S&S/スペシャル)・買取屋ボタンで絞り込み → 商品名クリックで個別ページ → 8店舗比較表+価格推移グラフ+よくある質問+特集記事まで掘り下げ可能。商品の検索やソートはテーブルヘッダーをタップしてください。
-    </div>
-    <div class="si-meta">
-      <a href="about.html">運営者情報</a> ・ <a href="privacy.html">プライバシーポリシー</a> ・ <a href="contact.html">お問い合わせ</a>
-    </div>
-  </div>
-</section>
 
 <div class="fbar" id="fbar">
   <div class="fg">
@@ -336,6 +326,25 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
     Xでシェア
   </a>
 </div>
+
+<section class="site-intro" aria-label="サイトについて">
+  <details class="si-card">
+    <summary class="si-summary">📖 ポケカ買取チェッカーについて(タップで開く)</summary>
+    <div class="si-body">
+      <p class="si-lead">ポケモンカード未開封BOX 67商品×8店舗の買取価格を毎日3回(11:00/15:00/18:00 JST)自動収集し、最高値をワンクリックで比較できる個人運営の情報サイトです。</p>
+      <div class="si-grid">
+        <div class="si-item"><h3>📊 8店舗を一括比較</h3><p>森森・ホムラ・一丁目・ラントゥ・ソムリエ・海峡通信・オク・ルデヤの公式買取表を自動収集。最高値は黄色ハイライトで明示。</p></div>
+        <div class="si-item"><h3>📈 価格推移グラフ</h3><p>各BOX個別ページで1ヶ月/3ヶ月/全期間の買取価格推移をChart.jsで可視化。発売日も赤線表示。</p></div>
+        <div class="si-item"><h3>💰 資産モード</h3><p>右上「資産モード」で保有BOX個数を入力→合計資産額をリアルタイム計算。シュリンク在庫管理に。</p></div>
+        <div class="si-item"><h3>🔥 急上昇ランキング</h3><p>毎週日曜公開の<a href="weekly/">週間急上昇ランキング</a>と<a href="ranking.html">上昇ランキング</a>で市場の流れをキャッチ。</p></div>
+      </div>
+      <div class="si-howto"><strong>使い方</strong>: 上部のシリーズ・買取屋ボタンで絞り込み → 商品名クリックで個別ページ → 8店舗比較表+価格推移グラフ+よくある質問+特集記事まで掘り下げ可能。</div>
+      <div class="si-meta">
+        <a href="about.html">運営者情報</a> ・ <a href="privacy.html">プライバシーポリシー</a> ・ <a href="contact.html">お問い合わせ</a>
+      </div>
+    </div>
+  </details>
+</section>
 
 <div class="ad">
   <a href="https://h.accesstrade.net/sp/cc?rk=0100p4pe00opz3" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" onclick="gtag('event','affiliate_click',{event_category:'ad',event_label:'toretoku'})"><img src="https://h.accesstrade.net/sp/rr?rk=0100p4pe00opz3" alt="トレトク" border="0" width="640" height="100" loading="lazy" decoding="async" style="max-width:100%;height:auto"></a>
