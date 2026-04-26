@@ -206,9 +206,21 @@
   </url>
   <url>
     <loc>https://pokeca-box-hikaku.com/privacy.html</loc>
-    <lastmod>2026-03-23</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://pokeca-box-hikaku.com/about.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://pokeca-box-hikaku.com/contact.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://pokeca-box-hikaku.com/box/ninja-spinner.html</loc>

@@ -1367,7 +1367,9 @@ def _update_sitemap(
         ("/shop-hikaku.html", "monthly", "0.8", "2026-03-23"),
         ("/kaitori-tips.html", "monthly", "0.8", "2026-03-23"),
         ("/monthly-ranking-2026-03.html", "monthly", "0.7", "2026-04-01"),
-        ("/privacy.html", "yearly", "0.3", "2026-03-23"),
+        ("/privacy.html", "monthly", "0.5", "2026-04-26"),
+        ("/about.html", "monthly", "0.7", "2026-04-26"),
+        ("/contact.html", "monthly", "0.6", "2026-04-26"),
     ]
 
     lines = [
