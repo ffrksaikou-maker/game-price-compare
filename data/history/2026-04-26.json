@@ -46,13 +46,14 @@
     "name": "MEGA ハイクラスパック「MEGAドリームex」",
     "category": "mega",
     "retail_price": 5500,
-    "max_price": 17500,
+    "max_price": 18000,
     "prices": {
-      "morimori": 17000,
+      "morimori": 17500,
       "homura": 17500,
       "rudeya": 16500,
       "runto": 16500,
       "icchome": 17000,
+      "oku": 18000,
       "kaikyo": 16500,
       "sommelier": 16000
     }
@@ -249,7 +250,7 @@
     "max_price": 22000,
     "prices": {
       "morimori": 22000,
-      "homura": 21700,
+      "homura": 21800,
       "rudeya": 21600,
       "runto": 20500,
       "icchome": 21500,
@@ -403,14 +404,14 @@
     "name": "SV 強化拡張パック「レイジングサーフ」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 14200,
+    "max_price": 14300,
     "prices": {
       "morimori": 14200,
       "homura": 14200,
       "rudeya": 14100,
       "runto": 13600,
       "icchome": 14000,
-      "oku": 14200,
+      "oku": 14300,
       "kaikyo": 11600,
       "sommelier": 14000
     }
@@ -450,9 +451,9 @@
     "name": "SV 拡張パック「クレイバースト」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 13600,
+    "max_price": 13500,
     "prices": {
-      "morimori": 13600,
+      "morimori": 13000,
       "homura": 13000,
       "rudeya": 13000,
       "runto": 12500,
@@ -545,7 +546,7 @@
     "retail_price": 4950,
     "max_price": 35000,
     "prices": {
-      "morimori": 34500,
+      "morimori": 34200,
       "homura": 34000,
       "runto": 33000,
       "oku": 35000,
@@ -583,11 +584,11 @@
     "name": "S&S 強化拡張パック「ポケモンGO」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 39000,
+    "max_price": 41000,
     "prices": {
       "homura": 30000,
       "runto": 35000,
-      "oku": 39000
+      "oku": 41000
     }
   },
   {
@@ -882,9 +883,9 @@
     "name": "スペシャルBOX フクオカ",
     "category": "special",
     "retail_price": 2090,
-    "max_price": 29000,
+    "max_price": 28500,
     "prices": {
-      "homura": 29000,
+      "homura": 28500,
       "rudeya": 26500,
       "runto": 28000,
       "icchome": 24000,
