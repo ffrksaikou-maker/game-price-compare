@@ -11,7 +11,7 @@
 <link rel="dns-prefetch" href="https://m.media-amazon.com">
 {{HERO_PRELOAD}}
 <meta name="description" content="{{PRODUCT_NAME}}の買取価格を{{SHOP_COUNT}}店舗で比較。最高値は{{MAX_PRICE_TEXT}}（{{MAX_SHOP_NAME}}）。{{HIT_CARDS_TEXT}}毎日自動更新。">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="{{ROBOTS}}">
 <link rel="canonical" href="https://pokeca-box-hikaku.com/box/{{SLUG}}.html">
 <meta property="og:title" content="{{PRODUCT_NAME}} 買取価格比較・当たりカード｜ポケカ買取チェッカー">
 <meta property="og:description" content="{{PRODUCT_NAME}}の買取価格を{{SHOP_COUNT}}店舗で比較。最高値{{MAX_PRICE_TEXT}}。">
@@ -120,6 +120,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 .faq-item .faq-answer{font-size:13px;color:var(--text-sub);margin-top:10px;line-height:1.7}
 .trend-comment{display:flex;align-items:center;gap:8px;padding:10px 14px;margin:0 0 14px;background:#f9fafb;border-radius:8px;border-left:3px solid currentColor;font-size:13px;font-weight:600}
 .trend-comment .trend-icon{font-size:16px}
+.box-narrative{background:#f9fafb;border-left:3px solid var(--accent);padding:14px 18px;margin:0 0 22px;border-radius:0 8px 8px 0}
+.box-narrative h3{font-size:13px;font-weight:800;color:#4338ca;margin-bottom:6px}
+.box-narrative p{font-size:13px;color:var(--text);line-height:1.8;margin:0 0 8px}
+.box-narrative p:last-child{margin-bottom:0}
 @media(max-width:600px){
   .main-card{padding:20px 16px}
   .main-card h2{font-size:18px}
@@ -144,6 +148,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 <a href="../weekly/">🔥 今週の急上昇記事</a>
 <a href="../ranking.html">上昇ランキング</a>
 <a href="../kaitori-tips.html">BOX買取のコツ</a>
+<a href="../about.html">運営者情報</a>
 <a href="../shop-hikaku.html">8店舗比較</a>
 <a href="../single-card-tips.html">シングル売り</a>
 <a href="../psa-guide.html">PSA鑑定ガイド</a>
@@ -180,6 +185,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 {{BOX_HERO}}
 {{TREND_COMMENT}}
 <p class="product-desc">{{PRODUCT_DESC}}</p>
+{{BOX_NARRATIVE}}
 
 <div class="best-price">
   <div class="label">最高買取価格</div>

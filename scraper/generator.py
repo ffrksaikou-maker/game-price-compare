@@ -727,6 +727,141 @@ def _generate_trend_comment(
     )
 
 
+def _build_box_narrative(
+    product: MasterProduct,
+    max_price: int,
+    shop_count: int,
+    slug: str,
+) -> str:
+    """Generate per-BOX original narrative text (150-300 chars).
+
+    Uses product fields (release_date, retail_price, hit_cards, category)
+    + computed values to build a unique commentary per product.
+    """
+    parts: list[str] = []
+
+    # シリーズ位置付け
+    cat_text = {
+        "sv": "スカーレット&バイオレット(SV)シリーズ",
+        "mega": "メガシンカ(MEGA)シリーズ",
+        "ss": "ソード&シールド(S&S)シリーズ",
+        "special": "地域限定スペシャルBOX",
+    }.get(product.category, "拡張パック")
+
+    # リリース時期から経過月数を計算
+    elapsed_text = ""
+    if product.release_date:
+        try:
+            rd = datetime.strptime(product.release_date, "%Y-%m-%d").date()
+            today = datetime.now(JST).date()
+            months = (today - rd).days // 30
+            if months < 1:
+                elapsed_text = "発売直後の新弾"
+            elif months < 6:
+                elapsed_text = f"発売から約{months}ヶ月の比較的新しい弾"
+            elif months < 18:
+                elapsed_text = f"発売から約{months}ヶ月、スタンダード現役の弾"
+            elif months < 36:
+                elapsed_text = f"発売から約{months}ヶ月、スタン落ち観測の対象になりやすい弾"
+            else:
+                elapsed_text = f"発売から{months // 12}年以上経過した旧弾"
+        except ValueError:
+            pass
+
+    intro = f"<p>{product.name}は、{cat_text}の{elapsed_text}です。"
+    if product.release_date:
+        try:
+            rd = datetime.strptime(product.release_date, "%Y-%m-%d").date()
+            intro += f"発売日は{rd.year}年{rd.month}月{rd.day}日。"
+        except ValueError:
+            pass
+    if product.retail_price > 0:
+        intro += f"定価は1BOXあたり¥{product.retail_price:,}(税込)で、30パック入りが基本構成です。"
+    intro += "</p>"
+    parts.append(intro)
+
+    # 当たりカードの解説 (hit_cardsを活用)
+    if product.hit_cards:
+        top_cards = product.hit_cards[:3]
+        card_text = "<p>注目の収録カードは"
+        card_descriptions = []
+        for card in top_cards:
+            if isinstance(card, (list, tuple)) and len(card) >= 2:
+                name, comment = card[0], card[1]
+                card_descriptions.append(f"<strong>{name}</strong>({comment})")
+            elif isinstance(card, (list, tuple)):
+                card_descriptions.append(f"<strong>{card[0]}</strong>")
+            else:
+                card_descriptions.append(f"<strong>{card}</strong>")
+        card_text += "、".join(card_descriptions)
+        card_text += "など。これらの高額レアを引き当てられるかが本BOXの開封価値を大きく左右します。</p>"
+        parts.append(card_text)
+
+    # 相場ポジショニング
+    if product.retail_price > 0 and max_price > 0:
+        ratio = max_price / product.retail_price
+        if ratio >= 8:
+            tier_text = (
+                f"<p>現在のBOX買取最高額は¥{max_price:,}で、定価の約{ratio:.1f}倍に達しています。"
+                f"超高額帯BOXの典型例で、看板SAR/MURの相場と連動した投資対象として扱われる水準です。"
+                f"短期の急騰局面では調整が入りやすいため、追随する場合は押し目を意識した方が無難です。</p>"
+            )
+        elif ratio >= 4:
+            tier_text = (
+                f"<p>現在のBOX買取最高額は¥{max_price:,}で、定価の約{ratio:.1f}倍。"
+                f"中高額帯のBOXとして、コレクター需要+スタン落ち観測の先取り投資需要が共存している価格帯です。"
+                f"再販頻度や同シリーズ内の動向を観察しながら、判断材料を積み上げるのが定石です。</p>"
+            )
+        elif ratio >= 2:
+            tier_text = (
+                f"<p>現在のBOX買取最高額は¥{max_price:,}で、定価の約{ratio:.1f}倍。"
+                f"中堅BOX帯で、まだ過熱感が薄く取引もしやすい水準です。"
+                f"看板SARの相場が動き出すタイミングを捉えれば、追加上昇の余地が残るゾーンです。</p>"
+            )
+        elif ratio >= 1.2:
+            tier_text = (
+                f"<p>現在のBOX買取最高額は¥{max_price:,}で、定価の約{ratio:.1f}倍。"
+                f"定価+αの位置取りで、再販供給が安定しているか需要が控えめなBOXに多い価格帯です。"
+                f"プレイ・コレクション目的なら定価購入で十分カバーできるレンジと言えます。</p>"
+            )
+        else:
+            tier_text = (
+                f"<p>現在のBOX買取最高額は¥{max_price:,}で、定価¥{product.retail_price:,}を下回っています。"
+                f"再販供給が需要を上回っているか、シリーズ内で他BOXに需要が分散している状態です。"
+                f"ただし買取相場と販売相場には乖離があるため、購入価格は別途確認してください。</p>"
+            )
+        parts.append(tier_text)
+
+    # 店舗数情報
+    if shop_count >= 6:
+        shop_text = f"<p>当サイトでは{shop_count}店舗で買取掲載が確認できており、流動性の高いBOXとして扱われています。複数店舗の最高値を比較するのが、最も損のない売却方法です。</p>"
+    elif shop_count >= 3:
+        shop_text = f"<p>当サイトでは{shop_count}店舗で買取掲載が確認できています。掲載店舗が限定的なため、最高値店舗での売却が特に重要になります。</p>"
+    else:
+        shop_text = f"<p>当サイトで掲載中の取扱店舗は現状{shop_count}店舗のみです。需給バランスや在庫状況により、表示価格が大きく変動する可能性があります。</p>"
+    parts.append(shop_text)
+
+    # スポットライト記事への内部リンク (該当BOXのみ)
+    spot_links = {
+        "151": ("151-spotlight.html", "ポケモンカード151が定価12.6倍に高騰した5つの理由"),
+        "ruler-of-black-flame": ("kokuen-spotlight.html", "黒炎の支配者が定価4倍に高騰した解説"),
+        "inferno": ("inferno-x-spotlight.html", "インフェルノXが定価5倍に高騰した解説"),
+        "chouden-breaker": ("chouden-breaker-spotlight.html", "超電ブレイカーが定価7.5倍に高騰した解説"),
+        "clay-burst": ("clay-burst-spotlight.html", "クレイバーストとナンジャモSAR相場の解説"),
+        "ninja-spinner": ("ninja-spinner-spotlight.html", "ニンジャスピナーが定価2.5倍に高騰した解説"),
+        "rocket-dan-no-eiko": ("rocket-dan-no-eiko-spotlight.html", "ロケット団の栄光が定価5.8倍に高騰した解説"),
+    }
+    if slug in spot_links:
+        link_url, link_text = spot_links[slug]
+        parts.append(
+            f'<p>📖 さらに詳しい解説は'
+            f'<a href="../{link_url}">【特集】{link_text}</a>'
+            f'をご覧ください。発売後の相場推移、高騰理由、3シナリオ予想、当たりカード相場を実データで掘り下げています。</p>'
+        )
+
+    return f'<div class="box-narrative">' + "".join(parts) + '</div>'
+
+
 def _generate_box_chart_section(product: MasterProduct, project_root: Path) -> str:
     """Generate inline chart HTML+JS for an individual product page.
 
@@ -1157,11 +1292,22 @@ def generate_product_pages(
         else:
             box_hero_html = ""
             hero_preload = ""
+        # 独自narrative(150-300字程度): 商品ごとに異なる動的解説テキスト
+        narrative_html = _build_box_narrative(p, max_price, shop_count, slug)
+
+        # noindex判定: 取扱店舗が3未満 or 定価の半分未満は薄ページ扱い
+        if shop_count < 3 or (p.retail_price > 0 and max_price < p.retail_price * 0.5):
+            robots_meta = "noindex, follow"
+        else:
+            robots_meta = "index, follow"
+
         html = html.replace("{{BOX_HERO}}", box_hero_html)
         html = html.replace("{{HERO_PRELOAD}}", hero_preload)
         html = html.replace("{{JSONLD}}", jsonld_tag)
         html = html.replace("{{FAQ_SECTION}}", faq_html)
         html = html.replace("{{TREND_COMMENT}}", trend_comment_html)
+        html = html.replace("{{BOX_NARRATIVE}}", narrative_html)
+        html = html.replace("{{ROBOTS}}", robots_meta)
         html = html.replace("<!-- {{CHART_SECTION}} -->", chart_section)
 
         # Write file
