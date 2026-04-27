@@ -11,7 +11,8 @@
       "runto": 12500,
       "icchome": 13500,
       "oku": 13700,
-      "kaikyo": 13300
+      "kaikyo": 13300,
+      "sommelier": 13000
     }
   },
   {
@@ -27,7 +28,7 @@
       "icchome": 9200,
       "oku": 9200,
       "kaikyo": 9000,
-      "sommelier": 9100
+      "sommelier": 9200
     }
   },
   {
@@ -190,7 +191,7 @@
       "rudeya": 23500,
       "runto": 23500,
       "icchome": 24500,
-      "oku": 24000,
+      "oku": 24500,
       "kaikyo": 17600,
       "sommelier": 24500
     }
@@ -207,22 +208,21 @@
       "runto": 11000,
       "icchome": 10800,
       "oku": 11000,
-      "kaikyo": 11000,
-      "sommelier": 11000
+      "kaikyo": 11000
     }
   },
   {
     "name": "SV ハイクラスパック テラスタルフェスex",
     "category": "sv",
     "retail_price": 5500,
-    "max_price": 24700,
+    "max_price": 25000,
     "prices": {
       "morimori": 24500,
       "homura": 24200,
       "rudeya": 24700,
       "runto": 23500,
       "icchome": 24500,
-      "oku": 24500,
+      "oku": 25000,
       "kaikyo": 24200,
       "sommelier": 23500
     }
@@ -238,7 +238,7 @@
       "rudeya": 44200,
       "runto": 40000,
       "icchome": 44000,
-      "oku": 43000,
+      "oku": 44000,
       "kaikyo": 38000,
       "sommelier": 40000
     }
