@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 JST = timezone(timedelta(hours=9))
 
 # Shop IDs in display order
-SHOP_IDS = ["morimori", "homura", "icchome", "runto", "sommelier", "kaikyo", "oku", "rudeya"]
+SHOP_IDS = ["morimori", "homura", "icchome", "runto", "collect_tendo", "sommelier", "kaikyo", "oku", "rudeya"]
 
 # BOX individual images (gamepedia.jp + 楽天から取得、ユーザー目視確認済み)
 BOX_IMAGE_FILES: dict[str, str] = {
@@ -541,6 +541,7 @@ SHOP_NAMES = {
     "kaikyo": "海峡通信",
     "oku": "買取オク",
     "rudeya": "買取ルデヤ",
+    "collect_tendo": "買取コレクト",
 }
 
 SHOP_URLS = {
@@ -552,6 +553,7 @@ SHOP_URLS = {
     "kaikyo": "https://www.mobile-ichiban.com/",
     "oku": "https://kaitori-oku.jp/",
     "rudeya": "https://kaitori-rudeya.com/",
+    "collect_tendo": "https://x.com/collect_tendo",
 }
 
 CATEGORY_LABELS = {
