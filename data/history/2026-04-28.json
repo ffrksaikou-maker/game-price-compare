@@ -544,12 +544,12 @@
     "name": "S&S 拡張パック「パラダイムトリガー」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 35000,
+    "max_price": 34000,
     "prices": {
       "morimori": 34000,
       "homura": 34000,
       "runto": 33000,
-      "oku": 35000,
+      "oku": 34000,
       "kaikyo": 22400
     }
   },
