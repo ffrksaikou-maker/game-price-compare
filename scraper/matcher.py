@@ -18,10 +18,10 @@ MATCH_THRESHOLD = 75
 MIN_BOX_PRICE = 3000
 
 # Maximum reasonable BOX buyback price (single BOX, yen)
-MAX_BOX_PRICE = 250000
+MAX_BOX_PRICE = 500000
 
 # Maximum buyback-to-retail ratio (skip if price > retail * this)
-MAX_RETAIL_RATIO = 50.0
+MAX_RETAIL_RATIO = 80.0
 
 # Keywords that indicate a BOX/sealed product (safe to match)
 BOX_INDICATORS = [
@@ -367,7 +367,8 @@ def normalize(text: str) -> str:
              "1BOX", "1box", "1Box"]
     for word in noise:
         text = text.replace(word, "")
-    return text.strip()
+    # case-insensitive matching用に小文字化
+    return text.strip().lower()
 
 
 def _keyword_match(scraped_name: str, product: MasterProduct) -> bool:
