@@ -27,7 +27,7 @@
       "homura": 9200,
       "rudeya": 9200,
       "runto": 9200,
-      "icchome": 9200,
+      "icchome": 9000,
       "oku": 9300,
       "kaikyo": 9000,
       "sommelier": 9200,
@@ -970,9 +970,9 @@
     "prices": {
       "homura": 18000,
       "rudeya": 18000,
-      "runto": 18000,
+      "runto": 17000,
       "icchome": 18200,
-      "kaikyo": 18000,
+      "kaikyo": 17000,
       "collect_tendo": 18000,
       "shinsoku": 16000
     }
@@ -981,9 +981,9 @@
     "name": "スペシャルBOX ヒロシマ",
     "category": "special",
     "retail_price": 2090,
-    "max_price": 30000,
+    "max_price": 29500,
     "prices": {
-      "homura": 30000,
+      "homura": 29500,
       "rudeya": 28000,
       "runto": 27000,
       "icchome": 24000,
@@ -996,11 +996,11 @@
     "name": "スペシャルBOX フクオカ",
     "category": "special",
     "retail_price": 2090,
-    "max_price": 28500,
+    "max_price": 28000,
     "prices": {
-      "homura": 28500,
+      "homura": 28000,
       "rudeya": 27200,
-      "runto": 27000,
+      "runto": 26000,
       "icchome": 24000,
       "kaikyo": 27000,
       "collect_tendo": 27000,
