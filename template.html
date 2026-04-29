@@ -92,6 +92,9 @@ tr.cat-mega td{background:var(--mega)}tr.cat-sv td{background:var(--sv)}tr.cat-s
 tr.cat-mega:hover td{background:#ffe0b2 !important}tr.cat-sv:hover td{background:#c8e6c9 !important}tr.cat-special:hover td{background:#bbdefb !important}tr.cat-ss:hover td{background:#f8bbd0 !important}
 tr.sh td{font-weight:800;font-size:14px;padding:14px 10px;text-align:left;border-bottom:2px solid var(--border)}
 td.p{font-weight:600}
+td.p .dy{font-size:10px;font-weight:700;line-height:1.2;margin-top:2px;white-space:nowrap}
+td.p .dy-up{color:#dc2626}
+td.p .dy-dn{color:#2563eb}
 td.pm{background:var(--highlight) !important;font-weight:800}
 td.rp{color:var(--text-sub);font-size:12px}
 td.dp{color:#059669;font-weight:700}
@@ -495,11 +498,17 @@ function render(){
     tdR.textContent=x.r>0?fp(x.r):"-";
     tr.appendChild(tdR);
 
-    // Max buyback
+    // Max buyback (with 前日比)
     const tdM=document.createElement("td");
     tdM.className="p";
     tdM.style.fontWeight="800";
-    tdM.textContent=fp(x._m);
+    const yest=x.y||0;
+    const dy=(yest>0&&x._m>0)?(x._m-yest):0;
+    const pct=(yest>0&&x._m>0)?(dy/yest*100):0;
+    let dyHtml="";
+    if(dy>0) dyHtml='<div class="dy dy-up">↑¥'+dy.toLocaleString()+' (+'+pct.toFixed(1)+'%)</div>';
+    else if(dy<0) dyHtml='<div class="dy dy-dn">↓¥'+Math.abs(dy).toLocaleString()+' ('+pct.toFixed(1)+'%)</div>';
+    tdM.innerHTML='<div>'+fp(x._m)+'</div>'+dyHtml;
     tr.appendChild(tdM);
 
     // Subtotal (inventory mode)

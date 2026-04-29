@@ -140,8 +140,22 @@ BLOG_ARTICLES = [
 ]
 
 
-def generate_product_js(products: list[MasterProduct]) -> str:
+def generate_product_js(products: list[MasterProduct], project_root: Path | None = None) -> str:
     """Generate the JavaScript `const P = [...]` array from product data."""
+    # 前日の最高買取価格を読み込んで前日比計算用に渡す
+    prev_max: dict[str, int] = {}
+    if project_root:
+        history_dir = project_root / "data" / "history"
+        if history_dir.exists():
+            files = sorted(history_dir.glob("*.json"))
+            # 当日 = files[-1] (今regen中なのでその直前 = files[-2] が"前日")
+            if len(files) >= 2:
+                try:
+                    prev_data = json.loads(files[-2].read_text(encoding="utf-8"))
+                    prev_max = {x["name"]: x.get("max_price", 0) for x in prev_data}
+                except (json.JSONDecodeError, OSError):
+                    pass
+
     lines = []
     lines.append("const P=[")
 
@@ -162,9 +176,11 @@ def generate_product_js(products: list[MasterProduct]) -> str:
 
         slug = _generate_slug(p.name)
         price_parts = ",".join(f"{sid}:{prices[sid]}" for sid in SHOP_IDS)
+        # 前日比: 前日のmax_price (なければ0)
+        y = prev_max.get(p.name, 0)
         line = (
             f'{{c:"{p.category}",n:"{name_escaped}",s:"{slug}",'
-            f'r:{p.retail_price},d:"{p.release_date}",p:{{{price_parts}}}}}'
+            f'r:{p.retail_price},d:"{p.release_date}",y:{y},p:{{{price_parts}}}}}'
         )
         lines.append(line + ",")
 
@@ -376,7 +392,7 @@ def generate_html(
     template = template_path.read_text(encoding="utf-8")
 
     # Generate product data JS
-    product_js = generate_product_js(products)
+    product_js = generate_product_js(products, project_root)
 
     # Generate update date in JST
     now = datetime.now(JST)
