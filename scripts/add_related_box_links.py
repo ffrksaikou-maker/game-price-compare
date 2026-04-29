@@ -56,7 +56,7 @@ def build_section(slugs: list[str]) -> str:
     return (
         f'\n{MARKER_COMMENT}\n'
         f'<h2>関連BOXの買取価格をチェック</h2>\n'
-        f'<p>この記事で紹介したポイントを踏まえて、実際の買取価格を8店舗で比較できます。'
+        f'<p>この記事で紹介したポイントを踏まえて、実際の買取価格を10店舗で比較できます。'
         f'以下は特に比較需要が高いBOXです。</p>\n'
         f'<ul>\n{items_html}\n</ul>\n'
     )

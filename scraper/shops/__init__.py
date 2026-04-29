@@ -7,6 +7,7 @@ from .oku import OkuScraper
 from .kaikyo import KaikyoScraper
 from .sommelier import SommelierScraper
 from .collect_tendo import CollectTendoScraper
+from .shinsoku import ShinsokuScraper
 
 ALL_SCRAPERS = [
     MorimoriScraper,
@@ -18,4 +19,5 @@ ALL_SCRAPERS = [
     KaikyoScraper,
     SommelierScraper,
     CollectTendoScraper,
+    ShinsokuScraper,
 ]

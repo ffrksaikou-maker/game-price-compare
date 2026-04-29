@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 JST = timezone(timedelta(hours=9))
 
 # Shop IDs in display order
-SHOP_IDS = ["morimori", "homura", "icchome", "runto", "collect_tendo", "sommelier", "kaikyo", "oku", "rudeya"]
+SHOP_IDS = ["morimori", "homura", "icchome", "runto", "collect_tendo", "shinsoku", "sommelier", "kaikyo", "oku", "rudeya"]
 
 # BOX individual images (gamepedia.jp + 楽天から取得、ユーザー目視確認済み)
 BOX_IMAGE_FILES: dict[str, str] = {
@@ -105,10 +105,10 @@ def get_box_image_url(slug: str) -> str:
 
 # Blog articles (newest first) - 記事追加時はここに1行足すだけ
 BLOG_ARTICLES = [
-    {"url": "weekly/", "title": "【今週】ポケカBOX 週間急上昇ランキング", "desc": "SV・MEGA TOP10 + S&S TOP3を毎日自動更新。8店舗実データから抽出した直近7日間で最も値上がりしたBOXをグラフ付きで掲載。", "date": "2026-04-12"},
-    {"url": "sv-box-list.html", "title": "SV(スカーレット&バイオレット) 全BOX一覧", "desc": "SVシリーズ全BOXの買取価格・定価・発売日・相場トレンドを8店舗実データで一覧化。151/黒炎の支配者/超電ブレイカー/ロケット団の栄光などの最新相場を毎日自動更新。", "date": "2026-04-22"},
-    {"url": "mega-box-list.html", "title": "MEGA(メガシンカ) 全BOX一覧", "desc": "MEGAシリーズ全BOXの買取価格・定価・発売日・相場トレンドを8店舗実データで一覧化。メガブレイブ/メガシンフォニア/インフェルノX/ニンジャスピナー/ムニキスゼロの相場を毎日自動更新。", "date": "2026-04-22"},
-    {"url": "ss-box-list.html", "title": "S&S(ソード&シールド) 全BOX一覧", "desc": "S&Sシリーズ全BOXの買取価格・定価・発売日・相場トレンドを8店舗実データで一覧化。イーブイヒーローズ/VMAXクライマックス/25thアニバーサリーなど絶版BOX中心。", "date": "2026-04-22"},
+    {"url": "weekly/", "title": "【今週】ポケカBOX 週間急上昇ランキング", "desc": "SV・MEGA TOP10 + S&S TOP3を毎日自動更新。10店舗実データから抽出した直近7日間で最も値上がりしたBOXをグラフ付きで掲載。", "date": "2026-04-12"},
+    {"url": "sv-box-list.html", "title": "SV(スカーレット&バイオレット) 全BOX一覧", "desc": "SVシリーズ全BOXの買取価格・定価・発売日・相場トレンドを10店舗実データで一覧化。151/黒炎の支配者/超電ブレイカー/ロケット団の栄光などの最新相場を毎日自動更新。", "date": "2026-04-22"},
+    {"url": "mega-box-list.html", "title": "MEGA(メガシンカ) 全BOX一覧", "desc": "MEGAシリーズ全BOXの買取価格・定価・発売日・相場トレンドを10店舗実データで一覧化。メガブレイブ/メガシンフォニア/インフェルノX/ニンジャスピナー/ムニキスゼロの相場を毎日自動更新。", "date": "2026-04-22"},
+    {"url": "ss-box-list.html", "title": "S&S(ソード&シールド) 全BOX一覧", "desc": "S&Sシリーズ全BOXの買取価格・定価・発売日・相場トレンドを10店舗実データで一覧化。イーブイヒーローズ/VMAXクライマックス/25thアニバーサリーなど絶版BOX中心。", "date": "2026-04-22"},
     {"url": "release-schedule-2026.html", "title": "2026年ポケカ新弾発売カレンダー", "desc": "ムニキスゼロ・ニンジャスピナー発売済み、アビスアイ(5/22発売決定・メガダークライex)、5月値上げ(180→200円)、商標予想(ストームエメラルダ等)、30周年記念商品(世界同時発売)まで完全整理。", "date": "2026-04-21"},
     {"url": "abyss-eye-forecast.html", "title": "【発売前予想】アビスアイ BOX相場3シナリオ", "desc": "2026-05-22発売のアビスアイBOX相場を、過去MEGA弾M1〜M4の実データ+ダークライ人気+値上げ後初パックの歴史から3シナリオ(弱気¥9,600/中立¥15,000/強気¥30,000)で徹底予想。投資判断3基準とリスク要因も解説。", "date": "2026-04-21"},
     {"url": "inferno-x-spotlight.html", "title": "インフェルノXが定価の5倍に高騰", "desc": "発売半年で定価¥5,400→¥27,000(約5倍)に急騰したインフェルノXの相場推移、収録カード、3つの高騰理由を実データで徹底解説。", "date": "2026-04-12"},
@@ -135,7 +135,7 @@ BLOG_ARTICLES = [
     {"url": "mercari-hikaku.html", "title": "メルカリ・スニダン・買取店どれが得？", "desc": "手数料・送料込みで3つの売却方法を徹底比較。具体的な計算例で最適な売り方がわかります。", "date": "2026-03-26"},
     {"url": "psa-guide.html", "title": "PSA鑑定とは？ポケカの価値を最大化する方法", "desc": "鑑定の流れ、グレードの意味、費用対効果まで。PSA 10で価値が3〜10倍に跳ね上がる具体例も紹介。", "date": "2026-03-24"},
     {"url": "single-card-tips.html", "title": "ポケカBOX開封→シングル売りで利益を出す方法", "desc": "高額カードの当たり例、レアリティの封入率、トレンド変化まで。開封vs未開封売りの判断基準も解説。", "date": "2026-03-24"},
-    {"url": "shop-hikaku.html", "title": "ポケカ買取8店舗の特徴を徹底比較", "desc": "当サイトで掲載している8店舗それぞれの強み・特徴をまとめました。自分に合った買取店選びの参考に。", "date": "2026-03-23"},
+    {"url": "shop-hikaku.html", "title": "ポケカ買取10店舗の特徴を徹底比較", "desc": "当サイトで掲載している10店舗それぞれの強み・特徴をまとめました。自分に合った買取店選びの参考に。", "date": "2026-03-23"},
     {"url": "kaitori-tips.html", "title": "ポケカBOX買取で損しない5つのコツ", "desc": "シュリンク付きの重要性、複数店舗比較のメリット、売り時の見極め方など、高価買取のポイントを解説。", "date": "2026-03-23"},
 ]
 
@@ -221,7 +221,7 @@ def generate_jsonld(products: list[MasterProduct]) -> str:
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "ポケカ買取チェッカー - 未開封BOX買取価格比較",
-        "description": "ポケモンカード未開封BOXの買取価格をラントゥ・ホムラ・一丁目・森森買取等8店舗横断で比較",
+        "description": "ポケモンカード未開封BOXの買取価格をラントゥ・ホムラ・一丁目・森森買取等10店舗横断で比較",
         "numberOfItems": len(items),
         "itemListElement": [
             {"@type": "ListItem", "position": i + 1, "item": item}
@@ -264,7 +264,7 @@ def generate_ai_summary(products: list[MasterProduct]) -> str:
     }
 
     lines = []
-    lines.append(f"ポケカ買取チェッカー - {date_str}更新。ポケモンカード未開封BOXの買取価格を8店舗で横断比較。")
+    lines.append(f"ポケカ買取チェッカー - {date_str}更新。ポケモンカード未開封BOXの買取価格を10店舗で横断比較。")
 
     # Top 5 products
     lines.append(f"【{date_str}時点の買取価格ランキング TOP5】")
@@ -542,6 +542,7 @@ SHOP_NAMES = {
     "oku": "買取オク",
     "rudeya": "買取ルデヤ",
     "collect_tendo": "買取コレクト",
+    "shinsoku": "買取シンソク",
 }
 
 SHOP_URLS = {
@@ -554,6 +555,7 @@ SHOP_URLS = {
     "oku": "https://kaitori-oku.jp/",
     "rudeya": "https://kaitori-rudeya.com/",
     "collect_tendo": "https://x.com/collect_tendo",
+    "shinsoku": "https://shinsoku-tcg.com/yuso-kaitori",
 }
 
 CATEGORY_LABELS = {
@@ -939,7 +941,7 @@ def _generate_box_chart_section(product: MasterProduct, project_root: Path) -> s
   <button class="cp-btn" data-period="1m">1ヶ月</button>
 </div>
 <canvas id="boxChart"></canvas>
-<div class="chart-note">※ 8店舗の最高買取価格の推移（過去分は参考データ）</div>
+<div class="chart-note">※ 10店舗の最高買取価格の推移（過去分は参考データ）</div>
 </div>
 <script>
 (function(){{
@@ -1809,7 +1811,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <a href="weekly/">🔥 今週の急上昇記事</a>
 <a href="ranking.html" class="current">上昇ランキング</a>
 <a href="kaitori-tips.html">BOX買取のコツ</a>
-<a href="shop-hikaku.html">8店舗比較</a>
+<a href="shop-hikaku.html">10店舗比較</a>
 <a href="single-card-tips.html">シングル売り</a>
 <a href="psa-guide.html">PSA鑑定ガイド</a>
 <a href="mercari-hikaku.html">メルカリ・スニダン比較</a>
@@ -2077,7 +2079,7 @@ CATEGORY_PAGE_CONFIG = [
         "filename": "sv-box-list.html",
         "title": "SV(スカーレット&バイオレット) 全BOX 買取価格一覧",
         "short": "SVシリーズ",
-        "desc_meta": "SV(スカーレット&バイオレット)シリーズ全BOXの買取価格・定価・発売日・相場トレンドを8店舗の実データで一覧化。151/黒炎の支配者/超電ブレイカー/ロケット団の栄光など全商品の相場を毎日自動更新。",
+        "desc_meta": "SV(スカーレット&バイオレット)シリーズ全BOXの買取価格・定価・発売日・相場トレンドを10店舗の実データで一覧化。151/黒炎の支配者/超電ブレイカー/ロケット団の栄光など全商品の相場を毎日自動更新。",
         "lead": (
             "SV(スカーレット&バイオレット)シリーズは2023年1月の「スカーレットex/バイオレットex」を起点に、"
             "レギュレーションマークG/H/I/Jで展開された現行ポケカのメインシリーズです。"
@@ -2108,7 +2110,7 @@ CATEGORY_PAGE_CONFIG = [
         "filename": "mega-box-list.html",
         "title": "MEGA(メガシンカ) 全BOX 買取価格一覧",
         "short": "MEGAシリーズ",
-        "desc_meta": "MEGAシリーズ全BOXの買取価格・定価・発売日・相場トレンドを8店舗の実データで一覧化。メガブレイブ/メガシンフォニア/インフェルノX/ニンジャスピナー/ムニキスゼロ/メガドリームexの相場を毎日自動更新。",
+        "desc_meta": "MEGAシリーズ全BOXの買取価格・定価・発売日・相場トレンドを10店舗の実データで一覧化。メガブレイブ/メガシンフォニア/インフェルノX/ニンジャスピナー/ムニキスゼロ/メガドリームexの相場を毎日自動更新。",
         "lead": (
             "MEGA(メガシンカ)シリーズは2025年春の「メガブレイブ/メガシンフォニア」から始まった新シリーズで、"
             "メガ進化ポケモンを主軸にしたBOX群です。"
@@ -2138,7 +2140,7 @@ CATEGORY_PAGE_CONFIG = [
         "filename": "ss-box-list.html",
         "title": "S&S(ソード&シールド) 全BOX 買取価格一覧",
         "short": "S&Sシリーズ",
-        "desc_meta": "S&S(ソード&シールド)シリーズ全BOXの買取価格・定価・発売日・相場トレンドを8店舗の実データで一覧化。イーブイヒーローズ/VMAXクライマックス/25thアニバーサリー/蒼空ストリームなど絶版BOX中心。毎日自動更新。",
+        "desc_meta": "S&S(ソード&シールド)シリーズ全BOXの買取価格・定価・発売日・相場トレンドを10店舗の実データで一覧化。イーブイヒーローズ/VMAXクライマックス/25thアニバーサリー/蒼空ストリームなど絶版BOX中心。毎日自動更新。",
         "lead": (
             "S&S(ソード&シールド)シリーズは2019年12月の「ソード/シールド」から2022年12月の「VSTARユニバース」まで約3年間展開された旧世代シリーズで、"
             "Gレギュ以降はスタン落ち済み。そのためほぼ全BOXが生産終了(絶版)状態にあり、中長期投資対象として根強い需要があります。"
@@ -2438,7 +2440,7 @@ def _build_category_page_html(
         ])
     faq_items_base.append({
         "q": f"{config['short']}の買取価格はどのくらいの頻度で更新されますか？",
-        "a": "毎日3回(11時・15時・18時 JST)、8店舗の公式サイトから自動取得して反映しています。本ページの順位・上昇率も毎回再計算されます。",
+        "a": "毎日3回(11時・15時・18時 JST)、10店舗の公式サイトから自動取得して反映しています。本ページの順位・上昇率も毎回再計算されます。",
     })
     faq_items = [f for f in faq_items_base if f.get("a")]
     faq_html = (
@@ -2617,7 +2619,7 @@ article p{{font-size:14px;margin-bottom:14px}}
 
 <article>
 <h1>{config['title']}</h1>
-<div class="meta">更新: {update_date} / データ源: 8店舗買取価格の自動収集</div>
+<div class="meta">更新: {update_date} / データ源: 10店舗買取価格の自動収集</div>
 
 <div class="lead"><p>{config['lead']}</p></div>
 
@@ -2636,7 +2638,7 @@ article p{{font-size:14px;margin-bottom:14px}}
 {timeline_html}
 
 <h2>{config['short']} 全BOX一覧 (発売日順)</h2>
-<p>発売日の新しい順。商品名クリックで個別BOXの8店舗比較ページへ。</p>
+<p>発売日の新しい順。商品名クリックで個別BOXの10店舗比較ページへ。</p>
 {table_html}
 
 {faq_html}
@@ -2685,7 +2687,7 @@ TIMED_ARTICLES = [
         "file": "abyss-eye-forecast.html",
         "release_date": "2026-05-22",
         "post_release_link": "box/abyss-eye.html",
-        "post_release_label": "アビスアイBOXの現在の買取価格を8店舗比較で見る",
+        "post_release_label": "アビスアイBOXの現在の買取価格を10店舗比較で見る",
         "pre_text_prefix": "🔮 発売前予想記事 — 発売まで",
     },
 ]

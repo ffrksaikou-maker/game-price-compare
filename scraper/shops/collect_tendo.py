@@ -36,6 +36,17 @@ STATE_FILE = Path(__file__).resolve().parent.parent.parent / "data" / "x_state" 
 MAX_IMAGES_TO_OCR = 4  # 最新ツイートの画像のみOCR(コスト/負荷抑制)
 ANTHROPIC_MODEL = "claude-sonnet-4-6"
 
+# OCR後の名前正規化辞書(コレクト固有の表記揺れをmatcher側のキーワードに寄せる)
+NAME_NORMALIZE = {
+    "ニンジャスビナー": "ニンジャスピナー",
+    "ポケモンセンタートウホク": "スペシャルBOX トウホク",
+    "ポケモンセンターヒロシマ": "スペシャルBOX ヒロシマ",
+    "ポケモンセンターフクオカ": "スペシャルBOX フクオカ",
+    "ポケセントウホク": "スペシャルBOX トウホク",
+    "ポケセンヒロシマ": "スペシャルBOX ヒロシマ",
+    "ポケセンフクオカ": "スペシャルBOX フクオカ",
+}
+
 
 class CollectTendoScraper(BaseScraper):
     shop_id = "collect_tendo"
@@ -209,7 +220,8 @@ class CollectTendoScraper(BaseScraper):
             "- 桁を慎重に読み取る(¥24,000 と ¥70,000 を間違えない、千円単位の区切りに注意)\n"
             "- ポケモンカードゲームの未開封BOX(30パック入り)のみ対象\n"
             "- ハイクラスパック・拡張パック・強化拡張パック・スタートデッキ100等のBOXもOK\n"
-            "- 例: 「ロケット団の栄光」「メガブレイブ」「151」「ポケモンカード151」「黒炎の支配者」\n"
+            "- ポケモンセンター限定の地域別スペシャルBOX(ポケモンセンタートウホク/ヒロシマ/フクオカ)も含める\n"
+            "- 例: 「ロケット団の栄光」「メガブレイブ」「151」「ポケモンカード151」「黒炎の支配者」「ニンジャスピナー」\n"
             "- 商品名は表記そのまま、ただしOCR誤認は文脈から修正(例: 「初天」→「仰天」、「ゲーファンタズマ」→「ダークファンタズマ」)\n"
             "- 価格は半角整数、単位や¥は含めない\n"
             "- 価格不明・取り消し線・空欄のものは含めない\n"
@@ -273,6 +285,8 @@ class CollectTendoScraper(BaseScraper):
             price = it.get("price")
             if isinstance(price, str):
                 price = int(re.sub(r"[^\d]", "", price)) if re.search(r"\d", price) else 0
+            # 正規化: コレクト固有の表記揺れを既存matcherのキーワードに寄せる
+            name = NAME_NORMALIZE.get(name, name)
             if name and isinstance(price, int) and price > 0:
                 result[name] = max(result.get(name, 0), price)
         logger.info("CollectTendo: OCR extracted %d items from image", len(result))

@@ -324,7 +324,7 @@ new Chart(document.getElementById('{canvas_id}').getContext('2d'), {{
     article_headline = f"【{title_label}】ポケカBOX 週間急上昇ランキング｜SV・MEGA TOP10 + S&S TOP3"
     article_desc = (
         f"{week_ago_str}〜{today_str}の7日間で買取価格が上昇したポケモンカード未開封BOX。"
-        "SV・MEGAシリーズ TOP10 + S&Sシリーズ TOP3を8店舗実データから抽出。毎週更新。"
+        "SV・MEGAシリーズ TOP10 + S&Sシリーズ TOP3を10店舗実データから抽出。毎週更新。"
     )
     article_jsonld = {
         "@context": "https://schema.org",
@@ -495,7 +495,7 @@ article p{{font-size:14px;margin-bottom:14px}}
 <a href="index.html" class="current">🔥 今週の急上昇記事</a>
 <a href="../ranking.html">上昇ランキング</a>
 <a href="../kaitori-tips.html">BOX買取のコツ</a>
-<a href="../shop-hikaku.html">8店舗比較</a>
+<a href="../shop-hikaku.html">10店舗比較</a>
 <a href="../single-card-tips.html">シングル売り</a>
 <a href="../psa-guide.html">PSA鑑定ガイド</a>
 <a href="../mercari-hikaku.html">メルカリ・スニダン比較</a>
@@ -526,10 +526,10 @@ article p{{font-size:14px;margin-bottom:14px}}
 
 <article>
 <h1>{article_headline}</h1>
-<div class="meta">公開日: {today_str} / 比較期間: {week_ago_str} 〜 {today_str} / データ源: 8店舗買取価格の自動収集</div>
+<div class="meta">公開日: {today_str} / 比較期間: {week_ago_str} 〜 {today_str} / データ源: 10店舗買取価格の自動収集</div>
 
 <div class="lead">
-<p>{week_ago_str}から{today_str}までの7日間で、ポケモンカード未開封BOXの買取価格が<strong>上昇</strong>した商品を、8店舗の実データからランキング化しました。本ランキングは<strong>SV・MEGAシリーズ TOP10</strong>をメインとし、別枠でS&Sシリーズ TOP3を掲載しています。</p>
+<p>{week_ago_str}から{today_str}までの7日間で、ポケモンカード未開封BOXの買取価格が<strong>上昇</strong>した商品を、10店舗の実データからランキング化しました。本ランキングは<strong>SV・MEGAシリーズ TOP10</strong>をメインとし、別枠でS&Sシリーズ TOP3を掲載しています。</p>
 </div>
 
 <h2>今週の相場ハイライト (SV・MEGA)</h2>
@@ -578,7 +578,7 @@ article p{{font-size:14px;margin-bottom:14px}}
 </ul>
 
 <div class="disclaimer">
-<strong>ご注意:</strong> 本記事は8店舗の買取価格データを元にした参考情報です。投資助言を目的とするものではありません。価格変動は需給や再販情報等により急変する場合があります。売買判断はご自身の責任でお願いします。価格は{update_date}時点の取得値です。
+<strong>ご注意:</strong> 本記事は10店舗の買取価格データを元にした参考情報です。投資助言を目的とするものではありません。価格変動は需給や再販情報等により急変する場合があります。売買判断はご自身の責任でお願いします。価格は{update_date}時点の取得値です。
 </div>
 
 <a href="../index.html" class="cta">全66商品の最新買取価格を比較する &rarr;</a>
@@ -699,7 +699,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <a href="index.html" class="current">🔥 今週の急上昇記事</a>
 <a href="../ranking.html">上昇ランキング</a>
 <a href="../kaitori-tips.html">BOX買取のコツ</a>
-<a href="../shop-hikaku.html">8店舗比較</a>
+<a href="../shop-hikaku.html">10店舗比較</a>
 <a href="../single-card-tips.html">シングル売り</a>
 <a href="../psa-guide.html">PSA鑑定ガイド</a>
 <a href="../mercari-hikaku.html">メルカリ・スニダン比較</a>
@@ -729,7 +729,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 </nav>
 <div class="main-card">
 <h2>週間急上昇記事 アーカイブ</h2>
-<p class="desc">8店舗の実データから自動抽出したポケカBOX急上昇ランキングを週次で記録。毎週更新・履歴は永続保存。</p>
+<p class="desc">10店舗の実データから自動抽出したポケカBOX急上昇ランキングを週次で記録。毎週更新・履歴は永続保存。</p>
 <ul class="week-list">
 {items_html}
 </ul>

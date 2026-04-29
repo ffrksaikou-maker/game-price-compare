@@ -48,7 +48,7 @@ def build_block(prefix: str) -> str:
     <a href="{prefix}weekly/">🔥 今週の急上昇記事</a>
     <a href="{prefix}ranking.html">上昇ランキング</a>
     <a href="{prefix}kaitori-tips.html">BOX買取のコツ</a>
-    <a href="{prefix}shop-hikaku.html">8店舗比較</a>
+    <a href="{prefix}shop-hikaku.html">10店舗比較</a>
     <a href="{prefix}box-toushi.html">BOX投資の始め方</a>
     <a href="{prefix}restock-guide.html">再販情報の見つけ方</a>
     <a href="{prefix}shrink-nashi.html">シュリンクなしBOX</a>
