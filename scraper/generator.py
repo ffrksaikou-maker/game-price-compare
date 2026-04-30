@@ -2556,7 +2556,13 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 .article-nav a:hover{{color:var(--accent);border-left-color:var(--accent)}}
 .article-nav a.current{{color:var(--accent);border-left-color:var(--accent);font-weight:600}}
 .article-nav-sub{{font-size:12px;font-weight:700;margin:14px 0 6px;color:#b91c1c;padding-top:10px;border-top:1px solid var(--border)}}
-@media(max-width:1023px){{.content-layout{{display:block}}.article-nav{{display:none}}}}
+.mobile-footer-nav{{display:none;margin:24px 0;padding:18px 16px;background:#f9fafb;border:1px solid var(--border);border-radius:12px}}
+.mfn-title{{font-size:14px;font-weight:700;margin-bottom:10px;color:var(--text)}}
+.mfn-section{{margin-top:14px}}
+.mfn-section-title{{font-size:12px;font-weight:700;color:#b91c1c;margin-bottom:8px;letter-spacing:.5px}}
+.mobile-footer-nav a{{display:block;font-size:13px;padding:10px 12px;border-radius:8px;color:var(--text);text-decoration:none;background:#fff;margin-bottom:6px;border:1px solid var(--border)}}
+.mobile-footer-nav a.spot{{border-left:3px solid #b91c1c;font-weight:600}}
+@media(max-width:1023px){{.content-layout{{display:block}}.article-nav{{display:none}}.mobile-footer-nav{{display:block}}}}
 .breadcrumb{{font-size:12px;color:var(--text-sub);margin-bottom:20px}}
 .breadcrumb a{{color:var(--accent);text-decoration:none}}
 article{{background:var(--card);border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.06);padding:32px 28px;margin-bottom:24px}}
@@ -2633,6 +2639,41 @@ article p{{font-size:14px;margin-bottom:14px}}
 <div class="wrap">
 <div class="breadcrumb"><a href="index.html">トップ</a> &gt; {config['short']} 一覧</div>
 
+<div class="content-layout">
+<nav class="article-nav">
+<div class="article-nav-title">一般記事</div>
+<a href="index.html">買取価格比較</a>
+<a href="sv-box-list.html"{(' class="current"' if config['cat_id']=='sv' else '')}>📋 SV全BOX一覧</a>
+<a href="mega-box-list.html"{(' class="current"' if config['cat_id']=='mega' else '')}>📋 MEGA全BOX一覧</a>
+<a href="ss-box-list.html"{(' class="current"' if config['cat_id']=='ss' else '')}>📋 S&S全BOX一覧</a>
+<a href="weekly/">🔥 今週の急上昇記事</a>
+<a href="ranking.html">上昇ランキング</a>
+<a href="kaitori-tips.html">BOX買取のコツ</a>
+<a href="about.html">運営者情報</a>
+<a href="shop-hikaku.html">10店舗比較</a>
+<a href="single-card-tips.html">シングル売り</a>
+<a href="psa-guide.html">PSA鑑定ガイド</a>
+<a href="mercari-hikaku.html">メルカリ・スニダン比較</a>
+<a href="shrink-nashi.html">シュリンクなしBOX</a>
+<a href="box-toushi.html">BOX投資の始め方</a>
+<a href="restock-guide.html">再販情報の見つけ方</a>
+<a href="release-schedule-2026.html">📅 2026年 新弾カレンダー</a>
+<a href="price-pattern-guide.html">📈 相場5段階パターン</a>
+<div class="article-nav-sub">🔥 BOX深掘り特集</div>
+<a href="151-spotlight.html">【特集】ポケモンカード151高騰</a>
+<a href="inferno-x-spotlight.html">【特集】インフェルノX高騰</a>
+<a href="kokuen-spotlight.html">【特集】黒炎の支配者高騰</a>
+<a href="chouden-breaker-spotlight.html">【特集】超電ブレイカー高騰</a>
+<a href="clay-burst-spotlight.html">【特集】クレイバースト高騰</a>
+<a href="ninja-spinner-spotlight.html">【特集】ニンジャスピナー高騰</a>
+<a href="rocket-dan-no-eiko-spotlight.html">【特集】ロケット団の栄光高騰</a>
+<div class="article-nav-sub" style="color:#6d28d9">📘 掘り下げガイド</div>
+<a href="zeppan-ranking-2026-03.html">📊 S&amp;S以降 絶版BOXランキング</a>
+<a href="lizardon-box-guide.html">🔥 リザードン高騰BOX完全ガイド</a>
+<a href="mega-pack-compare.html">⚡ MEGA拡張パック完全比較</a>
+<a href="kokuen-vs-rocket.html">⚔️ 黒炎 vs ロケット団の栄光</a>
+</nav>
+
 <article>
 <h1>{config['title']}</h1>
 <div class="meta">更新: {update_date} / データ源: 10店舗買取価格の自動収集</div>
@@ -2674,8 +2715,42 @@ article p{{font-size:14px;margin-bottom:14px}}
 <a href="index.html" class="cta">全商品の買取価格比較を見る &rarr;</a>
 <a href="index.html" class="back">&larr; トップに戻る</a>
 </article>
-</div>
-<div class="ft"><a href="index.html">ポケカ買取チェッカー</a> / <a href="privacy.html">プライバシーポリシー</a></div>
+</div><!-- /content-layout -->
+<nav class="mobile-footer-nav">
+  <div class="mfn-title">📚 他の記事を読む</div>
+  <div class="mfn-section">
+    <div class="mfn-section-title">🔥 BOX深掘り特集</div>
+    <a class="spot" href="151-spotlight.html">【特集】ポケモンカード151が定価12.6倍に高騰</a>
+    <a class="spot" href="inferno-x-spotlight.html">【特集】インフェルノXが定価の5倍に高騰</a>
+    <a class="spot" href="kokuen-spotlight.html">【特集】黒炎の支配者がなぜ高い？定価の約4倍</a>
+    <a class="spot" href="chouden-breaker-spotlight.html">【特集】超電ブレイカーが定価7.5倍に高騰</a>
+    <a class="spot" href="clay-burst-spotlight.html">【特集】クレイバーストとナンジャモSAR相場</a>
+    <a class="spot" href="ninja-spinner-spotlight.html">【特集】ニンジャスピナーが定価2.5倍に高騰</a>
+    <a class="spot" href="rocket-dan-no-eiko-spotlight.html">【特集】ロケット団の栄光が定価5.8倍に高騰</a>
+  </div>
+  <div class="mfn-section">
+    <div class="mfn-section-title" style="color:#6d28d9">📘 掘り下げガイド</div>
+    <a href="zeppan-ranking-2026-03.html">📊 S&amp;S以降 絶版BOXランキング</a>
+    <a href="lizardon-box-guide.html">🔥 リザードン高騰BOX完全ガイド</a>
+    <a href="mega-pack-compare.html">⚡ MEGA拡張パック完全比較</a>
+    <a href="kokuen-vs-rocket.html">⚔️ 黒炎 vs ロケット団の栄光</a>
+  </div>
+  <div class="mfn-section">
+    <div class="mfn-section-title">📰 一般記事</div>
+    <a href="index.html">買取価格比較トップ</a>
+    <a href="sv-box-list.html">📋 SV全BOX一覧</a>
+    <a href="mega-box-list.html">📋 MEGA全BOX一覧</a>
+    <a href="ss-box-list.html">📋 S&S全BOX一覧</a>
+    <a href="weekly/">🔥 今週の急上昇記事</a>
+    <a href="ranking.html">上昇ランキング</a>
+    <a href="kaitori-tips.html">BOX買取のコツ</a>
+    <a href="shop-hikaku.html">10店舗比較</a>
+    <a href="about.html">運営者情報</a>
+    <a href="release-schedule-2026.html">📅 2026年 新弾カレンダー</a>
+  </div>
+</nav>
+
+<div class="ft"><a href="index.html">ポケカ買取チェッカー</a> / <a href="about.html">運営者情報</a> / <a href="contact.html">お問い合わせ</a> / <a href="privacy.html">プライバシーポリシー</a></div>
 </body>
 </html>"""
 
