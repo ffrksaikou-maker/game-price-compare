@@ -25,9 +25,9 @@
     "prices": {
       "morimori": 8800,
       "homura": 9000,
-      "rudeya": 9000,
+      "rudeya": 8800,
       "runto": 8800,
-      "icchome": 9000,
+      "icchome": 8700,
       "oku": 8800,
       "kaikyo": 9000,
       "sommelier": 9000,
@@ -39,10 +39,10 @@
     "name": "MEGA スタートデッキ100「バトルコレクション」",
     "category": "mega",
     "retail_price": 891,
-    "max_price": 4050,
+    "max_price": 4000,
     "prices": {
       "homura": 4000,
-      "rudeya": 4050,
+      "rudeya": 4000,
       "runto": 4000,
       "shinsoku": 3000
     }
@@ -56,7 +56,7 @@
       "morimori": 17000,
       "homura": 17000,
       "rudeya": 17100,
-      "runto": 17000,
+      "runto": 16500,
       "icchome": 17000,
       "oku": 17000,
       "kaikyo": 17500,
@@ -69,11 +69,11 @@
     "name": "MEGA 拡張パック「インフェルノX」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 29000,
+    "max_price": 29100,
     "prices": {
       "morimori": 28400,
       "homura": 29000,
-      "rudeya": 28900,
+      "rudeya": 29100,
       "runto": 28500,
       "icchome": 29000,
       "oku": 29000,
@@ -92,7 +92,7 @@
       "homura": 14200,
       "rudeya": 14200,
       "runto": 14000,
-      "icchome": 14200,
+      "icchome": 14000,
       "oku": 14500,
       "kaikyo": 14500,
       "sommelier": 14000,
@@ -110,7 +110,7 @@
       "homura": 12200,
       "rudeya": 12200,
       "runto": 11500,
-      "icchome": 12200,
+      "icchome": 11500,
       "oku": 12200,
       "kaikyo": 11800,
       "sommelier": 11500,
@@ -124,7 +124,6 @@
     "retail_price": 5800,
     "max_price": 32000,
     "prices": {
-      "morimori": 23000,
       "homura": 31500,
       "rudeya": 31500,
       "runto": 24000,
@@ -228,7 +227,7 @@
     "prices": {
       "morimori": 10400,
       "homura": 10800,
-      "rudeya": 10500,
+      "rudeya": 10600,
       "runto": 11000,
       "icchome": 10800,
       "oku": 10800,
@@ -281,7 +280,7 @@
     "prices": {
       "morimori": 22000,
       "homura": 21800,
-      "rudeya": 21900,
+      "rudeya": 21500,
       "runto": 20500,
       "icchome": 20000,
       "oku": 21800,
@@ -353,7 +352,7 @@
     "prices": {
       "morimori": 16400,
       "homura": 16400,
-      "rudeya": 16100,
+      "rudeya": 16400,
       "runto": 16500,
       "icchome": 16000,
       "oku": 16300,
@@ -510,7 +509,7 @@
     "prices": {
       "morimori": 12500,
       "homura": 12800,
-      "rudeya": 13000,
+      "rudeya": 12700,
       "runto": 12500,
       "icchome": 12200,
       "oku": 12500,
@@ -598,7 +597,7 @@
     "max_price": 35000,
     "prices": {
       "homura": 34000,
-      "rudeya": 33500,
+      "rudeya": 34200,
       "runto": 34000,
       "icchome": 35000,
       "kaikyo": 35000,
@@ -976,7 +975,7 @@
     "max_price": 18200,
     "prices": {
       "homura": 17000,
-      "rudeya": 18000,
+      "rudeya": 17500,
       "runto": 17000,
       "icchome": 18200,
       "kaikyo": 17000,
@@ -1006,7 +1005,7 @@
     "max_price": 27500,
     "prices": {
       "homura": 27500,
-      "rudeya": 27200,
+      "rudeya": 27000,
       "runto": 26000,
       "icchome": 24000,
       "kaikyo": 27000,
