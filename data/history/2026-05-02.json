@@ -7,7 +7,7 @@
     "prices": {
       "morimori": 13000,
       "homura": 12800,
-      "rudeya": 13100,
+      "rudeya": 13000,
       "runto": 13000,
       "icchome": 13000,
       "oku": 13000,
@@ -55,7 +55,7 @@
     "prices": {
       "morimori": 17000,
       "homura": 16300,
-      "rudeya": 17100,
+      "rudeya": 16600,
       "runto": 16500,
       "icchome": 17000,
       "oku": 17000,
@@ -68,11 +68,11 @@
     "name": "MEGA 拡張パック「インフェルノX」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 29100,
+    "max_price": 28700,
     "prices": {
       "morimori": 28400,
       "homura": 27700,
-      "rudeya": 29100,
+      "rudeya": 28500,
       "runto": 28500,
       "icchome": 28000,
       "oku": 28300,
@@ -103,11 +103,11 @@
     "name": "MEGA 拡張パック「メガシンフォニア」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 12000,
+    "max_price": 11800,
     "prices": {
       "morimori": 11500,
       "homura": 11600,
-      "rudeya": 12000,
+      "rudeya": 11600,
       "runto": 11500,
       "icchome": 11500,
       "oku": 11500,
@@ -157,7 +157,7 @@
     "prices": {
       "morimori": 29200,
       "homura": 28000,
-      "rudeya": 29000,
+      "rudeya": 28000,
       "runto": 28000,
       "icchome": 28000,
       "kaikyo": 28800,
@@ -173,7 +173,7 @@
     "prices": {
       "morimori": 26200,
       "homura": 25500,
-      "rudeya": 26200,
+      "rudeya": 25500,
       "runto": 25000,
       "icchome": 25000,
       "kaikyo": 26200,
