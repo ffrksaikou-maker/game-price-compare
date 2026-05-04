@@ -768,12 +768,12 @@
     "name": "S&S 拡張パック「摩天パーフェクト」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 178000,
+    "max_price": 22500,
     "prices": {
       "homura": 22500,
       "oku": 21000,
       "collect_tendo": 20000,
-      "shinsoku": 178000
+      "shinsoku": 22000
     }
   },
   {
@@ -794,56 +794,56 @@
     "name": "S&S 拡張パック「白銀のランス」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 46000,
+    "max_price": 21000,
     "prices": {
       "homura": 21000,
       "runto": 15000,
       "oku": 20000,
       "collect_tendo": 17500,
-      "shinsoku": 46000
+      "shinsoku": 19800
     }
   },
   {
     "name": "S&S 拡張パック「漆黒のガイスト」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 57000,
+    "max_price": 25500,
     "prices": {
       "homura": 25500,
       "oku": 25000,
       "collect_tendo": 24000,
-      "shinsoku": 57000
+      "shinsoku": 25500
     }
   },
   {
     "name": "S&S 強化拡張パック「双璧のファイター」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 82000,
+    "max_price": 44000,
     "prices": {
       "homura": 44000,
       "collect_tendo": 40000,
-      "shinsoku": 82000
+      "shinsoku": 41000
     }
   },
   {
     "name": "S&S 拡張パック「連撃マスター」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 122000,
+    "max_price": 60000,
     "prices": {
       "homura": 60000,
-      "shinsoku": 122000
+      "shinsoku": 60000
     }
   },
   {
     "name": "S&S 拡張パック「一撃マスター」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 200000,
+    "max_price": 60000,
     "prices": {
       "homura": 55500,
-      "shinsoku": 200000
+      "shinsoku": 60000
     }
   },
   {
@@ -876,10 +876,10 @@
     "name": "S&S 強化拡張パック「伝説の鼓動」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 174000,
+    "max_price": 45000,
     "prices": {
       "homura": 45000,
-      "shinsoku": 174000
+      "shinsoku": 41000
     }
   },
   {
