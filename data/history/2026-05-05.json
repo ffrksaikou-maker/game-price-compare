@@ -7,7 +7,7 @@
     "prices": {
       "morimori": 12500,
       "homura": 12500,
-      "rudeya": 13000,
+      "rudeya": 12500,
       "runto": 12500,
       "icchome": 12500,
       "oku": 12500,
@@ -38,10 +38,10 @@
     "name": "MEGA スタートデッキ100「バトルコレクション」",
     "category": "mega",
     "retail_price": 891,
-    "max_price": 4000,
+    "max_price": 3900,
     "prices": {
       "homura": 3500,
-      "rudeya": 4000,
+      "rudeya": 3900,
       "runto": 3900,
       "shinsoku": 3500
     }
@@ -88,7 +88,7 @@
     "prices": {
       "morimori": 13800,
       "homura": 13800,
-      "rudeya": 14200,
+      "rudeya": 13800,
       "runto": 13500,
       "icchome": 13800,
       "oku": 13800,
@@ -105,7 +105,7 @@
     "prices": {
       "morimori": 11500,
       "homura": 11000,
-      "rudeya": 11600,
+      "rudeya": 11000,
       "runto": 11000,
       "icchome": 11000,
       "oku": 11000,
@@ -154,7 +154,7 @@
     "prices": {
       "morimori": 28200,
       "homura": 28300,
-      "rudeya": 28000,
+      "rudeya": 28300,
       "runto": 27000,
       "icchome": 28000,
       "kaikyo": 28800,
@@ -170,7 +170,7 @@
     "prices": {
       "morimori": 25200,
       "homura": 25100,
-      "rudeya": 25500,
+      "rudeya": 25100,
       "runto": 24000,
       "icchome": 25000,
       "kaikyo": 26200,
@@ -187,7 +187,7 @@
     "prices": {
       "morimori": 32000,
       "homura": 32500,
-      "rudeya": 32600,
+      "rudeya": 32500,
       "runto": 31500,
       "icchome": 32000,
       "oku": 32500,
@@ -200,11 +200,11 @@
     "name": "SV 強化拡張パック「熱風のアリーナ」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 23600,
+    "max_price": 23500,
     "prices": {
       "morimori": 23000,
       "homura": 23000,
-      "rudeya": 23600,
+      "rudeya": 23000,
       "runto": 23000,
       "icchome": 23000,
       "oku": 23000,
@@ -222,13 +222,13 @@
     "prices": {
       "morimori": 10400,
       "homura": 10500,
-      "rudeya": 10600,
+      "rudeya": 10500,
       "runto": 10500,
       "icchome": 10500,
       "oku": 10500,
       "kaikyo": 10700,
       "collect_tendo": 10000,
-      "shinsoku": 10300
+      "shinsoku": 10500
     }
   },
   {
@@ -239,7 +239,7 @@
     "prices": {
       "morimori": 23000,
       "homura": 23600,
-      "rudeya": 24200,
+      "rudeya": 23600,
       "runto": 22000,
       "icchome": 23600,
       "oku": 23500,
@@ -252,11 +252,11 @@
     "name": "SV 拡張パック「超電ブレイカー」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 43200,
+    "max_price": 42200,
     "prices": {
       "morimori": 41600,
       "homura": 42000,
-      "rudeya": 43200,
+      "rudeya": 42200,
       "runto": 40000,
       "icchome": 41500,
       "oku": 42000,
@@ -324,11 +324,11 @@
     "name": "SV 拡張パック「変幻の仮面」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 13900,
+    "max_price": 13800,
     "prices": {
       "morimori": 13800,
       "homura": 13800,
-      "rudeya": 13900,
+      "rudeya": 13800,
       "runto": 13000,
       "icchome": 13000,
       "oku": 13700,
@@ -345,7 +345,7 @@
     "prices": {
       "morimori": 16000,
       "homura": 16000,
-      "rudeya": 16400,
+      "rudeya": 16000,
       "runto": 15500,
       "icchome": 16000,
       "oku": 16000,
@@ -396,7 +396,7 @@
     "prices": {
       "morimori": 20000,
       "homura": 20500,
-      "rudeya": 20800,
+      "rudeya": 20500,
       "runto": 19000,
       "icchome": 20000,
       "oku": 20500,
@@ -481,7 +481,7 @@
     "prices": {
       "morimori": 64000,
       "homura": 64000,
-      "rudeya": 66000,
+      "rudeya": 63000,
       "runto": 63000,
       "icchome": 65000,
       "oku": 64000,
@@ -646,7 +646,7 @@
       "oku": 41000,
       "kaikyo": 15600,
       "collect_tendo": 33000,
-      "shinsoku": 36000
+      "shinsoku": 35000
     }
   },
   {
@@ -659,7 +659,7 @@
       "runto": 38000,
       "oku": 25000,
       "collect_tendo": 30000,
-      "shinsoku": 32000
+      "shinsoku": 33000
     }
   },
   {
@@ -964,7 +964,7 @@
     "max_price": 28000,
     "prices": {
       "homura": 27500,
-      "rudeya": 28000,
+      "rudeya": 27500,
       "runto": 27000,
       "icchome": 22000,
       "kaikyo": 28000,
@@ -979,7 +979,7 @@
     "max_price": 27000,
     "prices": {
       "homura": 25000,
-      "rudeya": 27000,
+      "rudeya": 26000,
       "runto": 26000,
       "icchome": 22000,
       "kaikyo": 27000,
