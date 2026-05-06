@@ -27,31 +27,11 @@
   "@type": "ItemList",
   "name": "ポケカBOX 週間上昇ランキング",
   "description": "ポケモンカード未開封BOX 週間上昇ランキング (2026-04-29 → 2026-05-06)",
-  "numberOfItems": 5,
+  "numberOfItems": 4,
   "itemListElement": [
     {
       "@type": "ListItem",
       "position": 1,
-      "item": {
-        "@type": "Product",
-        "name": "SV 拡張パック「ロケット団の栄光」",
-        "url": "https://pokeca-box-hikaku.com/box/rocket-dan-no-eiko.html",
-        "image": "https://pokeca-box-hikaku.com/ogp.jpg",
-        "brand": {
-          "@type": "Brand",
-          "name": "ポケモンカードゲーム"
-        },
-        "offers": {
-          "@type": "Offer",
-          "price": 37500,
-          "priceCurrency": "JPY",
-          "availability": "https://schema.org/InStock"
-        }
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
       "item": {
         "@type": "Product",
         "name": "SV 拡張パック「クレイバースト」",
@@ -71,7 +51,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 3,
+      "position": 2,
       "item": {
         "@type": "Product",
         "name": "S&S 拡張パック「蒼空ストリーム」",
@@ -91,7 +71,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 4,
+      "position": 3,
       "item": {
         "@type": "Product",
         "name": "S&S 拡張パック「反逆クラッシュ」",
@@ -111,7 +91,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 5,
+      "position": 4,
       "item": {
         "@type": "Product",
         "name": "S&S 強化拡張パック「伝説の鼓動」",
@@ -282,11 +262,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 
 <div class="main-card">
 <h2>ポケカBOX 週間上昇ランキング</h2>
-<div class="meta">更新: 2026/05/06 11:02　比較期間: 2026-04-29 → 2026-05-06（直近7日間）</div>
+<div class="meta">更新: 2026/05/06 14:32　比較期間: 2026-04-29 → 2026-05-06（直近7日間）</div>
 
 <h3 class="section-title up">SV・MEGA 上昇 TOP10</h3>
-<div class="mini-charts"><div class="mini-chart-card"><div class="mc-header"><a href="box/rocket-dan-no-eiko.html" class="mc-name">ロケット団の栄光</a><span class="mc-price">¥37,500</span><span class="mc-diff" style="color:#dc2626">↑+¥3,900 (+11.6%)</span></div><canvas id="svUpChart0" height="120"></canvas></div>
-<div class="mini-chart-card"><div class="mc-header"><a href="box/clay-burst.html" class="mc-name">クレイバースト</a><span class="mc-price">¥13,500</span><span class="mc-diff" style="color:#dc2626">↑+¥300 (+2.3%)</span></div><canvas id="svUpChart1" height="120"></canvas></div></div>
+<div class="mini-charts"><div class="mini-chart-card"><div class="mc-header"><a href="box/clay-burst.html" class="mc-name">クレイバースト</a><span class="mc-price">¥13,500</span><span class="mc-diff" style="color:#dc2626">↑+¥300 (+2.3%)</span></div><canvas id="svUpChart0" height="120"></canvas></div></div>
 
 <h3 class="section-title up" style="margin-top:48px">S&amp;S 上昇 TOP3</h3>
 <div class="mini-charts"><div class="mini-chart-card"><div class="mc-header"><a href="box/blue-sky-stream.html" class="mc-name">蒼空ストリーム</a><span class="mc-price">¥340,000</span><span class="mc-diff" style="color:#dc2626">↑+¥108,000 (+46.6%)</span></div><canvas id="ssUpChart0" height="120"></canvas></div>
@@ -295,8 +274,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 
 <h3 class="section-title" style="margin-top:48px">SV・MEGA 全BOX平均</h3>
 <div class="avg-stats">
-<div class="avg-item"><span class="avg-label">平均上昇額</span><span class="avg-value" style="color:#2563eb">¥-522</span></div>
-<div class="avg-item"><span class="avg-label">平均上昇率</span><span class="avg-value" style="color:#2563eb">-2.6%</span></div>
+<div class="avg-item"><span class="avg-label">平均上昇額</span><span class="avg-value" style="color:#2563eb">¥-616</span></div>
+<div class="avg-item"><span class="avg-label">平均上昇率</span><span class="avg-value" style="color:#2563eb">-2.8%</span></div>
 </div>
 <div class="chart-wrap" style="margin-top:16px">
 <canvas id="avgChart" height="200"></canvas>
@@ -318,23 +297,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 <script>
 
 new Chart(document.getElementById('svUpChart0'), {
-  type: 'line',
-  data: {
-    labels: ["2026-04-29", "2026-04-30", "2026-05-01", "2026-05-02", "2026-05-03", "2026-05-04", "2026-05-05", "2026-05-06"],
-    datasets: [{ data: [33600, 33600, 32600, 32600, 32600, 33000, 37500, 37500], borderColor: '#dc2626', borderWidth: 2, fill: true,
-      backgroundColor: '#dc262622', tension: 0.3, pointRadius: 2 }]
-  },
-  options: {
-    responsive: true,
-    plugins: { legend: { display: false } },
-    scales: {
-      x: { ticks: { font: { size: 10 }, maxRotation: 0 } },
-      y: { ticks: { callback: v => '¥' + v.toLocaleString(), font: { size: 10 } } }
-    }
-  }
-});
-
-new Chart(document.getElementById('svUpChart1'), {
   type: 'line',
   data: {
     labels: ["2026-04-29", "2026-04-30", "2026-05-01", "2026-05-02", "2026-05-03", "2026-05-04", "2026-05-05", "2026-05-06"],
@@ -407,7 +369,7 @@ new Chart(document.getElementById('avgChart'), {
     labels: ["2026-04-29", "2026-04-30", "2026-05-01", "2026-05-02", "2026-05-03", "2026-05-04", "2026-05-05", "2026-05-06"],
     datasets: [{
       label: 'SV・MEGA 平均買取価格',
-      data: [19893, 19813, 19697, 19550, 19535, 19497, 19594, 19371],
+      data: [19893, 19813, 19697, 19550, 19535, 19497, 19594, 19276],
       borderColor: '#6366f1',
       backgroundColor: '#6366f122',
       borderWidth: 2,
