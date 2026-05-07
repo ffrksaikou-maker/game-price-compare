@@ -303,7 +303,7 @@
     "name": "SV 強化拡張パック「ナイトワンダラー」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 38500,
+    "max_price": 11000,
     "prices": {
       "morimori": 11000,
       "homura": 11000,
@@ -312,7 +312,6 @@
       "icchome": 10500,
       "oku": 11000,
       "kaikyo": 9600,
-      "sommelier": 38500,
       "collect_tendo": 10500,
       "shinsoku": 11000
     }
