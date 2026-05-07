@@ -261,7 +261,6 @@
       "icchome": 41500,
       "oku": 42000,
       "kaikyo": 38000,
-      "sommelier": 42000,
       "collect_tendo": 41500,
       "shinsoku": 41000
     }
@@ -296,7 +295,6 @@
       "icchome": 10500,
       "oku": 11000,
       "kaikyo": 8700,
-      "sommelier": 10500,
       "collect_tendo": 10500,
       "shinsoku": 11000
     }
@@ -305,7 +303,7 @@
     "name": "SV 強化拡張パック「ナイトワンダラー」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 11000,
+    "max_price": 38500,
     "prices": {
       "morimori": 11000,
       "homura": 11000,
@@ -314,7 +312,7 @@
       "icchome": 10500,
       "oku": 11000,
       "kaikyo": 9600,
-      "sommelier": 10500,
+      "sommelier": 38500,
       "collect_tendo": 10500,
       "shinsoku": 11000
     }
@@ -400,7 +398,6 @@
       "icchome": 20000,
       "oku": 20000,
       "kaikyo": 20500,
-      "sommelier": 20000,
       "collect_tendo": 20000,
       "shinsoku": 19000
     }
