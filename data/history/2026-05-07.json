@@ -38,11 +38,11 @@
     "name": "MEGA スタートデッキ100「バトルコレクション」",
     "category": "mega",
     "retail_price": 891,
-    "max_price": 4000,
+    "max_price": 4200,
     "prices": {
       "homura": 3500,
       "rudeya": 3900,
-      "runto": 4000,
+      "runto": 4200,
       "shinsoku": 3500
     }
   },
@@ -493,7 +493,7 @@
     "name": "SV 拡張パック「クレイバースト」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 13500,
+    "max_price": 13800,
     "prices": {
       "morimori": 12300,
       "homura": 12500,
@@ -502,7 +502,7 @@
       "icchome": 13000,
       "oku": 12500,
       "kaikyo": 12800,
-      "sommelier": 13500,
+      "sommelier": 13800,
       "collect_tendo": 12300,
       "shinsoku": 12500
     }
@@ -629,7 +629,7 @@
       "runto": 45000,
       "oku": 77500,
       "kaikyo": 76500,
-      "sommelier": 13500,
+      "sommelier": 13800,
       "collect_tendo": 75000,
       "shinsoku": 73000
     }
