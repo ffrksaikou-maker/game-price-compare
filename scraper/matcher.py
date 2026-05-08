@@ -54,7 +54,7 @@ NON_POKEMON_INDICATORS = [
 
 # Non-BOX Pokemon products to exclude
 NON_BOX_INDICATORS = [
-    "プロモカードパック", "カードファイルセット", "カードファイル",
+    "プロモカードパック", "カードファイルセット", "カードファイル", "ファイルセット",
     "GOLDEN BOX", "ゴールデンボックス",
     "スペシャルセット", "ジムセット",
     "ハッピーセット", "記念デッキ", "プレシャスコレクター",
