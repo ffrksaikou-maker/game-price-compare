@@ -53,12 +53,12 @@
     "retail_price": 5500,
     "max_price": 17500,
     "prices": {
-      "morimori": 17000,
+      "morimori": 17300,
       "homura": 17500,
       "rudeya": 17100,
       "runto": 17000,
-      "icchome": 17500,
-      "oku": 17000,
+      "icchome": 17000,
+      "oku": 17500,
       "kaikyo": 16500,
       "collect_tendo": 17100,
       "shinsoku": 15800
@@ -68,14 +68,14 @@
     "name": "MEGA 拡張パック「インフェルノX」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 28100,
+    "max_price": 28000,
     "prices": {
       "morimori": 28000,
       "homura": 28000,
       "rudeya": 27000,
       "runto": 27500,
       "icchome": 27500,
-      "oku": 28100,
+      "oku": 28000,
       "kaikyo": 27500,
       "collect_tendo": 27800,
       "shinsoku": 26800
@@ -104,7 +104,7 @@
     "retail_price": 5400,
     "max_price": 11800,
     "prices": {
-      "morimori": 11000,
+      "morimori": 11300,
       "homura": 11500,
       "rudeya": 11000,
       "runto": 11000,
@@ -153,7 +153,7 @@
     "retail_price": 5400,
     "max_price": 28500,
     "prices": {
-      "morimori": 28200,
+      "morimori": 28300,
       "homura": 28500,
       "rudeya": 28000,
       "runto": 27000,
@@ -184,7 +184,7 @@
     "name": "SV 拡張パック「ロケット団の栄光」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 33000,
+    "max_price": 38000,
     "prices": {
       "morimori": 33000,
       "homura": 33000,
@@ -193,7 +193,7 @@
       "icchome": 33000,
       "oku": 33000,
       "kaikyo": 31500,
-      "collect_tendo": 33000,
+      "collect_tendo": 38000,
       "shinsoku": 33000
     }
   },
@@ -208,7 +208,7 @@
       "rudeya": 23000,
       "runto": 23000,
       "icchome": 23300,
-      "oku": 23000,
+      "oku": 23300,
       "kaikyo": 23000,
       "sommelier": 23500,
       "collect_tendo": 23000,
@@ -294,7 +294,7 @@
       "rudeya": 11000,
       "runto": 11000,
       "icchome": 10600,
-      "oku": 11000,
+      "oku": 10800,
       "kaikyo": 8700,
       "collect_tendo": 10500,
       "shinsoku": 11000
@@ -311,7 +311,7 @@
       "rudeya": 10900,
       "runto": 10800,
       "icchome": 10600,
-      "oku": 11000,
+      "oku": 10800,
       "kaikyo": 9600,
       "collect_tendo": 10500,
       "shinsoku": 11000
@@ -345,7 +345,7 @@
       "rudeya": 15800,
       "runto": 15500,
       "icchome": 15800,
-      "oku": 15800,
+      "oku": 16000,
       "kaikyo": 16500,
       "collect_tendo": 15500,
       "shinsoku": 15500
@@ -942,9 +942,9 @@
     "name": "スペシャルBOX トウホク",
     "category": "special",
     "retail_price": 2090,
-    "max_price": 17000,
+    "max_price": 17500,
     "prices": {
-      "homura": 16500,
+      "homura": 17500,
       "rudeya": 17000,
       "runto": 16000,
       "icchome": 16000,
@@ -964,18 +964,16 @@
       "runto": 27000,
       "icchome": 22000,
       "kaikyo": 22000,
-      "sommelier": 28000,
-      "collect_tendo": 28500,
-      "shinsoku": 27000
+      "collect_tendo": 28500
     }
   },
   {
     "name": "スペシャルBOX フクオカ",
     "category": "special",
     "retail_price": 2090,
-    "max_price": 26000,
+    "max_price": 26500,
     "prices": {
-      "homura": 25500,
+      "homura": 26500,
       "rudeya": 25500,
       "runto": 25000,
       "icchome": 22000,
