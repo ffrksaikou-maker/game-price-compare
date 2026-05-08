@@ -966,6 +966,7 @@
       "runto": 27000,
       "icchome": 22000,
       "kaikyo": 22000,
+      "sommelier": 28500,
       "collect_tendo": 29000,
       "shinsoku": 27000
     }
@@ -978,7 +979,7 @@
     "prices": {
       "homura": 26500,
       "rudeya": 25500,
-      "runto": 25000,
+      "runto": 26000,
       "icchome": 22000,
       "kaikyo": 22000,
       "collect_tendo": 27000,
