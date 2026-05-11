@@ -39,11 +39,11 @@
     "name": "MEGA スタートデッキ100「バトルコレクション」",
     "category": "mega",
     "retail_price": 891,
-    "max_price": 4200,
+    "max_price": 4000,
     "prices": {
       "homura": 3500,
       "rudeya": 3900,
-      "runto": 4200,
+      "runto": 4000,
       "shinsoku": 3500
     }
   },
@@ -91,7 +91,7 @@
       "homura": 14000,
       "rudeya": 14000,
       "runto": 13500,
-      "icchome": 14000,
+      "icchome": 13800,
       "oku": 14000,
       "kaikyo": 13500,
       "collect_tendo": 13700,
@@ -108,7 +108,7 @@
       "homura": 11600,
       "rudeya": 11300,
       "runto": 11000,
-      "icchome": 11400,
+      "icchome": 11200,
       "oku": 11200,
       "kaikyo": 9500,
       "collect_tendo": 11000,
@@ -295,6 +295,7 @@
       "icchome": 10800,
       "oku": 11100,
       "kaikyo": 8700,
+      "sommelier": 11000,
       "collect_tendo": 11200,
       "shinsoku": 11300
     }
@@ -312,6 +313,7 @@
       "icchome": 10800,
       "oku": 10800,
       "kaikyo": 9600,
+      "sommelier": 11000,
       "collect_tendo": 11200,
       "shinsoku": 11100
     }
@@ -388,13 +390,13 @@
     "name": "SV ハイクラスパック「シャイニートレジャーex」",
     "category": "sv",
     "retail_price": 5500,
-    "max_price": 20300,
+    "max_price": 20200,
     "prices": {
       "morimori": 20200,
       "homura": 19800,
       "rudeya": 20000,
       "runto": 19500,
-      "icchome": 20300,
+      "icchome": 20000,
       "oku": 20200,
       "kaikyo": 20000,
       "sommelier": 20000,
@@ -957,13 +959,14 @@
     "name": "スペシャルBOX ヒロシマ",
     "category": "special",
     "retail_price": 2090,
-    "max_price": 28500,
+    "max_price": 28800,
     "prices": {
       "homura": 28500,
       "rudeya": 27500,
       "runto": 27000,
       "icchome": 22000,
       "kaikyo": 22000,
+      "sommelier": 28800,
       "collect_tendo": 27000,
       "shinsoku": 27000
     }
@@ -979,6 +982,7 @@
       "runto": 26500,
       "icchome": 22000,
       "kaikyo": 22000,
+      "sommelier": 26500,
       "collect_tendo": 24000,
       "shinsoku": 24000
     }
