@@ -13,7 +13,7 @@
       "oku": 12200,
       "kaikyo": 10000,
       "sommelier": 12200,
-      "collect_tendo": 12300,
+      "collect_tendo": 12400,
       "shinsoku": 12300
     }
   },
@@ -31,7 +31,7 @@
       "oku": 9000,
       "kaikyo": 7000,
       "sommelier": 8800,
-      "collect_tendo": 9200,
+      "collect_tendo": 8500,
       "shinsoku": 9000
     }
   },
@@ -60,7 +60,7 @@
       "icchome": 17300,
       "oku": 17500,
       "kaikyo": 17000,
-      "collect_tendo": 17000,
+      "collect_tendo": 17300,
       "shinsoku": 17000
     }
   },
@@ -111,7 +111,7 @@
       "icchome": 11200,
       "oku": 11400,
       "kaikyo": 9500,
-      "collect_tendo": 11000,
+      "collect_tendo": 11400,
       "shinsoku": 11500
     }
   },
@@ -192,7 +192,7 @@
       "icchome": 32800,
       "oku": 33000,
       "kaikyo": 31500,
-      "collect_tendo": 33000,
+      "collect_tendo": 32000,
       "shinsoku": 31000
     }
   },
@@ -244,7 +244,7 @@
       "icchome": 23500,
       "oku": 23000,
       "kaikyo": 23500,
-      "collect_tendo": 22500,
+      "collect_tendo": 22000,
       "shinsoku": 22700
     }
   },
@@ -296,7 +296,7 @@
       "oku": 11300,
       "kaikyo": 8700,
       "sommelier": 11500,
-      "collect_tendo": 11200,
+      "collect_tendo": 11300,
       "shinsoku": 11500
     }
   },
@@ -365,7 +365,7 @@
       "icchome": 13800,
       "oku": 13500,
       "kaikyo": 12800,
-      "collect_tendo": 13200,
+      "collect_tendo": 13700,
       "shinsoku": 13600
     }
   },
@@ -424,7 +424,7 @@
     "name": "SV 拡張パック「未来の一閃」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 10800,
+    "max_price": 10900,
     "prices": {
       "morimori": 10300,
       "homura": 10500,
@@ -432,7 +432,7 @@
       "runto": 10600,
       "icchome": 10400,
       "oku": 10500,
-      "collect_tendo": 10600,
+      "collect_tendo": 10900,
       "shinsoku": 10800
     }
   },
@@ -483,7 +483,7 @@
       "runto": 60000,
       "icchome": 66000,
       "oku": 62000,
-      "collect_tendo": 62000,
+      "collect_tendo": 60000,
       "shinsoku": 60000
     }
   },
@@ -535,7 +535,7 @@
       "icchome": 18500,
       "oku": 18800,
       "kaikyo": 18100,
-      "collect_tendo": 17000,
+      "collect_tendo": 16000,
       "shinsoku": 18800
     }
   },
@@ -552,7 +552,7 @@
       "icchome": 12800,
       "oku": 13300,
       "kaikyo": 12500,
-      "collect_tendo": 13300,
+      "collect_tendo": 13400,
       "shinsoku": 13500
     }
   },
@@ -743,7 +743,7 @@
       "homura": 75000,
       "runto": 70000,
       "oku": 72000,
-      "collect_tendo": 72000,
+      "collect_tendo": 73000,
       "shinsoku": 71000
     }
   },
@@ -757,7 +757,7 @@
       "runto": 280000,
       "oku": 330000,
       "kaikyo": 232000,
-      "collect_tendo": 330000,
+      "collect_tendo": 340000,
       "shinsoku": 350000
     }
   },
