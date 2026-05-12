@@ -68,14 +68,14 @@
     "name": "MEGA 拡張パック「インフェルノX」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 28400,
+    "max_price": 28000,
     "prices": {
       "morimori": 28000,
       "homura": 27700,
       "rudeya": 27700,
       "runto": 27000,
       "icchome": 28000,
-      "oku": 28400,
+      "oku": 28000,
       "kaikyo": 24000,
       "collect_tendo": 26500,
       "shinsoku": 26000
@@ -475,13 +475,13 @@
     "name": "SV 強化拡張パック「151」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 66000,
+    "max_price": 64000,
     "prices": {
       "morimori": 64000,
       "homura": 62000,
       "rudeya": 61000,
       "runto": 60000,
-      "icchome": 66000,
+      "icchome": 63000,
       "oku": 62000,
       "collect_tendo": 60000,
       "shinsoku": 60000
@@ -611,7 +611,7 @@
       "morimori": 12300,
       "homura": 12500,
       "runto": 10500,
-      "oku": 11500,
+      "oku": 12500,
       "kaikyo": 8800,
       "collect_tendo": 12300,
       "shinsoku": 12500
@@ -650,11 +650,11 @@
     "name": "S&S 強化拡張パック「ダークファンタズマ」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 40500,
+    "max_price": 39000,
     "prices": {
       "homura": 33000,
       "runto": 39000,
-      "oku": 40500,
+      "oku": 33000,
       "collect_tendo": 30000,
       "shinsoku": 34000
     }
