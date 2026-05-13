@@ -33,7 +33,7 @@
     "max_price": 9200,
     "prices": {
       "morimori": 9200,
-      "homura": 9000,
+      "homura": 8800,
       "rudeya": 8800,
       "runto": 9000,
       "icchome": 8800,
@@ -64,7 +64,7 @@
     "max_price": 17300,
     "prices": {
       "morimori": 17300,
-      "homura": 17200,
+      "homura": 17000,
       "rudeya": 17200,
       "runto": 17000,
       "icchome": 17300,
@@ -82,7 +82,7 @@
     "max_price": 28000,
     "prices": {
       "morimori": 28000,
-      "homura": 26500,
+      "homura": 26000,
       "rudeya": 26800,
       "runto": 26000,
       "icchome": 27000,
@@ -99,7 +99,7 @@
     "max_price": 14000,
     "prices": {
       "morimori": 13800,
-      "homura": 13800,
+      "homura": 13500,
       "rudeya": 13800,
       "runto": 13800,
       "icchome": 13800,
@@ -116,7 +116,7 @@
     "max_price": 11500,
     "prices": {
       "morimori": 11300,
-      "homura": 11500,
+      "homura": 11000,
       "rudeya": 11300,
       "runto": 11200,
       "icchome": 11500,
@@ -181,7 +181,7 @@
     "max_price": 25000,
     "prices": {
       "morimori": 25000,
-      "homura": 24500,
+      "homura": 24000,
       "rudeya": 24800,
       "runto": 24200,
       "icchome": 25000,
@@ -197,7 +197,7 @@
     "max_price": 33000,
     "prices": {
       "morimori": 33000,
-      "homura": 31500,
+      "homura": 31000,
       "rudeya": 31600,
       "runto": 31500,
       "icchome": 32000,
@@ -249,7 +249,7 @@
     "max_price": 24000,
     "prices": {
       "morimori": 24000,
-      "homura": 23000,
+      "homura": 22800,
       "rudeya": 23000,
       "runto": 23000,
       "icchome": 23000,
@@ -266,7 +266,7 @@
     "max_price": 42000,
     "prices": {
       "morimori": 42000,
-      "homura": 41500,
+      "homura": 40000,
       "rudeya": 41700,
       "runto": 40000,
       "icchome": 41000,
@@ -283,7 +283,7 @@
     "max_price": 21500,
     "prices": {
       "morimori": 21500,
-      "homura": 21000,
+      "homura": 20500,
       "rudeya": 21100,
       "runto": 20000,
       "icchome": 21000,
@@ -972,7 +972,7 @@
     "max_price": 28800,
     "prices": {
       "homura": 26500,
-      "rudeya": 27500,
+      "rudeya": 27000,
       "runto": 26000,
       "icchome": 22000,
       "kaikyo": 20000,
