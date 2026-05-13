@@ -1,5 +1,14 @@
 [
   {
+    "name": "🔥 NEW: MEGA 拡張パック「アビスアイ」(2026-05-22発売予定)",
+    "category": "mega",
+    "retail_price": 6000,
+    "max_price": 8000,
+    "prices": {
+      "rudeya": 8000
+    }
+  },
+  {
     "name": "MEGA 拡張パック「ニンジャスピナー」",
     "category": "mega",
     "retail_price": 5400,
@@ -62,7 +71,7 @@
       "oku": 17300,
       "kaikyo": 17300,
       "sommelier": 17000,
-      "collect_tendo": 17300,
+      "collect_tendo": 17200,
       "shinsoku": 17300
     }
   },
@@ -79,7 +88,7 @@
       "icchome": 27000,
       "oku": 26500,
       "kaikyo": 24000,
-      "collect_tendo": 26500,
+      "collect_tendo": 25000,
       "shinsoku": 26800
     }
   },
@@ -113,7 +122,7 @@
       "icchome": 11500,
       "oku": 11200,
       "kaikyo": 9500,
-      "collect_tendo": 11400,
+      "collect_tendo": 11500,
       "shinsoku": 11000
     }
   },
@@ -121,7 +130,7 @@
     "name": "SV 拡張パックDX「ブラックボルト」",
     "category": "sv",
     "retail_price": 5800,
-    "max_price": 31500,
+    "max_price": 31000,
     "prices": {
       "morimori": 23000,
       "homura": 31000,
@@ -129,7 +138,7 @@
       "runto": 27000,
       "icchome": 31000,
       "kaikyo": 24000,
-      "collect_tendo": 31500,
+      "collect_tendo": 31000,
       "shinsoku": 30000
     }
   },
@@ -194,7 +203,7 @@
       "icchome": 32000,
       "oku": 31500,
       "kaikyo": 31500,
-      "collect_tendo": 32000,
+      "collect_tendo": 31000,
       "shinsoku": 30500
     }
   },
@@ -315,8 +324,8 @@
       "icchome": 10900,
       "oku": 11000,
       "kaikyo": 9600,
-      "sommelier": 11000,
-      "collect_tendo": 11300,
+      "sommelier": 11200,
+      "collect_tendo": 11200,
       "shinsoku": 11200
     }
   },
@@ -358,7 +367,7 @@
     "name": "SV 拡張パック「ワイルドフォース」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 13700,
+    "max_price": 13600,
     "prices": {
       "morimori": 13500,
       "homura": 13500,
@@ -367,7 +376,7 @@
       "icchome": 13600,
       "oku": 13500,
       "kaikyo": 12800,
-      "collect_tendo": 13700,
+      "collect_tendo": 13500,
       "shinsoku": 13600
     }
   },
@@ -426,7 +435,7 @@
     "name": "SV 拡張パック「未来の一閃」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 10900,
+    "max_price": 10800,
     "prices": {
       "morimori": 10300,
       "homura": 10500,
@@ -434,7 +443,7 @@
       "runto": 10600,
       "icchome": 10500,
       "oku": 10500,
-      "collect_tendo": 10900,
+      "collect_tendo": 10300,
       "shinsoku": 10800
     }
   },
@@ -785,7 +794,7 @@
       "runto": 165000,
       "oku": 181000,
       "kaikyo": 150000,
-      "collect_tendo": 175000,
+      "collect_tendo": 178000,
       "shinsoku": 180000
     }
   },
@@ -818,10 +827,10 @@
     "name": "S&S 強化拡張パック「双璧のファイター」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 44000,
+    "max_price": 45000,
     "prices": {
       "homura": 44000,
-      "collect_tendo": 44000,
+      "collect_tendo": 45000,
       "shinsoku": 44000
     }
   },
@@ -854,7 +863,7 @@
       "homura": 22500,
       "runto": 19500,
       "oku": 22500,
-      "collect_tendo": 22000,
+      "collect_tendo": 22500,
       "shinsoku": 6600
     }
   },
@@ -867,7 +876,7 @@
       "homura": 60000,
       "runto": 44500,
       "oku": 58000,
-      "collect_tendo": 58000,
+      "collect_tendo": 60000,
       "shinsoku": 57700
     }
   },
@@ -968,7 +977,7 @@
       "icchome": 22000,
       "kaikyo": 20000,
       "sommelier": 28800,
-      "collect_tendo": 27000,
+      "collect_tendo": 26500,
       "shinsoku": 27000
     }
   },
