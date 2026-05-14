@@ -588,11 +588,11 @@
     "name": "S&S ハイクラスパック「VSTARユニバース」",
     "category": "ss",
     "retail_price": 5500,
-    "max_price": 35500,
+    "max_price": 35000,
     "prices": {
       "homura": 34000,
       "rudeya": 34500,
-      "runto": 35500,
+      "runto": 35000,
       "icchome": 35000,
       "kaikyo": 34000,
       "shinsoku": 34000
