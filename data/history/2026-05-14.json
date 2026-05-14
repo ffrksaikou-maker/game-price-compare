@@ -87,7 +87,7 @@
       "runto": 25500,
       "icchome": 26000,
       "oku": 27000,
-      "kaikyo": 24000,
+      "kaikyo": 26000,
       "collect_tendo": 25000,
       "shinsoku": 26800
     }
@@ -121,7 +121,7 @@
       "runto": 11200,
       "icchome": 10500,
       "oku": 10500,
-      "kaikyo": 9500,
+      "kaikyo": 10500,
       "collect_tendo": 11000,
       "shinsoku": 11000
     }
@@ -202,7 +202,7 @@
       "runto": 30000,
       "icchome": 30500,
       "oku": 31000,
-      "kaikyo": 31500,
+      "kaikyo": 25000,
       "collect_tendo": 31000,
       "shinsoku": 30000
     }
@@ -219,7 +219,7 @@
       "runto": 22000,
       "icchome": 22000,
       "oku": 23000,
-      "kaikyo": 23000,
+      "kaikyo": 22500,
       "sommelier": 24000,
       "collect_tendo": 22500,
       "shinsoku": 23000
@@ -409,7 +409,7 @@
       "runto": 19500,
       "icchome": 19500,
       "oku": 19500,
-      "kaikyo": 20000,
+      "kaikyo": 20100,
       "sommelier": 20000,
       "collect_tendo": 19000,
       "shinsoku": 19300
@@ -494,6 +494,7 @@
       "runto": 60000,
       "icchome": 62000,
       "oku": 62000,
+      "kaikyo": 60000,
       "collect_tendo": 60000,
       "shinsoku": 60000
     }
@@ -502,7 +503,7 @@
     "name": "SV 拡張パック「クレイバースト」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 13500,
+    "max_price": 13000,
     "prices": {
       "morimori": 12300,
       "homura": 12800,
@@ -510,7 +511,7 @@
       "runto": 12800,
       "icchome": 12500,
       "oku": 12000,
-      "kaikyo": 13500,
+      "kaikyo": 13000,
       "sommelier": 12000,
       "collect_tendo": 11800,
       "shinsoku": 12800
@@ -973,7 +974,7 @@
     "prices": {
       "homura": 25500,
       "rudeya": 27000,
-      "runto": 26000,
+      "runto": 20000,
       "icchome": 22000,
       "kaikyo": 20000,
       "collect_tendo": 26500,
