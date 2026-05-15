@@ -39,7 +39,7 @@
       "icchome": 8500,
       "oku": 8700,
       "kaikyo": 7000,
-      "sommelier": 8600,
+      "sommelier": 8500,
       "collect_tendo": 8800,
       "shinsoku": 8500
     }
@@ -69,8 +69,8 @@
       "runto": 16500,
       "icchome": 16500,
       "oku": 17000,
-      "kaikyo": 17000,
-      "sommelier": 16700,
+      "kaikyo": 16700,
+      "sommelier": 16800,
       "collect_tendo": 16800,
       "shinsoku": 16800
     }
@@ -212,7 +212,7 @@
     "name": "SV 強化拡張パック「熱風のアリーナ」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 24000,
+    "max_price": 23500,
     "prices": {
       "morimori": 23000,
       "homura": 22800,
@@ -221,7 +221,7 @@
       "icchome": 22000,
       "oku": 22000,
       "kaikyo": 22500,
-      "sommelier": 24000,
+      "sommelier": 23500,
       "collect_tendo": 22800,
       "shinsoku": 23000
     }
