@@ -956,7 +956,7 @@
     "retail_price": 2090,
     "max_price": 17000,
     "prices": {
-      "homura": 16500,
+      "homura": 17000,
       "rudeya": 16000,
       "runto": 15000,
       "icchome": 16000,
@@ -984,9 +984,9 @@
     "name": "スペシャルBOX フクオカ",
     "category": "special",
     "retail_price": 2090,
-    "max_price": 26000,
+    "max_price": 25500,
     "prices": {
-      "homura": 26000,
+      "homura": 25000,
       "rudeya": 25500,
       "runto": 24000,
       "icchome": 22000,
