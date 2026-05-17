@@ -650,11 +650,11 @@
     "name": "S&S 強化拡張パック「ポケモンGO」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 41000,
+    "max_price": 40500,
     "prices": {
       "homura": 38000,
       "runto": 40500,
-      "oku": 41000,
+      "oku": 38000,
       "kaikyo": 17000,
       "collect_tendo": 38000,
       "shinsoku": 39500
