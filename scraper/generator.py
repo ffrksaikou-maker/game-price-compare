@@ -116,6 +116,7 @@ BLOG_ARTICLES = [
     {"url": "clay-burst-spotlight.html", "title": "クレイバーストとナンジャモSAR相場解説", "desc": "BOX買取¥12,200、Gレギュ絶版観測で再評価中のクレイバースト(SV2D)。ナンジャモSAR¥50,000・PSA10で¥108,000・kirisAki氏イラストを含む5つの注目理由を解説。", "date": "2026-04-15"},
     {"url": "ninja-spinner-spotlight.html", "title": "ニンジャスピナー(M4)が定価2.5倍に高騰", "desc": "BOX買取¥13,400、メガゲッコウガex MUR¥95,000(封入率約0.9〜2%)・SAR¥40,000(前屋進氏イラスト進化ライン一枚絵)・HP350の対戦実需・180円定価最後のMEGA弾の5つの高騰理由を解説。", "date": "2026-04-16"},
     {"url": "rocket-dan-no-eiko-spotlight.html", "title": "ロケット団の栄光(SV10)が定価5.8倍に高騰", "desc": "BOX買取¥31,500、ロケット団のミュウツーex SAR¥60,000(PSA10¥120,000)・20年ぶりロケット団メインパック・2026年30周年イヤー連動・悪路線構築需要の5つの高騰理由を解説。週間急上昇1位(+21.2%)。", "date": "2026-04-25"},
+    {"url": "monthly-ranking-2026-04.html", "title": "【2026年4月】ポケカBOX買取 月間値上がりランキング", "desc": "2026年4月に最も値上がりしたポケカ未開封BOXを10店舗の実データで集計。月初〜月末の変動TOP10と上昇率を毎月自動更新。蒼空ストリーム・イーブイヒーローズ・VMAXライジングなどS&S絶版BOXの躍進が目立った月。", "date": "2026-05-01"},
     {"url": "mega-ex-spotlight.html", "title": "MEGAドリームex(M2a)が定価3.2倍にW字回復", "desc": "BOX買取¥17,500、発売初動¥17,300→1月底値¥9,000台→5月¥17,500の見事なW字回復。メガゲンガーex SAR¥66,200・ピカチュウex SAR¥60,000・メガカイリューex MUR¥40,000-57,300・新レアリティMA(全10種)・お祭りパック性の5つの高騰理由を解説。", "date": "2026-05-03"},
     {"url": "mega-brave-spotlight.html", "title": "メガブレイブ(M1)が定価2.6倍で推移", "desc": "BOX買取¥13,800、MEGAシリーズ第1弾の記念パック。リーリエの決心SAR¥30,000台(PSA10¥95,000)・メガルカリオex MUR¥42,000台(封入率約1.64%)・世界人気2位ルカリオ・対戦環境での優勝レシピ実績・MEGA記念弾の節目性の5つの高騰理由を実データで解説。", "date": "2026-05-19"},
     {"url": "price-pattern-guide.html", "title": "BOX買取価格の5段階パターン", "desc": "発売前プレ値→初動高値→調整期→底打ち→絶版急騰の5段階を当サイト40日観測データと5スポットライトBOXの具体値で実証解説。買い時売り時の3判断基準、2024年バブル崩壊の教訓も紹介。", "date": "2026-04-16"},
@@ -429,6 +430,9 @@ def generate_html(
 
     # Generate weekly hot-boxes article (task 10)
     generate_weekly_article(products, project_root, update_date)
+
+    # Generate monthly ranking article for any completed months not yet archived
+    generate_monthly_article(products, project_root, update_date)
 
     # Generate category summary pages (SV / MEGA / S&S)
     generate_category_pages(products, project_root, update_date)
@@ -1437,6 +1441,18 @@ def _update_sitemap(
             lines.append(f"    <changefreq>weekly</changefreq>")
             lines.append(f"    <priority>0.8</priority>")
             lines.append(f"  </url>")
+
+    # Monthly ranking articles (archived — auto-generated per completed month)
+    for mf in sorted(project_root.glob("monthly-ranking-*.html")):
+        # Skip the manually-listed 2026-03 entry to avoid duplicates
+        if any(f"/{mf.name}" == p[0] for p in static_pages):
+            continue
+        lines.append(f"  <url>")
+        lines.append(f"    <loc>{base}/{mf.name}</loc>")
+        lines.append(f"    <lastmod>{today}</lastmod>")
+        lines.append(f"    <changefreq>monthly</changefreq>")
+        lines.append(f"    <priority>0.7</priority>")
+        lines.append(f"  </url>")
 
     lines.append("</urlset>")
     lines.append("")
@@ -2761,6 +2777,106 @@ article p{{font-size:14px;margin-bottom:14px}}
 <div class="ft"><a href="index.html">ポケカ買取チェッカー</a> / <a href="about.html">運営者情報</a> / <a href="contact.html">お問い合わせ</a> / <a href="privacy.html">プライバシーポリシー</a></div>
 </body>
 </html>"""
+
+
+def generate_monthly_article(
+    products: list[MasterProduct],
+    project_root: Path,
+    update_date: str,
+) -> None:
+    """Generate monthly-ranking-YYYY-MM.html for completed months.
+
+    Idempotent: skips months whose article file already exists. The current
+    (in-progress) month is also skipped so the article only ever publishes
+    after the month has ended. The first and last day snapshots are sourced
+    from data/history/*.json.
+    """
+    history_dir = project_root / "data" / "history"
+    if not history_dir.exists():
+        return
+
+    import sys
+    sys.path.insert(0, str(project_root))
+    from scripts.monthly_article_template import build_monthly_html, build_change_list
+
+    # Group history files by YYYY-MM
+    files = sorted(history_dir.glob("*.json"))
+    by_month: dict[str, list[Path]] = {}
+    for f in files:
+        ym = f.stem[:7]  # "2026-04"
+        by_month.setdefault(ym, []).append(f)
+
+    today = datetime.now(JST).date()
+    current_ym = today.strftime("%Y-%m")
+
+    slug_map = {p.name: _generate_slug(p.name) for p in products}
+
+    for ym, month_files in sorted(by_month.items()):
+        if ym == current_ym:
+            continue  # do not publish mid-month
+        if len(month_files) < 2:
+            continue  # need at least two snapshots to compute change
+
+        output_path = project_root / f"monthly-ranking-{ym}.html"
+        if output_path.exists():
+            continue  # already archived; do not overwrite
+
+        first_file = month_files[0]
+        last_file = month_files[-1]
+        try:
+            first_data = json.loads(first_file.read_text(encoding="utf-8"))
+            last_data = json.loads(last_file.read_text(encoding="utf-8"))
+        except Exception as e:
+            logger.warning("monthly: could not read snapshots for %s: %s", ym, e)
+            continue
+
+        changes = build_change_list(products, first_data, last_data, slug_map)
+        gainers = sorted(
+            [c for c in changes if c["diff"] > 0],
+            key=lambda x: x["diff"],
+            reverse=True,
+        )
+        losers = sorted(
+            [c for c in changes if c["diff"] < 0],
+            key=lambda x: x["diff"],
+        )
+
+        if not gainers and not losers:
+            logger.info("monthly: no movement detected for %s; skipping", ym)
+            continue
+
+        year, month = int(ym[:4]), int(ym[5:7])
+
+        # Compute previous/next month YYYY-MM, only if a file exists for it
+        if month == 1:
+            prev_y, prev_m = year - 1, 12
+        else:
+            prev_y, prev_m = year, month - 1
+        if month == 12:
+            next_y, next_m = year + 1, 1
+        else:
+            next_y, next_m = year, month + 1
+        prev_ym = f"{prev_y}-{prev_m:02d}"
+        next_ym = f"{next_y}-{next_m:02d}"
+        prev_path = project_root / f"monthly-ranking-{prev_ym}.html"
+        next_path = project_root / f"monthly-ranking-{next_ym}.html"
+
+        html = build_monthly_html(
+            year=year,
+            month=month,
+            first_date=first_file.stem,
+            last_date=last_file.stem,
+            gainers=gainers,
+            losers=losers,
+            published_date=update_date[:10] if len(update_date) >= 10 else update_date,
+            prev_ym=prev_ym if prev_path.exists() else None,
+            next_ym=next_ym if next_path.exists() else None,
+        )
+        output_path.write_text(html, encoding="utf-8")
+        logger.info(
+            "monthly: wrote %s (%d gainers, %d losers)",
+            output_path.name, len(gainers), len(losers),
+        )
 
 
 def generate_category_pages(
