@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import logging
 import re
+import time
 from urllib.parse import quote
 
 from .base import BaseScraper, ScrapedItem
@@ -34,17 +35,9 @@ class MorimoriScraper(BaseScraper):
 
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True)
-            context = browser.new_context(
-                user_agent=self.HEADERS["User-Agent"],
-                viewport={"width": 1920, "height": 1080},
-                locale="ja-JP",
-            )
-            page = context.new_page()
-
             try:
-                # Load search page and wait for products to render
-                page.goto(SEARCH_URL, wait_until="networkidle", timeout=60000)
-                page.wait_for_timeout(5000)
+                page = self._open_with_retry(browser)
+                page.wait_for_timeout(3000)
 
                 # Extract products from initial load
                 self._extract_from_page(page, items, seen_names)
@@ -132,6 +125,36 @@ class MorimoriScraper(BaseScraper):
             if name and price > 0 and name not in seen:
                 seen.add(name)
                 items.append(ScrapedItem(name=name, price=price))
+
+    def _open_with_retry(self, browser, max_attempts: int = 3):
+        """Open the search page with retries.
+
+        morimori-kaitori.jp rejects requests carrying the Chrome 131 UA with
+        ERR_HTTP2_PROTOCOL_ERROR (TLS/H2 layer reset), so we leave the UA
+        unset and let Playwright use the default Chromium UA.
+        """
+        last_err: Exception | None = None
+        backoff = [2, 4, 8]
+        for attempt in range(max_attempts):
+            context = browser.new_context(
+                viewport={"width": 1920, "height": 1080},
+                locale="ja-JP",
+            )
+            page = context.new_page()
+            try:
+                page.goto(SEARCH_URL, wait_until="networkidle", timeout=60000)
+                page.wait_for_selector("div.product-item", timeout=30000)
+                return page
+            except Exception as e:
+                last_err = e
+                logger.warning(
+                    "%s: open attempt %d/%d failed: %s",
+                    self.shop_name, attempt + 1, max_attempts, e,
+                )
+                context.close()
+                if attempt < max_attempts - 1:
+                    time.sleep(backoff[min(attempt, len(backoff) - 1)])
+        raise last_err if last_err else RuntimeError("open failed")
 
     @staticmethod
     def _click_next_page(page, page_num: int) -> bool:
