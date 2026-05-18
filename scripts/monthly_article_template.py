@@ -129,7 +129,8 @@ def build_monthly_html(
     month: int,
     first_date: str,
     last_date: str,
-    gainers: list[dict],
+    sv_mega_gainers: list[dict],
+    ss_gainers: list[dict],
     losers: list[dict],
     published_date: str,
     prev_ym: str | None = None,
@@ -137,46 +138,85 @@ def build_monthly_html(
 ) -> str:
     """Render the monthly ranking HTML.
 
-    `gainers` and `losers` items must have keys:
+    Items in each list must have keys:
       name, short_name, slug, category, first, last, diff, pct
+
+    SV+MEGA(現役シリーズ)とS&S(旧シリーズ)は相場特性が大きく異なる
+    (旧は絶版プレミアム主導で値動きの桁が違う)ため、別セクションで掲載する。
     """
     ym = f"{year}-{month:02d}"
     title = f"【{year}年{month}月】ポケカBOX買取 月間値上がりランキング"
     meta_desc = (
         f"{year}年{month}月のポケカ未開封BOX買取価格の値上がりランキング。"
+        f"SV・MEGA(現役シリーズ)とS&S(旧シリーズ)を別枠で掲載。"
         f"月初({first_date})から月末({last_date})までの変動を10店舗の実データで集計。"
     )
 
-    # Lead summary highlights for the intro
-    if gainers:
-        top = gainers[0]
-        rise_count = len([g for g in gainers if g["diff"] > 0])
-        avg_pct = sum(g["pct"] for g in gainers) / max(1, len(gainers))
+    # Lead summary highlights for the intro — based on SV+MEGA (the primary section)
+    if sv_mega_gainers:
+        top = sv_mega_gainers[0]
+        rise_count = len([g for g in sv_mega_gainers if g["diff"] > 0])
+        avg_pct = sum(g["pct"] for g in sv_mega_gainers) / max(1, len(sv_mega_gainers))
         intro_extra = (
-            f"上昇したBOXは<strong>{rise_count}商品</strong>、平均上昇率は"
+            f"SV・MEGAで上昇したBOXは<strong>{rise_count}商品</strong>、平均上昇率は"
             f"<strong>+{avg_pct:.1f}%</strong>。"
             f'値上がり額1位は <a href="box/{top["slug"]}.html">{top["short_name"]}</a>で'
             f"<strong>+¥{top['diff']:,}</strong>を記録しました。"
         )
     else:
-        intro_extra = "今月は上昇BOXが観測されませんでした（全体的に横ばい〜下落相場）。"
+        intro_extra = "今月のSV・MEGAは上昇BOXが観測されませんでした（横ばい〜下落相場）。"
 
-    # Build the top10 rows
-    top10_rows = "\n".join(_row(i + 1, c) for i, c in enumerate(gainers[:10]))
+    # SV+MEGA TOP10 rows
+    svmega_rows = "\n".join(_row(i + 1, c) for i, c in enumerate(sv_mega_gainers[:10]))
+    if not svmega_rows:
+        svmega_rows = '<tr><td colspan="5" style="text-align:center;color:#6b7280;padding:18px">該当なし</td></tr>'
 
-    # TOP3 commentary blocks (h2 sections)
-    top3_html = ""
-    for i, c in enumerate(gainers[:3]):
+    # SV+MEGA TOP3 commentary blocks
+    svmega_top3_html = ""
+    for i, c in enumerate(sv_mega_gainers[:3]):
         h2 = f"{i+1}位：{c['short_name']} ― {('+¥' if c['diff'] > 0 else '-¥') + format(abs(c['diff']), ',')}の値動き"
-        top3_html += f"<h2>{h2}</h2>\n<p>{_commentary_for_top3(i + 1, c)}</p>\n\n"
+        svmega_top3_html += f"<h2>{h2}</h2>\n<p>{_commentary_for_top3(i + 1, c)}</p>\n\n"
 
-    # Losers table
+    # S&S TOP5 (separate section since its market dynamics are different)
+    if ss_gainers:
+        ss_rows = "\n".join(_row(i + 1, c) for i, c in enumerate(ss_gainers[:5]))
+        ss_top1 = ss_gainers[0]
+        ss_intro = (
+            f"S&S(ソード&シールド)シリーズはレギュレーション落ち済みの旧シリーズで、"
+            f"<strong>絶版プレミアム</strong>が相場形成の主な要因。流通量が少ない分、"
+            f"値動きの桁が現役シリーズと大きく異なる傾向があります。"
+            f"今月のS&S値上がり1位は <a href=\"box/{ss_top1['slug']}.html\">"
+            f"{ss_top1['short_name']}</a>で<strong>+¥{ss_top1['diff']:,}</strong>でした。"
+        )
+        ss_block = (
+            "<h2>【参考】S&S(旧シリーズ) 値上がりTOP5</h2>\n"
+            f"<p>{ss_intro}</p>\n"
+            '<table class="rank-table">\n<thead>\n'
+            '<tr><th style="width:32px"></th><th>商品名</th><th>月初</th>'
+            "<th>月末</th><th>変動</th></tr>\n</thead>\n<tbody>\n"
+            f"{ss_rows}\n</tbody>\n</table>\n"
+            '<p style="font-size:13px;color:#6b7280">'
+            "※ S&Sシリーズは絶版BOX中心で価格変動が大きく、月初/月末の単一スナップショット"
+            "では一時的なノイズが含まれる場合があります。実取引時は "
+            '<a href="ranking.html">日次の上昇ランキング</a>や '
+            '<a href="zeppan-ranking-2026-03.html">絶版BOXランキング</a> も併用してください。'
+            "</p>\n"
+        )
+    else:
+        ss_block = (
+            "<h2>【参考】S&S(旧シリーズ)</h2>\n"
+            "<p>今月のS&Sシリーズは上昇BOXが観測されませんでした。"
+            'S&S全体の相場は <a href="ss-box-list.html">S&S全BOX一覧</a> や '
+            '<a href="zeppan-ranking-2026-03.html">絶版BOXランキング</a> で確認できます。</p>\n'
+        )
+
+    # Losers table (all categories combined; usually few)
     if losers:
         losers_rows = "\n".join(
             _row(i + 1, c) for i, c in enumerate(losers[:5])
         )
         losers_block = (
-            f"<h2>値下がりワースト5</h2>\n"
+            f"<h2>値下がりワースト5(全シリーズ)</h2>\n"
             f'<table class="rank-table">\n<thead>\n'
             f'<tr><th style="width:32px"></th><th>商品名</th><th>月初</th>'
             f"<th>月末</th><th>変動</th></tr>\n</thead>\n<tbody>\n"
@@ -189,11 +229,12 @@ def build_monthly_html(
             "全体的に上昇〜横ばい相場でした。</p>\n"
         )
 
-    # Related box links (top5 gainers + a few mainstays)
+    # Related box links: top3 from SV+MEGA + a few mainstays
     related_slugs: list[tuple[str, str]] = []
-    for c in gainers[:5]:
+    for c in sv_mega_gainers[:3]:
         related_slugs.append((c["slug"], c["short_name"]))
-    # Ensure 151 / kokuen / mega-brave appear if not already there
+    for c in ss_gainers[:2]:
+        related_slugs.append((c["slug"], c["short_name"]))
     for s, n in [("151", "ポケモンカード151"), ("ruler-of-black-flame", "強化拡張パック「黒炎の支配者」"),
                  ("mega-brave", "MEGA 拡張パック「メガブレイブ」")]:
         if not any(s == rs[0] for rs in related_slugs):
@@ -396,18 +437,20 @@ article li{{margin-bottom:6px}}
 
 {month_nav_html}
 
-<h2>値上がりTOP10</h2>
+<h2>SV・MEGA(現役シリーズ) 値上がりTOP10</h2>
+<p>スタンダード現役のSV(スカーレット&バイオレット)・MEGAシリーズが本体のランキングです。プレイ需要+コレクター需要の両輪で動く相場のため、短期トレンドの把握に最適です。</p>
 
 <table class="rank-table">
 <thead>
 <tr><th style="width:32px"></th><th>商品名</th><th>月初</th><th>月末</th><th>変動</th></tr>
 </thead>
 <tbody>
-{top10_rows}
+{svmega_rows}
 </tbody>
 </table>
 
-{top3_html}
+{svmega_top3_html}
+{ss_block}
 {losers_block}
 
 <h2>まとめ：{year}年{month}月の相場の動き</h2>

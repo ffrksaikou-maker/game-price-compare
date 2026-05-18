@@ -116,7 +116,7 @@ BLOG_ARTICLES = [
     {"url": "clay-burst-spotlight.html", "title": "クレイバーストとナンジャモSAR相場解説", "desc": "BOX買取¥12,200、Gレギュ絶版観測で再評価中のクレイバースト(SV2D)。ナンジャモSAR¥50,000・PSA10で¥108,000・kirisAki氏イラストを含む5つの注目理由を解説。", "date": "2026-04-15"},
     {"url": "ninja-spinner-spotlight.html", "title": "ニンジャスピナー(M4)が定価2.5倍に高騰", "desc": "BOX買取¥13,400、メガゲッコウガex MUR¥95,000(封入率約0.9〜2%)・SAR¥40,000(前屋進氏イラスト進化ライン一枚絵)・HP350の対戦実需・180円定価最後のMEGA弾の5つの高騰理由を解説。", "date": "2026-04-16"},
     {"url": "rocket-dan-no-eiko-spotlight.html", "title": "ロケット団の栄光(SV10)が定価5.8倍に高騰", "desc": "BOX買取¥31,500、ロケット団のミュウツーex SAR¥60,000(PSA10¥120,000)・20年ぶりロケット団メインパック・2026年30周年イヤー連動・悪路線構築需要の5つの高騰理由を解説。週間急上昇1位(+21.2%)。", "date": "2026-04-25"},
-    {"url": "monthly-ranking-2026-04.html", "title": "【2026年4月】ポケカBOX買取 月間値上がりランキング", "desc": "2026年4月に最も値上がりしたポケカ未開封BOXを10店舗の実データで集計。月初〜月末の変動TOP10と上昇率を毎月自動更新。蒼空ストリーム・イーブイヒーローズ・VMAXライジングなどS&S絶版BOXの躍進が目立った月。", "date": "2026-05-01"},
+    {"url": "monthly-ranking-2026-04.html", "title": "【2026年4月】ポケカBOX買取 月間値上がりランキング", "desc": "2026年4月に最も値上がりしたポケカ未開封BOXを10店舗の実データで集計。SV・MEGA(現役)を本体TOP10、S&S(旧)を参考TOP5として別枠掲載。151(+¥17,600)・超電ブレイカー(+¥16,400)・ロケット団の栄光(+¥13,000)がSV+MEGA TOP3。", "date": "2026-05-01"},
     {"url": "mega-ex-spotlight.html", "title": "MEGAドリームex(M2a)が定価3.2倍にW字回復", "desc": "BOX買取¥17,500、発売初動¥17,300→1月底値¥9,000台→5月¥17,500の見事なW字回復。メガゲンガーex SAR¥66,200・ピカチュウex SAR¥60,000・メガカイリューex MUR¥40,000-57,300・新レアリティMA(全10種)・お祭りパック性の5つの高騰理由を解説。", "date": "2026-05-03"},
     {"url": "mega-brave-spotlight.html", "title": "メガブレイブ(M1)が定価2.6倍で推移", "desc": "BOX買取¥13,800、MEGAシリーズ第1弾の記念パック。リーリエの決心SAR¥30,000台(PSA10¥95,000)・メガルカリオex MUR¥42,000台(封入率約1.64%)・世界人気2位ルカリオ・対戦環境での優勝レシピ実績・MEGA記念弾の節目性の5つの高騰理由を実データで解説。", "date": "2026-05-19"},
     {"url": "price-pattern-guide.html", "title": "BOX買取価格の5段階パターン", "desc": "発売前プレ値→初動高値→調整期→底打ち→絶版急騰の5段階を当サイト40日観測データと5スポットライトBOXの具体値で実証解説。買い時売り時の3判断基準、2024年バブル崩壊の教訓も紹介。", "date": "2026-04-16"},
@@ -2831,8 +2831,14 @@ def generate_monthly_article(
             continue
 
         changes = build_change_list(products, first_data, last_data, slug_map)
-        gainers = sorted(
-            [c for c in changes if c["diff"] > 0],
+        # SV+MEGA は現役シリーズ、S&S は旧シリーズで相場特性が異なるため分けて集計
+        sv_mega_gainers = sorted(
+            [c for c in changes if c["diff"] > 0 and c["category"] in ("sv", "mega", "special")],
+            key=lambda x: x["diff"],
+            reverse=True,
+        )
+        ss_gainers = sorted(
+            [c for c in changes if c["diff"] > 0 and c["category"] == "ss"],
             key=lambda x: x["diff"],
             reverse=True,
         )
@@ -2841,7 +2847,7 @@ def generate_monthly_article(
             key=lambda x: x["diff"],
         )
 
-        if not gainers and not losers:
+        if not sv_mega_gainers and not ss_gainers and not losers:
             logger.info("monthly: no movement detected for %s; skipping", ym)
             continue
 
@@ -2866,7 +2872,8 @@ def generate_monthly_article(
             month=month,
             first_date=first_file.stem,
             last_date=last_file.stem,
-            gainers=gainers,
+            sv_mega_gainers=sv_mega_gainers,
+            ss_gainers=ss_gainers,
             losers=losers,
             published_date=update_date[:10] if len(update_date) >= 10 else update_date,
             prev_ym=prev_ym if prev_path.exists() else None,
@@ -2874,8 +2881,8 @@ def generate_monthly_article(
         )
         output_path.write_text(html, encoding="utf-8")
         logger.info(
-            "monthly: wrote %s (%d gainers, %d losers)",
-            output_path.name, len(gainers), len(losers),
+            "monthly: wrote %s (SV+MEGA %d gainers, S&S %d gainers, %d losers)",
+            output_path.name, len(sv_mega_gainers), len(ss_gainers), len(losers),
         )
 
 
