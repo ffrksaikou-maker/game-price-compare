@@ -36,7 +36,7 @@
       "homura": 8800,
       "rudeya": 8700,
       "runto": 8800,
-      "icchome": 8500,
+      "icchome": 8600,
       "oku": 8700,
       "kaikyo": 7000,
       "sommelier": 8800,
@@ -48,11 +48,11 @@
     "name": "MEGA スタートデッキ100「バトルコレクション」",
     "category": "mega",
     "retail_price": 891,
-    "max_price": 4000,
+    "max_price": 3600,
     "prices": {
       "homura": 3600,
       "rudeya": 3000,
-      "runto": 4000,
+      "runto": 3500,
       "icchome": 3000,
       "shinsoku": 3500
     }
@@ -66,11 +66,11 @@
       "morimori": 17300,
       "homura": 16500,
       "rudeya": 16500,
-      "runto": 16000,
+      "runto": 15500,
       "icchome": 16700,
       "oku": 16600,
       "kaikyo": 16700,
-      "sommelier": 16600,
+      "sommelier": 16300,
       "collect_tendo": 16300,
       "shinsoku": 16300
     }
@@ -88,7 +88,6 @@
       "icchome": 25500,
       "oku": 26000,
       "kaikyo": 26500,
-      "sommelier": 27000,
       "collect_tendo": 26500,
       "shinsoku": 25500
     }
@@ -252,7 +251,7 @@
       "homura": 22000,
       "rudeya": 22200,
       "runto": 22000,
-      "icchome": 22300,
+      "icchome": 22000,
       "oku": 22000,
       "kaikyo": 22500,
       "collect_tendo": 22000,
@@ -269,7 +268,7 @@
       "homura": 37000,
       "rudeya": 38700,
       "runto": 39000,
-      "icchome": 38500,
+      "icchome": 38000,
       "oku": 37000,
       "kaikyo": 38000,
       "collect_tendo": 37000,
@@ -324,7 +323,7 @@
       "icchome": 11400,
       "oku": 11500,
       "kaikyo": 9600,
-      "sommelier": 11500,
+      "sommelier": 11600,
       "collect_tendo": 11600,
       "shinsoku": 11600
     }
@@ -356,7 +355,7 @@
       "homura": 15500,
       "rudeya": 15300,
       "runto": 15000,
-      "icchome": 15300,
+      "icchome": 14500,
       "oku": 15000,
       "kaikyo": 15800,
       "collect_tendo": 15500,
@@ -410,7 +409,7 @@
       "icchome": 19500,
       "oku": 19500,
       "kaikyo": 20100,
-      "sommelier": 19500,
+      "sommelier": 19000,
       "collect_tendo": 19000,
       "shinsoku": 19600
     }
@@ -419,7 +418,7 @@
     "name": "SV 拡張パック「古代の咆哮」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 11500,
+    "max_price": 11600,
     "prices": {
       "morimori": 11000,
       "homura": 11400,
@@ -427,7 +426,7 @@
       "runto": 11000,
       "icchome": 10800,
       "oku": 11000,
-      "sommelier": 11500,
+      "sommelier": 11600,
       "collect_tendo": 10600,
       "shinsoku": 11500
     }
@@ -444,7 +443,7 @@
       "runto": 10800,
       "icchome": 10500,
       "oku": 10700,
-      "sommelier": 10800,
+      "sommelier": 11000,
       "collect_tendo": 10800,
       "shinsoku": 11000
     }
