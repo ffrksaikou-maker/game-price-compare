@@ -16,7 +16,7 @@
     "prices": {
       "morimori": 11600,
       "homura": 12000,
-      "rudeya": 12000,
+      "rudeya": 12100,
       "runto": 11500,
       "icchome": 12000,
       "oku": 11900,
@@ -61,13 +61,13 @@
     "name": "MEGA ハイクラスパック「MEGAドリームex」",
     "category": "mega",
     "retail_price": 5500,
-    "max_price": 16700,
+    "max_price": 16500,
     "prices": {
       "morimori": 15000,
       "homura": 16300,
       "rudeya": 16400,
       "runto": 15500,
-      "icchome": 16700,
+      "icchome": 16300,
       "oku": 16500,
       "kaikyo": 15500,
       "sommelier": 16200,
@@ -210,7 +210,7 @@
     "name": "SV 強化拡張パック「熱風のアリーナ」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 24000,
+    "max_price": 23000,
     "prices": {
       "morimori": 22800,
       "homura": 23000,
@@ -219,7 +219,6 @@
       "icchome": 22000,
       "oku": 23000,
       "kaikyo": 21500,
-      "sommelier": 24000,
       "collect_tendo": 23000,
       "shinsoku": 23000
     }
@@ -993,6 +992,7 @@
       "runto": 22000,
       "icchome": 22000,
       "kaikyo": 19000,
+      "sommelier": 24000,
       "collect_tendo": 24000,
       "shinsoku": 24000
     }
