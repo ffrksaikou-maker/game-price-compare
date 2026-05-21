@@ -3,10 +3,11 @@
     "name": "🔥 NEW: MEGA 拡張パック「アビスアイ」(2026-05-22発売予定)",
     "category": "mega",
     "retail_price": 6000,
-    "max_price": 14000,
+    "max_price": 11500,
     "prices": {
+      "morimori": 11500,
       "rudeya": 9000,
-      "runto": 14000
+      "icchome": 9000
     }
   },
   {
@@ -644,10 +645,10 @@
     "name": "S&S 強化拡張パック「ポケモンGO」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 40500,
+    "max_price": 40000,
     "prices": {
       "homura": 37500,
-      "runto": 40500,
+      "runto": 40000,
       "oku": 37500,
       "kaikyo": 17100,
       "collect_tendo": 36000,
