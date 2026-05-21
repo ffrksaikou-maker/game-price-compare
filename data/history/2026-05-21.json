@@ -17,7 +17,7 @@
     "prices": {
       "morimori": 11600,
       "homura": 11800,
-      "rudeya": 11800,
+      "rudeya": 11850,
       "runto": 11500,
       "icchome": 11800,
       "oku": 11800,
@@ -83,7 +83,7 @@
     "prices": {
       "morimori": 25800,
       "homura": 26000,
-      "rudeya": 25600,
+      "rudeya": 25800,
       "runto": 26000,
       "icchome": 25700,
       "oku": 26000,
@@ -100,7 +100,7 @@
     "prices": {
       "morimori": 12100,
       "homura": 12300,
-      "rudeya": 12500,
+      "rudeya": 12300,
       "runto": 12500,
       "icchome": 12000,
       "oku": 12300,
@@ -117,7 +117,7 @@
     "prices": {
       "morimori": 10400,
       "homura": 10600,
-      "rudeya": 10600,
+      "rudeya": 10500,
       "runto": 10500,
       "icchome": 10600,
       "oku": 10000,
@@ -131,11 +131,11 @@
     "name": "SV 拡張パックDX「ブラックボルト」",
     "category": "sv",
     "retail_price": 5800,
-    "max_price": 29000,
+    "max_price": 28000,
     "prices": {
       "morimori": 27800,
       "homura": 28000,
-      "rudeya": 29000,
+      "rudeya": 28000,
       "icchome": 28000,
       "kaikyo": 24000,
       "collect_tendo": 28000,
@@ -146,11 +146,11 @@
     "name": "SV 拡張パックDX「ホワイトフレア」",
     "category": "sv",
     "retail_price": 5800,
-    "max_price": 26000,
+    "max_price": 25000,
     "prices": {
       "morimori": 24800,
       "homura": 25000,
-      "rudeya": 26000,
+      "rudeya": 25000,
       "icchome": 24000,
       "kaikyo": 20000,
       "collect_tendo": 25000,
@@ -165,7 +165,7 @@
     "prices": {
       "morimori": 24300,
       "homura": 24500,
-      "rudeya": 24500,
+      "rudeya": 24200,
       "runto": 24000,
       "icchome": 24000,
       "kaikyo": 25000,
@@ -181,7 +181,7 @@
     "prices": {
       "morimori": 22800,
       "homura": 23000,
-      "rudeya": 23200,
+      "rudeya": 22200,
       "runto": 22000,
       "icchome": 22000,
       "kaikyo": 23000,
@@ -197,7 +197,7 @@
     "prices": {
       "morimori": 28800,
       "homura": 29000,
-      "rudeya": 29300,
+      "rudeya": 28000,
       "runto": 30000,
       "icchome": 28000,
       "oku": 29000,
@@ -214,7 +214,7 @@
     "prices": {
       "morimori": 22300,
       "homura": 22500,
-      "rudeya": 22300,
+      "rudeya": 22000,
       "runto": 22000,
       "icchome": 22000,
       "oku": 22500,
@@ -231,7 +231,7 @@
     "prices": {
       "morimori": 10400,
       "homura": 10600,
-      "rudeya": 10600,
+      "rudeya": 10500,
       "runto": 10500,
       "icchome": 10500,
       "oku": 10600,
@@ -244,11 +244,11 @@
     "name": "SV ハイクラスパック テラスタルフェスex",
     "category": "sv",
     "retail_price": 5500,
-    "max_price": 22000,
+    "max_price": 21800,
     "prices": {
       "morimori": 21300,
       "homura": 21500,
-      "rudeya": 22000,
+      "rudeya": 21500,
       "runto": 21000,
       "icchome": 21000,
       "oku": 21500,
@@ -265,7 +265,7 @@
     "prices": {
       "morimori": 35800,
       "homura": 36000,
-      "rudeya": 38200,
+      "rudeya": 37200,
       "runto": 39000,
       "icchome": 37000,
       "oku": 36000,
@@ -282,7 +282,7 @@
     "prices": {
       "morimori": 19300,
       "homura": 19500,
-      "rudeya": 20200,
+      "rudeya": 20000,
       "runto": 20000,
       "icchome": 20500,
       "oku": 19500,
@@ -335,7 +335,7 @@
     "prices": {
       "morimori": 13800,
       "homura": 14000,
-      "rudeya": 13700,
+      "rudeya": 13500,
       "runto": 13500,
       "icchome": 13000,
       "oku": 13500,
@@ -352,7 +352,7 @@
     "prices": {
       "morimori": 15000,
       "homura": 15200,
-      "rudeya": 14700,
+      "rudeya": 14500,
       "runto": 14500,
       "icchome": 14000,
       "oku": 15300,
@@ -399,11 +399,11 @@
     "name": "SV ハイクラスパック「シャイニートレジャーex」",
     "category": "sv",
     "retail_price": 5500,
-    "max_price": 19500,
+    "max_price": 19200,
     "prices": {
       "morimori": 19000,
       "homura": 19200,
-      "rudeya": 19500,
+      "rudeya": 19100,
       "runto": 19000,
       "icchome": 19000,
       "oku": 19200,
@@ -455,7 +455,7 @@
     "prices": {
       "morimori": 13600,
       "homura": 13800,
-      "rudeya": 13700,
+      "rudeya": 13200,
       "runto": 13000,
       "icchome": 13000,
       "oku": 14000,
@@ -525,7 +525,7 @@
     "prices": {
       "morimori": 11300,
       "homura": 11300,
-      "rudeya": 11500,
+      "rudeya": 11300,
       "runto": 11100,
       "icchome": 11700,
       "oku": 11000,
@@ -542,7 +542,7 @@
     "prices": {
       "morimori": 18000,
       "homura": 18200,
-      "rudeya": 18400,
+      "rudeya": 18200,
       "runto": 16500,
       "icchome": 18400,
       "oku": 18200,
@@ -592,7 +592,7 @@
     "max_price": 35000,
     "prices": {
       "homura": 33500,
-      "rudeya": 34500,
+      "rudeya": 33700,
       "runto": 33000,
       "icchome": 34000,
       "kaikyo": 35000,
@@ -988,7 +988,7 @@
     "max_price": 24000,
     "prices": {
       "homura": 21500,
-      "rudeya": 22500,
+      "rudeya": 22000,
       "runto": 22000,
       "icchome": 21000,
       "kaikyo": 19000,
