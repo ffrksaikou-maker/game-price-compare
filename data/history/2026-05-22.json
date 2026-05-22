@@ -1,13 +1,14 @@
 [
   {
-    "name": "🔥 NEW: MEGA 拡張パック「アビスアイ」(2026-05-22発売予定)",
+    "name": "MEGA 拡張パック「アビスアイ」",
     "category": "mega",
     "retail_price": 6000,
     "max_price": 13500,
     "prices": {
       "morimori": 13000,
       "homura": 13500,
-      "rudeya": 13100,
+      "rudeya": 13500,
+      "runto": 13000,
       "icchome": 13500,
       "oku": 13500,
       "kaikyo": 12000,
@@ -28,7 +29,7 @@
       "icchome": 11500,
       "oku": 11500,
       "kaikyo": 10000,
-      "sommelier": 11500,
+      "sommelier": 11600,
       "collect_tendo": 12000,
       "shinsoku": 11500
     }
@@ -46,7 +47,7 @@
       "icchome": 8400,
       "oku": 8600,
       "kaikyo": 7000,
-      "sommelier": 8200,
+      "sommelier": 8300,
       "collect_tendo": 8800,
       "shinsoku": 8200
     }
