@@ -3,15 +3,15 @@
     "name": "MEGA 拡張パック「アビスアイ」",
     "category": "mega",
     "retail_price": 6000,
-    "max_price": 16000,
+    "max_price": 14800,
     "prices": {
       "morimori": 13000,
       "homura": 14600,
       "rudeya": 14600,
       "runto": 13500,
       "icchome": 14500,
-      "oku": 15000,
-      "kaikyo": 16000,
+      "oku": 14800,
+      "kaikyo": 14500,
       "sommelier": 14500,
       "collect_tendo": 14600,
       "shinsoku": 14500
@@ -86,7 +86,7 @@
     "name": "MEGA 拡張パック「インフェルノX」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 26500,
+    "max_price": 25800,
     "prices": {
       "morimori": 25800,
       "homura": 24000,
@@ -94,7 +94,7 @@
       "runto": 24000,
       "icchome": 25500,
       "oku": 25000,
-      "kaikyo": 26500,
+      "kaikyo": 25500,
       "collect_tendo": 23000,
       "shinsoku": 23000
     }
