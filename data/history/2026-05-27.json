@@ -9,7 +9,7 @@
       "homura": 14500,
       "rudeya": 14700,
       "runto": 14700,
-      "icchome": 14900,
+      "icchome": 14600,
       "oku": 14700,
       "kaikyo": 14500,
       "sommelier": 14500,
@@ -103,7 +103,7 @@
     "name": "MEGA 拡張パック「メガブレイブ」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 12100,
+    "max_price": 12500,
     "prices": {
       "morimori": 12000,
       "homura": 11500,
@@ -111,7 +111,7 @@
       "runto": 12000,
       "icchome": 11500,
       "oku": 11500,
-      "sommelier": 12000,
+      "sommelier": 12500,
       "collect_tendo": 11500,
       "shinsoku": 11400
     }
@@ -120,7 +120,7 @@
     "name": "MEGA 拡張パック「メガシンフォニア」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 10300,
+    "max_price": 10500,
     "prices": {
       "morimori": 10300,
       "homura": 9500,
@@ -128,7 +128,7 @@
       "runto": 10200,
       "icchome": 10000,
       "oku": 9500,
-      "sommelier": 10000,
+      "sommelier": 10500,
       "collect_tendo": 9600,
       "shinsoku": 9600
     }
@@ -920,7 +920,8 @@
     "retail_price": 4950,
     "max_price": 80000,
     "prices": {
-      "homura": 80000
+      "homura": 80000,
+      "shinsoku": 80000
     }
   },
   {
@@ -964,7 +965,6 @@
       "runto": 18000,
       "icchome": 19000,
       "kaikyo": 18000,
-      "sommelier": 21000,
       "collect_tendo": 24000,
       "shinsoku": 20000
     }
