@@ -11,7 +11,7 @@
       "runto": 15500,
       "icchome": 15500,
       "oku": 15600,
-      "kaikyo": 14500,
+      "kaikyo": 15500,
       "sommelier": 14800,
       "collect_tendo": 15800,
       "shinsoku": 14600
@@ -21,7 +21,7 @@
     "name": "MEGA 拡張パック「ニンジャスピナー」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 11300,
+    "max_price": 11700,
     "prices": {
       "morimori": 11300,
       "homura": 10800,
@@ -31,7 +31,7 @@
       "oku": 10800,
       "kaikyo": 10000,
       "sommelier": 11200,
-      "collect_tendo": 11000,
+      "collect_tendo": 11700,
       "shinsoku": 10600
     }
   },
