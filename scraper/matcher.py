@@ -92,7 +92,7 @@ MASTER_PRODUCTS: list[MasterProduct] = [
                   hit_cards=[("メガジガルデex MUR", "MUR封入率約70BOXに1枚。希少性で3万円超の高額カード"), ("メイのはげまし SAR", "BWの人気女性トレーナー。コレクター需要が非常に高い"), ("ニャースex SAR", "ロケット団のニャース人気とSARイラストの魅力で高騰")]),
     MasterProduct("mega", 'MEGA スタートデッキ100「バトルコレクション」', 891, "2025-12-19",
                   desc="100種類のデッキからランダムで1つ入っている構築済みデッキ。MUR仕様のメガリザードンYexが超高額。",
-                  keywords=["バトルコレクション", "スタートデッキ100", "BATTLE COLLECTION"],
+                  keywords=["バトルコレクション", "BATTLE COLLECTION"],
                   hit_cards=[("メガリザードンYex MUR仕様", "封入率が極めて低い最高レアリティ。相場130万円超"), ("ピカチュウex SAR仕様", "ピカチュウ人気×SAR仕様の希少性で30万円超"), ("リーリエのピッピex SAR仕様", "リーリエ人気キャラのSAR仕様で14万円超")]),
     MasterProduct("mega", 'MEGA ハイクラスパック「MEGAドリームex」', 5500, "2025-11-28",
                   desc="MEGAシリーズ初のハイクラスパック。2025年11月発売。",
