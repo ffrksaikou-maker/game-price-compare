@@ -56,13 +56,13 @@
     "name": "MEGA スタートデッキ100「バトルコレクション」",
     "category": "mega",
     "retail_price": 891,
-    "max_price": 3200,
+    "max_price": 16000,
     "prices": {
       "homura": 3000,
       "rudeya": 3000,
       "runto": 3200,
       "icchome": 3000,
-      "shinsoku": 3000
+      "shinsoku": 16000
     }
   },
   {
