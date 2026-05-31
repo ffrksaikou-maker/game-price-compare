@@ -56,13 +56,12 @@
     "name": "MEGA スタートデッキ100「バトルコレクション」",
     "category": "mega",
     "retail_price": 891,
-    "max_price": 16000,
+    "max_price": 3200,
     "prices": {
       "homura": 3000,
       "rudeya": 3000,
       "runto": 3200,
-      "icchome": 3000,
-      "shinsoku": 16000
+      "icchome": 3000
     }
   },
   {
@@ -193,14 +192,13 @@
     "name": "SV 拡張パック「ロケット団の栄光」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 34000,
+    "max_price": 28800,
     "prices": {
       "morimori": 28800,
       "homura": 24500,
       "rudeya": 24500,
       "icchome": 24000,
       "oku": 24500,
-      "sommelier": 34000,
       "collect_tendo": 24600,
       "shinsoku": 24500
     }

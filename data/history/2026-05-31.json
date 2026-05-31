@@ -192,14 +192,13 @@
     "name": "SV 拡張パック「ロケット団の栄光」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 35000,
+    "max_price": 28800,
     "prices": {
       "morimori": 28800,
       "homura": 24500,
       "rudeya": 24500,
       "icchome": 24000,
       "oku": 24500,
-      "sommelier": 35000,
       "collect_tendo": 24600,
       "shinsoku": 24500
     }
