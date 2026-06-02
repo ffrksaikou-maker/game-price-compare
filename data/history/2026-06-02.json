@@ -7,7 +7,7 @@
     "prices": {
       "morimori": 13000,
       "homura": 14000,
-      "rudeya": 14000,
+      "rudeya": 13900,
       "runto": 14000,
       "icchome": 14000,
       "oku": 13800,
@@ -30,7 +30,7 @@
       "icchome": 10800,
       "oku": 11200,
       "kaikyo": 10000,
-      "sommelier": 11000,
+      "sommelier": 10800,
       "collect_tendo": 10800,
       "shinsoku": 10700
     }
@@ -72,7 +72,7 @@
       "homura": 15700,
       "rudeya": 15800,
       "runto": 15500,
-      "icchome": 15800,
+      "icchome": 15500,
       "oku": 15800,
       "sommelier": 15800,
       "collect_tendo": 15500,
@@ -99,7 +99,7 @@
     "name": "MEGA 拡張パック「メガブレイブ」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 12500,
+    "max_price": 12000,
     "prices": {
       "morimori": 12000,
       "homura": 11400,
@@ -107,7 +107,7 @@
       "runto": 11500,
       "icchome": 11000,
       "oku": 11500,
-      "sommelier": 12500,
+      "sommelier": 11800,
       "collect_tendo": 11400,
       "shinsoku": 11400
     }
@@ -931,6 +931,7 @@
       "runto": 18000,
       "icchome": 16000,
       "kaikyo": 16000,
+      "sommelier": 18000,
       "collect_tendo": 18000,
       "shinsoku": 17000
     }
