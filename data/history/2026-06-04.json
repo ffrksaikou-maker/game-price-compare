@@ -3,13 +3,13 @@
     "name": "MEGA 拡張パック「アビスアイ」",
     "category": "mega",
     "retail_price": 6000,
-    "max_price": 14500,
+    "max_price": 14700,
     "prices": {
       "morimori": 13000,
       "homura": 14500,
-      "rudeya": 14100,
-      "runto": 14000,
-      "icchome": 14500,
+      "rudeya": 14300,
+      "runto": 14500,
+      "icchome": 14700,
       "oku": 14500,
       "kaikyo": 14200,
       "sommelier": 14500,
@@ -27,8 +27,8 @@
       "homura": 10800,
       "rudeya": 10800,
       "runto": 10500,
-      "icchome": 11000,
-      "oku": 11200,
+      "icchome": 11200,
+      "oku": 10800,
       "kaikyo": 10000,
       "sommelier": 10500,
       "collect_tendo": 11000,
@@ -45,7 +45,7 @@
       "homura": 8000,
       "rudeya": 7800,
       "runto": 8000,
-      "icchome": 8000,
+      "icchome": 8200,
       "oku": 8000,
       "kaikyo": 7000,
       "sommelier": 7800,
@@ -59,7 +59,6 @@
     "retail_price": 891,
     "max_price": 3000,
     "prices": {
-      "runto": 3000,
       "icchome": 3000
     }
   },
@@ -87,7 +86,7 @@
     "max_price": 25800,
     "prices": {
       "morimori": 25800,
-      "homura": 22000,
+      "homura": 22600,
       "rudeya": 22000,
       "runto": 20000,
       "icchome": 22000,
@@ -103,10 +102,10 @@
     "max_price": 12000,
     "prices": {
       "morimori": 12000,
-      "homura": 11400,
+      "homura": 11500,
       "rudeya": 11500,
       "runto": 11500,
-      "icchome": 11800,
+      "icchome": 11500,
       "oku": 11400,
       "sommelier": 11000,
       "collect_tendo": 11200,
@@ -123,7 +122,7 @@
       "homura": 10000,
       "rudeya": 9800,
       "runto": 10000,
-      "icchome": 9500,
+      "icchome": 9700,
       "oku": 9500,
       "sommelier": 9500,
       "collect_tendo": 9800,
@@ -193,7 +192,7 @@
     "max_price": 28800,
     "prices": {
       "morimori": 28800,
-      "homura": 24000,
+      "homura": 24500,
       "rudeya": 24500,
       "runto": 24500,
       "icchome": 24500,
@@ -256,8 +255,8 @@
     "max_price": 34800,
     "prices": {
       "morimori": 34800,
-      "homura": 29000,
-      "rudeya": 32200,
+      "homura": 30000,
+      "rudeya": 31700,
       "icchome": 31500,
       "oku": 29000,
       "collect_tendo": 29000,
@@ -272,7 +271,7 @@
     "prices": {
       "morimori": 18800,
       "homura": 16000,
-      "rudeya": 16500,
+      "rudeya": 16100,
       "icchome": 16000,
       "oku": 16000,
       "collect_tendo": 16300,
@@ -292,7 +291,7 @@
       "icchome": 10300,
       "oku": 10500,
       "kaikyo": 8700,
-      "sommelier": 10800,
+      "sommelier": 11000,
       "collect_tendo": 10500,
       "shinsoku": 9800
     }
@@ -339,7 +338,7 @@
     "max_price": 15000,
     "prices": {
       "morimori": 15000,
-      "homura": 12500,
+      "homura": 13000,
       "rudeya": 13000,
       "runto": 12500,
       "icchome": 12500,
@@ -407,7 +406,7 @@
     "max_price": 11300,
     "prices": {
       "morimori": 11300,
-      "homura": 10000,
+      "homura": 10500,
       "rudeya": 10300,
       "runto": 10200,
       "icchome": 10200,
@@ -473,7 +472,7 @@
     "max_price": 61800,
     "prices": {
       "morimori": 61800,
-      "homura": 55000,
+      "homura": 56000,
       "rudeya": 56000,
       "runto": 52000,
       "icchome": 58000,
@@ -507,7 +506,7 @@
     "max_price": 11300,
     "prices": {
       "morimori": 11300,
-      "homura": 10200,
+      "homura": 10500,
       "rudeya": 10600,
       "runto": 10000,
       "icchome": 10500,
@@ -540,7 +539,7 @@
     "max_price": 13600,
     "prices": {
       "morimori": 13600,
-      "homura": 12500,
+      "homura": 12600,
       "rudeya": 12600,
       "runto": 11000,
       "icchome": 12000,
@@ -571,10 +570,10 @@
     "name": "S&S ハイクラスパック「VSTARユニバース」",
     "category": "ss",
     "retail_price": 5500,
-    "max_price": 30200,
+    "max_price": 30100,
     "prices": {
       "homura": 28000,
-      "rudeya": 30200,
+      "rudeya": 30100,
       "runto": 30000,
       "icchome": 29000,
       "shinsoku": 28500
@@ -679,7 +678,7 @@
     "retail_price": 4950,
     "max_price": 13000,
     "prices": {
-      "homura": 12000,
+      "homura": 12500,
       "runto": 13000,
       "oku": 12500,
       "collect_tendo": 12500,
@@ -741,7 +740,7 @@
     "retail_price": 4950,
     "max_price": 300000,
     "prices": {
-      "homura": 280000,
+      "homura": 285000,
       "runto": 280000,
       "collect_tendo": 300000,
       "shinsoku": 295000
@@ -927,9 +926,9 @@
     "name": "スペシャルBOX トウホク",
     "category": "special",
     "retail_price": 2090,
-    "max_price": 18000,
+    "max_price": 18500,
     "prices": {
-      "homura": 18000,
+      "homura": 18500,
       "rudeya": 16200,
       "runto": 18000,
       "icchome": 16500,
