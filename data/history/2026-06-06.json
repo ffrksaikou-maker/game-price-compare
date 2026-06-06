@@ -14,7 +14,7 @@
       "kaikyo": 13500,
       "sommelier": 14000,
       "collect_tendo": 14000,
-      "shinsoku": 13700
+      "shinsoku": 13500
     }
   },
   {
@@ -128,7 +128,7 @@
       "oku": 9500,
       "sommelier": 10000,
       "collect_tendo": 9800,
-      "shinsoku": 9500
+      "shinsoku": 9600
     }
   },
   {
@@ -184,7 +184,7 @@
       "rudeya": 18100,
       "icchome": 18000,
       "collect_tendo": 18000,
-      "shinsoku": 18600
+      "shinsoku": 19000
     }
   },
   {
@@ -200,7 +200,7 @@
       "icchome": 23500,
       "oku": 24500,
       "collect_tendo": 24500,
-      "shinsoku": 24500
+      "shinsoku": 24000
     }
   },
   {
@@ -277,7 +277,7 @@
       "icchome": 16000,
       "oku": 16000,
       "collect_tendo": 16300,
-      "shinsoku": 16100
+      "shinsoku": 16000
     }
   },
   {
@@ -414,7 +414,7 @@
       "icchome": 10200,
       "oku": 10500,
       "collect_tendo": 10600,
-      "shinsoku": 9500
+      "shinsoku": 9600
     }
   },
   {
@@ -464,7 +464,7 @@
       "oku": 18500,
       "sommelier": 19000,
       "collect_tendo": 18500,
-      "shinsoku": 18600
+      "shinsoku": 18500
     }
   },
   {
@@ -498,7 +498,7 @@
       "kaikyo": 12000,
       "sommelier": 12500,
       "collect_tendo": 11800,
-      "shinsoku": 11600
+      "shinsoku": 12000
     }
   },
   {
@@ -515,7 +515,7 @@
       "oku": 10500,
       "kaikyo": 9600,
       "collect_tendo": 10500,
-      "shinsoku": 10800
+      "shinsoku": 11000
     }
   },
   {
@@ -548,7 +548,7 @@
       "oku": 12500,
       "kaikyo": 12500,
       "collect_tendo": 12600,
-      "shinsoku": 12500
+      "shinsoku": 12800
     }
   },
   {
@@ -592,7 +592,7 @@
       "runto": 23000,
       "oku": 22800,
       "collect_tendo": 22000,
-      "shinsoku": 23100
+      "shinsoku": 22800
     }
   },
   {
@@ -741,12 +741,12 @@
     "name": "S&S 拡張パック「蒼空ストリーム」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 295000,
+    "max_price": 293000,
     "prices": {
       "homura": 285000,
       "runto": 280000,
       "collect_tendo": 280000,
-      "shinsoku": 295000
+      "shinsoku": 293000
     }
   },
   {
@@ -872,7 +872,7 @@
     "max_price": 55000,
     "prices": {
       "homura": 55000,
-      "shinsoku": 55000
+      "shinsoku": 51000
     }
   },
   {
@@ -909,10 +909,10 @@
     "name": "S&S 拡張パック「ソード」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 53000,
+    "max_price": 50000,
     "prices": {
       "homura": 50000,
-      "shinsoku": 53000
+      "shinsoku": 50000
     }
   },
   {
