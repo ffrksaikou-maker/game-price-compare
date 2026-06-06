@@ -17,6 +17,12 @@ MATCH_THRESHOLD = 75
 # Minimum reasonable BOX buyback price (yen) - filters accessories/sleeves
 MIN_BOX_PRICE = 3000
 
+# Absolute floor used for the pre-match skip. Cheap products (e.g. スタートデッキ100,
+# 定価891円) can legitimately sell below MIN_BOX_PRICE, so the pre-filter only drops
+# obvious junk. The real per-product floor (MIN_BOX_PRICE or product.min_price) is
+# applied AFTER a product match is found.
+ABS_MIN_PRICE = 1500
+
 # Maximum reasonable BOX buyback price (single BOX, yen)
 MAX_BOX_PRICE = 500000
 
@@ -74,6 +80,7 @@ class MasterProduct:
     keywords: list[str] = field(default_factory=list)  # matching keywords
     hit_cards: list[tuple[str, str]] = field(default_factory=list)  # 当たりカード（トップレア）[(カード名, コメント), ...]
     prices: dict[str, int] = field(default_factory=dict)  # shop_id -> price
+    min_price: int = 0  # 価格下限の上書き（0=MIN_BOX_PRICEを使用）。格安デッキ用
 
 
 # Master product list - canonical names and keywords for matching
@@ -94,6 +101,7 @@ MASTER_PRODUCTS: list[MasterProduct] = [
     MasterProduct("mega", 'MEGA スタートデッキ100「バトルコレクション」', 891, "2025-12-19",
                   desc="100種類のデッキからランダムで1つ入っている構築済みデッキ。MUR仕様のメガリザードンYexが超高額。",
                   keywords=["バトルコレクション", "BATTLE COLLECTION"],
+                  min_price=1500,  # 定価891円の格安デッキ。買取2200〜3200円なので3000円フィルタ対象外にする
                   hit_cards=[("メガリザードンYex MUR仕様", "封入率が極めて低い最高レアリティ。相場130万円超"), ("ピカチュウex SAR仕様", "ピカチュウ人気×SAR仕様の希少性で30万円超"), ("リーリエのピッピex SAR仕様", "リーリエ人気キャラのSAR仕様で14万円超")]),
     MasterProduct("mega", 'MEGA ハイクラスパック「MEGAドリームex」', 5500, "2025-11-28",
                   desc="MEGAシリーズ初のハイクラスパック。2025年11月発売。",
@@ -456,8 +464,10 @@ def match_products(
             logger.debug("  SKIP (no shrink): %s = %d", name, price)
             continue
 
-        # Skip unreasonably low prices (likely accessories/sleeves)
-        if price < MIN_BOX_PRICE:
+        # Skip obviously-junk prices before matching. The real per-product floor
+        # (MIN_BOX_PRICE or product.min_price) is enforced after a match is found,
+        # so cheap products like スタートデッキ100 aren't pre-filtered here.
+        if price < ABS_MIN_PRICE:
             logger.debug("  SKIP (price too low): %s = %d", name, price)
             continue
 
@@ -500,6 +510,14 @@ def match_products(
                 best_product = product
 
         if best_product and best_score >= MATCH_THRESHOLD:
+            # Enforce the per-product low-price floor (defaults to MIN_BOX_PRICE).
+            floor = best_product.min_price or MIN_BOX_PRICE
+            if price < floor:
+                logger.debug(
+                    "  SKIP (below floor %d): %s = %d", floor, name, price,
+                )
+                continue
+
             # Skip if price is unreasonably high relative to retail
             if best_product.retail_price > 0:
                 ratio = price / best_product.retail_price
