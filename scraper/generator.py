@@ -109,6 +109,7 @@ BLOG_ARTICLES = [
     {"url": "sv-box-list.html", "title": "SV(スカーレット&バイオレット) 全BOX一覧", "desc": "SVシリーズ全BOXの買取価格・定価・発売日・相場トレンドを10店舗実データで一覧化。151/黒炎の支配者/超電ブレイカー/ロケット団の栄光などの最新相場を毎日自動更新。", "date": "2026-04-22"},
     {"url": "mega-box-list.html", "title": "MEGA(メガシンカ) 全BOX一覧", "desc": "MEGAシリーズ全BOXの買取価格・定価・発売日・相場トレンドを10店舗実データで一覧化。メガブレイブ/メガシンフォニア/インフェルノX/ニンジャスピナー/ムニキスゼロの相場を毎日自動更新。", "date": "2026-04-22"},
     {"url": "ss-box-list.html", "title": "S&S(ソード&シールド) 全BOX一覧", "desc": "S&Sシリーズ全BOXの買取価格・定価・発売日・相場トレンドを10店舗実データで一覧化。イーブイヒーローズ/VMAXクライマックス/25thアニバーサリーなど絶版BOX中心。", "date": "2026-04-22"},
+    {"url": "battle-collection-spotlight.html", "title": "スタートデッキ100が大暴落？ピーク¥4,300→¥2,800", "desc": "MEGA スタートデッキ100「バトルコレクション」のBOX買取が4月ピーク¥4,300→¥2,800へ約35%下落。看板メガリザードンYex MUR(No.001)が5月12日の100万円→6月初旬の94.4万円へ反落したのと連動。下落4つの理由・店舗別買取・今後3シナリオ・売り時を実データで解説。", "date": "2026-06-06"},
     {"url": "release-schedule-2026.html", "title": "2026年ポケカ新弾発売カレンダー", "desc": "ムニキスゼロ・ニンジャスピナー発売済み、アビスアイ(5/22発売決定・メガダークライex)、5月値上げ(180→200円)、商標予想(ストームエメラルダ等)、30周年記念商品(世界同時発売)まで完全整理。", "date": "2026-04-21"},
     {"url": "abyss-eye-forecast.html", "title": "【発売前予想】アビスアイ BOX相場3シナリオ", "desc": "2026-05-22発売のアビスアイBOX相場を、過去MEGA弾M1〜M4の実データ+ダークライ人気+値上げ後初パックの歴史から3シナリオ(弱気¥9,600/中立¥15,000/強気¥30,000)で徹底予想。投資判断3基準とリスク要因も解説。", "date": "2026-04-21"},
     {"url": "abyss-eye-review.html", "title": "【発売日答え合わせ】アビスアイ初動BOXは¥13,500・中立シナリオほぼ的中", "desc": "2026-05-22発売のアビスアイBOX初動が¥13,500(定価×2.25倍)で着地。4月公開の3シナリオ予想を9店舗実データで答え合わせ。中立予想ほぼ的中の3つの理由、過去MEGA弾との発売日比較、これからの注目ポイントを解説。", "date": "2026-05-22"},
@@ -1372,6 +1373,7 @@ def _update_sitemap(
         ("/rocket-dan-no-eiko-spotlight.html", "monthly", "0.8", "2026-04-25"),
         ("/mega-ex-spotlight.html", "monthly", "0.8", "2026-05-03"),
         ("/mega-brave-spotlight.html", "monthly", "0.8", "2026-05-19"),
+        ("/battle-collection-spotlight.html", "monthly", "0.8", "2026-06-06"),
         ("/abyss-eye-forecast.html", "monthly", "0.8", "2026-04-21"),
         ("/abyss-eye-review.html", "monthly", "0.8", "2026-05-22"),
         ("/zeppan-ranking-2026-03.html", "monthly", "0.8", "2026-04-14"),
@@ -2692,6 +2694,7 @@ article p{{font-size:14px;margin-bottom:14px}}
 <a href="rocket-dan-no-eiko-spotlight.html">【特集】ロケット団の栄光高騰</a>
 <a href="mega-ex-spotlight.html">【特集】MEGAドリームex高騰</a>
 <a href="mega-brave-spotlight.html">【特集】メガブレイブ高騰</a>
+<a href="battle-collection-spotlight.html">【特集】スタートデッキ100 下落</a>
 <div class="article-nav-sub" style="color:#6d28d9">📘 掘り下げガイド</div>
 <a href="zeppan-ranking-2026-03.html">📊 S&amp;S以降 絶版BOXランキング</a>
 <a href="lizardon-box-guide.html">🔥 リザードン高騰BOX完全ガイド</a>
@@ -2754,6 +2757,7 @@ article p{{font-size:14px;margin-bottom:14px}}
     <a class="spot" href="rocket-dan-no-eiko-spotlight.html">【特集】ロケット団の栄光が定価5.8倍に高騰</a>
     <a class="spot" href="mega-ex-spotlight.html">【特集】MEGAドリームexが定価3.2倍にW字回復</a>
     <a class="spot" href="mega-brave-spotlight.html">【特集】メガブレイブが定価2.6倍で推移</a>
+    <a class="spot" href="battle-collection-spotlight.html">【特集】スタートデッキ100が大暴落？ピーク比-35%</a>
   </div>
   <div class="mfn-section">
     <div class="mfn-section-title" style="color:#6d28d9">📘 掘り下げガイド</div>
