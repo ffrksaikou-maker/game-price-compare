@@ -106,6 +106,7 @@ def get_box_image_url(slug: str) -> str:
 # Blog articles (newest first) - 記事追加時はここに1行足すだけ
 BLOG_ARTICLES = [
     {"url": "weekly/", "title": "【今週】ポケカBOX 週間急上昇ランキング", "desc": "SV・MEGA TOP10 + S&S TOP3を毎日自動更新。10店舗実データから抽出した直近7日間で最も値上がりしたBOXをグラフ付きで掲載。", "date": "2026-04-12"},
+    {"url": "souba-mynumber-2026.html", "title": "ポケカ相場は下落から膠着へ｜30周年マイナンバー導入の影響", "desc": "直近30日で67BOX中49が下落(平均-9.5%)、直近7日は53BOXが横ばい=膠着へ。ポケモンセンター30周年記念商品の抽選にマイナンバーカード本人確認が導入決定。転売対策が相場に与える影響を当サイト実データと公式発表・専門家見解で解説。", "date": "2026-06-09"},
     {"url": "sv-box-list.html", "title": "SV(スカーレット&バイオレット) 全BOX一覧", "desc": "SVシリーズ全BOXの買取価格・定価・発売日・相場トレンドを10店舗実データで一覧化。151/黒炎の支配者/超電ブレイカー/ロケット団の栄光などの最新相場を毎日自動更新。", "date": "2026-04-22"},
     {"url": "mega-box-list.html", "title": "MEGA(メガシンカ) 全BOX一覧", "desc": "MEGAシリーズ全BOXの買取価格・定価・発売日・相場トレンドを10店舗実データで一覧化。メガブレイブ/メガシンフォニア/インフェルノX/ニンジャスピナー/ムニキスゼロの相場を毎日自動更新。", "date": "2026-04-22"},
     {"url": "ss-box-list.html", "title": "S&S(ソード&シールド) 全BOX一覧", "desc": "S&Sシリーズ全BOXの買取価格・定価・発売日・相場トレンドを10店舗実データで一覧化。イーブイヒーローズ/VMAXクライマックス/25thアニバーサリーなど絶版BOX中心。", "date": "2026-04-22"},
@@ -1364,6 +1365,7 @@ def _update_sitemap(
         ("/", "daily", "1.0", today),
         ("/ranking.html", "daily", "0.9", today),
         ("/weekly/", "weekly", "0.9", today),
+        ("/souba-mynumber-2026.html", "monthly", "0.9", "2026-06-09"),
         ("/inferno-x-spotlight.html", "monthly", "0.8", "2026-04-12"),
         ("/151-spotlight.html", "monthly", "0.8", "2026-04-14"),
         ("/kokuen-spotlight.html", "monthly", "0.8", "2026-04-14"),
@@ -1520,7 +1522,7 @@ def _generate_ranking_summary(
     return (
         '<div class="ranking-summary">'
         '<div class="rs-card">'
-        '<h3><a href="ranking.html">週間 上昇ランキング</a></h3>'
+        '<h3><a href="ranking.html">週間 価格変化ランキング</a></h3>'
         f'<ul class="rs-list">{items_html}</ul>'
         '<a href="ranking.html" class="rs-more">もっと見る &rarr;</a>'
         '</div>'
@@ -1583,7 +1585,11 @@ def generate_ranking_page(
     ss = [c for c in changes if c["category"] == "ss"]
     ss_gainers = sorted([c for c in ss if c["diff"] > 0], key=lambda x: x["diff"], reverse=True)[:3]
 
-    # SV+MEGA全BOXの平均上昇額・上昇率
+    # 値下がり（下落）ランキング: SV+MEGA TOP10 / S&S TOP3（下落幅の大きい順）
+    sv_losers = sorted([c for c in sv_mega if c["diff"] < 0], key=lambda x: x["diff"])[:10]
+    ss_losers = sorted([c for c in ss if c["diff"] < 0], key=lambda x: x["diff"])[:3]
+
+    # SV+MEGA全BOXの平均変化額・変化率＋値上がり/横ばい/値下がり件数
     sv_mega_all = [c for c in changes if c["category"] in ("sv", "mega") and c["week_ago"] > 0]
     if sv_mega_all:
         avg_diff = sum(c["diff"] for c in sv_mega_all) / len(sv_mega_all)
@@ -1591,6 +1597,9 @@ def generate_ranking_page(
     else:
         avg_diff = 0
         avg_pct = 0
+    n_up = len([c for c in sv_mega_all if c["pct"] > 0])
+    n_down = len([c for c in sv_mega_all if c["pct"] < 0])
+    n_flat = len(sv_mega_all) - n_up - n_down
 
     today_str = today_file.stem
     week_ago_str = week_ago_file.stem
@@ -1662,6 +1671,8 @@ new Chart(document.getElementById('{canvas_id}'), {{
 
     sv_gain_html, sv_gain_js = _build_mini_charts(sv_gainers, "svUp", "#dc2626")
     ss_gain_html, ss_gain_js = _build_mini_charts(ss_gainers, "ssUp", "#f59e0b")
+    sv_loss_html, sv_loss_js = _build_mini_charts(sv_losers, "svDown", "#2563eb")
+    ss_loss_html, ss_loss_js = _build_mini_charts(ss_losers, "ssDown", "#2563eb")
 
     def _make_table(items: list) -> str:
         if not items:
@@ -1688,10 +1699,12 @@ new Chart(document.getElementById('{canvas_id}'), {{
 
     sv_gainers_table = _make_table(sv_gainers)
     ss_gainers_table = _make_table(ss_gainers)
+    sv_losers_table = _make_table(sv_losers)
+    ss_losers_table = _make_table(ss_losers)
 
     # JSON-LD 構造化データ (ItemList + BreadcrumbList + Article)
     ranking_products = []
-    for c in sv_gainers + ss_gainers:
+    for c in sv_gainers + ss_gainers + sv_losers + ss_losers:
         ranking_products.append({
             "@type": "Product",
             "name": c["name"],
@@ -1709,8 +1722,8 @@ new Chart(document.getElementById('{canvas_id}'), {{
     ranking_itemlist_obj = {
         "@context": "https://schema.org",
         "@type": "ItemList",
-        "name": "ポケカBOX 週間上昇ランキング",
-        "description": f"ポケモンカード未開封BOX 週間上昇ランキング ({week_ago_str} → {today_str})",
+        "name": "ポケカBOX 週間価格変化ランキング",
+        "description": f"ポケモンカード未開封BOX 週間価格変化ランキング（値上がり・値下がり） ({week_ago_str} → {today_str})",
         "numberOfItems": len(ranking_products),
         "itemListElement": [
             {"@type": "ListItem", "position": i + 1, "item": item}
@@ -1722,14 +1735,14 @@ new Chart(document.getElementById('{canvas_id}'), {{
         "@type": "BreadcrumbList",
         "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "ポケカ買取チェッカー", "item": "https://pokeca-box-hikaku.com/"},
-            {"@type": "ListItem", "position": 2, "name": "週間上昇ランキング", "item": "https://pokeca-box-hikaku.com/ranking.html"},
+            {"@type": "ListItem", "position": 2, "name": "週間価格変化ランキング", "item": "https://pokeca-box-hikaku.com/ranking.html"},
         ],
     }
     ranking_article_obj = {
         "@context": "https://schema.org",
         "@type": "Article",
-        "headline": "ポケカBOX 週間上昇ランキング",
-        "description": "ポケモンカード未開封BOXの買取価格 週間上昇ランキング。直近7日間で最も値上がり・値下がりしたBOXをグラフ付きで紹介。毎日自動更新。",
+        "headline": "ポケカBOX 週間価格変化ランキング",
+        "description": "ポケモンカード未開封BOXの買取価格 週間価格変化ランキング。直近7日間で最も値上がり・値下がりしたBOXをグラフ付きで紹介。毎日自動更新。",
         "datePublished": today_str,
         "dateModified": today_str,
         "image": "https://pokeca-box-hikaku.com/ogp.jpg",
@@ -1763,19 +1776,19 @@ new Chart(document.getElementById('{canvas_id}'), {{
 <link rel="preconnect" href="https://www.googletagmanager.com">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="preconnect" href="https://h.accesstrade.net">
-<meta name="description" content="ポケカ未開封BOXの買取価格 週間上昇ランキング。直近7日間で最も値上がり・値下がりしたBOXをグラフ付きで紹介。毎日自動更新。">
+<meta name="description" content="ポケカ未開封BOXの買取価格 週間価格変化ランキング。直近7日間で値上がり・値下がりしたBOXをグラフ付きで紹介(値上がりTOP・値下がりTOP)。毎日自動更新で現在の下落トレンドもひと目で分かる。">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://pokeca-box-hikaku.com/ranking.html">
-<meta property="og:title" content="ポケカBOX 上昇ランキング｜ポケカ買取チェッカー">
-<meta property="og:description" content="ポケカ未開封BOXの買取価格 週間上昇ランキング。直近7日間の変動をグラフ付きで紹介。">
+<meta property="og:title" content="ポケカBOX 週間価格変化ランキング(値上がり・値下がり)｜ポケカ買取チェッカー">
+<meta property="og:description" content="ポケカ未開封BOXの買取価格 週間価格変化ランキング。直近7日間の値上がり・値下がりTOPをグラフ付きで紹介。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://pokeca-box-hikaku.com/ranking.html">
 <meta property="og:image" content="https://pokeca-box-hikaku.com/ogp.jpg">
 <meta property="og:site_name" content="ポケカ買取チェッカー">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="ポケカBOX 上昇ランキング｜ポケカ買取チェッカー">
-<meta name="twitter:description" content="ポケカ未開封BOXの買取価格 週間上昇ランキング。毎日自動更新。">
-<title>ポケカBOX 週間上昇ランキング｜ポケカ買取チェッカー</title>
+<meta name="twitter:title" content="ポケカBOX 週間価格変化ランキング(値上がり・値下がり)">
+<meta name="twitter:description" content="ポケカ未開封BOXの買取価格 週間価格変化ランキング。値上がり・値下がりTOPを毎日自動更新。">
+<title>ポケカBOX 週間価格変化ランキング(値上がり・値下がり)｜ポケカ買取チェッカー</title>
 {ranking_jsonld}
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831186943118320" crossorigin="anonymous"></script>
@@ -1843,14 +1856,15 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <body>
 <div class="header"><a href="index.html"><h1>ポケカ買取チェッカー</h1></a></div>
 <div class="wrap">
-<div class="breadcrumb"><a href="index.html">トップ</a> &gt; 週間上昇ランキング</div>
+<div class="breadcrumb"><a href="index.html">トップ</a> &gt; 週間価格変化ランキング</div>
 
 <div class="content-layout">
 <nav class="article-nav">
 <div class="article-nav-title">一般記事</div>
 <a href="index.html">買取価格比較</a>
 <a href="weekly/">🔥 今週の急上昇記事</a>
-<a href="ranking.html" class="current">上昇ランキング</a>
+<a href="ranking.html" class="current">📊 週間価格変化ランキング</a>
+<a href="souba-mynumber-2026.html">📰 相場下落・膠着とマイナンバー</a>
 <a href="kaitori-tips.html">BOX買取のコツ</a>
 <a href="shop-hikaku.html">10店舗比較</a>
 <a href="single-card-tips.html">シングル売り</a>
@@ -1882,14 +1896,22 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 </nav>
 
 <div class="main-card">
-<h2>ポケカBOX 週間上昇ランキング</h2>
+<h2>ポケカBOX 週間価格変化ランキング</h2>
 <div class="meta">更新: {update_date}　比較期間: {week_ago_str} → {today_str}（直近7日間）</div>
 
-<h3 class="section-title up">SV・MEGA 上昇 TOP10</h3>
-<div class="mini-charts">{sv_gain_html}</div>
+<p style="font-size:14px;margin-bottom:8px">直近7日間でSV・MEGA全{len(sv_mega_all)}BOX中、<strong style="color:#dc2626">値上がり {n_up}件</strong> / <strong style="color:var(--text-sub)">横ばい {n_flat}件</strong> / <strong style="color:#2563eb">値下がり {n_down}件</strong>。値上がり・値下がりの両方をランキング形式で掲載し、現在の相場トレンドをひと目で確認できます。</p>
 
-<h3 class="section-title up" style="margin-top:48px">S&amp;S 上昇 TOP3</h3>
-<div class="mini-charts">{ss_gain_html}</div>
+<h3 class="section-title up">📈 SV・MEGA 値上がり TOP10</h3>
+<div class="mini-charts">{sv_gain_html or '<p class="no-data">今週は値上がりしたSV・MEGA BOXはありません</p>'}</div>
+
+<h3 class="section-title up" style="margin-top:48px">📈 S&amp;S 値上がり TOP3</h3>
+<div class="mini-charts">{ss_gain_html or '<p class="no-data">今週は値上がりしたS&amp;S BOXはありません</p>'}</div>
+
+<h3 class="section-title down" style="margin-top:48px">📉 SV・MEGA 値下がり TOP10</h3>
+<div class="mini-charts">{sv_loss_html or '<p class="no-data">今週は値下がりしたSV・MEGA BOXはありません</p>'}</div>
+
+<h3 class="section-title down" style="margin-top:48px">📉 S&amp;S 値下がり TOP3</h3>
+<div class="mini-charts">{ss_loss_html or '<p class="no-data">今週は値下がりしたS&amp;S BOXはありません</p>'}</div>
 
 <h3 class="section-title" style="margin-top:48px">SV・MEGA 全BOX平均</h3>
 <div class="avg-stats">
@@ -1916,6 +1938,8 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <script>
 {sv_gain_js}
 {ss_gain_js}
+{sv_loss_js}
+{ss_loss_js}
 new Chart(document.getElementById('avgChart'), {{
   type: 'line',
   data: {{
@@ -2015,13 +2039,20 @@ def generate_weekly_article(
                              key=lambda x: x["diff"], reverse=True)
     ss_gainers = sorted([c for c in ss_changes if c["diff"] > 0],
                         key=lambda x: x["diff"], reverse=True)
+    # 値下がり（下落幅の大きい順）
+    sv_mega_losers = sorted([c for c in sv_mega_changes if c["diff"] < 0],
+                            key=lambda x: x["diff"])
+    ss_losers = sorted([c for c in ss_changes if c["diff"] < 0],
+                       key=lambda x: x["diff"])
 
     top_gainers = sv_mega_gainers[:10]       # main TOP10 (SV+MEGA)
     minor_gainers = sv_mega_gainers[10:15]   # next 5 (SV+MEGA)
     ss_top_gainers = ss_gainers[:3]          # S&S TOP3 secondary section
+    top_losers = sv_mega_losers[:10]         # 値下がり TOP10 (SV+MEGA)
+    ss_top_losers = ss_losers[:3]            # S&S 値下がり TOP3
 
-    if not top_gainers:
-        logger.info("No SV+MEGA gainers this week; skipping weekly article")
+    if not top_gainers and not top_losers:
+        logger.info("No SV+MEGA price changes this week; skipping weekly article")
         return
 
     # Build per-BOX 7-day price history for mini charts
@@ -2033,7 +2064,7 @@ def generate_weekly_article(
         daily_cache.append({d["name"]: d.get("max_price", 0) for d in data})
 
     chart_history: dict[str, list[int]] = {}
-    for c in top_gainers + ss_top_gainers:
+    for c in top_gainers + ss_top_gainers + top_losers + ss_top_losers:
         series = [dc.get(c["name"], 0) for dc in daily_cache]
         chart_history[c["slug"]] = series
 
@@ -2063,9 +2094,12 @@ def generate_weekly_article(
             all_changes=sv_mega_changes,  # stats use SV+MEGA only (main set)
             chart_dates=chart_dates,
             chart_history=chart_history,
+            top_losers=top_losers,
+            ss_top_losers=ss_top_losers,
         )
         out_path.write_text(html, encoding="utf-8")
-        logger.info("Generated weekly article: %s (%d gainers)", out_path, len(top_gainers))
+        logger.info("Generated weekly article: %s (%d gainers, %d losers)",
+                    out_path, len(top_gainers), len(top_losers))
     else:
         logger.info(
             "Weekly article publish is Sunday-only; today=%s (weekday=%d), skipping write",
@@ -2218,7 +2252,7 @@ def _build_category_crosslinks(current_cat_id: str) -> str:
         parts.append(f'<a href="{c["filename"]}">📋 {c["short"]} 全BOX一覧</a>')
     # Also link to weekly ranking and home
     parts.append('<a href="weekly/">🔥 今週の急上昇ランキング</a>')
-    parts.append('<a href="ranking.html">📈 上昇ランキング</a>')
+    parts.append('<a href="ranking.html">📊 週間価格変化ランキング</a>')
     return "\n".join(parts)
 
 
@@ -2672,7 +2706,8 @@ article p{{font-size:14px;margin-bottom:14px}}
 <a href="mega-box-list.html"{(' class="current"' if config['cat_id']=='mega' else '')}>📋 MEGA全BOX一覧</a>
 <a href="ss-box-list.html"{(' class="current"' if config['cat_id']=='ss' else '')}>📋 S&S全BOX一覧</a>
 <a href="weekly/">🔥 今週の急上昇記事</a>
-<a href="ranking.html">上昇ランキング</a>
+<a href="ranking.html">📊 週間価格変化ランキング</a>
+<a href="souba-mynumber-2026.html">📰 相場下落・膠着とマイナンバー</a>
 <a href="kaitori-tips.html">BOX買取のコツ</a>
 <a href="about.html">運営者情報</a>
 <a href="shop-hikaku.html">10店舗比較</a>
@@ -2773,7 +2808,8 @@ article p{{font-size:14px;margin-bottom:14px}}
     <a href="mega-box-list.html">📋 MEGA全BOX一覧</a>
     <a href="ss-box-list.html">📋 S&S全BOX一覧</a>
     <a href="weekly/">🔥 今週の急上昇記事</a>
-    <a href="ranking.html">上昇ランキング</a>
+    <a href="ranking.html">📊 週間価格変化ランキング</a>
+    <a href="souba-mynumber-2026.html">📰 相場下落・膠着とマイナンバー</a>
     <a href="kaitori-tips.html">BOX買取のコツ</a>
     <a href="shop-hikaku.html">10店舗比較</a>
     <a href="about.html">運営者情報</a>
