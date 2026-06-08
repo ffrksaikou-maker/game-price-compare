@@ -27,11 +27,31 @@
   "@type": "ItemList",
   "name": "ポケカBOX 週間上昇ランキング",
   "description": "ポケモンカード未開封BOX 週間上昇ランキング (2026-06-01 → 2026-06-08)",
-  "numberOfItems": 1,
+  "numberOfItems": 2,
   "itemListElement": [
     {
       "@type": "ListItem",
       "position": 1,
+      "item": {
+        "@type": "Product",
+        "name": "MEGA 拡張パック「ムニキスゼロ」",
+        "url": "https://pokeca-box-hikaku.com/box/munikis-zero.html",
+        "image": "https://pokeca-box-hikaku.com/ogp.jpg",
+        "brand": {
+          "@type": "Brand",
+          "name": "ポケモンカードゲーム"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": 8500,
+          "priceCurrency": "JPY",
+          "availability": "https://schema.org/InStock"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
       "item": {
         "@type": "Product",
         "name": "S&S 拡張パック「25th ANNIVERSARY COLLECTION」",
@@ -202,18 +222,18 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 
 <div class="main-card">
 <h2>ポケカBOX 週間上昇ランキング</h2>
-<div class="meta">更新: 2026/06/08 11:02　比較期間: 2026-06-01 → 2026-06-08（直近7日間）</div>
+<div class="meta">更新: 2026/06/08 15:02　比較期間: 2026-06-01 → 2026-06-08（直近7日間）</div>
 
 <h3 class="section-title up">SV・MEGA 上昇 TOP10</h3>
-<div class="mini-charts"></div>
+<div class="mini-charts"><div class="mini-chart-card"><div class="mc-header"><a href="box/munikis-zero.html" class="mc-name">ムニキスゼロ</a><span class="mc-price">¥8,500</span><span class="mc-diff" style="color:#dc2626">↑+¥200 (+2.4%)</span></div><canvas id="svUpChart0" height="120"></canvas></div></div>
 
 <h3 class="section-title up" style="margin-top:48px">S&amp;S 上昇 TOP3</h3>
 <div class="mini-charts"><div class="mini-chart-card"><div class="mc-header"><a href="box/25th-anniversary-collection.html" class="mc-name">25th ANNIVERSARY COLLECTION</a><span class="mc-price">¥71,000</span><span class="mc-diff" style="color:#dc2626">↑+¥1,000 (+1.4%)</span></div><canvas id="ssUpChart0" height="120"></canvas></div></div>
 
 <h3 class="section-title" style="margin-top:48px">SV・MEGA 全BOX平均</h3>
 <div class="avg-stats">
-<div class="avg-item"><span class="avg-label">平均上昇額</span><span class="avg-value" style="color:#2563eb">¥-74</span></div>
-<div class="avg-item"><span class="avg-label">平均上昇率</span><span class="avg-value" style="color:#2563eb">-0.8%</span></div>
+<div class="avg-item"><span class="avg-label">平均上昇額</span><span class="avg-value" style="color:#2563eb">¥-77</span></div>
+<div class="avg-item"><span class="avg-label">平均上昇率</span><span class="avg-value" style="color:#2563eb">-0.9%</span></div>
 </div>
 <div class="chart-wrap" style="margin-top:16px">
 <canvas id="avgChart" height="200"></canvas>
@@ -234,6 +254,22 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 </div>
 <script>
 
+new Chart(document.getElementById('svUpChart0'), {
+  type: 'line',
+  data: {
+    labels: ["2026-06-01", "2026-06-02", "2026-06-03", "2026-06-04", "2026-06-05", "2026-06-06", "2026-06-07", "2026-06-08"],
+    datasets: [{ data: [8300, 8300, 8300, 8300, 8300, 8300, 8300, 8500], borderColor: '#dc2626', borderWidth: 2, fill: true,
+      backgroundColor: '#dc262622', tension: 0.3, pointRadius: 2 }]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { ticks: { font: { size: 10 }, maxRotation: 0 } },
+      y: { ticks: { callback: v => '¥' + v.toLocaleString(), font: { size: 10 } } }
+    }
+  }
+});
 
 new Chart(document.getElementById('ssUpChart0'), {
   type: 'line',
@@ -257,7 +293,7 @@ new Chart(document.getElementById('avgChart'), {
     labels: ["2026-06-01", "2026-06-02", "2026-06-03", "2026-06-04", "2026-06-05", "2026-06-06", "2026-06-07", "2026-06-08"],
     datasets: [{
       label: 'SV・MEGA 平均買取価格',
-      data: [17634, 17620, 17617, 17614, 18038, 17577, 17577, 17560],
+      data: [17634, 17620, 17617, 17614, 18038, 17577, 17577, 17557],
       borderColor: '#6366f1',
       backgroundColor: '#6366f122',
       borderWidth: 2,
