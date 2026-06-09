@@ -105,7 +105,7 @@ def get_box_image_url(slug: str) -> str:
 
 # Blog articles (newest first) - 記事追加時はここに1行足すだけ
 BLOG_ARTICLES = [
-    {"url": "weekly/", "title": "【今週】ポケカBOX 週間急上昇ランキング", "desc": "SV・MEGA TOP10 + S&S TOP3を毎日自動更新。10店舗実データから抽出した直近7日間で最も値上がりしたBOXをグラフ付きで掲載。", "date": "2026-04-12"},
+    {"url": "weekly/", "title": "【今週】ポケカBOX 週間値動きランキング", "desc": "SV・MEGA TOP10 + S&S TOP3を毎日自動更新。10店舗実データから直近7日間で値上がり・値下がりしたBOXをグラフ付きで掲載。現在の下落トレンドもひと目で分かる。", "date": "2026-04-12"},
     {"url": "souba-mynumber-2026.html", "title": "ポケカ相場は下落から膠着へ｜30周年マイナンバー導入の影響", "desc": "直近30日で67BOX中49が下落(平均-9.5%)、直近7日は53BOXが横ばい=膠着へ。ポケモンセンター30周年記念商品の抽選にマイナンバーカード本人確認が導入決定。転売対策が相場に与える影響を当サイト実データと公式発表・専門家見解で解説。", "date": "2026-06-09"},
     {"url": "sv-box-list.html", "title": "SV(スカーレット&バイオレット) 全BOX一覧", "desc": "SVシリーズ全BOXの買取価格・定価・発売日・相場トレンドを10店舗実データで一覧化。151/黒炎の支配者/超電ブレイカー/ロケット団の栄光などの最新相場を毎日自動更新。", "date": "2026-04-22"},
     {"url": "mega-box-list.html", "title": "MEGA(メガシンカ) 全BOX一覧", "desc": "MEGAシリーズ全BOXの買取価格・定価・発売日・相場トレンドを10店舗実データで一覧化。メガブレイブ/メガシンフォニア/インフェルノX/ニンジャスピナー/ムニキスゼロの相場を毎日自動更新。", "date": "2026-04-22"},
@@ -1862,7 +1862,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <nav class="article-nav">
 <div class="article-nav-title">一般記事</div>
 <a href="index.html">買取価格比較</a>
-<a href="weekly/">🔥 今週の急上昇記事</a>
+<a href="weekly/">🔥 今週の値動き記事</a>
 <a href="ranking.html" class="current">📊 週間価格変化ランキング</a>
 <a href="souba-mynumber-2026.html">📰 相場下落・膠着とマイナンバー</a>
 <a href="kaitori-tips.html">BOX買取のコツ</a>
@@ -2137,7 +2137,7 @@ def generate_weekly_article(
             "year": y,
             "week": w,
             "filename": wf.name,
-            "title": f"{y}年 第{w}週 急上昇TOP10",
+            "title": f"{y}年 第{w}週 価格変化ランキング",
             "published_date": published_date,
             "top_gainer_name": top_gainer_name,
         })
@@ -2251,7 +2251,7 @@ def _build_category_crosslinks(current_cat_id: str) -> str:
             continue
         parts.append(f'<a href="{c["filename"]}">📋 {c["short"]} 全BOX一覧</a>')
     # Also link to weekly ranking and home
-    parts.append('<a href="weekly/">🔥 今週の急上昇ランキング</a>')
+    parts.append('<a href="weekly/">🔥 今週の値動きランキング</a>')
     parts.append('<a href="ranking.html">📊 週間価格変化ランキング</a>')
     return "\n".join(parts)
 
@@ -2705,7 +2705,7 @@ article p{{font-size:14px;margin-bottom:14px}}
 <a href="sv-box-list.html"{(' class="current"' if config['cat_id']=='sv' else '')}>📋 SV全BOX一覧</a>
 <a href="mega-box-list.html"{(' class="current"' if config['cat_id']=='mega' else '')}>📋 MEGA全BOX一覧</a>
 <a href="ss-box-list.html"{(' class="current"' if config['cat_id']=='ss' else '')}>📋 S&S全BOX一覧</a>
-<a href="weekly/">🔥 今週の急上昇記事</a>
+<a href="weekly/">🔥 今週の値動き記事</a>
 <a href="ranking.html">📊 週間価格変化ランキング</a>
 <a href="souba-mynumber-2026.html">📰 相場下落・膠着とマイナンバー</a>
 <a href="kaitori-tips.html">BOX買取のコツ</a>
@@ -2807,7 +2807,7 @@ article p{{font-size:14px;margin-bottom:14px}}
     <a href="sv-box-list.html">📋 SV全BOX一覧</a>
     <a href="mega-box-list.html">📋 MEGA全BOX一覧</a>
     <a href="ss-box-list.html">📋 S&S全BOX一覧</a>
-    <a href="weekly/">🔥 今週の急上昇記事</a>
+    <a href="weekly/">🔥 今週の値動き記事</a>
     <a href="ranking.html">📊 週間価格変化ランキング</a>
     <a href="souba-mynumber-2026.html">📰 相場下落・膠着とマイナンバー</a>
     <a href="kaitori-tips.html">BOX買取のコツ</a>

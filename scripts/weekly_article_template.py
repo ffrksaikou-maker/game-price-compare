@@ -206,7 +206,7 @@ def build_weekly_html(
     """Build the complete HTML for a weekly hot-boxes article.
 
     top_gainers: SV+MEGA TOP10 (main ranking)
-    minor_gainers: SV+MEGA next 5 (準急上昇)
+    minor_gainers: SV+MEGA next 5 (値上がり次点)
     ss_top_gainers: S&S TOP3 (secondary section)
     all_changes: SV+MEGA changes only (for context stats)
     chart_dates: list of date strings (e.g., ['2026-04-05', ..., '2026-04-12'])
@@ -362,7 +362,7 @@ new Chart(document.getElementById('{canvas_id}').getContext('2d'), {{
             "@type": "WebPage",
             "@id": f"https://pokeca-box-hikaku.com/weekly/{year}-w{week_no:02d}.html",
         },
-        "articleSection": "週間BOX急上昇ランキング",
+        "articleSection": "週間BOX値動きランキング",
         "inLanguage": "ja",
     }
     itemlist_jsonld = {
@@ -378,7 +378,7 @@ new Chart(document.getElementById('{canvas_id}').getContext('2d'), {{
         "@type": "BreadcrumbList",
         "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "ポケカ買取チェッカー", "item": "https://pokeca-box-hikaku.com/"},
-            {"@type": "ListItem", "position": 2, "name": "週間急上昇記事", "item": "https://pokeca-box-hikaku.com/weekly/"},
+            {"@type": "ListItem", "position": 2, "name": "週間値動き記事", "item": "https://pokeca-box-hikaku.com/weekly/"},
             {"@type": "ListItem", "position": 3, "name": article_headline},
         ],
     }
@@ -508,7 +508,7 @@ article p{{font-size:14px;margin-bottom:14px}}
 <nav class="article-nav">
 <div class="article-nav-title">一般記事</div>
 <a href="../index.html">買取価格比較</a>
-<a href="index.html" class="current">🔥 今週の急上昇記事</a>
+<a href="index.html" class="current">🔥 今週の値動き記事</a>
 <a href="../ranking.html">上昇ランキング</a>
 <a href="../souba-mynumber-2026.html">📰 相場下落・膠着とマイナンバー</a>
 <a href="../kaitori-tips.html">BOX買取のコツ</a>
@@ -603,7 +603,7 @@ article p{{font-size:14px;margin-bottom:14px}}
 <ul style="font-size:14px;padding-left:22px;margin-bottom:14px">
 <li>TOP3のBOXが翌週も維持できるか (ピーク後の調整か、継続上昇か)</li>
 <li>新弾発売直前は既存弾の在庫が動きやすい</li>
-<li>準急上昇ランクインBOXがTOP10入りする週は狙い目</li>
+<li>値上がり次点ランクインBOXがTOP10入りする週は狙い目</li>
 </ul>
 
 <div class="disclaimer">
@@ -620,7 +620,7 @@ article p{{font-size:14px;margin-bottom:14px}}
 </div>
 
 <a href="../ranking.html" class="back">&larr; 週間ランキング(TOP10グラフ版)へ</a>
-<a href="index.html" class="back" style="margin-left:16px">&larr; 週間急上昇記事 一覧</a>
+<a href="index.html" class="back" style="margin-left:16px">&larr; 週間値動き記事 一覧</a>
 </article>
 </div><!-- /content-layout -->
 </div>
@@ -647,7 +647,7 @@ def build_weekly_index_html(week_entries: list[dict]) -> str:
             f'<a href="{e["filename"]}" class="week-link">'
             f'<div class="week-label">{e["title"]}</div>'
             f'<div class="week-date">{e["published_date"]} 公開</div>'
-            f'<div class="week-top">TOP急上昇: {e["top_gainer_name"]}</div>'
+            f'<div class="week-top">値動きTOP: {e["top_gainer_name"]}</div>'
             f'</a></li>'
         )
 
@@ -658,16 +658,16 @@ def build_weekly_index_html(week_entries: list[dict]) -> str:
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
 <link rel="preconnect" href="https://www.googletagmanager.com">
-<meta name="description" content="ポケカBOX 週間急上昇ランキング記事のアーカイブ一覧。毎週更新のBOX買取価格急上昇レポート。">
+<meta name="description" content="ポケカBOX 週間値動きランキング記事のアーカイブ一覧。毎週更新のBOX買取価格値動きレポート。">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://pokeca-box-hikaku.com/weekly/">
-<meta property="og:title" content="週間急上昇記事アーカイブ｜ポケカ買取チェッカー">
-<meta property="og:description" content="毎週更新のポケカBOX 買取急上昇ランキング記事の一覧。">
+<meta property="og:title" content="週間値動き記事アーカイブ｜ポケカ買取チェッカー">
+<meta property="og:description" content="毎週更新のポケカBOX 買取値動きランキング記事の一覧。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://pokeca-box-hikaku.com/weekly/">
 <meta property="og:image" content="https://pokeca-box-hikaku.com/ogp.jpg">
 <meta property="og:site_name" content="ポケカ買取チェッカー">
-<title>週間急上昇記事アーカイブ｜ポケカ買取チェッカー</title>
+<title>週間値動き記事アーカイブ｜ポケカ買取チェッカー</title>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831186943118320" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPTS6CRTCS"></script>
 <script>
@@ -680,8 +680,8 @@ gtag('config', 'G-RPTS6CRTCS');
 {{
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  "name": "週間急上昇記事アーカイブ",
-  "description": "ポケカBOX 週間急上昇ランキング記事の一覧",
+  "name": "週間値動き記事アーカイブ",
+  "description": "ポケカBOX 週間値動きランキング記事の一覧",
   "url": "https://pokeca-box-hikaku.com/weekly/"
 }}
 </script>
@@ -722,12 +722,12 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <body>
 <div class="header"><a href="../index.html"><h1>ポケカ買取チェッカー</h1></a></div>
 <div class="wrap">
-<div class="breadcrumb"><a href="../index.html">トップ</a> &gt; 週間急上昇記事</div>
+<div class="breadcrumb"><a href="../index.html">トップ</a> &gt; 週間値動き記事</div>
 <div class="content-layout">
 <nav class="article-nav">
 <div class="article-nav-title">一般記事</div>
 <a href="../index.html">買取価格比較</a>
-<a href="index.html" class="current">🔥 今週の急上昇記事</a>
+<a href="index.html" class="current">🔥 今週の値動き記事</a>
 <a href="../ranking.html">上昇ランキング</a>
 <a href="../souba-mynumber-2026.html">📰 相場下落・膠着とマイナンバー</a>
 <a href="../kaitori-tips.html">BOX買取のコツ</a>
@@ -763,8 +763,8 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <a href="../kokuen-atari-guide.html">黒炎 当たりカード完全ガイド</a>
 </nav>
 <div class="main-card">
-<h2>週間急上昇記事 アーカイブ</h2>
-<p class="desc">10店舗の実データから自動抽出したポケカBOX急上昇ランキングを週次で記録。毎週更新・履歴は永続保存。</p>
+<h2>週間値動き記事 アーカイブ</h2>
+<p class="desc">10店舗の実データから自動抽出したポケカBOX値動きランキングを週次で記録。毎週更新・履歴は永続保存。</p>
 <ul class="week-list">
 {items_html}
 </ul>
