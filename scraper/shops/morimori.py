@@ -130,16 +130,19 @@ class MorimoriScraper(BaseScraper):
                 seen.add(name)
                 items.append(ScrapedItem(name=name, price=price))
 
-    def _open_with_retry(self, browser, max_attempts: int = 3):
+    def _open_with_retry(self, browser, max_attempts: int = 5):
         """Open the search page with retries.
 
         morimori-kaitori.jp resets the HTTP/2 connection
         (ERR_HTTP2_PROTOCOL_ERROR) for headless Chromium, so the browser is
-        launched headful (see scrape()). We also leave the UA unset and let
-        Playwright use the default Chromium UA.
+        launched headful (see scrape()). headful でも稀に H2 リセットや
+        ネットワーク揺らぎで失敗するため多めにリトライする。
+        wait_until は domcontentloaded（networkidle は常時接続の EC で
+        idle に到達せず timeout する失敗モードがあるため避ける。商品の
+        描画は直後の wait_for_selector で担保する）。
         """
         last_err: Exception | None = None
-        backoff = [2, 4, 8]
+        backoff = [2, 4, 8, 12, 16]
         for attempt in range(max_attempts):
             context = browser.new_context(
                 viewport={"width": 1920, "height": 1080},
@@ -147,7 +150,7 @@ class MorimoriScraper(BaseScraper):
             )
             page = context.new_page()
             try:
-                page.goto(SEARCH_URL, wait_until="networkidle", timeout=60000)
+                page.goto(SEARCH_URL, wait_until="domcontentloaded", timeout=60000)
                 page.wait_for_selector("div.product-item", timeout=30000)
                 return page
             except Exception as e:
