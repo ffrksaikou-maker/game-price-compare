@@ -34,7 +34,11 @@ class MorimoriScraper(BaseScraper):
         from playwright.sync_api import sync_playwright
 
         with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True)
+            # headless だと morimori-kaitori.jp に BOT 検出され
+            # ERR_HTTP2_PROTOCOL_ERROR で全リクエストが弾かれる。
+            # headful なら通るため、CI(Linux)では Xvfb 上で実行する
+            # (.github/workflows/update.yml で xvfb-run でラップ済み)。
+            browser = p.chromium.launch(headless=False)
             try:
                 page = self._open_with_retry(browser)
                 page.wait_for_timeout(3000)
@@ -129,9 +133,10 @@ class MorimoriScraper(BaseScraper):
     def _open_with_retry(self, browser, max_attempts: int = 3):
         """Open the search page with retries.
 
-        morimori-kaitori.jp rejects requests carrying the Chrome 131 UA with
-        ERR_HTTP2_PROTOCOL_ERROR (TLS/H2 layer reset), so we leave the UA
-        unset and let Playwright use the default Chromium UA.
+        morimori-kaitori.jp resets the HTTP/2 connection
+        (ERR_HTTP2_PROTOCOL_ERROR) for headless Chromium, so the browser is
+        launched headful (see scrape()). We also leave the UA unset and let
+        Playwright use the default Chromium UA.
         """
         last_err: Exception | None = None
         backoff = [2, 4, 8]

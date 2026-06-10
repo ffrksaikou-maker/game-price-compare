@@ -32,8 +32,13 @@ jobs:
       - name: Install Playwright browsers
         run: playwright install chromium --with-deps
 
+      - name: Install Xvfb
+        # 森森(morimori-kaitori.jp)が headless を BOT 検出して弾くため、
+        # 仮想ディスプレイ上で headful Chromium を動かす必要がある。
+        run: sudo apt-get update && sudo apt-get install -y xvfb
+
       - name: Run scraper
-        run: python scraper/main.py
+        run: xvfb-run -a python scraper/main.py
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           X_AUTH_TOKEN: ${{ secrets.X_AUTH_TOKEN }}
