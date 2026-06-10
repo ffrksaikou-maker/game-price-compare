@@ -2252,17 +2252,11 @@ function render(){
     tdR.textContent=x.r>0?fp(x.r):"-";
     tr.appendChild(tdR);
 
-    // Max buyback (with 前日比)
+    // Max buyback
     const tdM=document.createElement("td");
     tdM.className="p";
     tdM.style.fontWeight="800";
-    const yest=x.y||0;
-    const dy=(yest>0&&x._m>0)?(x._m-yest):0;
-    const pct=(yest>0&&x._m>0)?(dy/yest*100):0;
-    let dyHtml="";
-    if(dy>0) dyHtml='<div class="dy dy-up">↑¥'+dy.toLocaleString()+' (+'+pct.toFixed(1)+'%)</div>';
-    else if(dy<0) dyHtml='<div class="dy dy-dn">↓¥'+Math.abs(dy).toLocaleString()+' ('+pct.toFixed(1)+'%)</div>';
-    tdM.innerHTML='<div>'+fp(x._m)+'</div>'+dyHtml;
+    tdM.textContent=fp(x._m);
     tr.appendChild(tdM);
 
     // Subtotal (inventory mode)
