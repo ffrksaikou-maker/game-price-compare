@@ -575,11 +575,14 @@
     "retail_price": 5500,
     "max_price": 29100,
     "prices": {
+      "morimori": 26800,
       "homura": 27000,
       "rudeya": 29100,
       "runto": 25000,
       "icchome": 26500,
+      "oku": 27000,
       "kaikyo": 27000,
+      "collect_tendo": 27500,
       "shinsoku": 26000
     }
   },
@@ -710,6 +713,8 @@
     "prices": {
       "homura": 34000,
       "runto": 36000,
+      "oku": 35000,
+      "collect_tendo": 35000,
       "shinsoku": 33500
     }
   },
