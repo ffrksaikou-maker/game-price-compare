@@ -45,6 +45,18 @@ SINGLE_CARD_INDICATORS = [
     "1枚", "シングル", "カートン",
 ]
 
+# BOX 製品名に "VSTAR"/"VMAX" が含まれるため SINGLE_CARD_INDICATORS で
+# 誤って単品除外されてしまう製品（"BOX"等の表記が無い出品名で発生）。
+# これらの名前を含む出品は単品扱いから救済する。
+BOX_NAME_WHITELIST = [
+    "VSTARユニバース", "VMAXクライマックス", "VMAXライジング",
+]
+
+# 救済対象でも、これらの語があれば単品/非BOX(カートン等)として除外する
+STRONG_SINGLE_INDICATORS = [
+    "カートン", "バラ", "1枚", "シングル", "プロモ",
+]
+
 # Keywords that indicate no-shrink-wrap (lower grade, skip in favor of shrink)
 NO_SHRINK_INDICATORS = [
     "シュリンクなし", "シュリンク無し", "シュリンク無",
@@ -399,6 +411,12 @@ def _is_single_card(name: str) -> bool:
     # If any BOX indicator is present, it's not a single card
     for indicator in BOX_INDICATORS:
         if indicator in name:
+            return False
+
+    # 既知のBOX製品名(VSTARユニバース等)は救済。ただしカートン/バラ等の
+    # 明確な非BOX語が付く出品は従来どおり単品扱いで除外する。
+    if any(bn in name for bn in BOX_NAME_WHITELIST):
+        if not any(s in name for s in STRONG_SINGLE_INDICATORS):
             return False
 
     # Check for single card indicators
