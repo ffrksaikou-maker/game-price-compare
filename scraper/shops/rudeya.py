@@ -1,7 +1,7 @@
 """Scraper for 買取ルデヤ (kaitori-rudeya.com).
 
-Uses CSS-table layout with div.tbody > div.tr.
-Name in .ttl a h2, price in .td2wrap.
+Uses card-grid layout: article.pgrid-card.
+Name in h3.product-card-name, price in span.product-card-price-value.
 """
 
 from __future__ import annotations
@@ -24,19 +24,17 @@ class RudeyaScraper(BaseScraper):
         items: list[ScrapedItem] = []
         soup = self._get_soup(URL)
 
-        # Products in CSS-table: div.tbody > div.tr
-        rows = soup.select("div.tbody > div.tr")
+        # Products in card grid: article.pgrid-card
+        rows = soup.select("article.pgrid-card")
 
         for row in rows:
             # Product name
-            name_el = row.select_one(".ttl a h2")
-            if not name_el:
-                name_el = row.select_one(".ttl h2")
+            name_el = row.select_one("h3.product-card-name")
             if not name_el:
                 continue
 
-            # Price in div.td2wrap
-            price_el = row.select_one("div.td2wrap")
+            # Price in span.product-card-price-value
+            price_el = row.select_one("span.product-card-price-value")
             if not price_el:
                 continue
 
