@@ -711,10 +711,10 @@
     "name": "S&S ハイクラスパック「VMAXクライマックス」",
     "category": "ss",
     "retail_price": 5500,
-    "max_price": 36000,
+    "max_price": 35000,
     "prices": {
       "homura": 33600,
-      "runto": 36000,
+      "runto": 35000,
       "oku": 34000,
       "collect_tendo": 34500,
       "shinsoku": 33500
