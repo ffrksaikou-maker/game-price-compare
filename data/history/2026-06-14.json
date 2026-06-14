@@ -3,7 +3,7 @@
     "name": "MEGA 拡張パック「アビスアイ」",
     "category": "mega",
     "retail_price": 6000,
-    "max_price": 12100,
+    "max_price": 12500,
     "prices": {
       "morimori": 10000,
       "homura": 12100,
@@ -12,7 +12,7 @@
       "icchome": 11300,
       "oku": 12000,
       "kaikyo": 10500,
-      "sommelier": 12000,
+      "sommelier": 12500,
       "collect_tendo": 11000,
       "shinsoku": 11100
     }
