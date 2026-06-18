@@ -428,6 +428,7 @@ article li{{margin-bottom:6px}}
 <a href="pigeot-sar-guide.html">ピジョットex SAR</a>
 <a href="masterball-mirror-guide.html">151マスターボールミラー</a>
 <a href="kokuen-atari-guide.html">黒炎 当たりカード完全ガイド</a>
+<a href="startdeck100-atari-guide.html">スタートデッキ100 当たり番号一覧</a>
 </nav>
 <article>
 <h1>{title}</h1>
