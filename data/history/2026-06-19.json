@@ -11,8 +11,8 @@
       "runto": 11800,
       "icchome": 12000,
       "oku": 12200,
-      "kaikyo": 9500,
-      "sommelier": 12000,
+      "kaikyo": 11800,
+      "sommelier": 11800,
       "collect_tendo": 12300,
       "shinsoku": 12200
     }
@@ -29,7 +29,7 @@
       "runto": 11000,
       "icchome": 11000,
       "oku": 11000,
-      "kaikyo": 8500,
+      "kaikyo": 11000,
       "collect_tendo": 11200,
       "shinsoku": 11200
     }
@@ -46,7 +46,7 @@
       "runto": 8600,
       "icchome": 8000,
       "oku": 8500,
-      "kaikyo": 7000,
+      "kaikyo": 8000,
       "sommelier": 7500,
       "collect_tendo": 8700,
       "shinsoku": 8800
@@ -69,7 +69,7 @@
     "name": "MEGA ハイクラスパック「MEGAドリームex」",
     "category": "mega",
     "retail_price": 5500,
-    "max_price": 14800,
+    "max_price": 14900,
     "prices": {
       "morimori": 12300,
       "homura": 14800,
@@ -77,7 +77,7 @@
       "runto": 14800,
       "icchome": 14600,
       "oku": 14700,
-      "kaikyo": 14000,
+      "kaikyo": 14900,
       "sommelier": 14000,
       "collect_tendo": 14800,
       "shinsoku": 14300
@@ -95,7 +95,7 @@
       "runto": 21000,
       "icchome": 21000,
       "oku": 21500,
-      "kaikyo": 19500,
+      "kaikyo": 21000,
       "collect_tendo": 22500,
       "shinsoku": 22000
     }
@@ -498,7 +498,7 @@
     "name": "SV 拡張パック「クレイバースト」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 12500,
+    "max_price": 12800,
     "prices": {
       "morimori": 10800,
       "homura": 12300,
@@ -507,7 +507,7 @@
       "icchome": 11500,
       "oku": 11800,
       "kaikyo": 12000,
-      "sommelier": 12500,
+      "sommelier": 12800,
       "collect_tendo": 12400,
       "shinsoku": 12000
     }
@@ -632,7 +632,7 @@
       "homura": 54000,
       "runto": 50000,
       "oku": 52000,
-      "sommelier": 12500,
+      "sommelier": 12800,
       "collect_tendo": 54500,
       "shinsoku": 54000
     }
