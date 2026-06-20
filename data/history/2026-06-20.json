@@ -7,9 +7,9 @@
     "prices": {
       "morimori": 11000,
       "homura": 12400,
-      "rudeya": 11700,
-      "runto": 11800,
-      "icchome": 11500,
+      "rudeya": 11300,
+      "runto": 11500,
+      "icchome": 11200,
       "oku": 11500,
       "kaikyo": 11800,
       "sommelier": 11800,
@@ -43,7 +43,7 @@
       "morimori": 7000,
       "homura": 8800,
       "rudeya": 8100,
-      "runto": 8700,
+      "runto": 8800,
       "icchome": 8000,
       "oku": 8500,
       "kaikyo": 8000,
@@ -73,7 +73,7 @@
     "prices": {
       "morimori": 13600,
       "homura": 14800,
-      "rudeya": 14600,
+      "rudeya": 14500,
       "runto": 14500,
       "icchome": 14500,
       "oku": 14500,
@@ -170,8 +170,8 @@
     "prices": {
       "morimori": 17800,
       "homura": 22500,
-      "rudeya": 20600,
-      "runto": 20500,
+      "rudeya": 22000,
+      "runto": 21500,
       "icchome": 22500,
       "collect_tendo": 22000,
       "shinsoku": 21500
@@ -185,8 +185,8 @@
     "prices": {
       "morimori": 17800,
       "homura": 19500,
-      "rudeya": 18600,
-      "runto": 18500,
+      "rudeya": 19000,
+      "runto": 19000,
       "icchome": 19500,
       "collect_tendo": 19500,
       "shinsoku": 18800
@@ -200,12 +200,12 @@
     "prices": {
       "morimori": 21300,
       "homura": 24000,
-      "rudeya": 22300,
-      "runto": 21000,
+      "rudeya": 22600,
+      "runto": 22500,
       "icchome": 24000,
       "oku": 23000,
       "collect_tendo": 24200,
-      "shinsoku": 24000
+      "shinsoku": 24100
     }
   },
   {
@@ -238,18 +238,18 @@
       "oku": 10000,
       "sommelier": 9500,
       "collect_tendo": 10000,
-      "shinsoku": 9700
+      "shinsoku": 10000
     }
   },
   {
     "name": "SV ハイクラスパック テラスタルフェスex",
     "category": "sv",
     "retail_price": 5500,
-    "max_price": 19700,
+    "max_price": 19300,
     "prices": {
       "morimori": 16300,
       "homura": 19000,
-      "rudeya": 19700,
+      "rudeya": 19300,
       "runto": 19000,
       "icchome": 19200,
       "oku": 18800,
@@ -262,11 +262,11 @@
     "name": "SV 拡張パック「超電ブレイカー」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 29000,
+    "max_price": 29200,
     "prices": {
       "morimori": 27300,
       "homura": 28200,
-      "rudeya": 28200,
+      "rudeya": 29200,
       "runto": 26000,
       "icchome": 29000,
       "oku": 28200,
@@ -287,7 +287,7 @@
       "icchome": 15200,
       "oku": 15000,
       "collect_tendo": 15500,
-      "shinsoku": 15000
+      "shinsoku": 15200
     }
   },
   {
