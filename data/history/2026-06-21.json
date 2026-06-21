@@ -49,7 +49,7 @@
       "kaikyo": 8000,
       "sommelier": 7500,
       "collect_tendo": 8800,
-      "shinsoku": 8800
+      "shinsoku": 8500
     }
   },
   {
@@ -657,7 +657,7 @@
     "retail_price": 4950,
     "max_price": 33000,
     "prices": {
-      "homura": 32700,
+      "homura": 28000,
       "runto": 30000,
       "oku": 31000,
       "collect_tendo": 33000,
@@ -670,7 +670,7 @@
     "retail_price": 4950,
     "max_price": 14500,
     "prices": {
-      "homura": 14300,
+      "homura": 13000,
       "runto": 13000,
       "oku": 12000,
       "collect_tendo": 14500,
@@ -683,7 +683,7 @@
     "retail_price": 4950,
     "max_price": 14300,
     "prices": {
-      "homura": 14300,
+      "homura": 13000,
       "collect_tendo": 14300,
       "shinsoku": 13000
     }
@@ -694,7 +694,7 @@
     "retail_price": 4950,
     "max_price": 12800,
     "prices": {
-      "homura": 12800,
+      "homura": 12000,
       "runto": 11500,
       "oku": 11000,
       "collect_tendo": 12800,
