@@ -41,7 +41,7 @@
     "prices": {
       "morimori": 7000,
       "homura": 8500,
-      "rudeya": 8100,
+      "rudeya": 8000,
       "runto": 8500,
       "icchome": 8200,
       "oku": 8200,
@@ -72,7 +72,7 @@
     "prices": {
       "morimori": 13600,
       "homura": 14500,
-      "rudeya": 14300,
+      "rudeya": 14000,
       "runto": 14000,
       "icchome": 14100,
       "oku": 14000,
@@ -244,11 +244,11 @@
     "name": "SV ハイクラスパック テラスタルフェスex",
     "category": "sv",
     "retail_price": 5500,
-    "max_price": 19300,
+    "max_price": 19100,
     "prices": {
       "morimori": 16300,
       "homura": 19000,
-      "rudeya": 19300,
+      "rudeya": 19100,
       "runto": 19000,
       "icchome": 19000,
       "oku": 18800,
@@ -261,11 +261,11 @@
     "name": "SV 拡張パック「超電ブレイカー」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 29200,
+    "max_price": 28200,
     "prices": {
       "morimori": 27300,
       "homura": 28000,
-      "rudeya": 29200,
+      "rudeya": 28200,
       "runto": 26000,
       "icchome": 28000,
       "oku": 28200,
@@ -400,7 +400,7 @@
     "prices": {
       "morimori": 14300,
       "homura": 17800,
-      "rudeya": 17600,
+      "rudeya": 17800,
       "runto": 17500,
       "icchome": 17800,
       "oku": 17500,
@@ -585,7 +585,7 @@
     "prices": {
       "morimori": 25800,
       "homura": 28500,
-      "rudeya": 28200,
+      "rudeya": 27700,
       "runto": 25000,
       "icchome": 27500,
       "oku": 28000,
@@ -717,10 +717,10 @@
     "name": "S&S ハイクラスパック「VMAXクライマックス」",
     "category": "ss",
     "retail_price": 5500,
-    "max_price": 34000,
+    "max_price": 35000,
     "prices": {
       "homura": 34000,
-      "runto": 34000,
+      "runto": 35000,
       "oku": 32000,
       "collect_tendo": 33000,
       "shinsoku": 34000
