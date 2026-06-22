@@ -98,6 +98,10 @@ class MasterProduct:
 # Master product list - canonical names and keywords for matching
 MASTER_PRODUCTS: list[MasterProduct] = [
     # ===== MEGA (新しい順) =====
+    MasterProduct("mega", 'MEGA 拡張パック「ストームエメラルダ」', 6000, "2026-07-31",
+                  desc="MEGAシリーズ最新弾。メガレックウザex収録、2026年7月31日発売(定価200円/BOX 6,000円)。伝説三巨頭レックウザのメガ進化が目玉。",
+                  keywords=["ストームエメラルダ", "STORMEMERALDA", "STORM EMERALDA", "MEGA 拡張パック ストーム", "ストームエメラルド"],
+                  hit_cards=[("メガレックウザex SAR", "パッケージ目玉。伝説三巨頭レックウザのSAR版。初動9万円予想、イラスト次第で10万円超も(メディア予想)"), ("メガレックウザex MUR", "MUR封入率約59BOXに1枚予想。初動8万円超が予想される最高レアリティ(メディア予想)"), ("レックウザex SAR", "メガ進化前のレックウザSAR。三巨頭人気でSARも高額化が見込まれる(メディア予想)")]),
     MasterProduct("mega", 'MEGA 拡張パック「アビスアイ」', 6000, "2026-05-22",
                   desc="MEGAシリーズ第5弾。値上げ後初の拡張パック(定価200円/BOX 6,000円)。メガダークライex収録、2026年5月22日発売。",
                   keywords=["アビスアイ", "ABYSSEYE", "ABYSS EYE", "MEGA 拡張パック アビス"],
