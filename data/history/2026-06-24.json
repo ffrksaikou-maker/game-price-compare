@@ -11,7 +11,6 @@
       "runto": 9800,
       "icchome": 9800,
       "oku": 9800,
-      "kaikyo": 10000,
       "sommelier": 10000,
       "collect_tendo": 10000,
       "shinsoku": 10000
@@ -21,7 +20,7 @@
     "name": "MEGA 拡張パック「ニンジャスピナー」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 11000,
+    "max_price": 10800,
     "prices": {
       "morimori": 9500,
       "homura": 10800,
@@ -29,7 +28,6 @@
       "runto": 10500,
       "icchome": 10000,
       "oku": 10000,
-      "kaikyo": 11000,
       "collect_tendo": 10000,
       "shinsoku": 10000
     }
@@ -75,7 +73,7 @@
       "runto": 13500,
       "icchome": 13200,
       "oku": 13500,
-      "kaikyo": 13500,
+      "kaikyo": 13000,
       "collect_tendo": 14000,
       "shinsoku": 13800
     }
@@ -92,7 +90,7 @@
       "runto": 20000,
       "icchome": 19000,
       "oku": 19500,
-      "kaikyo": 21000,
+      "kaikyo": 19000,
       "collect_tendo": 21000,
       "shinsoku": 21000
     }
@@ -486,7 +484,6 @@
       "runto": 55000,
       "icchome": 56000,
       "oku": 55000,
-      "kaikyo": 52000,
       "collect_tendo": 54000,
       "shinsoku": 55000
     }
@@ -503,7 +500,7 @@
       "runto": 11500,
       "icchome": 11500,
       "oku": 11600,
-      "kaikyo": 12000,
+      "kaikyo": 11000,
       "sommelier": 13000,
       "collect_tendo": 11600,
       "shinsoku": 11800
@@ -553,7 +550,6 @@
       "runto": 11500,
       "icchome": 10000,
       "oku": 11600,
-      "kaikyo": 10000,
       "collect_tendo": 13100,
       "shinsoku": 13100
     }
