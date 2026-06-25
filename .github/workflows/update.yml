@@ -30,12 +30,18 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Install Playwright browsers
-        run: playwright install chromium --with-deps
+        # --with-deps を付けると apt 経由で packages.microsoft.com を叩きに行き、
+        # 同リポジトリが 403 を返す GitHub 側の一時障害でジョブ全体が落ちる。
+        # ubuntu-latest には Chromium 動作に必要なライブラリが揃っているため不要。
+        run: playwright install chromium
 
       - name: Install Xvfb
         # 森森(morimori-kaitori.jp)が headless を BOT 検出して弾くため、
         # 仮想ディスプレイ上で headful Chromium を動かす必要がある。
-        run: sudo apt-get update && sudo apt-get install -y xvfb
+        # 壊れがちな Microsoft apt リポジトリを先に除去して 403 で apt が死ぬのを防ぐ。
+        run: |
+          sudo rm -f /etc/apt/sources.list.d/microsoft-prod.list /etc/apt/sources.list.d/azure-cli.list || true
+          sudo apt-get update && sudo apt-get install -y xvfb
 
       - name: Run scraper
         run: xvfb-run -a python scraper/main.py
