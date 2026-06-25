@@ -220,7 +220,7 @@
     "name": "SV 拡張パック「バトルパートナーズ」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 10000,
+    "max_price": 10500,
     "prices": {
       "morimori": 9000,
       "homura": 10000,
@@ -228,6 +228,7 @@
       "runto": 10000,
       "icchome": 9500,
       "oku": 10000,
+      "sommelier": 10500,
       "collect_tendo": 10000,
       "shinsoku": 10000
     }
@@ -739,7 +740,8 @@
     "prices": {
       "homura": 280000,
       "runto": 250000,
-      "collect_tendo": 280000
+      "collect_tendo": 280000,
+      "shinsoku": 280000
     }
   },
   {
@@ -938,7 +940,7 @@
       "runto": 19000,
       "icchome": 19500,
       "collect_tendo": 21000,
-      "shinsoku": 20000
+      "shinsoku": 18000
     }
   },
   {
@@ -949,7 +951,7 @@
     "prices": {
       "homura": 19000,
       "rudeya": 17000,
-      "runto": 16000,
+      "runto": 17000,
       "icchome": 17000,
       "collect_tendo": 18500,
       "shinsoku": 16500
