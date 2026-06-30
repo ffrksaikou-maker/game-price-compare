@@ -8,7 +8,7 @@
       "morimori": 7800,
       "homura": 11000,
       "rudeya": 7800,
-      "runto": 8300,
+      "runto": 8200,
       "icchome": 8200,
       "oku": 8200,
       "sommelier": 9000,
@@ -45,7 +45,7 @@
       "runto": 8000,
       "icchome": 8000,
       "oku": 7500,
-      "kaikyo": 7800,
+      "kaikyo": 7000,
       "sommelier": 8000,
       "collect_tendo": 7900,
       "shinsoku": 8000
@@ -91,7 +91,7 @@
       "runto": 19000,
       "icchome": 18500,
       "oku": 18500,
-      "kaikyo": 18500,
+      "kaikyo": 17000,
       "sommelier": 19500,
       "collect_tendo": 19000,
       "shinsoku": 17000
@@ -369,7 +369,6 @@
       "runto": 12000,
       "icchome": 13000,
       "oku": 13000,
-      "kaikyo": 9000,
       "collect_tendo": 12800,
       "shinsoku": 13000
     }
@@ -386,7 +385,6 @@
       "runto": 10500,
       "icchome": 10500,
       "oku": 10500,
-      "kaikyo": 8700,
       "collect_tendo": 10200,
       "shinsoku": 10500
     }
@@ -503,7 +501,7 @@
       "runto": 11000,
       "icchome": 10700,
       "oku": 10800,
-      "kaikyo": 11000,
+      "kaikyo": 10000,
       "sommelier": 13000,
       "collect_tendo": 11200,
       "shinsoku": 11000
