@@ -1,33 +1,68 @@
-"""Scraper for 買取ホムラ (kaitori-homura.com).
-
-Rails app with Tailwind CSS. Products in div[data-controller="dialog"].
-Pagination via ?page=N. Need to search for Pokemon cards.
-"""
+"""Scraper for 買取ホムラ (kaitori-homura.com)."""
 
 from __future__ import annotations
 
 import logging
+import re
 
 from .base import BaseScraper, ScrapedItem
 
 logger = logging.getLogger(__name__)
 
-# Trading card category (ID=14)
-# subcategory 128 = シュリンク有りBOX, 130 = スペシャルBOX等
 CATEGORY_URLS = [
     "https://kaitori-homura.com/products?q[product_sub_category_id_eq]=128&q[product_sub_category_product_category_id_eq]=14",
     "https://kaitori-homura.com/products?q[product_sub_category_id_eq]=130&q[product_sub_category_product_category_id_eq]=14",
 ]
+
+_PID_RE = re.compile(r"/products/(\d+)")
 
 
 class HomuraScraper(BaseScraper):
     shop_id = "homura"
     shop_name = "ホムラ"
 
-    def _scrape_category(self, category_url: str) -> list[ScrapedItem]:
-        """Scrape a single category URL with pagination."""
+    def _extract(self, soup) -> list[tuple[str | None, str, int]]:
+        rows: list[tuple[str | None, str, int]] = []
+        for span in soup.select("span"):
+            text = span.get_text(strip=True)
+            if "\xa5" not in text or not any(ch.isdigit() for ch in text):
+                continue
+
+            card = None
+            name_el = None
+            node = span
+            for _ in range(8):
+                node = node.parent
+                if node is None:
+                    break
+                found = node.find("h5")
+                if found is not None:
+                    card = node
+                    name_el = found
+                    break
+
+            if card is None or name_el is None:
+                continue
+
+            name = name_el.get_text(strip=True)
+            price = self.parse_price(text)
+            if not name or price <= 0:
+                continue
+
+            pid = None
+            link = card.select_one('a[href*="/products/"]')
+            if link is not None:
+                m = _PID_RE.search(link.get("href", ""))
+                if m:
+                    pid = m.group(1)
+
+            rows.append((pid, name, price))
+        return rows
+
+    def _scrape_category(self, category_url: str, seen: set) -> list[ScrapedItem]:
         items: list[ScrapedItem] = []
         page = 1
+        prev_sig = None
 
         while True:
             url = f"{category_url}&page={page}" if page > 1 else category_url
@@ -36,59 +71,32 @@ class HomuraScraper(BaseScraper):
             except Exception:
                 break
 
-            # Each product is in a div[data-controller="dialog"]
-            dialogs = soup.select('div[data-controller="dialog"]')
-            if not dialogs:
+            rows = self._extract(soup)
+            sig = tuple(sorted({pid for pid, _, _ in rows if pid}))
+            if not rows or sig == prev_sig:
                 break
+            prev_sig = sig
 
-            found = 0
-            for dialog in dialogs:
-                # Product name in h5 inside a link
-                name_el = dialog.select_one('a[href^="/products/"] h5')
-                if not name_el:
-                    name_el = dialog.select_one("h5")
-                if not name_el:
+            for pid, name, price in rows:
+                key = pid if pid else (name, price)
+                if key in seen:
                     continue
+                seen.add(key)
+                items.append(ScrapedItem(name=name, price=price))
 
-                # Price in span.font-semibold inside items-end container
-                price_el = dialog.select_one(
-                    "div.items-end span.font-semibold"
-                )
-                if not price_el:
-                    # Fallback: any span with text matching price pattern
-                    for span in dialog.select("span"):
-                        text = span.get_text(strip=True)
-                        if "円" in text:
-                            price_el = span
-                            break
-
-                if not price_el:
-                    continue
-
-                name = name_el.get_text(strip=True)
-                price = self.parse_price(price_el.get_text(strip=True))
-
-                if name and price > 0:
-                    items.append(ScrapedItem(name=name, price=price))
-                    found += 1
-
-            if found == 0:
-                break
-
-            # Check for next page
-            next_link = soup.select_one('a[rel="next"]')
-            if not next_link:
+            if not soup.select_one('a[rel="next"]'):
                 break
 
             page += 1
-            if page > 30:  # safety limit
+            if page > 30:
                 break
 
         return items
 
     def scrape(self) -> list[ScrapedItem]:
         items: list[ScrapedItem] = []
+        seen: set = set()
         for cat_url in CATEGORY_URLS:
-            items.extend(self._scrape_category(cat_url))
+            items.extend(self._scrape_category(cat_url, seen))
         logger.info("%s: scraped %d items", self.shop_name, len(items))
         return items
