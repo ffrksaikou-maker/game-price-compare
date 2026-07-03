@@ -3,10 +3,10 @@
     "name": "MEGA 拡張パック「アビスアイ」",
     "category": "mega",
     "retail_price": 6000,
-    "max_price": 10100,
+    "max_price": 10300,
     "prices": {
       "morimori": 7800,
-      "homura": 10000,
+      "homura": 10300,
       "rudeya": 7500,
       "runto": 10000,
       "icchome": 9500,
@@ -20,10 +20,10 @@
     "name": "MEGA 拡張パック「ニンジャスピナー」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 10300,
+    "max_price": 10500,
     "prices": {
       "morimori": 8500,
-      "homura": 10200,
+      "homura": 10500,
       "rudeya": 9300,
       "runto": 10000,
       "icchome": 10200,
@@ -40,7 +40,7 @@
     "max_price": 8800,
     "prices": {
       "morimori": 7000,
-      "homura": 8700,
+      "homura": 8800,
       "rudeya": 7500,
       "runto": 8700,
       "icchome": 8700,
@@ -69,7 +69,7 @@
     "max_price": 13800,
     "prices": {
       "morimori": 12500,
-      "homura": 13600,
+      "homura": 13800,
       "rudeya": 12500,
       "runto": 13600,
       "icchome": 13600,
