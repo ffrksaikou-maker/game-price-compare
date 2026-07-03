@@ -9,7 +9,7 @@
       "homura": 10300,
       "rudeya": 7500,
       "runto": 10000,
-      "icchome": 9500,
+      "icchome": 10000,
       "oku": 10000,
       "sommelier": 9500,
       "collect_tendo": 10100,
@@ -87,7 +87,7 @@
     "max_price": 17500,
     "prices": {
       "morimori": 16400,
-      "homura": 17000,
+      "homura": 17200,
       "rudeya": 16700,
       "runto": 17000,
       "icchome": 17500,
@@ -104,7 +104,7 @@
     "max_price": 10800,
     "prices": {
       "morimori": 10300,
-      "homura": 10600,
+      "homura": 10800,
       "rudeya": 10300,
       "runto": 10800,
       "icchome": 10800,
@@ -121,7 +121,7 @@
     "max_price": 10000,
     "prices": {
       "morimori": 9000,
-      "homura": 9500,
+      "homura": 9600,
       "rudeya": 9000,
       "runto": 10000,
       "icchome": 10000,
@@ -166,7 +166,7 @@
     "max_price": 22500,
     "prices": {
       "morimori": 21300,
-      "homura": 22000,
+      "homura": 22500,
       "rudeya": 21000,
       "runto": 22000,
       "icchome": 21800,
@@ -181,7 +181,7 @@
     "max_price": 20000,
     "prices": {
       "morimori": 18100,
-      "homura": 19000,
+      "homura": 19500,
       "rudeya": 18500,
       "runto": 19500,
       "icchome": 19800,
@@ -225,10 +225,10 @@
     "name": "SV 拡張パック「バトルパートナーズ」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 10000,
+    "max_price": 10300,
     "prices": {
       "morimori": 8800,
-      "homura": 10000,
+      "homura": 10300,
       "rudeya": 9500,
       "runto": 10000,
       "icchome": 9600,
@@ -245,7 +245,7 @@
     "max_price": 18800,
     "prices": {
       "morimori": 17600,
-      "homura": 18000,
+      "homura": 18200,
       "rudeya": 18000,
       "runto": 18000,
       "icchome": 18800,
@@ -263,7 +263,7 @@
     "max_price": 28000,
     "prices": {
       "morimori": 27300,
-      "homura": 27800,
+      "homura": 28000,
       "rudeya": 28000,
       "runto": 27000,
       "icchome": 28000,
@@ -296,7 +296,7 @@
     "max_price": 11000,
     "prices": {
       "morimori": 10600,
-      "homura": 10800,
+      "homura": 11000,
       "rudeya": 10000,
       "runto": 10300,
       "icchome": 10500,
@@ -314,7 +314,7 @@
     "max_price": 11000,
     "prices": {
       "morimori": 10800,
-      "homura": 10800,
+      "homura": 11000,
       "rudeya": 10000,
       "runto": 10300,
       "icchome": 10800,
@@ -381,7 +381,7 @@
     "max_price": 11500,
     "prices": {
       "morimori": 9800,
-      "homura": 10800,
+      "homura": 11000,
       "rudeya": 10500,
       "runto": 10600,
       "icchome": 10800,
@@ -397,7 +397,7 @@
     "max_price": 18300,
     "prices": {
       "morimori": 17300,
-      "homura": 18000,
+      "homura": 18200,
       "rudeya": 17600,
       "runto": 17500,
       "icchome": 17600,
