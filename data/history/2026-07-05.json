@@ -104,7 +104,7 @@
     "max_price": 11200,
     "prices": {
       "morimori": 10300,
-      "homura": 10900,
+      "homura": 11000,
       "rudeya": 10300,
       "runto": 10800,
       "icchome": 11200,
@@ -121,7 +121,7 @@
     "max_price": 10200,
     "prices": {
       "morimori": 9200,
-      "homura": 9700,
+      "homura": 10000,
       "rudeya": 9000,
       "runto": 10000,
       "icchome": 10200,
@@ -447,7 +447,7 @@
     "max_price": 13100,
     "prices": {
       "morimori": 12300,
-      "homura": 13000,
+      "homura": 13100,
       "rudeya": 12500,
       "runto": 11000,
       "icchome": 12900,
@@ -547,7 +547,7 @@
     "max_price": 13500,
     "prices": {
       "morimori": 12300,
-      "homura": 13300,
+      "homura": 13500,
       "rudeya": 12000,
       "runto": 11500,
       "icchome": 13200,
@@ -560,10 +560,10 @@
     "name": "SV 拡張パック「バイオレットex」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 10300,
+    "max_price": 10500,
     "prices": {
       "morimori": 9800,
-      "homura": 10200,
+      "homura": 10500,
       "rudeya": 9800,
       "runto": 10000,
       "icchome": 10100,
@@ -670,9 +670,9 @@
     "name": "S&S 拡張パック「スペースジャグラー」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 12300,
+    "max_price": 12500,
     "prices": {
-      "homura": 12300,
+      "homura": 12500,
       "collect_tendo": 12300,
       "shinsoku": 11500
     }
