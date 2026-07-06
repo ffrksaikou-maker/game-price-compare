@@ -73,7 +73,7 @@
       "homura": 14300,
       "rudeya": 13000,
       "runto": 13800,
-      "icchome": 14100,
+      "icchome": 14200,
       "oku": 14100,
       "kaikyo": 13800,
       "sommelier": 13500,
@@ -769,10 +769,10 @@
     "name": "S&S 強化拡張パック「イーブイヒーローズ」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 130000,
+    "max_price": 132000,
     "prices": {
       "homura": 130000,
-      "runto": 125000,
+      "runto": 132000,
       "collect_tendo": 130000,
       "shinsoku": 125000
     }
