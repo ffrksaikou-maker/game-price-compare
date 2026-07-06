@@ -60,14 +60,14 @@
     "prices": {
       "homura": 2000,
       "rudeya": 1500,
-      "shinsoku": 1800
+      "shinsoku": 1600
     }
   },
   {
     "name": "MEGA ハイクラスパック「MEGAドリームex」",
     "category": "mega",
     "retail_price": 5500,
-    "max_price": 14500,
+    "max_price": 14300,
     "prices": {
       "morimori": 12500,
       "homura": 14300,
@@ -76,7 +76,7 @@
       "icchome": 14100,
       "oku": 14100,
       "kaikyo": 13800,
-      "sommelier": 14500,
+      "sommelier": 13500,
       "collect_tendo": 14200,
       "shinsoku": 13800
     }
@@ -112,6 +112,7 @@
       "icchome": 11200,
       "oku": 11000,
       "kaikyo": 10800,
+      "sommelier": 11000,
       "collect_tendo": 10800,
       "shinsoku": 11000
     }
@@ -185,7 +186,7 @@
       "morimori": 19500,
       "homura": 19800,
       "rudeya": 19000,
-      "runto": 19500,
+      "runto": 20000,
       "icchome": 20000,
       "collect_tendo": 20000,
       "shinsoku": 19500
@@ -486,7 +487,7 @@
       "morimori": 56000,
       "homura": 56500,
       "rudeya": 52000,
-      "runto": 55000,
+      "runto": 56000,
       "icchome": 54000,
       "oku": 56000,
       "kaikyo": 54000,
@@ -945,14 +946,14 @@
     "retail_price": 2090,
     "max_price": 20000,
     "prices": {
-      "homura": 19000,
+      "homura": 17000,
       "rudeya": 18300,
       "runto": 19000,
       "icchome": 17500,
       "kaikyo": 17500,
       "sommelier": 19500,
       "collect_tendo": 20000,
-      "shinsoku": 18000
+      "shinsoku": 19500
     }
   },
   {
@@ -967,7 +968,7 @@
       "icchome": 15000,
       "kaikyo": 16000,
       "collect_tendo": 17000,
-      "shinsoku": 16000
+      "shinsoku": 17000
     }
   }
 ]
