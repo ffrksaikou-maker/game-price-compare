@@ -67,7 +67,7 @@
     "name": "MEGA ハイクラスパック「MEGAドリームex」",
     "category": "mega",
     "retail_price": 5500,
-    "max_price": 14500,
+    "max_price": 14400,
     "prices": {
       "morimori": 12500,
       "homura": 14400,
@@ -77,7 +77,7 @@
       "oku": 14300,
       "kaikyo": 13800,
       "sommelier": 14000,
-      "collect_tendo": 14500,
+      "collect_tendo": 14200,
       "shinsoku": 14200
     }
   },
@@ -85,7 +85,7 @@
     "name": "MEGA 拡張パック「インフェルノX」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 21000,
+    "max_price": 20000,
     "prices": {
       "morimori": 18900,
       "homura": 19300,
@@ -94,7 +94,7 @@
       "icchome": 20000,
       "oku": 19300,
       "kaikyo": 19000,
-      "sommelier": 21000,
+      "sommelier": 19000,
       "collect_tendo": 19000,
       "shinsoku": 18000
     }
@@ -165,14 +165,14 @@
     "name": "SV 拡張パック「ブラックボルト」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 23300,
+    "max_price": 23200,
     "prices": {
       "morimori": 22500,
       "homura": 23200,
       "rudeya": 23000,
       "runto": 23000,
       "icchome": 23200,
-      "collect_tendo": 23300,
+      "collect_tendo": 23000,
       "shinsoku": 23200
     }
   },
@@ -665,7 +665,7 @@
     "prices": {
       "homura": 12500,
       "runto": 13000,
-      "collect_tendo": 12000,
+      "collect_tendo": 12500,
       "shinsoku": 12300
     }
   },
