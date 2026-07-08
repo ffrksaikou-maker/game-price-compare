@@ -708,10 +708,10 @@
     "name": "S&S ハイクラスパック「VMAXクライマックス」",
     "category": "ss",
     "retail_price": 5500,
-    "max_price": 33500,
+    "max_price": 34500,
     "prices": {
       "homura": 33000,
-      "runto": 33500,
+      "runto": 34500,
       "collect_tendo": 33000,
       "shinsoku": 30500
     }
@@ -931,7 +931,7 @@
       "homura": 16000,
       "rudeya": 15300,
       "runto": 16000,
-      "icchome": 15000,
+      "icchome": 16000,
       "kaikyo": 13500,
       "sommelier": 16000,
       "collect_tendo": 17300,
@@ -947,7 +947,7 @@
       "homura": 19500,
       "rudeya": 17800,
       "runto": 20000,
-      "icchome": 17500,
+      "icchome": 18500,
       "kaikyo": 17500,
       "sommelier": 20000,
       "collect_tendo": 20500,
@@ -963,7 +963,7 @@
       "homura": 18000,
       "rudeya": 16300,
       "runto": 18000,
-      "icchome": 16000,
+      "icchome": 17000,
       "kaikyo": 16000,
       "collect_tendo": 19000,
       "shinsoku": 17000
