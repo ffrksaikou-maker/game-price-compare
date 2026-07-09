@@ -140,6 +140,7 @@
     "retail_price": 5800,
     "max_price": 24000,
     "prices": {
+      "morimori": 17000,
       "homura": 24000,
       "rudeya": 24000,
       "icchome": 17000,
@@ -153,6 +154,7 @@
     "retail_price": 5800,
     "max_price": 20500,
     "prices": {
+      "morimori": 15000,
       "homura": 20000,
       "rudeya": 20500,
       "icchome": 15000,
@@ -364,7 +366,7 @@
     "name": "SV 拡張パック「ワイルドフォース」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 13800,
+    "max_price": 14000,
     "prices": {
       "morimori": 12800,
       "homura": 13800,
@@ -372,7 +374,7 @@
       "runto": 13000,
       "icchome": 13700,
       "oku": 13800,
-      "collect_tendo": 13800,
+      "collect_tendo": 14000,
       "shinsoku": 13800
     }
   },
