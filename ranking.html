@@ -63,7 +63,7 @@
         },
         "offers": {
           "@type": "Offer",
-          "price": 20500,
+          "price": 20700,
           "priceCurrency": "JPY",
           "availability": "https://schema.org/InStock"
         }
@@ -504,13 +504,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 
 <div class="main-card">
 <h2>ポケカBOX 週間価格変化ランキング</h2>
-<div class="meta">更新: 2026/07/09 15:07　比較期間: 2026-07-02 → 2026-07-09（直近7日間）</div>
+<div class="meta">更新: 2026/07/09 18:04　比較期間: 2026-07-02 → 2026-07-09（直近7日間）</div>
 
 <p style="font-size:14px;margin-bottom:8px">直近7日間でSV・MEGA全35BOX中、<strong style="color:#dc2626">値上がり 31件</strong> / <strong style="color:var(--text-sub)">横ばい 2件</strong> / <strong style="color:#2563eb">値下がり 2件</strong>。値上がり・値下がりの両方をランキング形式で掲載し、現在の相場トレンドをひと目で確認できます。</p>
 
 <h3 class="section-title up">📈 SV・MEGA 値上がり TOP10</h3>
 <div class="mini-charts"><div class="mini-chart-card"><div class="mc-header"><a href="box/chouden-breaker.html" class="mc-name">超電ブレイカー</a><span class="mc-price">¥33,000</span><span class="mc-diff" style="color:#dc2626">↑+¥5,000 (+17.9%)</span></div><canvas id="svUpChart0" height="120"></canvas></div>
-<div class="mini-chart-card"><div class="mc-header"><a href="box/inferno.html" class="mc-name">インフェルノX</a><span class="mc-price">¥20,500</span><span class="mc-diff" style="color:#dc2626">↑+¥3,000 (+17.1%)</span></div><canvas id="svUpChart1" height="120"></canvas></div>
+<div class="mini-chart-card"><div class="mc-header"><a href="box/inferno.html" class="mc-name">インフェルノX</a><span class="mc-price">¥20,700</span><span class="mc-diff" style="color:#dc2626">↑+¥3,200 (+18.3%)</span></div><canvas id="svUpChart1" height="120"></canvas></div>
 <div class="mini-chart-card"><div class="mc-header"><a href="box/151.html" class="mc-name">151</a><span class="mc-price">¥58,000</span><span class="mc-diff" style="color:#dc2626">↑+¥3,000 (+5.5%)</span></div><canvas id="svUpChart2" height="120"></canvas></div>
 <div class="mini-chart-card"><div class="mc-header"><a href="box/rakuen-dragona.html" class="mc-name">楽園ドラゴーナ</a><span class="mc-price">¥16,000</span><span class="mc-diff" style="color:#dc2626">↑+¥1,700 (+11.9%)</span></div><canvas id="svUpChart3" height="120"></canvas></div>
 <div class="mini-chart-card"><div class="mc-header"><a href="box/mega-ex.html" class="mc-name">MEGAドリームex</a><span class="mc-price">¥15,300</span><span class="mc-diff" style="color:#dc2626">↑+¥1,600 (+11.7%)</span></div><canvas id="svUpChart4" height="120"></canvas></div>
@@ -534,8 +534,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 
 <h3 class="section-title" style="margin-top:48px">SV・MEGA 全BOX平均</h3>
 <div class="avg-stats">
-<div class="avg-item"><span class="avg-label">平均上昇額</span><span class="avg-value" style="color:#dc2626">+¥40</span></div>
-<div class="avg-item"><span class="avg-label">平均上昇率</span><span class="avg-value" style="color:#dc2626">+4.8%</span></div>
+<div class="avg-item"><span class="avg-label">平均上昇額</span><span class="avg-value" style="color:#dc2626">+¥54</span></div>
+<div class="avg-item"><span class="avg-label">平均上昇率</span><span class="avg-value" style="color:#dc2626">+4.9%</span></div>
 </div>
 <div class="chart-wrap" style="margin-top:16px">
 <canvas id="avgChart" height="200"></canvas>
@@ -577,7 +577,7 @@ new Chart(document.getElementById('svUpChart1'), {
   type: 'line',
   data: {
     labels: ["2026-07-02", "2026-07-03", "2026-07-04", "2026-07-05", "2026-07-06", "2026-07-07", "2026-07-08", "2026-07-09"],
-    datasets: [{ data: [17500, 17500, 19000, 19000, 20500, 20000, 20500, 20500], borderColor: '#dc2626', borderWidth: 2, fill: true,
+    datasets: [{ data: [17500, 17500, 19000, 19000, 20500, 20000, 20500, 20700], borderColor: '#dc2626', borderWidth: 2, fill: true,
       backgroundColor: '#dc262622', tension: 0.3, pointRadius: 2 }]
   },
   options: {
@@ -833,7 +833,7 @@ new Chart(document.getElementById('avgChart'), {
     labels: ["2026-07-02", "2026-07-03", "2026-07-04", "2026-07-05", "2026-07-06", "2026-07-07", "2026-07-08", "2026-07-09"],
     datasets: [{
       label: 'SV・MEGA 平均買取価格',
-      data: [16623, 15709, 15911, 15923, 16083, 16206, 16511, 16663],
+      data: [16623, 15709, 15911, 15923, 16083, 16206, 16511, 16677],
       borderColor: '#6366f1',
       backgroundColor: '#6366f122',
       borderWidth: 2,
