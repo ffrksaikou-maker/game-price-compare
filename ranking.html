@@ -303,7 +303,7 @@
         },
         "offers": {
           "@type": "Offer",
-          "price": 1800,
+          "price": 1600,
           "priceCurrency": "JPY",
           "availability": "https://schema.org/InStock"
         }
@@ -484,7 +484,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 
 <div class="main-card">
 <h2>ポケカBOX 週間価格変化ランキング</h2>
-<div class="meta">更新: 2026/07/10 18:02　比較期間: 2026-07-03 → 2026-07-10（直近7日間）</div>
+<div class="meta">更新: 2026/07/10 20:54　比較期間: 2026-07-03 → 2026-07-10（直近7日間）</div>
 
 <p style="font-size:14px;margin-bottom:8px">直近7日間でSV・MEGA全35BOX中、<strong style="color:#dc2626">値上がり 32件</strong> / <strong style="color:var(--text-sub)">横ばい 2件</strong> / <strong style="color:#2563eb">値下がり 1件</strong>。値上がり・値下がりの両方をランキング形式で掲載し、現在の相場トレンドをひと目で確認できます。</p>
 
@@ -506,15 +506,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 <div class="mini-chart-card"><div class="mc-header"><a href="box/pokemon-go.html" class="mc-name">ポケモンGO</a><span class="mc-price">¥28,000</span><span class="mc-diff" style="color:#dc2626">↑+¥3,000 (+12.0%)</span></div><canvas id="ssUpChart2" height="120"></canvas></div></div>
 
 <h3 class="section-title down" style="margin-top:48px">📉 SV・MEGA 値下がり TOP10</h3>
-<div class="mini-charts"><div class="mini-chart-card"><div class="mc-header"><a href="box/battle-collection.html" class="mc-name">MEGA スタートデッキ100バトルコレクション</a><span class="mc-price">¥1,800</span><span class="mc-diff" style="color:#2563eb">↓¥-200 (-10.0%)</span></div><canvas id="svDownChart0" height="120"></canvas></div></div>
+<div class="mini-charts"><div class="mini-chart-card"><div class="mc-header"><a href="box/battle-collection.html" class="mc-name">MEGA スタートデッキ100バトルコレクション</a><span class="mc-price">¥1,600</span><span class="mc-diff" style="color:#2563eb">↓¥-400 (-20.0%)</span></div><canvas id="svDownChart0" height="120"></canvas></div></div>
 
 <h3 class="section-title down" style="margin-top:48px">📉 S&amp;S 値下がり TOP3</h3>
 <div class="mini-charts"><div class="mini-chart-card"><div class="mc-header"><a href="box/fusion-arts.html" class="mc-name">フュージョンアーツ</a><span class="mc-price">¥55,000</span><span class="mc-diff" style="color:#2563eb">↓¥-5,000 (-8.3%)</span></div><canvas id="ssDownChart0" height="120"></canvas></div></div>
 
 <h3 class="section-title" style="margin-top:48px">SV・MEGA 全BOX平均</h3>
 <div class="avg-stats">
-<div class="avg-item"><span class="avg-label">平均上昇額</span><span class="avg-value" style="color:#dc2626">+¥1,211</span></div>
-<div class="avg-item"><span class="avg-label">平均上昇率</span><span class="avg-value" style="color:#dc2626">+7.2%</span></div>
+<div class="avg-item"><span class="avg-label">平均上昇額</span><span class="avg-value" style="color:#dc2626">+¥1,206</span></div>
+<div class="avg-item"><span class="avg-label">平均上昇率</span><span class="avg-value" style="color:#dc2626">+6.9%</span></div>
 </div>
 <div class="chart-wrap" style="margin-top:16px">
 <canvas id="avgChart" height="200"></canvas>
@@ -760,7 +760,7 @@ new Chart(document.getElementById('svDownChart0'), {
   type: 'line',
   data: {
     labels: ["2026-07-03", "2026-07-04", "2026-07-05", "2026-07-06", "2026-07-07", "2026-07-08", "2026-07-09", "2026-07-10"],
-    datasets: [{ data: [2000, 2000, 2000, 2000, 2000, 1800, 1800, 1800], borderColor: '#2563eb', borderWidth: 2, fill: true,
+    datasets: [{ data: [2000, 2000, 2000, 2000, 2000, 1800, 1800, 1600], borderColor: '#2563eb', borderWidth: 2, fill: true,
       backgroundColor: '#2563eb22', tension: 0.3, pointRadius: 2 }]
   },
   options: {
@@ -795,7 +795,7 @@ new Chart(document.getElementById('avgChart'), {
     labels: ["2026-07-03", "2026-07-04", "2026-07-05", "2026-07-06", "2026-07-07", "2026-07-08", "2026-07-09", "2026-07-10"],
     datasets: [{
       label: 'SV・MEGA 平均買取価格',
-      data: [15709, 15911, 15923, 16083, 16206, 16511, 16677, 16920],
+      data: [15709, 15911, 15923, 16083, 16206, 16511, 16677, 16914],
       borderColor: '#6366f1',
       backgroundColor: '#6366f122',
       borderWidth: 2,
