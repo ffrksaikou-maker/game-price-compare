@@ -330,7 +330,7 @@
     "name": "SV 拡張パック「変幻の仮面」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 14000,
+    "max_price": 14200,
     "prices": {
       "morimori": 12900,
       "homura": 14000,
@@ -339,7 +339,7 @@
       "icchome": 14000,
       "oku": 14000,
       "kaikyo": 12000,
-      "collect_tendo": 14000,
+      "collect_tendo": 14200,
       "shinsoku": 14000
     }
   },
