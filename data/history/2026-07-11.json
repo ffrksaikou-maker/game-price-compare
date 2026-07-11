@@ -85,7 +85,7 @@
     "name": "MEGA 拡張パック「インフェルノX」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 24000,
+    "max_price": 23000,
     "prices": {
       "morimori": 18900,
       "homura": 22500,
@@ -96,7 +96,7 @@
       "kaikyo": 19000,
       "sommelier": 19000,
       "collect_tendo": 22700,
-      "shinsoku": 24000
+      "shinsoku": 23000
     }
   },
   {
@@ -140,6 +140,7 @@
     "retail_price": 5800,
     "max_price": 26300,
     "prices": {
+      "morimori": 17000,
       "homura": 26000,
       "rudeya": 24000,
       "icchome": 17000,
@@ -153,6 +154,7 @@
     "retail_price": 5800,
     "max_price": 22500,
     "prices": {
+      "morimori": 15000,
       "homura": 22000,
       "rudeya": 20500,
       "icchome": 15000,
@@ -487,7 +489,7 @@
       "homura": 58000,
       "rudeya": 56000,
       "runto": 58000,
-      "icchome": 58000,
+      "icchome": 56000,
       "oku": 58000,
       "kaikyo": 56000,
       "collect_tendo": 56000,
