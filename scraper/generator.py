@@ -897,6 +897,25 @@ def _build_box_narrative(
             f'をご覧ください。発売後の相場推移、高騰理由、3シナリオ予想、当たりカード相場を実データで掘り下げています。</p>'
         )
 
+    # 当たりカードガイドへの内部リンク (該当BOXのみ)
+    atari_links = {
+        "abyss-eye": ("abyss-eye-atari-guide.html", "アビスアイ 当たりカードランキング・封入率完全ガイド"),
+        "mega-ex": ("mega-ex-atari-guide.html", "MEGAドリームex 当たりカードランキング・封入率完全ガイド"),
+        "inferno": ("inferno-x-atari-guide.html", "インフェルノX 当たりカードランキング・封入率完全ガイド"),
+        "mega-brave": ("mega-brave-atari-guide.html", "メガブレイブ 当たりカードランキング・封入率完全ガイド"),
+        "chouden-breaker": ("chouden-breaker-atari-guide.html", "超電ブレイカー 当たりカードランキング・封入率完全ガイド"),
+        "clay-burst": ("clay-burst-atari-guide.html", "クレイバースト 当たりカードランキング・封入率完全ガイド"),
+        "ruler-of-black-flame": ("kokuen-atari-guide.html", "黒炎の支配者 当たりカード完全ガイド"),
+        "battle-collection": ("startdeck100-atari-guide.html", "スタートデッキ100 当たり番号一覧・見分け方完全ガイド"),
+    }
+    if slug in atari_links:
+        atari_url, atari_text = atari_links[slug]
+        parts.append(
+            f'<p>🎯 当たりカードを狙うなら'
+            f'<a href="../{atari_url}">{atari_text}</a>'
+            f'もご覧ください。当たりカードのランキング・レア別封入率・開封前後の見分け方・BOX開封の期待値を実データで整理しています。</p>'
+        )
+
     return f'<div class="box-narrative">' + "".join(parts) + '</div>'
 
 
