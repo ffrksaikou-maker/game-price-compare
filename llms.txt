@@ -58,6 +58,9 @@
 - [アビスアイ(M5) 当たりカードランキング・封入率完全ガイド](https://pokeca-box-hikaku.com/abyss-eye-atari-guide.html): 看板メガダークライex MUR(封入率約1%・約100BOXに1枚)、SAR6種(メガダークライex/ムク/モルペコex/メガゼラオラex/メガシャンデラex/グラジオの決戦)、AR最高額ヤドラン。MUR約1%/SAR約28%のレア別封入率と見分け方を実データで解説
 - [MEGAドリームex(M2a) 当たりカードランキング・封入率完全ガイド](https://pokeca-box-hikaku.com/mega-ex-atari-guide.html): 看板メガゲンガーex SAR(ピーク約6.6万円)、唯一のMURメガカイリューex(約50BOXに1枚)、ピカチュウex SAR、新レアリティMA(メガリザードンXex MA等)。SAR17種・SAR封入率約36%(約2.7BOXに1枚)の当たり相場と見分け方を解説
 - [インフェルノX(M2) 当たりカードランキング・封入率完全ガイド](https://pokeca-box-hikaku.com/inferno-x-atari-guide.html): 看板メガリザードンXex MUR(封入率約2%・約50BOXに1枚・約15万円)、SARも約8.5万円のリザードン一強構成。SAR6種・SR・AR枠の当たり相場、SAR封入率約30%(約3.3BOXに1枚)と見分け方を解説
+- [メガブレイブ(M1) 当たりカードランキング・封入率完全ガイド](https://pokeca-box-hikaku.com/mega-brave-atari-guide.html): MEGAシリーズ第1弾。看板メガルカリオex MUR(約50BOXに1枚)、歴代No.1人気トレーナーのリーリエの決心SAR(ポケモン以外では破格の約2万円)、メガフシギバナex SAR。レア別封入率と見分け方を解説
+- [超電ブレイカー(SV8) 当たりカードランキング・封入率完全ガイド](https://pokeca-box-hikaku.com/chouden-breaker-atari-guide.html): 看板ピカチュウex SAR(買取約7.8万円・PSA10約13.5万円)、ピカチュウex UR、ミロカロスex SAR、エーススペック(ACE SPEC)枠。SAR封入率約18.38%(約5.4BOXに1枚)の当たり相場と見分け方を解説
+- [クレイバースト(SV2D) 当たりカードランキング・封入率完全ガイド](https://pokeca-box-hikaku.com/clay-burst-atari-guide.html): SV最人気キャラ・看板ナンジャモ SAR(買取約3.5万円・PSA10約7.8万円・きりさき氏イラスト)、ナンジャモSR、デカヌチャンex SAR、イーユイex SAR。SAR封入率約19.96%(約5.1BOXに1枚)の当たり相場と見分け方を解説
 - [黒炎の支配者 当たりカード完全ガイド](https://pokeca-box-hikaku.com/kokuen-atari-guide.html): SAR/UR/SR/AR/RR全41種の当たりカードを買取相場・封入率・期待値で整理。リザードンex SAR一強の実態も解説
 - [スタートデッキ100「バトルコレクション」当たり番号一覧・見分け方](https://pokeca-box-hikaku.com/startdeck100-atari-guide.html): 当たり番号一覧・見分け方・封入率を解説。最高当たりNo.001(金)メガリザードンYex MUR約94万円、隠しNo.101 ZA御三家SAR、全ミラー確率(約12%)まで
 

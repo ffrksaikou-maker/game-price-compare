@@ -140,6 +140,9 @@ BLOG_ARTICLES = [
     {"url": "abyss-eye-atari-guide.html", "title": "アビスアイ 当たりカードランキング・封入率完全ガイド", "desc": "MEGA拡張パック「アビスアイ」(M5)の当たりカードランキング・封入率・見分け方を解説。看板メガダークライex MUR(約100BOXに1枚)、SAR6種(ムク・モルペコex・メガゼラオラex・メガシャンデラex・グラジオの決戦)の買取相場、AR最高額ヤドラン、BOX開封の期待値まで実データで整理。", "date": "2026-07-12"},
     {"url": "mega-ex-atari-guide.html", "title": "MEGAドリームex 当たりカードランキング・封入率完全ガイド", "desc": "MEGAハイクラスパック「MEGAドリームex」(M2a)の当たりカードランキング・封入率を解説。看板メガゲンガーex SAR、唯一のMURメガカイリューex(約50BOXに1枚)、ピカチュウex SAR、新レアリティMA(メガリザードンXex MA等)、SAR17種の買取相場とBOX期待値を実データで整理。", "date": "2026-07-12"},
     {"url": "inferno-x-atari-guide.html", "title": "インフェルノX 当たりカードランキング・封入率完全ガイド", "desc": "MEGA拡張パック「インフェルノX」(M2)の当たりカードランキング・封入率を解説。看板メガリザードンXex MUR(約50BOXに1枚・約15万円)、SARも約8.5万円のリザードン一強構成。SAR6種・SR・AR枠の買取相場、BOX開封の期待値まで実データで整理。", "date": "2026-07-12"},
+    {"url": "mega-brave-atari-guide.html", "title": "メガブレイブ 当たりカードランキング・封入率完全ガイド", "desc": "MEGA拡張パック「メガブレイブ」(M1)の当たりカードランキング・封入率を解説。看板メガルカリオex MUR(約50BOXに1枚)、歴代No.1人気トレーナーのリーリエの決心SAR、メガフシギバナex SARまで。レア別封入率・見分け方・BOX期待値を実データで整理。", "date": "2026-07-12"},
+    {"url": "chouden-breaker-atari-guide.html", "title": "超電ブレイカー 当たりカードランキング・封入率完全ガイド", "desc": "拡張パック「超電ブレイカー」(SV8)の当たりカードランキング・封入率を解説。看板ピカチュウex SAR(約7.8万円・PSA10約13.5万円)、ピカチュウex UR、ミロカロスex SAR、エーススペック枠まで。SAR封入率約18%・見分け方・BOX期待値を実データで整理。", "date": "2026-07-12"},
+    {"url": "clay-burst-atari-guide.html", "title": "クレイバースト 当たりカードランキング・封入率完全ガイド", "desc": "拡張パック「クレイバースト」(SV2D)の当たりカードランキング・封入率を解説。看板ナンジャモ SAR(約3.5万円・PSA10約7.8万円・きりさき氏イラスト)、ナンジャモSR、デカヌチャンex SAR、イーユイex SARまで。SAR封入率約20%・見分け方・BOX期待値を実データで整理。", "date": "2026-07-12"},
     {"url": "restock-guide.html", "title": "再販情報の見つけ方", "desc": "ポケカBOXの再販入荷パターン、通知設定、抽選vs先着の攻略法まで。最速で再販情報をキャッチする方法を解説。", "date": "2026-04-10"},
     {"url": "box-toushi.html", "title": "ポケカBOX投資の始め方", "desc": "値上がりしやすいBOXの特徴、予算別の始め方、保管方法、リスクまで初心者向けに解説。", "date": "2026-04-02"},
     {"url": "shrink-nashi.html", "title": "シュリンクなしBOXの買取事情", "desc": "シュリンクなしポケカBOXの買取対応を買取店・メルカリ・スニダンで比較。高く売るコツも解説。", "date": "2026-03-27"},
@@ -1398,6 +1401,9 @@ def _update_sitemap(
         ("/abyss-eye-atari-guide.html", "monthly", "0.8", "2026-07-12"),
         ("/mega-ex-atari-guide.html", "monthly", "0.8", "2026-07-12"),
         ("/inferno-x-atari-guide.html", "monthly", "0.8", "2026-07-12"),
+        ("/mega-brave-atari-guide.html", "monthly", "0.8", "2026-07-12"),
+        ("/chouden-breaker-atari-guide.html", "monthly", "0.8", "2026-07-12"),
+        ("/clay-burst-atari-guide.html", "monthly", "0.8", "2026-07-12"),
         ("/restock-guide.html", "monthly", "0.8", "2026-04-10"),
         ("/sv-box-list.html", "daily", "0.8", today),
         ("/mega-box-list.html", "daily", "0.8", today),
@@ -1907,6 +1913,9 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <a href="abyss-eye-atari-guide.html">アビスアイ 当たりカードランキング</a>
 <a href="mega-ex-atari-guide.html">MEGAドリームex 当たりカード</a>
 <a href="inferno-x-atari-guide.html">インフェルノX 当たりカード</a>
+<a href="mega-brave-atari-guide.html">メガブレイブ 当たりカード</a>
+<a href="chouden-breaker-atari-guide.html">超電ブレイカー 当たりカード</a>
+<a href="clay-burst-atari-guide.html">クレイバースト 当たりカード</a>
 </nav>
 
 <div class="main-card">
