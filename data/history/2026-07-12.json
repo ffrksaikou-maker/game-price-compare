@@ -21,10 +21,10 @@
     "name": "MEGA 拡張パック「ニンジャスピナー」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 11800,
+    "max_price": 11900,
     "prices": {
       "morimori": 8500,
-      "homura": 11700,
+      "homura": 11900,
       "rudeya": 10700,
       "runto": 11500,
       "icchome": 11700,
@@ -124,7 +124,7 @@
     "max_price": 11100,
     "prices": {
       "morimori": 9800,
-      "homura": 11000,
+      "homura": 11100,
       "rudeya": 10000,
       "runto": 11000,
       "icchome": 11000,
@@ -568,7 +568,7 @@
     "max_price": 11100,
     "prices": {
       "morimori": 9800,
-      "homura": 11000,
+      "homura": 11100,
       "rudeya": 10700,
       "runto": 10500,
       "icchome": 11000,
@@ -693,9 +693,9 @@
     "name": "S&S 強化拡張パック「バトルリージョン」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 12000,
+    "max_price": 12100,
     "prices": {
-      "homura": 12000,
+      "homura": 12100,
       "runto": 12000,
       "oku": 12000,
       "collect_tendo": 12000,
