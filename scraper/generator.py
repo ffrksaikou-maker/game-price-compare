@@ -137,6 +137,9 @@ BLOG_ARTICLES = [
     {"url": "masterball-mirror-guide.html", "title": "151マスターボールミラー 相場解説", "desc": "全153種のマスターボールミラーをピカチュウ¥55,000・ゲンガー¥60,000などの相場と封入率・コンプ難易度で解説。", "date": "2026-04-14"},
     {"url": "kokuen-atari-guide.html", "title": "黒炎の支配者 当たりカード完全ガイド", "desc": "SAR/UR/SR/AR/RR 全41種の当たりカードを買取相場・封入率・期待値で徹底整理。リザードンex SAR一強の実態も解説。", "date": "2026-04-14"},
     {"url": "startdeck100-atari-guide.html", "title": "スタートデッキ100 当たり番号一覧・見分け方完全ガイド", "desc": "スタートデッキ100「バトルコレクション」の当たり番号一覧・見分け方・封入率を解説。最高当たりNo.001(金)メガリザードンYex MUR約94万円、No.025ピカチュウex SAR・No.032リーリエのピッピex SAR・隠しNo.101 ZA御三家SARまで。開封前は見分け不可の理由と開封後のチェック法、全ミラー確率(約12%)も整理。", "date": "2026-06-19"},
+    {"url": "abyss-eye-atari-guide.html", "title": "アビスアイ 当たりカードランキング・封入率完全ガイド", "desc": "MEGA拡張パック「アビスアイ」(M5)の当たりカードランキング・封入率・見分け方を解説。看板メガダークライex MUR(約100BOXに1枚)、SAR6種(ムク・モルペコex・メガゼラオラex・メガシャンデラex・グラジオの決戦)の買取相場、AR最高額ヤドラン、BOX開封の期待値まで実データで整理。", "date": "2026-07-12"},
+    {"url": "mega-ex-atari-guide.html", "title": "MEGAドリームex 当たりカードランキング・封入率完全ガイド", "desc": "MEGAハイクラスパック「MEGAドリームex」(M2a)の当たりカードランキング・封入率を解説。看板メガゲンガーex SAR、唯一のMURメガカイリューex(約50BOXに1枚)、ピカチュウex SAR、新レアリティMA(メガリザードンXex MA等)、SAR17種の買取相場とBOX期待値を実データで整理。", "date": "2026-07-12"},
+    {"url": "inferno-x-atari-guide.html", "title": "インフェルノX 当たりカードランキング・封入率完全ガイド", "desc": "MEGA拡張パック「インフェルノX」(M2)の当たりカードランキング・封入率を解説。看板メガリザードンXex MUR(約50BOXに1枚・約15万円)、SARも約8.5万円のリザードン一強構成。SAR6種・SR・AR枠の買取相場、BOX開封の期待値まで実データで整理。", "date": "2026-07-12"},
     {"url": "restock-guide.html", "title": "再販情報の見つけ方", "desc": "ポケカBOXの再販入荷パターン、通知設定、抽選vs先着の攻略法まで。最速で再販情報をキャッチする方法を解説。", "date": "2026-04-10"},
     {"url": "box-toushi.html", "title": "ポケカBOX投資の始め方", "desc": "値上がりしやすいBOXの特徴、予算別の始め方、保管方法、リスクまで初心者向けに解説。", "date": "2026-04-02"},
     {"url": "shrink-nashi.html", "title": "シュリンクなしBOXの買取事情", "desc": "シュリンクなしポケカBOXの買取対応を買取店・メルカリ・スニダンで比較。高く売るコツも解説。", "date": "2026-03-27"},
@@ -1392,6 +1395,9 @@ def _update_sitemap(
         ("/masterball-mirror-guide.html", "monthly", "0.8", "2026-04-14"),
         ("/kokuen-atari-guide.html", "monthly", "0.8", "2026-04-14"),
         ("/startdeck100-atari-guide.html", "monthly", "0.8", "2026-06-19"),
+        ("/abyss-eye-atari-guide.html", "monthly", "0.8", "2026-07-12"),
+        ("/mega-ex-atari-guide.html", "monthly", "0.8", "2026-07-12"),
+        ("/inferno-x-atari-guide.html", "monthly", "0.8", "2026-07-12"),
         ("/restock-guide.html", "monthly", "0.8", "2026-04-10"),
         ("/sv-box-list.html", "daily", "0.8", today),
         ("/mega-box-list.html", "daily", "0.8", today),
@@ -1898,6 +1904,9 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <a href="masterball-mirror-guide.html">151マスターボールミラー</a>
 <a href="kokuen-atari-guide.html">黒炎 当たりカード完全ガイド</a>
 <a href="startdeck100-atari-guide.html">スタートデッキ100 当たり番号一覧</a>
+<a href="abyss-eye-atari-guide.html">アビスアイ 当たりカードランキング</a>
+<a href="mega-ex-atari-guide.html">MEGAドリームex 当たりカード</a>
+<a href="inferno-x-atari-guide.html">インフェルノX 当たりカード</a>
 </nav>
 
 <div class="main-card">
