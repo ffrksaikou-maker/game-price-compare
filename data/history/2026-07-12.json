@@ -3,7 +3,7 @@
     "name": "MEGA 拡張パック「アビスアイ」",
     "category": "mega",
     "retail_price": 6000,
-    "max_price": 11300,
+    "max_price": 11200,
     "prices": {
       "morimori": 10000,
       "homura": 11200,
@@ -14,7 +14,7 @@
       "kaikyo": 11000,
       "sommelier": 11200,
       "collect_tendo": 11000,
-      "shinsoku": 11300
+      "shinsoku": 11100
     }
   },
   {
@@ -92,7 +92,7 @@
       "rudeya": 19000,
       "runto": 23000,
       "icchome": 22000,
-      "oku": 23000,
+      "oku": 22600,
       "kaikyo": 19000,
       "sommelier": 20000,
       "collect_tendo": 22500,
@@ -103,7 +103,7 @@
     "name": "MEGA 拡張パック「メガブレイブ」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 12000,
+    "max_price": 12100,
     "prices": {
       "morimori": 10800,
       "homura": 11600,
@@ -114,14 +114,14 @@
       "kaikyo": 11500,
       "sommelier": 12000,
       "collect_tendo": 11900,
-      "shinsoku": 12000
+      "shinsoku": 12100
     }
   },
   {
     "name": "MEGA 拡張パック「メガシンフォニア」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 11000,
+    "max_price": 11100,
     "prices": {
       "morimori": 9800,
       "homura": 11000,
@@ -132,7 +132,7 @@
       "kaikyo": 9900,
       "sommelier": 11000,
       "collect_tendo": 11000,
-      "shinsoku": 11000
+      "shinsoku": 11100
     }
   },
   {
@@ -141,7 +141,6 @@
     "retail_price": 5800,
     "max_price": 26300,
     "prices": {
-      "morimori": 17000,
       "homura": 26000,
       "rudeya": 24000,
       "icchome": 17000,
@@ -155,7 +154,6 @@
     "retail_price": 5800,
     "max_price": 22600,
     "prices": {
-      "morimori": 15000,
       "homura": 22000,
       "rudeya": 20500,
       "icchome": 15000,
@@ -197,7 +195,7 @@
     "name": "SV 拡張パック「ロケット団の栄光」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 26000,
+    "max_price": 26100,
     "prices": {
       "morimori": 23600,
       "homura": 26000,
@@ -206,14 +204,14 @@
       "icchome": 25000,
       "oku": 25000,
       "collect_tendo": 26000,
-      "shinsoku": 26000
+      "shinsoku": 26100
     }
   },
   {
     "name": "SV 強化拡張パック「熱風のアリーナ」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 19700,
+    "max_price": 19800,
     "prices": {
       "morimori": 18900,
       "homura": 19700,
@@ -222,7 +220,7 @@
       "icchome": 19500,
       "oku": 19500,
       "collect_tendo": 19700,
-      "shinsoku": 19600
+      "shinsoku": 19800
     }
   },
   {
