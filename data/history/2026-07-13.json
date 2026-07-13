@@ -141,9 +141,10 @@
     "retail_price": 5800,
     "max_price": 26300,
     "prices": {
+      "morimori": 17000,
       "homura": 26000,
       "rudeya": 24500,
-      "icchome": 17000,
+      "icchome": 19000,
       "collect_tendo": 25000,
       "shinsoku": 26300
     }
@@ -154,6 +155,7 @@
     "retail_price": 5800,
     "max_price": 22600,
     "prices": {
+      "morimori": 15000,
       "homura": 22000,
       "rudeya": 21000,
       "icchome": 15000,
@@ -171,7 +173,7 @@
       "homura": 24100,
       "rudeya": 24500,
       "runto": 25000,
-      "icchome": 24500,
+      "icchome": 24800,
       "collect_tendo": 24700,
       "shinsoku": 24800
     }
@@ -186,7 +188,7 @@
       "homura": 21000,
       "rudeya": 21000,
       "runto": 21800,
-      "icchome": 21400,
+      "icchome": 21500,
       "collect_tendo": 22000,
       "shinsoku": 21600
     }
@@ -482,12 +484,12 @@
     "name": "SV 強化拡張パック「151」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 59500,
+    "max_price": 59000,
     "prices": {
       "morimori": 57000,
       "homura": 58000,
       "rudeya": 56000,
-      "runto": 59500,
+      "runto": 59000,
       "icchome": 58000,
       "oku": 58000,
       "kaikyo": 56000,
@@ -956,8 +958,8 @@
     "max_price": 21500,
     "prices": {
       "homura": 20000,
-      "rudeya": 20000,
-      "runto": 21000,
+      "rudeya": 19000,
+      "runto": 20000,
       "icchome": 21000,
       "kaikyo": 17500,
       "sommelier": 21500,
