@@ -9,7 +9,7 @@
 | ルデヤ rudeya | detail/114 | **detail/224**（ONE PIECEカードゲーム） | ✓ 商品多数 |
 | オク oku | cat1=340&cat2=363 | **cat1=340&cat2=364**（ONE PIECE） | ✓ 55件相当 |
 | ラントゥ runto | product-category/card/ | **product-category/onepiece/** | ✓ OP-14〜16,EB-04等 |
-| 森森 morimori | 検索sk=ポケカ | **検索sk=ワンピース** | ✓ OP-01〜,EB-01〜04 |
+| 森森 morimori | 検索sk=ポケカ | **category/2403 + category/0112003**（2カテゴリ跨り） | ✓ OP-01〜16,EB-01〜04,PRB-01/02 |
 
 - homura ワンピURL: `/products?q[product_sub_category_id_eq]=132&q[product_sub_category_product_category_id_eq]=14`
 - homura ワンピカートン=sub133、その他=sub160（BOXはsub132のみ使う）
@@ -32,6 +32,7 @@
 
 - 一丁目ワンピ: listPage APIに `cateCode=SEbO7gSBevo6KsPE`。ログイン不要で叩ける（cate/list列挙だけが要ログイン）。
 - フロント確認用URL: `https://www.1-chome.com/tradeCards?category=SEbO7gSBevo6KsPE`
+- **森森 注意(2026-07-14追記)**: 検索sk=ワンピースにも category/2403 にも新弾(OP-16 決戦の刻・PRB-01)は載らない。新弾は `category/0112003` に入るため、両カテゴリを見る必要がある。0112003にはカートン/単品/DBSCGが混ざるがmatcherで除外される。
 
 ## B2. Claude Vision解析型（プロンプト分岐で対応）
 | 店 | 状況 |
