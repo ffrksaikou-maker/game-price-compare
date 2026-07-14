@@ -551,6 +551,16 @@ def generate_onepiece_box_pages(products: list[MasterProduct], update_date: str)
             page = page.replace(k, v)
         page = page.replace("<!-- {{CHART_SECTION}} -->", _op_chart_section(p))
         page = page.replace("<!-- {{BOX_OVERVIEW}} -->", box_overview)
+        # 公式BOX/パック画像がある弾のみ表示(無い弾は枠ごと省略)
+        box_img = ""
+        if (PROJECT_ROOT / "images" / "boxes" / f"{slug}.webp").exists():
+            box_img = (
+                '<div style="text-align:center;margin:4px 0 18px">'
+                f'<picture><source srcset="/images/boxes/{slug}.webp" type="image/webp">'
+                f'<img src="/images/boxes/{slug}.jpg" alt="{_esc(p.name)} パッケージ画像 買取価格比較" '
+                'width="240" height="240" loading="lazy" decoding="async" '
+                'style="max-width:240px;width:60%;height:auto;border-radius:8px"></picture></div>')
+        page = page.replace("<!-- {{BOX_IMAGE}} -->", box_img)
 
         (BOX_DIR / f"{slug}.html").write_text(page, encoding="utf-8")
         generated += 1

@@ -170,6 +170,23 @@ def _render(a: dict, articles: list, box: dict) -> str:
         box_price=box_price_txt, box_n=box_n, ratio=ratio,
         ranking_table=_ranking_table(a["ranking"]))
 
+    # 公式BOX/パック画像がある弾のみ hero 左に画像(無い弾はテキストheroのまま)
+    _stats = (
+        f'<div class="stat-label">看板当たり {_esc(a["hero_card"])} 買取相場(2026年7月時点)</div>'
+        f'<div class="stat-big">{_esc(a["hero_big"])}</div>'
+        f'<div class="stat-sub">{a["hero_sub"]} / '
+        f'<a href="box/{slug}.html" style="color:#b91c1c;font-weight:700">{box_line}</a></div>')
+    if (ROOT / "images" / "boxes" / f"{slug}.webp").exists():
+        _img = (
+            f'<picture><source srcset="/images/boxes/{slug}.webp" type="image/webp">'
+            f'<img src="/images/boxes/{slug}.jpg" alt="{_esc(a["box_name"])} パッケージ画像" '
+            'width="150" height="150" loading="eager" decoding="async" '
+            'style="width:130px;height:auto;border-radius:8px;flex-shrink:0"></picture>')
+        hero_html = (f'<div class="hero" style="display:flex;gap:18px;align-items:center">'
+                     f'{_img}<div>{_stats}</div></div>')
+    else:
+        hero_html = f'<div class="hero">{_stats}</div>'
+
     return f"""<!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -221,11 +238,7 @@ gtag('config', 'G-RPTS6CRTCS');
 <h1>{a['h1']}</h1>
 <div class="meta">公開: 2026年7月14日 / {_esc(a['meta_line'])} / ワンピ買取チェッカー編集部</div>
 
-<div class="hero">
-<div class="stat-label">看板当たり {_esc(a['hero_card'])} 買取相場(2026年7月時点)</div>
-<div class="stat-big">{_esc(a['hero_big'])}</div>
-<div class="stat-sub">{a['hero_sub']} / <a href="box/{slug}.html" style="color:#b91c1c;font-weight:700">{box_line}</a></div>
-</div>
+{hero_html}
 
 {body}
 
