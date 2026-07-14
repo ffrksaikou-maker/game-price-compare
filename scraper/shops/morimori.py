@@ -9,6 +9,7 @@ h4.search-product-details-name and price in div[class*=price-normal-number].
 from __future__ import annotations
 
 import logging
+import os
 import re
 import time
 from urllib.parse import quote
@@ -18,8 +19,13 @@ from .base import BaseScraper, ScrapedItem
 logger = logging.getLogger(__name__)
 
 BASE = "https://www.morimori-kaitori.jp"
-SEARCH_KEYWORD = "ポケモンカード"
-SEARCH_URL = f"{BASE}/search?sk={quote(SEARCH_KEYWORD)}"
+# ポケカ=キーワード検索, ワンピ=専用カテゴリ(検索は取りこぼすため category/2403 を直に見る)。
+# ポケカ側matcherはワンピを弾き、ワンピ側が拾う。(ラベル, URL)
+TARGETS = [
+    ("ポケモン", f"{BASE}/search?sk={quote('ポケモンカード')}"),
+    ("ワンピ", f"{BASE}/category/2403"),
+]
+SEARCH_URL = TARGETS[0][1]  # 後方互換(_open_with_retry のデフォルト値)
 
 
 class MorimoriScraper(BaseScraper):
@@ -38,37 +44,47 @@ class MorimoriScraper(BaseScraper):
             # ERR_HTTP2_PROTOCOL_ERROR で全リクエストが弾かれる。
             # headful なら通るため、CI(Linux)では Xvfb 上で実行する
             # (.github/workflows/update.yml で xvfb-run でラップ済み)。
-            browser = p.chromium.launch(headless=False)
+            # ローカルで窓を出したくない時は SCRAPER_HEADLESS=1 でヘッドレス化
+            # (ただしBOT検出で失敗しキャッシュにフォールバックする可能性が高い)。
+            headless = os.environ.get("SCRAPER_HEADLESS") == "1"
+            browser = p.chromium.launch(headless=headless)
             try:
-                page = self._open_with_retry(browser)
-                page.wait_for_timeout(3000)
+                for label, target_url in TARGETS:
+                    try:
+                        page = self._open_with_retry(browser, target_url)
+                        page.wait_for_timeout(3000)
 
-                # Extract products from initial load
-                self._extract_from_page(page, items, seen_names)
-                logger.info(
-                    "%s: initial search: %d items",
-                    self.shop_name, len(items),
-                )
+                        # Extract products from initial load
+                        count_before = len(items)
+                        self._extract_from_page(page, items, seen_names)
+                        logger.info(
+                            "%s: %s initial: %d new items",
+                            self.shop_name, label, len(items) - count_before,
+                        )
 
-                # Click pagination to load more pages
-                for page_num in range(2, 30):
-                    # Look for a "next page" or numbered page button
-                    has_next = self._click_next_page(page, page_num)
-                    if not has_next:
-                        break
+                        # Click pagination to load more pages
+                        for page_num in range(2, 30):
+                            has_next = self._click_next_page(page, page_num)
+                            if not has_next:
+                                break
 
-                    page.wait_for_timeout(2000)
+                            page.wait_for_timeout(2000)
 
-                    count_before = len(items)
-                    self._extract_from_page(page, items, seen_names)
-                    new_count = len(items) - count_before
+                            page_before = len(items)
+                            self._extract_from_page(page, items, seen_names)
+                            new_count = len(items) - page_before
 
-                    logger.info(
-                        "%s: search page %d: %d new items (total %d)",
-                        self.shop_name, page_num, new_count, len(items),
-                    )
-                    if new_count == 0:
-                        break
+                            logger.info(
+                                "%s: %s page %d: %d new items (total %d)",
+                                self.shop_name, label, page_num, new_count,
+                                len(items),
+                            )
+                            if new_count == 0:
+                                break
+                    except Exception as e:
+                        logger.error(
+                            "%s: %s error: %s", self.shop_name, label, e,
+                        )
 
             except Exception as e:
                 logger.error("%s: scraping error: %s", self.shop_name, e)
@@ -87,18 +103,31 @@ class MorimoriScraper(BaseScraper):
                 const results = [];
                 const items = document.querySelectorAll('div.product-item');
                 for (const item of items) {
-                    // Search page uses search-product-details-name
+                    // 検索ページは h4.product-details-name、カテゴリページは
+                    // h5.product-details-name。タグ非依存で拾う。
                     const nameEl = item.querySelector(
-                        'h4[class*="product-details-name"]'
+                        '[class*="product-details-name"]'
                     );
-                    // Price: try multiple selectors for search vs category page
-                    const priceEl = item.querySelector(
+                    // Price: 検索ページは price-normal-number クラス。
+                    let priceEl = item.querySelector(
                         'div[class*="price-normal-number"]'
                     ) || item.querySelector(
                         'span[class*="price-normal-number"]'
                     ) || item.querySelector(
                         '[class*="price"] [class*="number"]'
                     );
+                    // カテゴリページはクラス無し。「通常買取価格:」直後の数値を拾う
+                    // (預かり買取価格は採用しない)。
+                    if (!priceEl) {
+                        const m = item.innerText.match(/通常買取価格[:：]?\s*([\d,]+)\s*円/);
+                        if (nameEl && m) {
+                            results.push({
+                                name: nameEl.textContent.trim(),
+                                price: m[1]
+                            });
+                            continue;
+                        }
+                    }
                     if (nameEl && priceEl) {
                         results.push({
                             name: nameEl.textContent.trim(),
@@ -130,7 +159,8 @@ class MorimoriScraper(BaseScraper):
                 seen.add(name)
                 items.append(ScrapedItem(name=name, price=price))
 
-    def _open_with_retry(self, browser, max_attempts: int = 5):
+    def _open_with_retry(self, browser, search_url: str = SEARCH_URL,
+                         max_attempts: int = 5):
         """Open the search page with retries.
 
         morimori-kaitori.jp resets the HTTP/2 connection
@@ -150,7 +180,7 @@ class MorimoriScraper(BaseScraper):
             )
             page = context.new_page()
             try:
-                page.goto(SEARCH_URL, wait_until="domcontentloaded", timeout=60000)
+                page.goto(search_url, wait_until="domcontentloaded", timeout=60000)
                 page.wait_for_selector("div.product-item", timeout=30000)
                 return page
             except Exception as e:

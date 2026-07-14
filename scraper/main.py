@@ -17,6 +17,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from scraper.shops import ALL_SCRAPERS
 from scraper.matcher import MASTER_PRODUCTS, match_products
 from scraper.generator import generate_html
+from scraper.products_onepiece import ONEPIECE_PRODUCTS, ONEPIECE_CONFIG
+from scraper.generator_onepiece import generate_onepiece_html
 
 logging.basicConfig(
     level=logging.INFO,
@@ -120,6 +122,8 @@ def main() -> None:
     # Reset all prices before scraping
     for product in MASTER_PRODUCTS:
         product.prices.clear()
+    for product in ONEPIECE_PRODUCTS:
+        product.prices.clear()
 
     cache = load_cache()
     cache_counts = load_cache_counts()
@@ -142,6 +146,8 @@ def main() -> None:
                 # Convert to (name, price) tuples for matcher
                 scraped = [(item.name, item.price) for item in items]
                 match_products(scraped, shop_id)
+                # 同じ取得結果をワンピ側マスターにもマッチ(相互排除で分離)
+                match_products(scraped, shop_id, ONEPIECE_PRODUCTS, ONEPIECE_CONFIG)
                 # Update cache with successful scrape
                 cache[shop_id] = scraped
                 success_count += 1
@@ -155,6 +161,7 @@ def main() -> None:
                 if shop_id in cache:
                     logger.info("%s: using cached data (%d items)", shop_name, len(cache[shop_id]))
                     match_products(cache[shop_id], shop_id)
+                    match_products(cache[shop_id], shop_id, ONEPIECE_PRODUCTS, ONEPIECE_CONFIG)
                     cache_used_shops.append(shop_name)
                     success_count += 1
         except Exception:
@@ -167,6 +174,7 @@ def main() -> None:
             if shop_id in cache:
                 logger.info("%s: using cached data (%d items)", shop_name, len(cache[shop_id]))
                 match_products(cache[shop_id], shop_id)
+                match_products(cache[shop_id], shop_id, ONEPIECE_PRODUCTS, ONEPIECE_CONFIG)
                 cache_used_shops.append(shop_name)
                 success_count += 1
 
@@ -201,6 +209,13 @@ def main() -> None:
     # Generate HTML
     generate_html(MASTER_PRODUCTS)
     logger.info("Done! index.html has been generated.")
+
+    # Generate ONE PIECE page (onepiece.html)
+    op_with_prices = sum(1 for p in ONEPIECE_PRODUCTS if p.prices)
+    logger.info("ONE PIECE products with prices: %d/%d",
+                op_with_prices, len(ONEPIECE_PRODUCTS))
+    generate_onepiece_html(ONEPIECE_PRODUCTS)
+    logger.info("Done! onepiece.html has been generated.")
 
     # 異常検知 → Discord通知
     alerts: list[str] = []

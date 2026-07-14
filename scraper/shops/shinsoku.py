@@ -15,6 +15,9 @@ from .base import BaseScraper, ScrapedItem
 logger = logging.getLogger(__name__)
 
 URL = "https://shinsoku-tcg.com/yuso-kaitori"
+# ワンピBOXは既定のBOXフィルタ一覧に含まれないため、title検索で別取得する。
+# ポケカ側matcherはワンピを弾き、ワンピ側matcherが拾う。
+ONEPIECE_URL = "https://shinsoku-tcg.com/yuso-kaitori?title=%E3%83%AF%E3%83%B3%E3%83%94%E3%83%BC%E3%82%B9"
 
 
 class ShinsokuScraper(BaseScraper):
@@ -35,50 +38,58 @@ class ShinsokuScraper(BaseScraper):
             )
             page = ctx.new_page()
             try:
+                # --- ポケカ等: 既定一覧をBOXフィルタで取得 ---
                 page.goto(URL, wait_until="domcontentloaded", timeout=30000)
                 page.wait_for_timeout(3000)
-
-                # BOXフィルタを適用
                 try:
                     page.select_option("select", label="BOX")
                     page.wait_for_timeout(2000)
                 except Exception as e:
                     logger.warning("Shinsoku: BOX filter select failed: %s", e)
+                self._scroll_and_extract(page, items, "BOX filter")
 
-                # 無限スクロール: 高さが変わらなくなるまで
-                last_h = 0
-                for i in range(80):
-                    page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
-                    page.wait_for_timeout(700)
-                    h = page.evaluate("() => document.body.scrollHeight")
-                    if h == last_h:
-                        break
-                    last_h = h
-                logger.info("Shinsoku: scrolled %d times, height=%d", i + 1, last_h)
-
-                # 商品名+価格抽出
-                raw = page.evaluate(
-                    """() => {
-                        const cards = Array.from(document.querySelectorAll('.product-card'));
-                        const boxes = cards.filter(c => c.querySelector('.badge-box'));
-                        return boxes.map(c => {
-                            const h3 = c.querySelector('h3');
-                            const m = c.innerText.match(/¥[\\d,]+/);
-                            return {
-                                name: h3 ? h3.innerText.trim() : '',
-                                price: m ? m[0] : '',
-                            };
-                        });
-                    }"""
-                )
-                logger.info("Shinsoku: %d BOX cards extracted", len(raw))
-
-                for r in raw:
-                    name = r.get("name", "").strip()
-                    price = self.parse_price(r.get("price", ""))
-                    if name and price > 0:
-                        items.append(ScrapedItem(name=name, price=price))
+                # --- ワンピ: title検索でワンピBOXを取得 ---
+                try:
+                    page.goto(ONEPIECE_URL, wait_until="domcontentloaded", timeout=30000)
+                    page.wait_for_timeout(3000)
+                    self._scroll_and_extract(page, items, "ONE PIECE title")
+                except Exception as e:
+                    logger.warning("Shinsoku: ONE PIECE pass failed: %s", e)
             finally:
                 browser.close()
 
         return items
+
+    def _scroll_and_extract(self, page, items: list[ScrapedItem], label: str) -> None:
+        """最下部までスクロールして .badge-box 付き商品を抽出し items に追加。"""
+        last_h = 0
+        for i in range(80):
+            page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
+            page.wait_for_timeout(700)
+            h = page.evaluate("() => document.body.scrollHeight")
+            if h == last_h:
+                break
+            last_h = h
+
+        raw = page.evaluate(
+            """() => {
+                const cards = Array.from(document.querySelectorAll('.product-card'));
+                const boxes = cards.filter(c => c.querySelector('.badge-box'));
+                return boxes.map(c => {
+                    const h3 = c.querySelector('h3');
+                    const m = c.innerText.match(/¥[\\d,]+/);
+                    return {
+                        name: h3 ? h3.innerText.trim() : '',
+                        price: m ? m[0] : '',
+                    };
+                });
+            }"""
+        )
+        before = len(items)
+        for r in raw:
+            name = r.get("name", "").strip()
+            price = self.parse_price(r.get("price", ""))
+            if name and price > 0:
+                items.append(ScrapedItem(name=name, price=price))
+        logger.info("Shinsoku[%s]: %d BOX cards -> %d items",
+                    label, len(raw), len(items) - before)

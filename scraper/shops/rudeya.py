@@ -12,8 +12,12 @@ from .base import BaseScraper, ScrapedItem
 
 logger = logging.getLogger(__name__)
 
-# Pokemon card category
-URL = "https://kaitori-rudeya.com/category/detail/114"
+# detail/114: ポケカ / detail/224: ONE PIECEカードゲーム。
+# ポケカ側matcherはワンピを弾き、ワンピ側matcherが拾う。
+URLS = [
+    "https://kaitori-rudeya.com/category/detail/114",
+    "https://kaitori-rudeya.com/category/detail/224",
+]
 
 
 class RudeyaScraper(BaseScraper):
@@ -22,27 +26,33 @@ class RudeyaScraper(BaseScraper):
 
     def scrape(self) -> list[ScrapedItem]:
         items: list[ScrapedItem] = []
-        soup = self._get_soup(URL)
 
-        # Products in card grid: article.pgrid-card
-        rows = soup.select("article.pgrid-card")
-
-        for row in rows:
-            # Product name
-            name_el = row.select_one("h3.product-card-name")
-            if not name_el:
+        for url in URLS:
+            try:
+                soup = self._get_soup(url)
+            except Exception as e:
+                logger.warning("%s: fetch failed %s: %s", self.shop_name, url, e)
                 continue
 
-            # Price in span.product-card-price-value
-            price_el = row.select_one("span.product-card-price-value")
-            if not price_el:
-                continue
+            # Products in card grid: article.pgrid-card
+            rows = soup.select("article.pgrid-card")
 
-            name = name_el.get_text(strip=True)
-            price = self.parse_price(price_el.get_text(strip=True))
+            for row in rows:
+                # Product name
+                name_el = row.select_one("h3.product-card-name")
+                if not name_el:
+                    continue
 
-            if name and price > 0:
-                items.append(ScrapedItem(name=name, price=price))
+                # Price in span.product-card-price-value
+                price_el = row.select_one("span.product-card-price-value")
+                if not price_el:
+                    continue
+
+                name = name_el.get_text(strip=True)
+                price = self.parse_price(price_el.get_text(strip=True))
+
+                if name and price > 0:
+                    items.append(ScrapedItem(name=name, price=price))
 
         logger.info("%s: scraped %d items", self.shop_name, len(items))
         return items

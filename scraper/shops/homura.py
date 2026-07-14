@@ -12,6 +12,9 @@ logger = logging.getLogger(__name__)
 CATEGORY_URLS = [
     "https://kaitori-homura.com/products?q[product_sub_category_id_eq]=128&q[product_sub_category_product_category_id_eq]=14",
     "https://kaitori-homura.com/products?q[product_sub_category_id_eq]=130&q[product_sub_category_product_category_id_eq]=14",
+    # ワンピース未開封BOX (sub=132)。ポケカ側matcherは exclude_indicators で弾き、
+    # ワンピ側matcherが拾う。
+    "https://kaitori-homura.com/products?q[product_sub_category_id_eq]=132&q[product_sub_category_product_category_id_eq]=14",
 ]
 
 _PID_RE = re.compile(r"/products/(\d+)")

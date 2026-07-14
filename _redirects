@@ -2,3 +2,5 @@ https://pokeca-kaitorihikau.netlify.app/* https://pokeca-box-hikaku.com/:splat 3
 /box/unknown.html /box/wild-force.html 301
 /template.html / 301!
 /_verify_images.html / 301!
+/onepiece /onepiece.html 200
+/onepiece-template.html /onepiece 301!

@@ -21,7 +21,12 @@ from .base import BaseScraper, ScrapedItem
 
 logger = logging.getLogger(__name__)
 
-BASE_URL = "https://runto666.com/product-category/card/"
+# card/: ポケカ含むトレカ全般 / onepiece/: ONE PIECE専用。
+# ポケカ側matcherはワンピを弾き、ワンピ側matcherが拾う。
+BASE_URLS = [
+    "https://runto666.com/product-category/card/",
+    "https://runto666.com/product-category/onepiece/",
+]
 MAX_BOX_PRICE = 60000
 
 
@@ -67,8 +72,9 @@ class RuntoScraper(BaseScraper):
     def scrape(self) -> list[ScrapedItem]:
         items: list[ScrapedItem] = []
 
-        for page in range(1, 15):  # up to 14 pages safety limit
-            url = f"{BASE_URL}page/{page}/" if page > 1 else BASE_URL
+        for base_url in BASE_URLS:
+          for page in range(1, 15):  # up to 14 pages safety limit
+            url = f"{base_url}page/{page}/" if page > 1 else base_url
             try:
                 soup = self._get_soup(url)
             except Exception:

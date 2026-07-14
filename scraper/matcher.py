@@ -64,11 +64,19 @@ NO_SHRINK_INDICATORS = [
 ]
 
 # Non-Pokemon products to exclude (e.g., One Piece, other TCGs)
+# ワンピは商品名に「ONE PIECE/ワンピース」が無く弾番号だけの出品もある
+# (例「OP-07 500年後の未来」がポケカ「未来の一閃」に誤マッチ)。弾番号接頭辞も除外する。
+# 店により「OP-07」「OP07」両表記があるためハイフン有無の両形式を生成。
+_OP_SET_CODES = (
+    [f"OP-{i:02d}" for i in range(1, 19)] + [f"OP{i:02d}" for i in range(1, 19)]
+    + [f"EB-{i:02d}" for i in range(1, 6)] + [f"EB{i:02d}" for i in range(1, 6)]
+    + [f"PRB-{i:02d}" for i in range(1, 4)] + [f"PRB{i:02d}" for i in range(1, 4)]
+)
 NON_POKEMON_INDICATORS = [
     "ONE PIECE", "ワンピース", "遊戯王", "デュエル・マスターズ",
     "ドラゴンボール", "ヴァイスシュヴァルツ", "バトルスピリッツ",
     "ヴァンガード", "ウィクロス",
-]
+] + _OP_SET_CODES
 
 # Non-BOX Pokemon products to exclude
 NON_BOX_INDICATORS = [
@@ -94,6 +102,29 @@ class MasterProduct:
     hit_cards: list[tuple[str, str]] = field(default_factory=list)  # 当たりカード（トップレア）[(カード名, コメント), ...]
     prices: dict[str, int] = field(default_factory=dict)  # shop_id -> price
     min_price: int = 0  # 価格下限の上書き（0=MIN_BOX_PRICEを使用）。格安デッキ用
+
+
+@dataclass
+class MatchConfig:
+    """ゲーム別のマッチ設定。ポケカ/ワンピで別インスタンスを使う。
+
+    デフォルト値はポケカの現行挙動と一致（POKEMON_CONFIG）。match_products に
+    config を渡さなければ従来どおり POKEMON_CONFIG が使われ、挙動は不変。
+    """
+    exclude_indicators: list[str] = field(default_factory=list)      # 他ゲーム除外
+    non_box_indicators: list[str] = field(default_factory=list)      # 非BOX除外
+    box_indicators: list[str] = field(default_factory=list)
+    single_card_indicators: list[str] = field(default_factory=list)
+    box_name_whitelist: list[str] = field(default_factory=list)
+    strong_single_indicators: list[str] = field(default_factory=list)
+    no_shrink_indicators: list[str] = field(default_factory=list)
+    noise_words: list[str] = field(default_factory=list)             # normalize用
+    min_box_price: int = MIN_BOX_PRICE
+    abs_min_price: int = ABS_MIN_PRICE
+    max_box_price: int = MAX_BOX_PRICE
+    max_retail_ratio: float = MAX_RETAIL_RATIO
+    match_threshold: int = MATCH_THRESHOLD
+    enable_dx_disambiguation: bool = True
 
 
 # Master product list - canonical names and keywords for matching
@@ -382,50 +413,72 @@ MASTER_PRODUCTS: list[MasterProduct] = [
 ]
 
 
-def normalize(text: str) -> str:
+# ポケカ用のマッチ設定（デフォルト）。値は従来のモジュール定数をそのまま束ねたもので、
+# config 未指定時の挙動は改修前と完全に一致する。
+POKEMON_CONFIG = MatchConfig(
+    exclude_indicators=NON_POKEMON_INDICATORS,
+    non_box_indicators=NON_BOX_INDICATORS,
+    box_indicators=BOX_INDICATORS,
+    single_card_indicators=SINGLE_CARD_INDICATORS,
+    box_name_whitelist=BOX_NAME_WHITELIST,
+    strong_single_indicators=STRONG_SINGLE_INDICATORS,
+    no_shrink_indicators=NO_SHRINK_INDICATORS,
+    noise_words=["BOX", "box", "Box", "シュリンク付", "シュリンク", "未開封",
+                 "新品", "日本語版", "ポケモンカードゲーム", "ポケカ",
+                 "1BOX", "1box", "1Box"],
+    min_box_price=MIN_BOX_PRICE,
+    abs_min_price=ABS_MIN_PRICE,
+    max_box_price=MAX_BOX_PRICE,
+    max_retail_ratio=MAX_RETAIL_RATIO,
+    match_threshold=MATCH_THRESHOLD,
+    enable_dx_disambiguation=True,
+)
+
+
+def normalize(text: str, noise_words: list[str] | None = None) -> str:
     """Normalize text for matching: NFKC + lowercase + strip symbols."""
     text = unicodedata.normalize("NFKC", text)
     # Remove common packaging words
     text = re.sub(r"[【】\[\]（）()「」『』\-\s]+", " ", text)
-    # Remove common noise words
-    noise = ["BOX", "box", "Box", "シュリンク付", "シュリンク", "未開封",
-             "新品", "日本語版", "ポケモンカードゲーム", "ポケカ",
-             "1BOX", "1box", "1Box"]
-    for word in noise:
+    # Remove common noise words（ゲーム別。未指定時はポケカのデフォルト）
+    if noise_words is None:
+        noise_words = POKEMON_CONFIG.noise_words
+    for word in noise_words:
         text = text.replace(word, "")
     # case-insensitive matching用に小文字化
     return text.strip().lower()
 
 
-def _keyword_match(scraped_name: str, product: MasterProduct) -> bool:
+def _keyword_match(scraped_name: str, product: MasterProduct,
+                   config: MatchConfig) -> bool:
     """Check if any keyword from the product matches in the scraped name."""
-    norm_name = normalize(scraped_name)
+    norm_name = normalize(scraped_name, config.noise_words)
     for kw in product.keywords:
-        norm_kw = normalize(kw)
+        norm_kw = normalize(kw, config.noise_words)
         if norm_kw and norm_kw in norm_name:
             return True
     return False
 
 
-def _is_single_card(name: str) -> bool:
+def _is_single_card(name: str, config: MatchConfig) -> bool:
     """Check if the product name looks like a single card (not a BOX).
 
     Only returns True if no BOX indicators are present AND single card
     indicators are found.
     """
     # If any BOX indicator is present, it's not a single card
-    for indicator in BOX_INDICATORS:
+    for indicator in config.box_indicators:
         if indicator in name:
             return False
 
     # 既知のBOX製品名(VSTARユニバース等)は救済。ただしカートン/バラ等の
     # 明確な非BOX語が付く出品は従来どおり単品扱いで除外する。
-    if any(bn in name for bn in BOX_NAME_WHITELIST):
-        if not any(s in name for s in STRONG_SINGLE_INDICATORS):
+    if any(bn in name for bn in config.box_name_whitelist):
+        if not any(s in name for s in config.strong_single_indicators):
             return False
 
     # Check for single card indicators
-    for indicator in SINGLE_CARD_INDICATORS:
+    for indicator in config.single_card_indicators:
         if indicator in name:
             return True
     return False
@@ -451,6 +504,7 @@ def match_products(
     scraped_items: list[tuple[str, int]],
     shop_id: str,
     products: list[MasterProduct] | None = None,
+    config: MatchConfig | None = None,
 ) -> None:
     """Match scraped items to master product list and set prices.
 
@@ -458,9 +512,12 @@ def match_products(
         scraped_items: list of (product_name, price) tuples
         shop_id: the shop identifier (e.g., "morimori")
         products: master product list (uses MASTER_PRODUCTS if None)
+        config: ゲーム別マッチ設定 (uses POKEMON_CONFIG if None)
     """
     if products is None:
         products = MASTER_PRODUCTS
+    if config is None:
+        config = POKEMON_CONFIG
 
     matched = set()
 
@@ -469,33 +526,33 @@ def match_products(
             continue
 
         # Skip items that are clearly single cards (not BOX)
-        if _is_single_card(name):
+        if _is_single_card(name, config):
             continue
 
-        # Skip non-Pokemon products (One Piece, etc.)
-        if any(ind in name for ind in NON_POKEMON_INDICATORS):
-            logger.debug("  SKIP (non-pokemon): %s = %d", name, price)
+        # Skip other-game products (ワンピ視点ならポケカ等、ポケカ視点ならワンピ等)
+        if any(ind in name for ind in config.exclude_indicators):
+            logger.debug("  SKIP (other game): %s = %d", name, price)
             continue
 
-        # Skip non-BOX Pokemon products (promo packs, file sets, etc.)
-        if any(ind in name for ind in NON_BOX_INDICATORS):
+        # Skip non-BOX products (promo packs, file sets, cartons, etc.)
+        if any(ind in name for ind in config.non_box_indicators):
             logger.debug("  SKIP (non-box): %s = %d", name, price)
             continue
 
         # Skip no-shrink-wrap items (prefer shrink-wrapped price)
-        if any(ind in name for ind in NO_SHRINK_INDICATORS):
+        if any(ind in name for ind in config.no_shrink_indicators):
             logger.debug("  SKIP (no shrink): %s = %d", name, price)
             continue
 
         # Skip obviously-junk prices before matching. The real per-product floor
-        # (MIN_BOX_PRICE or product.min_price) is enforced after a match is found,
+        # (min_box_price or product.min_price) is enforced after a match is found,
         # so cheap products like スタートデッキ100 aren't pre-filtered here.
-        if price < ABS_MIN_PRICE:
+        if price < config.abs_min_price:
             logger.debug("  SKIP (price too low): %s = %d", name, price)
             continue
 
         # Skip unreasonably high prices (likely single rare cards or errors)
-        if price > MAX_BOX_PRICE:
+        if price > config.max_box_price:
             logger.debug("  SKIP (price too high): %s = %d", name, price)
             continue
 
@@ -504,10 +561,10 @@ def match_products(
 
         for product in products:
             # Step 1: Try keyword matching first (exact substring)
-            if _keyword_match(name, product):
+            if _keyword_match(name, product, config):
                 # Handle disambiguation for products with same keywords
                 # e.g., "ブラックボルト" matches both DX and non-DX
-                if product.keywords and any(
+                if config.enable_dx_disambiguation and product.keywords and any(
                     kw in ["ブラックボルト", "ホワイトフレア"]
                     for kw in product.keywords
                 ):
@@ -525,16 +582,16 @@ def match_products(
                 continue
 
             # Step 2: Fuzzy matching as fallback
-            norm_name = normalize(name)
-            norm_product = normalize(product.name)
+            norm_name = normalize(name, config.noise_words)
+            norm_product = normalize(product.name, config.noise_words)
             score = fuzz.token_sort_ratio(norm_name, norm_product)
             if score > best_score:
                 best_score = score
                 best_product = product
 
-        if best_product and best_score >= MATCH_THRESHOLD:
-            # Enforce the per-product low-price floor (defaults to MIN_BOX_PRICE).
-            floor = best_product.min_price or MIN_BOX_PRICE
+        if best_product and best_score >= config.match_threshold:
+            # Enforce the per-product low-price floor (defaults to min_box_price).
+            floor = best_product.min_price or config.min_box_price
             if price < floor:
                 logger.debug(
                     "  SKIP (below floor %d): %s = %d", floor, name, price,
@@ -544,7 +601,7 @@ def match_products(
             # Skip if price is unreasonably high relative to retail
             if best_product.retail_price > 0:
                 ratio = price / best_product.retail_price
-                if ratio > MAX_RETAIL_RATIO:
+                if ratio > config.max_retail_ratio:
                     logger.debug(
                         "  SKIP (ratio %.1fx): %s = %d (retail=%d)",
                         ratio, name, price, best_product.retail_price,
