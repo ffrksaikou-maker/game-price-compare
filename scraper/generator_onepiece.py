@@ -43,6 +43,51 @@ SHOP_OP_URLS = {
     "collect_tendo": "https://x.com/collect_tendo",
 }
 
+# ===== BOX掘り下げ記事のレジストリ(トップからの導線+sitemap用) =====
+# (ファイル名, タイトル, リード文)。ファイルが存在する記事だけリンクされる。
+ONEPIECE_ARTICLES = [
+    ("op-16-atari-guide.html",
+     "決戦の刻(OP-16) 当たりカードランキング・買取相場・封入率",
+     "看板サカズキ コミパラ約41万円、日本版初のトレジャーレアを実データで解説"),
+    ("op-15-atari-guide.html",
+     "神の島の冒険(OP-15) 当たりカードランキング・買取相場・封入率",
+     "看板エネル コミパラ約15万円、ハンコック・ルフィのSPを実データで解説"),
+    ("op-14-atari-guide.html",
+     "蒼海の七傑(OP-14) 当たりカードランキング・買取相場・封入率",
+     "3周年バギーSP金/銀、ミホーク コミパラ、王下七武海テーマの当たりを解説"),
+    ("op-13-atari-guide.html",
+     "受け継がれる意志(OP-13) 当たりカードランキング・買取相場・封入率",
+     "新レア・レッドコミパラのルフィ約170万円、エース・サボ、ゴッドパックを解説"),
+    ("op-12-atari-guide.html",
+     "師弟の絆(OP-12) 当たりカードランキング・買取相場・封入率",
+     "3周年ティーチSP金/銀、ジュエリー・ボニー コミパラの当たりを実データで解説"),
+    ("eb-04-atari-guide.html",
+     "EGGHEAD CRISIS(EB-04) 当たりカードランキング・買取相場・封入率",
+     "唯一のコミパラ コビー初動約9万円、ゾロSPなどエッグヘッド編の当たりを解説"),
+    ("eb-03-atari-guide.html",
+     "Heroines Edition(EB-03) 当たりカードランキング・買取相場・封入率",
+     "唯一のコミパラ ウタ、ハンコック・ウタ・ナミのSPなど女性キャラ特集弾を解説"),
+]
+
+
+def _article_links_block() -> str:
+    """トップに「BOX掘り下げガイド」記事リンクを出す(存在する記事のみ)。"""
+    existing = [(f, t, d) for (f, t, d) in ONEPIECE_ARTICLES
+                if (PROJECT_ROOT / "onepiece" / f).exists()]
+    if not existing:
+        return ""
+    rows = "".join(
+        f'<a href="onepiece/{f}" style="display:block;padding:12px 14px;'
+        f'border-bottom:1px solid #f3f4f6;text-decoration:none;color:inherit">'
+        f'<div style="font-weight:700;font-size:14px;color:#111827">{_esc(t)}</div>'
+        f'<div style="font-size:12px;color:#6b7280;margin-top:3px;line-height:1.5">{_esc(d)}</div></a>'
+        for (f, t, d) in existing)
+    return (
+        '<div style="max-width:1280px;margin:24px auto 0;padding:0 16px">'
+        '<div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden">'
+        '<div style="font-size:15px;font-weight:800;padding:14px 16px 8px">📘 BOX掘り下げガイド（当たりカード・相場・封入率）</div>'
+        f'{rows}</div></div>')
+
 
 def _slug(name: str) -> str:
     """弾番号ベースの簡易slug(個別ページは作らないが安定値として付与)。"""
@@ -174,7 +219,7 @@ def generate_onepiece_html(products: list[MasterProduct]) -> str:
     html = html.replace("<!-- {{JSONLD}} -->", _jsonld(products))
     html = html.replace("<!-- {{AI_SUMMARY}} -->", _ai_summary(products))
     html = html.replace("{{UPDATE_DATE}}", update_date)
-    html = html.replace("<!-- {{BLOG_LINKS}} -->", "")
+    html = html.replace("<!-- {{BLOG_LINKS}} -->", _article_links_block())
     html = html.replace("<!-- {{RANKING_SUMMARY}} -->", _weekly_summary_block(products))
 
     output_path.write_text(html, encoding="utf-8")
@@ -235,6 +280,10 @@ def _append_onepiece_sitemap(products: list[MasterProduct]) -> None:
             continue
         seen.add(slug)
         blocks.append(_url(f"/onepiece/box/{slug}.html", "daily", "0.7"))
+
+    # BOX掘り下げ記事(onepiece/*-atari-guide.html)を自動収録
+    for art in sorted((PROJECT_ROOT / "onepiece").glob("*-atari-guide.html")):
+        blocks.append(_url(f"/onepiece/{art.name}", "weekly", "0.8"))
 
     injection = "".join(blocks)
     xml = xml.replace("</urlset>", injection + "</urlset>")
