@@ -9,8 +9,9 @@
       "rudeya": 12000,
       "runto": 14000,
       "icchome": 13000,
-      "kaikyo": 13000,
       "oku": 13000,
+      "kaikyo": 13000,
+      "collect_tendo": 11500,
       "shinsoku": 13000
     }
   },
@@ -25,8 +26,9 @@
       "rudeya": 14500,
       "runto": 16800,
       "icchome": 15500,
-      "kaikyo": 15100,
       "oku": 16000,
+      "kaikyo": 15100,
+      "collect_tendo": 16100,
       "shinsoku": 14900
     }
   },
@@ -41,9 +43,10 @@
       "rudeya": 14600,
       "runto": 16300,
       "icchome": 15500,
+      "oku": 16000,
       "kaikyo": 14300,
       "sommelier": 14500,
-      "oku": 16000,
+      "collect_tendo": 12500,
       "shinsoku": 14400
     }
   },
@@ -58,8 +61,9 @@
       "rudeya": 18500,
       "runto": 23000,
       "icchome": 22000,
-      "kaikyo": 20000,
       "oku": 22000,
+      "kaikyo": 20000,
+      "collect_tendo": 22800,
       "shinsoku": 21600
     }
   },
@@ -67,15 +71,16 @@
     "name": "ブースターパック「師弟の絆」【OP-12】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 17500,
+    "max_price": 17800,
     "prices": {
       "morimori": 16000,
       "homura": 17000,
       "rudeya": 16400,
       "runto": 17500,
       "icchome": 17000,
-      "kaikyo": 15800,
       "oku": 17000,
+      "kaikyo": 15800,
+      "collect_tendo": 17800,
       "shinsoku": 16800
     }
   },
@@ -90,8 +95,9 @@
       "rudeya": 32500,
       "runto": 39000,
       "icchome": 38000,
-      "kaikyo": 31000,
       "oku": 38000,
+      "kaikyo": 31000,
+      "collect_tendo": 38000,
       "shinsoku": 36300
     }
   },
@@ -107,6 +113,7 @@
       "runto": 12000,
       "icchome": 12000,
       "oku": 12000,
+      "collect_tendo": 12000,
       "shinsoku": 11300
     }
   },
@@ -114,15 +121,16 @@
     "name": "ブースターパック「新たなる皇帝」【OP-09】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 22500,
+    "max_price": 22800,
     "prices": {
       "morimori": 21000,
       "homura": 22000,
       "rudeya": 21200,
       "runto": 22500,
       "icchome": 21500,
-      "kaikyo": 15500,
       "oku": 22000,
+      "kaikyo": 15500,
+      "collect_tendo": 22800,
       "shinsoku": 21200
     }
   },
@@ -137,8 +145,9 @@
       "rudeya": 10600,
       "runto": 10800,
       "icchome": 11000,
-      "kaikyo": 10000,
       "oku": 10000,
+      "kaikyo": 10000,
+      "collect_tendo": 10500,
       "shinsoku": 10900
     }
   },
@@ -153,8 +162,9 @@
       "rudeya": 18700,
       "runto": 19800,
       "icchome": 20000,
-      "kaikyo": 16000,
       "oku": 20000,
+      "kaikyo": 16000,
+      "collect_tendo": 19800,
       "shinsoku": 18500
     }
   },
@@ -170,6 +180,7 @@
       "runto": 23000,
       "icchome": 21500,
       "oku": 23000,
+      "collect_tendo": 20000,
       "shinsoku": 22100
     }
   },
@@ -185,6 +196,7 @@
       "runto": 64800,
       "icchome": 55000,
       "oku": 62000,
+      "collect_tendo": 63000,
       "shinsoku": 61700
     }
   },
@@ -199,8 +211,9 @@
       "rudeya": 21000,
       "runto": 21000,
       "icchome": 20000,
-      "kaikyo": 17500,
       "oku": 20500,
+      "kaikyo": 17500,
+      "collect_tendo": 20700,
       "shinsoku": 19600
     }
   },
@@ -216,6 +229,7 @@
       "runto": 18500,
       "icchome": 18500,
       "oku": 18500,
+      "collect_tendo": 18700,
       "shinsoku": 17700
     }
   },
@@ -230,8 +244,9 @@
       "rudeya": 25200,
       "runto": 25000,
       "icchome": 22000,
-      "kaikyo": 18500,
       "oku": 24000,
+      "kaikyo": 18500,
+      "collect_tendo": 24200,
       "shinsoku": 23000
     }
   },
@@ -239,7 +254,7 @@
     "name": "ブースターパック「ROMANCE DAWN」【OP-01】",
     "category": "op",
     "retail_price": 4752,
-    "max_price": 41000,
+    "max_price": 41500,
     "prices": {
       "morimori": 40000,
       "homura": 40500,
@@ -247,6 +262,7 @@
       "runto": 41000,
       "icchome": 40000,
       "oku": 40500,
+      "collect_tendo": 41500,
       "shinsoku": 38400
     }
   },
@@ -261,8 +277,9 @@
       "rudeya": 13000,
       "runto": 14500,
       "icchome": 13500,
-      "kaikyo": 12300,
       "oku": 14000,
+      "kaikyo": 12300,
+      "collect_tendo": 14000,
       "shinsoku": 12400
     }
   },
@@ -277,8 +294,9 @@
       "rudeya": 20800,
       "runto": 23000,
       "icchome": 22500,
-      "kaikyo": 20000,
       "oku": 21000,
+      "kaikyo": 20000,
+      "collect_tendo": 22000,
       "shinsoku": 19800
     }
   },
@@ -294,6 +312,7 @@
       "runto": 38000,
       "icchome": 35000,
       "oku": 36000,
+      "collect_tendo": 37000,
       "shinsoku": 34700
     }
   },
@@ -308,8 +327,9 @@
       "rudeya": 21000,
       "runto": 23000,
       "icchome": 23000,
-      "kaikyo": 18000,
       "oku": 21000,
+      "kaikyo": 18000,
+      "collect_tendo": 22800,
       "shinsoku": 21200
     }
   },
@@ -324,8 +344,9 @@
       "rudeya": 10200,
       "runto": 11600,
       "icchome": 11000,
-      "kaikyo": 9500,
       "oku": 11000,
+      "kaikyo": 9500,
+      "collect_tendo": 10000,
       "shinsoku": 10800
     }
   },
@@ -333,14 +354,15 @@
     "name": "プレミアムブースター「ONE PIECE CARD THE BEST」【PRB-01】",
     "category": "prb",
     "retail_price": 5500,
-    "max_price": 21500,
+    "max_price": 21700,
     "prices": {
       "homura": 21500,
       "rudeya": 20500,
       "runto": 21500,
       "icchome": 21000,
-      "kaikyo": 17000,
       "oku": 21000,
+      "kaikyo": 17000,
+      "collect_tendo": 21700,
       "shinsoku": 20300
     }
   },
