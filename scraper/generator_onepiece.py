@@ -536,6 +536,12 @@ def generate_onepiece_box_pages(products: list[MasterProduct], update_date: str)
         box_overview = (
             f'<h3 class="section-title">{_esc(p.name)}の買取について</h3>'
             f'<p class="product-desc">{"".join(parts)}</p>')
+        # 対応する当たりカードガイド記事があれば相互リンク(内部リンク強化)
+        if (PROJECT_ROOT / "onepiece" / f"{slug}-atari-guide.html").exists():
+            box_overview += (
+                f'<p class="product-desc" style="margin-top:6px">'
+                f'▶ 詳しくは <a href="/onepiece/{slug}-atari-guide.html" style="color:var(--accent);font-weight:700">'
+                f'{_esc(p.name)}の当たりカードランキング・買取相場・封入率ガイド</a> で解説しています。</p>')
 
         page = template
         for k, v in {
