@@ -122,6 +122,7 @@ def _nav(current_slug: str, articles: list) -> str:
             f'<div class="article-nav-title">ワンピ買取</div>\n'
             f'<a href="/onepiece">買取価格比較トップ</a>\n'
             f'<a href="weekly.html">📊 週間値動きランキング</a>\n'
+            f'<a href="weekly/index.html">📚 週間値動き記事アーカイブ</a>\n'
             f'<div class="article-nav-sub">📘 BOX掘り下げガイド</div>\n{links}</nav>')
 
 
@@ -132,7 +133,8 @@ def _mobile_nav(articles: list) -> str:
     return (f'<nav class="mobile-footer-nav">\n<div class="mfn-title">📚 他のページを見る</div>\n'
             f'<div class="mfn-section"><div class="mfn-section-title">📘 BOX掘り下げガイド</div>\n{links}</div>\n'
             f'<div class="mfn-section"><div class="mfn-section-title">📰 ワンピ買取</div>\n'
-            f'<a href="/onepiece">買取価格比較トップ</a>\n<a href="weekly.html">📊 週間値動きランキング</a>\n</div>\n</nav>')
+            f'<a href="/onepiece">買取価格比較トップ</a>\n<a href="weekly.html">📊 週間値動きランキング</a>\n'
+            f'<a href="weekly/index.html">📚 週間値動き記事アーカイブ</a>\n</div>\n</nav>')
 
 
 def _render(a: dict, articles: list, box: dict) -> str:

@@ -82,7 +82,10 @@ def _article_links_block() -> str:
     if not existing:
         return ""
     pinned = existing[:3]        # 新しい順(リスト先頭)の3枚を常時表示
-    candidates = existing[3:]    # 残りはJSでランダムに1枚だけ表示
+    candidates = list(existing[3:])  # 残りはJSでランダムに1枚だけ表示
+    # ポケカ同様、週間値動きランキングもローテーション候補に含める
+    candidates.insert(0, ("weekly.html", "【今週】ワンピBOX 週間値動きランキング",
+                          "最大11店舗の実データで直近7日間の値上がり・値下がりBOXを毎日自動更新。"))
 
     def _card(f: str, t: str, d: str, rand: bool) -> str:
         cls = "blog-card blog-random" if rand else "blog-card"
@@ -236,9 +239,10 @@ def generate_onepiece_html(products: list[MasterProduct]) -> str:
     output_path.write_text(html, encoding="utf-8")
     logger.info("Generated %s (updated: %s)", output_path, update_date)
 
-    # 個別BOXページ + 週間ランキングページ
+    # 個別BOXページ + 週間ランキングページ + 週次アーカイブ記事
     generate_onepiece_box_pages(products, update_date)
     generate_onepiece_weekly(products, update_date)
+    generate_onepiece_weekly_articles(products)
 
     # sitemap.xml にワンピ系URLを追記(ポケカ generator が全書換えした直後に呼ばれる)
     _append_onepiece_sitemap(products)
@@ -295,6 +299,13 @@ def _append_onepiece_sitemap(products: list[MasterProduct]) -> None:
     # BOX掘り下げ記事(onepiece/*-atari-guide.html)を自動収録
     for art in sorted((PROJECT_ROOT / "onepiece").glob("*-atari-guide.html")):
         blocks.append(_url(f"/onepiece/{art.name}", "weekly", "0.8"))
+
+    # 週次値動きアーカイブ記事(onepiece/weekly/*.html)を自動収録
+    wk_dir = PROJECT_ROOT / "onepiece" / "weekly"
+    if wk_dir.exists():
+        for wf in sorted(wk_dir.glob("*.html")):
+            freq = "monthly" if wf.stem not in ("index",) else "weekly"
+            blocks.append(_url(f"/onepiece/weekly/{wf.name}", freq, "0.6"))
 
     injection = "".join(blocks)
     xml = xml.replace("</urlset>", injection + "</urlset>")
@@ -615,12 +626,12 @@ def _weekly_summary_block(products: list[MasterProduct]) -> str:
     ups = [c for c in ch if c["change"] > 0][:3]
     downs = [c for c in ch if c["change"] < 0][-3:]
     def row(c):
-        sign = "+" if c["change"] > 0 else ""
+        sign = "+" if c["change"] > 0 else "-"
         col = "#16a34a" if c["change"] > 0 else "#dc2626"
         return (f'<a href="onepiece/box/{c["slug"]}.html" style="display:flex;justify-content:space-between;'
                 f'padding:8px 12px;border-bottom:1px solid #f3f4f6;text-decoration:none;color:inherit">'
                 f'<span>{_esc(c["name"])}</span><span style="color:{col};font-weight:700">'
-                f'{sign}{_format_price(c["change"])} ({sign}{c["pct"]:.1f}%)</span></a>')
+                f'{sign}{_format_price(abs(c["change"]))} ({sign}{abs(c["pct"]):.1f}%)</span></a>')
     body = ""
     if ups:
         body += '<div style="font-weight:700;margin:10px 0 4px;color:#16a34a">📈 値上がり</div>' + "".join(row(c) for c in ups)
@@ -638,14 +649,14 @@ def generate_onepiece_weekly(products: list[MasterProduct], update_date: str) ->
     B = "padding:9px;border:1px solid #e5e7eb"
     rows = []
     for i, c in enumerate(ch, 1):
-        sign = "+" if c["change"] > 0 else ""
+        sign = "+" if c["change"] > 0 else ("-" if c["change"] < 0 else "")
         col = "#16a34a" if c["change"] > 0 else ("#dc2626" if c["change"] < 0 else "#6b7280")
         rows.append(
             f'<tr><td style="{B};text-align:center">{i}</td>'
             f'<td style="{B};text-align:left"><a href="box/{c["slug"]}.html" style="color:#e53935;text-decoration:none">{_esc(c["name"])}</a></td>'
             f'<td style="{B};text-align:center">{_format_price(c["cur"])}</td>'
-            f'<td style="{B};text-align:center;color:{col};font-weight:700">{sign}{_format_price(c["change"])}</td>'
-            f'<td style="{B};text-align:center;color:{col};font-weight:700">{sign}{c["pct"]:.1f}%</td></tr>')
+            f'<td style="{B};text-align:center;color:{col};font-weight:700">{sign}{_format_price(abs(c["change"]))}</td>'
+            f'<td style="{B};text-align:center;color:{col};font-weight:700">{sign}{abs(c["pct"]):.1f}%</td></tr>')
     if not rows:
         table = "<p style='color:#6b7280;font-size:13px'>データ蓄積中です。数日後から値動きが表示されます。</p>"
     else:
@@ -690,9 +701,175 @@ th{{background:#f9fafb}}
 <h2>📊 ワンピBOX 週間値動きランキング</h2>
 <div class="upd">更新: {update_date} ／ 7日前比・最大11店舗の最高買取価格ベース</div>
 {table}
+<a class="back" href="weekly/index.html">📚 過去の週間値動き記事アーカイブ</a>
 <a class="back" href="/onepiece">← ワンピ買取比較に戻る</a>
 </div>
 </body></html>"""
     (PROJECT_ROOT / "onepiece").mkdir(exist_ok=True)
     (PROJECT_ROOT / "onepiece" / "weekly.html").write_text(page, encoding="utf-8")
     logger.info("Generated onepiece/weekly.html (%d ranked)", len(rows))
+
+
+# ===== 週間値動きランキング記事(アーカイブ)の自動生成 =====
+_WK_AFFILIATE = (
+    '<div class="ad" style="text-align:center;padding:12px 0">'
+    '<a href="https://h.accesstrade.net/sp/cc?rk=0100p4pe00opz3" rel="nofollow" referrerpolicy="no-referrer-when-downgrade">'
+    '<img src="https://h.accesstrade.net/sp/rr?rk=0100p4pe00opz3" alt="トレトク" border="0" width="640" height="100" loading="lazy" decoding="async" style="max-width:100%;height:auto"></a></div>'
+    '<div class="ad" style="text-align:center;padding:12px 0">'
+    '<a href="https://h.accesstrade.net/sp/cc?rk=0100pumf00opz3" rel="nofollow" referrerpolicy="no-referrer-when-downgrade">'
+    '<img src="https://h.accesstrade.net/sp/rr?rk=0100pumf00opz3" alt="オリくじ" border="0" width="728" height="90" loading="lazy" decoding="async" style="max-width:100%;height:auto"></a></div>'
+)
+
+_WK_STYLE = (
+    'body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans","Yu Gothic",sans-serif;background:#f6f7fb;color:#111827;line-height:1.7;margin:0}'
+    '.gswitch{display:flex;align-items:center;justify-content:center;gap:8px;padding:11px 16px;font-size:14px;font-weight:800;text-decoration:none;color:#fff;background:linear-gradient(135deg,#4aa3ff,#1e88e5)}'
+    '.header{height:52px;display:flex;align-items:center;justify-content:center;background:#fff;border-bottom:1px solid #e5e7eb}'
+    '.header h1{font-size:17px;font-weight:700;background:linear-gradient(135deg,#ff6b6b,#e53935);-webkit-background-clip:text;-webkit-text-fill-color:transparent}'
+    '.header a{text-decoration:none}.wrap{max-width:840px;margin:0 auto;padding:26px 16px 48px}'
+    '.breadcrumb{font-size:12px;color:#6b7280;margin-bottom:16px}.breadcrumb a{color:#e53935;text-decoration:none}'
+    'h2{font-size:20px;margin:0 0 4px}.upd{font-size:12px;color:#6b7280;margin-bottom:18px}'
+    'h3{font-size:16px;margin:24px 0 8px;padding-bottom:5px;border-bottom:2px solid #e53935}'
+    'table{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0 4px}'
+    'th{background:#f9fafb;padding:9px;border:1px solid #e5e7eb}td{padding:9px;border:1px solid #e5e7eb;text-align:center}'
+    'td.nm{text-align:left}td.nm a{color:#e53935;text-decoration:none}'
+    'p{font-size:14px;margin:14px 0}.disc{background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:13px 16px;margin:20px 0;font-size:12px;color:#9a3412}'
+    '.back{display:inline-block;margin-top:18px;color:#e53935;text-decoration:none;font-weight:600;margin-right:16px}'
+    '.ft{text-align:center;padding:22px 16px;font-size:11px;color:#6b7280}.ft a{color:#e53935}'
+)
+
+
+def _wk_change_table(title: str, rows: list[dict], up: bool) -> str:
+    if not rows:
+        return ""
+    trs = ""
+    for i, c in enumerate(rows, 1):
+        sign = "+" if c["change"] > 0 else "-"
+        amt = _format_price(abs(c["change"]))
+        col = "#16a34a" if up else "#dc2626"
+        trs += (f'<tr><td>{i}</td>'
+                f'<td class="nm"><a href="box/{c["slug"]}.html">{_esc(c["name"])}</a></td>'
+                f'<td>{_format_price(c["cur"])}</td>'
+                f'<td style="color:{col};font-weight:700">{sign}{amt}</td>'
+                f'<td style="color:{col};font-weight:700">{sign}{abs(c["pct"]):.1f}%</td></tr>')
+    return (f'<h3>{title}</h3><table><tr><th>#</th><th>BOX</th><th>現在の最高値</th>'
+            f'<th>変化</th><th>変化率</th></tr>{trs}</table>')
+
+
+def generate_onepiece_weekly_articles(products: list[MasterProduct]) -> None:
+    """onepiece/weekly/YYYY-wWW.html(週次アーカイブ記事)+ index.html を生成。
+
+    ISO週ごとに1本。当週分は毎回上書き、過去週はアーカイブとして残す。
+    値動きが1件も無い(履歴が浅い等)場合は当週記事の生成のみスキップし、
+    アーカイブindexは常に生成する(weekly.htmlからのリンク切れ防止)。
+    data/history_op が貯まるほど内容が充実する。
+    """
+    wk_dir = PROJECT_ROOT / "onepiece" / "weekly"
+    wk_dir.mkdir(parents=True, exist_ok=True)
+    # change==0 は掲載しない(履歴が浅く前日比が全て0の初期はアーカイブindexのみ)
+    changes = [c for c in _weekly_changes(products) if c["change"] != 0]
+    if not changes:
+        logger.info("ONE PIECE weekly: no nonzero changes yet, index only")
+        _write_onepiece_weekly_index(wk_dir, None)
+        return
+
+    now = datetime.now(JST)
+    iso = now.isocalendar()
+    week_id = f"{iso[0]}-w{iso[1]:02d}"
+    date_txt = now.strftime("%Y/%m/%d %H:%M")
+    ups = [c for c in changes if c["change"] > 0][:10]
+    downs = sorted([c for c in changes if c["change"] < 0], key=lambda x: x["change"])[:10]
+
+    top_up = ups[0] if ups else None
+    top_down = downs[0] if downs else None
+    lead = []
+    if top_up:
+        lead.append(f'今週の値上がり首位は<strong>{_esc(top_up["name"])}</strong>'
+                    f'(+{_format_price(top_up["change"])}／+{top_up["pct"]:.1f}%)')
+    if top_down:
+        lead.append(f'値下がり首位は<strong>{_esc(top_down["name"])}</strong>'
+                    f'({_format_price(top_down["change"])}／{top_down["pct"]:.1f}%)')
+    lead_txt = "、".join(lead) + "でした。" if lead else "今週の主要な値動きをまとめました。"
+
+    blog_ld = json.dumps({
+        "@context": "https://schema.org", "@type": "BlogPosting",
+        "headline": f"ワンピBOX 週間値動きランキング【{iso[0]}年 第{iso[1]}週】",
+        "datePublished": now.strftime("%Y-%m-%d"), "dateModified": now.strftime("%Y-%m-%d"),
+        "author": {"@type": "Organization", "name": "ワンピ買取チェッカー編集部", "url": "https://pokeca-box-hikaku.com/onepiece"},
+        "publisher": {"@type": "Organization", "name": "ワンピ買取チェッカー", "logo": {"@type": "ImageObject", "url": "https://pokeca-box-hikaku.com/ogp.png"}},
+        "mainEntityOfPage": {"@type": "WebPage", "@id": f"https://pokeca-box-hikaku.com/onepiece/weekly/{week_id}.html"},
+        "inLanguage": "ja",
+    }, ensure_ascii=False)
+
+    page = f"""<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ワンピースカード未開封BOXの週間買取価格変化ランキング【{iso[0]}年第{iso[1]}週】。値上がり・値下がりBOXを最大11店舗の実データでまとめた週次レポート。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://pokeca-box-hikaku.com/onepiece/weekly/{week_id}.html">
+<meta property="og:title" content="ワンピBOX 週間値動きランキング【{iso[0]}年 第{iso[1]}週】｜ワンピ買取チェッカー">
+<meta property="og:description" content="値上がり・値下がりワンピBOXを最大11店舗の実データでまとめた週次レポート。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://pokeca-box-hikaku.com/onepiece/weekly/{week_id}.html">
+<meta property="og:image" content="https://pokeca-box-hikaku.com/ogp.jpg">
+<meta property="og:site_name" content="ワンピ買取チェッカー">
+<meta name="twitter:card" content="summary_large_image">
+<title>ワンピBOX 週間値動きランキング【{iso[0]}年 第{iso[1]}週】｜ワンピ買取チェッカー</title>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831186943118320" crossorigin="anonymous"></script>
+<script type="application/ld+json">{blog_ld}</script>
+<style>{_WK_STYLE}</style></head><body>
+<a class="gswitch" href="/">◀ ポケモンカードの買取比較はこちら</a>
+<div class="header"><a href="/onepiece"><h1>ワンピ買取チェッカー</h1></a></div>
+<div class="wrap">
+<div class="breadcrumb"><a href="/">ホーム</a> &gt; <a href="/onepiece">ワンピ買取チェッカー</a> &gt; <a href="index.html">週間値動き記事</a> &gt; {iso[0]}年 第{iso[1]}週</div>
+<h2>📊 ワンピBOX 週間値動きランキング【{iso[0]}年 第{iso[1]}週】</h2>
+<div class="upd">更新: {date_txt} ／ 7日前比・最大11店舗の最高買取価格ベース</div>
+<p>{lead_txt} 各BOX名をタップすると店舗別の最新買取価格・価格推移グラフを確認できます。</p>
+{_wk_change_table("📈 値上がりランキング", ups, True)}
+{_wk_change_table("📉 値下がりランキング", downs, False)}
+<div class="disc"><strong>ご注意:</strong> 本記事の価格は当サイトが最大11店舗から自動取得した未開封BOX買取価格の最高値ベースで、7日前(履歴が浅い場合は取得できた最古)との比較です。相場は日々変動します。売買の判断はご自身の責任で行ってください。</div>
+{_WK_AFFILIATE}
+<a class="back" href="weekly.html">← 最新の週間ランキングへ</a>
+<a class="back" href="index.html">← 週間記事アーカイブ</a>
+<a class="back" href="/onepiece">← ワンピ買取比較トップ</a>
+<div class="ft"><a href="/onepiece">ワンピ買取チェッカー</a> / <a href="/privacy.html">プライバシーポリシー</a></div>
+</div></body></html>"""
+    (wk_dir / f"{week_id}.html").write_text(page, encoding="utf-8")
+    _write_onepiece_weekly_index(wk_dir, week_id)
+    logger.info("Generated onepiece/weekly/%s.html (+index)", week_id)
+
+
+def _write_onepiece_weekly_index(wk_dir: Path, current_week: str | None) -> None:
+    """週次アーカイブindex(onepiece/weekly/index.html)を生成。記事0本でも出す。"""
+    weeks = sorted((f.stem for f in wk_dir.glob("*.html") if f.stem != "index"), reverse=True)
+    if weeks:
+        li = ""
+        for w in weeks:
+            m = re.match(r"(\d{4})-w(\d{1,2})", w)
+            label = f"{m.group(1)}年 第{int(m.group(2))}週" if m else w
+            cur = "（最新）" if w == current_week else ""
+            li += (f'<a href="{w}.html" style="display:block;padding:12px 14px;border-bottom:1px solid #f3f4f6;'
+                   f'text-decoration:none;color:#111827;font-weight:600">📊 {label}の値動きランキング{cur}</a>')
+    else:
+        li = ('<p style="color:#6b7280;font-size:13px">週間の値動き記事はデータ蓄積中です。'
+              '価格履歴が貯まり次第、毎週の値上がり・値下がりレポートを自動掲載します。'
+              '最新の値動きは <a href="../weekly.html" style="color:#e53935">週間ランキング</a> をご覧ください。</p>')
+    idx = f"""<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ワンピースカード未開封BOXの週間値動きランキング記事アーカイブ。過去の値上がり・値下がりレポートを一覧。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://pokeca-box-hikaku.com/onepiece/weekly/index.html">
+<title>ワンピBOX 週間値動きランキング 記事アーカイブ｜ワンピ買取チェッカー</title>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831186943118320" crossorigin="anonymous"></script>
+<style>{_WK_STYLE}</style></head><body>
+<a class="gswitch" href="/">◀ ポケモンカードの買取比較はこちら</a>
+<div class="header"><a href="/onepiece"><h1>ワンピ買取チェッカー</h1></a></div>
+<div class="wrap">
+<div class="breadcrumb"><a href="/">ホーム</a> &gt; <a href="/onepiece">ワンピ買取チェッカー</a> &gt; 週間値動き記事</div>
+<h2>📚 ワンピBOX 週間値動きランキング 記事アーカイブ</h2>
+<div class="upd">最新の週間ランキングは <a href="../weekly.html" style="color:#e53935">こちら</a></div>
+{li}
+<a class="back" href="/onepiece">← ワンピ買取比較トップ</a>
+<div class="ft"><a href="/onepiece">ワンピ買取チェッカー</a> / <a href="/privacy.html">プライバシーポリシー</a></div>
+</div></body></html>"""
+    (wk_dir / "index.html").write_text(idx, encoding="utf-8")
