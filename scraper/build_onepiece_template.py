@@ -161,11 +161,6 @@ t = rep(t, 'href="https://runto666.com/product-category/card/"',
 t = rep(t, 'ポケモンカード未開封BOX 67商品×10店舗',
         'ONE PIECEカード未開封BOX 23商品×11店舗')
 
-# ワンピ版のみFAQ(FAQPage構造化データ)セクションを挿入。ポケカ側template.htmlには出さない。
-# 生成側 generator_onepiece._faq_section() が <!-- {{FAQ_SECTION}} --> を埋める。
-t = rep(t, '<!-- {{RANKING_SUMMARY}} -->',
-        '<!-- {{RANKING_SUMMARY}} -->\n\n<!-- {{FAQ_SECTION}} -->', count=1)
-
 # 2) グローバル文言置換(ブランディング) --------------------------------------
 t = t.replace("ポケモンカードゲーム", "ONE PIECEカードゲーム")
 t = t.replace("ポケモンカード", "ONE PIECEカード")

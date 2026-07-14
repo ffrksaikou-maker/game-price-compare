@@ -152,60 +152,6 @@ def _jsonld(products: list[MasterProduct]) -> str:
     )
 
 
-def _faq_section() -> str:
-    """トップに買取FAQ(可視HTML＋FAQPage構造化データ)を出す。
-
-    FAQPageリッチリザルトは可視コンテンツと一致している必要があるため、
-    同じQ&Aを画面表示とJSON-LDの両方に出力する。内容はサイトの仕組み・
-    未開封BOX買取の一般知識に基づく普遍的なもの。
-    """
-    qa = [
-        ("ワンピースカードのBOX買取価格はどうやって決まりますか？",
-         "未開封BOXの買取価格は、封入されるトップレア（コミックパラレルやスペシャル等）の相場、"
-         "BOXの流通量、発売からの経過期間などで日々変動します。当サイトは最大11店舗の買取価格を"
-         "毎日自動取得し、最高値の店舗を横断比較できます。"),
-        ("シュリンク付きとシュリンクなしで買取価格は違いますか？",
-         "多くの買取店ではシュリンク（外装フィルム）付きの未開封BOXが最も高く評価され、"
-         "シュリンクなしは数%程度下がる場合があります。当サイトの掲載価格は原則として"
-         "シュリンク付き未開封BOXを基準にしています。"),
-        ("OP-16「決戦の刻」など新弾BOXは高く売れますか？",
-         "発売直後の新弾は当たりカードの相場が固まっておらず、初動は高値がつきやすい一方で"
-         "変動も大きい傾向があります。最新の買取相場は各BOXの価格表と価格推移グラフで確認できます。"),
-        ("どの買取店が一番高く買い取ってくれますか？",
-         "弾ごと・時期ごとに最高値の店舗は入れ替わります。当サイトは各BOXごとに全店舗の"
-         "買取価格を並べ、最高値の店舗をハイライト表示しているため、その時点で最も高い店が一目で分かります。"),
-        ("買取価格はどのくらいの頻度で更新されますか？",
-         "1日に複数回、各買取店の公開情報を自動取得して更新しています。更新日時は各ページ上部に"
-         "表示しています。"),
-    ]
-    faq_ld = json.dumps({
-        "@context": "https://schema.org", "@type": "FAQPage",
-        "mainEntity": [
-            {"@type": "Question", "name": q,
-             "acceptedAnswer": {"@type": "Answer", "text": a}}
-            for q, a in qa
-        ],
-    }, ensure_ascii=False)
-    items_html = "".join(
-        f'<details class="faq-item"><summary>{_esc(q)}</summary>'
-        f'<div class="faq-a">{_esc(a)}</div></details>'
-        for q, a in qa
-    )
-    return (
-        '<section class="faq-section" style="max-width:1280px;margin:24px auto 0;padding:0 16px">'
-        '<div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:18px 20px">'
-        '<h2 style="font-size:17px;font-weight:800;margin:0 0 10px">'
-        'ワンピースカードBOX買取に関するよくある質問</h2>'
-        f'{items_html}</div></section>'
-        '<style>.faq-item{border-bottom:1px solid #f3f4f6;padding:4px 0}'
-        '.faq-item summary{cursor:pointer;font-weight:700;font-size:14px;padding:10px 0;list-style:none}'
-        '.faq-item summary::-webkit-details-marker{display:none}'
-        '.faq-item summary::before{content:"Q ";color:#e53935;font-weight:800}'
-        '.faq-a{font-size:13px;color:#374151;line-height:1.8;padding:0 0 12px 1.4em}</style>'
-        '<script type="application/ld+json">' + faq_ld + "</script>"
-    )
-
-
 def _ai_summary(products: list[MasterProduct]) -> str:
     priced = [p for p in products if p.prices]
     n = len(priced)
@@ -230,7 +176,6 @@ def generate_onepiece_html(products: list[MasterProduct]) -> str:
     html = html.replace("{{UPDATE_DATE}}", update_date)
     html = html.replace("<!-- {{BLOG_LINKS}} -->", "")
     html = html.replace("<!-- {{RANKING_SUMMARY}} -->", _weekly_summary_block(products))
-    html = html.replace("<!-- {{FAQ_SECTION}} -->", _faq_section())
 
     output_path.write_text(html, encoding="utf-8")
     logger.info("Generated %s (updated: %s)", output_path, update_date)
