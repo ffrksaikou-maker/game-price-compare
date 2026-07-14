@@ -71,22 +71,33 @@ ONEPIECE_ARTICLES = [
 
 
 def _article_links_block() -> str:
-    """トップに「BOX掘り下げガイド」記事リンクを出す(存在する記事のみ)。"""
+    """トップに記事カードを出す(ポケカ同型: 最新3枚固定+ランダム1枚=計4表示)。
+
+    onepiece-template.html は template.html 由来のため .blog-links CSS と
+    #blogLinks のランダム表示JS(blog-random を1枚だけ表示)を継承している。
+    ポケカ generate_blog_links() と同じ構造を出せばレイアウトが一致する。
+    """
     existing = [(f, t, d) for (f, t, d) in ONEPIECE_ARTICLES
                 if (PROJECT_ROOT / "onepiece" / f).exists()]
     if not existing:
         return ""
-    rows = "".join(
-        f'<a href="onepiece/{f}" style="display:block;padding:12px 14px;'
-        f'border-bottom:1px solid #f3f4f6;text-decoration:none;color:inherit">'
-        f'<div style="font-weight:700;font-size:14px;color:#111827">{_esc(t)}</div>'
-        f'<div style="font-size:12px;color:#6b7280;margin-top:3px;line-height:1.5">{_esc(d)}</div></a>'
-        for (f, t, d) in existing)
-    return (
-        '<div style="max-width:1280px;margin:24px auto 0;padding:0 16px">'
-        '<div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden">'
-        '<div style="font-size:15px;font-weight:800;padding:14px 16px 8px">📘 BOX掘り下げガイド（当たりカード・相場・封入率）</div>'
-        f'{rows}</div></div>')
+    pinned = existing[:3]        # 新しい順(リスト先頭)の3枚を常時表示
+    candidates = existing[3:]    # 残りはJSでランダムに1枚だけ表示
+
+    def _card(f: str, t: str, d: str, rand: bool) -> str:
+        cls = "blog-card blog-random" if rand else "blog-card"
+        style = ' style="display:none"' if rand else ""
+        return (f'  <a href="onepiece/{f}" class="{cls}"{style}'
+                f' onclick="gtag(\'event\',\'blog_click\',{{article:\'onepiece/{f}\'}})">\n'
+                f'    <h3>{_esc(t)}</h3>\n    <p>{_esc(d)}</p>\n  </a>\n')
+
+    html = '<div class="blog-links" id="blogLinks">\n'
+    for f, t, d in candidates:
+        html += _card(f, t, d, True)
+    for f, t, d in pinned:
+        html += _card(f, t, d, False)
+    html += '</div>'
+    return html
 
 
 def _slug(name: str) -> str:
