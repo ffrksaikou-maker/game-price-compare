@@ -81,6 +81,45 @@ A: いいえ、本サイトは**未開封BOX**の買取価格に特化してい�
 **Q: どの店舗が一番高く買い取ってくれますか?**
 A: BOX商品によって最高値の店舗は変動します。直近の傾向は [週間上昇ランキング](https://pokeca-box-hikaku.com/ranking.html) と各BOX個別ページでご確認ください。
 
+## ワンピースカード買取比較 (ワンピ買取チェッカー / /onepiece)
+
+> ONE PIECEカードゲーム未開封BOXの買取価格を最大11店舗横断で比較できる無料ページ。同ドメイン内のワンピース版。
+
+ワンピ買取チェッカー (https://pokeca-box-hikaku.com/onepiece) は、ONE PIECEカードゲームの未開封BOX（通常ブースターOP / エクストラブースターEB / プレミアムブースターPRB / スタートデッキ）の買取価格を最大11店舗から自動収集し横断比較する無料ページです。ポケカ版と同一運営・同一ドメイン。
+
+収録: ONE PIECEカード未開封BOX 23商品（OP-01〜16 / EB-01〜04 / PRB-01〜02 / ST-30）
+
+### 主要ページ
+- [ワンピBOX買取価格比較トップ](https://pokeca-box-hikaku.com/onepiece): 全23BOXの買取価格を最大11店舗で一覧比較
+- [週間値動きランキング](https://pokeca-box-hikaku.com/onepiece/weekly.html): 直近7日間の値上がり・値下がりBOXを毎日更新
+- [週間値動き記事アーカイブ](https://pokeca-box-hikaku.com/onepiece/weekly/index.html): 週次の値動きレポート(ISO週ごと自動生成)
+
+### 当たりカードガイド (弾別23本 / 当たり・買取相場・封入率・見分け方)
+各弾の当たりカードランキング・買取相場・レア別封入率・開封前後の見分け方・BOX開封の期待値を、複数ソースと当サイト実データで整理した解説記事です。カード相場は2026年7月時点の目安。
+- [決戦の刻(OP-16) 当たりカードランキング](https://pokeca-box-hikaku.com/onepiece/op-16-atari-guide.html): 看板サカズキ コミックパラレル
+- [神の島の冒険(OP-15) 当たりカードランキング](https://pokeca-box-hikaku.com/onepiece/op-15-atari-guide.html): 看板エネル コミックパラレル
+- [蒼海の七傑(OP-14) 当たりカードランキング](https://pokeca-box-hikaku.com/onepiece/op-14-atari-guide.html): 看板バギー 3周年スペシャル(金)
+- [受け継がれる意志(OP-13) 当たりカードランキング](https://pokeca-box-hikaku.com/onepiece/op-13-atari-guide.html): 看板モンキー・D・ルフィ レッドコミパラ
+- [師弟の絆(OP-12) 当たりカードランキング](https://pokeca-box-hikaku.com/onepiece/op-12-atari-guide.html): 看板マーシャル・D・ティーチ 3周年SP(金)
+- [EGGHEAD CRISIS(EB-04) 当たりカードランキング](https://pokeca-box-hikaku.com/onepiece/eb-04-atari-guide.html): 看板海軍の英雄コビー コミックパラレル
+- [Heroines Edition(EB-03) 当たりカードランキング](https://pokeca-box-hikaku.com/onepiece/eb-03-atari-guide.html): 看板ウタ SEC コミックパラレル
+- [神速の拳(OP-11) 当たりカードランキング](https://pokeca-box-hikaku.com/onepiece/op-11-atari-guide.html): 看板モンキー・D・ルフィ 3周年スペシャル(金)
+- [王族の血統(OP-10) 当たりカードランキング](https://pokeca-box-hikaku.com/onepiece/op-10-atari-guide.html): 看板トラファルガー・ロー コミックパラレル
+- [新たなる皇帝(OP-09) 当たりカードランキング](https://pokeca-box-hikaku.com/onepiece/op-09-atari-guide.html): 看板ゴール・D・ロジャー ゴールドコミックパラレル
+- [二つの伝説(OP-08) 当たりカードランキング](https://pokeca-box-hikaku.com/onepiece/op-08-atari-guide.html): 看板シルバーズ・レイリー コミックパラレル
+- [500年後の未来(OP-07) 当たりカードランキング](https://pokeca-box-hikaku.com/onepiece/op-07-atari-guide.html): 看板ボア・ハンコック コミックパラレル
+- [双璧の覇者(OP-06) 当たりカードランキング](https://pokeca-box-hikaku.com/onepiece/op-06-atari-guide.html): 看板ロロノア・ゾロ コミックパラレル
+- [新時代の主役(OP-05) 当たりカードランキング](https://pokeca-box-hikaku.com/onepiece/op-05-atari-guide.html): 看板モンキー・D・ルフィ(ギア5ニカ) コミックパラレル
+- [謀略の王国(OP-04) 当たりカードランキング](https://pokeca-box-hikaku.com/onepiece/op-04-atari-guide.html): 看板サボ コミックパラレル
+- [強大な敵(OP-03) 当たりカードランキング](https://pokeca-box-hikaku.com/onepiece/op-03-atari-guide.html): 看板そげキング コミックパラレル
+- [頂上決戦(OP-02) 当たりカードランキング](https://pokeca-box-hikaku.com/onepiece/op-02-atari-guide.html): 看板ポートガス・D・エース コミックパラレル
+- [ROMANCE DAWN(OP-01) 当たりカードランキング](https://pokeca-box-hikaku.com/onepiece/op-01-atari-guide.html): 看板シャンクス コミックパラレル
+- [Anime 25th collection(EB-02) 当たりカードランキング](https://pokeca-box-hikaku.com/onepiece/eb-02-atari-guide.html): 看板モンキー・D・ルフィ(ギア2) SEC コミックパラレル
+- [メモリアルコレクション(EB-01) 当たりカードランキング](https://pokeca-box-hikaku.com/onepiece/eb-01-atari-guide.html): 看板トニートニー・チョッパー コミックパラレル
+- [THE BEST vol.2(PRB-02) 当たりカードランキング](https://pokeca-box-hikaku.com/onepiece/prb-02-atari-guide.html): 看板サンジ コミックパラレル
+- [THE BEST(PRB-01) 当たりカードランキング](https://pokeca-box-hikaku.com/onepiece/prb-01-atari-guide.html): 看板ゴッドパック(コミックパラレル10枚)
+- [スタートデッキEX ルフィ＆エース(ST-30) 当たりカードランキング](https://pokeca-box-hikaku.com/onepiece/st-30-atari-guide.html): 看板ルフィ＆エース リーダーパラレル(白黒)
+
 ## サイト運営者
 
 ポケカ買取チェッカー編集部

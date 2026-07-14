@@ -45,29 +45,16 @@ SHOP_OP_URLS = {
 
 # ===== BOX掘り下げ記事のレジストリ(トップからの導線+sitemap用) =====
 # (ファイル名, タイトル, リード文)。ファイルが存在する記事だけリンクされる。
-ONEPIECE_ARTICLES = [
-    ("op-16-atari-guide.html",
-     "決戦の刻(OP-16) 当たりカードランキング・買取相場・封入率",
-     "看板サカズキ コミパラ約41万円、日本版初のトレジャーレアを実データで解説"),
-    ("op-15-atari-guide.html",
-     "神の島の冒険(OP-15) 当たりカードランキング・買取相場・封入率",
-     "看板エネル コミパラ約15万円、ハンコック・ルフィのSPを実データで解説"),
-    ("op-14-atari-guide.html",
-     "蒼海の七傑(OP-14) 当たりカードランキング・買取相場・封入率",
-     "3周年バギーSP金/銀、ミホーク コミパラ、王下七武海テーマの当たりを解説"),
-    ("op-13-atari-guide.html",
-     "受け継がれる意志(OP-13) 当たりカードランキング・買取相場・封入率",
-     "新レア・レッドコミパラのルフィ約170万円、エース・サボ、ゴッドパックを解説"),
-    ("op-12-atari-guide.html",
-     "師弟の絆(OP-12) 当たりカードランキング・買取相場・封入率",
-     "3周年ティーチSP金/銀、ジュエリー・ボニー コミパラの当たりを実データで解説"),
-    ("eb-04-atari-guide.html",
-     "EGGHEAD CRISIS(EB-04) 当たりカードランキング・買取相場・封入率",
-     "唯一のコミパラ コビー初動約9万円、ゾロSPなどエッグヘッド編の当たりを解説"),
-    ("eb-03-atari-guide.html",
-     "Heroines Edition(EB-03) 当たりカードランキング・買取相場・封入率",
-     "唯一のコミパラ ウタ、ハンコック・ウタ・ナミのSPなど女性キャラ特集弾を解説"),
-]
+# トップのブログカード用レジストリは記事データ(article_data_onepiece)から自動生成。
+# (ファイル名, カードタイトル, リード文)。記事を追加すればここも自動で増える。
+try:
+    from scraper.article_data_onepiece import ARTICLES as _OP_ARTICLE_DATA
+    ONEPIECE_ARTICLES = [
+        (f"{a['slug']}-atari-guide.html", a["crumb"], a["og_desc"])
+        for a in _OP_ARTICLE_DATA
+    ]
+except Exception:  # 記事データが読めない環境でも生成は続行
+    ONEPIECE_ARTICLES = []
 
 
 def _article_links_block() -> str:
@@ -671,12 +658,33 @@ def generate_onepiece_weekly(products: list[MasterProduct], update_date: str) ->
         table = ('<table style="width:100%;border-collapse:collapse;font-size:14px">'
                  + head + "".join(rows) + '</table>')
 
+    # 構造化データ(ランキングItemList + パンくず)
+    wk_lds = [{
+        "@context": "https://schema.org", "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://pokeca-box-hikaku.com/"},
+            {"@type": "ListItem", "position": 2, "name": "ワンピ買取チェッカー", "item": "https://pokeca-box-hikaku.com/onepiece"},
+            {"@type": "ListItem", "position": 3, "name": "週間値動きランキング"},
+        ]}]
+    if ch:
+        wk_lds.insert(0, {
+            "@context": "https://schema.org", "@type": "ItemList",
+            "name": "ワンピBOX 週間値動きランキング",
+            "itemListElement": [
+                {"@type": "ListItem", "position": i, "name": c["name"],
+                 "url": f"https://pokeca-box-hikaku.com/onepiece/box/{c['slug']}.html"}
+                for i, c in enumerate(ch[:20], 1)],
+        })
+    wk_jsonld = "\n".join('<script type="application/ld+json">'
+                          + json.dumps(d, ensure_ascii=False) + "</script>" for d in wk_lds)
+
     page = f"""<!DOCTYPE html>
 <html lang="ja"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="ONE PIECEカード未開封BOXの週間買取価格変化ランキング。値上がり・値下がりBOXを最大11店舗の実データで毎日更新。">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://pokeca-box-hikaku.com/onepiece/weekly.html">
+{wk_jsonld}
 <meta property="og:title" content="ワンピBOX 週間値動きランキング｜ワンピ買取チェッカー">
 <meta property="og:description" content="ONE PIECEカード未開封BOXの週間買取価格変化ランキング。値上がり・値下がりBOXを最大11店舗の実データで毎日更新。">
 <meta property="og:type" content="article">
