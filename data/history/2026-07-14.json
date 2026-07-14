@@ -102,7 +102,7 @@
     "name": "MEGA 拡張パック「メガブレイブ」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 12200,
+    "max_price": 12500,
     "prices": {
       "morimori": 10800,
       "homura": 12200,
@@ -113,7 +113,7 @@
       "kaikyo": 11500,
       "sommelier": 12200,
       "collect_tendo": 12100,
-      "shinsoku": 11800
+      "shinsoku": 12500
     }
   },
   {
@@ -140,7 +140,6 @@
     "retail_price": 5800,
     "max_price": 26300,
     "prices": {
-      "morimori": 17000,
       "homura": 26000,
       "rudeya": 24500,
       "icchome": 19000,
@@ -154,7 +153,6 @@
     "retail_price": 5800,
     "max_price": 22500,
     "prices": {
-      "morimori": 15000,
       "homura": 22000,
       "rudeya": 21000,
       "icchome": 15000,
@@ -205,7 +203,7 @@
       "icchome": 26000,
       "oku": 26000,
       "collect_tendo": 26400,
-      "shinsoku": 26000
+      "shinsoku": 26100
     }
   },
   {
@@ -221,7 +219,7 @@
       "icchome": 20300,
       "oku": 19700,
       "collect_tendo": 20600,
-      "shinsoku": 19800
+      "shinsoku": 20000
     }
   },
   {
@@ -308,7 +306,7 @@
       "kaikyo": 8700,
       "sommelier": 12200,
       "collect_tendo": 12100,
-      "shinsoku": 12000
+      "shinsoku": 12100
     }
   },
   {
@@ -360,7 +358,7 @@
       "kaikyo": 12000,
       "sommelier": 14200,
       "collect_tendo": 14500,
-      "shinsoku": 14100
+      "shinsoku": 14200
     }
   },
   {
@@ -383,7 +381,7 @@
     "name": "SV 拡張パック「サイバージャッジ」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 12000,
+    "max_price": 12100,
     "prices": {
       "morimori": 9900,
       "homura": 12000,
@@ -392,7 +390,7 @@
       "icchome": 11800,
       "oku": 12000,
       "collect_tendo": 12000,
-      "shinsoku": 12000
+      "shinsoku": 12100
     }
   },
   {
@@ -511,7 +509,7 @@
       "kaikyo": 10000,
       "sommelier": 13000,
       "collect_tendo": 12200,
-      "shinsoku": 12000
+      "shinsoku": 12100
     }
   },
   {
@@ -963,7 +961,7 @@
       "kaikyo": 17500,
       "sommelier": 22000,
       "collect_tendo": 20500,
-      "shinsoku": 19500
+      "shinsoku": 19000
     }
   },
   {
