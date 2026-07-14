@@ -89,6 +89,17 @@ t = rep(t, '  tr.cat-ss:hover td.pn{background:#f8bbd0 !important}',
 # 切替バナー用CSS
 t = rep(t, UPD_CSS, UPD_CSS + BANNER_CSS, count=1)
 
+# モバイルで商品名の弾番号【OP-XX】が省略(…)で見切れるので折り返し表示にする。
+# 768px と 480px の td.pn ルールを white-space:normal に置換。
+t = rep(t,
+        '  td.pn{position:sticky;left:0;z-index:10;min-width:140px;max-width:180px;overflow:hidden;text-overflow:ellipsis;font-size:11px;padding-left:8px}',
+        '  td.pn{position:sticky;left:0;z-index:10;min-width:150px;max-width:210px;white-space:normal;word-break:break-word;line-height:1.3;font-size:11px;padding-left:8px}',
+        count=1)
+t = rep(t,
+        '  td.pn{min-width:120px;max-width:150px;font-size:10px}',
+        '  td.pn{min-width:130px;max-width:170px;font-size:10px;white-space:normal;word-break:break-word;line-height:1.3}',
+        count=1)
+
 # シリーズ絞り込みボタン
 t = rep(t,
         '''    <button class="fb" data-f="cat" data-v="all">ALL</button>
