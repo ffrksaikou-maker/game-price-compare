@@ -1,8 +1,8 @@
 """ONE PIECE版ページ(onepiece.html)を onepiece-template.html から生成する軽量ジェネレータ。
 
-ポケカ側 generator.py は無改修のまま。共通の店舗ID(SHOP_IDS)だけ流用する。
-最小構成のため個別BOXページ・記事・ランキングは生成しない(プレースホルダは空で埋める)。
-価格履歴は data/history_op に保存し、前日比(y)に使う。
+ポケカ側 generator.py は無改修のまま。共通の店舗ID/店名/価格整形だけ流用する。
+個別BOXページ(onepiece/box/*.html)・スニダングラフ・週間ランキングを生成する。
+価格履歴は data/history_op に保存し、前日比(y)とグラフに使う。
 """
 
 from __future__ import annotations
@@ -10,10 +10,11 @@ from __future__ import annotations
 import json
 import logging
 import re
+from html import escape as _esc
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
-from .generator import SHOP_IDS
+from .generator import SHOP_IDS, SHOP_NAMES, _format_price
 from .matcher import MasterProduct
 
 logger = logging.getLogger(__name__)
@@ -21,6 +22,26 @@ logger = logging.getLogger(__name__)
 JST = timezone(timedelta(hours=9))
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 HISTORY_OP_DIR = PROJECT_ROOT / "data" / "history_op"
+SNKRDUNK_OP_DIR = PROJECT_ROOT / "data" / "snkrdunk_op"
+BOX_DIR = PROJECT_ROOT / "onepiece" / "box"
+
+CATEGORY_LABELS = {
+    "op": "通常ブースター", "eb": "エクストラブースター",
+    "prb": "プレミアムブースター", "st": "スタートデッキ",
+}
+# 店舗別ワンピ買取ページ(判明分。無い店は汎用トップ)
+SHOP_OP_URLS = {
+    "morimori": "https://www.morimori-kaitori.jp/category/2403",
+    "homura": "https://kaitori-homura.com/products?q%5Bproduct_sub_category_id_eq%5D=132&q%5Bproduct_sub_category_product_category_id_eq%5D=14",
+    "icchome": "https://www.1-chome.com/tradeCards?category=SEbO7gSBevo6KsPE",
+    "runto": "https://runto666.com/product-category/onepiece/",
+    "oku": "https://kaitori-oku.jp/category.html?cat1=340&cat2=364",
+    "rudeya": "https://kaitori-rudeya.com/category/detail/224",
+    "shinsoku": "https://shinsoku-tcg.com/yuso-kaitori?title=%E3%83%AF%E3%83%B3%E3%83%94%E3%83%BC%E3%82%B9",
+    "sommelier": "https://somurie-kaitori.com/products",
+    "kaikyo": "https://www.mobile-ichiban.com/",
+    "collect_tendo": "https://x.com/collect_tendo",
+}
 
 
 def _slug(name: str) -> str:
@@ -137,8 +158,351 @@ def generate_onepiece_html(products: list[MasterProduct]) -> str:
     html = html.replace("<!-- {{AI_SUMMARY}} -->", _ai_summary(products))
     html = html.replace("{{UPDATE_DATE}}", update_date)
     html = html.replace("<!-- {{BLOG_LINKS}} -->", "")
-    html = html.replace("<!-- {{RANKING_SUMMARY}} -->", "")
+    html = html.replace("<!-- {{RANKING_SUMMARY}} -->", _weekly_summary_block(products))
 
     output_path.write_text(html, encoding="utf-8")
     logger.info("Generated %s (updated: %s)", output_path, update_date)
+
+    # 個別BOXページ + 週間ランキングページ
+    generate_onepiece_box_pages(products, update_date)
+    generate_onepiece_weekly(products, update_date)
     return html
+
+
+# ===== 価格履歴の読み込み(グラフ用) =====
+def _own_history_points(product_name: str) -> list[list]:
+    """data/history_op から自前の日次最高値推移 [[ts_ms, price], ...] を作る。"""
+    pts: list[list] = []
+    if not HISTORY_OP_DIR.exists():
+        return pts
+    for f in sorted(HISTORY_OP_DIR.glob("*.json")):
+        try:
+            ts = int(datetime.strptime(f.stem, "%Y-%m-%d")
+                     .replace(tzinfo=JST).timestamp() * 1000)
+            for item in json.loads(f.read_text(encoding="utf-8")):
+                if item.get("name") == product_name and item.get("max_price", 0) > 0:
+                    pts.append([ts, item["max_price"]])
+                    break
+        except (json.JSONDecodeError, OSError, ValueError):
+            continue
+    return pts
+
+
+def _snkrdunk_op_points(product_name: str) -> list[list]:
+    """スニダンの価格推移点をマッピング経由で読む。"""
+    mapping_path = SNKRDUNK_OP_DIR / "product_mapping_op.json"
+    if not mapping_path.exists():
+        return []
+    try:
+        mapping = json.loads(mapping_path.read_text(encoding="utf-8"))
+        sid = mapping.get(product_name)
+        if not sid:
+            return []
+        data_path = SNKRDUNK_OP_DIR / f"{sid}.json"
+        if data_path.exists():
+            return json.loads(data_path.read_text(encoding="utf-8")).get("points", [])
+    except (json.JSONDecodeError, OSError):
+        pass
+    return []
+
+
+def _op_chart_section(product: MasterProduct) -> str:
+    """個別ページ用のインラインChart.js。スニダン(過去)＋自前history。"""
+    snkr = _snkrdunk_op_points(product.name)
+    own = _own_history_points(product.name)
+    if own:
+        own_start = own[0][0]
+        points = [p for p in snkr if p[0] < own_start] + own
+    else:
+        points = snkr
+    if not points:
+        return ""
+
+    # スニダンは単品/相場なので買取推定に0.9倍補正(定価2000未満のデッキは補正しない)
+    no_corr = product.retail_price < 2000
+    if no_corr:
+        snkr_count = 0
+    elif own:
+        snkr_count = len([p for p in points if p[0] < own[0][0]])
+    else:
+        snkr_count = len(points)
+
+    points_json = json.dumps(points, ensure_ascii=False)
+    rd = product.release_date or ""
+    box_name = _esc(product.name)
+    return f"""<h3 class="section-title">{box_name} 価格推移</h3>
+<div class="chart-wrap">
+<div class="chart-periods">
+  <button class="cp-btn active" data-period="all">全期間</button>
+  <button class="cp-btn" data-period="3m">3ヶ月</button>
+  <button class="cp-btn" data-period="1m">1ヶ月</button>
+</div>
+<canvas id="boxChart"></canvas>
+<div class="chart-note">※ 最大11店舗の最高買取価格の推移（発売初期はスニダン相場を参考値として表示）</div>
+</div>
+<script>
+(function(){{
+var pts={points_json};
+var rd="{rd}";
+var snkrCount={snkr_count};
+var ci=null;
+function draw(period){{
+  var now=Date.now(),cutoff=0;
+  if(period==="3m")cutoff=now-90*86400000;
+  else if(period==="1m")cutoff=now-30*86400000;
+  var f=cutoff?pts.filter(function(p){{return p[0]>=cutoff}}):pts;
+  if(!f.length)f=pts;
+  var labels=f.map(function(p){{var d=new Date(p[0]);return d.getFullYear()+"/"+(d.getMonth()+1)+"/"+d.getDate()}});
+  var sc=cutoff?pts.slice(0,snkrCount).filter(function(p){{return p[0]>=cutoff}}).length:snkrCount;
+  var data=f.map(function(p,i){{return i<sc?Math.round(p[1]*0.9):p[1]}});
+  var ridx=-1;
+  if(rd){{var rt=new Date(rd+"T00:00:00+09:00").getTime();if(!cutoff||rt>=cutoff){{for(var i=0;i<f.length;i++){{if(f[i][0]>=rt){{ridx=i;break}}}}}}}}
+  var ann=undefined;
+  if(ridx>=0){{ann={{annotations:{{rl:{{type:"line",drawTime:"beforeDatasetsDraw",xMin:ridx,xMax:ridx,borderColor:"#ef4444",borderWidth:2,borderDash:[6,4],label:{{display:true,content:"発売日",position:"end",backgroundColor:"#ef4444",color:"#fff",font:{{size:11,weight:"bold"}},padding:{{top:3,bottom:3,left:6,right:6}},borderRadius:4}}}}}}}};}}
+  if(ci)ci.destroy();
+  ci=new Chart(document.getElementById("boxChart").getContext("2d"),{{
+    type:"line",
+    data:{{labels:labels,datasets:[{{label:"参考価格",data:data,borderColor:"#e53935",backgroundColor:"rgba(229,57,53,.1)",fill:true,tension:0.3,pointRadius:f.length>60?0:2,pointHoverRadius:5,borderWidth:2}}]}},
+    options:{{responsive:true,maintainAspectRatio:false,interaction:{{mode:"index",intersect:false}},
+      plugins:{{legend:{{display:false}},annotation:ann,tooltip:{{callbacks:{{label:function(c){{return"\\u00a5"+c.parsed.y.toLocaleString()}}}}}}}},
+      scales:{{x:{{ticks:{{maxTicksLimit:8,font:{{size:11}},color:"#6b7280"}},grid:{{display:false}}}},y:{{ticks:{{callback:function(v){{return"\\u00a5"+v.toLocaleString()}},font:{{size:11}},color:"#6b7280"}},grid:{{color:"#f3f4f6"}}}}}}
+    }}
+  }});
+}}
+draw("all");
+document.querySelectorAll(".cp-btn").forEach(function(b){{
+  b.addEventListener("click",function(){{
+    document.querySelectorAll(".cp-btn").forEach(function(x){{x.classList.remove("active")}});
+    b.classList.add("active");draw(b.dataset.period);
+  }});
+}});
+}})();
+</script>"""
+
+
+# ===== 個別BOXページ生成 =====
+def generate_onepiece_box_pages(products: list[MasterProduct], update_date: str) -> None:
+    template_path = PROJECT_ROOT / "onepiece-box-template.html"
+    if not template_path.exists():
+        logger.warning("onepiece-box-template.html not found, skipping box pages")
+        return
+    template = template_path.read_text(encoding="utf-8")
+    BOX_DIR.mkdir(parents=True, exist_ok=True)
+
+    by_cat: dict[str, list[MasterProduct]] = {}
+    for p in products:
+        by_cat.setdefault(p.category, []).append(p)
+
+    total = sum(1 for p in products if p.prices)
+    generated = 0
+    for p in products:
+        active = {sid: p.prices[sid] for sid in SHOP_IDS if p.prices.get(sid, 0) > 0}
+        if not active:
+            continue
+        slug = _slug(p.name)
+        max_price = max(active.values())
+        max_sid = max(active, key=active.get)
+        max_shop = SHOP_NAMES.get(max_sid, max_sid)
+        shop_count = len(active)
+        diff = max_price - p.retail_price if p.retail_price > 0 else 0
+
+        rows = []
+        for sid, price in sorted(((s, p.prices.get(s, 0)) for s in SHOP_IDS),
+                                 key=lambda x: x[1], reverse=True):
+            name = SHOP_NAMES.get(sid, sid)
+            url = SHOP_OP_URLS.get(sid, "#")
+            if price > 0:
+                cls = ' class="best"' if price == max_price else ""
+                rows.append(f'<tr{cls}><td class="shop-name"><a href="{url}" target="_blank" rel="noopener noreferrer">{name}</a></td><td>{_format_price(price)}</td></tr>')
+            else:
+                rows.append(f'<tr><td class="shop-name">{name}</td><td class="no-price">取扱なし</td></tr>')
+        price_table = ('<table class="price-table">\n<tr><th>買取店</th><th>買取価格</th></tr>\n'
+                       + "\n".join(rows) + "\n</table>")
+
+        # hit cards
+        hit_html = ""
+        if p.hit_cards:
+            dts = "".join(f'<dt>{_esc(n)}</dt><dd>{_esc(c)}</dd>' for n, c in p.hit_cards)
+            hit_html = f'<div class="hit-cards"><h3>★ 注目カード（トップレア）</h3><dl class="hit-list">{dts}</dl></div>'
+
+        # related (same category)
+        related = [r for r in by_cat.get(p.category, [])
+                   if r.name != p.name and any(r.prices.get(s, 0) > 0 for s in SHOP_IDS)]
+        related_html = "\n".join(
+            f'    <a href="{_slug(r.name)}.html" class="related-link">{_esc(r.name)}</a>'
+            for r in related[:8])
+
+        # trend comment (前日比)
+        trend = ""
+        prev = _prev_max(p.name)
+        if prev and max_price:
+            ch = max_price - prev
+            if ch > 0:
+                trend = f'<div class="trend-comment" style="color:#16a34a"><span class="trend-icon">📈</span>前日比 +{_format_price(ch)} 上昇中</div>'
+            elif ch < 0:
+                trend = f'<div class="trend-comment" style="color:#dc2626"><span class="trend-icon">📉</span>前日比 {_format_price(ch)} 下落</div>'
+
+        jsonld = ('<script type="application/ld+json">' + json.dumps({
+            "@context": "https://schema.org", "@type": "Product", "name": p.name,
+            "category": "ONE PIECEカードゲーム / 未開封BOX",
+            "offers": {"@type": "AggregateOffer", "priceCurrency": "JPY",
+                       "highPrice": max_price, "lowPrice": min(active.values()),
+                       "offerCount": shop_count}}, ensure_ascii=False) + "</script>")
+
+        page = template
+        for k, v in {
+            "{{PRODUCT_NAME}}": _esc(p.name), "{{SLUG}}": slug,
+            "{{ROBOTS}}": "index, follow", "{{JSONLD}}": jsonld,
+            "{{UPDATE_DATE}}": update_date,
+            "{{CATEGORY_LABEL}}": CATEGORY_LABELS.get(p.category, ""),
+            "{{PRODUCT_DESC}}": _esc(p.desc or ""),
+            "{{TREND_COMMENT}}": trend,
+            "{{MAX_PRICE_TEXT}}": _format_price(max_price),
+            "{{MAX_SHOP_NAME}}": max_shop,
+            "{{RETAIL_PRICE_TEXT}}": _format_price(p.retail_price) if p.retail_price else "—",
+            "{{DIFF_TEXT}}": (f"+{_format_price(diff)}" if diff > 0 else _format_price(diff)) if p.retail_price else "—",
+            "{{SHOP_COUNT}}": str(shop_count),
+            "{{PRICE_TABLE}}": price_table,
+            "{{HIT_CARDS}}": hit_html,
+            "{{RELATED_LINKS}}": related_html,
+            "{{TOTAL_PRODUCTS}}": str(total),
+        }.items():
+            page = page.replace(k, v)
+        page = page.replace("<!-- {{CHART_SECTION}} -->", _op_chart_section(p))
+
+        (BOX_DIR / f"{slug}.html").write_text(page, encoding="utf-8")
+        generated += 1
+    logger.info("Generated %d ONE PIECE box pages", generated)
+
+
+def _prev_max(product_name: str) -> int:
+    """前日のmax_price(グラフ/前日比用)。"""
+    if not HISTORY_OP_DIR.exists():
+        return 0
+    files = sorted(HISTORY_OP_DIR.glob("*.json"))
+    if len(files) < 2:
+        return 0
+    try:
+        for item in json.loads(files[-2].read_text(encoding="utf-8")):
+            if item.get("name") == product_name:
+                return item.get("max_price", 0)
+    except (json.JSONDecodeError, OSError):
+        pass
+    return 0
+
+
+# ===== 週間値動きランキング =====
+def _weekly_changes(products: list[MasterProduct]) -> list[dict]:
+    """7日前(なければ最古)との最高値変化を算出。"""
+    files = sorted(HISTORY_OP_DIR.glob("*.json")) if HISTORY_OP_DIR.exists() else []
+    if len(files) < 2:
+        return []
+    # 7日前に最も近いスナップショット
+    latest = files[-1]
+    try:
+        latest_date = datetime.strptime(latest.stem, "%Y-%m-%d")
+    except ValueError:
+        return []
+    base_file = files[0]
+    for f in files[:-1]:
+        try:
+            d = datetime.strptime(f.stem, "%Y-%m-%d")
+        except ValueError:
+            continue
+        if (latest_date - d).days >= 7:
+            base_file = f
+    def load(f):
+        try:
+            return {x["name"]: x.get("max_price", 0) for x in json.loads(f.read_text(encoding="utf-8"))}
+        except (json.JSONDecodeError, OSError):
+            return {}
+    now, past = load(latest), load(base_file)
+    out = []
+    for p in products:
+        cur = now.get(p.name, 0)
+        old = past.get(p.name, 0)
+        if cur > 0 and old > 0:
+            out.append({"name": p.name, "slug": _slug(p.name), "cur": cur,
+                        "old": old, "change": cur - old,
+                        "pct": (cur - old) / old * 100})
+    out.sort(key=lambda x: x["change"], reverse=True)
+    return out
+
+
+def _weekly_summary_block(products: list[MasterProduct]) -> str:
+    """トップページ下部の週間ランキング要約(上位/下位3件)。"""
+    ch = _weekly_changes(products)
+    if not ch:
+        return ""
+    ups = [c for c in ch if c["change"] > 0][:3]
+    downs = [c for c in ch if c["change"] < 0][-3:]
+    def row(c):
+        sign = "+" if c["change"] > 0 else ""
+        col = "#16a34a" if c["change"] > 0 else "#dc2626"
+        return (f'<a href="onepiece/box/{c["slug"]}.html" style="display:flex;justify-content:space-between;'
+                f'padding:8px 12px;border-bottom:1px solid #f3f4f6;text-decoration:none;color:inherit">'
+                f'<span>{_esc(c["name"])}</span><span style="color:{col};font-weight:700">'
+                f'{sign}{_format_price(c["change"])} ({sign}{c["pct"]:.1f}%)</span></a>')
+    body = ""
+    if ups:
+        body += '<div style="font-weight:700;margin:10px 0 4px;color:#16a34a">📈 値上がり</div>' + "".join(row(c) for c in ups)
+    if downs:
+        body += '<div style="font-weight:700;margin:14px 0 4px;color:#dc2626">📉 値下がり</div>' + "".join(row(c) for c in reversed(downs))
+    return (f'<div style="max-width:1280px;margin:24px auto 0;padding:0 16px">'
+            f'<div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:16px 20px">'
+            f'<div style="font-size:15px;font-weight:800;margin-bottom:6px">📊 今週の値動き（<a href="onepiece/weekly.html" style="color:#e53935">週間ランキングを見る</a>）</div>'
+            f'{body}</div></div>')
+
+
+def generate_onepiece_weekly(products: list[MasterProduct], update_date: str) -> None:
+    """週間値動きランキングページ onepiece/weekly.html を生成。"""
+    ch = _weekly_changes(products)
+    B = "padding:9px;border:1px solid #e5e7eb"
+    rows = []
+    for i, c in enumerate(ch, 1):
+        sign = "+" if c["change"] > 0 else ""
+        col = "#16a34a" if c["change"] > 0 else ("#dc2626" if c["change"] < 0 else "#6b7280")
+        rows.append(
+            f'<tr><td style="{B};text-align:center">{i}</td>'
+            f'<td style="{B};text-align:left"><a href="box/{c["slug"]}.html" style="color:#e53935;text-decoration:none">{_esc(c["name"])}</a></td>'
+            f'<td style="{B};text-align:center">{_format_price(c["cur"])}</td>'
+            f'<td style="{B};text-align:center;color:{col};font-weight:700">{sign}{_format_price(c["change"])}</td>'
+            f'<td style="{B};text-align:center;color:{col};font-weight:700">{sign}{c["pct"]:.1f}%</td></tr>')
+    if not rows:
+        table = "<p style='color:#6b7280;font-size:13px'>データ蓄積中です。数日後から値動きが表示されます。</p>"
+    else:
+        head = (f'<tr style="background:#f9fafb"><th style="{B}">#</th><th style="{B}">商品名</th>'
+                f'<th style="{B}">現在の最高値</th><th style="{B}">週間変化</th><th style="{B}">変化率</th></tr>')
+        table = ('<table style="width:100%;border-collapse:collapse;font-size:14px">'
+                 + head + "".join(rows) + '</table>')
+
+    page = f"""<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ONE PIECEカード未開封BOXの週間買取価格変化ランキング。値上がり・値下がりBOXを最大11店舗の実データで毎日更新。">
+<link rel="canonical" href="https://pokeca-box-hikaku.com/onepiece/weekly.html">
+<title>ワンピBOX 週間値動きランキング｜ワンピ買取チェッカー</title>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831186943118320" crossorigin="anonymous"></script>
+<style>
+body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans","Yu Gothic",sans-serif;background:#f6f7fb;color:#111827;line-height:1.7;margin:0}}
+.gswitch{{display:flex;align-items:center;justify-content:center;gap:8px;padding:11px 16px;font-size:14px;font-weight:800;text-decoration:none;color:#fff;background:linear-gradient(135deg,#4aa3ff,#1e88e5)}}
+.header{{height:52px;display:flex;align-items:center;justify-content:center;background:#fff;border-bottom:1px solid #e5e7eb}}
+.header h1{{font-size:17px;font-weight:700;background:linear-gradient(135deg,#ff6b6b,#e53935);-webkit-background-clip:text;-webkit-text-fill-color:transparent}}
+.header a{{text-decoration:none}}
+.wrap{{max-width:840px;margin:0 auto;padding:26px 16px 48px}}
+h2{{font-size:20px;margin:0 0 4px}}.upd{{font-size:12px;color:#6b7280;margin-bottom:18px}}
+th{{background:#f9fafb}}
+.back{{display:inline-block;margin-top:20px;color:#e53935;text-decoration:none;font-weight:600}}
+</style></head><body>
+<a class="gswitch" href="/">◀ ポケモンカードの買取比較はこちら</a>
+<div class="header"><a href="/onepiece"><h1>ワンピ買取チェッカー</h1></a></div>
+<div class="wrap">
+<h2>📊 ワンピBOX 週間値動きランキング</h2>
+<div class="upd">更新: {update_date} ／ 7日前比・最大11店舗の最高買取価格ベース</div>
+{table}
+<a class="back" href="/onepiece">← ワンピ買取比較に戻る</a>
+</div>
+</body></html>"""
+    (PROJECT_ROOT / "onepiece").mkdir(exist_ok=True)
+    (PROJECT_ROOT / "onepiece" / "weekly.html").write_text(page, encoding="utf-8")
+    logger.info("Generated onepiece/weekly.html (%d ranked)", len(rows))

@@ -132,16 +132,18 @@ t = rep(t, 'const CL={"mega":"MEGA","sv":"SV","special":"スペシャルBOX","ss
 # 既定表示は全カテゴリ
 t = rep(t, 'cc===""?P.filter(x=>x.c!=="ss")', 'cc===""?P.slice()')
 
-# 商品名を非リンク(span)化
+# 商品名を個別BOXページ(onepiece/box/{slug}.html)へのリンクにする。
+# /onepiece(ルートのonepiece.html)からの相対解決で /onepiece/box/... になる。
 t = rep(t,
         '''    const aName=document.createElement("a");
     aName.href="box/"+x.s+".html";
     aName.textContent=x.n;
     aName.style.cssText="color:inherit;text-decoration:none;border-bottom:1px dashed #c4b5fd";
     tdN.appendChild(aName);''',
-        '''    const aName=document.createElement("span");
+        '''    const aName=document.createElement("a");
+    aName.href="onepiece/box/"+x.s+".html";
     aName.textContent=x.n;
-    aName.style.cssText="color:inherit";
+    aName.style.cssText="color:inherit;text-decoration:none;border-bottom:1px dashed #ffabab";
     tdN.appendChild(aName);''')
 
 # 在庫キー分離

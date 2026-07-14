@@ -492,9 +492,10 @@ function render(){
     // Product name (links to individual page)
     const tdN=document.createElement("td");
     tdN.className="pn";
-    const aName=document.createElement("span");
+    const aName=document.createElement("a");
+    aName.href="onepiece/box/"+x.s+".html";
     aName.textContent=x.n;
-    aName.style.cssText="color:inherit";
+    aName.style.cssText="color:inherit;text-decoration:none;border-bottom:1px dashed #ffabab";
     tdN.appendChild(aName);
     tr.appendChild(tdN);
 
