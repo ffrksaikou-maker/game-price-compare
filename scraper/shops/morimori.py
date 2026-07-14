@@ -19,11 +19,14 @@ from .base import BaseScraper, ScrapedItem
 logger = logging.getLogger(__name__)
 
 BASE = "https://www.morimori-kaitori.jp"
-# ポケカ=キーワード検索, ワンピ=専用カテゴリ(検索は取りこぼすため category/2403 を直に見る)。
+# ポケカ=キーワード検索, ワンピ=専用カテゴリ(検索は取りこぼすため category を直に見る)。
+# ワンピは2カテゴリに跨る: 2403=OP-01〜15/EB/PRB-02, 0112003=OP-16以降の新弾/PRB-01。
+# 検索sk=ワンピースにも category/2403 にも新弾(OP-16 決戦の刻等)は出ないため両方見る。
 # ポケカ側matcherはワンピを弾き、ワンピ側が拾う。(ラベル, URL)
 TARGETS = [
     ("ポケモン", f"{BASE}/search?sk={quote('ポケモンカード')}"),
     ("ワンピ", f"{BASE}/category/2403"),
+    ("ワンピ新弾", f"{BASE}/category/0112003"),
 ]
 SEARCH_URL = TARGETS[0][1]  # 後方互換(_open_with_retry のデフォルト値)
 
