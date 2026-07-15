@@ -117,10 +117,10 @@
     "PRB-02 THE BEST vol.2": 10000
   },
   "processed_urls": [
-    "https://pbs.twimg.com/media/HNKIIs-aIAArI8w?format=png&name=large",
-    "https://pbs.twimg.com/media/HNKIItAbAAACo2A?format=png&name=large",
     "https://pbs.twimg.com/media/HNKIkQVaAAA5hdr?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HNKIItAbAAACo2A?format=png&name=large",
+    "https://pbs.twimg.com/media/HNKIIs-aIAArI8w?format=png&name=large",
     "https://pbs.twimg.com/media/HNKVpYAbEAA7XAB?format=jpg&name=large"
   ],
-  "last_check": 1784081183
+  "last_check": 1784091299
 }
