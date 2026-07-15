@@ -30,9 +30,21 @@ UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
 
 # slug(当サイト) -> 公式商品コード。公式に個別ページがある弾のみ。
 SLUG_CODE = {
-    "op-16": "op16",
     "st-30": "st30",
 }
+
+# slug -> プレミアムバンダイ商品ID。公式CDN(bandai-a.akamaihd.net)の
+# /bc/img/model/b/{id}_1.jpg が箱+パックの透かし無し公式商品画像。
+# p-bandaiの商品ページURL末尾 item-XXXXXXXXXX の数字部分。
+PBANDAI_ID = {
+    "op-16": "1000253295",
+    "op-13": "1000248929",
+    "op-09": "1000215674",
+    "op-06": "1000203166",
+    "eb-03": "1000248932",
+    "eb-01": "1000206789",
+}
+PBANDAI_CDN = "https://bandai-a.akamaihd.net/bc/img/model/b/{id}_1.jpg"
 
 
 def _fetch(url: str) -> bytes:
@@ -46,9 +58,29 @@ def _main_image_url(html: str) -> str | None:
     return (BASE + m.group(0)) if m else None
 
 
+def _save(slug: str, data: bytes, src_name: str) -> str:
+    webp_path = OUT_DIR / f"{slug}.webp"
+    jpg_path = OUT_DIR / f"{slug}.jpg"
+    im = Image.open(__import__("io").BytesIO(data)).convert("RGBA")
+    bg = Image.new("RGBA", im.size, (255, 255, 255, 255))
+    bg.alpha_composite(im)
+    rgb = bg.convert("RGB")
+    rgb.save(jpg_path, "JPEG", quality=85, optimize=True, progressive=True)
+    rgb.save(webp_path, "WEBP", quality=85, method=6)
+    return f"{slug}: {src_name} -> {webp_path.name}+{jpg_path.name} ({im.size[0]}x{im.size[1]})"
+
+
 def main() -> None:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     done, skipped = 0, []
+    # プレミアムバンダイ公式CDN(箱+パック画像)を優先取得
+    for slug, item_id in PBANDAI_ID.items():
+        url = PBANDAI_CDN.format(id=item_id)
+        try:
+            print("OK " + _save(slug, _fetch(url), f"pbandai {item_id}"))
+            done += 1
+        except Exception as e:
+            skipped.append((slug, f"pbandai {e}"))
     for slug, code in SLUG_CODE.items():
         page_url = f"{BASE}/products/{code}.html"
         try:
