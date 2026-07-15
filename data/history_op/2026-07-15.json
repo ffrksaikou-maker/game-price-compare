@@ -11,7 +11,7 @@
       "runto": 14000,
       "icchome": 13000,
       "oku": 13100,
-      "kaikyo": 13000,
+      "kaikyo": 12000,
       "collect_tendo": 11500,
       "shinsoku": 13000
     }
@@ -28,7 +28,7 @@
       "runto": 16800,
       "icchome": 15500,
       "oku": 16200,
-      "kaikyo": 15100,
+      "kaikyo": 15800,
       "collect_tendo": 16100,
       "shinsoku": 14900
     }
@@ -45,7 +45,7 @@
       "runto": 16300,
       "icchome": 15500,
       "oku": 15600,
-      "kaikyo": 14300,
+      "kaikyo": 15800,
       "sommelier": 14500,
       "collect_tendo": 12500,
       "shinsoku": 15100
@@ -63,7 +63,7 @@
       "runto": 23000,
       "icchome": 22000,
       "oku": 21800,
-      "kaikyo": 20000,
+      "kaikyo": 21000,
       "collect_tendo": 22800,
       "shinsoku": 21600
     }
@@ -97,7 +97,7 @@
       "runto": 39000,
       "icchome": 38000,
       "oku": 39000,
-      "kaikyo": 31000,
+      "kaikyo": 38500,
       "collect_tendo": 38000,
       "shinsoku": 36300
     }
@@ -130,7 +130,7 @@
       "runto": 22500,
       "icchome": 21500,
       "oku": 22000,
-      "kaikyo": 15500,
+      "kaikyo": 22000,
       "collect_tendo": 22800,
       "shinsoku": 21200
     }
@@ -279,7 +279,7 @@
       "runto": 14500,
       "icchome": 13500,
       "oku": 14000,
-      "kaikyo": 12300,
+      "kaikyo": 13500,
       "collect_tendo": 14000,
       "shinsoku": 12400
     }
@@ -296,7 +296,7 @@
       "runto": 23000,
       "icchome": 22500,
       "oku": 21000,
-      "kaikyo": 20000,
+      "kaikyo": 22500,
       "collect_tendo": 22000,
       "shinsoku": 19800
     }
@@ -346,7 +346,7 @@
       "runto": 11600,
       "icchome": 10800,
       "oku": 11000,
-      "kaikyo": 9500,
+      "kaikyo": 11000,
       "collect_tendo": 10000,
       "shinsoku": 10800
     }
