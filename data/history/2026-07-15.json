@@ -56,9 +56,9 @@
     "name": "MEGA スタートデッキ100「バトルコレクション」",
     "category": "mega",
     "retail_price": 891,
-    "max_price": 1600,
+    "max_price": 1700,
     "prices": {
-      "shinsoku": 1600
+      "shinsoku": 1700
     }
   },
   {
@@ -72,7 +72,7 @@
       "rudeya": 14500,
       "runto": 15700,
       "icchome": 15700,
-      "oku": 15500,
+      "oku": 15600,
       "kaikyo": 15200,
       "sommelier": 15000,
       "collect_tendo": 15200,
@@ -296,7 +296,7 @@
     "name": "SV 強化拡張パック「ステラミラクル」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 12500,
+    "max_price": 12100,
     "prices": {
       "morimori": 10800,
       "homura": 12000,
@@ -305,7 +305,7 @@
       "icchome": 11800,
       "oku": 12000,
       "kaikyo": 8700,
-      "sommelier": 12500,
+      "sommelier": 12000,
       "collect_tendo": 12100,
       "shinsoku": 12100
     }
@@ -963,7 +963,7 @@
       "kaikyo": 17500,
       "sommelier": 22000,
       "collect_tendo": 20500,
-      "shinsoku": 19000
+      "shinsoku": 19500
     }
   },
   {
