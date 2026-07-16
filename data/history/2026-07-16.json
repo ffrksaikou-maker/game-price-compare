@@ -65,16 +65,16 @@
     "name": "MEGA ハイクラスパック「MEGAドリームex」",
     "category": "mega",
     "retail_price": 5500,
-    "max_price": 15600,
+    "max_price": 16000,
     "prices": {
       "morimori": 15300,
       "homura": 15600,
-      "rudeya": 14500,
+      "rudeya": 15000,
       "runto": 15500,
       "icchome": 15500,
       "oku": 15500,
       "kaikyo": 15200,
-      "sommelier": 15000,
+      "sommelier": 16000,
       "collect_tendo": 15200,
       "shinsoku": 15400
     }
@@ -155,7 +155,7 @@
     "prices": {
       "morimori": 15000,
       "homura": 22300,
-      "rudeya": 21000,
+      "rudeya": 22000,
       "icchome": 15000,
       "collect_tendo": 22500,
       "shinsoku": 22300
@@ -184,7 +184,7 @@
     "prices": {
       "morimori": 19700,
       "homura": 22800,
-      "rudeya": 21000,
+      "rudeya": 22000,
       "runto": 21800,
       "icchome": 22000,
       "collect_tendo": 22200,
@@ -249,7 +249,7 @@
     "prices": {
       "morimori": 20900,
       "homura": 21300,
-      "rudeya": 20600,
+      "rudeya": 21100,
       "runto": 20500,
       "icchome": 20600,
       "oku": 21000,
@@ -844,11 +844,11 @@
     "name": "S&S ハイクラスパック「シャイニースターV」",
     "category": "ss",
     "retail_price": 5500,
-    "max_price": 21000,
+    "max_price": 20500,
     "prices": {
       "homura": 20500,
       "runto": 19500,
-      "sommelier": 21000,
+      "sommelier": 20000,
       "collect_tendo": 20000,
       "shinsoku": 20500
     }
