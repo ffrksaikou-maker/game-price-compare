@@ -5,7 +5,7 @@
     "retail_price": 5280,
     "max_price": 14000,
     "prices": {
-      "morimori": 12800,
+      "morimori": 13100,
       "homura": 13100,
       "rudeya": 12000,
       "runto": 14000,
@@ -22,7 +22,7 @@
     "retail_price": 5280,
     "max_price": 16800,
     "prices": {
-      "morimori": 14800,
+      "morimori": 16200,
       "homura": 16200,
       "rudeya": 14500,
       "runto": 16800,
@@ -55,12 +55,12 @@
     "name": "ブースターパック「受け継がれる意志」【OP-13】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 23000,
+    "max_price": 23500,
     "prices": {
       "morimori": 19800,
       "homura": 21800,
       "rudeya": 18500,
-      "runto": 23000,
+      "runto": 23500,
       "icchome": 22000,
       "oku": 21800,
       "kaikyo": 21000,
@@ -98,7 +98,7 @@
       "icchome": 38000,
       "oku": 39000,
       "kaikyo": 38500,
-      "collect_tendo": 38000,
+      "collect_tendo": 39000,
       "shinsoku": 36300
     }
   },
@@ -280,7 +280,7 @@
       "icchome": 13500,
       "oku": 14000,
       "kaikyo": 13500,
-      "collect_tendo": 14000,
+      "collect_tendo": 13700,
       "shinsoku": 13300
     }
   },
@@ -340,14 +340,14 @@
     "retail_price": 5500,
     "max_price": 11600,
     "prices": {
-      "morimori": 9000,
+      "morimori": 11000,
       "homura": 11000,
       "rudeya": 10200,
       "runto": 11600,
       "icchome": 10800,
       "oku": 11000,
       "kaikyo": 11000,
-      "collect_tendo": 10000,
+      "collect_tendo": 7300,
       "shinsoku": 10800
     }
   },
