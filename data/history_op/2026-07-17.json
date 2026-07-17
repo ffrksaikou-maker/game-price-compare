@@ -22,15 +22,15 @@
     "retail_price": 5280,
     "max_price": 16800,
     "prices": {
-      "morimori": 16200,
-      "homura": 16200,
+      "morimori": 16000,
+      "homura": 16000,
       "rudeya": 14500,
       "runto": 16800,
       "icchome": 15500,
       "oku": 16200,
       "kaikyo": 16000,
       "collect_tendo": 16100,
-      "shinsoku": 15000
+      "shinsoku": 14900
     }
   },
   {
@@ -48,7 +48,7 @@
       "kaikyo": 15800,
       "sommelier": 15500,
       "collect_tendo": 12500,
-      "shinsoku": 15100
+      "shinsoku": 14400
     }
   },
   {
@@ -57,7 +57,7 @@
     "retail_price": 5280,
     "max_price": 24000,
     "prices": {
-      "morimori": 19800,
+      "morimori": 21800,
       "homura": 21800,
       "rudeya": 18500,
       "runto": 24000,
@@ -74,7 +74,7 @@
     "retail_price": 5280,
     "max_price": 17800,
     "prices": {
-      "morimori": 16000,
+      "morimori": 17000,
       "homura": 17000,
       "rudeya": 16400,
       "runto": 17500,
@@ -91,7 +91,7 @@
     "retail_price": 5280,
     "max_price": 39000,
     "prices": {
-      "morimori": 31800,
+      "morimori": 38800,
       "homura": 39000,
       "rudeya": 32500,
       "runto": 39000,
@@ -108,7 +108,7 @@
     "retail_price": 5280,
     "max_price": 12000,
     "prices": {
-      "morimori": 11300,
+      "morimori": 12000,
       "homura": 12000,
       "rudeya": 12000,
       "runto": 12000,
@@ -124,7 +124,7 @@
     "retail_price": 5280,
     "max_price": 23000,
     "prices": {
-      "morimori": 21000,
+      "morimori": 22000,
       "homura": 22000,
       "rudeya": 21200,
       "runto": 23000,
@@ -141,7 +141,7 @@
     "retail_price": 5280,
     "max_price": 11000,
     "prices": {
-      "morimori": 9800,
+      "morimori": 10000,
       "homura": 10000,
       "rudeya": 10600,
       "runto": 11000,
@@ -158,7 +158,7 @@
     "retail_price": 5280,
     "max_price": 20300,
     "prices": {
-      "morimori": 18000,
+      "morimori": 19600,
       "homura": 19800,
       "rudeya": 18700,
       "runto": 20300,
@@ -191,7 +191,7 @@
     "retail_price": 5280,
     "max_price": 67000,
     "prices": {
-      "morimori": 58000,
+      "morimori": 62000,
       "homura": 62000,
       "rudeya": 63000,
       "runto": 67000,
@@ -207,6 +207,7 @@
     "retail_price": 5280,
     "max_price": 21300,
     "prices": {
+      "morimori": 20500,
       "homura": 20500,
       "rudeya": 21000,
       "runto": 21300,
@@ -239,7 +240,7 @@
     "retail_price": 4752,
     "max_price": 25200,
     "prices": {
-      "morimori": 23000,
+      "morimori": 24000,
       "homura": 24000,
       "rudeya": 25200,
       "runto": 25000,
@@ -256,7 +257,7 @@
     "retail_price": 4752,
     "max_price": 41500,
     "prices": {
-      "morimori": 40000,
+      "morimori": 40500,
       "homura": 40500,
       "rudeya": 41000,
       "runto": 41000,
@@ -270,12 +271,12 @@
     "name": "エクストラブースター「EGGHEAD CRISIS」【EB-04】",
     "category": "eb",
     "retail_price": 5280,
-    "max_price": 14800,
+    "max_price": 15000,
     "prices": {
       "morimori": 12000,
       "homura": 14000,
       "rudeya": 13000,
-      "runto": 14800,
+      "runto": 15000,
       "icchome": 13500,
       "oku": 14000,
       "kaikyo": 13500,
@@ -306,7 +307,7 @@
     "retail_price": 5280,
     "max_price": 38500,
     "prices": {
-      "morimori": 31300,
+      "morimori": 35800,
       "homura": 36000,
       "rudeya": 32500,
       "runto": 38500,
@@ -322,7 +323,7 @@
     "retail_price": 5280,
     "max_price": 23500,
     "prices": {
-      "morimori": 20000,
+      "morimori": 21000,
       "homura": 21000,
       "rudeya": 21000,
       "runto": 23500,
@@ -356,7 +357,7 @@
     "retail_price": 5500,
     "max_price": 22000,
     "prices": {
-      "morimori": 20000,
+      "morimori": 21500,
       "homura": 21500,
       "rudeya": 20500,
       "runto": 22000,
