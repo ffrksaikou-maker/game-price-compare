@@ -843,11 +843,11 @@
     "name": "S&S ハイクラスパック「シャイニースターV」",
     "category": "ss",
     "retail_price": 5500,
-    "max_price": 20500,
+    "max_price": 21000,
     "prices": {
       "homura": 20500,
       "runto": 19500,
-      "sommelier": 20000,
+      "sommelier": 21000,
       "collect_tendo": 20000,
       "shinsoku": 20500
     }
