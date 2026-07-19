@@ -56,6 +56,11 @@ try:
 except Exception:  # 記事データが読めない環境でも生成は続行
     ONEPIECE_ARTICLES = []
 
+# ハウツー記事(atari自動生成とは別枠・手動append)
+ONEPIECE_ARTICLES.append(
+    ("kaitori-hikaku.html", "ワンピBOX買取比較・高く売るコツ",
+     "最大11店舗の実データでワンピBOXを高く売るコツと店舗の選び方を解説。"))
+
 
 def _article_links_block() -> str:
     """トップに記事カードを出す(ポケカ同型: 最新3枚固定+ランダム1枚=計4表示)。
@@ -286,6 +291,10 @@ def _append_onepiece_sitemap(products: list[MasterProduct]) -> None:
     # BOX掘り下げ記事(onepiece/*-atari-guide.html)を自動収録
     for art in sorted((PROJECT_ROOT / "onepiece").glob("*-atari-guide.html")):
         blocks.append(_url(f"/onepiece/{art.name}", "weekly", "0.8"))
+
+    # ハウツー記事(globは*-atari-guide.htmlしか拾わないため明示追加)
+    if (PROJECT_ROOT / "onepiece" / "kaitori-hikaku.html").exists():
+        blocks.append(_url("/onepiece/kaitori-hikaku.html", "weekly", "0.7"))
 
     # 週次値動きアーカイブ記事(onepiece/weekly/*.html)を自動収録
     wk_dir = PROJECT_ROOT / "onepiece" / "weekly"

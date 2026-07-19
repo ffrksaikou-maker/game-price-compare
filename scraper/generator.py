@@ -143,6 +143,10 @@ BLOG_ARTICLES = [
     {"url": "mega-brave-atari-guide.html", "title": "メガブレイブ 当たりカードランキング・封入率完全ガイド", "desc": "MEGA拡張パック「メガブレイブ」(M1)の当たりカードランキング・封入率を解説。看板メガルカリオex MUR(約50BOXに1枚)、歴代No.1人気トレーナーのリーリエの決心SAR、メガフシギバナex SARまで。レア別封入率・見分け方・BOX期待値を実データで整理。", "date": "2026-07-12"},
     {"url": "chouden-breaker-atari-guide.html", "title": "超電ブレイカー 当たりカードランキング・封入率完全ガイド", "desc": "拡張パック「超電ブレイカー」(SV8)の当たりカードランキング・封入率を解説。看板ピカチュウex SAR(約7.8万円・PSA10約13.5万円)、ピカチュウex UR、ミロカロスex SAR、エーススペック枠まで。SAR封入率約18%・見分け方・BOX期待値を実データで整理。", "date": "2026-07-12"},
     {"url": "clay-burst-atari-guide.html", "title": "クレイバースト 当たりカードランキング・封入率完全ガイド", "desc": "拡張パック「クレイバースト」(SV2D)の当たりカードランキング・封入率を解説。看板ナンジャモ SAR(約3.5万円・PSA10約7.8万円・きりさき氏イラスト)、ナンジャモSR、デカヌチャンex SAR、イーユイex SARまで。SAR封入率約20%・見分け方・BOX期待値を実データで整理。", "date": "2026-07-12"},
+    {"url": "ninja-spinner-atari-guide.html", "title": "ニンジャスピナー 当たりカードランキング・封入率完全ガイド", "desc": "MEGA拡張パック「ニンジャスピナー」(M4)の当たりカードランキング・封入率を解説。看板メガゲッコウガex MUR(約50BOXに1枚・約6万円)、SAR(約2万円・前屋進氏イラスト)、チラチーノex SARまで。レア別封入率・見分け方・BOX期待値を実データで整理。", "date": "2026-07-19"},
+    {"url": "munikis-zero-atari-guide.html", "title": "ムニキスゼロ 当たりカードランキング・封入率完全ガイド", "desc": "MEGA拡張パック「ムニキスゼロ」(M3)の当たりカードランキング・封入率を解説。看板メガジガルデex MUR(約50〜70BOXに1枚・発売時5万円超から約2.7万円へ下落)、メイのはげまし SAR、ニャースex SARまで。レア別封入率・BOX期待値を実データで整理。", "date": "2026-07-19"},
+    {"url": "mega-sinfonia-atari-guide.html", "title": "メガシンフォニア 当たりカードランキング・封入率完全ガイド", "desc": "MEGA拡張パック「メガシンフォニア」の当たりカードランキング・封入率を解説。看板メガサーナイトex MUR(約50BOXに1枚・約4万円)、SAR(約9,000円)、アセロラのいたずら SARまで。メガブレイブと同時発売の姉妹弾。レア別封入率・BOX期待値を実データで整理。", "date": "2026-07-19"},
+    {"url": "black-bolt-atari-guide.html", "title": "ブラックボルト 当たりカードランキング・封入率完全ガイド", "desc": "SV拡張パック「ブラックボルト」の当たりカードランキング・封入率を解説。看板ゼクロムex BWR(約20〜24BOXに1枚・約5万円)、ゼクロムex SAR(約2.5万円)、Nの筋書き SARまで。新レアリティBWR・レア別封入率・BOX期待値を実データで整理。", "date": "2026-07-19"},
     {"url": "restock-guide.html", "title": "再販情報の見つけ方", "desc": "ポケカBOXの再販入荷パターン、通知設定、抽選vs先着の攻略法まで。最速で再販情報をキャッチする方法を解説。", "date": "2026-04-10"},
     {"url": "box-toushi.html", "title": "ポケカBOX投資の始め方", "desc": "値上がりしやすいBOXの特徴、予算別の始め方、保管方法、リスクまで初心者向けに解説。", "date": "2026-04-02"},
     {"url": "shrink-nashi.html", "title": "シュリンクなしBOXの買取事情", "desc": "シュリンクなしポケカBOXの買取対応を買取店・メルカリ・スニダンで比較。高く売るコツも解説。", "date": "2026-03-27"},
@@ -905,6 +909,10 @@ def _build_box_narrative(
         "mega-brave": ("mega-brave-atari-guide.html", "メガブレイブ 当たりカードランキング・封入率完全ガイド"),
         "chouden-breaker": ("chouden-breaker-atari-guide.html", "超電ブレイカー 当たりカードランキング・封入率完全ガイド"),
         "clay-burst": ("clay-burst-atari-guide.html", "クレイバースト 当たりカードランキング・封入率完全ガイド"),
+        "ninja-spinner": ("ninja-spinner-atari-guide.html", "ニンジャスピナー 当たりカードランキング・封入率完全ガイド"),
+        "munikis-zero": ("munikis-zero-atari-guide.html", "ムニキスゼロ 当たりカードランキング・封入率完全ガイド"),
+        "mega-sinfonia": ("mega-sinfonia-atari-guide.html", "メガシンフォニア 当たりカードランキング・封入率完全ガイド"),
+        "black-bolt": ("black-bolt-atari-guide.html", "ブラックボルト 当たりカードランキング・封入率完全ガイド"),
         "ruler-of-black-flame": ("kokuen-atari-guide.html", "黒炎の支配者 当たりカード完全ガイド"),
         "battle-collection": ("startdeck100-atari-guide.html", "スタートデッキ100 当たり番号一覧・見分け方完全ガイド"),
     }
@@ -1423,6 +1431,10 @@ def _update_sitemap(
         ("/mega-brave-atari-guide.html", "monthly", "0.8", "2026-07-12"),
         ("/chouden-breaker-atari-guide.html", "monthly", "0.8", "2026-07-12"),
         ("/clay-burst-atari-guide.html", "monthly", "0.8", "2026-07-12"),
+        ("/ninja-spinner-atari-guide.html", "monthly", "0.8", "2026-07-19"),
+        ("/munikis-zero-atari-guide.html", "monthly", "0.8", "2026-07-19"),
+        ("/mega-sinfonia-atari-guide.html", "monthly", "0.8", "2026-07-19"),
+        ("/black-bolt-atari-guide.html", "monthly", "0.8", "2026-07-19"),
         ("/restock-guide.html", "monthly", "0.8", "2026-04-10"),
         ("/sv-box-list.html", "daily", "0.8", today),
         ("/mega-box-list.html", "daily", "0.8", today),
@@ -1935,6 +1947,10 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <a href="mega-brave-atari-guide.html">メガブレイブ 当たりカード</a>
 <a href="chouden-breaker-atari-guide.html">超電ブレイカー 当たりカード</a>
 <a href="clay-burst-atari-guide.html">クレイバースト 当たりカード</a>
+<a href="ninja-spinner-atari-guide.html">ニンジャスピナー 当たりカード</a>
+<a href="munikis-zero-atari-guide.html">ムニキスゼロ 当たりカード</a>
+<a href="mega-sinfonia-atari-guide.html">メガシンフォニア 当たりカード</a>
+<a href="black-bolt-atari-guide.html">ブラックボルト 当たりカード</a>
 </nav>
 
 <div class="main-card">

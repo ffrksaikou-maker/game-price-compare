@@ -83,6 +83,93 @@ article li{margin-bottom:8px}
 BASE = "https://pokeca-box-hikaku.com"
 
 
+# ===== ハウツー記事(onepiece/{slug}.html・atari接尾辞なし) =====
+# 弾別 atari-guide とは別枠の「買取ガイド」記事。body は .format() せず直接埋め込む
+# ため、リテラルの波括弧を自由に使ってよい。faq から可視FAQ+FAQPage JSON-LDを生成。
+HOWTO_ARTICLES = [
+    {
+        "slug": "kaitori-hikaku",
+        "nav_label": "ワンピBOX買取比較ガイド",
+        "crumb": "ワンピBOX買取比較ガイド",
+        "title": "ワンピBOX買取比較ガイド｜最大11店舗の実データで高く売るコツと店舗の選び方",
+        "h1": "ワンピBOX買取比較ガイド｜未開封BOXを最大11店舗の実データで高く売るコツと店舗の選び方",
+        "meta_desc": "ワンピースカードの未開封BOXを高く売るための店舗比較・売り方ガイド。シュリンクや外箱状態などの査定ポイント、最大11店舗を毎日自動比較する当サイトの使い方、高く売る5つのコツ、今買取が高い傾向のBOXまで実データ視点で解説。",
+        "og_title": "ワンピBOX買取比較ガイド｜最大11店舗の実データで高く売るコツ",
+        "og_desc": "ワンピースカードの未開封BOXを高く売る店舗比較・売り方ガイド。シュリンク・外箱の査定ポイント、最大11店舗比較の使い方、高く売る5つのコツを実データ視点で解説。",
+        "meta_line": "ワンピBOX買取の基礎知識・店舗比較・高く売るコツ",
+        "hero_label": "ワンピBOX買取比較ガイド",
+        "hero_big": "最大11店舗を毎日自動比較",
+        "hero_sub": "シュリンク維持・複数店比較・売却タイミングの見極めで、ワンピースカードの未開封BOXをできるだけ高く売るための実践ガイド。相場は当サイトの実データで毎日チェックできます。",
+        "body": """<p>ワンピースカードゲームの未開封BOXは、弾(タイトル)によって買取価格が大きく異なり、<strong>同じ弾でも店舗ごとに数百円〜数千円の差</strong>が出ることが珍しくありません。せっかく売るなら、少しでも高い店で・良いタイミングで手放したいところです。本記事では、<strong>ワンピBOXをできるだけ高く売るための店舗比較・売り方のコツ</strong>を、当サイトが最大11店舗から毎日自動収集している買取価格データの視点で整理します。「どこで売れば一番高いのか」「今売るべきか」を判断する材料としてご活用ください。最新の店舗別買取価格は <a href="/onepiece">ワンピBOX買取価格比較トップ</a> で毎日更新しています。</p>
+
+<h2>ワンピBOX買取の基礎｜査定で見られるポイント</h2>
+<p>未開封BOXの買取価格は「弾ごとの相場」だけでなく、<strong>個々のBOXの状態</strong>によっても上下します。まずは査定でチェックされる基本ポイントを押さえましょう。</p>
+<h3>シュリンク(外装フィルム)の有無</h3>
+<p>最も重要なのが<strong>シュリンク(BOX全体を包む透明フィルム)</strong>の有無です。シュリンク付きは「未開封・すり替えなしの証明」として扱われ、多くの店で買取価格が最も高くなります。シュリンクを剥がしてしまうと、たとえパックを開けていなくても「シュリンクなし」区分となり、査定額が下がるのが一般的です。売却を視野に入れているなら、シュリンクは剥がさないでおくのが鉄則です。</p>
+<h3>外箱(BOX)の状態</h3>
+<p>外箱の<strong>潰れ・角のつぶれ・スレ・日焼け</strong>なども査定に影響します。特に高額弾ほど状態の影響が出やすいため、保管時は重い物を上に置かない・直射日光を避けるなどの配慮が有効です。輸送中の潰れを防ぐため、発送買取では緩衝材でしっかり梱包しましょう。</p>
+<h3>付属品・封入形態</h3>
+<p>カートン(BOXが複数入った輸送箱)単位で売る場合は<strong>カートン未開封</strong>がより高評価になることがあります。また、店舗によっては「初回生産版」「再販版」などの区別や、同梱プロモの有無を見る場合もあります。基本的には<strong>買った状態のまま手を加えず保管する</strong>のが最も無難です。</p>
+
+<h2>当サイトの強み｜最大11店舗を毎日自動比較</h2>
+<p>当サイト「ワンピ買取チェッカー」は、ワンピースカードのBOX買取に対応した<strong>最大11店舗</strong>の買取価格を毎日自動で収集し、弾ごとに横断比較できるようにしています。1店舗ずつ公式サイトを見て回る必要がなく、<strong>「今どの店が一番高いか」を一目で確認</strong>できるのが最大の強みです。</p>
+<ul>
+<li><strong>毎日自動更新</strong>: 各店の買取ページから最新価格を自動取得し、日々の値動きを反映します。</li>
+<li><strong>弾別に横断比較</strong>: OP-01〜最新弾・EB・PRB・スタートデッキまで、弾ごとに全店の価格を並べて比較できます。</li>
+<li><strong>値動きも追える</strong>: <a href="weekly.html">週間値動きランキング</a>で、直近7日間で値上がり・値下がりしたBOXを毎日チェックできます。</li>
+</ul>
+<p>相場は日々変動するため、売る直前に最新の比較データを確認するのが失敗しないコツです。具体的な金額は断定せず、<strong>当サイトの最大11店舗比較の実データで最新値を確認</strong>してから判断してください。</p>
+
+<h2>ワンピBOXを高く売る5つのコツ</h2>
+<h3>1. 複数店舗を必ず比較する</h3>
+<p>同じBOXでも店舗によって買取価格は異なります。1店舗だけで決めず、<strong>複数店を比較</strong>するだけで数百円〜数千円、高額弾なら万単位で差が出ることもあります。当サイトの比較トップで全店の価格を並べて、最高値の店を選びましょう。</p>
+<h3>2. 相場の良いタイミングを狙う</h3>
+<p>BOX相場は<strong>新弾発売前後・再販・話題化</strong>などで動きます。発売直後は品薄で高騰しやすく、供給が安定すると落ち着く傾向があります。急いで売る必要がなければ、<a href="weekly.html">週間値動きランキング</a>で上昇局面かどうかを見てからの売却が有利です。</p>
+<h3>3. シュリンク・外箱をきれいに保つ</h3>
+<p>前述の通り、<strong>シュリンク付き・外箱美品</strong>は査定で有利です。売る可能性があるBOXは、シュリンクを剥がさず、潰れ・日焼けを避けて保管しましょう。ちょっとした状態の差が最終的な買取額を左右します。</p>
+<h3>4. まとめ売りを活用する</h3>
+<p>複数BOXやカートン単位で売る場合、<strong>まとめ売りで買取額がアップする</strong>キャンペーンを行う店舗もあります。同じ弾を複数持っているなら、まとめ査定の条件を確認してみましょう。ただし1点ずつ別の店の方が高いケースもあるため、比較は忘れずに。</p>
+<h3>5. こまめに相場をチェックする</h3>
+<p>相場は生き物です。「先週より上がっている/下がっている」を把握しておくと、売り時を逃しません。当サイトは毎日自動更新のため、<strong>ブックマークして定期的にチェック</strong>するだけで相場の流れがつかめます。</p>
+
+<h2>今、買取が高い傾向のワンピBOX</h2>
+<p>ワンピースカードの中でも、特に高額で取引されやすい傾向のある弾を紹介します。金額は需給で日々変動するため、必ず<strong>当サイトの最大11店舗比較の実データで最新値を確認</strong>してください(下記は各弾の看板カードや傾向であり、BOX買取価格の断定ではありません)。</p>
+<ul>
+<li><strong><a href="op-13-atari-guide.html">受け継がれる意志(OP-13)</a></strong> — ルフィ・エース・サボの「レッドスーパーパラレル(レッドコミパラ)」を擁する3周年記念弾。看板カードが超高額で、BOX需要も高い傾向です。</li>
+<li><strong><a href="op-15-atari-guide.html">神の島の冒険(OP-15)</a></strong> — 空の神「エネル」のコミックパラレルが看板のスカイピア編テーマ弾。</li>
+<li><strong><a href="op-16-atari-guide.html">決戦の刻(OP-16)</a></strong> — 海軍大将トリオのコミパラと日本版初のトレジャーレアが話題の最新弾。</li>
+<li><strong><a href="op-09-atari-guide.html">新たなる皇帝(OP-09)</a></strong> — 海賊王ロジャーの初ゴールドコミパラを擁する2周年記念の豪華弾。</li>
+<li><strong><a href="op-05-atari-guide.html">新時代の主役(OP-05)</a></strong> — ルフィ「ギア5(ニカ)」コミパラを象徴とする人気弾。</li>
+<li><strong><a href="op-11-atari-guide.html">神速の拳(OP-11)</a></strong> — ルフィ3周年スペシャル(金/銀)の超低封入が相場を牽引した弾。</li>
+</ul>
+<p>各弾の当たりカード・封入率・相場の目安は、上記リンク先の弾別ガイドで詳しく解説しています。BOXそのものの店舗別買取価格は <a href="/onepiece">比較トップ</a> から各BOXの個別ページで確認できます。</p>
+
+<h2>買取店の選び方</h2>
+<p>「一番高い店」を選ぶのが基本ですが、価格以外にも次の点を確認すると失敗しにくくなります。</p>
+<ul>
+<li><strong>買取価格の高さ</strong>: まずは当サイトで全店比較し、最高値の店を候補に。</li>
+<li><strong>買取方法</strong>: 店頭・宅配(発送)・出張など。宅配は送料・振込手数料の負担有無を確認しましょう。</li>
+<li><strong>入金スピード</strong>: 査定後すぐ振り込む店ほど相場変動リスクが小さくなります。</li>
+<li><strong>状態の減額基準</strong>: シュリンクなし・外箱ダメージの減額幅は店により差があります。</li>
+<li><strong>キャンペーン</strong>: まとめ売り・買取アップなどの条件が上乗せになる場合があります。</li>
+</ul>
+<p>当サイトは各店のワンピBOX買取ページへ直接リンクしているため、<strong>比較 → 最高値の店へ移動 → 条件確認</strong>という流れをスムーズに進められます。</p>""",
+        "faq": [
+            {"q": "ワンピBOXはどこで売るのが一番高いですか？",
+             "a": "弾やタイミングによって最高値の店舗は変わります。当サイトはワンピBOX買取に対応した最大11店舗の価格を毎日自動比較しているため、<a href=\"/onepiece\">比較トップ</a>で売りたい弾の最新価格を並べて、その時点で最も高い店を選ぶのが確実です。"},
+            {"q": "シュリンクを剥がしてしまうと買取価格は下がりますか？",
+             "a": "一般的に下がります。シュリンク付きは未開封・すり替えなしの証明として扱われ最も高値になりやすく、シュリンクなしは区分が変わって減額されるのが通例です。売却を考えているBOXはシュリンクを剥がさず保管するのが鉄則です。"},
+            {"q": "いつ売るのが得ですか？",
+             "a": "相場は新弾発売前後・再販・話題化などで動きます。急ぎでなければ、当サイトの週間値動きランキングで上昇局面かどうかを確認してから売却するのが有利です。相場は毎日変動するため、売る直前の最新比較データの確認をおすすめします。"},
+            {"q": "外箱に傷や潰れがあると売れませんか？",
+             "a": "売れないわけではありませんが、外箱の潰れ・スレ・日焼けは査定に影響し減額されることがあります。減額幅は店舗により差があるため、状態が気になる場合は複数店の基準を比較するとよいでしょう。"},
+            {"q": "この比較サイトの価格はどのくらいの頻度で更新されますか？",
+             "a": "毎日自動で各店の買取ページから最新価格を取得して更新しています。値動きは週間値動きランキングでも確認できます。表示金額は目安のため、実際の売却時は各店の公式ページで最終価格をご確認ください。"},
+        ],
+    },
+]
+
+
 def _box_data() -> dict:
     """data/history_op 最新から slug -> (max_price, store_count) を得る。"""
     files = sorted(HISTORY_OP_DIR.glob("*.json"))
@@ -113,24 +200,40 @@ def _ranking_table(rows: list) -> str:
             f'<tbody>{body}</tbody></table>')
 
 
+def _howto_nav_links(current_slug: str) -> str:
+    return "".join(
+        f'<a href="{h["slug"]}.html"'
+        + (' class="current"' if h["slug"] == current_slug else "")
+        + f'>{_esc(h["nav_label"])}</a>\n'
+        for h in HOWTO_ARTICLES)
+
+
 def _nav(current_slug: str, articles: list) -> str:
     links = ""
     for a in articles:
         cur = ' class="current"' if a["slug"] == current_slug else ""
         links += f'<a href="{a["slug"]}-atari-guide.html"{cur}>{_esc(a["nav_label"])}</a>\n'
+    howto = _howto_nav_links(current_slug)
+    howto_section = (f'<div class="article-nav-sub">📰 買取ガイド</div>\n{howto}'
+                     if howto else "")
     return (f'<nav class="article-nav">\n'
             f'<div class="article-nav-title">ワンピ買取</div>\n'
             f'<a href="/onepiece">買取価格比較トップ</a>\n'
             f'<a href="weekly.html">📊 週間値動きランキング</a>\n'
             f'<a href="weekly/index.html">📚 週間値動き記事アーカイブ</a>\n'
+            f'{howto_section}'
             f'<div class="article-nav-sub">📘 BOX掘り下げガイド</div>\n{links}</nav>')
 
 
-def _mobile_nav(articles: list) -> str:
+def _mobile_nav(current_slug: str, articles: list) -> str:
     links = "".join(
         f'<a href="{a["slug"]}-atari-guide.html">{_esc(a["nav_label"])}</a>\n'
         for a in articles)
+    howto = _howto_nav_links(current_slug)
+    howto_section = (f'<div class="mfn-section"><div class="mfn-section-title">📰 買取ガイド</div>\n'
+                     f'{howto}</div>\n' if howto else "")
     return (f'<nav class="mobile-footer-nav">\n<div class="mfn-title">📚 他のページを見る</div>\n'
+            f'{howto_section}'
             f'<div class="mfn-section"><div class="mfn-section-title">📘 BOX掘り下げガイド</div>\n{links}</div>\n'
             f'<div class="mfn-section"><div class="mfn-section-title">📰 ワンピ買取</div>\n'
             f'<a href="/onepiece">買取価格比較トップ</a>\n<a href="weekly.html">📊 週間値動きランキング</a>\n'
@@ -259,7 +362,139 @@ gtag('config', 'G-RPTS6CRTCS');
 <a href="/onepiece" class="back">&larr; ワンピ買取比較トップ</a>
 </article>
 </div><!-- /content-layout -->
-{_mobile_nav(articles)}
+{_mobile_nav(slug, articles)}
+
+</div>
+
+{AFFILIATE}
+
+<div class="ft">
+  <a href="/onepiece">ワンピ買取チェッカー</a> / <a href="/privacy.html">プライバシーポリシー</a>
+</div>
+</body>
+</html>
+"""
+
+
+def _render_howto(h: dict, atari_articles: list) -> str:
+    slug = h["slug"]
+    url = f"{BASE}/onepiece/{slug}.html"
+
+    blog_ld = {
+        "@context": "https://schema.org", "@type": "BlogPosting",
+        "headline": h["title"], "description": h["meta_desc"],
+        "datePublished": "2026-07-18", "dateModified": "2026-07-18",
+        "image": f"{BASE}/ogp.jpg",
+        "author": {"@type": "Organization", "name": "ワンピ買取チェッカー編集部", "url": f"{BASE}/onepiece"},
+        "publisher": {"@type": "Organization", "name": "ワンピ買取チェッカー",
+                      "logo": {"@type": "ImageObject", "url": f"{BASE}/ogp.png"}},
+        "mainEntityOfPage": {"@type": "WebPage", "@id": url},
+        "articleSection": "買取ガイド", "inLanguage": "ja",
+    }
+    crumb_ld = {
+        "@context": "https://schema.org", "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "ホーム", "item": f"{BASE}/"},
+            {"@type": "ListItem", "position": 2, "name": "ワンピ買取チェッカー", "item": f"{BASE}/onepiece"},
+            {"@type": "ListItem", "position": 3, "name": h["crumb"]},
+        ],
+    }
+    faq_ld = {
+        "@context": "https://schema.org", "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": f["q"],
+             "acceptedAnswer": {"@type": "Answer", "text": f["a"]}}
+            for f in h["faq"]
+        ],
+    }
+
+    hero_html = (f'<div class="hero">'
+                 f'<div class="stat-label">{_esc(h["hero_label"])}</div>'
+                 f'<div class="stat-big">{_esc(h["hero_big"])}</div>'
+                 f'<div class="stat-sub">{h["hero_sub"]}</div></div>')
+
+    faq_html = "".join(
+        f'<h3>{_esc(f["q"])}</h3>\n<p>{f["a"]}</p>\n' for f in h["faq"])
+    faq_section = f'<h2>よくある質問(FAQ)</h2>\n{faq_html}'
+
+    return f"""<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="preconnect" href="https://h.accesstrade.net">
+<meta name="description" content="{_esc(h['meta_desc'])}">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{url}">
+<meta property="og:title" content="{_esc(h['og_title'])}">
+<meta property="og:description" content="{_esc(h['og_desc'])}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="{url}">
+<meta property="og:image" content="{BASE}/ogp.jpg">
+<meta property="og:site_name" content="ワンピ買取チェッカー">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{_esc(h['og_title'])}">
+<meta name="twitter:description" content="{_esc(h['og_desc'])}">
+<meta name="twitter:image" content="{BASE}/ogp.jpg">
+<title>{_esc(h['title'])}｜ワンピ買取チェッカー</title>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831186943118320" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPTS6CRTCS"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){{dataLayer.push(arguments);}}
+gtag('js', new Date());
+gtag('config', 'G-RPTS6CRTCS');
+</script>
+<script type="application/ld+json">
+{json.dumps(blog_ld, ensure_ascii=False, indent=0)}
+</script>
+<script type="application/ld+json">
+{json.dumps(crumb_ld, ensure_ascii=False, indent=0)}
+</script>
+<script type="application/ld+json">
+{json.dumps(faq_ld, ensure_ascii=False, indent=0)}
+</script>
+{STYLE}
+</head>
+<body>
+<a class="gswitch" href="/"><span class="ar">◀</span> ポケモンカードの買取比較はこちら</a>
+<div class="header"><a href="/onepiece"><h1>ワンピ買取チェッカー</h1></a></div>
+<div class="wrap">
+<div class="breadcrumb"><a href="/">ホーム</a> &gt; <a href="/onepiece">ワンピ買取チェッカー</a> &gt; {_esc(h['crumb'])}</div>
+
+<div class="content-layout">
+{_nav(slug, atari_articles)}
+
+<article>
+<h1>{h['h1']}</h1>
+<div class="meta">公開: 2026年7月18日 / {_esc(h['meta_line'])} / ワンピ買取チェッカー編集部</div>
+
+{hero_html}
+
+{h['body']}
+
+{faq_section}
+
+<a href="/onepiece" class="cta">ワンピBOXの最新買取価格を最大11店舗で比較する &rarr;</a>
+
+<div class="disclaimer">
+<strong>ご注意:</strong> 本記事は、ワンピースカードの未開封BOXを売却する際の一般的な考え方・比較の手順をまとめた参考情報です。買取価格・相場は需給や各店の在庫状況により日々変動し、店舗ごとに査定基準(シュリンク・外箱状態の減額幅等)も異なります。掲載・紹介する金額はあくまで目安であり、特定の買取価格を保証するものではありません。BOX買取価格は当サイトが最大11店舗から自動取得した実データを基準にしていますが、実際の売却時は各店の公式ページで最終価格をご確認ください。売買の判断はご自身の責任で行ってください。
+</div>
+
+<h2>関連ページもチェック</h2>
+<ul>
+<li><a href="/onepiece">ワンピBOX買取価格比較トップ</a> — 全弾のBOX買取価格を最大11店舗で横断比較(毎日更新)</li>
+<li><a href="weekly.html">週間値動きランキング</a> — 直近7日間で値上がり・値下がりしたBOXを毎日自動更新</li>
+<li><a href="op-13-atari-guide.html">受け継がれる意志(OP-13) 当たりカードガイド</a> — レッドコミパラを擁する高額弾の詳細</li>
+<li><a href="op-15-atari-guide.html">神の島の冒険(OP-15) 当たりカードガイド</a> — エネル コミパラが看板の人気弾</li>
+</ul>
+
+<a href="/onepiece" class="back">&larr; ワンピ買取比較トップ</a>
+</article>
+</div><!-- /content-layout -->
+{_mobile_nav(slug, atari_articles)}
 
 </div>
 
@@ -281,6 +516,10 @@ def build() -> None:
         html = _render(a, ARTICLES, box)
         (ART_DIR / f"{a['slug']}-atari-guide.html").write_text(html, encoding="utf-8")
         print(f"wrote onepiece/{a['slug']}-atari-guide.html")
+    for h in HOWTO_ARTICLES:
+        html = _render_howto(h, ARTICLES)
+        (ART_DIR / f"{h['slug']}.html").write_text(html, encoding="utf-8")
+        print(f"wrote onepiece/{h['slug']}.html")
 
 
 if __name__ == "__main__":
