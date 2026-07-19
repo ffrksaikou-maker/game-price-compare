@@ -60,6 +60,9 @@ except Exception:  # 記事データが読めない環境でも生成は続行
 ONEPIECE_ARTICLES.append(
     ("kaitori-hikaku.html", "ワンピBOX買取比較・高く売るコツ",
      "最大11店舗の実データでワンピBOXを高く売るコツと店舗の選び方を解説。"))
+ONEPIECE_ARTICLES.append(
+    ("toushi.html", "ワンピBOX投資の始め方",
+     "値上がりしやすいBOXの特徴・予算別の始め方・保管・リスクを解説。"))
 
 
 def _article_links_block() -> str:
@@ -295,6 +298,8 @@ def _append_onepiece_sitemap(products: list[MasterProduct]) -> None:
     # ハウツー記事(globは*-atari-guide.htmlしか拾わないため明示追加)
     if (PROJECT_ROOT / "onepiece" / "kaitori-hikaku.html").exists():
         blocks.append(_url("/onepiece/kaitori-hikaku.html", "weekly", "0.7"))
+    if (PROJECT_ROOT / "onepiece" / "toushi.html").exists():
+        blocks.append(_url("/onepiece/toushi.html", "weekly", "0.7"))
 
     # 週次値動きアーカイブ記事(onepiece/weekly/*.html)を自動収録
     wk_dir = PROJECT_ROOT / "onepiece" / "weekly"

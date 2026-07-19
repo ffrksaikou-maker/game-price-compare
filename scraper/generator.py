@@ -147,6 +147,9 @@ BLOG_ARTICLES = [
     {"url": "munikis-zero-atari-guide.html", "title": "ムニキスゼロ 当たりカードランキング・封入率完全ガイド", "desc": "MEGA拡張パック「ムニキスゼロ」(M3)の当たりカードランキング・封入率を解説。看板メガジガルデex MUR(約50〜70BOXに1枚・発売時5万円超から約2.7万円へ下落)、メイのはげまし SAR、ニャースex SARまで。レア別封入率・BOX期待値を実データで整理。", "date": "2026-07-19"},
     {"url": "mega-sinfonia-atari-guide.html", "title": "メガシンフォニア 当たりカードランキング・封入率完全ガイド", "desc": "MEGA拡張パック「メガシンフォニア」の当たりカードランキング・封入率を解説。看板メガサーナイトex MUR(約50BOXに1枚・約4万円)、SAR(約9,000円)、アセロラのいたずら SARまで。メガブレイブと同時発売の姉妹弾。レア別封入率・BOX期待値を実データで整理。", "date": "2026-07-19"},
     {"url": "black-bolt-atari-guide.html", "title": "ブラックボルト 当たりカードランキング・封入率完全ガイド", "desc": "SV拡張パック「ブラックボルト」の当たりカードランキング・封入率を解説。看板ゼクロムex BWR(約20〜24BOXに1枚・約5万円)、ゼクロムex SAR(約2.5万円)、Nの筋書き SARまで。新レアリティBWR・レア別封入率・BOX期待値を実データで整理。", "date": "2026-07-19"},
+    {"url": "rocket-dan-no-eiko-atari-guide.html", "title": "ロケット団の栄光 当たりカードランキング・封入率完全ガイド", "desc": "SV拡張パック「ロケット団の栄光」(SV10)の当たりカードランキング・封入率を解説。看板ロケット団のミュウツーex SAR(約5万円・PSA10約11.7万円)、ファイヤーex SAR、ニドキングex SARまで。BOX買取¥27,500(定価5.1倍・上昇局面)。レア別封入率・BOX期待値を実データで整理。", "date": "2026-07-19"},
+    {"url": "eevee-heroes-atari-guide.html", "title": "イーブイヒーローズ 当たりカードランキング・封入率完全ガイド", "desc": "強化拡張パック「イーブイヒーローズ」(S6a)の当たりカードランキング・封入率を解説。絶版・高騰弾。看板ブラッキーVMAX SA(約58万円・PSA10約85万円)、ニンフィアVMAX SA、グレイシアVMAX SAまで。BOX買取¥140,000(定価約28倍)。SA封入率・BOX期待値を実データで整理。", "date": "2026-07-19"},
+    {"url": "151-atari-guide.html", "title": "ポケモンカード151 当たりカードランキング・封入率完全ガイド", "desc": "強化拡張パック「ポケモンカード151」(SV2a)の当たりカードランキング・封入率を解説。看板リザードンex SAR(約7万円・PSA10約13.7万円)、マスターボールミラー153種(ゲンガー/ピカチュウ)、ミュウex SARまで。BOX買取¥60,000(定価約11.1倍)。封入率・BOX期待値を実データで整理。", "date": "2026-07-19"},
     {"url": "restock-guide.html", "title": "再販情報の見つけ方", "desc": "ポケカBOXの再販入荷パターン、通知設定、抽選vs先着の攻略法まで。最速で再販情報をキャッチする方法を解説。", "date": "2026-04-10"},
     {"url": "box-toushi.html", "title": "ポケカBOX投資の始め方", "desc": "値上がりしやすいBOXの特徴、予算別の始め方、保管方法、リスクまで初心者向けに解説。", "date": "2026-04-02"},
     {"url": "shrink-nashi.html", "title": "シュリンクなしBOXの買取事情", "desc": "シュリンクなしポケカBOXの買取対応を買取店・メルカリ・スニダンで比較。高く売るコツも解説。", "date": "2026-03-27"},
@@ -913,6 +916,9 @@ def _build_box_narrative(
         "munikis-zero": ("munikis-zero-atari-guide.html", "ムニキスゼロ 当たりカードランキング・封入率完全ガイド"),
         "mega-sinfonia": ("mega-sinfonia-atari-guide.html", "メガシンフォニア 当たりカードランキング・封入率完全ガイド"),
         "black-bolt": ("black-bolt-atari-guide.html", "ブラックボルト 当たりカードランキング・封入率完全ガイド"),
+        "rocket-dan-no-eiko": ("rocket-dan-no-eiko-atari-guide.html", "ロケット団の栄光 当たりカードランキング・封入率完全ガイド"),
+        "eevee-heroes": ("eevee-heroes-atari-guide.html", "イーブイヒーローズ 当たりカードランキング・封入率完全ガイド"),
+        "151": ("151-atari-guide.html", "ポケモンカード151 当たりカードランキング・封入率完全ガイド"),
         "ruler-of-black-flame": ("kokuen-atari-guide.html", "黒炎の支配者 当たりカード完全ガイド"),
         "battle-collection": ("startdeck100-atari-guide.html", "スタートデッキ100 当たり番号一覧・見分け方完全ガイド"),
     }
@@ -1435,6 +1441,9 @@ def _update_sitemap(
         ("/munikis-zero-atari-guide.html", "monthly", "0.8", "2026-07-19"),
         ("/mega-sinfonia-atari-guide.html", "monthly", "0.8", "2026-07-19"),
         ("/black-bolt-atari-guide.html", "monthly", "0.8", "2026-07-19"),
+        ("/rocket-dan-no-eiko-atari-guide.html", "monthly", "0.8", "2026-07-19"),
+        ("/eevee-heroes-atari-guide.html", "monthly", "0.8", "2026-07-19"),
+        ("/151-atari-guide.html", "monthly", "0.8", "2026-07-19"),
         ("/restock-guide.html", "monthly", "0.8", "2026-04-10"),
         ("/sv-box-list.html", "daily", "0.8", today),
         ("/mega-box-list.html", "daily", "0.8", today),
@@ -1951,6 +1960,9 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <a href="munikis-zero-atari-guide.html">ムニキスゼロ 当たりカード</a>
 <a href="mega-sinfonia-atari-guide.html">メガシンフォニア 当たりカード</a>
 <a href="black-bolt-atari-guide.html">ブラックボルト 当たりカード</a>
+<a href="rocket-dan-no-eiko-atari-guide.html">ロケット団の栄光 当たりカード</a>
+<a href="eevee-heroes-atari-guide.html">イーブイヒーローズ 当たりカード</a>
+<a href="151-atari-guide.html">ポケモンカード151 当たりカード</a>
 </nav>
 
 <div class="main-card">
