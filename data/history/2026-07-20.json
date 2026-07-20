@@ -12,7 +12,8 @@
       "icchome": 10800,
       "oku": 10800,
       "kaikyo": 9500,
-      "collect_tendo": 10700
+      "collect_tendo": 10700,
+      "shinsoku": 10500
     }
   },
   {
@@ -28,7 +29,8 @@
       "icchome": 11700,
       "oku": 12000,
       "sommelier": 11800,
-      "collect_tendo": 12200
+      "collect_tendo": 12200,
+      "shinsoku": 11500
     }
   },
   {
@@ -45,7 +47,17 @@
       "oku": 9200,
       "kaikyo": 8000,
       "sommelier": 9200,
-      "collect_tendo": 9300
+      "collect_tendo": 9300,
+      "shinsoku": 9000
+    }
+  },
+  {
+    "name": "MEGA スタートデッキ100「バトルコレクション」",
+    "category": "mega",
+    "retail_price": 891,
+    "max_price": 1700,
+    "prices": {
+      "shinsoku": 1700
     }
   },
   {
@@ -98,7 +110,8 @@
       "oku": 13000,
       "kaikyo": 11500,
       "sommelier": 13000,
-      "collect_tendo": 12900
+      "collect_tendo": 12900,
+      "shinsoku": 12800
     }
   },
   {
@@ -115,7 +128,8 @@
       "oku": 12000,
       "kaikyo": 9900,
       "sommelier": 11500,
-      "collect_tendo": 12100
+      "collect_tendo": 12100,
+      "shinsoku": 12000
     }
   },
   {
@@ -222,7 +236,8 @@
       "oku": 11100,
       "kaikyo": 10000,
       "sommelier": 11200,
-      "collect_tendo": 10500
+      "collect_tendo": 10500,
+      "shinsoku": 11000
     }
   },
   {
@@ -290,7 +305,8 @@
       "oku": 12300,
       "kaikyo": 8700,
       "sommelier": 12200,
-      "collect_tendo": 11500
+      "collect_tendo": 11500,
+      "shinsoku": 12200
     }
   },
   {
@@ -306,7 +322,8 @@
       "icchome": 12000,
       "oku": 12300,
       "sommelier": 11000,
-      "collect_tendo": 11600
+      "collect_tendo": 11600,
+      "shinsoku": 12300
     }
   },
   {
@@ -372,7 +389,8 @@
       "runto": 11500,
       "icchome": 12000,
       "oku": 12200,
-      "collect_tendo": 12100
+      "collect_tendo": 12100,
+      "shinsoku": 12200
     }
   },
   {
@@ -404,7 +422,8 @@
       "runto": 12000,
       "icchome": 12000,
       "oku": 12500,
-      "collect_tendo": 10600
+      "collect_tendo": 10600,
+      "shinsoku": 12500
     }
   },
   {
@@ -420,7 +439,8 @@
       "icchome": 11600,
       "oku": 12100,
       "sommelier": 9500,
-      "collect_tendo": 11600
+      "collect_tendo": 11600,
+      "shinsoku": 11800
     }
   },
   {
@@ -488,7 +508,8 @@
       "oku": 12200,
       "kaikyo": 10000,
       "sommelier": 13000,
-      "collect_tendo": 12200
+      "collect_tendo": 12200,
+      "shinsoku": 12200
     }
   },
   {
@@ -503,7 +524,8 @@
       "runto": 12000,
       "icchome": 12500,
       "oku": 12600,
-      "collect_tendo": 12500
+      "collect_tendo": 12500,
+      "shinsoku": 12600
     }
   },
   {
@@ -551,7 +573,8 @@
       "icchome": 11500,
       "oku": 11600,
       "kaikyo": 9000,
-      "collect_tendo": 11000
+      "collect_tendo": 11000,
+      "shinsoku": 11600
     }
   },
   {
@@ -596,7 +619,8 @@
       "homura": 11300,
       "runto": 10500,
       "oku": 11200,
-      "collect_tendo": 10000
+      "collect_tendo": 10000,
+      "shinsoku": 11000
     }
   },
   {
@@ -622,7 +646,7 @@
       "homura": 28500,
       "runto": 28000,
       "oku": 28500,
-      "kaikyo": 12500,
+      "kaikyo": 11500,
       "collect_tendo": 23000,
       "shinsoku": 28000
     }
@@ -673,7 +697,8 @@
       "homura": 12500,
       "runto": 12000,
       "oku": 12500,
-      "collect_tendo": 12000
+      "collect_tendo": 12000,
+      "shinsoku": 12200
     }
   },
   {
