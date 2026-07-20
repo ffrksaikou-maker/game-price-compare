@@ -55,8 +55,9 @@
     "name": "MEGA スタートデッキ100「バトルコレクション」",
     "category": "mega",
     "retail_price": 891,
-    "max_price": 1700,
+    "max_price": 60000,
     "prices": {
+      "runto": 60000,
       "shinsoku": 1700
     }
   },
@@ -102,7 +103,7 @@
     "retail_price": 5400,
     "max_price": 13000,
     "prices": {
-      "morimori": 12500,
+      "morimori": 12800,
       "homura": 13000,
       "rudeya": 11200,
       "runto": 12500,
@@ -120,7 +121,7 @@
     "retail_price": 5400,
     "max_price": 12100,
     "prices": {
-      "morimori": 11200,
+      "morimori": 11800,
       "homura": 12000,
       "rudeya": 10000,
       "runto": 11800,
@@ -196,7 +197,7 @@
     "retail_price": 5400,
     "max_price": 27500,
     "prices": {
-      "morimori": 25800,
+      "morimori": 27300,
       "homura": 27500,
       "rudeya": 25000,
       "runto": 27000,
@@ -212,7 +213,7 @@
     "retail_price": 5400,
     "max_price": 20600,
     "prices": {
-      "morimori": 19700,
+      "morimori": 20300,
       "homura": 20500,
       "rudeya": 19500,
       "runto": 19000,
@@ -246,7 +247,7 @@
     "retail_price": 5500,
     "max_price": 21500,
     "prices": {
-      "morimori": 20900,
+      "morimori": 21300,
       "homura": 21500,
       "rudeya": 21100,
       "runto": 20000,
@@ -264,7 +265,7 @@
     "retail_price": 5400,
     "max_price": 34500,
     "prices": {
-      "morimori": 32900,
+      "morimori": 34300,
       "homura": 34500,
       "rudeya": 32000,
       "runto": 32000,
@@ -297,7 +298,7 @@
     "retail_price": 5400,
     "max_price": 12300,
     "prices": {
-      "morimori": 11800,
+      "morimori": 12000,
       "homura": 12200,
       "rudeya": 11000,
       "runto": 11800,
@@ -315,7 +316,7 @@
     "retail_price": 5400,
     "max_price": 12300,
     "prices": {
-      "morimori": 11800,
+      "morimori": 12100,
       "homura": 12300,
       "rudeya": 11000,
       "runto": 11800,
@@ -332,7 +333,7 @@
     "retail_price": 5400,
     "max_price": 14500,
     "prices": {
-      "morimori": 13800,
+      "morimori": 14300,
       "homura": 14500,
       "rudeya": 13500,
       "runto": 14000,
@@ -718,10 +719,10 @@
     "name": "S&S ハイクラスパック「VMAXクライマックス」",
     "category": "ss",
     "retail_price": 5500,
-    "max_price": 37000,
+    "max_price": 38000,
     "prices": {
       "homura": 37000,
-      "runto": 37000,
+      "runto": 38000,
       "collect_tendo": 35000,
       "shinsoku": 35000
     }
@@ -942,7 +943,7 @@
       "homura": 16000,
       "rudeya": 16000,
       "runto": 16000,
-      "icchome": 15000,
+      "icchome": 15500,
       "kaikyo": 13500,
       "sommelier": 17000,
       "collect_tendo": 16000,
@@ -958,7 +959,7 @@
       "homura": 20500,
       "rudeya": 19000,
       "runto": 19000,
-      "icchome": 19000,
+      "icchome": 20000,
       "kaikyo": 17500,
       "sommelier": 21000,
       "collect_tendo": 20500,
@@ -974,7 +975,7 @@
       "homura": 17000,
       "rudeya": 17600,
       "runto": 17000,
-      "icchome": 16000,
+      "icchome": 16500,
       "kaikyo": 16000,
       "collect_tendo": 17500,
       "shinsoku": 17000
