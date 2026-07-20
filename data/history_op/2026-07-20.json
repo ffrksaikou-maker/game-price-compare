@@ -5,12 +5,12 @@
     "retail_price": 5280,
     "max_price": 14000,
     "prices": {
-      "morimori": 13100,
-      "homura": 13100,
+      "morimori": 13200,
+      "homura": 13200,
       "rudeya": 12000,
       "runto": 13500,
       "icchome": 14000,
-      "oku": 14000,
+      "oku": 13800,
       "kaikyo": 13500,
       "collect_tendo": 11500,
       "shinsoku": 12600
@@ -22,8 +22,8 @@
     "retail_price": 5280,
     "max_price": 16800,
     "prices": {
-      "morimori": 16000,
-      "homura": 16000,
+      "morimori": 15000,
+      "homura": 15000,
       "rudeya": 14500,
       "runto": 16800,
       "icchome": 16800,
@@ -57,8 +57,8 @@
     "retail_price": 5280,
     "max_price": 24400,
     "prices": {
-      "morimori": 22500,
-      "homura": 22500,
+      "morimori": 22800,
+      "homura": 22800,
       "rudeya": 18500,
       "runto": 24000,
       "icchome": 24300,
@@ -79,7 +79,7 @@
       "rudeya": 16400,
       "runto": 17500,
       "icchome": 17500,
-      "oku": 17500,
+      "oku": 17800,
       "kaikyo": 15800,
       "collect_tendo": 17800,
       "shinsoku": 17600
@@ -173,14 +173,14 @@
     "name": "ブースターパック「双璧の覇者」【OP-06】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 24000,
+    "max_price": 25000,
     "prices": {
       "morimori": 18000,
-      "homura": 22600,
+      "homura": 23000,
       "rudeya": 23200,
       "runto": 23000,
       "icchome": 23200,
-      "oku": 24000,
+      "oku": 25000,
       "collect_tendo": 20000,
       "shinsoku": 23100
     }
@@ -192,7 +192,7 @@
     "max_price": 68200,
     "prices": {
       "morimori": 62000,
-      "homura": 62000,
+      "homura": 65000,
       "rudeya": 63000,
       "runto": 67000,
       "icchome": 63200,
@@ -274,7 +274,7 @@
     "max_price": 15000,
     "prices": {
       "morimori": 14200,
-      "homura": 14200,
+      "homura": 14500,
       "rudeya": 13000,
       "runto": 15000,
       "icchome": 15000,
@@ -288,14 +288,14 @@
     "name": "エクストラブースター「ONE PIECE Heroines Edition」【EB-03】",
     "category": "eb",
     "retail_price": 5280,
-    "max_price": 24000,
+    "max_price": 23600,
     "prices": {
       "morimori": 21000,
       "homura": 21000,
       "rudeya": 20800,
       "runto": 23200,
       "icchome": 23600,
-      "oku": 24000,
+      "oku": 23500,
       "kaikyo": 22500,
       "collect_tendo": 22000,
       "shinsoku": 20300
@@ -305,14 +305,14 @@
     "name": "エクストラブースター「Anime 25th collection」【EB-02】",
     "category": "eb",
     "retail_price": 5280,
-    "max_price": 39000,
+    "max_price": 39300,
     "prices": {
       "morimori": 37000,
-      "homura": 37000,
+      "homura": 37500,
       "rudeya": 32500,
       "runto": 38500,
       "icchome": 39000,
-      "oku": 39000,
+      "oku": 39300,
       "collect_tendo": 37000,
       "shinsoku": 35500
     }
@@ -324,7 +324,7 @@
     "max_price": 23800,
     "prices": {
       "morimori": 21000,
-      "homura": 21000,
+      "homura": 21800,
       "rudeya": 21000,
       "runto": 23500,
       "icchome": 23800,
@@ -340,7 +340,7 @@
     "retail_price": 5500,
     "max_price": 12200,
     "prices": {
-      "morimori": 11000,
+      "morimori": 11500,
       "homura": 11000,
       "rudeya": 10200,
       "runto": 12000,
