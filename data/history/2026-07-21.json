@@ -13,7 +13,7 @@
       "oku": 10300,
       "kaikyo": 9500,
       "collect_tendo": 10000,
-      "shinsoku": 10400
+      "shinsoku": 10200
     }
   },
   {
@@ -94,7 +94,7 @@
       "kaikyo": 23000,
       "sommelier": 21000,
       "collect_tendo": 23500,
-      "shinsoku": 23000
+      "shinsoku": 23500
     }
   },
   {
@@ -130,7 +130,7 @@
       "kaikyo": 9900,
       "sommelier": 11500,
       "collect_tendo": 12000,
-      "shinsoku": 12000
+      "shinsoku": 11800
     }
   },
   {
@@ -188,7 +188,7 @@
       "runto": 23300,
       "icchome": 23300,
       "collect_tendo": 23100,
-      "shinsoku": 23100
+      "shinsoku": 23000
     }
   },
   {
@@ -238,7 +238,7 @@
       "kaikyo": 10000,
       "sommelier": 11200,
       "collect_tendo": 10500,
-      "shinsoku": 11000
+      "shinsoku": 10800
     }
   },
   {
@@ -331,7 +331,7 @@
     "name": "SV 拡張パック「変幻の仮面」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 14500,
+    "max_price": 14600,
     "prices": {
       "morimori": 14300,
       "homura": 14500,
@@ -341,7 +341,7 @@
       "oku": 14500,
       "kaikyo": 12000,
       "collect_tendo": 14500,
-      "shinsoku": 14500
+      "shinsoku": 14600
     }
   },
   {
@@ -375,7 +375,7 @@
       "icchome": 14300,
       "oku": 14500,
       "collect_tendo": 14600,
-      "shinsoku": 14500
+      "shinsoku": 14600
     }
   },
   {
@@ -457,7 +457,7 @@
       "icchome": 14000,
       "oku": 14500,
       "collect_tendo": 14600,
-      "shinsoku": 14400
+      "shinsoku": 14500
     }
   },
   {
@@ -492,7 +492,7 @@
       "oku": 60600,
       "kaikyo": 59000,
       "collect_tendo": 57000,
-      "shinsoku": 56500
+      "shinsoku": 58000
     }
   },
   {
