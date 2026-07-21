@@ -25,7 +25,7 @@
       "morimori": 11600,
       "homura": 11800,
       "rudeya": 11500,
-      "runto": 12000,
+      "runto": 11800,
       "icchome": 11700,
       "oku": 12000,
       "sommelier": 12000,
@@ -70,7 +70,7 @@
       "morimori": 14300,
       "homura": 14500,
       "rudeya": 15000,
-      "runto": 14800,
+      "runto": 14500,
       "icchome": 14500,
       "oku": 14500,
       "kaikyo": 15000,
@@ -517,7 +517,7 @@
     "name": "SV 強化拡張パック「スノーハザード」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 12600,
+    "max_price": 12800,
     "prices": {
       "morimori": 12400,
       "homura": 12600,
@@ -525,6 +525,7 @@
       "runto": 12000,
       "icchome": 12500,
       "oku": 12600,
+      "sommelier": 12800,
       "collect_tendo": 12600,
       "shinsoku": 12600
     }
