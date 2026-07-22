@@ -8,10 +8,10 @@
       "morimori": 10000,
       "homura": 9800,
       "rudeya": 9500,
-      "runto": 10000,
+      "runto": 9500,
       "icchome": 9700,
       "oku": 10000,
-      "kaikyo": 9500,
+      "kaikyo": 8000,
       "collect_tendo": 9500,
       "shinsoku": 10000
     }
@@ -25,7 +25,7 @@
       "morimori": 11300,
       "homura": 11300,
       "rudeya": 11300,
-      "runto": 11500,
+      "runto": 11000,
       "icchome": 11500,
       "oku": 11500,
       "sommelier": 11500,
@@ -65,7 +65,7 @@
     "name": "MEGA ハイクラスパック「MEGAドリームex」",
     "category": "mega",
     "retail_price": 5500,
-    "max_price": 14700,
+    "max_price": 14500,
     "prices": {
       "morimori": 14000,
       "homura": 13800,
@@ -73,7 +73,7 @@
       "runto": 14000,
       "icchome": 14500,
       "oku": 14500,
-      "kaikyo": 14700,
+      "kaikyo": 14000,
       "sommelier": 14000,
       "collect_tendo": 13500,
       "shinsoku": 14000
@@ -91,10 +91,10 @@
       "runto": 23000,
       "icchome": 23500,
       "oku": 23800,
-      "kaikyo": 23000,
+      "kaikyo": 21000,
       "sommelier": 21000,
       "collect_tendo": 23500,
-      "shinsoku": 23500
+      "shinsoku": 23000
     }
   },
   {
@@ -124,7 +124,7 @@
       "morimori": 11300,
       "homura": 11500,
       "rudeya": 10500,
-      "runto": 11200,
+      "runto": 11000,
       "icchome": 11000,
       "oku": 11500,
       "kaikyo": 9900,
@@ -232,7 +232,7 @@
       "morimori": 10400,
       "homura": 10500,
       "rudeya": 10300,
-      "runto": 10800,
+      "runto": 10500,
       "icchome": 11000,
       "oku": 11000,
       "kaikyo": 10000,
@@ -253,7 +253,7 @@
       "runto": 20000,
       "icchome": 21000,
       "oku": 21400,
-      "kaikyo": 21500,
+      "kaikyo": 21000,
       "sommelier": 21300,
       "collect_tendo": 20500,
       "shinsoku": 21300
@@ -406,7 +406,7 @@
       "runto": 19500,
       "icchome": 20500,
       "oku": 20600,
-      "kaikyo": 18000,
+      "kaikyo": 19000,
       "collect_tendo": 20500,
       "shinsoku": 20500
     }
@@ -960,7 +960,7 @@
       "rudeya": 18000,
       "runto": 19000,
       "icchome": 20000,
-      "kaikyo": 17500,
+      "kaikyo": 17000,
       "sommelier": 20000,
       "collect_tendo": 20500,
       "shinsoku": 18000
@@ -976,7 +976,7 @@
       "rudeya": 16500,
       "runto": 16000,
       "icchome": 16500,
-      "kaikyo": 16000,
+      "kaikyo": 15000,
       "collect_tendo": 17500,
       "shinsoku": 16000
     }
