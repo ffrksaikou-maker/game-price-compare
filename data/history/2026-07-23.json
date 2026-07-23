@@ -37,7 +37,7 @@
     "name": "MEGA 拡張パック「ムニキスゼロ」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 8700,
+    "max_price": 9000,
     "prices": {
       "morimori": 8400,
       "homura": 8700,
@@ -46,7 +46,7 @@
       "icchome": 8500,
       "oku": 8600,
       "kaikyo": 8000,
-      "sommelier": 8500,
+      "sommelier": 9000,
       "collect_tendo": 7800,
       "shinsoku": 8600
     }
