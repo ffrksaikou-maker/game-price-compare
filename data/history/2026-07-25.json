@@ -9,7 +9,7 @@
       "homura": 9300,
       "rudeya": 8500,
       "runto": 9000,
-      "icchome": 9000,
+      "icchome": 8800,
       "oku": 9000,
       "kaikyo": 8000,
       "collect_tendo": 8800,
@@ -43,7 +43,7 @@
       "homura": 8700,
       "rudeya": 7500,
       "runto": 8600,
-      "icchome": 8000,
+      "icchome": 8200,
       "oku": 8400,
       "kaikyo": 8000,
       "sommelier": 8800,
@@ -64,15 +64,15 @@
     "name": "MEGA ハイクラスパック「MEGAドリームex」",
     "category": "mega",
     "retail_price": 5500,
-    "max_price": 14000,
+    "max_price": 13700,
     "prices": {
       "morimori": 13400,
       "homura": 13700,
       "rudeya": 13000,
       "runto": 13700,
-      "icchome": 13300,
+      "icchome": 13500,
       "oku": 13500,
-      "kaikyo": 14000,
+      "kaikyo": 13700,
       "sommelier": 13000,
       "collect_tendo": 13500,
       "shinsoku": 13600
@@ -88,12 +88,12 @@
       "homura": 21500,
       "rudeya": 21000,
       "runto": 22000,
-      "icchome": 22000,
+      "icchome": 21700,
       "oku": 21800,
       "kaikyo": 21000,
       "sommelier": 21000,
       "collect_tendo": 21500,
-      "shinsoku": 21500
+      "shinsoku": 20000
     }
   },
   {
@@ -463,7 +463,7 @@
     "name": "SV 強化拡張パック「黒炎の支配者」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 19500,
+    "max_price": 19300,
     "prices": {
       "morimori": 19100,
       "homura": 19300,
@@ -474,7 +474,7 @@
       "kaikyo": 16500,
       "sommelier": 19000,
       "collect_tendo": 18500,
-      "shinsoku": 19500
+      "shinsoku": 19300
     }
   },
   {
