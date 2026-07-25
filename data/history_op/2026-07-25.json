@@ -22,7 +22,7 @@
     "retail_price": 5280,
     "max_price": 17000,
     "prices": {
-      "morimori": 14000,
+      "morimori": 15000,
       "homura": 15200,
       "rudeya": 15000,
       "runto": 16800,
@@ -254,7 +254,7 @@
     "name": "ブースターパック「ROMANCE DAWN」【OP-01】",
     "category": "op",
     "retail_price": 4752,
-    "max_price": 41500,
+    "max_price": 41000,
     "prices": {
       "morimori": 40500,
       "homura": 40500,
@@ -262,7 +262,7 @@
       "runto": 41000,
       "icchome": 40000,
       "oku": 41000,
-      "collect_tendo": 41500,
+      "collect_tendo": 41000,
       "shinsoku": 37800
     }
   },

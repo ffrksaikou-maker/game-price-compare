@@ -5,7 +5,7 @@
     "retail_price": 6000,
     "max_price": 9500,
     "prices": {
-      "morimori": 9300,
+      "morimori": 9100,
       "homura": 9300,
       "rudeya": 8500,
       "runto": 9000,
@@ -13,7 +13,7 @@
       "oku": 9500,
       "kaikyo": 8000,
       "collect_tendo": 8800,
-      "shinsoku": 9300
+      "shinsoku": 9000
     }
   },
   {
@@ -22,15 +22,15 @@
     "retail_price": 5400,
     "max_price": 10800,
     "prices": {
-      "morimori": 10400,
+      "morimori": 10200,
       "homura": 10500,
-      "rudeya": 10500,
+      "rudeya": 10000,
       "runto": 10600,
       "icchome": 10500,
       "oku": 10800,
-      "sommelier": 10800,
-      "collect_tendo": 10500,
-      "shinsoku": 10500
+      "sommelier": 10500,
+      "collect_tendo": 10800,
+      "shinsoku": 10300
     }
   },
   {
@@ -41,14 +41,14 @@
     "prices": {
       "morimori": 8400,
       "homura": 8700,
-      "rudeya": 8000,
+      "rudeya": 7500,
       "runto": 8600,
       "icchome": 8000,
       "oku": 8700,
       "kaikyo": 8000,
       "sommelier": 8800,
       "collect_tendo": 8400,
-      "shinsoku": 8600
+      "shinsoku": 8500
     }
   },
   {
@@ -69,12 +69,12 @@
       "morimori": 13400,
       "homura": 13700,
       "rudeya": 13000,
-      "runto": 14000,
-      "icchome": 13600,
+      "runto": 13700,
+      "icchome": 13300,
       "oku": 13500,
       "kaikyo": 14000,
       "sommelier": 13000,
-      "collect_tendo": 13000,
+      "collect_tendo": 13500,
       "shinsoku": 13600
     }
   },
@@ -84,7 +84,7 @@
     "retail_price": 5400,
     "max_price": 22500,
     "prices": {
-      "morimori": 21600,
+      "morimori": 21200,
       "homura": 21500,
       "rudeya": 21000,
       "runto": 22000,
@@ -92,7 +92,7 @@
       "oku": 22500,
       "kaikyo": 21000,
       "sommelier": 21000,
-      "collect_tendo": 22000,
+      "collect_tendo": 21500,
       "shinsoku": 21500
     }
   },
@@ -100,7 +100,7 @@
     "name": "MEGA 拡張パック「メガブレイブ」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 12000,
+    "max_price": 11500,
     "prices": {
       "morimori": 11100,
       "homura": 11500,
@@ -109,8 +109,8 @@
       "icchome": 11500,
       "oku": 11500,
       "kaikyo": 11500,
-      "sommelier": 12000,
-      "collect_tendo": 11500,
+      "sommelier": 11300,
+      "collect_tendo": 11000,
       "shinsoku": 11500
     }
   },
@@ -150,13 +150,13 @@
     "name": "SV 拡張パックDX「ホワイトフレア」",
     "category": "sv",
     "retail_price": 5800,
-    "max_price": 23300,
+    "max_price": 23100,
     "prices": {
       "morimori": 23100,
       "homura": 23000,
-      "rudeya": 23300,
+      "rudeya": 23000,
       "icchome": 20000,
-      "collect_tendo": 23200,
+      "collect_tendo": 22800,
       "shinsoku": 23000
     }
   },
@@ -171,7 +171,7 @@
       "rudeya": 25000,
       "runto": 25500,
       "icchome": 25500,
-      "collect_tendo": 24500,
+      "collect_tendo": 25000,
       "shinsoku": 25000
     }
   },
@@ -179,14 +179,14 @@
     "name": "SV 拡張パック「ホワイトフレア」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 23300,
+    "max_price": 23200,
     "prices": {
       "morimori": 22800,
       "homura": 23200,
-      "rudeya": 23300,
+      "rudeya": 23000,
       "runto": 23200,
       "icchome": 22500,
-      "collect_tendo": 22500,
+      "collect_tendo": 23000,
       "shinsoku": 23200
     }
   },
@@ -194,13 +194,13 @@
     "name": "SV 拡張パック「ロケット団の栄光」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 27500,
+    "max_price": 27300,
     "prices": {
       "morimori": 27300,
       "homura": 27000,
       "rudeya": 26500,
       "runto": 27000,
-      "icchome": 27500,
+      "icchome": 27000,
       "oku": 27000,
       "collect_tendo": 27000,
       "shinsoku": 27000
@@ -218,7 +218,7 @@
       "runto": 20500,
       "icchome": 20600,
       "oku": 20800,
-      "collect_tendo": 20400,
+      "collect_tendo": 20500,
       "shinsoku": 20300
     }
   },
@@ -246,15 +246,15 @@
     "retail_price": 5500,
     "max_price": 21100,
     "prices": {
-      "morimori": 21000,
+      "morimori": 20200,
       "homura": 20500,
       "rudeya": 21100,
       "runto": 20000,
       "icchome": 20800,
       "oku": 21100,
       "kaikyo": 21000,
-      "sommelier": 21000,
-      "collect_tendo": 20000,
+      "sommelier": 20000,
+      "collect_tendo": 20500,
       "shinsoku": 20500
     }
   },
@@ -287,7 +287,7 @@
       "runto": 16000,
       "icchome": 16200,
       "oku": 16800,
-      "collect_tendo": 16000,
+      "collect_tendo": 16500,
       "shinsoku": 16800
     }
   },
@@ -407,7 +407,7 @@
       "oku": 20000,
       "kaikyo": 19000,
       "collect_tendo": 20000,
-      "shinsoku": 19800
+      "shinsoku": 19500
     }
   },
   {
@@ -469,7 +469,7 @@
       "homura": 19300,
       "rudeya": 18500,
       "runto": 18500,
-      "icchome": 19500,
+      "icchome": 19200,
       "oku": 19500,
       "kaikyo": 16500,
       "sommelier": 19000,
@@ -504,7 +504,7 @@
       "homura": 12000,
       "rudeya": 11500,
       "runto": 11800,
-      "icchome": 12300,
+      "icchome": 12100,
       "oku": 12300,
       "kaikyo": 10000,
       "sommelier": 13000,
@@ -538,7 +538,7 @@
       "homura": 18800,
       "rudeya": 18500,
       "runto": 17500,
-      "icchome": 19500,
+      "icchome": 19000,
       "oku": 19500,
       "collect_tendo": 17000,
       "shinsoku": 18800
@@ -557,7 +557,7 @@
       "icchome": 14800,
       "oku": 15000,
       "collect_tendo": 14000,
-      "shinsoku": 15000
+      "shinsoku": 14800
     }
   },
   {
