@@ -59,6 +59,8 @@ jobs:
             index.html ranking.html sitemap.xml \
             onepiece.html \
             data/cache.json data/history/ data/history_op/ data/x_state/ \
+            data/cache_fallback_counts.json data/cache_meta.json \
+            data/stale_counts.json data/anomaly_state.json \
             box/ weekly/ \
             sv-box-list.html mega-box-list.html ss-box-list.html \
             151-spotlight.html kokuen-spotlight.html inferno-x-spotlight.html \
