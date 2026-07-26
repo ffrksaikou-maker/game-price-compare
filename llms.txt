@@ -68,6 +68,9 @@
 - [ロケット団の栄光 当たりカードランキング・封入率完全ガイド](https://pokeca-box-hikaku.com/rocket-dan-no-eiko-atari-guide.html): SV拡張「ロケット団の栄光」(SV10)。看板ロケット団のミュウツーex SAR(約5万円・PSA10約11.7万円)、ファイヤーex SAR(江川あきら氏)、ニドキングex SAR。BOX約5.1倍・上昇局面。封入率と見分け方を解説
 - [イーブイヒーローズ 当たりカードランキング・封入率完全ガイド](https://pokeca-box-hikaku.com/eevee-heroes-atari-guide.html): 絶版・高騰弾「イーブイヒーローズ」(S6a)。看板ブラッキーVMAX SA(約58万円・PSA10約85万円)、ニンフィアVMAX SA、グレイシアVMAX SA。SA全12種・約4BOXに1枚の封入率と見分け方を解説
 - [ポケモンカード151 当たりカードランキング・封入率完全ガイド](https://pokeca-box-hikaku.com/151-atari-guide.html): 強化拡張「ポケモンカード151」(SV2a)。看板リザードンex SAR(約7万円・PSA10約13.7万円)、マスターボールミラー153種(ゲンガー/ピカチュウ)、ミュウex SAR。封入率と見分け方を解説
+- [ホワイトフレア 当たりカードランキング・封入率完全ガイド](https://pokeca-box-hikaku.com/white-flare-atari-guide.html): SV拡張パック。新レアリティBWRの看板レシラムex BWR(約5万円・PSA10約10.7万円・PSA10取得率約60%)、レシラムex SAR(約2万円)、トウコ SAR(さいとうなおき氏・約6千円)。SAR7種の封入率、AR枠が2千円超で厚い構成、対になるブラックボルトとのBOX相場比較を解説
+- [テラスタルフェスex 当たりカードランキング・封入率完全ガイド](https://pokeca-box-hikaku.com/terastal-fes-ex-atari-guide.html): SVハイクラスパック。ブイズ9種すべてex収録。看板ブラッキーex SAR(約5.2万円・PSA10約10.1万円)、ブラッキー マスターボールミラー(約1.4万円)、ニンフィアex SAR。SAR33種は約0.8BOXに1枚(ポケモンSARは1BOX確定)だが狙いの1枚は約3.76%、マスボミラー101種は約202BOXに1枚という構造を解説
+- [シャイニートレジャーex 当たりカードランキング・封入率完全ガイド](https://pokeca-box-hikaku.com/shiny-treasure-ex-atari-guide.html): SVハイクラスパック。色違い(S)を大量収録。看板ミュウex SAR(約7.4万円・PSA10約13.5万円)、リザードンex SAR(約3万円)、ナンジャモ SAR。SAR8種は約12%(約8.3BOXに1枚)・狙いの1枚は約1.5%。Gレギュで2026年1月23日にスタン落ち済みでもコレクション需要で高値を維持する構造を解説
 - [黒炎の支配者 当たりカード完全ガイド](https://pokeca-box-hikaku.com/kokuen-atari-guide.html): SAR/UR/SR/AR/RR全41種の当たりカードを買取相場・封入率・期待値で整理。リザードンex SAR一強の実態も解説
 - [スタートデッキ100「バトルコレクション」当たり番号一覧・見分け方](https://pokeca-box-hikaku.com/startdeck100-atari-guide.html): 当たり番号一覧・見分け方・封入率を解説。最高当たりNo.001(金)メガリザードンYex MUR約94万円、隠しNo.101 ZA御三家SAR、全ミラー確率(約12%)まで
 
@@ -100,6 +103,11 @@ A: BOX商品によって最高値の店舗は変動します。直近の傾向�
 - [ワンピBOX買取価格比較トップ](https://pokeca-box-hikaku.com/onepiece): 全23BOXの買取価格を最大11店舗で一覧比較
 - [週間値動きランキング](https://pokeca-box-hikaku.com/onepiece/weekly.html): 直近7日間の値上がり・値下がりBOXを毎日更新
 - [週間値動き記事アーカイブ](https://pokeca-box-hikaku.com/onepiece/weekly/index.html): 週次の値動きレポート(ISO週ごと自動生成)
+
+### 買取ガイド (ハウツー記事)
+- [ワンピカード 高額BOXランキング・絶版ガイド](https://pokeca-box-hikaku.com/onepiece/kougaku-ranking.html): 全23弾を最高買取価格でランキングし定価比を併記。1位は新時代の主役(OP-05)で定価の約13倍。ONE PIECEカードゲームには絶版・生産終了の公式アナウンス制度がなくバンダイは増産・再販を継続している実態、2026年4月1日導入のブロックアイコン制度(ブロック①=OP-01〜04+ST-01〜09がスタンダード使用不可、②=OP-05〜08は2027年4月、③=OP-09〜12は2028年4月予定)を解説。スタン落ち後もOP-01が全弾2位の高値を維持する=コレクション需要が価格を支える構造まで整理
+- [ワンピBOX買取比較ガイド](https://pokeca-box-hikaku.com/onepiece/kaitori-hikaku.html): 最大11店舗の実データでワンピBOXを高く売るコツ、店舗の選び方、シュリンク・外箱状態の減額基準を解説
+- [ワンピカードBOX投資の始め方](https://pokeca-box-hikaku.com/onepiece/toushi.html): 値上がりしやすいBOXの特徴、予算別の始め方、保管方法、再販・相場変動のリスクを初心者向けに整理
 
 ### 当たりカードガイド (弾別23本 / 当たり・買取相場・封入率・見分け方)
 各弾の当たりカードランキング・買取相場・レア別封入率・開封前後の見分け方・BOX開封の期待値を、複数ソースと当サイト実データで整理した解説記事です。カード相場は2026年7月時点の目安。

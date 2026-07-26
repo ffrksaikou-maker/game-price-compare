@@ -263,6 +263,101 @@ HOWTO_ARTICLES = [
              "a": "あります。BOX相場は需給で変動する現物であり、買った価格より下がることも当然あります。本記事は投資助言ではなく一般的な情報提供です。値上がりや利益は保証されないため、余剰資金で・急いで売らずに済む範囲で行い、最終判断はご自身の責任で行ってください。"},
         ],
     },
+    {
+        "slug": "kougaku-ranking",
+        "nav_label": "高額BOXランキング・絶版ガイド",
+        "crumb": "高額BOXランキング・絶版ガイド",
+        "date": "2026-07-26",
+        "date_jp": "2026年7月26日",
+        "title": "ワンピカード 高額BOXランキング全{{BOX_COUNT}}弾｜買取価格・定価比と絶版/ブロックアイコンの実態を実データで解説",
+        "h1": "ワンピカード 高額BOXランキング｜全{{BOX_COUNT}}弾の買取価格・定価比と「絶版」「ブロックアイコン制度」の実態を実データで解説",
+        "meta_desc": "ワンピースカードの未開封BOX全弾を最高買取価格でランキング。1位は新時代の主役(OP-05)で最高買取{{TOP1_PRICE}}・定価の{{TOP1_MULT}}。定価比・発売年つきの一覧表と、公式の絶版アナウンスがない実態、2026年4月導入のブロックアイコン制度がBOX相場に与える影響を最大11店舗の実データで解説します。",
+        "og_title": "ワンピカード 高額BOXランキング｜全弾の買取価格・定価比と絶版/ブロックアイコンの実態",
+        "og_desc": "ワンピBOX全弾を最高買取価格でランキング。1位は新時代の主役(OP-05)で最高買取{{TOP1_PRICE}}・定価の{{TOP1_MULT}}。絶版の実態と2026年4月導入のブロックアイコン制度がBOX相場に与える影響を最大11店舗の実データで解説。",
+        "meta_line": "全弾の高額BOXランキング・定価比・絶版とブロックアイコン制度の実態",
+        "hero_label": "ワンピBOX 最高買取ランキング(当サイト実データ)",
+        "hero_big": "1位 新時代の主役(OP-05) {{TOP1_PRICE}}",
+        "hero_sub": "定価¥5,280に対して{{TOP1_MULT}}。2位 ROMANCE DAWN(OP-01) {{TOP2_PRICE}}({{TOP2_MULT}})、3位 神速の拳(OP-11) {{TOP3_PRICE}}({{TOP3_MULT}})。全{{BOX_COUNT}}弾の最高買取・定価比を毎日自動収集した実データで一覧化しています。",
+        "disclaimer": "本記事のBOX買取価格は、当サイトが最大11店舗から自動取得した実データの記事更新時点のスナップショットです。相場は需給・再販・各店の在庫状況により日々変動するため、金額はあくまで目安であり特定の買取価格を保証するものではありません。また、ONE PIECEカードゲームには「絶版」「生産終了」の公式アナウンス制度がなく、本記事の入手性に関する記述は流通状況からの観測にとどまります。ブロックアイコン制度の適用区分は公式発表に基づきますが、エクストラブースター・プレミアムブースター等の個別の割り当てについては断定を避けています。最新・正確な情報は公式サイトをご確認ください。売買の判断はご自身の責任で行ってください。",
+        "related": '<li><a href="/onepiece">ワンピBOX買取価格比較トップ</a> — 全弾のBOX買取価格を最大11店舗で横断比較(毎日更新)</li>\n'
+                   '<li><a href="weekly.html">週間値動きランキング</a> — 直近7日間で値上がり・値下がりしたBOXを毎日自動更新</li>\n'
+                   '<li><a href="toushi.html">ワンピカードBOX投資の始め方</a> — 値上がりしやすいBOXの特徴・保管・リスク</li>\n'
+                   '<li><a href="kaitori-hikaku.html">ワンピBOX買取比較ガイド</a> — 高く売るコツと店舗選びの手順</li>\n'
+                   '<li><a href="op-05-atari-guide.html">新時代の主役(OP-05) 当たりカードガイド</a> — 全弾トップの高額弾の中身</li>\n'
+                   '<li><a href="op-01-atari-guide.html">ROMANCE DAWN(OP-01) 当たりカードガイド</a> — 記念すべき第1弾の当たり</li>',
+        "body": """<p>ワンピースカードゲームの未開封BOXは、弾によって買取価格に<strong>数倍の開き</strong>があります。定価¥5,280前後の同じブースターパックでも、1万円台で落ち着くものから<strong>6万円を超える</strong>ものまで存在するのが実情です。本記事では、当サイトが最大11店舗から毎日自動収集している買取データをもとに、<strong>全{{BOX_COUNT}}弾を最高買取価格の高い順にランキング</strong>し、あわせて「ワンピカードに絶版はあるのか」「2026年4月に導入されたブロックアイコン制度はBOX相場にどう影響するのか」を整理します。</p>
+
+<h2>ワンピBOX 高額ランキング｜全{{BOX_COUNT}}弾(当サイト実データ)</h2>
+<p>各弾の<strong>最高買取価格</strong>(当サイト掲載店舗のうち最も高い店の価格)と、<strong>定価に対する倍率</strong>を並べたものが以下の表です。弾名をクリックすると、その弾の当たりカードガイドに移動できます。</p>
+{{BOX_RANKING}}
+<div class="callout"><strong>表の見方:</strong> 「最高買取」は当サイト掲載店舗の最高値、「定価比」は定価に対する倍率です。スタートデッキEX ルフィ＆エース(ST-30)のみ定価¥1,980のスタートデッキのため、ブースターパックとは倍率の意味合いが異なります。最新値は必ず <a href="/onepiece">比較トップ</a> でご確認ください。</div>
+
+<h2>高額BOX TOP4を解説</h2>
+<h3>1位 新時代の主役【OP-05】｜{{TOP1_PRICE}}({{TOP1_MULT}})</h3>
+<p>全弾で頭ひとつ抜けた1位が、2023年8月発売の1周年記念弾 <strong>新時代の主役(OP-05)</strong> です。最高買取は<strong>{{TOP1_PRICE}}</strong>、定価¥5,280に対して<strong>{{TOP1_MULT}}</strong>という水準で、発売から3年近く経ってなお高値を維持しています。評価の中心は<strong>コミックパラレル(コミパラ)が3種同時に収録された前例のない仕様</strong>で、看板であるルフィのコミパラは単体で数十万円規模の取引が報告されています。当たりの詳細は <a href="op-05-atari-guide.html">新時代の主役 当たりカードガイド</a> をご覧ください。</p>
+<h3>2位 ROMANCE DAWN【OP-01】｜{{TOP2_PRICE}}({{TOP2_MULT}})</h3>
+<p>記念すべき第1弾 <strong>ROMANCE DAWN(OP-01)</strong> が2位です。最高買取は<strong>{{TOP2_PRICE}}</strong>で、定価¥4,752に対し<strong>{{TOP2_MULT}}</strong>。2022年7月発売と最も古く、市場に残る未開封BOXが少ないことが価格を支えています。後述する<strong>ブロックアイコン制度で2026年4月からスタンダード大会では使えなくなった弾</strong>ですが、それでも高値圏にある点が本作の相場構造を象徴しています。</p>
+<h3>3位 神速の拳【OP-11】｜{{TOP3_PRICE}}({{TOP3_MULT}})</h3>
+<p>2025年3月発売の <strong>神速の拳(OP-11)</strong> が3位。比較的新しい弾ながら<strong>{{TOP3_PRICE}}</strong>({{TOP3_MULT}})という水準で、上位陣に食い込んでいます。詳細は <a href="op-11-atari-guide.html">神速の拳 当たりカードガイド</a> で解説しています。</p>
+<h3>4位 ONE PIECE Anime 25th collection【EB-02】｜{{TOP4_PRICE}}({{TOP4_MULT}})</h3>
+<p>エクストラブースターから唯一トップ5に入るのが <strong>Anime 25th collection(EB-02)</strong> です。アニメ25周年の記念商品という位置づけで、<strong>{{TOP4_PRICE}}</strong>({{TOP4_MULT}})。エクストラブースターは通常のブースターパックより流通量が絞られる傾向があり、記念性が加わると相場が伸びやすい枠です。</p>
+
+<h2>ワンピカードに「絶版」はある？｜公式アナウンスは存在しない</h2>
+<p>高額弾を語るときによく使われる「絶版」という言葉ですが、<strong>ONE PIECEカードゲームには、特定の弾を絶版・生産終了とする公式アナウンスの制度がありません</strong>。この点は、レギュレーション変更にともなって「事実上の絶版」が意識されやすいポケモンカードとは事情が異なります。</p>
+<h3>むしろ再販・増産は継続している</h3>
+<p>実態としては、バンダイは人気商品の<strong>増産と再販を継続</strong>しています。新弾は発売直後こそ品薄になりやすいものの、発売から1か月前後で追加生産がかかるケースが多く報じられており、一時期のような極端な品薄・転売の過熱は落ち着いてきたと評価されています。つまり<strong>「今買えないこと」と「二度と手に入らないこと」はイコールではありません</strong>。</p>
+<h3>それでも旧弾が高いのはなぜか</h3>
+<p>では、なぜOP-01やOP-05のような旧弾が高値を保つのか。理由は絶版宣言ではなく、次の3点です。</p>
+<ul>
+<li><strong>開封されて未開封BOXが物理的に減る</strong> — 時間が経つほど市場の未開封在庫は目減りします</li>
+<li><strong>再販の頻度・数量が新弾に偏る</strong> — 生産リソースは基本的に最新弾に向けられ、数年前の弾が大量再販される例は多くありません</li>
+<li><strong>看板カードの相場が下支えする</strong> — コミパラなど超高額カードを狙う開封需要が続く限り、BOXの需要も残ります</li>
+</ul>
+<div class="callout"><strong>結論:</strong> ワンピカードの旧弾は「絶版だから高い」のではなく、<strong>「再販が新弾に集中し、未開封在庫が自然減しているから高い」</strong>と理解するのが実態に近い見方です。当サイトでは公式発表のない絶版・生産終了の断定は行っていません。</div>
+
+<h2>ブロックアイコン制度(2026年4月導入)とBOX相場</h2>
+<p>2026年4月1日より、ONE PIECEカードゲームに<strong>ブロックアイコン制度</strong>が導入されました。カード右下に記された数字(ブロックアイコン)をもとに、スタンダードレギュレーションの大会で使用できるカードを制限する仕組みで、他のTCGでいう「スタン落ち」「ローテーション」にあたります。</p>
+<h3>ブロックの区分と適用スケジュール</h3>
+<ul>
+<li><strong>ブロック①</strong>: 第1弾〜第4弾(OP-01〜OP-04)およびスタートデッキST-01〜ST-09 — <strong>2026年4月1日以降、スタンダードの公式大会で使用不可</strong></li>
+<li><strong>ブロック②</strong>: 第5弾〜第8弾(OP-05〜OP-08) — 2027年4月に対象予定</li>
+<li><strong>ブロック③</strong>: 第9弾〜第12弾(OP-09〜OP-12) — 2028年4月に対象予定</li>
+<li><strong>特例</strong>: スーパーパラレルと同一カードナンバーのカードなど、一部は継続して使用可能とされています</li>
+</ul>
+<p>※エクストラブースター(EB)・プレミアムブースター(PRB)・ST-30などの個別のブロック割り当ては、収録時期に応じて振られますが、弾ごとの正確な対応は公式サイトの案内をご確認ください。当サイトでは断定を避けています。</p>
+<h3>スタン落ちしてもBOX相場は下がっていない</h3>
+<p>ここが重要な点です。<strong>ブロック①(OP-01〜OP-04)は2026年4月にスタンダードで使えなくなりましたが、BOX買取価格は下がるどころか高値圏にあります</strong>。実データを見ると、OP-01 ROMANCE DAWNは<strong>{{OP01_PRICE}}</strong>({{OP01_MULT}})で全弾2位、OP-02 頂上決戦も<strong>{{OP02_PRICE}}</strong>({{OP02_MULT}})と上位です。</p>
+<p>これは、旧弾BOXの価格を支えているのが<strong>対戦需要ではなくコレクション需要・開封需要</strong>だからです。同じ構造はポケモンカードでも観測されており、Gレギュでスタン落ちした<a href="/shiny-treasure-ex-atari-guide.html">シャイニートレジャーex</a>が現在もBOX買取¥20,000(定価の約3.6倍)を維持しているのが好例です。<strong>「スタン落ち＝BOX暴落」ではない</strong>という点は、売り時を考えるうえで押さえておきたい前提です。</p>
+
+<h2>定価比で見る「買い方・売り方」の目安</h2>
+<p>ランキング表の<strong>定価比</strong>は、その弾がどれだけプレミア化しているかを示す指標として使えます。</p>
+<h3>定価比が高い弾(約5倍以上)</h3>
+<p>OP-05・OP-01・OP-11・EB-02などが該当します。すでに大きく値上がりしているため、<strong>これから買って値上がりを狙うより、手元にあるなら売却先を厳選する</strong>フェーズにある弾といえます。高額弾ほど店舗間の価格差が金額として大きくなるため、<a href="kaitori-hikaku.html">複数店舗の比較</a>が効きます。</p>
+<h3>定価比が低い弾(約2〜3倍)</h3>
+<p>比較的新しい弾や、再販が行き渡った弾がここに入ります。供給が多いぶん現時点の評価は控えめですが、時間の経過で未開封在庫が減れば水準が切り上がる可能性もあります。投資として考える場合の基本的な考え方は <a href="toushi.html">ワンピカードBOX投資の始め方</a> で解説しています。</p>
+<div class="callout"><strong>注意:</strong> 定価比はあくまで現時点のスナップショットです。新弾の発売、再販、アニメ・イベントの話題化などで順位は入れ替わります。直近の値動きは <a href="weekly.html">週間値動きランキング</a> で確認してください。なお、次弾となる4周年弾 ブースターパック「世界最強の戦士」(OP-17)は2026年8月発売が予定されており、新弾発売の前後は相場が動きやすい時期です。</div>
+
+<h2>高額BOXを売るときの3つの注意点</h2>
+<ol>
+<li><strong>シュリンクは剥がさない</strong> — 未開封・すり替えなしの証明として扱われ、剥がすと区分が変わって減額されるのが通例です。高額弾ほど減額幅も大きくなります</li>
+<li><strong>必ず複数店舗を比較する</strong> — 同じ弾でも店舗により買取価格は異なります。6万円クラスの弾なら、店舗差がそのまま数千円〜1万円の差になり得ます</li>
+<li><strong>売る直前の相場を確認する</strong> — 再販や新弾発売で相場は動きます。当サイトは毎日自動更新のため、売却直前に <a href="/onepiece">比較トップ</a> で最新の最高値を確認してから持ち込むのが確実です</li>
+</ol>""",
+        "faq": [
+            {"q": "ワンピースカードで一番高いBOXはどれですか？",
+             "a": "当サイトが最大11店舗から自動収集した実データでは、ブースターパック「新時代の主役」(OP-05)が最高買取{{TOP1_PRICE}}で全弾トップです。定価¥5,280に対して{{TOP1_MULT}}の水準になります。次いでROMANCE DAWN(OP-01)が{{TOP2_PRICE}}、神速の拳(OP-11)が{{TOP3_PRICE}}と続きます。相場は日々変動するため、最新値は比較トップページでご確認ください。"},
+            {"q": "ワンピースカードに絶版のパックはありますか？",
+             "a": "ONE PIECEカードゲームには、特定の弾を絶版・生産終了とする公式アナウンスの制度がありません。バンダイは人気商品の増産・再販を継続しており、新弾は発売から1か月前後で追加生産されるケースが多く報じられています。旧弾が高値なのは絶版宣言のためではなく、開封によって未開封BOXが自然減し、再販が新弾に集中するためと理解するのが実態に近い見方です。"},
+            {"q": "ブロックアイコン制度とは何ですか？",
+             "a": "2026年4月1日より導入された、カード右下の数字(ブロックアイコン)をもとにスタンダードレギュレーションの大会で使用できるカードを制限する制度です。ブロック①にあたる第1弾〜第4弾(OP-01〜OP-04)とスタートデッキST-01〜ST-09は、2026年4月1日以降スタンダードの公式大会で使用できません。ブロック②(OP-05〜OP-08)は2027年4月、ブロック③(OP-09〜OP-12)は2028年4月が対象予定とされています。"},
+            {"q": "スタン落ちした弾のBOXは値下がりしますか？",
+             "a": "当サイトの実データでは、値下がりしていません。2026年4月にスタンダードで使用不可となったOP-01 ROMANCE DAWNは最高買取{{OP01_PRICE}}({{OP01_MULT}})で全弾2位、OP-02 頂上決戦も{{OP02_PRICE}}({{OP02_MULT}})と上位を維持しています。旧弾BOXの価格を支えているのは対戦需要ではなくコレクション需要・開封需要のため、スタン落ちが直ちに暴落を招くわけではありません。ただし将来の相場を保証するものではありません。"},
+            {"q": "高額BOXはどこで売るのが一番高いですか？",
+             "a": "弾によって最高値の店舗は異なります。当サイトはワンピBOX買取に対応した最大11店舗の価格を毎日自動比較しているため、売りたい弾のページで最高値の店を確認するのが確実です。高額弾ほど店舗間の価格差が金額として大きくなるため、比較の効果も大きくなります。"},
+            {"q": "これから値上がりしそうな弾はどれですか？",
+             "a": "将来の値上がりを断定することはできません。傾向としては、超高額の看板カードを擁する弾、周年記念・特別レアリティ導入の弾、再販が絞られている弾、発売から時間が経ち在庫が減ってきた弾が価格を維持・上昇しやすいとされます。直近の値動きは週間値動きランキングで確認できます。相場は下落もあり得るため、余剰資金の範囲で判断してください。"},
+        ],
+    },
 ]
 
 
@@ -294,6 +389,81 @@ def _ranking_table(rows: list) -> str:
     return ('<table class="price-table"><thead><tr><th>順位</th><th>カード名</th>'
             '<th>レアリティ</th><th style="text-align:right">買取相場の目安</th></tr></thead>'
             f'<tbody>{body}</tbody></table>')
+
+
+def _box_ranking_rows(box: dict) -> list:
+    """ONEPIECE_PRODUCTS と実データを突合し、最高買取の降順で行を返す。"""
+    import re
+    from scraper.products_onepiece import ONEPIECE_PRODUCTS
+
+    rows = []
+    for p in ONEPIECE_PRODUCTS:
+        m = re.search(r"(OP|EB|PRB|ST)-?(\d+)", p.name)
+        if not m:
+            continue
+        slug = f"{m.group(1).lower()}-{int(m.group(2)):02d}"
+        if slug not in box:
+            continue
+        price, _stores = box[slug]
+        label = p.name.split("【")[0].replace("ブースターパック", "").replace(
+            "エクストラブースター", "").replace("プレミアムブースター", "").strip()
+        rows.append({
+            "slug": slug, "code": m.group(0).upper().replace("-", "-"),
+            "label": label or p.name, "release": p.release_date,
+            "retail": p.retail_price, "price": price,
+            "mult": price / p.retail_price if p.retail_price else 0,
+        })
+    rows.sort(key=lambda r: r["price"], reverse=True)
+    return rows
+
+
+def _box_ranking_table(box: dict) -> str:
+    body = ""
+    for i, r in enumerate(_box_ranking_rows(box), 1):
+        cls = ' class="best"' if i == 1 else ""
+        y, mth, _d = r["release"].split("-")
+        body += (f'<tr{cls}><td>{i}位</td>'
+                 f'<td><a href="{r["slug"]}-atari-guide.html">{_esc(r["label"])}</a>'
+                 f'<br><span style="font-size:11px;color:#6b7280">{_esc(r["code"])}</span></td>'
+                 f'<td>{int(y)}年{int(mth)}月</td>'
+                 f'<td class="price">¥{r["retail"]:,}</td>'
+                 f'<td class="price">¥{r["price"]:,}</td>'
+                 f'<td class="price">約{r["mult"]:.1f}倍</td></tr>')
+    return ('<table class="price-table"><thead><tr><th>順位</th><th>弾</th>'
+            '<th>発売</th><th style="text-align:right">定価</th>'
+            '<th style="text-align:right">最高買取</th>'
+            '<th style="text-align:right">定価比</th></tr></thead>'
+            f'<tbody>{body}</tbody></table>')
+
+
+def _howto_placeholders(body: str, box: dict) -> str:
+    rows = _box_ranking_rows(box)
+    body = body.replace("{{BOX_RANKING}}", _box_ranking_table(box))
+    by_slug = {r["slug"]: r for r in rows}
+    for i, r in enumerate(rows[:5], 1):
+        body = body.replace(f"{{{{TOP{i}_NAME}}}}", r["label"])
+        body = body.replace(f"{{{{TOP{i}_PRICE}}}}", f"¥{r['price']:,}")
+        body = body.replace(f"{{{{TOP{i}_MULT}}}}", f"約{r['mult']:.1f}倍")
+    for slug, r in by_slug.items():
+        key = slug.upper().replace("-", "")
+        body = body.replace(f"{{{{{key}_PRICE}}}}", f"¥{r['price']:,}")
+        body = body.replace(f"{{{{{key}_MULT}}}}", f"約{r['mult']:.1f}倍")
+    body = body.replace("{{BOX_COUNT}}", str(len(rows)))
+    return body
+
+
+def _howto_subst(h: dict, box: dict) -> dict:
+    """howto記事の全テキスト項目に実データのプレースホルダを差し込む。"""
+    out = {}
+    for k, v in h.items():
+        if isinstance(v, str):
+            out[k] = _howto_placeholders(v, box)
+        elif k == "faq":
+            out[k] = [{"q": _howto_placeholders(f["q"], box),
+                       "a": _howto_placeholders(f["a"], box)} for f in v]
+        else:
+            out[k] = v
+    return out
 
 
 def _howto_nav_links(current_slug: str) -> str:
@@ -472,14 +642,18 @@ gtag('config', 'G-RPTS6CRTCS');
 """
 
 
-def _render_howto(h: dict, atari_articles: list) -> str:
+def _render_howto(h: dict, atari_articles: list, box: dict | None = None) -> str:
+    if box:
+        h = _howto_subst(h, box)
     slug = h["slug"]
+    body_html = h["body"]
     url = f"{BASE}/onepiece/{slug}.html"
 
     blog_ld = {
         "@context": "https://schema.org", "@type": "BlogPosting",
         "headline": h["title"], "description": h["meta_desc"],
-        "datePublished": "2026-07-18", "dateModified": "2026-07-18",
+        "datePublished": h.get("date", "2026-07-18"),
+        "dateModified": h.get("date", "2026-07-18"),
         "image": f"{BASE}/ogp.jpg",
         "author": {"@type": "Organization", "name": "ワンピ買取チェッカー編集部", "url": f"{BASE}/onepiece"},
         "publisher": {"@type": "Organization", "name": "ワンピ買取チェッカー",
@@ -512,6 +686,20 @@ def _render_howto(h: dict, atari_articles: list) -> str:
     faq_html = "".join(
         f'<h3>{_esc(f["q"])}</h3>\n<p>{f["a"]}</p>\n' for f in h["faq"])
     faq_section = f'<h2>よくある質問(FAQ)</h2>\n{faq_html}'
+
+    disclaimer_html = h.get(
+        "disclaimer",
+        "本記事は、ワンピースカードの未開封BOXを売却する際の一般的な考え方・比較の手順をまとめた参考情報です。"
+        "買取価格・相場は需給や各店の在庫状況により日々変動し、店舗ごとに査定基準(シュリンク・外箱状態の減額幅等)も異なります。"
+        "掲載・紹介する金額はあくまで目安であり、特定の買取価格を保証するものではありません。"
+        "BOX買取価格は当サイトが最大11店舗から自動取得した実データを基準にしていますが、"
+        "実際の売却時は各店の公式ページで最終価格をご確認ください。売買の判断はご自身の責任で行ってください。")
+    related_html = h.get(
+        "related",
+        '<li><a href="/onepiece">ワンピBOX買取価格比較トップ</a> — 全弾のBOX買取価格を最大11店舗で横断比較(毎日更新)</li>\n'
+        '<li><a href="weekly.html">週間値動きランキング</a> — 直近7日間で値上がり・値下がりしたBOXを毎日自動更新</li>\n'
+        '<li><a href="op-13-atari-guide.html">受け継がれる意志(OP-13) 当たりカードガイド</a> — レッドコミパラを擁する高額弾の詳細</li>\n'
+        '<li><a href="op-15-atari-guide.html">神の島の冒険(OP-15) 当たりカードガイド</a> — エネル コミパラが看板の人気弾</li>')
 
     return f"""<!DOCTYPE html>
 <html lang="ja">
@@ -565,26 +753,23 @@ gtag('config', 'G-RPTS6CRTCS');
 
 <article>
 <h1>{h['h1']}</h1>
-<div class="meta">公開: 2026年7月18日 / {_esc(h['meta_line'])} / ワンピ買取チェッカー編集部</div>
+<div class="meta">公開: {_esc(h.get('date_jp', '2026年7月18日'))} / {_esc(h['meta_line'])} / ワンピ買取チェッカー編集部</div>
 
 {hero_html}
 
-{h['body']}
+{body_html}
 
 {faq_section}
 
 <a href="/onepiece" class="cta">ワンピBOXの最新買取価格を最大11店舗で比較する &rarr;</a>
 
 <div class="disclaimer">
-<strong>ご注意:</strong> 本記事は、ワンピースカードの未開封BOXを売却する際の一般的な考え方・比較の手順をまとめた参考情報です。買取価格・相場は需給や各店の在庫状況により日々変動し、店舗ごとに査定基準(シュリンク・外箱状態の減額幅等)も異なります。掲載・紹介する金額はあくまで目安であり、特定の買取価格を保証するものではありません。BOX買取価格は当サイトが最大11店舗から自動取得した実データを基準にしていますが、実際の売却時は各店の公式ページで最終価格をご確認ください。売買の判断はご自身の責任で行ってください。
+<strong>ご注意:</strong> {disclaimer_html}
 </div>
 
 <h2>関連ページもチェック</h2>
 <ul>
-<li><a href="/onepiece">ワンピBOX買取価格比較トップ</a> — 全弾のBOX買取価格を最大11店舗で横断比較(毎日更新)</li>
-<li><a href="weekly.html">週間値動きランキング</a> — 直近7日間で値上がり・値下がりしたBOXを毎日自動更新</li>
-<li><a href="op-13-atari-guide.html">受け継がれる意志(OP-13) 当たりカードガイド</a> — レッドコミパラを擁する高額弾の詳細</li>
-<li><a href="op-15-atari-guide.html">神の島の冒険(OP-15) 当たりカードガイド</a> — エネル コミパラが看板の人気弾</li>
+{related_html}
 </ul>
 
 <a href="/onepiece" class="back">&larr; ワンピ買取比較トップ</a>
@@ -613,7 +798,7 @@ def build() -> None:
         (ART_DIR / f"{a['slug']}-atari-guide.html").write_text(html, encoding="utf-8")
         print(f"wrote onepiece/{a['slug']}-atari-guide.html")
     for h in HOWTO_ARTICLES:
-        html = _render_howto(h, ARTICLES)
+        html = _render_howto(h, ARTICLES, box)
         (ART_DIR / f"{h['slug']}.html").write_text(html, encoding="utf-8")
         print(f"wrote onepiece/{h['slug']}.html")
 

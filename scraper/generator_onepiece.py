@@ -63,6 +63,9 @@ ONEPIECE_ARTICLES.append(
 ONEPIECE_ARTICLES.append(
     ("toushi.html", "ワンピBOX投資の始め方",
      "値上がりしやすいBOXの特徴・予算別の始め方・保管・リスクを解説。"))
+ONEPIECE_ARTICLES.append(
+    ("kougaku-ranking.html", "高額BOXランキング・絶版ガイド",
+     "全弾の最高買取・定価比ランキングと、絶版の実態・ブロックアイコン制度の影響を解説。"))
 
 
 def _article_links_block() -> str:
@@ -300,6 +303,8 @@ def _append_onepiece_sitemap(products: list[MasterProduct]) -> None:
         blocks.append(_url("/onepiece/kaitori-hikaku.html", "weekly", "0.7"))
     if (PROJECT_ROOT / "onepiece" / "toushi.html").exists():
         blocks.append(_url("/onepiece/toushi.html", "weekly", "0.7"))
+    if (PROJECT_ROOT / "onepiece" / "kougaku-ranking.html").exists():
+        blocks.append(_url("/onepiece/kougaku-ranking.html", "weekly", "0.7"))
 
     # 週次値動きアーカイブ記事(onepiece/weekly/*.html)を自動収録
     wk_dir = PROJECT_ROOT / "onepiece" / "weekly"
