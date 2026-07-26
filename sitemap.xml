@@ -241,6 +241,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://pokeca-box-hikaku.com/white-flare-atari-guide.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pokeca-box-hikaku.com/terastal-fes-ex-atari-guide.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pokeca-box-hikaku.com/shiny-treasure-ex-atari-guide.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://pokeca-box-hikaku.com/restock-guide.html</loc>
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
@@ -1142,6 +1160,12 @@
   </url>
   <url>
     <loc>https://pokeca-box-hikaku.com/onepiece/toushi.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://pokeca-box-hikaku.com/onepiece/kougaku-ranking.html</loc>
     <lastmod>2026-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
