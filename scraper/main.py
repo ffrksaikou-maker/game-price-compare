@@ -178,6 +178,9 @@ def main() -> None:
     cache_counts = load_cache_counts()
     cache_meta = load_json_dict(CACHE_META_FILE)
     stale_counts = load_json_dict(STALE_COUNT_FILE)
+    if cache and not cache_meta:
+        stamp = datetime.now(JST).isoformat(timespec="seconds")
+        cache_meta = {shop_id: stamp for shop_id in cache}
 
     # Scrape each shop
     success_count = 0
