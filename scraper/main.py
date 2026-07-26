@@ -19,6 +19,7 @@ from scraper.matcher import MASTER_PRODUCTS, match_products
 from scraper.generator import generate_html
 from scraper.products_onepiece import ONEPIECE_PRODUCTS, ONEPIECE_CONFIG
 from scraper.generator_onepiece import generate_onepiece_html
+from scraper.anomaly import detect_anomalies, drop_anomalies, update_state
 
 logging.basicConfig(
     level=logging.INFO,
@@ -35,6 +36,15 @@ DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL", "")
 # キャッシュ連続使用の閾値（この回数連続でキャッシュ使用したら通知）
 CACHE_CONSECUTIVE_THRESHOLD = 2
 CACHE_COUNT_FILE = Path(__file__).resolve().parent.parent / "data" / "cache_fallback_counts.json"
+HISTORY_OP_DIR = Path(__file__).resolve().parent.parent / "data" / "history_op"
+
+# キャッシュの有効期限（これを過ぎた古い取得結果はサイトに載せない）
+CACHE_MAX_AGE_HOURS = 48
+CACHE_META_FILE = Path(__file__).resolve().parent.parent / "data" / "cache_meta.json"
+
+# 全商品が同一価格のまま更新されない連続実行回数の閾値（1日3回実行 = 5日相当）
+STALE_CONSECUTIVE_THRESHOLD = 15
+STALE_COUNT_FILE = Path(__file__).resolve().parent.parent / "data" / "stale_counts.json"
 
 
 def load_cache() -> dict:
@@ -116,6 +126,45 @@ def save_cache_counts(counts: dict[str, int]) -> None:
     )
 
 
+def load_json_dict(path: Path) -> dict:
+    if path.exists():
+        try:
+            return json.loads(path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            return {}
+    return {}
+
+
+def save_json_dict(path: Path, data: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def cache_age_hours(meta: dict, shop_id: str) -> float:
+    """キャッシュの取得からの経過時間。記録が無ければ無限大扱い。"""
+    stamp = meta.get(shop_id)
+    if not stamp:
+        return float("inf")
+    try:
+        return (datetime.now(JST) - datetime.fromisoformat(stamp)).total_seconds() / 3600
+    except ValueError:
+        return float("inf")
+
+
+def usable_cache(cache: dict, meta: dict, shop_id: str, shop_name: str) -> list | None:
+    """有効期限内のキャッシュを返す。期限切れ・記録なしは None。"""
+    if shop_id not in cache:
+        return None
+    age = cache_age_hours(meta, shop_id)
+    if age > CACHE_MAX_AGE_HOURS:
+        logger.warning(
+            "%s: キャッシュが古いため不採用 (%.1f時間前 / 上限%d時間)",
+            shop_name, age, CACHE_MAX_AGE_HOURS,
+        )
+        return None
+    return cache[shop_id]
+
+
 def main() -> None:
     logger.info("Starting price scraper for %d shops", len(ALL_SCRAPERS))
 
@@ -127,12 +176,15 @@ def main() -> None:
 
     cache = load_cache()
     cache_counts = load_cache_counts()
+    cache_meta = load_json_dict(CACHE_META_FILE)
+    stale_counts = load_json_dict(STALE_COUNT_FILE)
 
     # Scrape each shop
     success_count = 0
     failed_shops: list[str] = []      # スクレイプ失敗 (例外)
     empty_shops: list[str] = []       # 0件取得
     cache_used_shops: list[str] = []  # キャッシュフォールバック
+    expired_shops: list[str] = []     # キャッシュ期限切れで非掲載
 
     for scraper_cls in ALL_SCRAPERS:
         scraper = scraper_cls()
@@ -149,7 +201,12 @@ def main() -> None:
                 # 同じ取得結果をワンピ側マスターにもマッチ(相互排除で分離)
                 match_products(scraped, shop_id, ONEPIECE_PRODUCTS, ONEPIECE_CONFIG)
                 # Update cache with successful scrape
+                if cache.get(shop_id) == scraped:
+                    stale_counts[shop_id] = stale_counts.get(shop_id, 0) + 1
+                else:
+                    stale_counts[shop_id] = 0
                 cache[shop_id] = scraped
+                cache_meta[shop_id] = datetime.now(JST).isoformat(timespec="seconds")
                 success_count += 1
                 # リセット: 正常取得できたらカウント0
                 cache_counts[shop_id] = 0
@@ -158,12 +215,15 @@ def main() -> None:
                 empty_shops.append(shop_name)
                 cache_counts[shop_id] = cache_counts.get(shop_id, 0) + 1
                 # Fall back to cached data
-                if shop_id in cache:
-                    logger.info("%s: using cached data (%d items)", shop_name, len(cache[shop_id]))
-                    match_products(cache[shop_id], shop_id)
-                    match_products(cache[shop_id], shop_id, ONEPIECE_PRODUCTS, ONEPIECE_CONFIG)
+                cached = usable_cache(cache, cache_meta, shop_id, shop_name)
+                if cached is not None:
+                    logger.info("%s: using cached data (%d items)", shop_name, len(cached))
+                    match_products(cached, shop_id)
+                    match_products(cached, shop_id, ONEPIECE_PRODUCTS, ONEPIECE_CONFIG)
                     cache_used_shops.append(shop_name)
                     success_count += 1
+                elif shop_id in cache:
+                    expired_shops.append(shop_name)
         except Exception:
             logger.error(
                 "%s: scraping failed:\n%s", shop_name, traceback.format_exc()
@@ -171,16 +231,21 @@ def main() -> None:
             failed_shops.append(shop_name)
             cache_counts[shop_id] = cache_counts.get(shop_id, 0) + 1
             # Fall back to cached data
-            if shop_id in cache:
-                logger.info("%s: using cached data (%d items)", shop_name, len(cache[shop_id]))
-                match_products(cache[shop_id], shop_id)
-                match_products(cache[shop_id], shop_id, ONEPIECE_PRODUCTS, ONEPIECE_CONFIG)
+            cached = usable_cache(cache, cache_meta, shop_id, shop_name)
+            if cached is not None:
+                logger.info("%s: using cached data (%d items)", shop_name, len(cached))
+                match_products(cached, shop_id)
+                match_products(cached, shop_id, ONEPIECE_PRODUCTS, ONEPIECE_CONFIG)
                 cache_used_shops.append(shop_name)
                 success_count += 1
+            elif shop_id in cache:
+                expired_shops.append(shop_name)
 
     # Save cache for next run
     save_cache(cache)
     save_cache_counts(cache_counts)
+    save_json_dict(CACHE_META_FILE, cache_meta)
+    save_json_dict(STALE_COUNT_FILE, stale_counts)
     logger.info("Cache saved to %s", CACHE_FILE)
 
     logger.info(
@@ -203,6 +268,13 @@ def main() -> None:
         total_with_prices, len(MASTER_PRODUCTS),
     )
 
+    # 価格異常検知 → 極端な外れ値はサイト掲載前に除外
+    anomalies = detect_anomalies(MASTER_PRODUCTS, HISTORY_DIR)
+    anomalies += detect_anomalies(ONEPIECE_PRODUCTS, HISTORY_OP_DIR)
+    drop_anomalies(MASTER_PRODUCTS, anomalies)
+    drop_anomalies(ONEPIECE_PRODUCTS, anomalies)
+    new_anomalies, resolved_anomalies = update_state(anomalies)
+
     # Save daily price history
     save_history(MASTER_PRODUCTS)
 
@@ -219,6 +291,7 @@ def main() -> None:
 
     # 異常検知 → Discord通知
     alerts: list[str] = []
+    shop_names = {c.shop_id: c.shop_name for c in ALL_SCRAPERS}
 
     # キャッシュ連続使用が閾値超えのショップ
     for scraper_cls in ALL_SCRAPERS:
@@ -227,12 +300,24 @@ def main() -> None:
         count = cache_counts.get(sid, 0)
         if count >= CACHE_CONSECUTIVE_THRESHOLD:
             alerts.append(f"  {sname}: {count}回連続キャッシュ使用中（スクレイプ異常の可能性）")
+        stale = stale_counts.get(sid, 0)
+        if stale >= STALE_CONSECUTIVE_THRESHOLD:
+            alerts.append(f"  {sname}: {stale}回連続で全商品同一価格（更新停止の可能性）")
+
+    for sname in expired_shops:
+        alerts.append(f"  {sname}: キャッシュが{CACHE_MAX_AGE_HOURS}時間超のため掲載除外（取得できていません）")
+
+    for anomaly in new_anomalies:
+        alerts.append(f"  {anomaly.describe(shop_names.get(anomaly.shop, ''))}")
+    for key in resolved_anomalies:
+        product, _, shop = key.rpartition("|")
+        alerts.append(f"  解消: {shop_names.get(shop, shop)} / {product}")
 
     if alerts:
         now = datetime.now(JST).strftime("%Y/%m/%d %H:%M")
-        msg = f"**⚠ ポケカ買取チェッカー スクレイプ異常検知** ({now})\n"
+        msg = f"**⚠ ポケカ買取チェッカー 異常検知** ({now})\n"
         msg += "\n".join(alerts)
-        msg += "\n\nサイト構造変更・API変更の可能性があります。確認してください。"
+        msg += "\n\nサイト構造変更・API変更・価格取得ミスの可能性があります。確認してください。"
         send_discord_alert(msg)
 
 
