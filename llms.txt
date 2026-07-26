@@ -40,7 +40,7 @@
 
 ### 解説記事 (9本)
 - [ポケカBOX買取で損しない5つのコツ](https://pokeca-box-hikaku.com/kaitori-tips.html): シュリンク付き・複数店舗比較・売り時の見極めなど基本ガイド
-- [ポケカ買取8店舗の特徴を徹底比較](https://pokeca-box-hikaku.com/shop-hikaku.html): 各店舗の強み・得意ジャンル・送料・振込までの日数を一覧比較
+- [ポケカ買取10店舗の特徴を徹底比較](https://pokeca-box-hikaku.com/shop-hikaku.html): 各店舗の強み・得意ジャンル・買取方式を一覧比較。各店の買取価格一覧ページへの入口も兼ねる
 - [ポケカBOX開封→シングル売りで利益を出す方法](https://pokeca-box-hikaku.com/single-card-tips.html): 開封vs未開封売りの損益分岐点
 - [PSA鑑定ガイド](https://pokeca-box-hikaku.com/psa-guide.html): 鑑定の流れ・グレードの意味・費用対効果
 - [メルカリ・スニダン・買取店どれが得？](https://pokeca-box-hikaku.com/mercari-hikaku.html): 手数料・送料込み3方式の比較
@@ -48,6 +48,19 @@
 - [2026年3月 値上がりランキング](https://pokeca-box-hikaku.com/monthly-ranking-2026-03.html): 月別の上昇BOX TOP10
 - [ポケカBOX投資の始め方](https://pokeca-box-hikaku.com/box-toushi.html): 値上がりしやすいBOXの特徴・予算別の始め方・保管方法
 - [再販情報の見つけ方](https://pokeca-box-hikaku.com/restock-guide.html): 再販入荷パターン・通知設定・抽選vs先着攻略
+
+### 店舗別 買取価格ページ (10店舗 / 毎日3回自動更新)
+各買取店が「どの商品にいくら出しているか」を全商品ぶん一覧化したページです。当サイトが10店舗を横断収集している一次データから、その店が最高値をつけている商品、他店平均との価格差(%)、ポケカ・ワンピ両方の取扱商品と価格を掲載しています。店舗名での検索(例:「海峡通信 ポケカ」「森森買取 ワンピース」)に対応します。※口コミ・評価は掲載せず、実測価格データのみを扱います。
+- [森森買取の買取価格一覧](https://pokeca-box-hikaku.com/shop/morimori.html): トレカ・家電・iPhone等の買取専門店。最高値を出すことが多い店舗
+- [買取ホムラの買取価格一覧](https://pokeca-box-hikaku.com/shop/homura.html): 総合買取店。シュリンク無BOX対応、古い弾も査定対象。掲載商品数が最多クラス
+- [買取一丁目の買取価格一覧](https://pokeca-box-hikaku.com/shop/icchome.html): トレカ・家電・ウイスキー等を扱う総合買取店
+- [ラントゥ買取の買取価格一覧](https://pokeca-box-hikaku.com/shop/runto.html): トレカ特化。ポケカBOXに注力しシュリンク無対応、更新頻度が高い
+- [買取ソムリエの買取価格一覧](https://pokeca-box-hikaku.com/shop/sommelier.html): トレカ中心。Xでの高価買取ポストが特徴
+- [海峡通信の買取価格一覧](https://pokeca-box-hikaku.com/shop/kaikyo.html): トレカ・家電・スマホ等の総合買取店(モバイル一番)
+- [買取オクの買取価格一覧](https://pokeca-box-hikaku.com/shop/oku.html): 総合買取店。使いやすいHPが高評価
+- [買取ルデヤの買取価格一覧](https://pokeca-box-hikaku.com/shop/rudeya.html): ポケカ・遊戯王・ワンピース等の主要TCGのBOX買取に幅広く対応
+- [買取コレクトの買取価格一覧](https://pokeca-box-hikaku.com/shop/collect_tendo.html): HPを持たずX(@collect_tendo)で価格表を公開。当サイトはX画像から自動取得
+- [買取シンソクの買取価格一覧](https://pokeca-box-hikaku.com/shop/shinsoku.html): 買取商品数が業界トップクラス。ヴィンテージBOXまで対応
 
 ### 相場分析・BOX深掘り記事 (最新)
 - [【底打ち反発】アビスアイBOXが¥10,000で底打ち→反発](https://pokeca-box-hikaku.com/abyss-eye-rebound.html): アビスアイ(M5)BOXが2026-07-02の底¥10,000から7/11¥11,200へ+12%反発。MEGA弾全体の底打ち・単品売り圧一巡・対戦の伸びしろ・再販ピークアウト・ダークライ人気の5つの追い風から今後の上昇シナリオ(短期¥12,000・中期¥15,000)を分析

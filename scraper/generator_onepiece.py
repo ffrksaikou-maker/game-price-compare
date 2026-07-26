@@ -461,11 +461,14 @@ def generate_onepiece_box_pages(products: list[MasterProduct], update_date: str)
                                  key=lambda x: x[1], reverse=True):
             name = SHOP_NAMES.get(sid, sid)
             url = SHOP_OP_URLS.get(sid, "#")
+            # 店舗名は自サイトの店舗別ページへ内部リンク、公式サイトは「公式↗」で併記
+            shop_cell = (f'<a href="../../shop/{sid}.html">{name}</a>'
+                         f'<a class="shop-official" href="{url}" target="_blank" rel="noopener noreferrer">公式↗</a>')
             if price > 0:
                 cls = ' class="best"' if price == max_price else ""
-                rows.append(f'<tr{cls}><td class="shop-name"><a href="{url}" target="_blank" rel="noopener noreferrer">{name}</a></td><td>{_format_price(price)}</td></tr>')
+                rows.append(f'<tr{cls}><td class="shop-name">{shop_cell}</td><td>{_format_price(price)}</td></tr>')
             else:
-                rows.append(f'<tr><td class="shop-name">{name}</td><td class="no-price">取扱なし</td></tr>')
+                rows.append(f'<tr><td class="shop-name">{shop_cell}</td><td class="no-price">取扱なし</td></tr>')
         price_table = ('<table class="price-table">\n<tr><th>買取店</th><th>買取価格</th></tr>\n'
                        + "\n".join(rows) + "\n</table>")
 

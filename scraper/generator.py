@@ -443,6 +443,10 @@ def generate_html(
     output_path.write_text(html, encoding="utf-8")
     logger.info("Generated %s (updated: %s)", output_path, update_date)
 
+    # Generate per-shop buyback price pages (店舗名クエリの受け皿)
+    # sitemap は generate_product_pages の末尾で書き出されるため、先に生成しておく
+    generate_shop_pages(products, project_root, update_date)
+
     # Generate individual product pages
     generate_product_pages(products, project_root, update_date)
 
@@ -600,6 +604,50 @@ SHOP_URLS = {
     "rudeya": "https://kaitori-rudeya.com/",
     "collect_tendo": "https://x.com/collect_tendo",
     "shinsoku": "https://shinsoku-tcg.com/yuso-kaitori",
+}
+
+# 店舗別ページ用プロフィール (shop-hikaku.html の記述を単一ソース化)
+SHOP_PROFILES = {
+    "morimori": {
+        "methods": ["店頭", "郵送"],
+        "desc": "トレカ・家電・iPhone等を扱う買取専門店。買取価格は業界でもトップクラスで、最高値を出すことが多い店舗の一つです。Xでのリポストキャンペーンは要注目。",
+    },
+    "homura": {
+        "methods": ["店頭", "郵送"],
+        "desc": "トレカ・家電・iPhone・トレンド商品も取り扱う総合買取店。シュリンク無BOX対応。買取対象商品の品揃えが豊富で、古い弾のBOXも査定対象になることが多いです。",
+    },
+    "icchome": {
+        "methods": ["店頭", "郵送"],
+        "desc": "トレカ・家電・iPhone・ウイスキーなど幅広いジャンルを取り扱う総合買取店。最近福岡にも店舗をオープンした勢いのある大手。",
+    },
+    "runto": {
+        "methods": ["店頭", "郵送"],
+        "desc": "トレカに特化した買取店。ポケカBOXの買取に力を入れており、シュリンク無にも対応。安定して高い買取価格を提示しています。サイトの更新頻度も高く、最新の相場が反映されやすいです。",
+    },
+    "sommelier": {
+        "methods": ["店頭", "郵送"],
+        "desc": "トレカを中心に買取に対応。ポケカBOXの買取も行っており、他店と競争力のある価格を提示しています。Xでの高価買取ポストは要注目。",
+    },
+    "kaikyo": {
+        "methods": ["店頭", "郵送"],
+        "desc": "トレカ・家電・iPhone等も取り扱う総合買取店。スマホ・タブレットの買取も行っており、ポケカBOXの買取にも対応しています。",
+    },
+    "oku": {
+        "methods": ["店頭", "郵送"],
+        "desc": "トレカ・家電・iPhone等も取り扱う総合買取店。ポケカBOXの買取にも対応しており、使いやすいHPがユーザーから高評価。",
+    },
+    "rudeya": {
+        "methods": ["店頭", "郵送"],
+        "desc": "トレカ・家電等も取り扱う総合買取店。ポケカ・遊戯王・ワンピースなど主要カードゲームのBOX買取に幅広く対応しています。安定した買取実績があり、初めての方でも安心して利用できます。",
+    },
+    "collect_tendo": {
+        "methods": ["店頭", "郵送"],
+        "desc": "地方出店で地元にも愛される高額買取が売りの買取店。ホームページを持たずX(@collect_tendo)で買取価格表を不定期に公開しているスタイルが特徴。地域密着型の運営で常連ファン多数。当サイトではX投稿の画像から自動で価格を取得して掲載しています。",
+    },
+    "shinsoku": {
+        "methods": ["店頭", "郵送"],
+        "desc": "買取商品数業界トップが売りの買取店。現行のSV/MEGA系BOXからS&S絶版BOX、さらにポケモンカード初代/neo/eシリーズ等のヴィンテージBOXまで圧倒的な品揃えで買取対応しています。レトロカードや希少品の売却を考えている方にも有力な選択肢です。",
+    },
 }
 
 CATEGORY_LABELS = {
@@ -1115,18 +1163,23 @@ def generate_product_pages(
             shop_name = SHOP_NAMES.get(sid, sid)
             # Try to find product-specific URL from mapping
             shop_url = _find_product_url(product_urls, sid, p) or SHOP_URLS.get(sid, "#")
+            # 店舗名は自サイトの店舗別ページへ内部リンク、公式サイトは「公式↗」で併記
+            shop_cell = (
+                f'<a href="../shop/{sid}.html">{shop_name}</a>'
+                f'<a class="shop-official" href="{shop_url}" target="_blank" rel="noopener noreferrer">公式↗</a>'
+            )
             if price > 0:
                 is_best = price == max_price
                 tr_class = ' class="best"' if is_best else ""
                 table_rows.append(
                     f'<tr{tr_class}>'
-                    f'<td class="shop-name"><a href="{shop_url}" target="_blank" rel="noopener noreferrer">{shop_name}</a></td>'
+                    f'<td class="shop-name">{shop_cell}</td>'
                     f'<td>{_format_price(price)}</td>'
                     f'</tr>'
                 )
             else:
                 table_rows.append(
-                    f'<tr><td class="shop-name">{shop_name}</td><td class="no-price">取扱なし</td></tr>'
+                    f'<tr><td class="shop-name">{shop_cell}</td><td class="no-price">取扱なし</td></tr>'
                 )
 
         price_table = (
@@ -1398,6 +1451,376 @@ def generate_product_pages(
     _update_sitemap(products, slug_map, project_root)
 
 
+# ===== 店舗別ページ (/shop/{shop_id}.html) =====
+
+AFFILIATE_BLOCK = """<div class="ad">
+  <a href="https://h.accesstrade.net/sp/cc?rk=0100p4pe00opz3" rel="nofollow" referrerpolicy="no-referrer-when-downgrade"><img src="https://h.accesstrade.net/sp/rr?rk=0100p4pe00opz3" alt="トレトク" border="0" width="640" height="100" loading="lazy" decoding="async" style="max-width:100%;height:auto"></a>
+</div>
+<div class="ad">
+  <a href="https://h.accesstrade.net/sp/cc?rk=0100pumf00opz3" rel="nofollow" referrerpolicy="no-referrer-when-downgrade"><img src="https://h.accesstrade.net/sp/rr?rk=0100pumf00opz3" alt="オリくじ" border="0" width="728" height="90" loading="lazy" decoding="async" style="max-width:100%;height:auto"></a>
+</div>"""
+
+
+def _load_onepiece_prices(project_root: Path) -> list[dict]:
+    """data/history_op の最新JSONから [{slug, name, prices}] を返す。"""
+    hist_dir = project_root / "data" / "history_op"
+    if not hist_dir.exists():
+        return []
+    files = sorted(hist_dir.glob("*.json"))
+    if not files:
+        return []
+    try:
+        data = json.loads(files[-1].read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return []
+    out = []
+    for r in data:
+        m = re.search(r"(OP|EB|PRB|ST)-?(\d+)", r.get("name", ""))
+        if not m:
+            continue
+        prices = {k: v for k, v in r.get("prices", {}).items() if v > 0}
+        if not prices:
+            continue
+        out.append({
+            "slug": f"{m.group(1).lower()}-{int(m.group(2)):02d}",
+            "name": r["name"],
+            "prices": prices,
+        })
+    return out
+
+
+def _shop_rows(items: list[dict], shop_id: str, link_prefix: str) -> tuple[list[str], int, list[tuple]]:
+    """店舗の取扱行HTML・最高値件数・最高値商品リストを返す。
+
+    items: [{slug, name, prices}] 形式(価格>0のみ)
+    """
+    rows, best_count, best_items = [], 0, []
+    ranked = []
+    for it in items:
+        price = it["prices"].get(shop_id, 0)
+        if price <= 0:
+            continue
+        others = [v for k, v in it["prices"].items() if k != shop_id]
+        top = max(it["prices"].values())
+        is_best = price == top
+        gap = price - max(others) if others else 0
+        ranked.append((price, it, is_best, gap))
+    ranked.sort(key=lambda x: -x[0])
+    for price, it, is_best, gap in ranked:
+        if is_best:
+            best_count += 1
+            best_items.append((it["name"], it["slug"], price, gap))
+        cls = ' class="best"' if is_best else ""
+        badge = ' <span class="best-badge">最高値</span>' if is_best else ""
+        rows.append(
+            f'<tr{cls}><td><a href="{link_prefix}{it["slug"]}.html">{it["name"]}</a>{badge}</td>'
+            f'<td class="price">{_format_price(price)}</td></tr>'
+        )
+    return rows, best_count, best_items
+
+
+def _avg_gap_pct(items: list[dict], shop_id: str) -> float | None:
+    """他店平均に対する平均乖離率(%)。比較可能な商品が無ければ None。"""
+    diffs = []
+    for it in items:
+        price = it["prices"].get(shop_id, 0)
+        others = [v for k, v in it["prices"].items() if k != shop_id]
+        if price > 0 and others:
+            avg = sum(others) / len(others)
+            if avg > 0:
+                diffs.append((price - avg) / avg * 100)
+    if not diffs:
+        return None
+    return sum(diffs) / len(diffs)
+
+
+def generate_shop_pages(
+    products: list[MasterProduct],
+    project_root: Path,
+    update_date: str,
+) -> None:
+    """店舗別の買取価格一覧ページを生成する (店舗名クエリの受け皿)。"""
+    shop_dir = project_root / "shop"
+    shop_dir.mkdir(exist_ok=True)
+
+    base = "https://pokeca-box-hikaku.com"
+
+    poke_items = []
+    for p in products:
+        prices = {sid: p.prices.get(sid, 0) for sid in SHOP_IDS if p.prices.get(sid, 0) > 0}
+        if prices:
+            poke_items.append({"slug": _generate_slug(p.name), "name": p.name, "prices": prices})
+    op_items = _load_onepiece_prices(project_root)
+
+    generated = 0
+    for shop_id in SHOP_IDS:
+        name = SHOP_NAMES.get(shop_id, shop_id)
+        profile = SHOP_PROFILES.get(shop_id, {})
+        official = SHOP_URLS.get(shop_id, "#")
+
+        p_rows, p_best, p_best_items = _shop_rows(poke_items, shop_id, "../box/")
+        o_rows, o_best, o_best_items = _shop_rows(op_items, shop_id, "../onepiece/box/")
+        if not p_rows and not o_rows:
+            continue
+
+        total = len(p_rows) + len(o_rows)
+        best_total = p_best + o_best
+        gap = _avg_gap_pct(poke_items + op_items, shop_id)
+
+        html = _build_shop_page_html(
+            shop_id=shop_id, name=name, profile=profile, official=official,
+            p_rows=p_rows, o_rows=o_rows, p_best_items=p_best_items,
+            o_best_items=o_best_items, total=total, best_total=best_total,
+            gap=gap, update_date=update_date, base=base,
+        )
+        (shop_dir / f"{shop_id}.html").write_text(html, encoding="utf-8")
+        generated += 1
+
+    logger.info("Generated %d shop pages in %s", generated, shop_dir)
+
+
+SHOP_PAGE_STYLE = """<style>
+:root{--bg:#f6f7fb;--card:#fff;--border:#e5e7eb;--text:#111827;--text-sub:#6b7280;--accent:#d97706}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans","Yu Gothic",sans-serif;background:var(--bg);color:var(--text);line-height:1.8}
+.header{position:sticky;top:0;z-index:100;height:56px;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;padding:0 20px}
+.header a{text-decoration:none}
+.header .logo{font-size:18px;font-weight:700;background:linear-gradient(135deg,#f59e0b,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.wrap{max-width:900px;margin:0 auto;padding:28px 16px 48px}
+.breadcrumb{font-size:12px;color:var(--text-sub);margin-bottom:18px}
+.breadcrumb a{color:var(--accent);text-decoration:none}
+article{background:var(--card);border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.06);padding:30px 26px;margin-bottom:24px}
+article h1{font-size:23px;font-weight:800;margin-bottom:8px;line-height:1.4;background:linear-gradient(135deg,#d97706,#b45309);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.meta{font-size:12px;color:var(--text-sub);margin-bottom:22px}
+article h2{font-size:18px;font-weight:700;margin:30px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--accent)}
+article p{font-size:14px;margin-bottom:14px}
+article ul{font-size:14px;padding-left:22px;margin-bottom:14px}
+article li{margin-bottom:8px}
+.hero{margin-bottom:22px;padding:18px 20px;background:linear-gradient(135deg,#fef3c7,#fde68a);border-radius:12px;border:1px solid #fbbf24}
+.hero .stat-label{font-size:11px;color:#92400e;font-weight:700;letter-spacing:.5px}
+.hero .stat-big{font-size:26px;font-weight:800;color:#b45309;line-height:1.25;margin:4px 0 10px}
+.hero .stat-sub{font-size:12px;color:#78350f}
+.price-table{width:100%;border-collapse:collapse;font-size:13px;margin:12px 0}
+.price-table th,.price-table td{padding:9px 11px;border-bottom:1px solid var(--border)}
+.price-table th{background:#f9fafb;text-align:left;font-size:11px;color:var(--text-sub);letter-spacing:.5px}
+.price-table tr.best td{background:#fef3c7}
+.price-table td.price{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+.price-table a{color:var(--text);text-decoration:none}
+.price-table a:hover{color:var(--accent);text-decoration:underline}
+.best-badge{display:inline-block;font-size:10px;font-weight:700;color:#b45309;background:#fff7ed;border:1px solid #fbbf24;border-radius:4px;padding:1px 5px;margin-left:6px;vertical-align:middle}
+.callout{background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:14px 18px;margin:14px 0;font-size:13px}
+.callout strong{color:#1d4ed8}
+.tags span{display:inline-block;font-size:11px;font-weight:700;color:#b45309;background:#fff7ed;border:1px solid #fbbf24;border-radius:999px;padding:2px 10px;margin-right:6px}
+.disclaimer{background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:14px 18px;margin:22px 0;font-size:12px;color:#9a3412}
+.disclaimer strong{color:#c2410c}
+.cta{display:block;text-align:center;padding:15px;background:linear-gradient(135deg,#d97706,#b45309);color:#fff;border-radius:12px;text-decoration:none;font-weight:700;margin:22px 0}
+.shop-links{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.shop-links a{font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:8px;background:#fff;color:var(--text);text-decoration:none}
+.shop-links a:hover{border-color:var(--accent);color:var(--accent)}
+.back{display:inline-block;margin-top:14px;color:var(--accent);text-decoration:none;font-size:14px;font-weight:600;margin-right:16px}
+.ad{text-align:center;padding:12px 0}
+.ft{text-align:center;padding:24px 16px;font-size:11px;color:var(--text-sub)}
+.ft a{color:var(--accent)}
+@media(max-width:640px){article{padding:20px 16px}article h1{font-size:19px}.hero .stat-big{font-size:21px}}
+</style>"""
+
+
+def _build_shop_page_html(
+    *, shop_id: str, name: str, profile: dict, official: str,
+    p_rows: list[str], o_rows: list[str], p_best_items: list[tuple],
+    o_best_items: list[tuple], total: int, best_total: int,
+    gap: float | None, update_date: str, base: str,
+) -> str:
+    url = f"{base}/shop/{shop_id}.html"
+    has_op = bool(o_rows)
+    scope = "ポケカ・ワンピ" if has_op else "ポケカ"
+
+    # title は SERP 表示上限(全角約32字)に収める。サイト名は og:site_name 側に持たせる
+    title = f"{name}の{scope}BOX買取価格一覧【全{total}商品】"
+    desc = (
+        f"{name}のポケモンカード{'・ワンピースカード' if has_op else ''}未開封BOX買取価格を"
+        f"全{total}商品まとめて掲載。うち{best_total}商品が当サイト掲載10店舗中の最高値です。"
+        f"毎日3回自動更新で、他店との価格差も商品ごとに比較できます。"
+    )
+
+    # 最高値ランキング (差額の大きい順・上位10件)
+    best_all = sorted(
+        [(n, s, pr, g, "../box/") for n, s, pr, g in p_best_items]
+        + [(n, s, pr, g, "../onepiece/box/") for n, s, pr, g in o_best_items],
+        key=lambda x: -x[3],
+    )[:10]
+    if best_all:
+        brows = "".join(
+            f'<tr><td><a href="{pre}{s}.html">{n}</a></td>'
+            f'<td class="price">{_format_price(pr)}</td>'
+            f'<td class="price">{("+" + _format_price(g)) if g > 0 else "同率1位"}</td></tr>'
+            for n, s, pr, g, pre in best_all
+        )
+        best_section = (
+            f'<h2>{name}が最高値をつけているBOX</h2>'
+            f'<p>当サイト掲載10店舗の買取価格を突き合わせた結果、<strong>{name}が最も高い金額を提示している商品が{best_total}件</strong>'
+            f'あります。差額が大きい順に上位を掲載します（2位の店舗との差）。</p>'
+            f'<table class="price-table"><thead><tr><th>商品</th>'
+            f'<th style="text-align:right">{name}の買取価格</th>'
+            f'<th style="text-align:right">2位との差</th></tr></thead><tbody>{brows}</tbody></table>'
+        )
+    else:
+        best_section = (
+            f'<h2>{name}の価格ポジション</h2>'
+            f'<p>2026年{update_date}時点では、{name}が10店舗中の最高値をつけている商品はありません。'
+            f'ただし買取価格は毎日動くため、売却前には最新の比較をご確認ください。</p>'
+        )
+
+    if gap is None:
+        gap_html = ""
+    elif gap >= 0:
+        gap_html = (
+            f'<div class="callout"><strong>他店との比較:</strong> 同じ商品を扱う他店の平均と比べて、'
+            f'{name}の買取価格は平均で<strong>約{gap:.1f}%高い</strong>水準です（当サイト掲載商品の実測平均）。</div>'
+        )
+    else:
+        gap_html = (
+            f'<div class="callout"><strong>他店との比較:</strong> 同じ商品を扱う他店の平均と比べて、'
+            f'{name}の買取価格は平均で<strong>約{abs(gap):.1f}%低い</strong>水準です（当サイト掲載商品の実測平均）。'
+            f'商品によっては最高値になる場合もあるため、個別の価格をご確認ください。</div>'
+        )
+
+    poke_section = (
+        f'<h2>{name}のポケカBOX買取価格一覧（{len(p_rows)}商品）</h2>'
+        f'<p>買取価格の高い順に並べています。商品名から各BOXの10店舗比較ページへ移動できます。</p>'
+        f'<table class="price-table"><thead><tr><th>商品</th>'
+        f'<th style="text-align:right">買取価格</th></tr></thead><tbody>{"".join(p_rows)}</tbody></table>'
+    ) if p_rows else ""
+
+    op_section = (
+        f'<h2>{name}のワンピカードBOX買取価格一覧（{len(o_rows)}商品）</h2>'
+        f'<p>ONE PIECEカードゲームの未開封BOXも取り扱っています。商品名から各BOXの比較ページへ移動できます。</p>'
+        f'<table class="price-table"><thead><tr><th>商品</th>'
+        f'<th style="text-align:right">買取価格</th></tr></thead><tbody>{"".join(o_rows)}</tbody></table>'
+    ) if o_rows else ""
+
+    others = "".join(
+        f'<a href="{sid}.html">{SHOP_NAMES.get(sid, sid)}</a>'
+        for sid in SHOP_IDS if sid != shop_id
+    )
+
+    methods = "".join(f"<span>{m}</span>" for m in profile.get("methods", []))
+    itemlist = {
+        "@context": "https://schema.org", "@type": "ItemList",
+        "name": f"{name}のBOX買取価格一覧",
+        "numberOfItems": total,
+        "itemListElement": [
+            {"@type": "ListItem", "position": i,
+             "name": n, "url": f"{base}/{pre.replace('../', '')}{s}.html"}
+            for i, (n, s, _pr, _g, pre) in enumerate(best_all, 1)
+        ],
+    }
+    crumb = {
+        "@context": "https://schema.org", "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "ポケカ買取チェッカー", "item": f"{base}/"},
+            {"@type": "ListItem", "position": 2, "name": "買取店比較", "item": f"{base}/shop-hikaku.html"},
+            {"@type": "ListItem", "position": 3, "name": f"{name}の買取価格一覧"},
+        ],
+    }
+
+    return f"""<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="preconnect" href="https://h.accesstrade.net">
+<meta name="description" content="{desc}">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{url}">
+<meta property="og:title" content="{title}">
+<meta property="og:description" content="{desc}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{url}">
+<meta property="og:image" content="{base}/ogp.png">
+<meta property="og:site_name" content="ポケカ買取チェッカー">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{title}">
+<meta name="twitter:description" content="{desc}">
+<title>{title}</title>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831186943118320" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPTS6CRTCS"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){{dataLayer.push(arguments);}}
+gtag('js', new Date());
+gtag('config', 'G-RPTS6CRTCS');
+</script>
+<script type="application/ld+json">
+{json.dumps(crumb, ensure_ascii=False, indent=0)}
+</script>
+<script type="application/ld+json">
+{json.dumps(itemlist, ensure_ascii=False, indent=0)}
+</script>
+{SHOP_PAGE_STYLE}
+</head>
+<body>
+<div class="header"><a href="../index.html"><span class="logo">ポケカ買取チェッカー</span></a></div>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">トップ</a> &gt; <a href="../shop-hikaku.html">買取店比較</a> &gt; {name}の買取価格一覧</div>
+
+<article>
+<h1>{name}の{scope}BOX買取価格一覧｜全{total}商品を毎日自動更新</h1>
+<div class="meta">更新: {update_date} / 当サイト掲載10店舗の実測データ / ポケカ買取チェッカー</div>
+
+<div class="hero">
+<div class="stat-label">{name} 掲載商品数と最高値件数（{update_date}時点）</div>
+<div class="stat-big">全{total}商品 / 最高値 {best_total}件</div>
+<div class="stat-sub">当サイトが毎日3回自動収集した10店舗の買取価格をもとに、{name}の取扱商品と価格を一覧化しています。価格はすべて実測値です。</div>
+</div>
+
+<p>このページでは、<strong>{name}</strong>が買取対象としているポケモンカード{'・ONE PIECEカード' if has_op else ''}の未開封BOXについて、<strong>現在の買取価格を全{total}商品ぶん掲載</strong>しています。当サイトは10店舗の買取ページを毎日3回自動で収集しているため、<strong>{name}が他店と比べて高いのか安いのか</strong>を商品単位で確認できます。</p>
+
+{best_section}
+
+{gap_html}
+
+{poke_section}
+
+{op_section}
+
+<h2>{name}の基本情報</h2>
+<div class="tags">{methods}</div>
+<p>{profile.get('desc', '')}</p>
+<ul>
+<li><strong>公式サイト</strong>: <a href="{official}" target="_blank" rel="noopener noreferrer">{official}</a></li>
+<li><strong>当サイト掲載商品数</strong>: {total}商品（ポケカ{len(p_rows)}{f' / ワンピ{len(o_rows)}' if has_op else ''}）</li>
+<li><strong>10店舗中で最高値の商品</strong>: {best_total}件</li>
+</ul>
+
+<a href="{official}" class="cta" target="_blank" rel="noopener noreferrer">{name}の公式サイトで買取条件を確認する &rarr;</a>
+
+<h2>他の買取店の価格も見る</h2>
+<p>売却前には複数店舗の比較をおすすめします。同じBOXでも店舗により買取価格は異なり、高額BOXほど差が大きくなります。</p>
+<div class="shop-links">{others}</div>
+<p><a href="../shop-hikaku.html">10店舗の特徴を比較する</a> / <a href="../index.html">全BOXの買取価格を比較する</a> / <a href="../ranking.html">週間価格変化ランキング</a></p>
+
+<div class="disclaimer">
+<strong>ご注意:</strong> 掲載価格は当サイトが{name}の公開買取情報から自動取得した{update_date}時点の実測値です。買取価格は需給や在庫状況により日々変動し、シュリンクの有無・外箱の状態等により実際の査定額は変わります。最終的な価格・条件は必ず{name}の公式サイトでご確認ください。当サイトは{name}とは独立した第三者の比較サイトであり、掲載内容について同店が保証するものではありません。
+</div>
+
+<a href="../shop-hikaku.html" class="back">&larr; 買取店比較へ</a>
+<a href="../index.html" class="back">&larr; 買取価格比較トップ</a>
+</article>
+</div>
+
+{AFFILIATE_BLOCK}
+
+<div class="ft">
+  <a href="../index.html">ポケカ買取チェッカー</a> / <a href="../privacy.html">プライバシーポリシー</a>
+</div>
+</body>
+</html>
+"""
+
+
 def _update_sitemap(
     products: list[MasterProduct],
     slug_map: dict[str, str],
@@ -1500,6 +1923,19 @@ def _update_sitemap(
         lines.append(f"    <changefreq>daily</changefreq>")
         lines.append(f"    <priority>0.7</priority>")
         lines.append(f"  </url>")
+
+    # 店舗別買取価格ページ
+    shop_dir = project_root / "shop"
+    if shop_dir.exists():
+        for sid in SHOP_IDS:
+            if not (shop_dir / f"{sid}.html").exists():
+                continue
+            lines.append(f"  <url>")
+            lines.append(f"    <loc>{base}/shop/{sid}.html</loc>")
+            lines.append(f"    <lastmod>{today}</lastmod>")
+            lines.append(f"    <changefreq>daily</changefreq>")
+            lines.append(f"    <priority>0.7</priority>")
+            lines.append(f"  </url>")
 
     # Weekly hot-boxes articles (archived)
     weekly_dir = project_root / "weekly"
