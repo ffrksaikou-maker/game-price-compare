@@ -17,6 +17,7 @@ import logging
 import re
 import time
 
+from ..matcher import BOX_INDICATORS, NON_BOX_INDICATORS
 from .base import BaseScraper, ScrapedItem
 
 logger = logging.getLogger(__name__)
@@ -54,19 +55,40 @@ class RuntoScraper(BaseScraper):
         except (json.JSONDecodeError, TypeError):
             return 0
 
-        # Priority: シュリンク有 (ari) > other BOX-range prices
+        # Priority: シュリンク有 (ari) > variant labelled as BOX > other BOX-range prices
         for v in variations:
             attrs = v.get("attributes", {})
             shrink = attrs.get("attribute_pa_shrink", "")
             if shrink == "ari":
                 return int(v.get("display_price", 0))
 
-        # Fallback: pick highest price within BOX range
+        option_labels: dict[str, dict[str, str]] = {}
+        for select in form.select("select[name]"):
+            option_labels[select["name"]] = {
+                opt.get("value", ""): opt.get_text(strip=True)
+                for opt in select.select("option")
+                if opt.get("value")
+            }
+
+        box_prices = []
         candidates = []
         for v in variations:
             p = int(v.get("display_price", 0))
-            if 3000 <= p <= MAX_BOX_PRICE:
+            if p <= 0:
+                continue
+            labels = [
+                option_labels.get(attr, {}).get(val, val)
+                for attr, val in v.get("attributes", {}).items()
+            ]
+            if any(ng in label for label in labels for ng in NON_BOX_INDICATORS):
+                continue
+            if any(ind in label for label in labels for ind in BOX_INDICATORS):
+                box_prices.append(p)
+            elif 3000 <= p <= MAX_BOX_PRICE:
                 candidates.append(p)
+
+        if box_prices:
+            return max(box_prices)
         return max(candidates) if candidates else 0
 
     def scrape(self) -> list[ScrapedItem]:

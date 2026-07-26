@@ -52,15 +52,6 @@
     }
   },
   {
-    "name": "MEGA スタートデッキ100「バトルコレクション」",
-    "category": "mega",
-    "retail_price": 891,
-    "max_price": 60000,
-    "prices": {
-      "runto": 60000
-    }
-  },
-  {
     "name": "MEGA ハイクラスパック「MEGAドリームex」",
     "category": "mega",
     "retail_price": 5500,

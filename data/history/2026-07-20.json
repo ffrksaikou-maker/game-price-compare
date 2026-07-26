@@ -55,9 +55,8 @@
     "name": "MEGA スタートデッキ100「バトルコレクション」",
     "category": "mega",
     "retail_price": 891,
-    "max_price": 60000,
+    "max_price": 1700,
     "prices": {
-      "runto": 60000,
       "shinsoku": 1700
     }
   },
