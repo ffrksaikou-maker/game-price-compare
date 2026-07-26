@@ -167,7 +167,7 @@
     "max_price": 25500,
     "prices": {
       "morimori": 25300,
-      "homura": 25500,
+      "homura": 25000,
       "rudeya": 25000,
       "runto": 25500,
       "icchome": 25500,
@@ -213,7 +213,7 @@
     "max_price": 20600,
     "prices": {
       "morimori": 20000,
-      "homura": 20200,
+      "homura": 20000,
       "rudeya": 20000,
       "runto": 20500,
       "icchome": 20600,
@@ -384,7 +384,7 @@
     "max_price": 12200,
     "prices": {
       "morimori": 11400,
-      "homura": 11600,
+      "homura": 11500,
       "rudeya": 11500,
       "runto": 11500,
       "icchome": 12200,
@@ -548,14 +548,14 @@
     "name": "SV 拡張パック「スカーレットex」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 14800,
+    "max_price": 15000,
     "prices": {
       "morimori": 14600,
       "homura": 14800,
       "rudeya": 14000,
       "runto": 13500,
       "icchome": 14800,
-      "oku": 14800,
+      "oku": 15000,
       "collect_tendo": 14000,
       "shinsoku": 14800
     }
@@ -567,7 +567,7 @@
     "max_price": 11500,
     "prices": {
       "morimori": 11300,
-      "homura": 11500,
+      "homura": 11200,
       "rudeya": 10700,
       "runto": 11000,
       "icchome": 11500,
