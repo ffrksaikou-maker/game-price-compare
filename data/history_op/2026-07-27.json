@@ -3,7 +3,7 @@
     "name": "ブースターパック「決戦の刻」【OP-16】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 13800,
+    "max_price": 13000,
     "prices": {
       "morimori": 12000,
       "homura": 12000,
@@ -11,7 +11,7 @@
       "runto": 13000,
       "icchome": 12000,
       "oku": 12000,
-      "kaikyo": 13800,
+      "kaikyo": 13000,
       "collect_tendo": 11000,
       "shinsoku": 11000
     }
@@ -20,15 +20,15 @@
     "name": "ブースターパック「神の島の冒険」【OP-15】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 17000,
+    "max_price": 16000,
     "prices": {
       "morimori": 15000,
       "homura": 15200,
       "rudeya": 15000,
-      "runto": 16600,
+      "runto": 15000,
       "icchome": 14000,
       "oku": 15200,
-      "kaikyo": 17000,
+      "kaikyo": 16000,
       "collect_tendo": 16000,
       "shinsoku": 13000
     }
@@ -57,7 +57,7 @@
     "max_price": 24500,
     "prices": {
       "morimori": 23500,
-      "homura": 23500,
+      "homura": 23200,
       "rudeya": 20000,
       "runto": 24500,
       "icchome": 22000,
@@ -91,7 +91,7 @@
     "max_price": 40000,
     "prices": {
       "morimori": 39000,
-      "homura": 39000,
+      "homura": 38200,
       "rudeya": 38500,
       "runto": 40000,
       "icchome": 38000,
@@ -157,8 +157,8 @@
     "retail_price": 5280,
     "max_price": 20300,
     "prices": {
-      "morimori": 19500,
-      "homura": 19500,
+      "morimori": 19100,
+      "homura": 19100,
       "rudeya": 19600,
       "runto": 20300,
       "icchome": 19500,
@@ -273,7 +273,7 @@
     "max_price": 15200,
     "prices": {
       "morimori": 14200,
-      "homura": 14500,
+      "homura": 13800,
       "rudeya": 14000,
       "runto": 15200,
       "icchome": 14000,
@@ -289,8 +289,8 @@
     "retail_price": 5280,
     "max_price": 24000,
     "prices": {
-      "morimori": 21000,
-      "homura": 22000,
+      "morimori": 22100,
+      "homura": 22100,
       "rudeya": 21500,
       "runto": 23500,
       "icchome": 21000,
@@ -306,8 +306,8 @@
     "retail_price": 5280,
     "max_price": 39500,
     "prices": {
-      "morimori": 37500,
-      "homura": 37500,
+      "morimori": 37200,
+      "homura": 37200,
       "rudeya": 38000,
       "runto": 39500,
       "icchome": 36500,
