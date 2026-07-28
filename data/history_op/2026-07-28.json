@@ -90,7 +90,7 @@
     "retail_price": 5280,
     "max_price": 40000,
     "prices": {
-      "morimori": 39000,
+      "morimori": 38200,
       "homura": 38200,
       "rudeya": 38500,
       "runto": 40000,
@@ -223,7 +223,6 @@
     "retail_price": 4752,
     "max_price": 19000,
     "prices": {
-      "morimori": 18500,
       "homura": 18500,
       "rudeya": 18700,
       "runto": 18500,
