@@ -92,6 +92,7 @@ def _sorted_products(products: list[MasterProduct]) -> list[MasterProduct]:
 def _product_js(products: list[MasterProduct], market: dict) -> str:
     """クライアント用 const P 配列を生成。
 
+    j  = JANコード(商品同定用。イベント限定品など非公開のものは空)
     f  = メルカリ直近30日の最高売却額
     fa = そのうち高値上位の平均 / fn = 平均に使った件数
     """
@@ -122,7 +123,7 @@ def _product_js(products: list[MasterProduct], market: dict) -> str:
         fn = mk.get("top_n", 0)
         lines.append(
             f'{{c:"{p.category}",n:"{name_esc}",s:"{_slug(p.name)}",'
-            f'r:{p.retail_price},d:"{p.release_date}",y:{y},'
+            f'r:{p.retail_price},d:"{p.release_date}",y:{y},j:"{p.jan}",'
             f'f:{f},fa:{fa},fn:{fn},'
             f'p:{{{price_parts}}}}},'
         )

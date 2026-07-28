@@ -111,6 +111,7 @@ class MasterProduct:
     hit_cards: list[tuple[str, str]] = field(default_factory=list)  # 当たりカード（トップレア）[(カード名, コメント), ...]
     prices: dict[str, int] = field(default_factory=dict)  # shop_id -> price
     min_price: int = 0  # 価格下限の上書き（0=MIN_BOX_PRICEを使用）。格安デッキ用
+    jan: str = ""  # JANコード（ベイブレードで商品同定用に表示。他ゲームは未使用）
 
 
 @dataclass

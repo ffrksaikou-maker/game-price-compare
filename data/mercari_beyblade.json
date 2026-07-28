@@ -318,8 +318,8 @@
   "price": 23000,
   "top_avg": 20867,
   "top_n": 3,
-  "samples": 10,
-  "median": 17767,
+  "samples": 8,
+  "median": 18390,
   "keyword": "ベイブレードX ベイキックオフセット FCバルセロナVer.",
   "period_days": 30
  },
@@ -352,10 +352,10 @@
  },
  "BX-00 コバルトドラグーン2-60C メタルコート:ブラック": {
   "price": 6699,
-  "top_avg": 6022,
-  "top_n": 9,
-  "samples": 49,
-  "median": 3877,
+  "top_avg": 6438,
+  "top_n": 4,
+  "samples": 20,
+  "median": 3999,
   "keyword": "ベイブレードX コバルトドラグーン2-60C",
   "period_days": 30
  },
