@@ -124,20 +124,20 @@ t = rep(t,
     <button class="fb st active" data-s="sommelier">ソムリエ</button>
     <button class="fb st active" data-s="rudeya">ルデヤ</button>
     <button class="fb st active" data-s="kaikyo">海峡</button>''',
-        '''    <button class="fb st active" data-s="morimori">森森</button>
+        '''    <button class="fb st active" data-s="icchome">一丁目</button>
+    <button class="fb st active" data-s="morimori">森森</button>
     <button class="fb st active" data-s="rudeya">ルデヤ</button>
-    <button class="fb st active" data-s="homura">ホムラ</button>
-    <button class="fb st active" data-s="icchome">一丁目</button>''')
+    <button class="fb st active" data-s="homura">ホムラ</button>''')
 
 # 6) テーブルヘッダ(店舗列を4店に + フリマ2列を追加) -------------------------
 _TH_OLD_START = '''        <th class="sc" data-s="morimori"><a href="https://www.morimori-kaitori.jp/category/0112"'''
 assert _TH_OLD_START in t
 _th_begin = t.index(_TH_OLD_START)
 _th_end = t.index("      </tr>", _th_begin)
-t = t[:_th_begin] + '''        <th class="sc" data-s="morimori"><a href="https://www.morimori-kaitori.jp/category/1904001" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'morimori',shop_name:'森森'})">森森</a></th>
+t = t[:_th_begin] + '''        <th class="sc" data-s="icchome"><a href="https://www.1-chome.com/" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'icchome',shop_name:'一丁目'})">一丁目</a></th>
+        <th class="sc" data-s="morimori"><a href="https://www.morimori-kaitori.jp/category/1904001" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'morimori',shop_name:'森森'})">森森</a></th>
         <th class="sc" data-s="rudeya"><a href="https://kaitori-rudeya.com/category/detail/240" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'rudeya',shop_name:'ルデヤ'})">ルデヤ</a></th>
         <th class="sc" data-s="homura"><a href="https://kaitori-homura.com/products?q%5Bproduct_sub_category_id_eq%5D=188" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'homura',shop_name:'ホムラ'})">ホムラ</a></th>
-        <th class="sc" data-s="icchome"><a href="https://www.1-chome.com/" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'icchome',shop_name:'一丁目'})">一丁目</a></th>
 ''' + t[_th_end:]
 
 # 発売日を商品名の直後に足す(再販が狙えるかの判断材料として需要が高い)
@@ -150,10 +150,13 @@ t = rep(t, '        <th style="min-width:200px">商品名</th>\n',
 # 差益(定価との差)は dcol クラスを付けてモバイルでは隠す。狭い画面で
 # 「フリマ相場/フリマ差」が横スクロールの外に出てしまうと、このページの
 # 主目的(買取とフリマの比較)が初期表示で見えなくなるため。
+# フリマ高値は買取店の列より右(一番右)に置く。まとめ売りを拾いきれておらず
+# 値の信頼度が買取価格より低いため、主役の位置には置かない。
+# thead の店舗列は render() が並べ替えで末尾に append し直すので、
+# ここでの記述位置に関わらず render() 側で fmcol を最後に送っている。
 t = rep(t, '        <th style="min-width:50px">差益</th>\n',
         '        <th class="dcol" style="min-width:50px">差益</th>\n'
-        '        <th style="min-width:92px">フリマ高値</th>\n'
-        '        <th style="min-width:64px">フリマ差</th>\n',
+        '        <th class="fmcol" style="min-width:92px">フリマ高値</th>\n',
         count=1)
 
 # 6.5) 表の直前にフリマ価格の注意書き --------------------------------------
@@ -193,11 +196,21 @@ t = rep(t, '  ※ 各店舗公式サイトより取得した未開封シュリ�
         '手数料・送料は含みません。あくまで参考値としてご利用ください<br>\n',
         count=1)
 
+# 店舗の並びは固定にする。ポケカは「最高買取になった回数の多い順」で動的に
+# 並べ替えるが、ベイは4店しかなく、カテゴリを切り替えるたびに列が入れ替わると
+# 読みにくい。掲載数の多い一丁目を左、最も少ないホムラを右に固定する。
+t = replace_section(
+    t, "function computeShopOrder(cat) {", "function computeS_SS() {",
+    """function computeShopOrder(cat) {
+  return [...S];
+}
+function computeS_SS() {""")
+
 # 8) JS: 店舗配列 / カテゴリラベル / 既定表示 --------------------------------
 t = rep(t, 'const S=["morimori","homura","icchome","runto","collect_tendo","shinsoku","oku","sommelier","rudeya","kaikyo"];',
-        'const S=["morimori","rudeya","homura","icchome"];')
+        'const S=["icchome","morimori","rudeya","homura"];')
 t = rep(t, 'let S_SS = ["homura","runto","morimori","icchome","oku","sommelier","rudeya","kaikyo","collect_tendo","shinsoku"];',
-        'let S_SS = ["morimori","rudeya","homura","icchome"];')
+        'let S_SS = ["icchome","morimori","rudeya","homura"];')
 t = rep(t, 'const CL={"mega":"MEGA","sv":"SV","special":"スペシャルBOX","ss":"S&S ソード&シールド"};',
         'const CL={"ux":"UX (アルティメット)","cx":"CX (カスタム)","bx":"BX (ベーシック)","limited":"限定品"};')
 t = rep(t, 'cc===""?P.filter(x=>x.c!=="ss")', 'cc===""?P.slice()')
@@ -236,10 +249,23 @@ t = rep(t,
 
     tdD.classList.add("dcol");
 
+    // Shop prices''',
+        count=1)
+
+# フリマ高値のセルは店舗列の後(行の末尾)に追加する
+t = rep(t,
+        '''      tr.appendChild(td);
+    });
+
+    frag.appendChild(tr);''',
+        '''      tr.appendChild(td);
+    });
+
     // Mercari: 直近30日の最高売却額 + 高値上位の平均
     const tdF=document.createElement("td");
+    tdF.classList.add("fmcol");
     if(x.f>0){
-      tdF.className="p";
+      tdF.className="p fmcol";
       const hi=document.createElement("div");
       hi.style.cssText="font-weight:700;color:#f57c00";
       hi.textContent=fp(x.f);
@@ -251,24 +277,23 @@ t = rep(t,
         tdF.appendChild(av);
       }
     }
-    else{tdF.className="nd";tdF.textContent="-"}
+    else{tdF.className="nd fmcol";tdF.textContent="-"}
     tr.appendChild(tdF);
 
-    // Flea market vs best buyback
-    const tdFD=document.createElement("td");
-    const fd=(x.f>0&&x._m>0)?x.f-x._m:0;
-    if(fd>0){tdFD.className="dp";tdFD.textContent="+\\u00a5"+fd.toLocaleString()}
-    else if(fd<0){tdFD.className="dm";tdFD.textContent="-\\u00a5"+Math.abs(fd).toLocaleString()}
-    else{tdFD.className="nd";tdFD.textContent="-"}
-    tr.appendChild(tdFD);
+    frag.appendChild(tr);''',
+        count=1)
 
-    // Shop prices''',
+# thead: 店舗列を並べ替えた後、フリマ高値を最後尾へ送る
+t = rep(t,
+        '  SO.forEach(function(s){if(scThs[s])thr.appendChild(scThs[s])});',
+        '  SO.forEach(function(s){if(scThs[s])thr.appendChild(scThs[s])});\n'
+        '  var fmTh=thr.querySelector("th.fmcol");if(fmTh)thr.appendChild(fmTh);',
         count=1)
 
 # カテゴリ見出し行のcolspan
-# (商品名/発売日/定価/最高買取/差益 の5列 + フリマ2列)
+# (商品名/発売日/定価/最高買取/差益 の5列 + フリマ高値1列)
 t = rep(t, 'let cs=4+SO.filter(s=>vs.has(s)).length;',
-        'let cs=7+SO.filter(s=>vs.has(s)).length;', count=1)
+        'let cs=6+SO.filter(s=>vs.has(s)).length;', count=1)
 
 # 11) 記事枠・ランキング枠は使わない(記事を作らないため空にする) --------------
 t = rep(t, "<!-- {{BLOG_LINKS}} -->\n\n", "")
@@ -282,11 +307,11 @@ t = replace_section(t, '<section class="site-intro"', "</section>", '''<section 
       <p class="si-lead">ベイブレードX 44商品×4店舗の買取価格を毎日3回(11:00/15:00/18:00 JST)自動収集し、メルカリの売却相場と並べて比較できる個人運営の情報サイトです。</p>
       <div class="si-grid">
         <div class="si-item"><h3>📊 4店舗を一括比較</h3><p>森森買取・買取ルデヤ・買取ホムラ・買取一丁目の公式買取表を自動収集。最高値は黄色ハイライトで明示します。</p></div>
-        <div class="si-item"><h3>🛒 フリマ高値も並べて表示</h3><p>メルカリで直近30日に売れた最高額と、高値上位の平均を掲載。買取に出すよりフリマの方が高い商品がひと目でわかります。</p></div>
+        <div class="si-item"><h3>🛒 フリマ高値も並べて表示</h3><p>表の一番右に、メルカリで直近30日に売れた最高額と高値上位の平均を掲載。買取価格と見比べる参考値としてご利用ください。</p></div>
         <div class="si-item"><h3>💰 資産モード</h3><p>右上「資産モード」で保有個数を入力すると合計資産額をリアルタイム計算します。</p></div>
         <div class="si-item"><h3>🏷️ 定価は公式表記</h3><p>定価はタカラトミー公式の製品情報ページに掲載された希望小売価格(税込)をそのまま使用しています。</p></div>
       </div>
-      <div class="si-howto"><strong>使い方</strong>: 上部のシリーズ(UX/CX/BX/限定品)・買取屋ボタンで絞り込み → 「フリマ差」列がプラスならフリマの方が高く、マイナスなら買取の方が高いという意味です(フリマ高値との比較)。</div>
+      <div class="si-howto"><strong>使い方</strong>: 上部のシリーズ(UX/CX/BX/限定品)・買取屋ボタンで絞り込み → 一番右の「フリマ高値」はメルカリの実売参考値です。買取価格と見比べる際は、フリマは手数料と送料が引かれる点にご注意ください。</div>
       <div class="si-meta">
         <a href="about.html">運営者情報</a> ・ <a href="privacy.html">プライバシーポリシー</a> ・ <a href="contact.html">お問い合わせ</a>
       </div>

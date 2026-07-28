@@ -263,7 +263,7 @@ details[open] .si-summary::after{transform:rotate(180deg)}
 <div class="gsbar"><a class="gswitch gs-pk" href="/"><span class="ar">◀</span> ポケモンカードの買取比較</a><a class="gswitch gs-op" href="/onepiece"><span class="ar">◀</span> ONE PIECEカードの買取比較</a></div>
 <div class="header">
   <h1>ベイブレード買取チェッカー</h1>
-  <span class="upd">更新: <span id="ud">2026/07/28 14:07</span></span>
+  <span class="upd">更新: <span id="ud">2026/07/28 14:13</span></span>
 </div>
 
 <div class="fbar" id="fbar">
@@ -278,10 +278,10 @@ details[open] .si-summary::after{transform:rotate(180deg)}
   <div class="fg">
     <label>買取屋:</label>
     <button class="fb st active" data-s="all">全店舗</button>
+    <button class="fb st active" data-s="icchome">一丁目</button>
     <button class="fb st active" data-s="morimori">森森</button>
     <button class="fb st active" data-s="rudeya">ルデヤ</button>
     <button class="fb st active" data-s="homura">ホムラ</button>
-    <button class="fb st active" data-s="icchome">一丁目</button>
   </div>
   <div class="fg">
     <button class="sb" id="srt">最高買取順 ▼</button>
@@ -315,12 +315,11 @@ details[open] .si-summary::after{transform:rotate(180deg)}
         <th style="min-width:65px">最高買取</th>
         <th class="inv-col" style="min-width:65px;display:none">小計</th>
         <th class="dcol" style="min-width:50px">差益</th>
-        <th style="min-width:92px">フリマ高値</th>
-        <th style="min-width:64px">フリマ差</th>
+        <th class="fmcol" style="min-width:92px">フリマ高値</th>
+        <th class="sc" data-s="icchome"><a href="https://www.1-chome.com/" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'icchome',shop_name:'一丁目'})">一丁目</a></th>
         <th class="sc" data-s="morimori"><a href="https://www.morimori-kaitori.jp/category/1904001" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'morimori',shop_name:'森森'})">森森</a></th>
         <th class="sc" data-s="rudeya"><a href="https://kaitori-rudeya.com/category/detail/240" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'rudeya',shop_name:'ルデヤ'})">ルデヤ</a></th>
         <th class="sc" data-s="homura"><a href="https://kaitori-homura.com/products?q%5Bproduct_sub_category_id_eq%5D=188" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'homura',shop_name:'ホムラ'})">ホムラ</a></th>
-        <th class="sc" data-s="icchome"><a href="https://www.1-chome.com/" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'icchome',shop_name:'一丁目'})">一丁目</a></th>
       </tr>
     </thead>
     <tbody id="tb"></tbody>
@@ -356,11 +355,11 @@ details[open] .si-summary::after{transform:rotate(180deg)}
       <p class="si-lead">ベイブレードX 44商品×4店舗の買取価格を毎日3回(11:00/15:00/18:00 JST)自動収集し、メルカリの売却相場と並べて比較できる個人運営の情報サイトです。</p>
       <div class="si-grid">
         <div class="si-item"><h3>📊 4店舗を一括比較</h3><p>森森買取・買取ルデヤ・買取ホムラ・買取一丁目の公式買取表を自動収集。最高値は黄色ハイライトで明示します。</p></div>
-        <div class="si-item"><h3>🛒 フリマ高値も並べて表示</h3><p>メルカリで直近30日に売れた最高額と、高値上位の平均を掲載。買取に出すよりフリマの方が高い商品がひと目でわかります。</p></div>
+        <div class="si-item"><h3>🛒 フリマ高値も並べて表示</h3><p>表の一番右に、メルカリで直近30日に売れた最高額と高値上位の平均を掲載。買取価格と見比べる参考値としてご利用ください。</p></div>
         <div class="si-item"><h3>💰 資産モード</h3><p>右上「資産モード」で保有個数を入力すると合計資産額をリアルタイム計算します。</p></div>
         <div class="si-item"><h3>🏷️ 定価は公式表記</h3><p>定価はタカラトミー公式の製品情報ページに掲載された希望小売価格(税込)をそのまま使用しています。</p></div>
       </div>
-      <div class="si-howto"><strong>使い方</strong>: 上部のシリーズ(UX/CX/BX/限定品)・買取屋ボタンで絞り込み → 「フリマ差」列がプラスならフリマの方が高く、マイナスなら買取の方が高いという意味です(フリマ高値との比較)。</div>
+      <div class="si-howto"><strong>使い方</strong>: 上部のシリーズ(UX/CX/BX/限定品)・買取屋ボタンで絞り込み → 一番右の「フリマ高値」はメルカリの実売参考値です。買取価格と見比べる際は、フリマは手数料と送料が引かれる点にご注意ください。</div>
       <div class="si-meta">
         <a href="about.html">運営者情報</a> ・ <a href="privacy.html">プライバシーポリシー</a> ・ <a href="contact.html">お問い合わせ</a>
       </div>
@@ -374,41 +373,16 @@ details[open] .si-summary::after{transform:rotate(180deg)}
 
 <script>
 "use strict";
-const S=["morimori","rudeya","homura","icchome"];
+const S=["icchome","morimori","rudeya","homura"];
 // カテゴリ毎の店舗並び順を動的算出
 //  - SS: 取扱数の多い順 (扱ってる店舗が偏ってるため)
 //  - SV/MEGA/special: 最高買取になっている回数の多い順 (各商品で勝ってる店が左)
 //  - all: 元のS順
 // 同数の場合は S の元の並び順を維持(タイブレーク)
-let S_SS = ["morimori","rudeya","homura","icchome"];
+let S_SS = ["icchome","morimori","rudeya","homura"];
 const SHOP_ORDER_CACHE = {};
 function computeShopOrder(cat) {
-  if (cat === 'all' || typeof P === 'undefined') return [...S];
-  if (SHOP_ORDER_CACHE[cat]) return SHOP_ORDER_CACHE[cat];
-  const counts = Object.fromEntries(S.map(s => [s, 0]));
-  if (cat === 'ss') {
-    // S&Sは取扱数(掲載店舗数)で並び替え
-    for (const p of P) {
-      if (p.c !== 'ss' || !p.p) continue;
-      for (const sid of S) {
-        if (p.p[sid] && p.p[sid] > 0) counts[sid]++;
-      }
-    }
-  } else {
-    // SV/MEGA/special: 各商品の最高買取になっている回数で並び替え
-    for (const p of P) {
-      if (p.c !== cat || !p.p) continue;
-      let maxPrice = 0, maxShop = null;
-      for (const sid of S) {
-        const v = p.p[sid] || 0;
-        if (v > maxPrice) { maxPrice = v; maxShop = sid; }
-      }
-      if (maxShop) counts[maxShop]++;
-    }
-  }
-  const ordered = [...S].sort((a, b) => counts[b] - counts[a] || S.indexOf(a) - S.indexOf(b));
-  SHOP_ORDER_CACHE[cat] = ordered;
-  return ordered;
+  return [...S];
 }
 function computeS_SS() {
   if (typeof P === 'undefined') return S_SS;
@@ -518,7 +492,7 @@ function render(){
   f.forEach(x=>{
     if(x.c!==lc&&!sm){
       lc=x.c;
-      let cs=7+SO.filter(s=>vs.has(s)).length;
+      let cs=6+SO.filter(s=>vs.has(s)).length;
       if(invMode)cs+=2;
       const shr=document.createElement("tr");
       shr.className="sh cat-"+x.c;
@@ -589,10 +563,22 @@ function render(){
 
     tdD.classList.add("dcol");
 
+    // Shop prices
+    SO.forEach(s=>{
+      if(!vs.has(s))return;
+      const td=document.createElement("td");
+      const v=x.p[s];
+      if(!v||v===0){td.className="nd";td.textContent="-"}
+      else if(v===x._m&&x._m>0){td.className="p pm";td.textContent=fp(v)}
+      else{td.className="p";td.textContent=fp(v)}
+      tr.appendChild(td);
+    });
+
     // Mercari: 直近30日の最高売却額 + 高値上位の平均
     const tdF=document.createElement("td");
+    tdF.classList.add("fmcol");
     if(x.f>0){
-      tdF.className="p";
+      tdF.className="p fmcol";
       const hi=document.createElement("div");
       hi.style.cssText="font-weight:700;color:#f57c00";
       hi.textContent=fp(x.f);
@@ -604,27 +590,8 @@ function render(){
         tdF.appendChild(av);
       }
     }
-    else{tdF.className="nd";tdF.textContent="-"}
+    else{tdF.className="nd fmcol";tdF.textContent="-"}
     tr.appendChild(tdF);
-
-    // Flea market vs best buyback
-    const tdFD=document.createElement("td");
-    const fd=(x.f>0&&x._m>0)?x.f-x._m:0;
-    if(fd>0){tdFD.className="dp";tdFD.textContent="+\u00a5"+fd.toLocaleString()}
-    else if(fd<0){tdFD.className="dm";tdFD.textContent="-\u00a5"+Math.abs(fd).toLocaleString()}
-    else{tdFD.className="nd";tdFD.textContent="-"}
-    tr.appendChild(tdFD);
-
-    // Shop prices
-    SO.forEach(s=>{
-      if(!vs.has(s))return;
-      const td=document.createElement("td");
-      const v=x.p[s];
-      if(!v||v===0){td.className="nd";td.textContent="-"}
-      else if(v===x._m&&x._m>0){td.className="p pm";td.textContent=fp(v)}
-      else{td.className="p";td.textContent=fp(v)}
-      tr.appendChild(td);
-    });
 
     frag.appendChild(tr);
   });
@@ -637,6 +604,7 @@ function render(){
   var scThs={};
   document.querySelectorAll("thead th.sc").forEach(function(th){scThs[th.dataset.s]=th;th.style.display=vs.has(th.dataset.s)?"":"none"});
   SO.forEach(function(s){if(scThs[s])thr.appendChild(scThs[s])});
+  var fmTh=thr.querySelector("th.fmcol");if(fmTh)thr.appendChild(fmTh);
   document.querySelectorAll("thead th.inv-col").forEach(function(th){th.style.display=invMode?"":"none"});
   if(invMode)updateTotal();
 }
