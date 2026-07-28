@@ -14,10 +14,10 @@
     "retail_price": 2700,
     "max_price": 6700,
     "prices": {
-      "morimori": 6000,
+      "morimori": 4300,
+      "homura": 4500,
       "rudeya": 6700,
-      "homura": 5000,
-      "icchome": 4500
+      "icchome": 4000
     }
   },
   {
@@ -68,11 +68,11 @@
     "name": "UX-15 シャークスケイルデッキセット",
     "category": "ux",
     "retail_price": 4200,
-    "max_price": 14500,
+    "max_price": 13000,
     "prices": {
       "morimori": 13000,
+      "homura": 13000,
       "rudeya": 12000,
-      "homura": 14500,
       "icchome": 11500
     }
   },
@@ -83,8 +83,8 @@
     "max_price": 4000,
     "prices": {
       "morimori": 3800,
-      "rudeya": 4000,
       "homura": 3800,
+      "rudeya": 4000,
       "icchome": 3800
     }
   },
@@ -145,12 +145,12 @@
     "name": "UX-03 ウィザードロッド5-70DB",
     "category": "ux",
     "retail_price": 1400,
-    "max_price": 7000,
+    "max_price": 6600,
     "prices": {
-      "morimori": 6700,
-      "rudeya": 6200,
+      "morimori": 6600,
       "homura": 6000,
-      "icchome": 7000
+      "rudeya": 6200,
+      "icchome": 6000
     }
   },
   {
@@ -160,8 +160,8 @@
     "max_price": 4200,
     "prices": {
       "morimori": 4200,
+      "homura": 4000,
       "rudeya": 3500,
-      "homura": 4200,
       "icchome": 4000
     }
   },
@@ -172,9 +172,9 @@
     "max_price": 2000,
     "prices": {
       "morimori": 1700,
-      "rudeya": 2000,
       "homura": 1700,
-      "icchome": 1700
+      "rudeya": 2000,
+      "icchome": 1500
     }
   },
   {
@@ -195,8 +195,8 @@
     "max_price": 1800,
     "prices": {
       "morimori": 1500,
-      "rudeya": 1100,
       "homura": 1800,
+      "rudeya": 1100,
       "icchome": 1800
     }
   },
@@ -219,7 +219,7 @@
     "prices": {
       "morimori": 3200,
       "rudeya": 3500,
-      "icchome": 3000
+      "icchome": 2800
     }
   },
   {
@@ -251,8 +251,8 @@
     "max_price": 2800,
     "prices": {
       "morimori": 2400,
-      "rudeya": 2800,
       "homura": 2600,
+      "rudeya": 2800,
       "icchome": 2600
     }
   },
@@ -273,8 +273,8 @@
     "max_price": 2800,
     "prices": {
       "morimori": 2800,
-      "rudeya": 1600,
       "homura": 2000,
+      "rudeya": 1600,
       "icchome": 2000
     }
   },
@@ -291,12 +291,12 @@
     "name": "BX-50 ランダムブースターVol.11",
     "category": "bx",
     "retail_price": 1600,
-    "max_price": 1900,
+    "max_price": 1600,
     "prices": {
       "morimori": 1550,
+      "homura": 1500,
       "rudeya": 1600,
-      "homura": 1900,
-      "icchome": 1500
+      "icchome": 1300
     }
   },
   {
@@ -305,10 +305,10 @@
     "retail_price": 2200,
     "max_price": 3000,
     "prices": {
-      "morimori": 2700,
-      "rudeya": 2500,
+      "morimori": 2400,
       "homura": 3000,
-      "icchome": 2800
+      "rudeya": 2500,
+      "icchome": 2300
     }
   },
   {
@@ -377,12 +377,12 @@
     "name": "BX-23 フェニックスウイング9-60GF",
     "category": "bx",
     "retail_price": 2420,
-    "max_price": 4800,
+    "max_price": 4000,
     "prices": {
-      "morimori": 4100,
+      "morimori": 3500,
+      "homura": 4000,
       "rudeya": 3500,
-      "homura": 4800,
-      "icchome": 4000
+      "icchome": 3500
     }
   },
   {
@@ -391,8 +391,8 @@
     "retail_price": 3300,
     "max_price": 6000,
     "prices": {
-      "morimori": 5500,
-      "homura": 5500,
+      "morimori": 5000,
+      "homura": 5000,
       "icchome": 6000
     }
   },
@@ -400,10 +400,10 @@
     "name": "BX-10 エクストリームスタジアム",
     "category": "bx",
     "retail_price": 2750,
-    "max_price": 2900,
+    "max_price": 2700,
     "prices": {
       "morimori": 2700,
-      "icchome": 2900
+      "icchome": 2700
     }
   },
   {
@@ -414,7 +414,7 @@
     "prices": {
       "morimori": 1900,
       "rudeya": 2000,
-      "icchome": 1800
+      "icchome": 1500
     }
   },
   {
@@ -423,8 +423,8 @@
     "retail_price": 2500,
     "max_price": 10000,
     "prices": {
-      "rudeya": 9000,
       "homura": 10000,
+      "rudeya": 9000,
       "icchome": 4000
     }
   },
@@ -452,8 +452,8 @@
     "retail_price": 6501,
     "max_price": 18700,
     "prices": {
-      "rudeya": 18700,
       "homura": 18700,
+      "rudeya": 18700,
       "icchome": 18700
     }
   },
