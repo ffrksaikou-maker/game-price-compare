@@ -296,7 +296,7 @@
       "morimori": 1550,
       "homura": 1500,
       "rudeya": 1600,
-      "icchome": 1300
+      "icchome": 1000
     }
   },
   {
@@ -399,11 +399,11 @@
     "name": "BX-09 ベイバトルパス",
     "category": "bx",
     "retail_price": 3300,
-    "max_price": 6000,
+    "max_price": 5500,
     "prices": {
       "morimori": 5000,
       "homura": 5000,
-      "icchome": 6000
+      "icchome": 5500
     }
   },
   {
