@@ -73,6 +73,22 @@ def save_history_bey(products: list[MasterProduct]) -> None:
     logger.info("BEY history saved: %d products", len(snapshot))
 
 
+def _sorted_products(products: list[MasterProduct]) -> list[MasterProduct]:
+    """カテゴリ順に並べ、各カテゴリ内は発売日の新しい順にする。
+
+    表は「UX→CX→BX→限定品」のグループ見出しを挟んで描画されるので、
+    カテゴリを第1キーに保ったまま日付だけ降順にする。
+    """
+    order = {c: i for i, c in enumerate(CATEGORY_ORDER)}
+
+    def key(p: MasterProduct):
+        # "2026-07-11" -> -20260711。新しいほど小さくなるので昇順で新しい順になる。
+        d = -int(p.release_date.replace("-", "")) if p.release_date else 0
+        return (order.get(p.category, 99), d)
+
+    return sorted(products, key=key)
+
+
 def _product_js(products: list[MasterProduct], market: dict) -> str:
     """クライアント用 const P 配列を生成。
 
@@ -204,6 +220,7 @@ def generate_beyblade_html(products: list[MasterProduct],
     if market is None:
         market = mercari.load_cache()
 
+    products = _sorted_products(products)
     save_history_bey(products)
 
     template = template_path.read_text(encoding="utf-8")
