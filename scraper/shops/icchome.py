@@ -16,9 +16,13 @@ logger = logging.getLogger(__name__)
 API_URL = "https://www.1-chome.com/api/goods/listPage"
 POKEMON_CATE_CODE = "IIzyMdayU5wp7T4G"
 ONEPIECE_CATE_CODE = "SEbO7gSBevo6KsPE"
-# ポケカ側matcherはワンピを弾き、ワンピ側matcherが拾う。cate/list列挙は要ログインだが
-# 個別カテゴリのlistPageは匿名で叩ける。
-CATE_CODES = [POKEMON_CATE_CODE, ONEPIECE_CATE_CODE]
+# ベイブレードはトレカではなく【フィギュア】・【おもちゃ】配下。cateCode列挙APIは
+# 要ログイン、keyword検索は常に0件を返すため、サイト上でカテゴリを開いた際の
+# listPage リクエストから特定した。
+BEYBLADE_CATE_CODE = "pfc4vAwxZdMT2u8w"
+# ポケカ側matcherはワンピ・ベイを弾き、それぞれのmatcherが拾う。cate/list列挙は
+# 要ログインだが個別カテゴリのlistPageは匿名で叩ける。
+CATE_CODES = [POKEMON_CATE_CODE, ONEPIECE_CATE_CODE, BEYBLADE_CATE_CODE]
 
 
 class IcchomeScraper(BaseScraper):

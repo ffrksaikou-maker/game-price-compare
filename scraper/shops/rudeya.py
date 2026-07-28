@@ -12,11 +12,12 @@ from .base import BaseScraper, ScrapedItem
 
 logger = logging.getLogger(__name__)
 
-# detail/114: ポケカ / detail/224: ONE PIECEカードゲーム。
-# ポケカ側matcherはワンピを弾き、ワンピ側matcherが拾う。
+# detail/114: ポケカ / detail/224: ONE PIECEカードゲーム / detail/240: ベイブレード。
+# ポケカ側matcherはワンピ・ベイを弾き、それぞれのmatcherが拾う。
 URLS = [
     "https://kaitori-rudeya.com/category/detail/114",
     "https://kaitori-rudeya.com/category/detail/224",
+    "https://kaitori-rudeya.com/category/detail/240",
 ]
 
 

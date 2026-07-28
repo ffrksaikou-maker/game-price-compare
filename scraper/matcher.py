@@ -72,11 +72,20 @@ _OP_SET_CODES = (
     + [f"EB-{i:02d}" for i in range(1, 6)] + [f"EB{i:02d}" for i in range(1, 6)]
     + [f"PRB-{i:02d}" for i in range(1, 4)] + [f"PRB{i:02d}" for i in range(1, 4)]
 )
+# ベイブレードXの型番。店により「UX-19」だけ、あるいはJANコードだけの出品名があり
+# 「ベイブレード」語が入らないため、型番接頭辞もポケカ/ワンピの除外語に加える。
+# 店により「UX-19」「UX19」両表記があるためハイフン有無の両形式を生成。
+_BEY_SET_CODES = (
+    [f"BX-{i:02d}" for i in range(0, 61)] + [f"BX{i:02d}" for i in range(0, 61)]
+    + [f"UX-{i:02d}" for i in range(0, 31)] + [f"UX{i:02d}" for i in range(0, 31)]
+    + [f"CX-{i:02d}" for i in range(0, 31)] + [f"CX{i:02d}" for i in range(0, 31)]
+)
 NON_POKEMON_INDICATORS = [
     "ONE PIECE", "ワンピース", "遊戯王", "デュエル・マスターズ",
     "ドラゴンボール", "ヴァイスシュヴァルツ", "バトルスピリッツ",
     "ヴァンガード", "ウィクロス",
-] + _OP_SET_CODES
+    "ベイブレード", "BEYBLADE",
+] + _OP_SET_CODES + _BEY_SET_CODES
 
 # Non-BOX Pokemon products to exclude
 NON_BOX_INDICATORS = [
@@ -125,6 +134,13 @@ class MatchConfig:
     max_retail_ratio: float = MAX_RETAIL_RATIO
     match_threshold: int = MATCH_THRESHOLD
     enable_dx_disambiguation: bool = True
+    # 型番優先マッチ。指定すると「型番が出品名とマスター両方にあるのに食い違う」
+    # 組み合わせを別商品として確定除外し、一致した場合はキーワード扱いにする。
+    # ベイブレード用(BX/UX/CX-NN)。空文字ならこの判定自体を行わない=従来挙動。
+    model_code_pattern: str = ""
+    # 型番が一致してもキーワード一致を追加で要求する番号。ベイブレードの
+    # UX-00/BX-00/CX-00 は限定品の共通枠で中身が全く別物のため。
+    model_code_ambiguous_numbers: list[str] = field(default_factory=list)
 
 
 # Master product list - canonical names and keywords for matching
@@ -484,6 +500,19 @@ def _is_single_card(name: str, config: MatchConfig) -> bool:
     return False
 
 
+def _extract_model_codes(text: str, model_re: re.Pattern) -> set[str]:
+    """出品名/マスター名から型番を抽出して正規化した集合を返す。
+
+    店により「UX-19」「UX19」「ＵＸ−１９」と表記が割れるため NFKC で正規化し、
+    区切り文字を無視して ("UX", "19") を拾い "UX-19" 形式に揃える。
+    """
+    norm = unicodedata.normalize("NFKC", text)
+    return {
+        f"{m.group(1).upper()}-{m.group(2)}"
+        for m in model_re.finditer(norm)
+    }
+
+
 def _disambiguate_dx(scraped_name: str) -> str | None:
     """Distinguish between DX and non-DX versions of same-name packs.
 
@@ -520,6 +549,19 @@ def match_products(
         config = POKEMON_CONFIG
 
     matched = set()
+
+    # 型番優先マッチ(ベイブレード)。未指定のポケカ/ワンピでは None のままで、
+    # 以降の型番判定は全てスキップされるため従来挙動と完全に一致する。
+    model_re = (
+        re.compile(config.model_code_pattern, re.I)
+        if config.model_code_pattern else None
+    )
+    product_codes_cache: dict[int, set[str]] = {}
+    if model_re:
+        for product in products:
+            product_codes_cache[id(product)] = _extract_model_codes(
+                product.name + " " + " ".join(product.keywords), model_re,
+            )
 
     for name, price in scraped_items:
         if price <= 0:
@@ -559,7 +601,30 @@ def match_products(
         best_product = None
         best_score = 0
 
+        scraped_codes = _extract_model_codes(name, model_re) if model_re else set()
+
         for product in products:
+            # Step 0: 型番判定(ベイブレードのみ)。商品名の表記揺れが激しく
+            # ("UX-19" だけ、JANコードだけ等) 名前の類似度は当てにならないため、
+            # 型番が両方にあるときはそれを正とする。
+            if model_re:
+                product_codes = product_codes_cache[id(product)]
+                if product_codes and scraped_codes:
+                    common = product_codes & scraped_codes
+                    if not common:
+                        # 型番が食い違う = 別商品が確定。fuzzyに落とさず除外する
+                        continue
+                    # UX-00 等は限定品の共通枠で中身が別物。型番一致だけでは
+                    # 足りないので、名前(keywords)の一致を追加で要求する。
+                    if all(c.split("-")[1] in config.model_code_ambiguous_numbers
+                           for c in common):
+                        if not _keyword_match(name, product, config):
+                            continue
+                    if 100 > best_score:
+                        best_score = 100
+                        best_product = product
+                    continue
+
             # Step 1: Try keyword matching first (exact substring)
             if _keyword_match(name, product, config):
                 # Handle disambiguation for products with same keywords

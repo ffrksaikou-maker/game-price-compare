@@ -58,7 +58,9 @@ jobs:
           git add \
             index.html ranking.html sitemap.xml \
             onepiece.html onepiece/ \
-            data/cache.json data/history/ data/history_op/ data/x_state/ \
+            beyblade.html \
+            data/cache.json data/history/ data/history_op/ data/history_bey/ \
+            data/mercari_beyblade.json data/x_state/ \
             data/cache_fallback_counts.json data/cache_meta.json \
             data/stale_counts.json data/anomaly_state.json \
             box/ weekly/ shop/ \

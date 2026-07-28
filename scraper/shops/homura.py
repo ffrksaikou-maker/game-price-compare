@@ -15,6 +15,9 @@ CATEGORY_URLS = [
     # ワンピース未開封BOX (sub=132)。ポケカ側matcherは exclude_indicators で弾き、
     # ワンピ側matcherが拾う。
     "https://kaitori-homura.com/products?q[product_sub_category_id_eq]=132&q[product_sub_category_product_category_id_eq]=14",
+    # ベイブレード (sub=188)。トレカ(product_category_id=14)配下ではないため
+    # category_id を付けると0件になる。sub のみで指定すること。
+    "https://kaitori-homura.com/products?q[product_sub_category_id_eq]=188",
 ]
 
 _PID_RE = re.compile(r"/products/(\d+)")

@@ -19,6 +19,9 @@ from scraper.matcher import MASTER_PRODUCTS, match_products
 from scraper.generator import generate_html
 from scraper.products_onepiece import ONEPIECE_PRODUCTS, ONEPIECE_CONFIG
 from scraper.generator_onepiece import generate_onepiece_html
+from scraper.products_beyblade import BEYBLADE_PRODUCTS, BEYBLADE_CONFIG
+from scraper.generator_beyblade import generate_beyblade_html
+from scraper import mercari
 from scraper.anomaly import detect_anomalies, drop_anomalies, update_state
 
 logging.basicConfig(
@@ -37,6 +40,7 @@ DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL", "")
 CACHE_CONSECUTIVE_THRESHOLD = 2
 CACHE_COUNT_FILE = Path(__file__).resolve().parent.parent / "data" / "cache_fallback_counts.json"
 HISTORY_OP_DIR = Path(__file__).resolve().parent.parent / "data" / "history_op"
+HISTORY_BEY_DIR = Path(__file__).resolve().parent.parent / "data" / "history_bey"
 
 # キャッシュの有効期限（これを過ぎた古い取得結果はサイトに載せない）
 CACHE_MAX_AGE_HOURS = 48
@@ -165,6 +169,17 @@ def usable_cache(cache: dict, meta: dict, shop_id: str, shop_name: str) -> list 
     return cache[shop_id]
 
 
+def match_all_games(scraped: list, shop_id: str) -> None:
+    """1店の取得結果をポケカ/ワンピ/ベイの3マスターに通す。
+
+    各 MatchConfig の exclude_indicators が互いに他ジャンルを弾くので、
+    同じ入力を3回流しても取り違えは起きない。
+    """
+    match_products(scraped, shop_id)
+    match_products(scraped, shop_id, ONEPIECE_PRODUCTS, ONEPIECE_CONFIG)
+    match_products(scraped, shop_id, BEYBLADE_PRODUCTS, BEYBLADE_CONFIG)
+
+
 def main() -> None:
     logger.info("Starting price scraper for %d shops", len(ALL_SCRAPERS))
 
@@ -172,6 +187,8 @@ def main() -> None:
     for product in MASTER_PRODUCTS:
         product.prices.clear()
     for product in ONEPIECE_PRODUCTS:
+        product.prices.clear()
+    for product in BEYBLADE_PRODUCTS:
         product.prices.clear()
 
     cache = load_cache()
@@ -200,9 +217,8 @@ def main() -> None:
             if items:
                 # Convert to (name, price) tuples for matcher
                 scraped = [(item.name, item.price) for item in items]
-                match_products(scraped, shop_id)
-                # 同じ取得結果をワンピ側マスターにもマッチ(相互排除で分離)
-                match_products(scraped, shop_id, ONEPIECE_PRODUCTS, ONEPIECE_CONFIG)
+                # 同じ取得結果をワンピ・ベイ側マスターにも通す(相互排除で分離)
+                match_all_games(scraped, shop_id)
                 # Update cache with successful scrape
                 if cache.get(shop_id) == scraped:
                     stale_counts[shop_id] = stale_counts.get(shop_id, 0) + 1
@@ -221,8 +237,7 @@ def main() -> None:
                 cached = usable_cache(cache, cache_meta, shop_id, shop_name)
                 if cached is not None:
                     logger.info("%s: using cached data (%d items)", shop_name, len(cached))
-                    match_products(cached, shop_id)
-                    match_products(cached, shop_id, ONEPIECE_PRODUCTS, ONEPIECE_CONFIG)
+                    match_all_games(cached, shop_id)
                     cache_used_shops.append(shop_name)
                     success_count += 1
                 elif shop_id in cache:
@@ -237,8 +252,7 @@ def main() -> None:
             cached = usable_cache(cache, cache_meta, shop_id, shop_name)
             if cached is not None:
                 logger.info("%s: using cached data (%d items)", shop_name, len(cached))
-                match_products(cached, shop_id)
-                match_products(cached, shop_id, ONEPIECE_PRODUCTS, ONEPIECE_CONFIG)
+                match_all_games(cached, shop_id)
                 cache_used_shops.append(shop_name)
                 success_count += 1
             elif shop_id in cache:
@@ -274,8 +288,10 @@ def main() -> None:
     # 価格異常検知 → 極端な外れ値はサイト掲載前に除外
     anomalies = detect_anomalies(MASTER_PRODUCTS, HISTORY_DIR)
     anomalies += detect_anomalies(ONEPIECE_PRODUCTS, HISTORY_OP_DIR)
+    anomalies += detect_anomalies(BEYBLADE_PRODUCTS, HISTORY_BEY_DIR)
     drop_anomalies(MASTER_PRODUCTS, anomalies)
     drop_anomalies(ONEPIECE_PRODUCTS, anomalies)
+    drop_anomalies(BEYBLADE_PRODUCTS, anomalies)
     new_anomalies, resolved_anomalies = update_state(anomalies)
 
     # Save daily price history
@@ -291,6 +307,20 @@ def main() -> None:
                 op_with_prices, len(ONEPIECE_PRODUCTS))
     generate_onepiece_html(ONEPIECE_PRODUCTS)
     logger.info("Done! onepiece.html has been generated.")
+
+    # Generate ベイブレード page (beyblade.html)
+    bey_with_prices = sum(1 for p in BEYBLADE_PRODUCTS if p.prices)
+    logger.info("Beyblade products with prices: %d/%d",
+                bey_with_prices, len(BEYBLADE_PRODUCTS))
+    # メルカリ相場は取得に数分かかるため、失敗しても前回キャッシュで描画を続ける
+    market = mercari.load_cache()
+    if os.environ.get("SCRAPER_SKIP_MERCARI") != "1":
+        try:
+            market = mercari.fetch_with_cache(BEYBLADE_PRODUCTS)
+        except Exception:
+            logger.error("mercari: fetch failed:\n%s", traceback.format_exc())
+    generate_beyblade_html(BEYBLADE_PRODUCTS, market)
+    logger.info("Done! beyblade.html has been generated.")
 
     # 異常検知 → Discord通知
     alerts: list[str] = []

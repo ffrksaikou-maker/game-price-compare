@@ -23,10 +23,13 @@ BASE = "https://www.morimori-kaitori.jp"
 # ワンピは2カテゴリに跨る: 2403=OP-01〜15/EB/PRB-02, 0112003=OP-16以降の新弾/PRB-01。
 # 検索sk=ワンピースにも category/2403 にも新弾(OP-16 決戦の刻等)は出ないため両方見る。
 # ポケカ側matcherはワンピを弾き、ワンピ側が拾う。(ラベル, URL)
+# ベイブレードは 1904001。/category/price-list/1904001 だと div.product-item が
+# 描画されずタイムアウトするため price-list を挟まない形を使う。
 TARGETS = [
     ("ポケモン", f"{BASE}/search?sk={quote('ポケモンカード')}"),
     ("ワンピ", f"{BASE}/category/2403"),
     ("ワンピ新弾", f"{BASE}/category/0112003"),
+    ("ベイブレード", f"{BASE}/category/1904001"),
 ]
 SEARCH_URL = TARGETS[0][1]  # 後方互換(_open_with_retry のデフォルト値)
 

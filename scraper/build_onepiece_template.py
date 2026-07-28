@@ -2,44 +2,25 @@
 
 ポケカ版テンプレを流用し、ブランディング/カテゴリ(op/eb/prb/st)/配色/既定フィルタ/
 ページ切替バナー をワンピ用に置換する。各構造置換は必ず1回以上ヒットすることを assert。
-切替は全幅のカラーバナー(.gswitch)で強調表示する。
+切替バナーは3ページ(ポケカ/ワンピ/ベイブレード)共通の switch_banner が生成する。
+
+メタ情報は content を属性位置で差し替える。以前は原文を固定文字列で置換していたが、
+template.html 側の文言が更新されるたびに assert で落ちて再生成できなくなるため。
 """
+import re
 from pathlib import Path
+
+from . import switch_banner as sb
 
 ROOT = Path(__file__).resolve().parent.parent
 
-# ===== 切替バナー(全幅・カラーCTA) =====
-UPD_CSS = '.header .upd{position:absolute;right:20px;font-size:11px;color:var(--text-sub)}'
-BANNER_CSS = (
-    '\n.gswitch{display:flex;align-items:center;justify-content:center;gap:8px;'
-    'padding:13px 16px;font-size:15px;font-weight:800;text-decoration:none;color:#fff;'
-    'box-shadow:inset 0 -2px 0 rgba(0,0,0,.12)}'
-    '\n.gswitch .ar{font-size:19px;line-height:1}'
-    '\n.gs-op{background:linear-gradient(135deg,#ff6b6b,#e53935)}'
-    '\n.gs-pk{background:linear-gradient(135deg,#4aa3ff,#1e88e5)}'
-    '\n.gswitch:active{filter:brightness(.94)}'
-    '\n@media(hover:hover){.gswitch:hover{filter:brightness(1.08)}}'
-)
-# ワンピ版 → ポケカへ戻る(href="/" はNetlify/http.server共に index.html)
-OP_BANNER = ('<a class="gswitch gs-pk" href="/">'
-             '<span class="ar">◀</span> ポケモンカードの買取比較はこちら</a>\n')
-# ポケカ版 → ワンピへ(本番のクリーンURL)
-PK_BANNER = ('<a class="gswitch gs-op" href="/onepiece">'
-             'ONE PIECEカードの買取比較はこちら <span class="ar">▶</span></a>\n')
-
-# 旧・隅ボタン方式(過去パッチ)を掃除するための文字列
-_OLD_SWITCH_CSS = ('\n.header .switch{position:absolute;left:12px;font-size:12px;font-weight:700;'
-                   'color:#ef4444;text-decoration:none;border:1px solid #ef4444;border-radius:6px;padding:3px 8px}')
-
-
-def normalize_src(s: str) -> str:
-    """過去にパッチ済みのtemplate.htmlでも素の状態に戻す(冪等化)。"""
-    s = s.replace(UPD_CSS + BANNER_CSS, UPD_CSS)
-    s = s.replace(UPD_CSS + _OLD_SWITCH_CSS, UPD_CSS)
-    s = s.replace(PK_BANNER, "")
-    s = s.replace('<div class="header">\n  <a class="switch" href="/onepiece">ワンピ版 ▶</a>\n  <h1>',
-                  '<div class="header">\n  <h1>')
-    return s
+# 現行 onepiece-template.html に入っている文言をそのまま維持する
+# (ここを変えるとタイトル/descriptionが差し替わるので、変更は意図的に行うこと)
+TITLE = "ワンピ買取チェッカー｜未開封BOX買取価格比較"
+DESC = ("ONE PIECEカードゲーム未開封BOXの買取価格をラントゥ・ホムラ・一丁目・森森買取等"
+        "11店舗横断で比較。最高値が一目でわかるワンピ買取チェッカー。")
+DESC_SHORT = ("ONE PIECEカードゲーム未開封BOXの買取価格をラントゥ・ホムラ・一丁目・森森買取等"
+              "11店舗横断で比較。最高値が一目でわかる。")
 
 
 def rep(text, old, new, *, count=None):
@@ -50,16 +31,27 @@ def rep(text, old, new, *, count=None):
     return text.replace(old, new)
 
 
-src = normalize_src((ROOT / "template.html").read_text(encoding="utf-8"))
+def set_content(text, marker, new):
+    """<meta ...> の content 属性を差し替える(元の文言に依存しない)。"""
+    i = text.index(marker)
+    j = text.index('content="', i) + len('content="')
+    k = text.index('"', j)
+    return text[:j] + new + text[k:]
+
+
+src = sb.strip((ROOT / "template.html").read_text(encoding="utf-8"))
 t = src
 
 # 1) 構造置換(グローバル置換より先に、原文のまま当てる) ---------------------------
 
 # メタ description / og / twitter
-t = rep(t, 'content="ポケモンカード未開封BOXの買取価格をラントゥ・ホムラ・一丁目・森森買取等10店舗横断で比較。最高値が一目でわかるポケカ買取チェッカー。"',
-        'content="ONE PIECEカードゲーム未開封BOXの買取価格をラントゥ・ホムラ・一丁目・森森買取等11店舗横断で比較。最高値が一目でわかるワンピ買取チェッカー。"')
-t = rep(t, 'content="ポケモンカード未開封BOXの買取価格をラントゥ・ホムラ・一丁目・森森買取等10店舗横断で比較。最高値が一目でわかる。"',
-        'content="ONE PIECEカードゲーム未開封BOXの買取価格をラントゥ・ホムラ・一丁目・森森買取等11店舗横断で比較。最高値が一目でわかる。"', count=2)
+t = set_content(t, '<meta name="description"', DESC)
+t = set_content(t, '<meta property="og:title"', TITLE)
+t = set_content(t, '<meta property="og:description"', DESC_SHORT)
+t = set_content(t, '<meta property="og:site_name"', "ワンピ買取チェッカー")
+t = set_content(t, '<meta name="twitter:title"', TITLE)
+t = set_content(t, '<meta name="twitter:description"', DESC_SHORT)
+t = re.sub(r"<title>[^<]*</title>", f"<title>{TITLE}</title>", t, count=1)
 
 # og:url / canonical → /onepiece
 t = rep(t, '<meta property="og:url" content="https://pokeca-box-hikaku.com/">',
@@ -85,9 +77,6 @@ t = rep(t, '  tr.cat-ss td.pn{background:#fce4ec}',
 t = rep(t, '  tr.cat-ss:hover td.pn{background:#f8bbd0 !important}',
         '  tr.cat-ss:hover td.pn{background:#f8bbd0 !important}\n  tr.cat-op:hover td.pn{background:#ffcdd2 !important}\n  tr.cat-eb:hover td.pn{background:#c8e6c9 !important}\n  tr.cat-prb:hover td.pn{background:#ffe0b2 !important}\n  tr.cat-st:hover td.pn{background:#bbdefb !important}',
         count=1)
-
-# 切替バナー用CSS
-t = rep(t, UPD_CSS, UPD_CSS + BANNER_CSS, count=1)
 
 # モバイルで商品名の弾番号【OP-XX】が省略(…)で見切れるので折り返し表示にする。
 # 768px と 480px の td.pn ルールを white-space:normal に置換。
@@ -168,15 +157,14 @@ t = t.replace("ポケカ買取チェッカー", "ワンピ買取チェッカー"
 t = t.replace("ポケカ", "ワンピ")
 
 # 3) 切替バナー挿入(グローバル置換の後。バナー文言"ポケモンカード"を保護するため) ----
-t = rep(t, '<div class="header">', OP_BANNER + '<div class="header">', count=1)
+t = sb.apply(t, "onepiece")
 
 out = ROOT / "onepiece-template.html"
 out.write_text(t, encoding="utf-8")
 print(f"wrote {out} ({len(t)} bytes)")
 
 # ===== ポケカ側テンプレにも切替バナーを追加(冪等) =====
-pk = normalize_src((ROOT / "template.html").read_text(encoding="utf-8"))
-pk = pk.replace(UPD_CSS, UPD_CSS + BANNER_CSS, 1)
-pk = pk.replace('<div class="header">', PK_BANNER + '<div class="header">', 1)
-(ROOT / "template.html").write_text(pk, encoding="utf-8")
-print("patched template.html with ワンピ版 banner")
+pk_path = ROOT / "template.html"
+pk = sb.apply(sb.strip(pk_path.read_text(encoding="utf-8")), "pokemon")
+pk_path.write_text(pk, encoding="utf-8")
+print("patched template.html with 3-way switch banner")
