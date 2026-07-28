@@ -78,13 +78,18 @@ def _sorted_products(products: list[MasterProduct]) -> list[MasterProduct]:
 
     表は「UX→CX→BX→限定品」のグループ見出しを挟んで描画されるので、
     カテゴリを第1キーに保ったまま日付だけ降順にする。
+    タカラトミーは同じ日に複数商品を出すことが多く(13組が同日発売)、
+    日付だけだと同日内の並びがマスター定義順になって型番が前後するので、
+    第2キーに型番の降順を入れて新しい番号を上に置く。
     """
     order = {c: i for i, c in enumerate(CATEGORY_ORDER)}
 
     def key(p: MasterProduct):
         # "2026-07-11" -> -20260711。新しいほど小さくなるので昇順で新しい順になる。
         d = -int(p.release_date.replace("-", "")) if p.release_date else 0
-        return (order.get(p.category, 99), d)
+        m = re.match(r"(BX|UX|CX)-(\d+)", p.name)
+        num = -int(m.group(2)) if m else 0
+        return (order.get(p.category, 99), d, num)
 
     return sorted(products, key=key)
 
