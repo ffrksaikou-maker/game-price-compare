@@ -1,9 +1,9 @@
 {
  "UX-15 シャークスケイルデッキセット": {
-  "price": 17999,
-  "top_avg": 16964,
+  "price": 17000,
+  "top_avg": 16797,
   "top_n": 9,
-  "samples": 44,
+  "samples": 43,
   "median": 15499,
   "keyword": "ベイブレードX UX-15",
   "period_days": 30
@@ -226,9 +226,9 @@
  },
  "BX-49 ドランストライク4-50FF": {
   "price": 5900,
-  "top_avg": 4517,
-  "top_n": 7,
-  "samples": 32,
+  "top_avg": 4603,
+  "top_n": 6,
+  "samples": 31,
   "median": 3500,
   "keyword": "ベイブレードX BX-49",
   "period_days": 30
@@ -237,16 +237,16 @@
   "price": 6444,
   "top_avg": 6011,
   "top_n": 3,
-  "samples": 14,
-  "median": 3972,
+  "samples": 15,
+  "median": 4444,
   "keyword": "ベイブレードX BX-50",
   "period_days": 30
  },
  "BX-09 ベイバトルパス": {
   "price": 10000,
-  "top_avg": 9032,
-  "top_n": 9,
-  "samples": 43,
+  "top_avg": 9036,
+  "top_n": 8,
+  "samples": 41,
   "median": 8300,
   "keyword": "ベイブレードX BX-09",
   "period_days": 30
@@ -271,10 +271,10 @@
  },
  "BX-45 サムライカリバー6-70M": {
   "price": 4000,
-  "top_avg": 3224,
-  "top_n": 8,
-  "samples": 38,
-  "median": 2725,
+  "top_avg": 3229,
+  "top_n": 7,
+  "samples": 37,
+  "median": 2700,
   "keyword": "ベイブレードX BX-45",
   "period_days": 30
  },
@@ -363,8 +363,8 @@
   "price": 7499,
   "top_avg": 5254,
   "top_n": 10,
-  "samples": 55,
-  "median": 3450,
+  "samples": 56,
+  "median": 3391,
   "keyword": "ベイブレードX ストームペガシス3-70RA",
   "period_days": 30
  },
