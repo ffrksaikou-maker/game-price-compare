@@ -24,7 +24,7 @@
     "prices": {
       "morimori": 15000,
       "homura": 15200,
-      "rudeya": 15000,
+      "rudeya": 14000,
       "runto": 15000,
       "icchome": 14000,
       "oku": 15200,
@@ -92,7 +92,7 @@
     "prices": {
       "morimori": 38200,
       "homura": 38200,
-      "rudeya": 38500,
+      "rudeya": 38300,
       "runto": 40000,
       "icchome": 38000,
       "oku": 38000,
@@ -109,7 +109,7 @@
     "prices": {
       "morimori": 12000,
       "homura": 12200,
-      "rudeya": 12000,
+      "rudeya": 11600,
       "runto": 12000,
       "icchome": 11500,
       "oku": 12000,
@@ -221,11 +221,11 @@
     "name": "ブースターパック「強大な敵」【OP-03】",
     "category": "op",
     "retail_price": 4752,
-    "max_price": 19000,
+    "max_price": 19200,
     "prices": {
       "morimori": 18500,
       "homura": 19000,
-      "rudeya": 18700,
+      "rudeya": 19200,
       "runto": 18500,
       "icchome": 18000,
       "oku": 18500,
@@ -291,7 +291,7 @@
     "prices": {
       "morimori": 22100,
       "homura": 22100,
-      "rudeya": 21500,
+      "rudeya": 22100,
       "runto": 23500,
       "icchome": 21000,
       "oku": 22100,
