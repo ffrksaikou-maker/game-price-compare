@@ -172,7 +172,14 @@ t = rep(t, '<div class="tw">',
         'メルカリで直近30日に売れた最高額を載せていますが、出品時期・付属品・'
         '出品者の値付けで大きく変動します。同じ価格で売れることを保証するものでは'
         'なく、手数料(販売価格の10%)と送料も差し引かれます。'
-        '確実性を重視する場合は買取価格をご確認ください。</div>\n<div class="tw">',
+        '確実性を重視する場合は買取価格をご確認ください。</div>\n'
+        # 希望小売価格の注記。site-intro 内にも同趣旨の説明があるが、あちらは表の
+        # 下の <details> の中で読まれないため、判断に使う位置にも出す。
+        # フリマ注記と枠を分けるのは、あちらが「値を信用しすぎるな」、こちらは
+        # 「差益は実際もう少し良い」で向きが逆のため。
+        '<div class="msrpnote">※表の「<b>希望小売</b>」はメーカー希望小売価格です。'
+        'ベイブレードは量販店やネット通販で1割前後安く買えることが多く、'
+        '差益は実際にはこの表より有利になる場合があります。</div>\n<div class="tw">',
         count=1)
 t = rep(t, '\n.cb{max-width:var(--table-width);',
         '\n.fmnote{max-width:var(--table-width);margin:10px auto 0;padding:9px 13px;'
@@ -180,6 +187,11 @@ t = rep(t, '\n.cb{max-width:var(--table-width);',
         'font-size:12px;line-height:1.6;color:#9a3412}'
         '\n.fmnote b{color:#c2410c}'
         '\n@media(max-width:768px){.fmnote{margin:10px 12px 0;font-size:11px}}'
+        '\n.msrpnote{max-width:var(--table-width);margin:6px auto 0;padding:8px 13px;'
+        'background:#f9fafb;border:1px solid var(--border);border-radius:8px;'
+        'font-size:12px;line-height:1.6;color:var(--text-sub)}'
+        '\n.msrpnote b{color:var(--text)}'
+        '\n@media(max-width:768px){.msrpnote{margin:6px 12px 0;font-size:11px}}'
         '\n.cb{max-width:var(--table-width);',
         count=1)
 
