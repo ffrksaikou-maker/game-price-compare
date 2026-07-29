@@ -19,10 +19,10 @@
  },
  "UX-20 グローリーワルキューレLF": {
   "price": 7800,
-  "top_avg": 7218,
+  "top_avg": 7155,
   "top_n": 8,
   "samples": 40,
-  "median": 6390,
+  "median": 6365,
   "keyword": "ベイブレードX UX-20",
   "period_days": 30
  },
@@ -145,10 +145,10 @@
  },
  "CX-15 ラグナレイジFE4-55Y": {
   "price": 3777,
-  "top_avg": 2977,
-  "top_n": 5,
-  "samples": 21,
-  "median": 2340,
+  "top_avg": 3051,
+  "top_n": 4,
+  "samples": 20,
+  "median": 2295,
   "keyword": "ベイブレードX CX-15",
   "period_days": 30
  },
@@ -235,7 +235,7 @@
  },
  "BX-50 ランダムブースターVol.11": {
   "price": 6444,
-  "top_avg": 6011,
+  "top_avg": 5974,
   "top_n": 3,
   "samples": 15,
   "median": 4444,
@@ -363,8 +363,8 @@
   "price": 7499,
   "top_avg": 5254,
   "top_n": 10,
-  "samples": 55,
-  "median": 3450,
+  "samples": 54,
+  "median": 3474,
   "keyword": "ベイブレードX ストームペガシス3-70RA",
   "period_days": 30
  },
