@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 JST = timezone(timedelta(hours=9))
 
 # Shop IDs in display order
-SHOP_IDS = ["morimori", "homura", "icchome", "runto", "collect_tendo", "shinsoku", "sommelier", "kaikyo", "oku", "rudeya"]
+SHOP_IDS = ["morimori", "homura", "icchome", "runto", "collect_tendo", "shinsoku", "kaikyo", "oku", "rudeya"]
 
 # BOX individual images (gamepedia.jp + 楽天から取得、ユーザー目視確認済み)
 BOX_IMAGE_FILES: dict[str, str] = {
@@ -105,11 +105,11 @@ def get_box_image_url(slug: str) -> str:
 
 # Blog articles (newest first) - 記事追加時はここに1行足すだけ
 BLOG_ARTICLES = [
-    {"url": "weekly/", "title": "【今週】ポケカBOX 週間値動きランキング", "desc": "SV・MEGA TOP10 + S&S TOP3を毎日自動更新。10店舗実データから直近7日間で値上がり・値下がりしたBOXをグラフ付きで掲載。現在の下落トレンドもひと目で分かる。", "date": "2026-04-12"},
+    {"url": "weekly/", "title": "【今週】ポケカBOX 週間値動きランキング", "desc": "SV・MEGA TOP10 + S&S TOP3を毎日自動更新。9店舗実データから直近7日間で値上がり・値下がりしたBOXをグラフ付きで掲載。現在の下落トレンドもひと目で分かる。", "date": "2026-04-12"},
     {"url": "souba-mynumber-2026.html", "title": "ポケカ相場は下落から膠着へ｜30周年マイナンバー導入の影響", "desc": "直近30日で67BOX中49が下落(平均-9.5%)、直近7日は53BOXが横ばい=膠着へ。ポケモンセンター30周年記念商品の抽選にマイナンバーカード本人確認が導入決定。転売対策が相場に与える影響を当サイト実データと公式発表・専門家見解で解説。", "date": "2026-06-09"},
-    {"url": "sv-box-list.html", "title": "SV(スカーレット&バイオレット) 全BOX一覧", "desc": "SVシリーズ全BOXの買取価格・定価・発売日・相場トレンドを10店舗実データで一覧化。151/黒炎の支配者/超電ブレイカー/ロケット団の栄光などの最新相場を毎日自動更新。", "date": "2026-04-22"},
-    {"url": "mega-box-list.html", "title": "MEGA(メガシンカ) 全BOX一覧", "desc": "MEGAシリーズ全BOXの買取価格・定価・発売日・相場トレンドを10店舗実データで一覧化。メガブレイブ/メガシンフォニア/インフェルノX/ニンジャスピナー/ムニキスゼロの相場を毎日自動更新。", "date": "2026-04-22"},
-    {"url": "ss-box-list.html", "title": "S&S(ソード&シールド) 全BOX一覧", "desc": "S&Sシリーズ全BOXの買取価格・定価・発売日・相場トレンドを10店舗実データで一覧化。イーブイヒーローズ/VMAXクライマックス/25thアニバーサリーなど絶版BOX中心。", "date": "2026-04-22"},
+    {"url": "sv-box-list.html", "title": "SV(スカーレット&バイオレット) 全BOX一覧", "desc": "SVシリーズ全BOXの買取価格・定価・発売日・相場トレンドを9店舗実データで一覧化。151/黒炎の支配者/超電ブレイカー/ロケット団の栄光などの最新相場を毎日自動更新。", "date": "2026-04-22"},
+    {"url": "mega-box-list.html", "title": "MEGA(メガシンカ) 全BOX一覧", "desc": "MEGAシリーズ全BOXの買取価格・定価・発売日・相場トレンドを9店舗実データで一覧化。メガブレイブ/メガシンフォニア/インフェルノX/ニンジャスピナー/ムニキスゼロの相場を毎日自動更新。", "date": "2026-04-22"},
+    {"url": "ss-box-list.html", "title": "S&S(ソード&シールド) 全BOX一覧", "desc": "S&Sシリーズ全BOXの買取価格・定価・発売日・相場トレンドを9店舗実データで一覧化。イーブイヒーローズ/VMAXクライマックス/25thアニバーサリーなど絶版BOX中心。", "date": "2026-04-22"},
     {"url": "battle-collection-spotlight.html", "title": "スタートデッキ100が大暴落？ピーク¥4,300→¥2,800", "desc": "MEGA スタートデッキ100「バトルコレクション」のBOX買取が4月ピーク¥4,300→¥2,800へ約35%下落。看板メガリザードンYex MUR(No.001)が5月12日の100万円→6月初旬の94.4万円へ反落したのと連動。下落4つの理由・店舗別買取・今後3シナリオ・売り時を実データで解説。", "date": "2026-06-06"},
     {"url": "release-schedule-2026.html", "title": "2026年ポケカ新弾発売カレンダー", "desc": "ムニキスゼロ・ニンジャスピナー発売済み、アビスアイ(5/22発売決定・メガダークライex)、5月値上げ(180→200円)、商標予想(ストームエメラルダ等)、30周年記念商品(世界同時発売)まで完全整理。", "date": "2026-04-21"},
     {"url": "storm-emeralda-forecast.html", "title": "【発売前予想】ストームエメラルダ BOX相場3シナリオ", "desc": "2026-07-31発売のストームエメラルダBOX相場を、過去MEGA弾M1〜M5の最新実データ+レックウザ三巨頭人気+蒼空ストリームの系譜から3シナリオ(弱気¥10,000/中立¥15,000/強気¥30,000)で徹底予想。メガレックウザex封入率・投資判断3基準も解説。", "date": "2026-06-22"},
@@ -120,7 +120,7 @@ BLOG_ARTICLES = [
     {"url": "clay-burst-spotlight.html", "title": "クレイバーストとナンジャモSAR相場解説", "desc": "BOX買取¥12,200、Gレギュ絶版観測で再評価中のクレイバースト(SV2D)。ナンジャモSAR¥50,000・PSA10で¥108,000・kirisAki氏イラストを含む5つの注目理由を解説。", "date": "2026-04-15"},
     {"url": "ninja-spinner-spotlight.html", "title": "ニンジャスピナー(M4)が定価2.5倍に高騰", "desc": "BOX買取¥13,400、メガゲッコウガex MUR¥95,000(封入率約0.9〜2%)・SAR¥40,000(前屋進氏イラスト進化ライン一枚絵)・HP350の対戦実需・180円定価最後のMEGA弾の5つの高騰理由を解説。", "date": "2026-04-16"},
     {"url": "rocket-dan-no-eiko-spotlight.html", "title": "ロケット団の栄光(SV10)が定価5.8倍に高騰", "desc": "BOX買取¥31,500、ロケット団のミュウツーex SAR¥60,000(PSA10¥120,000)・20年ぶりロケット団メインパック・2026年30周年イヤー連動・悪路線構築需要の5つの高騰理由を解説。週間急上昇1位(+21.2%)。", "date": "2026-04-25"},
-    {"url": "monthly-ranking-2026-04.html", "title": "【2026年4月】ポケカBOX買取 月間値上がりランキング", "desc": "2026年4月に最も値上がりしたポケカ未開封BOXを10店舗の実データで集計。SV・MEGA(現役)を本体TOP10、S&S(旧)を参考TOP5として別枠掲載。151(+¥17,600)・超電ブレイカー(+¥16,400)・ロケット団の栄光(+¥13,000)がSV+MEGA TOP3。", "date": "2026-05-01"},
+    {"url": "monthly-ranking-2026-04.html", "title": "【2026年4月】ポケカBOX買取 月間値上がりランキング", "desc": "2026年4月に最も値上がりしたポケカ未開封BOXを9店舗の実データで集計。SV・MEGA(現役)を本体TOP10、S&S(旧)を参考TOP5として別枠掲載。151(+¥17,600)・超電ブレイカー(+¥16,400)・ロケット団の栄光(+¥13,000)がSV+MEGA TOP3。", "date": "2026-05-01"},
     {"url": "mega-ex-spotlight.html", "title": "MEGAドリームex(M2a)が定価3.2倍にW字回復", "desc": "BOX買取¥17,500、発売初動¥17,300→1月底値¥9,000台→5月¥17,500の見事なW字回復。メガゲンガーex SAR¥66,200・ピカチュウex SAR¥60,000・メガカイリューex MUR¥40,000-57,300・新レアリティMA(全10種)・お祭りパック性の5つの高騰理由を解説。", "date": "2026-05-03"},
     {"url": "mega-brave-spotlight.html", "title": "メガブレイブ(M1)が定価2.6倍で推移", "desc": "BOX買取¥13,800、MEGAシリーズ第1弾の記念パック。リーリエの決心SAR¥30,000台(PSA10¥95,000)・メガルカリオex MUR¥42,000台(封入率約1.64%)・世界人気2位ルカリオ・対戦環境での優勝レシピ実績・MEGA記念弾の節目性の5つの高騰理由を実データで解説。", "date": "2026-05-19"},
     {"url": "price-pattern-guide.html", "title": "BOX買取価格の5段階パターン", "desc": "発売前プレ値→初動高値→調整期→底打ち→絶版急騰の5段階を当サイト40日観測データと5スポットライトBOXの具体値で実証解説。買い時売り時の3判断基準、2024年バブル崩壊の教訓も紹介。", "date": "2026-04-16"},
@@ -159,7 +159,7 @@ BLOG_ARTICLES = [
     {"url": "mercari-hikaku.html", "title": "メルカリ・スニダン・買取店どれが得？", "desc": "手数料・送料込みで3つの売却方法を徹底比較。具体的な計算例で最適な売り方がわかります。", "date": "2026-03-26"},
     {"url": "psa-guide.html", "title": "PSA鑑定とは？ポケカの価値を最大化する方法", "desc": "鑑定の流れ、グレードの意味、費用対効果まで。PSA 10で価値が3〜10倍に跳ね上がる具体例も紹介。", "date": "2026-03-24"},
     {"url": "single-card-tips.html", "title": "ポケカBOX開封→シングル売りで利益を出す方法", "desc": "高額カードの当たり例、レアリティの封入率、トレンド変化まで。開封vs未開封売りの判断基準も解説。", "date": "2026-03-24"},
-    {"url": "shop-hikaku.html", "title": "ポケカ買取10店舗の特徴を徹底比較", "desc": "当サイトで掲載している10店舗それぞれの強み・特徴をまとめました。自分に合った買取店選びの参考に。", "date": "2026-03-23"},
+    {"url": "shop-hikaku.html", "title": "ポケカ買取9店舗の特徴を徹底比較", "desc": "当サイトで掲載している9店舗それぞれの強み・特徴をまとめました。自分に合った買取店選びの参考に。", "date": "2026-03-23"},
     {"url": "kaitori-tips.html", "title": "ポケカBOX買取で損しない5つのコツ", "desc": "シュリンク付きの重要性、複数店舗比較のメリット、売り時の見極め方など、高価買取のポイントを解説。", "date": "2026-03-23"},
 ]
 
@@ -261,7 +261,7 @@ def generate_jsonld(products: list[MasterProduct]) -> str:
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "ポケカ買取チェッカー - 未開封BOX買取価格比較",
-        "description": "ポケモンカード未開封BOXの買取価格をラントゥ・ホムラ・一丁目・森森買取等10店舗横断で比較",
+        "description": "ポケモンカード未開封BOXの買取価格をラントゥ・ホムラ・一丁目・森森買取等9店舗横断で比較",
         "numberOfItems": len(items),
         "itemListElement": [
             {"@type": "ListItem", "position": i + 1, "item": item}
@@ -299,12 +299,12 @@ def generate_ai_summary(products: list[MasterProduct]) -> str:
 
     shop_names = {
         "morimori": "森森買取", "homura": "買取ホムラ", "icchome": "買取一丁目",
-        "runto": "ラントゥ買取", "sommelier": "買取ソムリエ", "kaikyo": "海峡通信",
+        "runto": "ラントゥ買取", "kaikyo": "海峡通信",
         "oku": "買取オク", "rudeya": "買取ルデヤ",
     }
 
     lines = []
-    lines.append(f"ポケカ買取チェッカー - {date_str}更新。ポケモンカード未開封BOXの買取価格を10店舗で横断比較。")
+    lines.append(f"ポケカ買取チェッカー - {date_str}更新。ポケモンカード未開封BOXの買取価格を9店舗で横断比較。")
 
     # Top 5 products
     lines.append(f"【{date_str}時点の買取価格ランキング TOP5】")
@@ -585,7 +585,6 @@ SHOP_NAMES = {
     "homura": "買取ホムラ",
     "icchome": "買取一丁目",
     "runto": "ラントゥ買取",
-    "sommelier": "買取ソムリエ",
     "kaikyo": "海峡通信",
     "oku": "買取オク",
     "rudeya": "買取ルデヤ",
@@ -598,7 +597,6 @@ SHOP_URLS = {
     "homura": "https://kaitori-homura.com/",
     "icchome": "https://www.1-chome.com/",
     "runto": "https://runto666.com/",
-    "sommelier": "https://somurie-kaitori.com/",
     "kaikyo": "https://www.mobile-ichiban.com/",
     "oku": "https://kaitori-oku.jp/",
     "rudeya": "https://kaitori-rudeya.com/",
@@ -623,10 +621,6 @@ SHOP_PROFILES = {
     "runto": {
         "methods": ["店頭", "郵送"],
         "desc": "トレカに特化した買取店。ポケカBOXの買取に力を入れており、シュリンク無にも対応。安定して高い買取価格を提示しています。サイトの更新頻度も高く、最新の相場が反映されやすいです。",
-    },
-    "sommelier": {
-        "methods": ["店頭", "郵送"],
-        "desc": "トレカを中心に買取に対応。ポケカBOXの買取も行っており、他店と競争力のある価格を提示しています。Xでの高価買取ポストは要注目。",
     },
     "kaikyo": {
         "methods": ["店頭", "郵送"],
@@ -1062,7 +1056,7 @@ def _generate_box_chart_section(product: MasterProduct, project_root: Path) -> s
   <button class="cp-btn" data-period="1m">1ヶ月</button>
 </div>
 <canvas id="boxChart"></canvas>
-<div class="chart-note">※ 10店舗の最高買取価格の推移（過去分は参考データ）</div>
+<div class="chart-note">※ 9店舗の最高買取価格の推移（過去分は参考データ）</div>
 </div>
 <script>
 (function(){{
@@ -1639,7 +1633,7 @@ def _build_shop_page_html(
     title = f"{name}の{scope}BOX買取価格一覧【全{total}商品】"
     desc = (
         f"{name}のポケモンカード{'・ワンピースカード' if has_op else ''}未開封BOX買取価格を"
-        f"全{total}商品まとめて掲載。うち{best_total}商品が当サイト掲載10店舗中の最高値です。"
+        f"全{total}商品まとめて掲載。うち{best_total}商品が当サイト掲載9店舗中の最高値です。"
         f"毎日3回自動更新で、他店との価格差も商品ごとに比較できます。"
     )
 
@@ -1658,7 +1652,7 @@ def _build_shop_page_html(
         )
         best_section = (
             f'<h2>{name}が最高値をつけているBOX</h2>'
-            f'<p>当サイト掲載10店舗の買取価格を突き合わせた結果、<strong>{name}が最も高い金額を提示している商品が{best_total}件</strong>'
+            f'<p>当サイト掲載9店舗の買取価格を突き合わせた結果、<strong>{name}が最も高い金額を提示している商品が{best_total}件</strong>'
             f'あります。差額が大きい順に上位を掲載します（2位の店舗との差）。</p>'
             f'<table class="price-table"><thead><tr><th>商品</th>'
             f'<th style="text-align:right">{name}の買取価格</th>'
@@ -1667,7 +1661,7 @@ def _build_shop_page_html(
     else:
         best_section = (
             f'<h2>{name}の価格ポジション</h2>'
-            f'<p>2026年{update_date}時点では、{name}が10店舗中の最高値をつけている商品はありません。'
+            f'<p>2026年{update_date}時点では、{name}が9店舗中の最高値をつけている商品はありません。'
             f'ただし買取価格は毎日動くため、売却前には最新の比較をご確認ください。</p>'
         )
 
@@ -1687,7 +1681,7 @@ def _build_shop_page_html(
 
     poke_section = (
         f'<h2>{name}のポケカBOX買取価格一覧（{len(p_rows)}商品）</h2>'
-        f'<p>買取価格の高い順に並べています。商品名から各BOXの10店舗比較ページへ移動できます。</p>'
+        f'<p>買取価格の高い順に並べています。商品名から各BOXの9店舗比較ページへ移動できます。</p>'
         f'<table class="price-table"><thead><tr><th>商品</th>'
         f'<th style="text-align:right">買取価格</th></tr></thead><tbody>{"".join(p_rows)}</tbody></table>'
     ) if p_rows else ""
@@ -1768,15 +1762,15 @@ gtag('config', 'G-RPTS6CRTCS');
 
 <article>
 <h1>{name}の{scope}BOX買取価格一覧｜全{total}商品を毎日自動更新</h1>
-<div class="meta">更新: {update_date} / 当サイト掲載10店舗の実測データ / ポケカ買取チェッカー</div>
+<div class="meta">更新: {update_date} / 当サイト掲載9店舗の実測データ / ポケカ買取チェッカー</div>
 
 <div class="hero">
 <div class="stat-label">{name} 掲載商品数と最高値件数（{update_date}時点）</div>
 <div class="stat-big">全{total}商品 / 最高値 {best_total}件</div>
-<div class="stat-sub">当サイトが毎日3回自動収集した10店舗の買取価格をもとに、{name}の取扱商品と価格を一覧化しています。価格はすべて実測値です。</div>
+<div class="stat-sub">当サイトが毎日3回自動収集した9店舗の買取価格をもとに、{name}の取扱商品と価格を一覧化しています。価格はすべて実測値です。</div>
 </div>
 
-<p>このページでは、<strong>{name}</strong>が買取対象としているポケモンカード{'・ONE PIECEカード' if has_op else ''}の未開封BOXについて、<strong>現在の買取価格を全{total}商品ぶん掲載</strong>しています。当サイトは10店舗の買取ページを毎日3回自動で収集しているため、<strong>{name}が他店と比べて高いのか安いのか</strong>を商品単位で確認できます。</p>
+<p>このページでは、<strong>{name}</strong>が買取対象としているポケモンカード{'・ONE PIECEカード' if has_op else ''}の未開封BOXについて、<strong>現在の買取価格を全{total}商品ぶん掲載</strong>しています。当サイトは9店舗の買取ページを毎日3回自動で収集しているため、<strong>{name}が他店と比べて高いのか安いのか</strong>を商品単位で確認できます。</p>
 
 {best_section}
 
@@ -1792,7 +1786,7 @@ gtag('config', 'G-RPTS6CRTCS');
 <ul>
 <li><strong>公式サイト</strong>: <a href="{official}" target="_blank" rel="noopener noreferrer">{official}</a></li>
 <li><strong>当サイト掲載商品数</strong>: {total}商品（ポケカ{len(p_rows)}{f' / ワンピ{len(o_rows)}' if has_op else ''}）</li>
-<li><strong>10店舗中で最高値の商品</strong>: {best_total}件</li>
+<li><strong>9店舗中で最高値の商品</strong>: {best_total}件</li>
 </ul>
 
 <a href="{official}" class="cta" target="_blank" rel="noopener noreferrer">{name}の公式サイトで買取条件を確認する &rarr;</a>
@@ -1800,7 +1794,7 @@ gtag('config', 'G-RPTS6CRTCS');
 <h2>他の買取店の価格も見る</h2>
 <p>売却前には複数店舗の比較をおすすめします。同じBOXでも店舗により買取価格は異なり、高額BOXほど差が大きくなります。</p>
 <div class="shop-links">{others}</div>
-<p><a href="../shop-hikaku.html">10店舗の特徴を比較する</a> / <a href="../index.html">全BOXの買取価格を比較する</a> / <a href="../ranking.html">週間価格変化ランキング</a></p>
+<p><a href="../shop-hikaku.html">9店舗の特徴を比較する</a> / <a href="../index.html">全BOXの買取価格を比較する</a> / <a href="../ranking.html">週間価格変化ランキング</a></p>
 
 <div class="disclaimer">
 <strong>ご注意:</strong> 掲載価格は当サイトが{name}の公開買取情報から自動取得した{update_date}時点の実測値です。買取価格は需給や在庫状況により日々変動し、シュリンクの有無・外箱の状態等により実際の査定額は変わります。最終的な価格・条件は必ず{name}の公式サイトでご確認ください。当サイトは{name}とは独立した第三者の比較サイトであり、掲載内容について同店が保証するものではありません。
@@ -2367,7 +2361,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <a href="ranking.html" class="current">📊 週間価格変化ランキング</a>
 <a href="souba-mynumber-2026.html">📰 相場下落・膠着とマイナンバー</a>
 <a href="kaitori-tips.html">BOX買取のコツ</a>
-<a href="shop-hikaku.html">10店舗比較</a>
+<a href="shop-hikaku.html">9店舗比較</a>
 <a href="single-card-tips.html">シングル売り</a>
 <a href="psa-guide.html">PSA鑑定ガイド</a>
 <a href="mercari-hikaku.html">メルカリ・スニダン比較</a>
@@ -2672,7 +2666,7 @@ CATEGORY_PAGE_CONFIG = [
         "filename": "sv-box-list.html",
         "title": "SV(スカーレット&バイオレット) 全BOX 買取価格一覧",
         "short": "SVシリーズ",
-        "desc_meta": "SV(スカーレット&バイオレット)シリーズ全BOXの買取価格・定価・発売日・相場トレンドを10店舗の実データで一覧化。151/黒炎の支配者/超電ブレイカー/ロケット団の栄光など全商品の相場を毎日自動更新。",
+        "desc_meta": "SV(スカーレット&バイオレット)シリーズ全BOXの買取価格・定価・発売日・相場トレンドを9店舗の実データで一覧化。151/黒炎の支配者/超電ブレイカー/ロケット団の栄光など全商品の相場を毎日自動更新。",
         "lead": (
             "SV(スカーレット&バイオレット)シリーズは2023年1月の「スカーレットex/バイオレットex」を起点に、"
             "レギュレーションマークG/H/I/Jで展開された現行ポケカのメインシリーズです。"
@@ -2703,7 +2697,7 @@ CATEGORY_PAGE_CONFIG = [
         "filename": "mega-box-list.html",
         "title": "MEGA(メガシンカ) 全BOX 買取価格一覧",
         "short": "MEGAシリーズ",
-        "desc_meta": "MEGAシリーズ全BOXの買取価格・定価・発売日・相場トレンドを10店舗の実データで一覧化。メガブレイブ/メガシンフォニア/インフェルノX/ニンジャスピナー/ムニキスゼロ/メガドリームexの相場を毎日自動更新。",
+        "desc_meta": "MEGAシリーズ全BOXの買取価格・定価・発売日・相場トレンドを9店舗の実データで一覧化。メガブレイブ/メガシンフォニア/インフェルノX/ニンジャスピナー/ムニキスゼロ/メガドリームexの相場を毎日自動更新。",
         "lead": (
             "MEGA(メガシンカ)シリーズは2025年春の「メガブレイブ/メガシンフォニア」から始まった新シリーズで、"
             "メガ進化ポケモンを主軸にしたBOX群です。"
@@ -2733,7 +2727,7 @@ CATEGORY_PAGE_CONFIG = [
         "filename": "ss-box-list.html",
         "title": "S&S(ソード&シールド) 全BOX 買取価格一覧",
         "short": "S&Sシリーズ",
-        "desc_meta": "S&S(ソード&シールド)シリーズ全BOXの買取価格・定価・発売日・相場トレンドを10店舗の実データで一覧化。イーブイヒーローズ/VMAXクライマックス/25thアニバーサリー/蒼空ストリームなど絶版BOX中心。毎日自動更新。",
+        "desc_meta": "S&S(ソード&シールド)シリーズ全BOXの買取価格・定価・発売日・相場トレンドを9店舗の実データで一覧化。イーブイヒーローズ/VMAXクライマックス/25thアニバーサリー/蒼空ストリームなど絶版BOX中心。毎日自動更新。",
         "lead": (
             "S&S(ソード&シールド)シリーズは2019年12月の「ソード/シールド」から2022年12月の「VSTARユニバース」まで約3年間展開された旧世代シリーズで、"
             "Gレギュ以降はスタン落ち済み。そのためほぼ全BOXが生産終了(絶版)状態にあり、中長期投資対象として根強い需要があります。"
@@ -3033,7 +3027,7 @@ def _build_category_page_html(
         ])
     faq_items_base.append({
         "q": f"{config['short']}の買取価格はどのくらいの頻度で更新されますか？",
-        "a": "毎日3回(11時・15時・18時 JST)、10店舗の公式サイトから自動取得して反映しています。本ページの順位・上昇率も毎回再計算されます。",
+        "a": "毎日3回(11時・15時・18時 JST)、9店舗の公式サイトから自動取得して反映しています。本ページの順位・上昇率も毎回再計算されます。",
     })
     faq_items = [f for f in faq_items_base if f.get("a")]
     faq_html = (
@@ -3228,7 +3222,7 @@ article p{{font-size:14px;margin-bottom:14px}}
 <a href="souba-mynumber-2026.html">📰 相場下落・膠着とマイナンバー</a>
 <a href="kaitori-tips.html">BOX買取のコツ</a>
 <a href="about.html">運営者情報</a>
-<a href="shop-hikaku.html">10店舗比較</a>
+<a href="shop-hikaku.html">9店舗比較</a>
 <a href="single-card-tips.html">シングル売り</a>
 <a href="psa-guide.html">PSA鑑定ガイド</a>
 <a href="mercari-hikaku.html">メルカリ・スニダン比較</a>
@@ -3257,7 +3251,7 @@ article p{{font-size:14px;margin-bottom:14px}}
 
 <article>
 <h1>{config['title']}</h1>
-<div class="meta">更新: {update_date} / データ源: 10店舗買取価格の自動収集</div>
+<div class="meta">更新: {update_date} / データ源: 9店舗買取価格の自動収集</div>
 
 <div class="lead"><p>{config['lead']}</p></div>
 
@@ -3276,7 +3270,7 @@ article p{{font-size:14px;margin-bottom:14px}}
 {timeline_html}
 
 <h2>{config['short']} 全BOX一覧 (発売日順)</h2>
-<p>発売日の新しい順。商品名クリックで個別BOXの10店舗比較ページへ。</p>
+<p>発売日の新しい順。商品名クリックで個別BOXの9店舗比較ページへ。</p>
 {table_html}
 
 {faq_html}
@@ -3329,7 +3323,7 @@ article p{{font-size:14px;margin-bottom:14px}}
     <a href="ranking.html">📊 週間価格変化ランキング</a>
     <a href="souba-mynumber-2026.html">📰 相場下落・膠着とマイナンバー</a>
     <a href="kaitori-tips.html">BOX買取のコツ</a>
-    <a href="shop-hikaku.html">10店舗比較</a>
+    <a href="shop-hikaku.html">9店舗比較</a>
     <a href="about.html">運営者情報</a>
     <a href="release-schedule-2026.html">📅 2026年 新弾カレンダー</a>
   </div>
@@ -3470,14 +3464,14 @@ TIMED_ARTICLES = [
         "file": "storm-emeralda-forecast.html",
         "release_date": "2026-07-31",
         "post_release_link": "box/storm-emeralda.html",
-        "post_release_label": "ストームエメラルダBOXの現在の買取価格を10店舗比較で見る",
+        "post_release_label": "ストームエメラルダBOXの現在の買取価格を9店舗比較で見る",
         "pre_text_prefix": "🔮 発売前予想記事 — 発売まで",
     },
     {
         "file": "abyss-eye-forecast.html",
         "release_date": "2026-05-22",
         "post_release_link": "box/abyss-eye.html",
-        "post_release_label": "アビスアイBOXの現在の買取価格を10店舗比較で見る",
+        "post_release_label": "アビスアイBOXの現在の買取価格を9店舗比較で見る",
         "pre_text_prefix": "🔮 発売前予想記事 — 発売まで",
     },
 ]

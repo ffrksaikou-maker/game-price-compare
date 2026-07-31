@@ -121,7 +121,6 @@ t = rep(t,
     <button class="fb st active" data-s="collect_tendo">コレクト</button>
     <button class="fb st active" data-s="shinsoku">シンソク</button>
     <button class="fb st active" data-s="oku">オク</button>
-    <button class="fb st active" data-s="sommelier">ソムリエ</button>
     <button class="fb st active" data-s="rudeya">ルデヤ</button>
     <button class="fb st active" data-s="kaikyo">海峡</button>''',
         '''    <button class="fb st active" data-s="icchome">一丁目</button>
@@ -225,9 +224,9 @@ t = replace_section(
 function computeS_SS() {""")
 
 # 8) JS: 店舗配列 / カテゴリラベル / 既定表示 --------------------------------
-t = rep(t, 'const S=["morimori","homura","icchome","runto","collect_tendo","shinsoku","oku","sommelier","rudeya","kaikyo"];',
+t = rep(t, 'const S=["morimori","homura","icchome","runto","collect_tendo","shinsoku","oku","rudeya","kaikyo"];',
         'const S=["icchome","morimori","rudeya","homura"];')
-t = rep(t, 'let S_SS = ["homura","runto","morimori","icchome","oku","sommelier","rudeya","kaikyo","collect_tendo","shinsoku"];',
+t = rep(t, 'let S_SS = ["homura","runto","morimori","icchome","oku","rudeya","kaikyo","collect_tendo","shinsoku"];',
         'let S_SS = ["icchome","morimori","rudeya","homura"];')
 t = rep(t, 'const CL={"mega":"MEGA","sv":"SV","special":"スペシャルBOX","ss":"S&S ソード&シールド"};',
         'const CL={"ux":"UX (アルティメット)","cx":"CX (カスタム)","bx":"BX (ベーシック)","limited":"限定品"};')

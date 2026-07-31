@@ -6,15 +6,16 @@
 
 ポケカ買取チェッカー (pokeca-box-hikaku.com) は、ポケモンカードゲームの未開封BOX商品の買取価格を、主要8店舗から自動収集し、商品別・価格別に横断比較できる無料の価格比較サイトです。
 
-対応店舗（8店舗、2026年4月時点）:
+対応店舗（9店舗、2026年7月時点）:
 - 森森買取
 - 買取ホムラ
 - 買取一丁目
 - ラントゥ買取
-- 買取ソムリエ
 - 海峡通信
-- 買取商店
+- 買取オク
 - 買取ルデヤ
+- 買取コレクト
+- 買取シンソク
 
 収録BOX: ポケモンカード未開封BOX 67商品（MEGA 7種 + スカーレット&バイオレット 27種 + スペシャル 3種 + ソード&シールド 30種）
 
@@ -55,7 +56,6 @@
 - [買取ホムラの買取価格一覧](https://pokeca-box-hikaku.com/shop/homura.html): 総合買取店。シュリンク無BOX対応、古い弾も査定対象。掲載商品数が最多クラス
 - [買取一丁目の買取価格一覧](https://pokeca-box-hikaku.com/shop/icchome.html): トレカ・家電・ウイスキー等を扱う総合買取店
 - [ラントゥ買取の買取価格一覧](https://pokeca-box-hikaku.com/shop/runto.html): トレカ特化。ポケカBOXに注力しシュリンク無対応、更新頻度が高い
-- [買取ソムリエの買取価格一覧](https://pokeca-box-hikaku.com/shop/sommelier.html): トレカ中心。Xでの高価買取ポストが特徴
 - [海峡通信の買取価格一覧](https://pokeca-box-hikaku.com/shop/kaikyo.html): トレカ・家電・スマホ等の総合買取店(モバイル一番)
 - [買取オクの買取価格一覧](https://pokeca-box-hikaku.com/shop/oku.html): 総合買取店。使いやすいHPが高評価
 - [買取ルデヤの買取価格一覧](https://pokeca-box-hikaku.com/shop/rudeya.html): ポケカ・遊戯王・ワンピース等の主要TCGのBOX買取に幅広く対応

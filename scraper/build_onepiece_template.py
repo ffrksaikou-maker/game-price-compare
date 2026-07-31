@@ -18,9 +18,9 @@ ROOT = Path(__file__).resolve().parent.parent
 # (ここを変えるとタイトル/descriptionが差し替わるので、変更は意図的に行うこと)
 TITLE = "ワンピ買取チェッカー｜未開封BOX買取価格比較"
 DESC = ("ONE PIECEカードゲーム未開封BOXの買取価格をラントゥ・ホムラ・一丁目・森森買取等"
-        "11店舗横断で比較。最高値が一目でわかるワンピ買取チェッカー。")
+        "9店舗横断で比較。最高値が一目でわかるワンピ買取チェッカー。")
 DESC_SHORT = ("ONE PIECEカードゲーム未開封BOXの買取価格をラントゥ・ホムラ・一丁目・森森買取等"
-              "11店舗横断で比較。最高値が一目でわかる。")
+              "9店舗横断で比較。最高値が一目でわかる。")
 
 
 def rep(text, old, new, *, count=None):
@@ -147,8 +147,8 @@ t = rep(t, 'href="https://runto666.com/product-category/card/"',
         'href="https://runto666.com/product-category/onepiece/"')
 
 # 「について」セクションの数値
-t = rep(t, 'ポケモンカード未開封BOX 67商品×10店舗',
-        'ONE PIECEカード未開封BOX 24商品×11店舗')
+t = rep(t, 'ポケモンカード未開封BOX 67商品×9店舗',
+        'ONE PIECEカード未開封BOX 24商品×9店舗')
 
 # 2) グローバル文言置換(ブランディング) --------------------------------------
 t = t.replace("ポケモンカードゲーム", "ONE PIECEカードゲーム")
