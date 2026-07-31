@@ -10,10 +10,10 @@
  },
  "UX-03 ウィザードロッド5-70DB": {
   "price": 11998,
-  "top_avg": 8617,
+  "top_avg": 8517,
   "top_n": 7,
-  "samples": 34,
-  "median": 7274,
+  "samples": 33,
+  "median": 7250,
   "keyword": "ベイブレードX UX-03",
   "period_days": 30
  },
@@ -36,11 +36,11 @@
   "period_days": 30
  },
  "UX-12 ランダムブースターVol.5": {
-  "price": 4300,
-  "top_avg": 3000,
+  "price": 2900,
+  "top_avg": 2067,
   "top_n": 3,
-  "samples": 4,
-  "median": 2350,
+  "samples": 3,
+  "median": 1800,
   "keyword": "ベイブレードX UX-12",
   "period_days": 30
  },
@@ -64,10 +64,10 @@
  },
  "UX-19 バレットグリフォンH": {
   "price": 4880,
-  "top_avg": 4735,
-  "top_n": 5,
-  "samples": 25,
-  "median": 4450,
+  "top_avg": 4746,
+  "top_n": 6,
+  "samples": 26,
+  "median": 4470,
   "keyword": "ベイブレードX UX-19",
   "period_days": 30
  },
@@ -99,11 +99,11 @@
   "period_days": 30
  },
  "UX-18 ランダムブースターVol.8": {
-  "price": 1300,
-  "top_avg": 1167,
+  "price": 7899,
+  "top_avg": 7058,
   "top_n": 3,
-  "samples": 5,
-  "median": 1300,
+  "samples": 6,
+  "median": 3399,
   "keyword": "ベイブレードX UX-18",
   "period_days": 30
  },
@@ -228,7 +228,7 @@
   "price": 5500,
   "top_avg": 4248,
   "top_n": 6,
-  "samples": 27,
+  "samples": 28,
   "median": 3500,
   "keyword": "ベイブレードX BX-49",
   "period_days": 30
@@ -237,7 +237,7 @@
   "price": 7777,
   "top_avg": 7092,
   "top_n": 3,
-  "samples": 18,
+  "samples": 16,
   "median": 3475,
   "keyword": "ベイブレードX BX-50",
   "period_days": 30
@@ -381,7 +381,7 @@
   "price": 27800,
   "top_avg": 21891,
   "top_n": 11,
-  "samples": 56,
+  "samples": 57,
   "median": 19999,
   "keyword": "ベイブレードX UX-21",
   "period_days": 30

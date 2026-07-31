@@ -89,7 +89,7 @@ NON_POKEMON_INDICATORS = [
 
 # Non-BOX Pokemon products to exclude
 NON_BOX_INDICATORS = [
-    "プロモカードパック", "カードファイルセット", "カードファイル", "ファイルセット",
+    "プロモカードパック", "プロモパック", "カードファイルセット", "カードファイル", "ファイルセット",
     "GOLDEN BOX", "ゴールデンボックス",
     "スペシャルセット", "ジムセット",
     "ハッピーセット", "記念デッキ", "プレシャスコレクター",
@@ -468,11 +468,18 @@ def normalize(text: str, noise_words: list[str] | None = None) -> str:
 
 def _keyword_match(scraped_name: str, product: MasterProduct,
                    config: MatchConfig) -> bool:
-    """Check if any keyword from the product matches in the scraped name."""
+    """Check if any keyword from the product matches in the scraped name.
+
+    店側の商品名には弾名の途中に空白が紛れることがある
+    (例: 森森「ストームエメラル ダ BOX」)。空白を落とした形でも突き合わせる。
+    """
     norm_name = normalize(scraped_name, config.noise_words)
+    compact_name = norm_name.replace(" ", "")
     for kw in product.keywords:
         norm_kw = normalize(kw, config.noise_words)
-        if norm_kw and norm_kw in norm_name:
+        if not norm_kw:
+            continue
+        if norm_kw in norm_name or norm_kw.replace(" ", "") in compact_name:
             return True
     return False
 
