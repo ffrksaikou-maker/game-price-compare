@@ -3,15 +3,15 @@
     "name": "MEGA 拡張パック「ストームエメラルダ」",
     "category": "mega",
     "retail_price": 6000,
-    "max_price": 27000,
+    "max_price": 25500,
     "prices": {
-      "morimori": 26000,
-      "homura": 26000,
-      "rudeya": 24500,
-      "runto": 27000,
-      "icchome": 26000,
-      "oku": 26000,
-      "kaikyo": 24000,
+      "morimori": 25000,
+      "homura": 25500,
+      "rudeya": 25500,
+      "runto": 25000,
+      "icchome": 25000,
+      "oku": 24000,
+      "kaikyo": 22000,
       "shinsoku": 25500
     }
   },
