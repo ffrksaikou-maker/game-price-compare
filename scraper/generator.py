@@ -3467,6 +3467,13 @@ def generate_category_pages(
 # post_release_label: 誘導先のラベル
 TIMED_ARTICLES = [
     {
+        "file": "storm-emeralda-forecast.html",
+        "release_date": "2026-07-31",
+        "post_release_link": "box/storm-emeralda.html",
+        "post_release_label": "ストームエメラルダBOXの現在の買取価格を10店舗比較で見る",
+        "pre_text_prefix": "🔮 発売前予想記事 — 発売まで",
+    },
+    {
         "file": "abyss-eye-forecast.html",
         "release_date": "2026-05-22",
         "post_release_link": "box/abyss-eye.html",

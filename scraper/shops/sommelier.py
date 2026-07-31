@@ -2,6 +2,10 @@
 
 Products at /products with Ant Design pagination (multiple pages).
 Ant Design cards: .ant-card with name in p.text-dark-gray, price in p.text-price-red.
+
+?category=2 はトレーディングカード(サブカテゴリのポケカ/ワンピを含む)。
+全商品一覧は iPhone・カメラ・フィギュア等が大半を占め、トレカが後ろのページに
+押し出されると取りこぼすため、カテゴリで絞って取得する。
 """
 
 from __future__ import annotations
@@ -12,7 +16,7 @@ from .base import BaseScraper, ScrapedItem
 
 logger = logging.getLogger(__name__)
 
-URL = "https://somurie-kaitori.com/products"
+URL = "https://somurie-kaitori.com/products?category=2"
 
 
 class SommelierScraper(BaseScraper):
