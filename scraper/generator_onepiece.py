@@ -65,6 +65,9 @@ ONEPIECE_ARTICLES.append(
 ONEPIECE_ARTICLES.append(
     ("kougaku-ranking.html", "高額BOXランキング・絶版ガイド",
      "全弾の最高買取・定価比ランキングと、絶版の実態・ブロックアイコン制度の影響を解説。"))
+ONEPIECE_ARTICLES.append(
+    ("op-17-forecast.html", "【予想】世界最強の戦士(OP-17) BOX相場3シナリオ",
+     "8/22発売の4周年弾OP-17のBOX相場を過去弾の実データから3シナリオで予想。新レアリティL-SPと値上げの影響も解説。"))
 
 
 def _article_links_block() -> str:
@@ -304,6 +307,8 @@ def _append_onepiece_sitemap(products: list[MasterProduct]) -> None:
         blocks.append(_url("/onepiece/toushi.html", "weekly", "0.7"))
     if (PROJECT_ROOT / "onepiece" / "kougaku-ranking.html").exists():
         blocks.append(_url("/onepiece/kougaku-ranking.html", "weekly", "0.7"))
+    if (PROJECT_ROOT / "onepiece" / "op-17-forecast.html").exists():
+        blocks.append(_url("/onepiece/op-17-forecast.html", "weekly", "0.8"))
 
     # 週次値動きアーカイブ記事(onepiece/weekly/*.html)を自動収録
     wk_dir = PROJECT_ROOT / "onepiece" / "weekly"

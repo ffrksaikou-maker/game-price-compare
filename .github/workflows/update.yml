@@ -71,7 +71,7 @@ jobs:
             ninja-spinner-spotlight.html rocket-dan-no-eiko-spotlight.html \
             mega-ex-spotlight.html mega-brave-spotlight.html \
             battle-collection-spotlight.html \
-            abyss-eye-forecast.html
+            abyss-eye-forecast.html storm-emeralda-forecast.html
           git diff --staged --quiet || git commit -m "Update prices $(TZ=Asia/Tokyo date +%Y-%m-%d_%H:%M)"
           git stash --include-untracked
           git pull --rebase origin master
