@@ -10,22 +10,21 @@
       "rudeya": 18100,
       "runto": 18000,
       "icchome": 20500,
-      "oku": 18000,
       "kaikyo": 17500,
       "collect_tendo": 21800,
-      "shinsoku": 17000
+      "shinsoku": 18000
     }
   },
   {
     "name": "MEGA 拡張パック「アビスアイ」",
     "category": "mega",
     "retail_price": 6000,
-    "max_price": 8800,
+    "max_price": 8500,
     "prices": {
       "morimori": 8200,
       "homura": 8400,
       "rudeya": 7500,
-      "runto": 8800,
+      "runto": 8500,
       "icchome": 8200,
       "oku": 8400,
       "kaikyo": 8000,
