@@ -3,14 +3,14 @@
   "price": 31999,
   "top_avg": 17226,
   "top_n": 11,
-  "samples": 52,
-  "median": 14999,
+  "samples": 53,
+  "median": 14900,
   "keyword": "ベイブレードX UX-15",
   "period_days": 30
  },
  "UX-03 ウィザードロッド5-70DB": {
   "price": 14999,
-  "top_avg": 8503,
+  "top_avg": 8963,
   "top_n": 10,
   "samples": 48,
   "median": 6800,
@@ -19,10 +19,10 @@
  },
  "UX-20 グローリーワルキューレLF": {
   "price": 10999,
-  "top_avg": 7576,
-  "top_n": 10,
-  "samples": 47,
-  "median": 5599,
+  "top_avg": 7696,
+  "top_n": 9,
+  "samples": 45,
+  "median": 5500,
   "keyword": "ベイブレードX UX-20",
   "period_days": 30
  },
@@ -55,10 +55,10 @@
  },
  "UX-11 インパクトドレイク9-60LR": {
   "price": 9000,
-  "top_avg": 7284,
-  "top_n": 8,
-  "samples": 38,
-  "median": 4752,
+  "top_avg": 7611,
+  "top_n": 7,
+  "samples": 35,
+  "median": 4750,
   "keyword": "ベイブレードX UX-11",
   "period_days": 30
  },
@@ -75,8 +75,8 @@
   "price": 5500,
   "top_avg": 5171,
   "top_n": 7,
-  "samples": 35,
-  "median": 4770,
+  "samples": 34,
+  "median": 4775,
   "keyword": "ベイブレードX UX-17",
   "period_days": 30
  },
@@ -84,7 +84,7 @@
   "price": 4400,
   "top_avg": 4141,
   "top_n": 8,
-  "samples": 39,
+  "samples": 40,
   "median": 3666,
   "keyword": "ベイブレードX UX-08",
   "period_days": 30
@@ -108,11 +108,11 @@
   "period_days": 30
  },
  "UX-04 バトルエントリーセットU": {
-  "price": 14500,
-  "top_avg": 12100,
+  "price": 28800,
+  "top_avg": 19267,
   "top_n": 3,
-  "samples": 6,
-  "median": 10900,
+  "samples": 7,
+  "median": 12000,
   "keyword": "ベイブレードX UX-04",
   "period_days": 30
  },
@@ -136,7 +136,7 @@
  },
  "CX-18 ランダムブースター ブラキオウィップセレクト": {
   "price": 5980,
-  "top_avg": 4829,
+  "top_avg": 4467,
   "top_n": 7,
   "samples": 32,
   "median": 2999,
@@ -156,8 +156,8 @@
   "price": 11000,
   "top_avg": 9871,
   "top_n": 10,
-  "samples": 49,
-  "median": 9300,
+  "samples": 48,
+  "median": 9349,
   "keyword": "ベイブレードX CX-16",
   "period_days": 30
  },
@@ -183,8 +183,8 @@
   "price": 6100,
   "top_avg": 5136,
   "top_n": 5,
-  "samples": 21,
-  "median": 2555,
+  "samples": 22,
+  "median": 2527,
   "keyword": "ベイブレードX CX-17",
   "period_days": 30
  },
@@ -234,29 +234,29 @@
   "period_days": 30
  },
  "BX-50 ランダムブースターVol.11": {
-  "price": 4499,
-  "top_avg": 4228,
+  "price": 4700,
+  "top_avg": 4402,
   "top_n": 4,
   "samples": 21,
-  "median": 3500,
+  "median": 3800,
   "keyword": "ベイブレードX BX-50",
   "period_days": 30
  },
  "BX-09 ベイバトルパス": {
   "price": 16999,
-  "top_avg": 10086,
-  "top_n": 9,
-  "samples": 42,
+  "top_avg": 10222,
+  "top_n": 8,
+  "samples": 41,
   "median": 8900,
   "keyword": "ベイブレードX BX-09",
   "period_days": 30
  },
  "BX-48 ランダムブースターVol.9": {
-  "price": 16000,
-  "top_avg": 10250,
+  "price": 9000,
+  "top_avg": 8194,
   "top_n": 4,
-  "samples": 20,
-  "median": 6650,
+  "samples": 19,
+  "median": 6000,
   "keyword": "ベイブレードX BX-48",
   "period_days": 30
  },
@@ -274,7 +274,7 @@
   "top_avg": 3127,
   "top_n": 8,
   "samples": 38,
-  "median": 2500,
+  "median": 2499,
   "keyword": "ベイブレードX BX-45",
   "period_days": 30
  },
@@ -282,8 +282,8 @@
   "price": 5600,
   "top_avg": 5232,
   "top_n": 4,
-  "samples": 19,
-  "median": 4500,
+  "samples": 18,
+  "median": 4494,
   "keyword": "ベイブレードX BX-10",
   "period_days": 30
  },
@@ -309,8 +309,8 @@
   "price": 17880,
   "top_avg": 16836,
   "top_n": 5,
-  "samples": 24,
-  "median": 15749,
+  "samples": 25,
+  "median": 15500,
   "keyword": "ベイブレードX BX-46",
   "period_days": 30
  },
@@ -337,7 +337,7 @@
   "top_avg": 9670,
   "top_n": 14,
   "samples": 71,
-  "median": 7880,
+  "median": 7800,
   "keyword": "ベイブレードX ドランブレイブS6-60V",
   "period_days": 30
  },
@@ -345,17 +345,17 @@
   "price": 13000,
   "top_avg": 10071,
   "top_n": 9,
-  "samples": 44,
+  "samples": 45,
   "median": 5999,
   "keyword": "ベイブレードX ペガサスブラストATr",
   "period_days": 30
  },
  "BX-00 コバルトドラグーン2-60C メタルコート:ブラック": {
   "price": 5800,
-  "top_avg": 5516,
+  "top_avg": 5559,
   "top_n": 6,
   "samples": 29,
-  "median": 3500,
+  "median": 3600,
   "keyword": "ベイブレードX コバルトドラグーン2-60C",
   "period_days": 30
  },
