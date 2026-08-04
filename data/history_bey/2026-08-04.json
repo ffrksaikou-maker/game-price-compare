@@ -126,7 +126,7 @@
     "retail_price": 2080,
     "max_price": 3000,
     "prices": {
-      "morimori": 2700,
+      "morimori": 2500,
       "homura": 3000,
       "rudeya": 2500,
       "icchome": 2500
@@ -147,7 +147,7 @@
     "retail_price": 1400,
     "max_price": 6200,
     "prices": {
-      "morimori": 6200,
+      "morimori": 5800,
       "rudeya": 6200,
       "icchome": 5500
     }
@@ -364,9 +364,9 @@
     "name": "BX-34 コバルトドラグーン2-60C",
     "category": "bx",
     "retail_price": 2321,
-    "max_price": 2500,
+    "max_price": 2000,
     "prices": {
-      "morimori": 2500,
+      "morimori": 1000,
       "rudeya": 2000,
       "icchome": 1000
     }

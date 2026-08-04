@@ -3,16 +3,16 @@
     "name": "ブースターパック「決戦の刻」【OP-16】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 12000,
+    "max_price": 11800,
     "prices": {
       "morimori": 11800,
       "homura": 11800,
       "rudeya": 11000,
-      "runto": 12000,
+      "runto": 11000,
       "icchome": 11500,
       "oku": 11800,
       "collect_tendo": 11000,
-      "shinsoku": 11100
+      "shinsoku": 11500
     }
   },
   {
@@ -21,14 +21,14 @@
     "retail_price": 5280,
     "max_price": 15000,
     "prices": {
-      "morimori": 14800,
+      "morimori": 13000,
       "homura": 13000,
       "rudeya": 14000,
       "runto": 15000,
-      "icchome": 13500,
-      "oku": 14000,
+      "icchome": 13000,
+      "oku": 13000,
       "collect_tendo": 14500,
-      "shinsoku": 12500
+      "shinsoku": 13100
     }
   },
   {
@@ -37,7 +37,7 @@
     "retail_price": 5280,
     "max_price": 16000,
     "prices": {
-      "morimori": 14800,
+      "morimori": 16000,
       "homura": 16000,
       "rudeya": 14500,
       "runto": 16000,
@@ -53,14 +53,14 @@
     "retail_price": 5280,
     "max_price": 24000,
     "prices": {
-      "morimori": 23200,
+      "morimori": 24000,
       "homura": 24000,
       "rudeya": 20000,
-      "runto": 23500,
+      "runto": 23000,
       "icchome": 23000,
       "oku": 24000,
       "collect_tendo": 24000,
-      "shinsoku": 23000
+      "shinsoku": 23200
     }
   },
   {
@@ -69,7 +69,7 @@
     "retail_price": 5280,
     "max_price": 19000,
     "prices": {
-      "morimori": 18000,
+      "morimori": 19000,
       "homura": 19000,
       "rudeya": 17000,
       "runto": 17800,
@@ -92,7 +92,7 @@
       "icchome": 39000,
       "oku": 38500,
       "collect_tendo": 39000,
-      "shinsoku": 38500
+      "shinsoku": 37300
     }
   },
   {
@@ -147,16 +147,16 @@
     "name": "ブースターパック「500年後の未来」【OP-07】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 20300,
+    "max_price": 20000,
     "prices": {
       "morimori": 19500,
       "homura": 19500,
       "rudeya": 19600,
-      "runto": 20300,
+      "runto": 19500,
       "icchome": 19500,
       "oku": 19500,
       "collect_tendo": 20000,
-      "shinsoku": 19100
+      "shinsoku": 18700
     }
   },
   {
@@ -236,7 +236,7 @@
       "icchome": 24500,
       "oku": 26000,
       "collect_tendo": 26000,
-      "shinsoku": 24600
+      "shinsoku": 22100
     }
   },
   {
@@ -252,7 +252,7 @@
       "icchome": 40500,
       "oku": 40500,
       "collect_tendo": 41000,
-      "shinsoku": 40900
+      "shinsoku": 41000
     }
   },
   {
@@ -291,12 +291,12 @@
     "name": "エクストラブースター「Anime 25th collection」【EB-02】",
     "category": "eb",
     "retail_price": 5280,
-    "max_price": 39800,
+    "max_price": 39000,
     "prices": {
       "morimori": 37200,
       "homura": 37200,
       "rudeya": 37500,
-      "runto": 39800,
+      "runto": 39000,
       "icchome": 38500,
       "oku": 37200,
       "collect_tendo": 37500,
@@ -332,14 +332,14 @@
       "icchome": 10500,
       "oku": 11100,
       "collect_tendo": 7300,
-      "shinsoku": 10600
+      "shinsoku": 10900
     }
   },
   {
     "name": "プレミアムブースター「ONE PIECE CARD THE BEST」【PRB-01】",
     "category": "prb",
     "retail_price": 5500,
-    "max_price": 22500,
+    "max_price": 22600,
     "prices": {
       "morimori": 21500,
       "homura": 22000,
@@ -348,7 +348,7 @@
       "icchome": 21000,
       "oku": 22000,
       "collect_tendo": 22500,
-      "shinsoku": 21900
+      "shinsoku": 22600
     }
   },
   {
