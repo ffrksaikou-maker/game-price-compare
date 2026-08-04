@@ -19,10 +19,10 @@
  },
  "UX-20 グローリーワルキューレLF": {
   "price": 10999,
-  "top_avg": 7139,
+  "top_avg": 7576,
   "top_n": 10,
-  "samples": 48,
-  "median": 5666,
+  "samples": 47,
+  "median": 5599,
   "keyword": "ベイブレードX UX-20",
   "period_days": 30
  },
@@ -219,7 +219,7 @@
   "price": 7777,
   "top_avg": 5962,
   "top_n": 6,
-  "samples": 29,
+  "samples": 30,
   "median": 4980,
   "keyword": "ベイブレードX BX-23",
   "period_days": 30
@@ -237,7 +237,7 @@
   "price": 4499,
   "top_avg": 4228,
   "top_n": 4,
-  "samples": 19,
+  "samples": 21,
   "median": 3500,
   "keyword": "ベイブレードX BX-50",
   "period_days": 30
@@ -336,8 +336,8 @@
   "price": 11500,
   "top_avg": 9670,
   "top_n": 14,
-  "samples": 70,
-  "median": 7840,
+  "samples": 71,
+  "median": 7880,
   "keyword": "ベイブレードX ドランブレイブS6-60V",
   "period_days": 30
  },
