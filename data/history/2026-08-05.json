@@ -8,9 +8,9 @@
       "morimori": 15000,
       "homura": 21000,
       "rudeya": 19500,
-      "runto": 20800,
-      "icchome": 20800,
-      "oku": 21000,
+      "runto": 20000,
+      "icchome": 21000,
+      "oku": 20800,
       "kaikyo": 20500,
       "collect_tendo": 19000,
       "shinsoku": 21100
@@ -63,15 +63,6 @@
       "kaikyo": 8000,
       "collect_tendo": 8300,
       "shinsoku": 8600
-    }
-  },
-  {
-    "name": "MEGA スタートデッキ100「バトルコレクション」",
-    "category": "mega",
-    "retail_price": 891,
-    "max_price": 1500,
-    "prices": {
-      "runto": 1500
     }
   },
   {
@@ -289,7 +280,7 @@
     "max_price": 16700,
     "prices": {
       "morimori": 16500,
-      "homura": 16700,
+      "homura": 16000,
       "rudeya": 16000,
       "runto": 16000,
       "icchome": 16500,
@@ -503,7 +494,7 @@
     "max_price": 11800,
     "prices": {
       "morimori": 11300,
-      "homura": 11500,
+      "homura": 11200,
       "rudeya": 11500,
       "runto": 11800,
       "icchome": 11700,
@@ -644,7 +635,7 @@
     "prices": {
       "homura": 29000,
       "runto": 28000,
-      "kaikyo": 14800,
+      "kaikyo": 15100,
       "collect_tendo": 24000,
       "shinsoku": 29000
     }
