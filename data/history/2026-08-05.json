@@ -3,7 +3,7 @@
     "name": "MEGA 拡張パック「ストームエメラルダ」",
     "category": "mega",
     "retail_price": 6000,
-    "max_price": 21100,
+    "max_price": 21000,
     "prices": {
       "morimori": 15000,
       "homura": 21000,
@@ -13,7 +13,7 @@
       "oku": 20800,
       "kaikyo": 20500,
       "collect_tendo": 19000,
-      "shinsoku": 21100
+      "shinsoku": 21000
     }
   },
   {
