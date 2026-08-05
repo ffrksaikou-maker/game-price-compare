@@ -12,10 +12,10 @@
     "name": "UX-20 グローリーワルキューレLF",
     "category": "ux",
     "retail_price": 2700,
-    "max_price": 6700,
+    "max_price": 5000,
     "prices": {
       "morimori": 2000,
-      "rudeya": 6700,
+      "rudeya": 5000,
       "icchome": 2000
     }
   },
@@ -291,7 +291,7 @@
     "retail_price": 1600,
     "max_price": 1600,
     "prices": {
-      "morimori": 1050,
+      "morimori": 1000,
       "homura": 1500,
       "rudeya": 1600,
       "icchome": 1500
