@@ -12,7 +12,7 @@
   "price": 12000,
   "top_avg": 8020,
   "top_n": 9,
-  "samples": 43,
+  "samples": 44,
   "median": 6666,
   "keyword": "ベイブレードX UX-03",
   "period_days": 30
@@ -117,11 +117,11 @@
   "period_days": 30
  },
  "CX-05 ランダムブースターVol.6": {
-  "price": 8780,
-  "top_avg": 7919,
+  "price": 7777,
+  "top_avg": 7011,
   "top_n": 3,
-  "samples": 8,
-  "median": 5528,
+  "samples": 7,
+  "median": 4999,
   "keyword": "ベイブレードX CX-05",
   "period_days": 30
  },
@@ -154,10 +154,10 @@
  },
  "CX-16 スタートダッシュセットC": {
   "price": 11000,
-  "top_avg": 9895,
-  "top_n": 10,
-  "samples": 46,
-  "median": 9349,
+  "top_avg": 9933,
+  "top_n": 9,
+  "samples": 45,
+  "median": 9300,
   "keyword": "ベイブレードX CX-16",
   "period_days": 30
  },
@@ -246,7 +246,7 @@
   "price": 18000,
   "top_avg": 12089,
   "top_n": 9,
-  "samples": 45,
+  "samples": 46,
   "median": 8999,
   "keyword": "ベイブレードX BX-09",
   "period_days": 30
@@ -345,7 +345,7 @@
   "price": 13000,
   "top_avg": 10024,
   "top_n": 9,
-  "samples": 43,
+  "samples": 44,
   "median": 5999,
   "keyword": "ベイブレードX ペガサスブラストATr",
   "period_days": 30
@@ -354,8 +354,8 @@
   "price": 5800,
   "top_avg": 5559,
   "top_n": 6,
-  "samples": 28,
-  "median": 3899,
+  "samples": 27,
+  "median": 3999,
   "keyword": "ベイブレードX コバルトドラグーン2-60C",
   "period_days": 30
  },
