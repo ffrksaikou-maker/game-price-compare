@@ -59,6 +59,7 @@
     "retail_price": 1400,
     "max_price": 2700,
     "prices": {
+      "morimori": 2300,
       "rudeya": 2700,
       "icchome": 2700
     }
@@ -267,8 +268,9 @@
     "name": "CX-05 ランダムブースターVol.6",
     "category": "cx",
     "retail_price": 1600,
-    "max_price": 2000,
+    "max_price": 2800,
     "prices": {
+      "morimori": 2800,
       "homura": 2000,
       "rudeya": 1600,
       "icchome": 2000
@@ -333,6 +335,7 @@
     "retail_price": 1500,
     "max_price": 1800,
     "prices": {
+      "morimori": 1700,
       "rudeya": 1000,
       "icchome": 1800
     }
@@ -374,6 +377,7 @@
     "retail_price": 2420,
     "max_price": 3500,
     "prices": {
+      "morimori": 3500,
       "homura": 3000,
       "rudeya": 3500,
       "icchome": 3500
