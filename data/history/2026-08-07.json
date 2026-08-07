@@ -8,7 +8,7 @@
       "morimori": 15000,
       "homura": 19500,
       "rudeya": 18500,
-      "runto": 19500,
+      "runto": 19000,
       "icchome": 19500,
       "oku": 19500,
       "kaikyo": 19000,
@@ -42,7 +42,7 @@
       "homura": 10700,
       "rudeya": 10000,
       "runto": 10500,
-      "icchome": 10700,
+      "icchome": 10800,
       "oku": 10700,
       "collect_tendo": 10000,
       "shinsoku": 10800
@@ -931,7 +931,7 @@
       "icchome": 14000,
       "kaikyo": 13000,
       "collect_tendo": 15500,
-      "shinsoku": 15000
+      "shinsoku": 14000
     }
   },
   {

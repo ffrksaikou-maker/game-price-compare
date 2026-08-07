@@ -5,6 +5,7 @@
     "retail_price": 4500,
     "max_price": 6500,
     "prices": {
+      "rudeya": 6500,
       "icchome": 6500
     }
   },
@@ -12,10 +13,10 @@
     "name": "UX-20 グローリーワルキューレLF",
     "category": "ux",
     "retail_price": 2700,
-    "max_price": 5000,
+    "max_price": 3500,
     "prices": {
       "morimori": 2000,
-      "rudeya": 5000,
+      "rudeya": 3500,
       "icchome": 2000
     }
   },
@@ -23,10 +24,10 @@
     "name": "UX-19 バレットグリフォンH",
     "category": "ux",
     "retail_price": 2600,
-    "max_price": 3600,
+    "max_price": 2800,
     "prices": {
       "morimori": 2300,
-      "rudeya": 3600,
+      "rudeya": 2800,
       "icchome": 2300
     }
   },
@@ -38,7 +39,7 @@
     "prices": {
       "morimori": 2200,
       "homura": 2400,
-      "rudeya": 2300,
+      "rudeya": 2000,
       "icchome": 2500
     }
   },
@@ -49,7 +50,7 @@
     "max_price": 3300,
     "prices": {
       "morimori": 3200,
-      "rudeya": 3200,
+      "rudeya": 2800,
       "icchome": 3300
     }
   },
@@ -71,7 +72,7 @@
     "max_price": 13000,
     "prices": {
       "morimori": 12300,
-      "rudeya": 12000,
+      "rudeya": 8000,
       "icchome": 13000
     }
   },
@@ -83,7 +84,7 @@
     "prices": {
       "morimori": 3800,
       "homura": 4000,
-      "rudeya": 4000,
+      "rudeya": 2500,
       "icchome": 3800
     }
   },
@@ -91,10 +92,10 @@
     "name": "UX-11 インパクトドレイク9-60LR",
     "category": "ux",
     "retail_price": 2420,
-    "max_price": 4000,
+    "max_price": 3500,
     "prices": {
-      "morimori": 3700,
-      "rudeya": 4000,
+      "morimori": 3500,
+      "rudeya": 3000,
       "icchome": 3500
     }
   },
@@ -113,10 +114,10 @@
     "name": "UX-09 サムライセイバー2-70L",
     "category": "ux",
     "retail_price": 3300,
-    "max_price": 4200,
+    "max_price": 3300,
     "prices": {
       "morimori": 3300,
-      "rudeya": 4200,
+      "rudeya": 3000,
       "icchome": 3300
     }
   },
@@ -128,7 +129,7 @@
     "prices": {
       "morimori": 2500,
       "homura": 3000,
-      "rudeya": 2500,
+      "rudeya": 2000,
       "icchome": 2500
     }
   },
@@ -145,10 +146,10 @@
     "name": "UX-03 ウィザードロッド5-70DB",
     "category": "ux",
     "retail_price": 1400,
-    "max_price": 6200,
+    "max_price": 5500,
     "prices": {
       "morimori": 4200,
-      "rudeya": 6200,
+      "rudeya": 4500,
       "icchome": 5500
     }
   },
@@ -160,7 +161,7 @@
     "prices": {
       "morimori": 3500,
       "homura": 3500,
-      "rudeya": 3500,
+      "rudeya": 1500,
       "icchome": 3500
     }
   },
@@ -168,10 +169,10 @@
     "name": "CX-18 ランダムブースター ブラキオウィップセレクト",
     "category": "cx",
     "retail_price": 1600,
-    "max_price": 2000,
+    "max_price": 1800,
     "prices": {
       "morimori": 1500,
-      "rudeya": 2000,
+      "rudeya": 1800,
       "icchome": 1500
     }
   },
@@ -182,7 +183,7 @@
     "max_price": 1200,
     "prices": {
       "morimori": 1000,
-      "rudeya": 1000,
+      "rudeya": 800,
       "icchome": 1200
     }
   },
@@ -193,7 +194,7 @@
     "max_price": 7200,
     "prices": {
       "morimori": 7000,
-      "rudeya": 6500,
+      "rudeya": 5500,
       "icchome": 7200
     }
   },
@@ -205,7 +206,7 @@
     "prices": {
       "morimori": 1500,
       "homura": 1700,
-      "rudeya": 1100,
+      "rudeya": 900,
       "icchome": 1700
     }
   },
@@ -216,7 +217,7 @@
     "max_price": 3500,
     "prices": {
       "morimori": 2800,
-      "rudeya": 3500,
+      "rudeya": 2500,
       "icchome": 3500
     }
   },
@@ -224,10 +225,10 @@
     "name": "CX-12 フェニックスフレアZ9-80WW",
     "category": "cx",
     "retail_price": 1700,
-    "max_price": 1100,
+    "max_price": 1200,
     "prices": {
       "morimori": 900,
-      "rudeya": 1100,
+      "rudeya": 1200,
       "icchome": 1100
     }
   },
@@ -235,10 +236,10 @@
     "name": "CX-11 エンペラーマイトデッキセット",
     "category": "cx",
     "retail_price": 5000,
-    "max_price": 6000,
+    "max_price": 6500,
     "prices": {
       "morimori": 5300,
-      "rudeya": 6000,
+      "rudeya": 6500,
       "icchome": 5300
     }
   },
@@ -260,7 +261,7 @@
     "prices": {
       "morimori": 2400,
       "homura": 2700,
-      "rudeya": 2800,
+      "rudeya": 2000,
       "icchome": 3000
     }
   },
@@ -272,7 +273,7 @@
     "prices": {
       "morimori": 2800,
       "homura": 2000,
-      "rudeya": 1600,
+      "rudeya": 1000,
       "icchome": 2000
     }
   },
@@ -289,11 +290,11 @@
     "name": "BX-50 ランダムブースターVol.11",
     "category": "bx",
     "retail_price": 1600,
-    "max_price": 1600,
+    "max_price": 1500,
     "prices": {
       "morimori": 1000,
       "homura": 1000,
-      "rudeya": 1600,
+      "rudeya": 800,
       "icchome": 1500
     }
   },
@@ -305,7 +306,7 @@
     "prices": {
       "morimori": 2400,
       "homura": 2400,
-      "rudeya": 2500,
+      "rudeya": 2000,
       "icchome": 2700
     }
   },
@@ -324,9 +325,9 @@
     "name": "BX-46 バトルエントリーセット∞",
     "category": "bx",
     "retail_price": 7500,
-    "max_price": 13000,
+    "max_price": 11000,
     "prices": {
-      "rudeya": 13000
+      "rudeya": 11000
     }
   },
   {
@@ -336,7 +337,7 @@
     "max_price": 1800,
     "prices": {
       "morimori": 1400,
-      "rudeya": 1000,
+      "rudeya": 1200,
       "icchome": 1800
     }
   },
@@ -346,7 +347,7 @@
     "retail_price": 1400,
     "max_price": 2200,
     "prices": {
-      "rudeya": 2200,
+      "rudeya": 2000,
       "icchome": 2200
     }
   },
@@ -430,9 +431,9 @@
     "name": "CX-00 ドランブレイブS6-60V メタルコート:ブラック",
     "category": "limited",
     "retail_price": 1800,
-    "max_price": 7000,
+    "max_price": 6500,
     "prices": {
-      "rudeya": 7000
+      "rudeya": 6500
     }
   },
   {
@@ -459,9 +460,9 @@
     "name": "BX-00 コバルトドラグーン2-60C メタルコート:ブラック",
     "category": "limited",
     "retail_price": 2420,
-    "max_price": 4400,
+    "max_price": 4000,
     "prices": {
-      "rudeya": 4400,
+      "rudeya": 4000,
       "icchome": 3500
     }
   },
@@ -469,10 +470,10 @@
     "name": "BX-00 ヘルズサイズ4-60T メタルコート:ゴールド",
     "category": "limited",
     "retail_price": 1600,
-    "max_price": 5500,
+    "max_price": 5700,
     "prices": {
       "morimori": 5000,
-      "rudeya": 5500,
+      "rudeya": 5700,
       "icchome": 5000
     }
   }
