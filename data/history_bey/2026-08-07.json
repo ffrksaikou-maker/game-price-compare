@@ -95,7 +95,7 @@
     "prices": {
       "morimori": 3700,
       "rudeya": 4000,
-      "icchome": 3800
+      "icchome": 3500
     }
   },
   {
@@ -335,7 +335,7 @@
     "retail_price": 1500,
     "max_price": 1800,
     "prices": {
-      "morimori": 1700,
+      "morimori": 1400,
       "rudeya": 1000,
       "icchome": 1800
     }
