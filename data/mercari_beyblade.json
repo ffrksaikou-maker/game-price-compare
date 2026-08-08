@@ -10,9 +10,9 @@
  },
  "UX-03 ウィザードロッド5-70DB": {
   "price": 14000,
-  "top_avg": 8612,
-  "top_n": 10,
-  "samples": 46,
+  "top_avg": 8791,
+  "top_n": 9,
+  "samples": 45,
   "median": 6799,
   "keyword": "ベイブレードX UX-03",
   "period_days": 30
@@ -21,7 +21,7 @@
   "price": 9499,
   "top_avg": 6670,
   "top_n": 8,
-  "samples": 40,
+  "samples": 39,
   "median": 5500,
   "keyword": "ベイブレードX UX-20",
   "period_days": 30
@@ -73,9 +73,9 @@
  },
  "UX-17 メテオドラグーン3-70J": {
   "price": 5500,
-  "top_avg": 5083,
+  "top_avg": 5116,
   "top_n": 6,
-  "samples": 28,
+  "samples": 27,
   "median": 4800,
   "keyword": "ベイブレードX UX-17",
   "period_days": 30
@@ -235,18 +235,18 @@
  },
  "BX-50 ランダムブースターVol.11": {
   "price": 5100,
-  "top_avg": 4500,
+  "top_avg": 4648,
   "top_n": 3,
-  "samples": 15,
-  "median": 2500,
+  "samples": 16,
+  "median": 2649,
   "keyword": "ベイブレードX BX-50",
   "period_days": 30
  },
  "BX-09 ベイバトルパス": {
   "price": 19000,
-  "top_avg": 12990,
-  "top_n": 8,
-  "samples": 41,
+  "top_avg": 12602,
+  "top_n": 9,
+  "samples": 42,
   "median": 8999,
   "keyword": "ベイブレードX BX-09",
   "period_days": 30
@@ -280,10 +280,10 @@
  },
  "BX-10 エクストリームスタジアム": {
   "price": 8900,
-  "top_avg": 6156,
-  "top_n": 5,
-  "samples": 21,
-  "median": 4777,
+  "top_avg": 6350,
+  "top_n": 4,
+  "samples": 20,
+  "median": 4678,
   "keyword": "ベイブレードX BX-10",
   "period_days": 30
  },
@@ -379,9 +379,9 @@
  },
  "UX-21 ヘルズネザーデッキセット": {
   "price": 19000,
-  "top_avg": 12012,
+  "top_avg": 12131,
   "top_n": 16,
-  "samples": 78,
+  "samples": 81,
   "median": 11000,
   "keyword": "ベイブレードX UX-21",
   "period_days": 30
