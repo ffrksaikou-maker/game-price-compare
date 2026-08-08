@@ -3,10 +3,10 @@
     "name": "UX-21 ヘルズネザーデッキセット",
     "category": "ux",
     "retail_price": 4500,
-    "max_price": 6500,
+    "max_price": 6700,
     "prices": {
       "homura": 6500,
-      "rudeya": 6500,
+      "rudeya": 6700,
       "icchome": 6500
     }
   },
@@ -149,7 +149,7 @@
     "retail_price": 1400,
     "max_price": 5500,
     "prices": {
-      "morimori": 5500,
+      "morimori": 3200,
       "rudeya": 4500,
       "icchome": 5500
     }
