@@ -1,10 +1,10 @@
 {
  "UX-15 シャークスケイルデッキセット": {
   "price": 16000,
-  "top_avg": 15409,
-  "top_n": 10,
-  "samples": 50,
-  "median": 13500,
+  "top_avg": 15455,
+  "top_n": 9,
+  "samples": 46,
+  "median": 13900,
   "keyword": "ベイブレードX UX-15",
   "period_days": 30
  },
@@ -12,17 +12,17 @@
   "price": 14000,
   "top_avg": 8612,
   "top_n": 10,
-  "samples": 47,
+  "samples": 46,
   "median": 6799,
   "keyword": "ベイブレードX UX-03",
   "period_days": 30
  },
  "UX-20 グローリーワルキューレLF": {
   "price": 9499,
-  "top_avg": 6537,
-  "top_n": 7,
-  "samples": 32,
-  "median": 5555,
+  "top_avg": 6695,
+  "top_n": 8,
+  "samples": 38,
+  "median": 5527,
   "keyword": "ベイブレードX UX-20",
   "period_days": 30
  },
@@ -45,20 +45,20 @@
   "period_days": 30
  },
  "UX-09 サムライセイバー2-70L": {
-  "price": 6580,
-  "top_avg": 6371,
+  "price": 6333,
+  "top_avg": 5544,
   "top_n": 3,
-  "samples": 6,
-  "median": 5150,
+  "samples": 5,
+  "median": 4100,
   "keyword": "ベイブレードX UX-09",
   "period_days": 30
  },
  "UX-11 インパクトドレイク9-60LR": {
-  "price": 8700,
-  "top_avg": 6489,
+  "price": 8222,
+  "top_avg": 5953,
   "top_n": 7,
-  "samples": 33,
-  "median": 4888,
+  "samples": 32,
+  "median": 4844,
   "keyword": "ベイブレードX UX-11",
   "period_days": 30
  },
@@ -66,7 +66,7 @@
   "price": 5000,
   "top_avg": 4758,
   "top_n": 8,
-  "samples": 38,
+  "samples": 40,
   "median": 4499,
   "keyword": "ベイブレードX UX-19",
   "period_days": 30
@@ -76,7 +76,7 @@
   "top_avg": 5083,
   "top_n": 6,
   "samples": 28,
-  "median": 4799,
+  "median": 4800,
   "keyword": "ベイブレードX UX-17",
   "period_days": 30
  },
@@ -120,14 +120,14 @@
   "price": 7777,
   "top_avg": 7011,
   "top_n": 3,
-  "samples": 10,
-  "median": 4999,
+  "samples": 8,
+  "median": 5166,
   "keyword": "ベイブレードX CX-05",
   "period_days": 30
  },
  "CX-07 ペガサスブラストATr": {
   "price": 5999,
-  "top_avg": 4431,
+  "top_avg": 4461,
   "top_n": 6,
   "samples": 30,
   "median": 3994,
@@ -138,7 +138,7 @@
   "price": 5980,
   "top_avg": 4173,
   "top_n": 5,
-  "samples": 21,
+  "samples": 22,
   "median": 2999,
   "keyword": "ベイブレードX CX-18",
   "period_days": 30
@@ -172,9 +172,9 @@
  },
  "CX-13 バハムートブリッツBK1-50I": {
   "price": 8555,
-  "top_avg": 5503,
-  "top_n": 8,
-  "samples": 41,
+  "top_avg": 5410,
+  "top_n": 9,
+  "samples": 42,
   "median": 4400,
   "keyword": "ベイブレードX CX-13",
   "period_days": 30
@@ -183,7 +183,7 @@
   "price": 5899,
   "top_avg": 4912,
   "top_n": 4,
-  "samples": 17,
+  "samples": 18,
   "median": 2400,
   "keyword": "ベイブレードX CX-17",
   "period_days": 30
@@ -199,10 +199,10 @@
  },
  "CX-12 フェニックスフレアZ9-80WW": {
   "price": 3280,
-  "top_avg": 3008,
+  "top_avg": 2841,
   "top_n": 6,
-  "samples": 30,
-  "median": 2261,
+  "samples": 28,
+  "median": 2222,
   "keyword": "ベイブレードX CX-12",
   "period_days": 30
  },
@@ -217,28 +217,28 @@
  },
  "BX-23 フェニックスウイング9-60GF": {
   "price": 8000,
-  "top_avg": 6265,
+  "top_avg": 6349,
   "top_n": 7,
-  "samples": 33,
+  "samples": 34,
   "median": 4999,
   "keyword": "ベイブレードX BX-23",
   "period_days": 30
  },
  "BX-49 ドランストライク4-50FF": {
   "price": 4000,
-  "top_avg": 3942,
+  "top_avg": 3941,
   "top_n": 7,
   "samples": 34,
-  "median": 3685,
+  "median": 3678,
   "keyword": "ベイブレードX BX-49",
   "period_days": 30
  },
  "BX-50 ランダムブースターVol.11": {
   "price": 5100,
-  "top_avg": 4375,
-  "top_n": 4,
-  "samples": 20,
-  "median": 2472,
+  "top_avg": 4500,
+  "top_n": 3,
+  "samples": 17,
+  "median": 2799,
   "keyword": "ベイブレードX BX-50",
   "period_days": 30
  },
@@ -246,7 +246,7 @@
   "price": 19000,
   "top_avg": 13429,
   "top_n": 9,
-  "samples": 43,
+  "samples": 42,
   "median": 8999,
   "keyword": "ベイブレードX BX-09",
   "period_days": 30
@@ -279,11 +279,11 @@
   "period_days": 30
  },
  "BX-10 エクストリームスタジアム": {
-  "price": 5500,
-  "top_avg": 5476,
+  "price": 8900,
+  "top_avg": 6156,
   "top_n": 5,
-  "samples": 21,
-  "median": 4777,
+  "samples": 22,
+  "median": 4678,
   "keyword": "ベイブレードX BX-10",
   "period_days": 30
  },
@@ -309,8 +309,8 @@
   "price": 17880,
   "top_avg": 16846,
   "top_n": 6,
-  "samples": 27,
-  "median": 15500,
+  "samples": 26,
+  "median": 15749,
   "keyword": "ベイブレードX BX-46",
   "period_days": 30
  },
@@ -327,43 +327,43 @@
   "price": 15999,
   "top_avg": 12848,
   "top_n": 14,
-  "samples": 67,
+  "samples": 66,
   "median": 11000,
   "keyword": "ベイブレードX サムライセイバー5-60K",
   "period_days": 30
  },
  "CX-00 ドランブレイブS6-60V メタルコート:ブラック": {
   "price": 18020,
-  "top_avg": 10229,
+  "top_avg": 10372,
   "top_n": 14,
   "samples": 71,
-  "median": 7700,
+  "median": 7777,
   "keyword": "ベイブレードX ドランブレイブS6-60V",
   "period_days": 30
  },
  "CX-00 ペガサスブラストATr メタルコート:レッド": {
   "price": 13000,
-  "top_avg": 10475,
-  "top_n": 10,
-  "samples": 50,
+  "top_avg": 10432,
+  "top_n": 11,
+  "samples": 52,
   "median": 5999,
   "keyword": "ベイブレードX ペガサスブラストATr",
   "period_days": 30
  },
  "BX-00 コバルトドラグーン2-60C メタルコート:ブラック": {
   "price": 10999,
-  "top_avg": 7826,
-  "top_n": 5,
-  "samples": 25,
-  "median": 5022,
+  "top_avg": 7438,
+  "top_n": 6,
+  "samples": 26,
+  "median": 5010,
   "keyword": "ベイブレードX コバルトドラグーン2-60C",
   "period_days": 30
  },
  "BX-00 ストームペガシス3-70RA": {
-  "price": 4760,
-  "top_avg": 4482,
+  "price": 5500,
+  "top_avg": 4704,
   "top_n": 9,
-  "samples": 44,
+  "samples": 45,
   "median": 2999,
   "keyword": "ベイブレードX ストームペガシス3-70RA",
   "period_days": 30
@@ -378,11 +378,11 @@
   "period_days": 30
  },
  "UX-21 ヘルズネザーデッキセット": {
-  "price": 22499,
-  "top_avg": 14437,
+  "price": 22222,
+  "top_avg": 13384,
   "top_n": 16,
-  "samples": 81,
-  "median": 11888,
+  "samples": 77,
+  "median": 11400,
   "keyword": "ベイブレードX UX-21",
   "period_days": 30
  },

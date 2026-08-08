@@ -79,7 +79,7 @@
       "oku": 13500,
       "kaikyo": 13000,
       "collect_tendo": 13000,
-      "shinsoku": 13200
+      "shinsoku": 13400
     }
   },
   {
@@ -125,7 +125,7 @@
       "morimori": 10500,
       "homura": 10500,
       "rudeya": 9500,
-      "runto": 10700,
+      "runto": 10500,
       "icchome": 10500,
       "oku": 10500,
       "kaikyo": 9900,
@@ -158,7 +158,7 @@
       "rudeya": 20500,
       "icchome": 22500,
       "collect_tendo": 22500,
-      "shinsoku": 22300
+      "shinsoku": 22000
     }
   },
   {
@@ -188,7 +188,7 @@
       "runto": 22000,
       "icchome": 21500,
       "collect_tendo": 22100,
-      "shinsoku": 22100
+      "shinsoku": 22000
     }
   },
   {
@@ -204,7 +204,7 @@
       "icchome": 24500,
       "oku": 24000,
       "collect_tendo": 25600,
-      "shinsoku": 24000
+      "shinsoku": 23800
     }
   },
   {
@@ -376,7 +376,7 @@
     "name": "SV 拡張パック「サイバージャッジ」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 13300,
+    "max_price": 13000,
     "prices": {
       "morimori": 11300,
       "homura": 11500,
@@ -385,7 +385,7 @@
       "icchome": 11800,
       "oku": 11500,
       "collect_tendo": 11000,
-      "shinsoku": 13300
+      "shinsoku": 13000
     }
   },
   {
@@ -409,7 +409,7 @@
     "name": "SV 拡張パック「古代の咆哮」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 12800,
+    "max_price": 13000,
     "prices": {
       "morimori": 12300,
       "homura": 12500,
@@ -418,14 +418,14 @@
       "icchome": 12200,
       "oku": 12500,
       "collect_tendo": 10600,
-      "shinsoku": 12800
+      "shinsoku": 13000
     }
   },
   {
     "name": "SV 拡張パック「未来の一閃」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 12000,
+    "max_price": 11800,
     "prices": {
       "morimori": 11300,
       "homura": 11800,
@@ -434,7 +434,7 @@
       "icchome": 11800,
       "oku": 11800,
       "collect_tendo": 11000,
-      "shinsoku": 12000
+      "shinsoku": 11800
     }
   },
   {
@@ -533,7 +533,7 @@
       "icchome": 18600,
       "oku": 17500,
       "collect_tendo": 17000,
-      "shinsoku": 18600
+      "shinsoku": 18100
     }
   },
   {
