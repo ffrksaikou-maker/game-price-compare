@@ -10,10 +10,10 @@
  },
  "UX-03 ウィザードロッド5-70DB": {
   "price": 8200,
-  "top_avg": 7097,
-  "top_n": 7,
-  "samples": 35,
-  "median": 6499,
+  "top_avg": 7060,
+  "top_n": 8,
+  "samples": 36,
+  "median": 6482,
   "keyword": "ベイブレードX UX-03",
   "period_days": 30
  },
@@ -21,8 +21,8 @@
   "price": 10777,
   "top_avg": 7223,
   "top_n": 7,
-  "samples": 34,
-  "median": 5471,
+  "samples": 35,
+  "median": 5444,
   "keyword": "ベイブレードX UX-20",
   "period_days": 30
  },
@@ -30,8 +30,8 @@
   "price": 5380,
   "top_avg": 5040,
   "top_n": 7,
-  "samples": 35,
-  "median": 4444,
+  "samples": 36,
+  "median": 4422,
   "keyword": "ベイブレードX UX-01",
   "period_days": 30
  },
@@ -58,15 +58,15 @@
   "top_avg": 5582,
   "top_n": 6,
   "samples": 31,
-  "median": 4700,
+  "median": 4500,
   "keyword": "ベイブレードX UX-11",
   "period_days": 30
  },
  "UX-19 バレットグリフォンH": {
   "price": 4900,
-  "top_avg": 4846,
-  "top_n": 8,
-  "samples": 40,
+  "top_avg": 4840,
+  "top_n": 9,
+  "samples": 43,
   "median": 4500,
   "keyword": "ベイブレードX UX-19",
   "period_days": 30
@@ -75,8 +75,8 @@
   "price": 5500,
   "top_avg": 5140,
   "top_n": 5,
-  "samples": 24,
-  "median": 4746,
+  "samples": 25,
+  "median": 4700,
   "keyword": "ベイブレードX UX-17",
   "period_days": 30
  },
@@ -175,7 +175,7 @@
   "top_avg": 4938,
   "top_n": 9,
   "samples": 44,
-  "median": 4300,
+  "median": 4261,
   "keyword": "ベイブレードX CX-13",
   "period_days": 30
  },
@@ -229,7 +229,7 @@
   "top_avg": 4000,
   "top_n": 6,
   "samples": 30,
-  "median": 3719,
+  "median": 3688,
   "keyword": "ベイブレードX BX-49",
   "period_days": 30
  },
@@ -237,8 +237,8 @@
   "price": 5000,
   "top_avg": 4633,
   "top_n": 3,
-  "samples": 10,
-  "median": 3177,
+  "samples": 7,
+  "median": 3555,
   "keyword": "ベイブレードX BX-50",
   "period_days": 30
  },
@@ -354,7 +354,7 @@
   "price": 10999,
   "top_avg": 7455,
   "top_n": 6,
-  "samples": 27,
+  "samples": 26,
   "median": 5000,
   "keyword": "ベイブレードX コバルトドラグーン2-60C",
   "period_days": 30
@@ -370,19 +370,19 @@
  },
  "BX-00 ヘルズサイズ4-60T メタルコート:ゴールド": {
   "price": 8000,
-  "top_avg": 7747,
-  "top_n": 10,
-  "samples": 54,
-  "median": 3366,
+  "top_avg": 7661,
+  "top_n": 11,
+  "samples": 55,
+  "median": 3333,
   "keyword": "ベイブレードX ヘルズサイズ4-60T",
   "period_days": 30
  },
  "UX-21 ヘルズネザーデッキセット": {
   "price": 21000,
-  "top_avg": 12242,
-  "top_n": 14,
-  "samples": 67,
-  "median": 10800,
+  "top_avg": 12293,
+  "top_n": 13,
+  "samples": 64,
+  "median": 10798,
   "keyword": "ベイブレードX UX-21",
   "period_days": 30
  },
