@@ -1,9 +1,9 @@
 {
  "UX-15 シャークスケイルデッキセット": {
   "price": 15999,
-  "top_avg": 14808,
-  "top_n": 9,
-  "samples": 45,
+  "top_avg": 14777,
+  "top_n": 10,
+  "samples": 46,
   "median": 12000,
   "keyword": "ベイブレードX UX-15",
   "period_days": 30
@@ -12,16 +12,16 @@
   "price": 8200,
   "top_avg": 7120,
   "top_n": 8,
-  "samples": 37,
-  "median": 6500,
+  "samples": 38,
+  "median": 6499,
   "keyword": "ベイブレードX UX-03",
   "period_days": 30
  },
  "UX-20 グローリーワルキューレLF": {
   "price": 9999,
-  "top_avg": 6598,
+  "top_avg": 6586,
   "top_n": 8,
-  "samples": 38,
+  "samples": 36,
   "median": 5499,
   "keyword": "ベイブレードX UX-20",
   "period_days": 30
@@ -55,10 +55,10 @@
  },
  "UX-11 インパクトドレイク9-60LR": {
   "price": 7450,
-  "top_avg": 5489,
-  "top_n": 7,
-  "samples": 32,
-  "median": 4763,
+  "top_avg": 5582,
+  "top_n": 6,
+  "samples": 31,
+  "median": 4750,
   "keyword": "ベイブレードX UX-11",
   "period_days": 30
  },
@@ -67,7 +67,7 @@
   "top_avg": 4829,
   "top_n": 8,
   "samples": 40,
-  "median": 4500,
+  "median": 4499,
   "keyword": "ベイブレードX UX-19",
   "period_days": 30
  },
@@ -135,10 +135,10 @@
   "period_days": 30
  },
  "CX-18 ランダムブースター ブラキオウィップセレクト": {
-  "price": 5980,
-  "top_avg": 4173,
+  "price": 5255,
+  "top_avg": 3597,
   "top_n": 5,
-  "samples": 22,
+  "samples": 21,
   "median": 2999,
   "keyword": "ベイブレードX CX-18",
   "period_days": 30
@@ -156,8 +156,8 @@
   "price": 11000,
   "top_avg": 10088,
   "top_n": 10,
-  "samples": 47,
-  "median": 9480,
+  "samples": 46,
+  "median": 9489,
   "keyword": "ベイブレードX CX-16",
   "period_days": 30
  },
@@ -219,7 +219,7 @@
   "price": 7777,
   "top_avg": 5893,
   "top_n": 7,
-  "samples": 34,
+  "samples": 32,
   "median": 4839,
   "keyword": "ベイブレードX BX-23",
   "period_days": 30
@@ -247,7 +247,7 @@
   "top_avg": 13435,
   "top_n": 9,
   "samples": 44,
-  "median": 8894,
+  "median": 8888,
   "keyword": "ベイブレードX BX-09",
   "period_days": 30
  },
@@ -345,7 +345,7 @@
   "price": 13000,
   "top_avg": 10677,
   "top_n": 10,
-  "samples": 50,
+  "samples": 51,
   "median": 5999,
   "keyword": "ベイブレードX ペガサスブラストATr",
   "period_days": 30
@@ -379,10 +379,10 @@
  },
  "UX-21 ヘルズネザーデッキセット": {
   "price": 20000,
-  "top_avg": 13306,
-  "top_n": 14,
-  "samples": 67,
-  "median": 10999,
+  "top_avg": 11926,
+  "top_n": 13,
+  "samples": 66,
+  "median": 10500,
   "keyword": "ベイブレードX UX-21",
   "period_days": 30
  },

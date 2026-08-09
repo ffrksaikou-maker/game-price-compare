@@ -3,13 +3,14 @@
     "name": "MEGA 拡張パック「ストームエメラルダ」",
     "category": "mega",
     "retail_price": 6000,
-    "max_price": 19500,
+    "max_price": 19200,
     "prices": {
       "morimori": 15000,
       "homura": 19200,
       "rudeya": 18000,
-      "runto": 19500,
+      "runto": 19000,
       "icchome": 19000,
+      "oku": 19200,
       "kaikyo": 19000,
       "collect_tendo": 19000,
       "shinsoku": 19200
@@ -92,7 +93,7 @@
       "rudeya": 19000,
       "runto": 20500,
       "icchome": 21700,
-      "oku": 20800,
+      "oku": 21000,
       "kaikyo": 21000,
       "collect_tendo": 20000,
       "shinsoku": 21000
@@ -109,7 +110,7 @@
       "rudeya": 10000,
       "runto": 11200,
       "icchome": 11700,
-      "oku": 11500,
+      "oku": 11400,
       "kaikyo": 11500,
       "collect_tendo": 11300,
       "shinsoku": 11400
@@ -126,7 +127,7 @@
       "rudeya": 9500,
       "runto": 10500,
       "icchome": 10500,
-      "oku": 10500,
+      "oku": 10400,
       "kaikyo": 9900,
       "collect_tendo": 10700,
       "shinsoku": 10500
@@ -166,7 +167,7 @@
     "retail_price": 5400,
     "max_price": 24500,
     "prices": {
-      "morimori": 23800,
+      "morimori": 23600,
       "homura": 23800,
       "rudeya": 23000,
       "runto": 24500,
@@ -179,10 +180,10 @@
     "name": "SV 拡張パック「ホワイトフレア」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 22100,
+    "max_price": 22200,
     "prices": {
-      "morimori": 21800,
-      "homura": 21800,
+      "morimori": 22000,
+      "homura": 22200,
       "rudeya": 20500,
       "runto": 22000,
       "icchome": 21500,
@@ -603,12 +604,12 @@
     "name": "S&S 強化拡張パック「白熱のアルカナ」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 11100,
+    "max_price": 11200,
     "prices": {
       "morimori": 10600,
-      "homura": 11100,
+      "homura": 11200,
       "runto": 10500,
-      "oku": 11000,
+      "oku": 11200,
       "collect_tendo": 10000,
       "shinsoku": 11000
     }
@@ -731,7 +732,7 @@
     "retail_price": 4950,
     "max_price": 55000,
     "prices": {
-      "homura": 54000,
+      "homura": 54500,
       "collect_tendo": 55000,
       "shinsoku": 53000
     }
