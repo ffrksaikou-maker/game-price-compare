@@ -51,6 +51,12 @@ jobs:
           X_CT0: ${{ secrets.X_CT0 }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
 
+      # sitemap再生成後・コミット前に走らせ、送信記録を同じコミットに含める。
+      # 送信対象は lastmod が前回送信時から変わったURLのみ。失敗してもCIは止めない。
+      - name: Notify IndexNow
+        continue-on-error: true
+        run: python scripts/indexnow.py --new
+
       - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
@@ -63,6 +69,7 @@ jobs:
             data/mercari_beyblade.json data/x_state/ \
             data/cache_fallback_counts.json data/cache_meta.json \
             data/stale_counts.json data/anomaly_state.json \
+            data/indexnow_sent.json \
             box/ weekly/ shop/ \
             monthly-ranking-*.html \
             sv-box-list.html mega-box-list.html ss-box-list.html \
