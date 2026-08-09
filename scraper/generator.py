@@ -141,6 +141,7 @@ BLOG_ARTICLES = [
     {"url": "erika-sar-guide.html", "title": "エリカの招待SAR 相場解説", "desc": "買取¥8,000・PSA10で¥33,400の151人気SAR。初動¥128,200からの調整と151絶版観測での再上昇を予想。", "date": "2026-04-14"},
     {"url": "pigeot-sar-guide.html", "title": "ピジョットex SAR 相場解説", "desc": "「ピジョリザ」デッキ必須の対戦用SAR。マッハサーチ特性とプレイヤー需要で安定相場の実用SARを徹底解説。", "date": "2026-04-14"},
     {"url": "masterball-mirror-guide.html", "title": "151マスターボールミラー 相場解説", "desc": "全153種のマスターボールミラーをピカチュウ¥55,000・ゲンガー¥60,000などの相場と封入率・コンプ難易度で解説。", "date": "2026-04-14"},
+    {"url": "crimson-haze-atari-guide.html", "title": "クリムゾンヘイズ 当たりカードランキング・封入率完全ガイド", "desc": "強化拡張パック「クリムゾンヘイズ」(SV5a)の当たりカードランキング・封入率を解説。看板ゲッコウガex SAR(買取約4.4万円)は2位サザレ SAR(約9,500円)に4倍以上の差をつける一強構成。AR枠ながら約4,000円のイーブイAR、SAR封入率約6BOXに1枚(全5種)、ACE SPEC1BOX確定、BOX開封の期待値まで実データで整理。", "date": "2026-08-10"},
     {"url": "kokuen-atari-guide.html", "title": "黒炎の支配者 当たりカード完全ガイド", "desc": "SAR/UR/SR/AR/RR 全41種の当たりカードを買取相場・封入率・期待値で徹底整理。リザードンex SAR一強の実態も解説。", "date": "2026-04-14"},
     {"url": "startdeck100-atari-guide.html", "title": "スタートデッキ100 当たり番号一覧・見分け方完全ガイド", "desc": "スタートデッキ100「バトルコレクション」の当たり番号一覧・見分け方・封入率を解説。最高当たりNo.001(金)メガリザードンYex MUR約94万円、No.025ピカチュウex SAR・No.032リーリエのピッピex SAR・隠しNo.101 ZA御三家SARまで。開封前は見分け不可の理由と開封後のチェック法、全ミラー確率(約12%)も整理。", "date": "2026-06-19"},
     {"url": "abyss-eye-atari-guide.html", "title": "アビスアイ 当たりカードランキング・封入率完全ガイド", "desc": "MEGA拡張パック「アビスアイ」(M5)の当たりカードランキング・封入率・見分け方を解説。看板メガダークライex MUR(約100BOXに1枚)、SAR6種(ムク・モルペコex・メガゼラオラex・メガシャンデラex・グラジオの決戦)の買取相場、AR最高額ヤドラン、BOX開封の期待値まで実データで整理。", "date": "2026-07-12"},
@@ -975,6 +976,7 @@ def _build_box_narrative(
         "151": ("151-atari-guide.html", "ポケモンカード151 当たりカードランキング・封入率完全ガイド"),
         "ruler-of-black-flame": ("kokuen-atari-guide.html", "黒炎の支配者 当たりカード完全ガイド"),
         "battle-collection": ("startdeck100-atari-guide.html", "スタートデッキ100 当たり番号一覧・見分け方完全ガイド"),
+        "crimson-haze": ("crimson-haze-atari-guide.html", "クリムゾンヘイズ 当たりカードランキング・封入率完全ガイド"),
     }
     if slug in atari_links:
         atari_url, atari_text = atari_links[slug]
@@ -1908,6 +1910,7 @@ def _update_sitemap(
         ("/rocket-dan-no-eiko-atari-guide.html", "monthly", "0.8", "2026-07-19"),
         ("/eevee-heroes-atari-guide.html", "monthly", "0.8", "2026-07-19"),
         ("/151-atari-guide.html", "monthly", "0.8", "2026-07-19"),
+        ("/crimson-haze-atari-guide.html", "monthly", "0.8", "2026-08-10"),
         ("/white-flare-atari-guide.html", "monthly", "0.8", "2026-07-26"),
         ("/terastal-fes-ex-atari-guide.html", "monthly", "0.8", "2026-07-26"),
         ("/shiny-treasure-ex-atari-guide.html", "monthly", "0.8", "2026-07-26"),
@@ -2448,6 +2451,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <a href="terastal-fes-ex-atari-guide.html">テラスタルフェスex 当たりカード</a>
 <a href="shiny-treasure-ex-atari-guide.html">シャイニートレジャーex 当たりカード</a>
 <a href="151-atari-guide.html">ポケモンカード151 当たりカード</a>
+<a href="crimson-haze-atari-guide.html">クリムゾンヘイズ 当たりカード</a>
 </nav>
 
 <div class="main-card">
