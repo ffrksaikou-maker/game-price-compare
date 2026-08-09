@@ -93,6 +93,10 @@ BOX_IMAGE_FILES: dict[str, str] = {
 BASE_URL = "https://pokeca-box-hikaku.com"
 DEFAULT_OG_IMAGE = f"{BASE_URL}/ogp.jpg"
 
+# 薄ページnoindex判定の免除ライン。絶版高額BOXは買取対応店が2店程度まで減るが
+# 検索需要は大きいため、この金額以上は店舗数によらずインデックス対象にする
+HIGH_VALUE_BOX_PRICE = 30000
+
 
 def get_box_image_url(slug: str) -> str:
     """Return the full URL for a BOX's primary image.
@@ -1422,7 +1426,9 @@ def generate_product_pages(
         narrative_html = _build_box_narrative(p, max_price, shop_count, slug)
 
         # noindex判定: 取扱店舗が3未満 or 定価の半分未満は薄ページ扱い
-        if shop_count < 3 or (p.retail_price > 0 and max_price < p.retail_price * 0.5):
+        # ただし高額BOXは検索需要が大きいため店舗数によらずインデックス対象
+        thin_page = shop_count < 3 or (p.retail_price > 0 and max_price < p.retail_price * 0.5)
+        if thin_page and max_price < HIGH_VALUE_BOX_PRICE:
             robots_meta = "noindex, follow"
         else:
             robots_meta = "index, follow"
