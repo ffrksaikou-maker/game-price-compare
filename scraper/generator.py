@@ -1823,6 +1823,36 @@ gtag('config', 'G-RPTS6CRTCS');
 """
 
 
+def _last_price_change_dates(project_root: Path) -> dict[str, str]:
+    """商品ごとに最高買取価格が最後に変わった日を日次履歴から求める。
+
+    sitemap の lastmod に使う。全ページを毎日 today で更新したことにすると
+    lastmod 自体が検索エンジンに信用されなくなり、クロール優先度が下がるため。
+    """
+    hist_dir = project_root / "data" / "history"
+    if not hist_dir.exists():
+        return {}
+
+    last_price: dict[str, int] = {}
+    changed_on: dict[str, str] = {}
+    for path in sorted(hist_dir.glob("*.json")):
+        try:
+            items = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+        if isinstance(items, dict):
+            items = list(items.values())
+        for item in items:
+            name = item.get("name")
+            price = item.get("max_price") or 0
+            if not name or not price:
+                continue
+            if last_price.get(name) != price:
+                last_price[name] = price
+                changed_on[name] = path.stem
+    return changed_on
+
+
 def _update_sitemap(
     products: list[MasterProduct],
     slug_map: dict[str, str],
@@ -1914,6 +1944,7 @@ def _update_sitemap(
         lines.append(f"  </url>")
 
     # Product pages (重複URL防止のため slug を set で管理)
+    price_changed_on = _last_price_change_dates(project_root)
     seen_slugs: set[str] = set()
     for p in products:
         slug = slug_map.get(p.name)
@@ -1924,7 +1955,7 @@ def _update_sitemap(
         seen_slugs.add(slug)
         lines.append(f"  <url>")
         lines.append(f"    <loc>{base}/box/{slug}.html</loc>")
-        lines.append(f"    <lastmod>{today}</lastmod>")
+        lines.append(f"    <lastmod>{price_changed_on.get(p.name, today)}</lastmod>")
         lines.append(f"    <changefreq>daily</changefreq>")
         lines.append(f"    <priority>0.7</priority>")
         lines.append(f"  </url>")
