@@ -141,6 +141,7 @@ BLOG_ARTICLES = [
     {"url": "erika-sar-guide.html", "title": "エリカの招待SAR 相場解説", "desc": "買取¥8,000・PSA10で¥33,400の151人気SAR。初動¥128,200からの調整と151絶版観測での再上昇を予想。", "date": "2026-04-14"},
     {"url": "pigeot-sar-guide.html", "title": "ピジョットex SAR 相場解説", "desc": "「ピジョリザ」デッキ必須の対戦用SAR。マッハサーチ特性とプレイヤー需要で安定相場の実用SARを徹底解説。", "date": "2026-04-14"},
     {"url": "masterball-mirror-guide.html", "title": "151マスターボールミラー 相場解説", "desc": "全153種のマスターボールミラーをピカチュウ¥55,000・ゲンガー¥60,000などの相場と封入率・コンプ難易度で解説。", "date": "2026-04-14"},
+    {"url": "raging-surf-atari-guide.html", "title": "レイジングサーフ 当たりカードランキング・封入率完全ガイド", "desc": "強化拡張パック「レイジングサーフ」の当たりカードランキング・封入率を解説。モブキャラながらイラスト人気で看板を超えたパラソルおねえさん SAR(買取約6,000円)を筆頭に、ガブリアスex SAR・サーフゴーex SAR・グラードン ARまで上位8枚が2,200〜6,000円に分散。SAR封入率は約10BOXに1枚と他のSV弾(約6BOX)より厳しい。BOX買取¥14,600との比較も掲載。", "date": "2026-08-10"},
     {"url": "night-wanderer-atari-guide.html", "title": "ナイトワンダラー 当たりカードランキング・封入率完全ガイド", "desc": "強化拡張パック「ナイトワンダラー」(SV6a)の当たりカードランキング・封入率を解説。最高額キチキギスex SAR(買取約2,500円)と控えめで上位8枚が900〜2,500円に密集する一方、BOX買取は¥12,800(定価×2.37)を維持。高額SARではなくキチキギスexや汎用グッズURの対戦実需が相場を支える構造を実データで解説。", "date": "2026-08-10"},
     {"url": "rakuen-dragona-atari-guide.html", "title": "楽園ドラゴーナ 当たりカードランキング・封入率完全ガイド", "desc": "強化拡張パック「楽園ドラゴーナ」(SV7)の当たりカードランキング・封入率を解説。ラティアスex SAR(買取約2.2万円)とルチアのアピール SAR(約1.9万円)が差14%で拮抗する珍しい二強構造。3位アローラナッシーex SARとは8倍の落差。SAR約6BOXに1枚(全5種)・SR以上1BOX確定の封入率とBOX期待値を実データで整理。", "date": "2026-08-10"},
     {"url": "hengen-no-kamen-atari-guide.html", "title": "変幻の仮面 当たりカードランキング・封入率完全ガイド", "desc": "拡張パック「変幻の仮面」(SV6)の当たりカードランキング・封入率を解説。看板ゼイユ SAR(買取約1.4万円)は2位スグリ SAR(約3,000円)に4倍以上の差。オーガポン4姿のex SARは分散収録で1枚あたり1,100〜2,200円、実用枠のなかよしポフィンUR、AR最高額ラッキー。SAR約6BOXに1枚・SR約1.2BOXに1枚の封入率とBOX期待値を実データで整理。", "date": "2026-08-10"},
@@ -983,6 +984,7 @@ def _build_box_narrative(
         "hengen-no-kamen": ("hengen-no-kamen-atari-guide.html", "変幻の仮面 当たりカードランキング・封入率完全ガイド"),
         "rakuen-dragona": ("rakuen-dragona-atari-guide.html", "楽園ドラゴーナ 当たりカードランキング・封入率完全ガイド"),
         "night-wanderer": ("night-wanderer-atari-guide.html", "ナイトワンダラー 当たりカードランキング・封入率完全ガイド"),
+        "raging-surf": ("raging-surf-atari-guide.html", "レイジングサーフ 当たりカードランキング・封入率完全ガイド"),
     }
     if slug in atari_links:
         atari_url, atari_text = atari_links[slug]
@@ -1920,6 +1922,7 @@ def _update_sitemap(
         ("/hengen-no-kamen-atari-guide.html", "monthly", "0.8", "2026-08-10"),
         ("/rakuen-dragona-atari-guide.html", "monthly", "0.8", "2026-08-10"),
         ("/night-wanderer-atari-guide.html", "monthly", "0.8", "2026-08-10"),
+        ("/raging-surf-atari-guide.html", "monthly", "0.8", "2026-08-10"),
         ("/white-flare-atari-guide.html", "monthly", "0.8", "2026-07-26"),
         ("/terastal-fes-ex-atari-guide.html", "monthly", "0.8", "2026-07-26"),
         ("/shiny-treasure-ex-atari-guide.html", "monthly", "0.8", "2026-07-26"),
@@ -2464,6 +2467,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <a href="hengen-no-kamen-atari-guide.html">変幻の仮面 当たりカード</a>
 <a href="rakuen-dragona-atari-guide.html">楽園ドラゴーナ 当たりカード</a>
 <a href="night-wanderer-atari-guide.html">ナイトワンダラー 当たりカード</a>
+<a href="raging-surf-atari-guide.html">レイジングサーフ 当たりカード</a>
 </nav>
 
 <div class="main-card">
