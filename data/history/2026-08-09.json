@@ -3,17 +3,17 @@
     "name": "MEGA 拡張パック「ストームエメラルダ」",
     "category": "mega",
     "retail_price": 6000,
-    "max_price": 19200,
+    "max_price": 19000,
     "prices": {
       "morimori": 15000,
       "homura": 19000,
       "rudeya": 18000,
       "runto": 19000,
       "icchome": 19000,
-      "oku": 19200,
+      "oku": 19000,
       "kaikyo": 19000,
       "collect_tendo": 19000,
-      "shinsoku": 19000
+      "shinsoku": 18800
     }
   },
   {
@@ -29,7 +29,7 @@
       "icchome": 8800,
       "oku": 8800,
       "collect_tendo": 7800,
-      "shinsoku": 8600
+      "shinsoku": 8500
     }
   },
   {
@@ -79,7 +79,7 @@
       "oku": 13500,
       "kaikyo": 13000,
       "collect_tendo": 13000,
-      "shinsoku": 13400
+      "shinsoku": 13300
     }
   },
   {
@@ -336,7 +336,7 @@
       "oku": 14300,
       "kaikyo": 12000,
       "collect_tendo": 14700,
-      "shinsoku": 14800
+      "shinsoku": 15000
     }
   },
   {
@@ -369,7 +369,7 @@
       "icchome": 13500,
       "oku": 14100,
       "collect_tendo": 14400,
-      "shinsoku": 14200
+      "shinsoku": 14300
     }
   },
   {
