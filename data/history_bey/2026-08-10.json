@@ -3,12 +3,12 @@
     "name": "UX-21 ヘルズネザーデッキセット",
     "category": "ux",
     "retail_price": 4500,
-    "max_price": 7000,
+    "max_price": 6800,
     "prices": {
       "morimori": 6800,
       "homura": 6500,
       "rudeya": 6700,
-      "icchome": 7000
+      "icchome": 6700
     }
   },
   {
@@ -94,9 +94,9 @@
     "name": "UX-11 インパクトドレイク9-60LR",
     "category": "ux",
     "retail_price": 2420,
-    "max_price": 3500,
+    "max_price": 3200,
     "prices": {
-      "morimori": 3500,
+      "morimori": 3000,
       "rudeya": 3000,
       "icchome": 3200
     }
@@ -216,11 +216,11 @@
     "name": "CX-13 バハムートブリッツBK1-50I",
     "category": "cx",
     "retail_price": 2200,
-    "max_price": 3500,
+    "max_price": 3300,
     "prices": {
       "morimori": 2800,
       "rudeya": 2500,
-      "icchome": 3500
+      "icchome": 3300
     }
   },
   {
@@ -383,7 +383,7 @@
       "morimori": 3400,
       "homura": 2800,
       "rudeya": 3500,
-      "icchome": 3300
+      "icchome": 3000
     }
   },
   {
