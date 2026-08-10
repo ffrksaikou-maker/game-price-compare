@@ -355,9 +355,9 @@
     "name": "スタートデッキEX ルフィ＆エース【ST-30】",
     "category": "st",
     "retail_price": 1980,
-    "max_price": 6000,
+    "max_price": 4000,
     "prices": {
-      "rudeya": 6000
+      "rudeya": 4000
     }
   }
 ]
