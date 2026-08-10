@@ -144,6 +144,7 @@ BLOG_ARTICLES = [
     {"url": "erika-sar-guide.html", "title": "エリカの招待SAR 相場解説", "desc": "買取¥8,000・PSA10で¥33,400の151人気SAR。初動¥128,200からの調整と151絶版観測での再上昇を予想。", "date": "2026-04-14"},
     {"url": "pigeot-sar-guide.html", "title": "ピジョットex SAR 相場解説", "desc": "「ピジョリザ」デッキ必須の対戦用SAR。マッハサーチ特性とプレイヤー需要で安定相場の実用SARを徹底解説。", "date": "2026-04-14"},
     {"url": "masterball-mirror-guide.html", "title": "151マスターボールミラー 相場解説", "desc": "全153種のマスターボールミラーをピカチュウ¥55,000・ゲンガー¥60,000などの相場と封入率・コンプ難易度で解説。", "date": "2026-04-14"},
+    {"url": "eruption-walker-atari-guide.html", "title": "爆炎ウォーカー 当たりカードランキング｜BOX¥42,000に対し最高額カードは約3,500円", "desc": "強化拡張パック「爆炎ウォーカー」の当たりカードランキングと封入率。最高額はサーナイトVMAX HRで買取約3,500円と当サイト追跡26弾で2番目に中身が安い弾。一方で未開封BOXは¥42,000(定価×8.48)、カード/BOX比0.083倍。同じサーナイトでもスカーレットexのex SAR(約22,000円)とは約6.3倍差があり、SAR/SAという受け皿の有無が価格を左右することを示します。2020年発売6弾の総括も収録。", "date": "2026-08-11"},
     {"url": "legendary-heartbeat-atari-guide.html", "title": "伝説の鼓動 当たりカードランキング｜上位6枚すべてがアメイジングレア", "desc": "強化拡張パック「伝説の鼓動」の当たりカードランキングと封入率。上位6枚すべてをアメイジングレア(A)が占める唯一の構成で、1位レックウザAは買取約15,000円。アメイジングレアが初登場した弾です。BOX買取¥40,000(定価×8.08)に対し最高額カードは約0.375倍で、2020年発売弾に共通する希少性牽引型。同じレックウザでも収録弾とレアリティで約53倍差がつく構造も解説。", "date": "2026-08-11"},
     {"url": "vmax-climax-atari-guide.html", "title": "VMAXクライマックス 当たりカードランキング｜上位8枚すべてが7,000円超の層厚型", "desc": "ハイクラスパック「VMAXクライマックス」の当たりカードランキングと封入率。1位レックウザVMAX UR(約29,000円)から8位ニンフィアVMAX CSR(約7,000円)まで上位8枚すべてが7,000円を超え、1位と8位の差はわずか約4.1倍。当サイト追跡24弾でもっとも層の厚い弾です。BOX買取¥37,500(定価¥5,500・×6.82)。CSRを擁するハイクラスパック特有の設計と、同じレックウザVMAXでも弾とレアリティで約27倍差がつく構造を解説。", "date": "2026-08-11"},
     {"url": "astonishing-voltecker-atari-guide.html", "title": "仰天のボルテッカー 当たりカードランキング｜ピカチュウVMAX HRは買取約6.5万円", "desc": "拡張パック「仰天のボルテッカー」の当たりカードランキングと封入率。ピカチュウVMAX HRは買取約65,000円でBOX買取¥45,000(定価×9.09)の約1.44倍。SA(スペシャルアート)が存在しない2020年発売の弾でありながらカード/BOX比が1を超えた唯一の例で、当サイトの「2020年＝希少性牽引型」という仮説を修正することになった弾です。看板カードの到達点こそが型を決めることを示します。", "date": "2026-08-11"},
@@ -1020,6 +1021,7 @@ def _build_box_narrative(
         "cyber-judge": ("cyber-judge-atari-guide.html", "サイバージャッジ 当たりカードランキング・封入率完全ガイド"),
         "snow-hazard": ("snow-hazard-atari-guide.html", "スノーハザード 当たりカードランキング・封入率完全ガイド"),
         "neppuu-arena": ("neppuu-arena-atari-guide.html", "熱風のアリーナ 当たりカードランキング・封入率完全ガイド"),
+        "eruption-walker": ("eruption-walker-atari-guide.html", "爆炎ウォーカー 当たりカードランキング・封入率完全ガイド"),
         "legendary-heartbeat": ("legendary-heartbeat-atari-guide.html", "伝説の鼓動 当たりカードランキング・封入率完全ガイド"),
         "vmax-climax": ("vmax-climax-atari-guide.html", "VMAXクライマックス 当たりカードランキング・封入率完全ガイド"),
         "astonishing-voltecker": ("astonishing-voltecker-atari-guide.html", "仰天のボルテッカー 当たりカードランキング・封入率完全ガイド"),
@@ -1980,6 +1982,7 @@ def _update_sitemap(
         ("/cyber-judge-atari-guide.html", "monthly", "0.8", "2026-08-10"),
         ("/snow-hazard-atari-guide.html", "monthly", "0.8", "2026-08-10"),
         ("/neppuu-arena-atari-guide.html", "monthly", "0.9", "2026-08-10"),
+        ("/eruption-walker-atari-guide.html", "monthly", "0.8", "2026-08-11"),
         ("/legendary-heartbeat-atari-guide.html", "monthly", "0.8", "2026-08-11"),
         ("/vmax-climax-atari-guide.html", "monthly", "0.8", "2026-08-11"),
         ("/astonishing-voltecker-atari-guide.html", "monthly", "0.8", "2026-08-11"),
@@ -2558,6 +2561,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <a href="black-bolt-atari-guide.html">ブラックボルト 当たりカード</a>
 <a href="white-flare-atari-guide.html">ホワイトフレア 当たりカード</a>
 <a href="rocket-dan-no-eiko-atari-guide.html">ロケット団の栄光 当たりカード</a>
+<a href="eruption-walker-atari-guide.html">爆炎ウォーカー 当たりカード</a>
 <a href="legendary-heartbeat-atari-guide.html">伝説の鼓動 当たりカード</a>
 <a href="vmax-climax-atari-guide.html">VMAXクライマックス 当たりカード</a>
 <a href="astonishing-voltecker-atari-guide.html">仰天のボルテッカー 当たりカード</a>
