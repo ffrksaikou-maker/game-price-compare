@@ -144,6 +144,7 @@ BLOG_ARTICLES = [
     {"url": "erika-sar-guide.html", "title": "エリカの招待SAR 相場解説", "desc": "買取¥8,000・PSA10で¥33,400の151人気SAR。初動¥128,200からの調整と151絶版観測での再上昇を予想。", "date": "2026-04-14"},
     {"url": "pigeot-sar-guide.html", "title": "ピジョットex SAR 相場解説", "desc": "「ピジョリザ」デッキ必須の対戦用SAR。マッハサーチ特性とプレイヤー需要で安定相場の実用SARを徹底解説。", "date": "2026-04-14"},
     {"url": "masterball-mirror-guide.html", "title": "151マスターボールミラー 相場解説", "desc": "全153種のマスターボールミラーをピカチュウ¥55,000・ゲンガー¥60,000などの相場と封入率・コンプ難易度で解説。", "date": "2026-04-14"},
+    {"url": "astonishing-voltecker-atari-guide.html", "title": "仰天のボルテッカー 当たりカードランキング｜ピカチュウVMAX HRは買取約6.5万円", "desc": "拡張パック「仰天のボルテッカー」の当たりカードランキングと封入率。ピカチュウVMAX HRは買取約65,000円でBOX買取¥45,000(定価×9.09)の約1.44倍。SA(スペシャルアート)が存在しない2020年発売の弾でありながらカード/BOX比が1を超えた唯一の例で、当サイトの「2020年＝希少性牽引型」という仮説を修正することになった弾です。看板カードの到達点こそが型を決めることを示します。", "date": "2026-08-11"},
     {"url": "matchless-fighters-atari-guide.html", "title": "双璧のファイター 当たりカードランキング｜バシャーモVMAX SAは買取約9万円", "desc": "強化拡張パック「双璧のファイター」の当たりカードランキングと封入率。バシャーモVMAX SAは買取約90,000円でBOX買取¥40,000(定価×8.08)の約2.25倍。上位8枚のうち5枚をSAが占める層の厚い弾です。ガラル三鳥のSAが3枚そろいながらファイヤー(約45,000円)とサンダー(約6,500円)で約6.9倍の差が生じる構造と、基本闘エネルギーURが収録弾によって約1.68倍変わる事実も解説。", "date": "2026-08-11"},
     {"url": "lost-abyss-atari-guide.html", "title": "ロストアビス 当たりカードランキング｜ギラティナV SAは買取約22万円で過去最高倍率", "desc": "拡張パック「ロストアビス」の当たりカードランキングと封入率。ギラティナV SAは買取約220,000円で、BOX買取¥49,000(定価×9.90)の約4.5倍。当サイト追跡23弾でカード/BOX比の最高記録で、蒼空ストリーム(2.81倍)を上回ります。2位プテラV SA(約12,000円)との差は約18倍と断層も過去最大。1枚引けばBOX4.5箱分という極端な構造を実データで解説。", "date": "2026-08-11"},
     {"url": "single-strike-master-atari-guide.html", "title": "一撃マスター 当たりカードランキング｜バンギラスV SAが看板に迫る二強型", "desc": "拡張パック「一撃マスター」の当たりカードランキングと封入率。1位いちげきウーラオスVMAX SA(約47,000円)と2位バンギラスV SA(約40,000円)の差はわずか約1.2倍で、当サイト追跡21弾中もっとも拮抗した二強型です。V の SAは通常VMAX SAの5〜19%にとどまるなか、バンギラスV SAは看板の約85%に到達。同日・同定価発売の連撃マスターとの比較でBOX価格の決まり方も解説します。", "date": "2026-08-11"},
@@ -1017,6 +1018,7 @@ def _build_box_narrative(
         "cyber-judge": ("cyber-judge-atari-guide.html", "サイバージャッジ 当たりカードランキング・封入率完全ガイド"),
         "snow-hazard": ("snow-hazard-atari-guide.html", "スノーハザード 当たりカードランキング・封入率完全ガイド"),
         "neppuu-arena": ("neppuu-arena-atari-guide.html", "熱風のアリーナ 当たりカードランキング・封入率完全ガイド"),
+        "astonishing-voltecker": ("astonishing-voltecker-atari-guide.html", "仰天のボルテッカー 当たりカードランキング・封入率完全ガイド"),
         "matchless-fighters": ("matchless-fighters-atari-guide.html", "双璧のファイター 当たりカードランキング・封入率完全ガイド"),
         "lost-abyss": ("lost-abyss-atari-guide.html", "ロストアビス 当たりカードランキング・封入率完全ガイド"),
         "single-strike-master": ("single-strike-master-atari-guide.html", "一撃マスター 当たりカードランキング・封入率完全ガイド"),
@@ -1974,6 +1976,7 @@ def _update_sitemap(
         ("/cyber-judge-atari-guide.html", "monthly", "0.8", "2026-08-10"),
         ("/snow-hazard-atari-guide.html", "monthly", "0.8", "2026-08-10"),
         ("/neppuu-arena-atari-guide.html", "monthly", "0.9", "2026-08-10"),
+        ("/astonishing-voltecker-atari-guide.html", "monthly", "0.8", "2026-08-11"),
         ("/matchless-fighters-atari-guide.html", "monthly", "0.8", "2026-08-11"),
         ("/lost-abyss-atari-guide.html", "monthly", "0.8", "2026-08-11"),
         ("/single-strike-master-atari-guide.html", "monthly", "0.8", "2026-08-11"),
@@ -2549,6 +2552,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <a href="black-bolt-atari-guide.html">ブラックボルト 当たりカード</a>
 <a href="white-flare-atari-guide.html">ホワイトフレア 当たりカード</a>
 <a href="rocket-dan-no-eiko-atari-guide.html">ロケット団の栄光 当たりカード</a>
+<a href="astonishing-voltecker-atari-guide.html">仰天のボルテッカー 当たりカード</a>
 <a href="matchless-fighters-atari-guide.html">双璧のファイター 当たりカード</a>
 <a href="lost-abyss-atari-guide.html">ロストアビス 当たりカード</a>
 <a href="single-strike-master-atari-guide.html">一撃マスター 当たりカード</a>
