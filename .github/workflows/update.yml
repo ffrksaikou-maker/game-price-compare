@@ -16,7 +16,8 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    # 取得失敗店の再試行(最大5分待ち)を含むため通常実行より余裕を持たせる
+    timeout-minutes: 35
 
     steps:
       - uses: actions/checkout@v4

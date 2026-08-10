@@ -6,6 +6,7 @@ import json
 import logging
 import os
 import sys
+import time
 import traceback
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
@@ -41,6 +42,10 @@ CACHE_CONSECUTIVE_THRESHOLD = 2
 CACHE_COUNT_FILE = Path(__file__).resolve().parent.parent / "data" / "cache_fallback_counts.json"
 HISTORY_OP_DIR = Path(__file__).resolve().parent.parent / "data" / "history_op"
 HISTORY_BEY_DIR = Path(__file__).resolve().parent.parent / "data" / "history_bey"
+
+# 取得に失敗した店を全店ループ後にもう一度試すまでの待ち時間（秒）
+# 一時的な接続タイムアウト対策。失敗店が無い回はこの待ちは発生しない
+RETRY_DELAY_SECONDS = 300
 
 # キャッシュの有効期限（これを過ぎた古い取得結果はサイトに載せない）
 CACHE_MAX_AGE_HOURS = 48
@@ -180,6 +185,22 @@ def match_all_games(scraped: list, shop_id: str) -> None:
     match_products(scraped, shop_id, BEYBLADE_PRODUCTS, BEYBLADE_CONFIG)
 
 
+def try_scrape(scraper) -> tuple[list | None, str]:
+    """1店スクレイプし、(items, 結果) を返す。結果は ok / empty / failed。"""
+    logger.info("--- Scraping %s (%s) ---", scraper.shop_name, scraper.shop_id)
+    try:
+        items = scraper.scrape()
+    except Exception:
+        logger.error(
+            "%s: scraping failed:\n%s", scraper.shop_name, traceback.format_exc()
+        )
+        return None, "failed"
+    if items:
+        return items, "ok"
+    logger.warning("%s: no items scraped", scraper.shop_name)
+    return None, "empty"
+
+
 def main() -> None:
     logger.info("Starting price scraper for %d shops", len(ALL_SCRAPERS))
 
@@ -206,57 +227,65 @@ def main() -> None:
     cache_used_shops: list[str] = []  # キャッシュフォールバック
     expired_shops: list[str] = []     # キャッシュ期限切れで非掲載
 
+    def accept(shop_id: str, items: list) -> None:
+        nonlocal success_count
+        # Convert to (name, price) tuples for matcher
+        scraped = [(item.name, item.price) for item in items]
+        # 同じ取得結果をワンピ・ベイ側マスターにも通す(相互排除で分離)
+        match_all_games(scraped, shop_id)
+        # Update cache with successful scrape
+        if cache.get(shop_id) == scraped:
+            stale_counts[shop_id] = stale_counts.get(shop_id, 0) + 1
+        else:
+            stale_counts[shop_id] = 0
+        cache[shop_id] = scraped
+        cache_meta[shop_id] = datetime.now(JST).isoformat(timespec="seconds")
+        success_count += 1
+        # リセット: 正常取得できたらカウント0
+        cache_counts[shop_id] = 0
+
+    def fall_back(shop_id: str, shop_name: str, outcome: str) -> None:
+        nonlocal success_count
+        if outcome == "failed":
+            failed_shops.append(shop_name)
+        else:
+            empty_shops.append(shop_name)
+        cache_counts[shop_id] = cache_counts.get(shop_id, 0) + 1
+        # Fall back to cached data
+        cached = usable_cache(cache, cache_meta, shop_id, shop_name)
+        if cached is not None:
+            logger.info("%s: using cached data (%d items)", shop_name, len(cached))
+            match_all_games(cached, shop_id)
+            cache_used_shops.append(shop_name)
+            success_count += 1
+        elif shop_id in cache:
+            expired_shops.append(shop_name)
+
+    # 1周目。失敗した店はここでは確定させず、待ってから再試行する
+    pending: list[tuple[type, str]] = []
     for scraper_cls in ALL_SCRAPERS:
         scraper = scraper_cls()
-        shop_id = scraper.shop_id
-        shop_name = scraper.shop_name
+        items, outcome = try_scrape(scraper)
+        if outcome == "ok":
+            accept(scraper.shop_id, items)
+        else:
+            pending.append((scraper_cls, outcome))
 
-        logger.info("--- Scraping %s (%s) ---", shop_name, shop_id)
-        try:
-            items = scraper.scrape()
-            if items:
-                # Convert to (name, price) tuples for matcher
-                scraped = [(item.name, item.price) for item in items]
-                # 同じ取得結果をワンピ・ベイ側マスターにも通す(相互排除で分離)
-                match_all_games(scraped, shop_id)
-                # Update cache with successful scrape
-                if cache.get(shop_id) == scraped:
-                    stale_counts[shop_id] = stale_counts.get(shop_id, 0) + 1
-                else:
-                    stale_counts[shop_id] = 0
-                cache[shop_id] = scraped
-                cache_meta[shop_id] = datetime.now(JST).isoformat(timespec="seconds")
-                success_count += 1
-                # リセット: 正常取得できたらカウント0
-                cache_counts[shop_id] = 0
+    if pending:
+        logger.info(
+            "Retrying %d shop(s) in %d s: %s",
+            len(pending), RETRY_DELAY_SECONDS,
+            ", ".join(cls.shop_name for cls, _ in pending),
+        )
+        time.sleep(RETRY_DELAY_SECONDS)
+        for scraper_cls, _ in pending:
+            scraper = scraper_cls()
+            items, outcome = try_scrape(scraper)
+            if outcome == "ok":
+                logger.info("%s: recovered on retry", scraper.shop_name)
+                accept(scraper.shop_id, items)
             else:
-                logger.warning("%s: no items scraped", shop_name)
-                empty_shops.append(shop_name)
-                cache_counts[shop_id] = cache_counts.get(shop_id, 0) + 1
-                # Fall back to cached data
-                cached = usable_cache(cache, cache_meta, shop_id, shop_name)
-                if cached is not None:
-                    logger.info("%s: using cached data (%d items)", shop_name, len(cached))
-                    match_all_games(cached, shop_id)
-                    cache_used_shops.append(shop_name)
-                    success_count += 1
-                elif shop_id in cache:
-                    expired_shops.append(shop_name)
-        except Exception:
-            logger.error(
-                "%s: scraping failed:\n%s", shop_name, traceback.format_exc()
-            )
-            failed_shops.append(shop_name)
-            cache_counts[shop_id] = cache_counts.get(shop_id, 0) + 1
-            # Fall back to cached data
-            cached = usable_cache(cache, cache_meta, shop_id, shop_name)
-            if cached is not None:
-                logger.info("%s: using cached data (%d items)", shop_name, len(cached))
-                match_all_games(cached, shop_id)
-                cache_used_shops.append(shop_name)
-                success_count += 1
-            elif shop_id in cache:
-                expired_shops.append(shop_name)
+                fall_back(scraper.shop_id, scraper.shop_name, outcome)
 
     # Save cache for next run
     save_cache(cache)
