@@ -144,6 +144,7 @@ BLOG_ARTICLES = [
     {"url": "erika-sar-guide.html", "title": "エリカの招待SAR 相場解説", "desc": "買取¥8,000・PSA10で¥33,400の151人気SAR。初動¥128,200からの調整と151絶版観測での再上昇を予想。", "date": "2026-04-14"},
     {"url": "pigeot-sar-guide.html", "title": "ピジョットex SAR 相場解説", "desc": "「ピジョリザ」デッキ必須の対戦用SAR。マッハサーチ特性とプレイヤー需要で安定相場の実用SARを徹底解説。", "date": "2026-04-14"},
     {"url": "masterball-mirror-guide.html", "title": "151マスターボールミラー 相場解説", "desc": "全153種のマスターボールミラーをピカチュウ¥55,000・ゲンガー¥60,000などの相場と封入率・コンプ難易度で解説。", "date": "2026-04-14"},
+    {"url": "30th-celebration-forecast.html", "title": "【抽選締切8/14】30th CELEBRATION BOX3種の相場予想｜1年後・3年後・5年後", "desc": "ポケカ30周年「30th CELEBRATION」の抽選対象BOX3種(拡張パックBOX 定価¥7,200/FUTURISTIC BOX ¥27,500/プレミアムデッキセット エーフィ・ブラッキー ¥6,200)の相場を発売前予想。25周年商品の実績(25thコレクションが当サイト実データで定価×13.09、GOLDEN BOXが最大×15)を土台に、発売直後・1年後・3年後・5年後を3シナリオで算出。ポケモンセンターオンラインの抽選締切は2026年8月14日16:59、発売は9月16日世界同時。", "date": "2026-08-11"},
     {"url": "eruption-walker-atari-guide.html", "title": "爆炎ウォーカー 当たりカードランキング｜BOX¥42,000に対し最高額カードは約3,500円", "desc": "強化拡張パック「爆炎ウォーカー」の当たりカードランキングと封入率。最高額はサーナイトVMAX HRで買取約3,500円と当サイト追跡26弾で2番目に中身が安い弾。一方で未開封BOXは¥42,000(定価×8.48)、カード/BOX比0.083倍。同じサーナイトでもスカーレットexのex SAR(約22,000円)とは約6.3倍差があり、SAR/SAという受け皿の有無が価格を左右することを示します。2020年発売6弾の総括も収録。", "date": "2026-08-11"},
     {"url": "legendary-heartbeat-atari-guide.html", "title": "伝説の鼓動 当たりカードランキング｜上位6枚すべてがアメイジングレア", "desc": "強化拡張パック「伝説の鼓動」の当たりカードランキングと封入率。上位6枚すべてをアメイジングレア(A)が占める唯一の構成で、1位レックウザAは買取約15,000円。アメイジングレアが初登場した弾です。BOX買取¥40,000(定価×8.08)に対し最高額カードは約0.375倍で、2020年発売弾に共通する希少性牽引型。同じレックウザでも収録弾とレアリティで約53倍差がつく構造も解説。", "date": "2026-08-11"},
     {"url": "vmax-climax-atari-guide.html", "title": "VMAXクライマックス 当たりカードランキング｜上位8枚すべてが7,000円超の層厚型", "desc": "ハイクラスパック「VMAXクライマックス」の当たりカードランキングと封入率。1位レックウザVMAX UR(約29,000円)から8位ニンフィアVMAX CSR(約7,000円)まで上位8枚すべてが7,000円を超え、1位と8位の差はわずか約4.1倍。当サイト追跡24弾でもっとも層の厚い弾です。BOX買取¥37,500(定価¥5,500・×6.82)。CSRを擁するハイクラスパック特有の設計と、同じレックウザVMAXでも弾とレアリティで約27倍差がつく構造を解説。", "date": "2026-08-11"},
@@ -1982,6 +1983,7 @@ def _update_sitemap(
         ("/cyber-judge-atari-guide.html", "monthly", "0.8", "2026-08-10"),
         ("/snow-hazard-atari-guide.html", "monthly", "0.8", "2026-08-10"),
         ("/neppuu-arena-atari-guide.html", "monthly", "0.9", "2026-08-10"),
+        ("/30th-celebration-forecast.html", "weekly", "0.9", "2026-08-11"),
         ("/eruption-walker-atari-guide.html", "monthly", "0.8", "2026-08-11"),
         ("/legendary-heartbeat-atari-guide.html", "monthly", "0.8", "2026-08-11"),
         ("/vmax-climax-atari-guide.html", "monthly", "0.8", "2026-08-11"),
@@ -2529,6 +2531,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <a href="release-schedule-2026.html">📅 2026年 新弾カレンダー</a>
 <a href="price-pattern-guide.html">📈 相場5段階パターン</a>
 <div class="article-nav-sub">🔥 BOX深掘り特集</div>
+<a href="30th-celebration-forecast.html">【予想】30th CELEBRATION 3種</a>
 <a href="151-spotlight.html">【特集】ポケモンカード151高騰</a>
 <a href="inferno-x-spotlight.html">【特集】インフェルノX高騰</a>
 <a href="kokuen-spotlight.html">【特集】黒炎の支配者高騰</a>
@@ -3443,6 +3446,7 @@ article p{{font-size:14px;margin-bottom:14px}}
 <a href="release-schedule-2026.html">📅 2026年 新弾カレンダー</a>
 <a href="price-pattern-guide.html">📈 相場5段階パターン</a>
 <div class="article-nav-sub">🔥 BOX深掘り特集</div>
+<a href="30th-celebration-forecast.html">【予想】30th CELEBRATION 3種</a>
 <a href="151-spotlight.html">【特集】ポケモンカード151高騰</a>
 <a href="inferno-x-spotlight.html">【特集】インフェルノX高騰</a>
 <a href="kokuen-spotlight.html">【特集】黒炎の支配者高騰</a>
