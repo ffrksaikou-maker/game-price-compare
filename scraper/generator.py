@@ -144,6 +144,7 @@ BLOG_ARTICLES = [
     {"url": "erika-sar-guide.html", "title": "エリカの招待SAR 相場解説", "desc": "買取¥8,000・PSA10で¥33,400の151人気SAR。初動¥128,200からの調整と151絶版観測での再上昇を予想。", "date": "2026-04-14"},
     {"url": "pigeot-sar-guide.html", "title": "ピジョットex SAR 相場解説", "desc": "「ピジョリザ」デッキ必須の対戦用SAR。マッハサーチ特性とプレイヤー需要で安定相場の実用SARを徹底解説。", "date": "2026-04-14"},
     {"url": "masterball-mirror-guide.html", "title": "151マスターボールミラー 相場解説", "desc": "全153種のマスターボールミラーをピカチュウ¥55,000・ゲンガー¥60,000などの相場と封入率・コンプ難易度で解説。", "date": "2026-04-14"},
+    {"url": "rapid-strike-master-atari-guide.html", "title": "連撃マスター 当たりカードランキング｜れんげきウーラオスVMAX SAは買取約7万円", "desc": "拡張パック「連撃マスター」の当たりカードランキングと封入率。れんげきウーラオスVMAX SAは買取約70,000円でBOX買取¥50,000(定価×10.10)の約1.4倍。同日・同定価で発売された一撃マスター(BOX¥40,000)と比較すると、上位3枚の合計額では一撃マスターが上回るのにBOX価格は連撃マスターが高く、BOX価格を決めるのは2番手の厚みではなく最高額カード1枚だと分かります。", "date": "2026-08-11"},
     {"url": "infinity-zone-atari-guide.html", "title": "ムゲンゾーン 当たりカードランキング｜BOX1箱=最高額カード約28枚分という極端な弾", "desc": "拡張パック「ムゲンゾーン」の当たりカードランキングと封入率。最高額はキャプチャーエネルギーURで買取約1,700円、上位8枚すべてが2,000円未満と当サイト追跡68BOX中もっとも中身が安い弾。一方で未開封BOXは¥48,000(定価×9.70)で、カード/BOX比0.035倍は当サイト調査で最低記録。看板ムゲンダイナVMAX HRが4位にとどまる理由とSA登場前という時代背景を、2つの独立ソースで裏取りして解説。", "date": "2026-08-11"},
     {"url": "rebellion-crash-atari-guide.html", "title": "反逆クラッシュ 当たりカードランキング｜1位はポケモンではなくボスの指令SR", "desc": "拡張パック「反逆クラッシュ」の当たりカードランキングと封入率。1位はトレーナーズの「ボスの指令(サカキ)」SRで買取約19,000円、2位も同カードのHRで約14,000円と上位2枚で市場が完結。対戦での実用需要が相場を作った弾です。BOX買取¥52,000(定価×10.51)に対しカードは約0.37倍で、VMAXライジングと並ぶ希少性牽引型。SA登場前の2020年前半という共通点も解説。", "date": "2026-08-11"},
     {"url": "fusion-arts-atari-guide.html", "title": "フュージョンアーツ 当たりカードランキング｜ミュウVMAX SAは買取約14万円", "desc": "拡張パック「フュージョンアーツ」の当たりカードランキングと封入率。ミュウVMAX SAは買取約140,000円でBOX買取¥55,000(定価×11.11)の約2.5倍。上位4枚をミュウ関連が独占する一方、同じSAのゲノセクトVは約2,000円と70倍差で、レアリティより人気が価格を決める構造を実証。基本エネルギーURは炎・草の2種を収録し7タイプ目のデータが揃いました。", "date": "2026-08-11"},
@@ -1013,6 +1014,7 @@ def _build_box_narrative(
         "cyber-judge": ("cyber-judge-atari-guide.html", "サイバージャッジ 当たりカードランキング・封入率完全ガイド"),
         "snow-hazard": ("snow-hazard-atari-guide.html", "スノーハザード 当たりカードランキング・封入率完全ガイド"),
         "neppuu-arena": ("neppuu-arena-atari-guide.html", "熱風のアリーナ 当たりカードランキング・封入率完全ガイド"),
+        "rapid-strike-master": ("rapid-strike-master-atari-guide.html", "連撃マスター 当たりカードランキング・封入率完全ガイド"),
         "infinity-zone": ("infinity-zone-atari-guide.html", "ムゲンゾーン 当たりカードランキング・封入率完全ガイド"),
         "rebellion-crash": ("rebellion-crash-atari-guide.html", "反逆クラッシュ 当たりカードランキング・封入率完全ガイド"),
         "fusion-arts": ("fusion-arts-atari-guide.html", "フュージョンアーツ 当たりカードランキング・封入率完全ガイド"),
@@ -1966,6 +1968,7 @@ def _update_sitemap(
         ("/cyber-judge-atari-guide.html", "monthly", "0.8", "2026-08-10"),
         ("/snow-hazard-atari-guide.html", "monthly", "0.8", "2026-08-10"),
         ("/neppuu-arena-atari-guide.html", "monthly", "0.9", "2026-08-10"),
+        ("/rapid-strike-master-atari-guide.html", "monthly", "0.8", "2026-08-11"),
         ("/infinity-zone-atari-guide.html", "monthly", "0.8", "2026-08-11"),
         ("/rebellion-crash-atari-guide.html", "monthly", "0.8", "2026-08-11"),
         ("/fusion-arts-atari-guide.html", "monthly", "0.8", "2026-08-11"),
@@ -2537,6 +2540,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <a href="black-bolt-atari-guide.html">ブラックボルト 当たりカード</a>
 <a href="white-flare-atari-guide.html">ホワイトフレア 当たりカード</a>
 <a href="rocket-dan-no-eiko-atari-guide.html">ロケット団の栄光 当たりカード</a>
+<a href="rapid-strike-master-atari-guide.html">連撃マスター 当たりカード</a>
 <a href="infinity-zone-atari-guide.html">ムゲンゾーン 当たりカード</a>
 <a href="rebellion-crash-atari-guide.html">反逆クラッシュ 当たりカード</a>
 <a href="fusion-arts-atari-guide.html">フュージョンアーツ 当たりカード</a>
