@@ -3546,6 +3546,7 @@ article p{{font-size:14px;margin-bottom:14px}}
 </nav>
 
 <div class="ft"><a href="index.html">ポケカ買取チェッカー</a> / <a href="about.html">運営者情報</a> / <a href="contact.html">お問い合わせ</a> / <a href="privacy.html">プライバシーポリシー</a></div>
+</div>
 </body>
 </html>"""
 
