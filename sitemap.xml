@@ -331,6 +331,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://pokeca-box-hikaku.com/snow-hazard-atari-guide.html</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://pokeca-box-hikaku.com/wild-force-atari-guide.html</loc>
     <lastmod>2026-08-10</lastmod>
     <changefreq>monthly</changefreq>
@@ -470,7 +476,7 @@
   </url>
   <url>
     <loc>https://pokeca-box-hikaku.com/box/ninja-spinner.html</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -626,7 +632,7 @@
   </url>
   <url>
     <loc>https://pokeca-box-hikaku.com/box/ruler-of-black-flame.html</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -758,7 +764,7 @@
   </url>
   <url>
     <loc>https://pokeca-box-hikaku.com/box/eevee-heroes.html</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -794,7 +800,7 @@
   </url>
   <url>
     <loc>https://pokeca-box-hikaku.com/box/shiny-star.html</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>

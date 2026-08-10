@@ -3,14 +3,14 @@
     "name": "ブースターパック「決戦の刻」【OP-16】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 12700,
+    "max_price": 12200,
     "prices": {
-      "morimori": 12500,
-      "homura": 12700,
+      "morimori": 12200,
+      "homura": 12200,
       "rudeya": 10500,
       "runto": 12000,
       "icchome": 12000,
-      "oku": 12300,
+      "oku": 12000,
       "collect_tendo": 11000,
       "shinsoku": 11500
     }
@@ -21,12 +21,12 @@
     "retail_price": 5280,
     "max_price": 15000,
     "prices": {
-      "morimori": 12000,
+      "morimori": 11000,
       "homura": 11000,
       "rudeya": 11700,
       "runto": 15000,
       "icchome": 12700,
-      "oku": 12000,
+      "oku": 11000,
       "collect_tendo": 14500,
       "shinsoku": 12200
     }

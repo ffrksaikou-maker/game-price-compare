@@ -8,7 +8,7 @@
       "morimori": 6800,
       "homura": 6500,
       "rudeya": 6700,
-      "icchome": 6700
+      "icchome": 6000
     }
   },
   {
@@ -17,7 +17,7 @@
     "retail_price": 2700,
     "max_price": 3500,
     "prices": {
-      "morimori": 3200,
+      "morimori": 2000,
       "rudeya": 3500,
       "icchome": 2000
     }
@@ -30,7 +30,7 @@
     "prices": {
       "morimori": 2300,
       "rudeya": 2800,
-      "icchome": 2300
+      "icchome": 2000
     }
   },
   {
@@ -49,11 +49,11 @@
     "name": "UX-17 メテオドラグーン3-70J",
     "category": "ux",
     "retail_price": 2300,
-    "max_price": 3300,
+    "max_price": 3000,
     "prices": {
       "morimori": 3000,
       "rudeya": 2800,
-      "icchome": 3300
+      "icchome": 2500
     }
   },
   {
@@ -71,11 +71,11 @@
     "name": "UX-15 シャークスケイルデッキセット",
     "category": "ux",
     "retail_price": 4200,
-    "max_price": 11500,
+    "max_price": 10500,
     "prices": {
-      "morimori": 11500,
+      "morimori": 10500,
       "rudeya": 8000,
-      "icchome": 11000
+      "icchome": 10000
     }
   },
   {
@@ -94,11 +94,11 @@
     "name": "UX-11 インパクトドレイク9-60LR",
     "category": "ux",
     "retail_price": 2420,
-    "max_price": 3200,
+    "max_price": 3000,
     "prices": {
       "morimori": 3000,
       "rudeya": 3000,
-      "icchome": 3200
+      "icchome": 2500
     }
   },
   {
@@ -148,11 +148,11 @@
     "name": "UX-03 ウィザードロッド5-70DB",
     "category": "ux",
     "retail_price": 1400,
-    "max_price": 5000,
+    "max_price": 4500,
     "prices": {
       "morimori": 3200,
       "rudeya": 4500,
-      "icchome": 5000
+      "icchome": 4500
     }
   },
   {
@@ -164,7 +164,7 @@
       "morimori": 3500,
       "homura": 3000,
       "rudeya": 1500,
-      "icchome": 3000
+      "icchome": 2800
     }
   },
   {
@@ -193,11 +193,11 @@
     "name": "CX-16 スタートダッシュセットC",
     "category": "cx",
     "retail_price": 5650,
-    "max_price": 7200,
+    "max_price": 6800,
     "prices": {
       "morimori": 6800,
       "rudeya": 5500,
-      "icchome": 7200
+      "icchome": 6800
     }
   },
   {
@@ -216,11 +216,11 @@
     "name": "CX-13 バハムートブリッツBK1-50I",
     "category": "cx",
     "retail_price": 2200,
-    "max_price": 3300,
+    "max_price": 2800,
     "prices": {
       "morimori": 2800,
       "rudeya": 2500,
-      "icchome": 3300
+      "icchome": 2500
     }
   },
   {
@@ -259,12 +259,12 @@
     "name": "CX-07 ペガサスブラストATr",
     "category": "cx",
     "retail_price": 2600,
-    "max_price": 3000,
+    "max_price": 2700,
     "prices": {
       "morimori": 2400,
       "homura": 2700,
       "rudeya": 2000,
-      "icchome": 3000
+      "icchome": 2500
     }
   },
   {
@@ -304,12 +304,12 @@
     "name": "BX-49 ドランストライク4-50FF",
     "category": "bx",
     "retail_price": 2200,
-    "max_price": 2700,
+    "max_price": 2400,
     "prices": {
       "morimori": 2400,
       "homura": 2400,
       "rudeya": 2000,
-      "icchome": 2700
+      "icchome": 2000
     }
   },
   {
@@ -380,10 +380,10 @@
     "retail_price": 2420,
     "max_price": 3500,
     "prices": {
-      "morimori": 3400,
+      "morimori": 3000,
       "homura": 2800,
       "rudeya": 3500,
-      "icchome": 3000
+      "icchome": 2500
     }
   },
   {
