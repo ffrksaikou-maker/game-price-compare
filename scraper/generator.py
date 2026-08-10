@@ -144,6 +144,7 @@ BLOG_ARTICLES = [
     {"url": "erika-sar-guide.html", "title": "エリカの招待SAR 相場解説", "desc": "買取¥8,000・PSA10で¥33,400の151人気SAR。初動¥128,200からの調整と151絶版観測での再上昇を予想。", "date": "2026-04-14"},
     {"url": "pigeot-sar-guide.html", "title": "ピジョットex SAR 相場解説", "desc": "「ピジョリザ」デッキ必須の対戦用SAR。マッハサーチ特性とプレイヤー需要で安定相場の実用SARを徹底解説。", "date": "2026-04-14"},
     {"url": "masterball-mirror-guide.html", "title": "151マスターボールミラー 相場解説", "desc": "全153種のマスターボールミラーをピカチュウ¥55,000・ゲンガー¥60,000などの相場と封入率・コンプ難易度で解説。", "date": "2026-04-14"},
+    {"url": "fusion-arts-atari-guide.html", "title": "フュージョンアーツ 当たりカードランキング｜ミュウVMAX SAは買取約14万円", "desc": "拡張パック「フュージョンアーツ」の当たりカードランキングと封入率。ミュウVMAX SAは買取約140,000円でBOX買取¥55,000(定価×11.11)の約2.5倍。上位4枚をミュウ関連が独占する一方、同じSAのゲノセクトVは約2,000円と70倍差で、レアリティより人気が価格を決める構造を実証。基本エネルギーURは炎・草の2種を収録し7タイプ目のデータが揃いました。", "date": "2026-08-11"},
     {"url": "vmax-rising-atari-guide.html", "title": "VMAXライジング 当たりカードランキング｜カードよりBOXが7.5倍高い異例の弾", "desc": "拡張パック「VMAXライジング」の当たりカードランキングと封入率。最高額はソニアSRで買取約16,000円ですが、未開封BOXは¥120,000(定価×24.24)。カード/BOX比0.13倍は蒼空ストリーム(2.81倍)の約21分の1で、当サイト追跡68BOX中もっとも「開けるほど損」が明確な弾です。S&S第1弾という位置・ブーム前の生産量・SA登場前という時代差から、希少性牽引型のBOX価格を実データで解説。", "date": "2026-08-10"},
     {"url": "blue-sky-stream-atari-guide.html", "title": "蒼空ストリーム 当たりカードランキング｜レックウザVMAX SAは買取約80万円", "desc": "拡張パック「蒼空ストリーム」の当たりカードランキングと封入率。レックウザVMAX SAは買取約80万円と当サイト調査で断トツの最高額で、BOX買取¥285,000(定価×57.58)も追跡68BOX中トップ。上位5枚のうち4枚をレックウザ関連が占める集中構造、SA封入率約4BOXに1枚(全4種)、同日同定価発売の摩天パーフェクト(¥18,000)との約16倍差、メガレックウザ(ストームエメラルダ)との系譜を実データで解説。", "date": "2026-08-10"},
     {"url": "battle-partners-atari-guide.html", "title": "バトルパートナーズ 当たりカードランキング｜リーリエのピッピex SARと4キャラ分散の構造", "desc": "拡張パック「バトルパートナーズ」の当たりカードランキング。リーリエのピッピex SAR(買取約17,000円)が最高額。リーリエ・ナンジャモ・N・ホップという人気キャラ4組にSAR枠が分散した結果、2ヶ月後発売で2キャラ集中の熱風のアリーナ(BOX¥20,000)に対し本弾は¥10,800と約85%の差。変幻の仮面のオーガポン4姿分散と同じ「豪華な収録が1枚あたりの価値を下げる」構造を解説。", "date": "2026-08-10"},
@@ -1010,6 +1011,7 @@ def _build_box_narrative(
         "cyber-judge": ("cyber-judge-atari-guide.html", "サイバージャッジ 当たりカードランキング・封入率完全ガイド"),
         "snow-hazard": ("snow-hazard-atari-guide.html", "スノーハザード 当たりカードランキング・封入率完全ガイド"),
         "neppuu-arena": ("neppuu-arena-atari-guide.html", "熱風のアリーナ 当たりカードランキング・封入率完全ガイド"),
+        "fusion-arts": ("fusion-arts-atari-guide.html", "フュージョンアーツ 当たりカードランキング・封入率完全ガイド"),
         "vmax-rising": ("vmax-rising-atari-guide.html", "VMAXライジング 当たりカードランキング・封入率完全ガイド"),
         "blue-sky-stream": ("blue-sky-stream-atari-guide.html", "蒼空ストリーム 当たりカードランキング・封入率完全ガイド"),
         "battle-partners": ("battle-partners-atari-guide.html", "バトルパートナーズ 当たりカードランキング・封入率完全ガイド"),
@@ -1960,6 +1962,7 @@ def _update_sitemap(
         ("/cyber-judge-atari-guide.html", "monthly", "0.8", "2026-08-10"),
         ("/snow-hazard-atari-guide.html", "monthly", "0.8", "2026-08-10"),
         ("/neppuu-arena-atari-guide.html", "monthly", "0.9", "2026-08-10"),
+        ("/fusion-arts-atari-guide.html", "monthly", "0.8", "2026-08-11"),
         ("/vmax-rising-atari-guide.html", "monthly", "0.8", "2026-08-10"),
         ("/blue-sky-stream-atari-guide.html", "monthly", "0.8", "2026-08-10"),
         ("/battle-partners-atari-guide.html", "monthly", "0.8", "2026-08-10"),
@@ -2528,6 +2531,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <a href="black-bolt-atari-guide.html">ブラックボルト 当たりカード</a>
 <a href="white-flare-atari-guide.html">ホワイトフレア 当たりカード</a>
 <a href="rocket-dan-no-eiko-atari-guide.html">ロケット団の栄光 当たりカード</a>
+<a href="fusion-arts-atari-guide.html">フュージョンアーツ 当たりカード</a>
 <a href="vmax-rising-atari-guide.html">VMAXライジング 当たりカード</a>
 <a href="blue-sky-stream-atari-guide.html">蒼空ストリーム 当たりカード</a>
 <a href="eevee-heroes-atari-guide.html">イーブイヒーローズ 当たりカード</a>
