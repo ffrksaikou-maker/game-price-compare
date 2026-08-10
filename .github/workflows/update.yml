@@ -82,6 +82,21 @@ jobs:
             abyss-eye-forecast.html storm-emeralda-forecast.html
           git diff --staged --quiet || git commit -m "Update prices $(TZ=Asia/Tokyo date +%Y-%m-%d_%H:%M)"
           git stash --include-untracked
-          git pull --rebase origin master
+          # run が重なると生成物どうしが衝突して rebase が止まり、
+          # ジョブごと落ちて価格が反映されない。生成物は毎回作り直せるので
+          # -X theirs で自分の生成結果を採り、相手の記事追加等は取り込む。
+          pushed=0
+          for attempt in 1 2 3; do
+            if git pull --rebase -X theirs origin master && git push; then
+              pushed=1
+              break
+            fi
+            echo "push attempt $attempt failed; retrying"
+            git rebase --abort 2>/dev/null || true
+            sleep 10
+          done
           git stash pop || true
-          git push
+          if [ "$pushed" != 1 ]; then
+            echo "::error::push failed after 3 attempts"
+            exit 1
+          fi
