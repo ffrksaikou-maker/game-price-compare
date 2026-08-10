@@ -141,6 +141,7 @@ BLOG_ARTICLES = [
     {"url": "erika-sar-guide.html", "title": "エリカの招待SAR 相場解説", "desc": "買取¥8,000・PSA10で¥33,400の151人気SAR。初動¥128,200からの調整と151絶版観測での再上昇を予想。", "date": "2026-04-14"},
     {"url": "pigeot-sar-guide.html", "title": "ピジョットex SAR 相場解説", "desc": "「ピジョリザ」デッキ必須の対戦用SAR。マッハサーチ特性とプレイヤー需要で安定相場の実用SARを徹底解説。", "date": "2026-04-14"},
     {"url": "masterball-mirror-guide.html", "title": "151マスターボールミラー 相場解説", "desc": "全153種のマスターボールミラーをピカチュウ¥55,000・ゲンガー¥60,000などの相場と封入率・コンプ難易度で解説。", "date": "2026-04-14"},
+    {"url": "blue-sky-stream-atari-guide.html", "title": "蒼空ストリーム 当たりカードランキング｜レックウザVMAX SAは買取約80万円", "desc": "拡張パック「蒼空ストリーム」の当たりカードランキングと封入率。レックウザVMAX SAは買取約80万円と当サイト調査で断トツの最高額で、BOX買取¥285,000(定価×57.58)も追跡68BOX中トップ。上位5枚のうち4枚をレックウザ関連が占める集中構造、SA封入率約4BOXに1枚(全4種)、同日同定価発売の摩天パーフェクト(¥18,000)との約16倍差、メガレックウザ(ストームエメラルダ)との系譜を実データで解説。", "date": "2026-08-10"},
     {"url": "battle-partners-atari-guide.html", "title": "バトルパートナーズ 当たりカードランキング｜リーリエのピッピex SARと4キャラ分散の構造", "desc": "拡張パック「バトルパートナーズ」の当たりカードランキング。リーリエのピッピex SAR(買取約17,000円)が最高額。リーリエ・ナンジャモ・N・ホップという人気キャラ4組にSAR枠が分散した結果、2ヶ月後発売で2キャラ集中の熱風のアリーナ(BOX¥20,000)に対し本弾は¥10,800と約85%の差。変幻の仮面のオーガポン4姿分散と同じ「豪華な収録が1枚あたりの価値を下げる」構造を解説。", "date": "2026-08-10"},
     {"url": "neppuu-arena-atari-guide.html", "title": "熱風のアリーナ 当たりカードランキング｜シロナのガブリアスexとヒビキのホウオウexの二強", "desc": "強化拡張パック「熱風のアリーナ」の当たりカードランキング。シロナのガブリアスex SAR(買取約33,000円)とヒビキのホウオウex SAR(約29,000円)の二強で、上位8枚のうち5枚をこの2キャラの別レアリティ版が占める多層構造。最高額がほぼ同じクレイバースト(BOX¥11,500)に対し本弾は¥20,000(×3.70)と約74%高く、受け皿の層の厚さがBOX相場を決めることを実証。UR約10BOXに1枚・AR1BOX3枚確定。", "date": "2026-08-10"},
     {"url": "snow-hazard-atari-guide.html", "title": "スノーハザード 当たりカードランキング｜最高額9倍のクレイバーストにBOX相場で勝つ理由", "desc": "強化拡張パック「スノーハザード」(SV2P)の当たりカードランキング。パオジアンex SAR(約3,500円)が最高額。同日発売クレイバーストの最高額ナンジャモSARは約32,000円と9倍だが、BOX買取はスノーハザード¥12,800が¥11,500を上回る逆転が発生。BOX相場を決めるのは最高額ではなく「最高額×引ける確率」であることを実データで解説。基本水エネルギーURで4タイプ目の比較表も掲載。", "date": "2026-08-10"},
@@ -1005,6 +1006,7 @@ def _build_box_narrative(
         "cyber-judge": ("cyber-judge-atari-guide.html", "サイバージャッジ 当たりカードランキング・封入率完全ガイド"),
         "snow-hazard": ("snow-hazard-atari-guide.html", "スノーハザード 当たりカードランキング・封入率完全ガイド"),
         "neppuu-arena": ("neppuu-arena-atari-guide.html", "熱風のアリーナ 当たりカードランキング・封入率完全ガイド"),
+        "blue-sky-stream": ("blue-sky-stream-atari-guide.html", "蒼空ストリーム 当たりカードランキング・封入率完全ガイド"),
         "battle-partners": ("battle-partners-atari-guide.html", "バトルパートナーズ 当たりカードランキング・封入率完全ガイド"),
     }
     if slug in atari_links:
@@ -1953,6 +1955,7 @@ def _update_sitemap(
         ("/cyber-judge-atari-guide.html", "monthly", "0.8", "2026-08-10"),
         ("/snow-hazard-atari-guide.html", "monthly", "0.8", "2026-08-10"),
         ("/neppuu-arena-atari-guide.html", "monthly", "0.9", "2026-08-10"),
+        ("/blue-sky-stream-atari-guide.html", "monthly", "0.8", "2026-08-10"),
         ("/battle-partners-atari-guide.html", "monthly", "0.8", "2026-08-10"),
         ("/wild-force-atari-guide.html", "monthly", "0.8", "2026-08-10"),
         ("/white-flare-atari-guide.html", "monthly", "0.8", "2026-07-26"),
@@ -2519,6 +2522,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <a href="black-bolt-atari-guide.html">ブラックボルト 当たりカード</a>
 <a href="white-flare-atari-guide.html">ホワイトフレア 当たりカード</a>
 <a href="rocket-dan-no-eiko-atari-guide.html">ロケット団の栄光 当たりカード</a>
+<a href="blue-sky-stream-atari-guide.html">蒼空ストリーム 当たりカード</a>
 <a href="eevee-heroes-atari-guide.html">イーブイヒーローズ 当たりカード</a>
 <a href="terastal-fes-ex-atari-guide.html">テラスタルフェスex 当たりカード</a>
 <a href="shiny-treasure-ex-atari-guide.html">シャイニートレジャーex 当たりカード</a>
