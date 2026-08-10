@@ -120,8 +120,8 @@
   "price": 7777,
   "top_avg": 7236,
   "top_n": 3,
-  "samples": 10,
-  "median": 4799,
+  "samples": 9,
+  "median": 4999,
   "keyword": "ベイブレードX CX-05",
   "period_days": 30
  },
@@ -379,9 +379,9 @@
  },
  "UX-21 ヘルズネザーデッキセット": {
   "price": 12500,
-  "top_avg": 11572,
+  "top_avg": 11542,
   "top_n": 13,
-  "samples": 67,
+  "samples": 66,
   "median": 10999,
   "keyword": "ベイブレードX UX-21",
   "period_days": 30
