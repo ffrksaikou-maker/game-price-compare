@@ -2162,6 +2162,33 @@ def generate_ranking_page(
     n_down = len([c for c in sv_mega_all if c["pct"] < 0])
     n_flat = len(sv_mega_all) - n_up - n_down
 
+    # 今週の地合いを1文で言語化する。数字の羅列だけのページにしないための解説用
+    if n_up >= n_down * 2 and avg_pct > 0.5:
+        market_comment = (
+            "値上がりした銘柄が値下がりの2倍以上あり、平均でもプラス圏です。"
+            "相場全体に買いが戻っている局面で、売却を考えている方には追い風になります。"
+        )
+    elif n_down >= n_up * 2 and avg_pct < -0.5:
+        market_comment = (
+            "値下がりした銘柄が値上がりの2倍以上を占め、平均でもマイナス圏です。"
+            "全体が調整局面にあるため、売り急ぐより下げ止まりを確認したい場面です。"
+        )
+    elif abs(avg_pct) <= 0.5:
+        market_comment = (
+            "平均変化率が±0.5%以内に収まっており、相場全体としては横ばいです。"
+            "こうした膠着局面では、個別BOXごとの材料(再販・新弾・環境変化)が値動きを左右します。"
+        )
+    elif avg_pct > 0:
+        market_comment = (
+            "値上がりと値下がりが混在しつつ、平均ではプラス圏です。"
+            "銘柄によって方向が分かれているため、保有BOXごとに個別ページで推移を確認するのが確実です。"
+        )
+    else:
+        market_comment = (
+            "値上がりと値下がりが混在しつつ、平均ではマイナス圏です。"
+            "全面安ではないため、下げているBOXに固有の理由(再販・新弾の影響)がないか確認する価値があります。"
+        )
+
     today_str = today_file.stem
     week_ago_str = week_ago_file.stem
 
@@ -2508,6 +2535,29 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <div class="chart-wrap" style="margin-top:16px">
 <canvas id="avgChart" height="200"></canvas>
 </div>
+
+<h3 class="section-title" style="margin-top:48px">今週の相場をどう読むか</h3>
+<p>直近7日間({week_ago_str} → {today_str})の集計では、SV・MEGAの{len(sv_mega_all)}BOX中<strong>値上がり{n_up}件・横ばい{n_flat}件・値下がり{n_down}件</strong>、平均変化率は<strong>{avg_pct:+.1f}%</strong>({'+' if avg_diff >= 0 else ''}¥{avg_diff:,.0f})でした。{market_comment}</p>
+<p>ただし<strong>1週間の変動だけで判断するのは危険</strong>です。ポケカのBOX相場は数ヶ月単位の大きな波の中で日々上下しており、週次の増減はその一部を切り取ったものにすぎません。長期の位置づけは<a href="price-pattern-guide.html">BOX買取価格の5段階パターン</a>(発売前プレ値→初動高値→調整期→底打ち→絶版急騰)と併せて確認してください。</p>
+
+<h3 class="section-title" style="margin-top:32px">BOX買取価格が動く5つの要因</h3>
+<p>ランキングの順位そのものより、<strong>なぜ動いたのか</strong>を押さえておくと次の値動きが読めるようになります。買取価格が変動する主な要因は次の5つです。</p>
+<ol style="font-size:14px;line-height:1.9;padding-left:22px">
+<li><strong>新弾の発売</strong> — 新しいパックが出ると資金と注目がそちらへ移り、既存弾は一時的に下がりやすくなります。発売日前後は特に顕著です。</li>
+<li><strong>再販・増産</strong> — 供給が増えると買取店は仕入れ値を下げます。人気弾ほど再販が組まれやすく、品薄が解消した瞬間に相場が緩みます。<a href="restock-guide.html">再販情報の見つけ方</a>で入荷状況を追えます。</li>
+<li><strong>対戦環境の変化</strong> — レギュレーション変更や新デッキの流行で、収録カードの実需が増減します。環境トップに立ったカードを含む弾は上がりやすくなります。</li>
+<li><strong>絶版化</strong> — 生産が終了すると供給は一方通行で細っていきます。当サイトが追跡する発売5年以上のBOX21商品のうち、定価割れしているものは1つもありません。</li>
+<li><strong>目玉カードの単品相場</strong> — BOX相場は看板カードの価格に従属します。高額SARが下げればBOXも連動します。弾ごとの看板は<a href="sv-box-list.html">SV全BOX一覧</a>や各当たりカードガイドで確認できます。</li>
+</ol>
+
+<h3 class="section-title" style="margin-top:32px">このランキングの使い方</h3>
+<ul style="font-size:14px;line-height:1.9;padding-left:22px">
+<li><strong>売りたい人</strong> — 値上がりランキング上位に自分の保有BOXがあれば、勢いが続いているうちに複数店を比較して売る判断材料になります。手順は<a href="kaitori-tips.html">BOX買取のコツ</a>にまとめています。</li>
+<li><strong>買いたい人</strong> — 値下がりランキングは仕込みの候補リストです。ただし下落の理由が「再販」なのか「人気の低下」なのかで、その後の戻り方がまったく違います。</li>
+<li><strong>持ち続ける人</strong> — 週次の上下に一喜一憂せず、個別ページの全期間グラフで大きな流れを見てください。各BOXページには9店舗の最新価格と価格推移グラフを掲載しています。</li>
+</ul>
+
+<p style="font-size:13px;color:#6b7280;margin-top:20px">※ 本ランキングは当サイトが毎日3回自動収集している9店舗の買取価格をもとに、7日前との差分を機械的に算出したものです。掲載価格はシュリンクの有無や外箱の状態によって実際の買取額と異なる場合があります。投資助言を目的とするものではありません。</p>
 
 <a href="index.html" class="cta">全66商品の買取価格を比較する &rarr;</a>
 
