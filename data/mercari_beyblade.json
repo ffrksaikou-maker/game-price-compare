@@ -136,10 +136,10 @@
  },
  "CX-18 ランダムブースター ブラキオウィップセレクト": {
   "price": 3290,
-  "top_avg": 3118,
-  "top_n": 5,
-  "samples": 21,
-  "median": 2900,
+  "top_avg": 3147,
+  "top_n": 4,
+  "samples": 20,
+  "median": 2899,
   "keyword": "ベイブレードX CX-18",
   "period_days": 30
  },
@@ -244,9 +244,9 @@
  },
  "BX-09 ベイバトルパス": {
   "price": 17000,
-  "top_avg": 10695,
+  "top_avg": 10693,
   "top_n": 10,
-  "samples": 47,
+  "samples": 46,
   "median": 8500,
   "keyword": "ベイブレードX BX-09",
   "period_days": 30
@@ -282,8 +282,8 @@
   "price": 8900,
   "top_avg": 5980,
   "top_n": 5,
-  "samples": 24,
-  "median": 4540,
+  "samples": 23,
+  "median": 4500,
   "keyword": "ベイブレードX BX-10",
   "period_days": 30
  },
@@ -309,8 +309,8 @@
   "price": 17880,
   "top_avg": 16916,
   "top_n": 5,
-  "samples": 24,
-  "median": 15527,
+  "samples": 23,
+  "median": 15555,
   "keyword": "ベイブレードX BX-46",
   "period_days": 30
  },
@@ -381,7 +381,7 @@
   "price": 12500,
   "top_avg": 11456,
   "top_n": 13,
-  "samples": 65,
+  "samples": 64,
   "median": 10999,
   "keyword": "ベイブレードX UX-21",
   "period_days": 30
