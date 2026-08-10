@@ -141,6 +141,7 @@ BLOG_ARTICLES = [
     {"url": "erika-sar-guide.html", "title": "エリカの招待SAR 相場解説", "desc": "買取¥8,000・PSA10で¥33,400の151人気SAR。初動¥128,200からの調整と151絶版観測での再上昇を予想。", "date": "2026-04-14"},
     {"url": "pigeot-sar-guide.html", "title": "ピジョットex SAR 相場解説", "desc": "「ピジョリザ」デッキ必須の対戦用SAR。マッハサーチ特性とプレイヤー需要で安定相場の実用SARを徹底解説。", "date": "2026-04-14"},
     {"url": "masterball-mirror-guide.html", "title": "151マスターボールミラー 相場解説", "desc": "全153種のマスターボールミラーをピカチュウ¥55,000・ゲンガー¥60,000などの相場と封入率・コンプ難易度で解説。", "date": "2026-04-14"},
+    {"url": "cyber-judge-atari-guide.html", "title": "サイバージャッジ 当たりカードランキング・封入率完全ガイド", "desc": "拡張パック「サイバージャッジ」(SV5M)の当たりカードランキング。ベルのまごころ SAR(買取約5,000円)が最高額で、上位8枚のうち3枚をAR枠(シキジカ・メブキジカ・ニャビー)が占める構成。シキジカ ARはSAR2枚を上回る。「未来」テーマのテツノ系が3,000円以下に伸び悩んだ理由と、同日発売ワイルドフォース(¥14,400)との12%差を解説。BOX買取¥12,800。", "date": "2026-08-10"},
     {"url": "triplet-beat-atari-guide.html", "title": "トリプレットビート 当たりカードランキング｜コイキングARがBOX買取を超える唯一の弾", "desc": "強化拡張パック「トリプレットビート」(SV1a)の当たりカードランキング。AR(アートレア)のコイキングが買取約19,000円で1位、2位マスカーニャex SAR(約7,500円)の2.5倍という異例の構成。カンダシンジ氏のイラスト人気・コイキングの知名度・AR30種の希少性が重なりレアリティの序列が崩壊。1枚でBOX買取¥18,600を上回る当サイト調査で唯一「開封に勝ち筋がある」弾。", "date": "2026-08-10"},
     {"url": "ancient-roar-atari-guide.html", "title": "古代の咆哮 当たりカードランキング・封入率完全ガイド", "desc": "拡張パック「古代の咆哮」(SV4K)の当たりカードランキングを解説。トドロクツキex SARと基本悪エネルギー URがともに買取約5,500円で1位タイという珍しい構成。基本エネルギーURが他弾(基本闘・基本鋼は各約2,200円)の2.5倍をつける理由をタイプ別需要から分析。同日発売の未来の一閃との比較も掲載。BOX買取¥13,000。", "date": "2026-08-10"},
     {"url": "wild-force-atari-guide.html", "title": "ワイルドフォース 当たりカードランキング・封入率完全ガイド", "desc": "拡張パック「ワイルドフォース」(SV5K)の当たりカードランキングを解説。マツバの確信 SAR(買取約6,000円)が最高額、2位にSR枠のゲンガーex(約5,500円)が入りSARを上回る珍しい構成。上位8枚のうち3枚がゲンガー系統で、テーマの古代パラドックスを人気が凌駕。同日発売サイバージャッジとの比較も。BOX買取¥14,400。", "date": "2026-08-10"},
@@ -998,6 +999,7 @@ def _build_box_narrative(
         "ancient-roar": ("ancient-roar-atari-guide.html", "古代の咆哮 当たりカードランキング・封入率完全ガイド"),
         "wild-force": ("wild-force-atari-guide.html", "ワイルドフォース 当たりカードランキング・封入率完全ガイド"),
         "triplet-beat": ("triplet-beat-atari-guide.html", "トリプレットビート 当たりカードランキング｜コイキングAR"),
+        "cyber-judge": ("cyber-judge-atari-guide.html", "サイバージャッジ 当たりカードランキング・封入率完全ガイド"),
     }
     if slug in atari_links:
         atari_url, atari_text = atari_links[slug]
@@ -1942,6 +1944,7 @@ def _update_sitemap(
         ("/stellar-miracle-atari-guide.html", "monthly", "0.8", "2026-08-10"),
         ("/ancient-roar-atari-guide.html", "monthly", "0.8", "2026-08-10"),
         ("/triplet-beat-atari-guide.html", "monthly", "0.9", "2026-08-10"),
+        ("/cyber-judge-atari-guide.html", "monthly", "0.8", "2026-08-10"),
         ("/wild-force-atari-guide.html", "monthly", "0.8", "2026-08-10"),
         ("/white-flare-atari-guide.html", "monthly", "0.8", "2026-07-26"),
         ("/terastal-fes-ex-atari-guide.html", "monthly", "0.8", "2026-07-26"),
@@ -2522,6 +2525,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <a href="ancient-roar-atari-guide.html">古代の咆哮 当たりカード</a>
 <a href="wild-force-atari-guide.html">ワイルドフォース 当たりカード</a>
 <a href="triplet-beat-atari-guide.html">トリプレットビート 当たりカード</a>
+<a href="cyber-judge-atari-guide.html">サイバージャッジ 当たりカード</a>
 </nav>
 
 <div class="main-card">
