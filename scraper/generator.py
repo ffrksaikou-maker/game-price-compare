@@ -141,6 +141,8 @@ BLOG_ARTICLES = [
     {"url": "erika-sar-guide.html", "title": "エリカの招待SAR 相場解説", "desc": "買取¥8,000・PSA10で¥33,400の151人気SAR。初動¥128,200からの調整と151絶版観測での再上昇を予想。", "date": "2026-04-14"},
     {"url": "pigeot-sar-guide.html", "title": "ピジョットex SAR 相場解説", "desc": "「ピジョリザ」デッキ必須の対戦用SAR。マッハサーチ特性とプレイヤー需要で安定相場の実用SARを徹底解説。", "date": "2026-04-14"},
     {"url": "masterball-mirror-guide.html", "title": "151マスターボールミラー 相場解説", "desc": "全153種のマスターボールミラーをピカチュウ¥55,000・ゲンガー¥60,000などの相場と封入率・コンプ難易度で解説。", "date": "2026-04-14"},
+    {"url": "ancient-roar-atari-guide.html", "title": "古代の咆哮 当たりカードランキング・封入率完全ガイド", "desc": "拡張パック「古代の咆哮」(SV4K)の当たりカードランキングを解説。トドロクツキex SARと基本悪エネルギー URがともに買取約5,500円で1位タイという珍しい構成。基本エネルギーURが他弾(基本闘・基本鋼は各約2,200円)の2.5倍をつける理由をタイプ別需要から分析。同日発売の未来の一閃との比較も掲載。BOX買取¥13,000。", "date": "2026-08-10"},
+    {"url": "wild-force-atari-guide.html", "title": "ワイルドフォース 当たりカードランキング・封入率完全ガイド", "desc": "拡張パック「ワイルドフォース」(SV5K)の当たりカードランキングを解説。マツバの確信 SAR(買取約6,000円)が最高額、2位にSR枠のゲンガーex(約5,500円)が入りSARを上回る珍しい構成。上位8枚のうち3枚がゲンガー系統で、テーマの古代パラドックスを人気が凌駕。同日発売サイバージャッジとの比較も。BOX買取¥14,400。", "date": "2026-08-10"},
     {"url": "stellar-miracle-atari-guide.html", "title": "ステラミラクル 当たりカードランキング・封入率完全ガイド", "desc": "強化拡張パック「ステラミラクル」(SV7a)の当たりカードランキング・封入率を解説。タロ SAR(買取約4,000円)を筆頭に上位4枚が3,000〜4,000円に密集する天井の低い構成。SARが全6種と多く単独看板が不在なのが理由。『ゼロの秘宝』主役のテラパゴスex SARが3位という「テーマの主役≠相場の主役」の実例も整理。BOX買取¥13,100。", "date": "2026-08-10"},
     {"url": "scarlet-ex-atari-guide.html", "title": "スカーレットex 当たりカードランキング・封入率完全ガイド", "desc": "SVシリーズ第1弾「スカーレットex」(SV1S)の当たりカードランキングを解説。看板サーナイトex SAR(買取約2.2万円)が2位コライドンex SAR(約5,000円)に4.4倍差の一強。基本闘エネルギー UR(約2,200円)とネストボール UR(約1,500円)が3位・5位に入るSV初期特有の構造、同日発売バイオレットexとの28%の相場差も実データで整理。", "date": "2026-08-10"},
     {"url": "future-flash-atari-guide.html", "title": "未来の一閃 当たりカードランキング・封入率完全ガイド", "desc": "拡張パック「未来の一閃」(SV4M)の当たりカードランキング・封入率を解説。看板チルタリスex SAR(買取約8,000円)、テツノブジンex SAR、基本鋼エネルギー UR(約2,200円)とカウンターキャッチャー URの2つのUR枠。SAR封入率約5〜6BOXに1枚(全5種)。BOX買取¥11,800と同日発売の古代の咆哮との比較も掲載。", "date": "2026-08-10"},
@@ -992,6 +994,8 @@ def _build_box_narrative(
         "scarlet-ex": ("scarlet-ex-atari-guide.html", "スカーレットex 当たりカードランキング・封入率完全ガイド"),
         "future-flash": ("future-flash-atari-guide.html", "未来の一閃 当たりカードランキング・封入率完全ガイド"),
         "stellar-miracle": ("stellar-miracle-atari-guide.html", "ステラミラクル 当たりカードランキング・封入率完全ガイド"),
+        "ancient-roar": ("ancient-roar-atari-guide.html", "古代の咆哮 当たりカードランキング・封入率完全ガイド"),
+        "wild-force": ("wild-force-atari-guide.html", "ワイルドフォース 当たりカードランキング・封入率完全ガイド"),
     }
     if slug in atari_links:
         atari_url, atari_text = atari_links[slug]
@@ -1934,6 +1938,8 @@ def _update_sitemap(
         ("/scarlet-ex-atari-guide.html", "monthly", "0.8", "2026-08-10"),
         ("/future-flash-atari-guide.html", "monthly", "0.8", "2026-08-10"),
         ("/stellar-miracle-atari-guide.html", "monthly", "0.8", "2026-08-10"),
+        ("/ancient-roar-atari-guide.html", "monthly", "0.8", "2026-08-10"),
+        ("/wild-force-atari-guide.html", "monthly", "0.8", "2026-08-10"),
         ("/white-flare-atari-guide.html", "monthly", "0.8", "2026-07-26"),
         ("/terastal-fes-ex-atari-guide.html", "monthly", "0.8", "2026-07-26"),
         ("/shiny-treasure-ex-atari-guide.html", "monthly", "0.8", "2026-07-26"),
@@ -2510,6 +2516,8 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <a href="scarlet-ex-atari-guide.html">スカーレットex 当たりカード</a>
 <a href="future-flash-atari-guide.html">未来の一閃 当たりカード</a>
 <a href="stellar-miracle-atari-guide.html">ステラミラクル 当たりカード</a>
+<a href="ancient-roar-atari-guide.html">古代の咆哮 当たりカード</a>
+<a href="wild-force-atari-guide.html">ワイルドフォース 当たりカード</a>
 </nav>
 
 <div class="main-card">
