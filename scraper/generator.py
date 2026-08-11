@@ -124,6 +124,8 @@ BLOG_ARTICLES = [
     {"url": "skyscraping-perfect-atari-guide.html", "title": "摩天パーフェクト 当たりカードランキング｜同日発売の蒼空ストリームとBOX15.9倍差", "desc": "拡張パック「摩天パーフェクト」の当たりカードランキングと封入率。ジュラルドンVMAX SA(買取約20,000円)が最高額で、BOX買取は最高¥18,000(定価×3.64)と絶版弾として堅調。ただし同日発売の蒼空ストリームはBOX¥287,000(定価×58)に達しており、当サイトが追跡する同日発売ペアで最大となる約15.9倍の差がついています。看板カードの到達点がBOX価格を決めるという法則の最も極端な実例です。", "date": "2026-08-11"},
     {"url": "time-gazer-atari-guide.html", "title": "タイムゲイザー 当たりカードランキング｜オリジンディアルガV SAは約9,000円", "desc": "拡張パック「タイムゲイザー」の当たりカードランキングと封入率。オリジンディアルガV SA(買取約9,000円)が最高額で、2位カイリキーV SA約6,000円と天井が低くなだらかな分布。BOX買取は最高¥14,500(定価×2.93)、カード/BOX比0.62倍の希少性牽引型です。同日発売のスペースジャグラーとは1位カード1.06倍差→BOX1.07倍差と、当サイト追跡の同日ペアで最もきれいに法則が成立しました。", "date": "2026-08-11"},
     {"url": "space-juggler-atari-guide.html", "title": "スペースジャグラー 当たりカードランキング｜オリジンパルキアV SAは約8,500円", "desc": "拡張パック「スペースジャグラー」の当たりカードランキングと封入率。オリジンパルキアV SA(買取約8,500円)が最高額で、2位は人気の女性サポート「カイ」SR約5,000円。発売当初2万円超だったカイの現在値も掲載しています。BOX買取は最高¥13,500(定価×2.73)、カード/BOX比0.63倍の希少性牽引型。同日発売のタイムゲイザーとは1位カード1.06倍差→BOX1.07倍差でほぼ一致します。", "date": "2026-08-11"},
+    {"url": "paradigm-trigger-atari-guide.html", "title": "パラダイムトリガー 当たりカードランキング｜ルギアV SAは約12万円", "desc": "拡張パック「パラダイムトリガー」の当たりカードランキングと封入率。ルギアV SA(買取約120,000円)が突出し、2位ルギアVSTAR UR(約5,500円)とは約21.8倍という当サイト屈指の断崖。上位10枚のうち6枚がルギア関連という一強集中型です。BOX買取は6店舗最高¥21,500(定価×4.34)、カード/BOX比5.58倍でMURを持たないS&S弾としては異例の中身牽引型です。", "date": "2026-08-11"},
+    {"url": "dark-phantasma-atari-guide.html", "title": "ダークファンタズマ 当たりカードランキング｜カードは5,000円なのにBOXは¥28,500", "desc": "強化拡張パック「ダークファンタズマ」の当たりカードランキングと封入率。最高額はピカチュウ CHR(買取約5,000円)で上位10枚すべてが5,000円以下という控えめな水準ですが、BOX買取は¥28,500(定価×5.76)に達しています。カード/BOX比0.18倍という極端な希少性牽引型で、中身の相場ではなく未開封BOXの残存数が価格を作っている典型例です。", "date": "2026-08-11"},
     {"url": "storm-emeralda-spotlight.html", "title": "【徹底解剖】ストームエメラルダはなぜ高騰したのか・5年後¥70,000も狙える理由", "desc": "発売日に定価×4.17倍という、当サイト観測でMEGA弾史上最強の初動を記録したストームエメラルダ。高騰要因をメガレックウザex MUR(買取約15.8万・約51BOXに1枚)の射幸性・環境Tier1の対戦実需・ポケポケ同時展開・供給制約の4軸で分解し、68BOXの経過年数別倍率(1年×4.02/3年×2.67/5年×8.08)が描くU字カーブから1年後¥21,000・3年後¥30,000・5年後¥70,000(中立)を予想。", "date": "2026-08-10"},
     {"url": "storm-emeralda-review.html", "title": "【答え合わせ】ストームエメラルダ初動BOXは¥25,000・強気シナリオがほぼ的中", "desc": "2026-07-31発売のストームエメラルダBOX初動が¥25,000(定価×4.17倍)で着地。6月公開の3シナリオ予想を9店舗実データで答え合わせ。確率35%の強気シナリオがほぼ的中し、最有力の中立¥15,000は+67%の大外し。メガレックウザex MURが予想の2倍で始まった影響と、発売3日で-12.8%の調整局面を解説。", "date": "2026-08-02"},
     {"url": "storm-emeralda-forecast.html", "title": "【発売前予想】ストームエメラルダ BOX相場3シナリオ", "desc": "2026-07-31発売のストームエメラルダBOX相場を、過去MEGA弾M1〜M5の最新実データ+レックウザ三巨頭人気+蒼空ストリームの系譜から3シナリオ(弱気¥10,000/中立¥15,000/強気¥30,000)で徹底予想。メガレックウザex封入率・投資判断3基準も解説。", "date": "2026-06-22"},
@@ -1011,6 +1013,8 @@ def _build_box_narrative(
         "skyscraping-perfect": ("skyscraping-perfect-atari-guide.html", "摩天パーフェクト 当たりカードランキング・封入率完全ガイド"),
         "time-gazer": ("time-gazer-atari-guide.html", "タイムゲイザー 当たりカードランキング・封入率完全ガイド"),
         "space-juggler": ("space-juggler-atari-guide.html", "スペースジャグラー 当たりカードランキング・封入率完全ガイド"),
+        "paradigm-trigger": ("paradigm-trigger-atari-guide.html", "パラダイムトリガー 当たりカードランキング・封入率完全ガイド"),
+        "dark-phantasma": ("dark-phantasma-atari-guide.html", "ダークファンタズマ 当たりカードランキング・封入率完全ガイド"),
         "abyss-eye": ("abyss-eye-atari-guide.html", "アビスアイ 当たりカードランキング・封入率完全ガイド"),
         "mega-ex": ("mega-ex-atari-guide.html", "MEGAドリームex 当たりカードランキング・封入率完全ガイド"),
         "inferno": ("inferno-x-atari-guide.html", "インフェルノX 当たりカードランキング・封入率完全ガイド"),
@@ -2011,6 +2015,8 @@ def _update_sitemap(
         ("/30th-celebration-atari-yosou.html", "weekly", "0.9", "2026-08-11"),
         ("/30th-celebration-forecast.html", "weekly", "0.9", "2026-08-11"),
         ("/pokemon-go-atari-guide.html", "monthly", "0.8", "2026-08-11"),
+        ("/paradigm-trigger-atari-guide.html", "monthly", "0.8", "2026-08-11"),
+        ("/dark-phantasma-atari-guide.html", "monthly", "0.8", "2026-08-11"),
         ("/space-juggler-atari-guide.html", "monthly", "0.8", "2026-08-11"),
         ("/time-gazer-atari-guide.html", "monthly", "0.8", "2026-08-11"),
         ("/skyscraping-perfect-atari-guide.html", "monthly", "0.8", "2026-08-11"),
@@ -2605,6 +2611,8 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <a href="skyscraping-perfect-atari-guide.html">摩天パーフェクト 当たりカード</a>
 <a href="time-gazer-atari-guide.html">タイムゲイザー 当たりカード</a>
 <a href="space-juggler-atari-guide.html">スペースジャグラー 当たりカード</a>
+<a href="paradigm-trigger-atari-guide.html">パラダイムトリガー 当たりカード</a>
+<a href="dark-phantasma-atari-guide.html">ダークファンタズマ 当たりカード</a>
 <a href="ninja-spinner-atari-guide.html">ニンジャスピナー 当たりカード</a>
 <a href="munikis-zero-atari-guide.html">ムニキスゼロ 当たりカード</a>
 <a href="mega-sinfonia-atari-guide.html">メガシンフォニア 当たりカード</a>
