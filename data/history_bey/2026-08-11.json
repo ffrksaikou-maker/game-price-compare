@@ -150,7 +150,7 @@
     "retail_price": 1400,
     "max_price": 4500,
     "prices": {
-      "morimori": 3200,
+      "morimori": 2700,
       "rudeya": 4500,
       "icchome": 4000
     }
@@ -216,9 +216,9 @@
     "name": "CX-13 バハムートブリッツBK1-50I",
     "category": "cx",
     "retail_price": 2200,
-    "max_price": 2800,
+    "max_price": 2500,
     "prices": {
-      "morimori": 2800,
+      "morimori": 2500,
       "rudeya": 2500,
       "icchome": 2500
     }

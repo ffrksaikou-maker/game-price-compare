@@ -1,19 +1,19 @@
 {
  "UX-15 シャークスケイルデッキセット": {
   "price": 15000,
-  "top_avg": 14005,
-  "top_n": 9,
-  "samples": 42,
-  "median": 12111,
+  "top_avg": 14012,
+  "top_n": 8,
+  "samples": 39,
+  "median": 12222,
   "keyword": "ベイブレードX UX-15",
   "period_days": 30
  },
  "UX-03 ウィザードロッド5-70DB": {
   "price": 9800,
-  "top_avg": 7300,
+  "top_avg": 7299,
   "top_n": 9,
   "samples": 44,
-  "median": 6155,
+  "median": 6055,
   "keyword": "ベイブレードX UX-03",
   "period_days": 30
  },
@@ -21,7 +21,7 @@
   "price": 9250,
   "top_avg": 6477,
   "top_n": 5,
-  "samples": 22,
+  "samples": 23,
   "median": 5500,
   "keyword": "ベイブレードX UX-20",
   "period_days": 30
@@ -57,17 +57,17 @@
   "price": 4890,
   "top_avg": 4714,
   "top_n": 5,
-  "samples": 22,
-  "median": 4449,
+  "samples": 21,
+  "median": 4444,
   "keyword": "ベイブレードX UX-11",
   "period_days": 30
  },
  "UX-19 バレットグリフォンH": {
   "price": 5220,
-  "top_avg": 4960,
+  "top_avg": 4935,
   "top_n": 8,
-  "samples": 39,
-  "median": 4599,
+  "samples": 38,
+  "median": 4583,
   "keyword": "ベイブレードX UX-19",
   "period_days": 30
  },
@@ -75,7 +75,7 @@
   "price": 4950,
   "top_avg": 4774,
   "top_n": 5,
-  "samples": 22,
+  "samples": 21,
   "median": 4499,
   "keyword": "ベイブレードX UX-17",
   "period_days": 30
@@ -99,8 +99,8 @@
   "period_days": 30
  },
  "UX-18 ランダムブースターVol.8": {
-  "price": 6980,
-  "top_avg": 5313,
+  "price": 6200,
+  "top_avg": 5053,
   "top_n": 3,
   "samples": 3,
   "median": 4980,
@@ -129,8 +129,8 @@
   "price": 5999,
   "top_avg": 4369,
   "top_n": 7,
-  "samples": 35,
-  "median": 3600,
+  "samples": 34,
+  "median": 3640,
   "keyword": "ベイブレードX CX-07",
   "period_days": 30
  },
@@ -147,8 +147,8 @@
   "price": 4666,
   "top_avg": 3048,
   "top_n": 4,
-  "samples": 19,
-  "median": 2222,
+  "samples": 20,
+  "median": 2256,
   "keyword": "ベイブレードX CX-15",
   "period_days": 30
  },
@@ -172,10 +172,10 @@
  },
  "CX-13 バハムートブリッツBK1-50I": {
   "price": 7700,
-  "top_avg": 4773,
-  "top_n": 10,
-  "samples": 47,
-  "median": 3820,
+  "top_avg": 4804,
+  "top_n": 9,
+  "samples": 46,
+  "median": 3810,
   "keyword": "ベイブレードX CX-13",
   "period_days": 30
  },
@@ -201,8 +201,8 @@
   "price": 3280,
   "top_avg": 2909,
   "top_n": 5,
-  "samples": 27,
-  "median": 2300,
+  "samples": 26,
+  "median": 2261,
   "keyword": "ベイブレードX CX-12",
   "period_days": 30
  },
@@ -216,10 +216,10 @@
   "period_days": 30
  },
  "BX-23 フェニックスウイング9-60GF": {
-  "price": 4500,
-  "top_avg": 4322,
+  "price": 7999,
+  "top_avg": 4830,
   "top_n": 7,
-  "samples": 32,
+  "samples": 34,
   "median": 4075,
   "keyword": "ベイブレードX BX-23",
   "period_days": 30
@@ -237,23 +237,23 @@
   "price": 4999,
   "top_avg": 4733,
   "top_n": 4,
-  "samples": 18,
-  "median": 3667,
+  "samples": 19,
+  "median": 3555,
   "keyword": "ベイブレードX BX-50",
   "period_days": 30
  },
  "BX-09 ベイバトルパス": {
   "price": 17000,
-  "top_avg": 10813,
-  "top_n": 9,
-  "samples": 45,
-  "median": 8500,
+  "top_avg": 10621,
+  "top_n": 10,
+  "samples": 46,
+  "median": 8447,
   "keyword": "ベイブレードX BX-09",
   "period_days": 30
  },
  "BX-48 ランダムブースターVol.9": {
   "price": 7999,
-  "top_avg": 7889,
+  "top_avg": 7770,
   "top_n": 4,
   "samples": 19,
   "median": 4900,
@@ -283,7 +283,7 @@
   "top_avg": 5980,
   "top_n": 5,
   "samples": 24,
-  "median": 4540,
+  "median": 4639,
   "keyword": "ベイブレードX BX-10",
   "period_days": 30
  },
@@ -336,16 +336,16 @@
   "price": 18020,
   "top_avg": 10912,
   "top_n": 14,
-  "samples": 72,
-  "median": 7366,
+  "samples": 71,
+  "median": 7400,
   "keyword": "ベイブレードX ドランブレイブS6-60V",
   "period_days": 30
  },
  "CX-00 ペガサスブラストATr メタルコート:レッド": {
   "price": 12999,
-  "top_avg": 9333,
-  "top_n": 12,
-  "samples": 59,
+  "top_avg": 9610,
+  "top_n": 11,
+  "samples": 57,
   "median": 5555,
   "keyword": "ベイブレードX ペガサスブラストATr",
   "period_days": 30
@@ -379,10 +379,10 @@
  },
  "UX-21 ヘルズネザーデッキセット": {
   "price": 22345,
-  "top_avg": 13173,
+  "top_avg": 13218,
   "top_n": 11,
-  "samples": 56,
-  "median": 10965,
+  "samples": 55,
+  "median": 10800,
   "keyword": "ベイブレードX UX-21",
   "period_days": 30
  },
