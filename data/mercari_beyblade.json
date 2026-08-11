@@ -3,26 +3,26 @@
   "price": 15000,
   "top_avg": 13800,
   "top_n": 8,
-  "samples": 39,
-  "median": 12222,
+  "samples": 40,
+  "median": 12361,
   "keyword": "ベイブレードX UX-15",
   "period_days": 30
  },
  "UX-03 ウィザードロッド5-70DB": {
   "price": 9800,
-  "top_avg": 7362,
-  "top_n": 8,
-  "samples": 40,
+  "top_avg": 7266,
+  "top_n": 9,
+  "samples": 41,
   "median": 6000,
   "keyword": "ベイブレードX UX-03",
   "period_days": 30
  },
  "UX-20 グローリーワルキューレLF": {
   "price": 9250,
-  "top_avg": 6405,
-  "top_n": 6,
-  "samples": 31,
-  "median": 5500,
+  "top_avg": 6283,
+  "top_n": 7,
+  "samples": 32,
+  "median": 5499,
   "keyword": "ベイブレードX UX-20",
   "period_days": 30
  },
@@ -66,8 +66,8 @@
   "price": 5220,
   "top_avg": 4935,
   "top_n": 8,
-  "samples": 38,
-  "median": 4583,
+  "samples": 39,
+  "median": 4567,
   "keyword": "ベイブレードX UX-19",
   "period_days": 30
  },
@@ -244,9 +244,9 @@
  },
  "BX-09 ベイバトルパス": {
   "price": 17000,
-  "top_avg": 10484,
+  "top_avg": 10447,
   "top_n": 10,
-  "samples": 47,
+  "samples": 46,
   "median": 8399,
   "keyword": "ベイブレードX BX-09",
   "period_days": 30
@@ -271,10 +271,10 @@
  },
  "BX-45 サムライカリバー6-70M": {
   "price": 3333,
-  "top_avg": 2648,
-  "top_n": 6,
-  "samples": 26,
-  "median": 2325,
+  "top_avg": 2678,
+  "top_n": 5,
+  "samples": 25,
+  "median": 2350,
   "keyword": "ベイブレードX BX-45",
   "period_days": 30
  },
@@ -325,9 +325,9 @@
  },
  "UX-00 サムライセイバー5-60K メタルコート:サムライブルー サッカー日本代表Ver.": {
   "price": 15999,
-  "top_avg": 12767,
-  "top_n": 14,
-  "samples": 66,
+  "top_avg": 12826,
+  "top_n": 13,
+  "samples": 65,
   "median": 11000,
   "keyword": "ベイブレードX サムライセイバー5-60K",
   "period_days": 30
