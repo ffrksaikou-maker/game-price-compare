@@ -116,6 +116,7 @@ BLOG_ARTICLES = [
     {"url": "ss-box-list.html", "title": "S&S(ソード&シールド) 全BOX一覧", "desc": "S&Sシリーズ全BOXの買取価格・定価・発売日・相場トレンドを9店舗実データで一覧化。イーブイヒーローズ/VMAXクライマックス/25thアニバーサリーなど絶版BOX中心。", "date": "2026-04-22"},
     {"url": "battle-collection-spotlight.html", "title": "スタートデッキ100が大暴落？ピーク¥4,300→¥2,800", "desc": "MEGA スタートデッキ100「バトルコレクション」のBOX買取が4月ピーク¥4,300→¥2,800へ約35%下落。看板メガリザードンYex MUR(No.001)が5月12日の100万円→6月初旬の94.4万円へ反落したのと連動。下落4つの理由・店舗別買取・今後3シナリオ・売り時を実データで解説。", "date": "2026-06-06"},
     {"url": "release-schedule-2026.html", "title": "2026年ポケカ新弾発売カレンダー", "desc": "ムニキスゼロ・ニンジャスピナー発売済み、アビスアイ(5/22発売決定・メガダークライex)、5月値上げ(180→200円)、商標予想(ストームエメラルダ等)、30周年記念商品(世界同時発売)まで完全整理。", "date": "2026-04-21"},
+    {"url": "storm-emeralda-atari-guide.html", "title": "ストームエメラルダ 当たりカードランキング｜メガレックウザex MURは約13万円", "desc": "MEGA拡張パック「ストームエメラルダ」の当たりカードランキングと封入率。メガレックウザex MURは買取約130,000円で封入率は約50BOXに1枚(本弾唯一のMUR)。最高額カード÷BOX買取のカード/BOX比は6.84倍で、インフェルノX(6.67倍)を上回る当サイト最高水準です。一方でBOX買取は発売日の¥25,000から¥19,000へ12日で24%下落。1位と3位で18倍の断崖、開封期待値の概算も実データで解説。", "date": "2026-08-11"},
     {"url": "storm-emeralda-spotlight.html", "title": "【徹底解剖】ストームエメラルダはなぜ高騰したのか・5年後¥70,000も狙える理由", "desc": "発売日に定価×4.17倍という、当サイト観測でMEGA弾史上最強の初動を記録したストームエメラルダ。高騰要因をメガレックウザex MUR(買取約15.8万・約51BOXに1枚)の射幸性・環境Tier1の対戦実需・ポケポケ同時展開・供給制約の4軸で分解し、68BOXの経過年数別倍率(1年×4.02/3年×2.67/5年×8.08)が描くU字カーブから1年後¥21,000・3年後¥30,000・5年後¥70,000(中立)を予想。", "date": "2026-08-10"},
     {"url": "storm-emeralda-review.html", "title": "【答え合わせ】ストームエメラルダ初動BOXは¥25,000・強気シナリオがほぼ的中", "desc": "2026-07-31発売のストームエメラルダBOX初動が¥25,000(定価×4.17倍)で着地。6月公開の3シナリオ予想を9店舗実データで答え合わせ。確率35%の強気シナリオがほぼ的中し、最有力の中立¥15,000は+67%の大外し。メガレックウザex MURが予想の2倍で始まった影響と、発売3日で-12.8%の調整局面を解説。", "date": "2026-08-02"},
     {"url": "storm-emeralda-forecast.html", "title": "【発売前予想】ストームエメラルダ BOX相場3シナリオ", "desc": "2026-07-31発売のストームエメラルダBOX相場を、過去MEGA弾M1〜M5の最新実データ+レックウザ三巨頭人気+蒼空ストリームの系譜から3シナリオ(弱気¥10,000/中立¥15,000/強気¥30,000)で徹底予想。メガレックウザex封入率・投資判断3基準も解説。", "date": "2026-06-22"},
@@ -995,6 +996,7 @@ def _build_box_narrative(
 
     # 当たりカードガイドへの内部リンク (該当BOXのみ)
     atari_links = {
+        "storm-emeralda": ("storm-emeralda-atari-guide.html", "ストームエメラルダ 当たりカードランキング・封入率完全ガイド"),
         "abyss-eye": ("abyss-eye-atari-guide.html", "アビスアイ 当たりカードランキング・封入率完全ガイド"),
         "mega-ex": ("mega-ex-atari-guide.html", "MEGAドリームex 当たりカードランキング・封入率完全ガイド"),
         "inferno": ("inferno-x-atari-guide.html", "インフェルノX 当たりカードランキング・封入率完全ガイド"),
@@ -1995,6 +1997,7 @@ def _update_sitemap(
         ("/30th-celebration-atari-yosou.html", "weekly", "0.9", "2026-08-11"),
         ("/30th-celebration-forecast.html", "weekly", "0.9", "2026-08-11"),
         ("/pokemon-go-atari-guide.html", "monthly", "0.8", "2026-08-11"),
+        ("/storm-emeralda-atari-guide.html", "monthly", "0.8", "2026-08-11"),
         ("/sword-atari-guide.html", "monthly", "0.8", "2026-08-11"),
         ("/shield-atari-guide.html", "monthly", "0.8", "2026-08-11"),
         ("/25th-anniversary-collection-atari-guide.html", "monthly", "0.8", "2026-08-11"),
@@ -2573,6 +2576,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <a href="mega-brave-atari-guide.html">メガブレイブ 当たりカード</a>
 <a href="chouden-breaker-atari-guide.html">超電ブレイカー 当たりカード</a>
 <a href="clay-burst-atari-guide.html">クレイバースト 当たりカード</a>
+<a href="storm-emeralda-atari-guide.html">ストームエメラルダ 当たりカード</a>
 <a href="ninja-spinner-atari-guide.html">ニンジャスピナー 当たりカード</a>
 <a href="munikis-zero-atari-guide.html">ムニキスゼロ 当たりカード</a>
 <a href="mega-sinfonia-atari-guide.html">メガシンフォニア 当たりカード</a>
