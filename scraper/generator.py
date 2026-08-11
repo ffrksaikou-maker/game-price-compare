@@ -146,6 +146,7 @@ BLOG_ARTICLES = [
     {"url": "masterball-mirror-guide.html", "title": "151マスターボールミラー 相場解説", "desc": "全153種のマスターボールミラーをピカチュウ¥55,000・ゲンガー¥60,000などの相場と封入率・コンプ難易度で解説。", "date": "2026-04-14"},
     {"url": "30th-celebration-atari-yosou.html", "title": "【発売前予想】30th CELEBRATION 当たりカード｜FURミュウツーexはいくらになる？", "desc": "2026年9月16日発売のポケカ30周年記念パック「30th CELEBRATION」の当たりカードを発売前予想。史上初の新レアリティFURのミュウツーex(発売直後 約¥90,000と予想)・ミュウex・ピカチュウexの価格を、25周年パックの実績(当サイト実データで定価×13.09)と新レアリティ「アメイジングレア」初登場時の実データから推定。各パック1枚確定のピカチュウ30種が1枚あたり薄まる構造も、26弾の追跡データから解説します。", "date": "2026-08-11"},
     {"url": "30th-celebration-forecast.html", "title": "【抽選締切8/14】30th CELEBRATION BOX3種の相場予想｜1年後・3年後・5年後", "desc": "ポケカ30周年「30th CELEBRATION」の抽選対象BOX3種(拡張パックBOX 定価¥7,200/FUTURISTIC BOX ¥27,500/プレミアムデッキセット エーフィ・ブラッキー ¥6,200)の相場を発売前予想。25周年商品の実績(25thコレクションが当サイト実データで定価×13.09、GOLDEN BOXが最大×15)を土台に、発売直後・1年後・3年後・5年後を3シナリオで算出。ポケモンセンターオンラインの抽選締切は2026年8月14日16:59、発売は9月16日世界同時。", "date": "2026-08-11"},
+    {"url": "pokemon-go-atari-guide.html", "title": "ポケモンGO 当たりカードランキング｜店舗間で1.81倍の価格差", "desc": "強化拡張パック「ポケモンGO」の当たりカードランキングと封入率。ミュウツーV SAは買取約14,000円で、上位5枚のうち4枚をミュウツー関連が占める集中構造。BOX買取は最高¥29,000(定価×5.86)ですが最安は¥16,000と店舗間で約1.81倍・¥13,000の差があり、当サイト追跡68BOX中もっとも店舗差が大きい商品です。かがやくリザードン・かがやくイーブイという特殊枠も収録。", "date": "2026-08-11"},
     {"url": "sword-atari-guide.html", "title": "ソード 当たりカードランキング｜1位はどうぐカードの「ふうせん」UR", "desc": "S&Sシリーズ最初の拡張パック「ソード」の当たりカードランキングと封入率。1位はポケモンでもトレーナーズでもない「ふうせん」URで買取約11,000円。上位3枚をURが独占し、パッケージのザシアンV URは2位(約4,800円)。5位にはR(レア)のゲンガーが入ります。BOX買取¥43,000(定価×8.69)、カード/BOX比0.26倍の希少性牽引型。同日発売のシールドとの1.44倍差も解説。", "date": "2026-08-11"},
     {"url": "shield-atari-guide.html", "title": "シールド 当たりカードランキング｜マリィSRは買取約4.8万円", "desc": "S&Sシリーズ最初の拡張パック「シールド」の当たりカードランキングと封入率。マリィSRは買取約48,000円で、2位クイックボールUR(約12,000円)とは4倍差の一強型。ポケモンではなくサポートカードが1位で、パッケージのザマゼンタV URは7位(約1,900円)にとどまります。BOX買取¥62,000(定価×12.53)。同日・同定価発売のソード(BOX¥43,000)との1.44倍差を1位カードの価格差から解説。", "date": "2026-08-11"},
     {"url": "25th-anniversary-collection-atari-guide.html", "title": "25th ANNIVERSARY COLLECTION 当たりカードランキング｜上位8枚中7枚がBOXから出ないプロモ", "desc": "拡張パック「25th ANNIVERSARY COLLECTION」の当たりカードランキングと封入率。1位リザードン25thプロモは買取約60,000円ですが、上位8枚のうち7枚がプロモでBOXを開封しても出ません。プロモパックは拡張パック4個購入で1個配布されたキャンペーン品(全25種からランダム1枚)。BOXから出る最高額はミュウ25th URの約29,000円で、BOX買取¥72,000(定価×13.09)の約0.40倍。30周年パックを検討する際の最重要参照点です。", "date": "2026-08-11"},
@@ -1026,6 +1027,7 @@ def _build_box_narrative(
         "cyber-judge": ("cyber-judge-atari-guide.html", "サイバージャッジ 当たりカードランキング・封入率完全ガイド"),
         "snow-hazard": ("snow-hazard-atari-guide.html", "スノーハザード 当たりカードランキング・封入率完全ガイド"),
         "neppuu-arena": ("neppuu-arena-atari-guide.html", "熱風のアリーナ 当たりカードランキング・封入率完全ガイド"),
+        "pokemon-go": ("pokemon-go-atari-guide.html", "ポケモンGO 当たりカードランキング・封入率完全ガイド"),
         "sword": ("sword-atari-guide.html", "ソード 当たりカードランキング・封入率完全ガイド"),
         "shield": ("shield-atari-guide.html", "シールド 当たりカードランキング・封入率完全ガイド"),
         "25th-anniversary-collection": ("25th-anniversary-collection-atari-guide.html", "25th ANNIVERSARY COLLECTION 当たりカードランキング・封入率完全ガイド"),
@@ -1992,6 +1994,7 @@ def _update_sitemap(
         ("/neppuu-arena-atari-guide.html", "monthly", "0.9", "2026-08-10"),
         ("/30th-celebration-atari-yosou.html", "weekly", "0.9", "2026-08-11"),
         ("/30th-celebration-forecast.html", "weekly", "0.9", "2026-08-11"),
+        ("/pokemon-go-atari-guide.html", "monthly", "0.8", "2026-08-11"),
         ("/sword-atari-guide.html", "monthly", "0.8", "2026-08-11"),
         ("/shield-atari-guide.html", "monthly", "0.8", "2026-08-11"),
         ("/25th-anniversary-collection-atari-guide.html", "monthly", "0.8", "2026-08-11"),
@@ -2576,6 +2579,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <a href="black-bolt-atari-guide.html">ブラックボルト 当たりカード</a>
 <a href="white-flare-atari-guide.html">ホワイトフレア 当たりカード</a>
 <a href="rocket-dan-no-eiko-atari-guide.html">ロケット団の栄光 当たりカード</a>
+<a href="pokemon-go-atari-guide.html">ポケモンGO 当たりカード</a>
 <a href="sword-atari-guide.html">ソード 当たりカード</a>
 <a href="shield-atari-guide.html">シールド 当たりカード</a>
 <a href="25th-anniversary-collection-atari-guide.html">25th ANNIVERSARY 当たりカード</a>
