@@ -21,16 +21,16 @@
   "price": 9500,
   "top_avg": 6636,
   "top_n": 5,
-  "samples": 24,
+  "samples": 25,
   "median": 5500,
   "keyword": "ベイブレードX UX-20",
   "period_days": 30
  },
  "UX-01 ドランバスター1-60A": {
   "price": 7999,
-  "top_avg": 5445,
+  "top_avg": 5497,
   "top_n": 8,
-  "samples": 36,
+  "samples": 37,
   "median": 4400,
   "keyword": "ベイブレードX UX-01",
   "period_days": 30
@@ -72,8 +72,8 @@
   "period_days": 30
  },
  "UX-17 メテオドラグーン3-70J": {
-  "price": 5200,
-  "top_avg": 4970,
+  "price": 4999,
+  "top_avg": 4870,
   "top_n": 5,
   "samples": 23,
   "median": 4500,
@@ -93,8 +93,8 @@
   "price": 8840,
   "top_avg": 8380,
   "top_n": 4,
-  "samples": 21,
-  "median": 5699,
+  "samples": 20,
+  "median": 5627,
   "keyword": "ベイブレードX UX-16",
   "period_days": 30
  },
@@ -129,8 +129,8 @@
   "price": 5999,
   "top_avg": 4369,
   "top_n": 7,
-  "samples": 34,
-  "median": 3640,
+  "samples": 35,
+  "median": 3600,
   "keyword": "ベイブレードX CX-07",
   "period_days": 30
  },
@@ -181,10 +181,10 @@
  },
  "CX-17 ランダムブースターVol.10": {
   "price": 4500,
-  "top_avg": 3300,
+  "top_avg": 3366,
   "top_n": 3,
-  "samples": 13,
-  "median": 2200,
+  "samples": 14,
+  "median": 2211,
   "keyword": "ベイブレードX CX-17",
   "period_days": 30
  },
@@ -228,8 +228,8 @@
   "price": 4000,
   "top_avg": 3983,
   "top_n": 6,
-  "samples": 28,
-  "median": 3638,
+  "samples": 27,
+  "median": 3677,
   "keyword": "ベイブレードX BX-49",
   "period_days": 30
  },
@@ -262,9 +262,9 @@
  },
  "BX-34 コバルトドラグーン2-60C": {
   "price": 5580,
-  "top_avg": 4246,
-  "top_n": 6,
-  "samples": 29,
+  "top_avg": 4181,
+  "top_n": 7,
+  "samples": 31,
   "median": 3399,
   "keyword": "ベイブレードX BX-34",
   "period_days": 30
@@ -345,25 +345,25 @@
   "price": 12999,
   "top_avg": 9368,
   "top_n": 12,
-  "samples": 59,
+  "samples": 60,
   "median": 5800,
   "keyword": "ベイブレードX ペガサスブラストATr",
   "period_days": 30
  },
  "BX-00 コバルトドラグーン2-60C メタルコート:ブラック": {
   "price": 10999,
-  "top_avg": 6679,
+  "top_avg": 6699,
   "top_n": 5,
-  "samples": 21,
+  "samples": 23,
   "median": 4980,
   "keyword": "ベイブレードX コバルトドラグーン2-60C",
   "period_days": 30
  },
  "BX-00 ストームペガシス3-70RA": {
   "price": 7500,
-  "top_avg": 5024,
-  "top_n": 10,
-  "samples": 47,
+  "top_avg": 5138,
+  "top_n": 9,
+  "samples": 46,
   "median": 3000,
   "keyword": "ベイブレードX ストームペガシス3-70RA",
   "period_days": 30
@@ -379,9 +379,9 @@
  },
  "UX-21 ヘルズネザーデッキセット": {
   "price": 12500,
-  "top_avg": 11456,
+  "top_avg": 11513,
   "top_n": 13,
-  "samples": 64,
+  "samples": 63,
   "median": 10999,
   "keyword": "ベイブレードX UX-21",
   "period_days": 30
