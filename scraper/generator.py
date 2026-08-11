@@ -146,6 +146,7 @@ BLOG_ARTICLES = [
     {"url": "masterball-mirror-guide.html", "title": "151マスターボールミラー 相場解説", "desc": "全153種のマスターボールミラーをピカチュウ¥55,000・ゲンガー¥60,000などの相場と封入率・コンプ難易度で解説。", "date": "2026-04-14"},
     {"url": "30th-celebration-atari-yosou.html", "title": "【発売前予想】30th CELEBRATION 当たりカード｜FURミュウツーexはいくらになる？", "desc": "2026年9月16日発売のポケカ30周年記念パック「30th CELEBRATION」の当たりカードを発売前予想。史上初の新レアリティFURのミュウツーex(発売直後 約¥90,000と予想)・ミュウex・ピカチュウexの価格を、25周年パックの実績(当サイト実データで定価×13.09)と新レアリティ「アメイジングレア」初登場時の実データから推定。各パック1枚確定のピカチュウ30種が1枚あたり薄まる構造も、26弾の追跡データから解説します。", "date": "2026-08-11"},
     {"url": "30th-celebration-forecast.html", "title": "【抽選締切8/14】30th CELEBRATION BOX3種の相場予想｜1年後・3年後・5年後", "desc": "ポケカ30周年「30th CELEBRATION」の抽選対象BOX3種(拡張パックBOX 定価¥7,200/FUTURISTIC BOX ¥27,500/プレミアムデッキセット エーフィ・ブラッキー ¥6,200)の相場を発売前予想。25周年商品の実績(25thコレクションが当サイト実データで定価×13.09、GOLDEN BOXが最大×15)を土台に、発売直後・1年後・3年後・5年後を3シナリオで算出。ポケモンセンターオンラインの抽選締切は2026年8月14日16:59、発売は9月16日世界同時。", "date": "2026-08-11"},
+    {"url": "25th-anniversary-collection-atari-guide.html", "title": "25th ANNIVERSARY COLLECTION 当たりカードランキング｜上位8枚中7枚がBOXから出ないプロモ", "desc": "拡張パック「25th ANNIVERSARY COLLECTION」の当たりカードランキングと封入率。1位リザードン25thプロモは買取約60,000円ですが、上位8枚のうち7枚がプロモでBOXを開封しても出ません。プロモパックは拡張パック4個購入で1個配布されたキャンペーン品(全25種からランダム1枚)。BOXから出る最高額はミュウ25th URの約29,000円で、BOX買取¥72,000(定価×13.09)の約0.40倍。30周年パックを検討する際の最重要参照点です。", "date": "2026-08-11"},
     {"url": "eruption-walker-atari-guide.html", "title": "爆炎ウォーカー 当たりカードランキング｜BOX¥42,000に対し最高額カードは約3,500円", "desc": "強化拡張パック「爆炎ウォーカー」の当たりカードランキングと封入率。最高額はサーナイトVMAX HRで買取約3,500円と当サイト追跡26弾で2番目に中身が安い弾。一方で未開封BOXは¥42,000(定価×8.48)、カード/BOX比0.083倍。同じサーナイトでもスカーレットexのex SAR(約22,000円)とは約6.3倍差があり、SAR/SAという受け皿の有無が価格を左右することを示します。2020年発売6弾の総括も収録。", "date": "2026-08-11"},
     {"url": "legendary-heartbeat-atari-guide.html", "title": "伝説の鼓動 当たりカードランキング｜上位6枚すべてがアメイジングレア", "desc": "強化拡張パック「伝説の鼓動」の当たりカードランキングと封入率。上位6枚すべてをアメイジングレア(A)が占める唯一の構成で、1位レックウザAは買取約15,000円。アメイジングレアが初登場した弾です。BOX買取¥40,000(定価×8.08)に対し最高額カードは約0.375倍で、2020年発売弾に共通する希少性牽引型。同じレックウザでも収録弾とレアリティで約53倍差がつく構造も解説。", "date": "2026-08-11"},
     {"url": "vmax-climax-atari-guide.html", "title": "VMAXクライマックス 当たりカードランキング｜上位8枚すべてが7,000円超の層厚型", "desc": "ハイクラスパック「VMAXクライマックス」の当たりカードランキングと封入率。1位レックウザVMAX UR(約29,000円)から8位ニンフィアVMAX CSR(約7,000円)まで上位8枚すべてが7,000円を超え、1位と8位の差はわずか約4.1倍。当サイト追跡24弾でもっとも層の厚い弾です。BOX買取¥37,500(定価¥5,500・×6.82)。CSRを擁するハイクラスパック特有の設計と、同じレックウザVMAXでも弾とレアリティで約27倍差がつく構造を解説。", "date": "2026-08-11"},
@@ -1023,6 +1024,7 @@ def _build_box_narrative(
         "cyber-judge": ("cyber-judge-atari-guide.html", "サイバージャッジ 当たりカードランキング・封入率完全ガイド"),
         "snow-hazard": ("snow-hazard-atari-guide.html", "スノーハザード 当たりカードランキング・封入率完全ガイド"),
         "neppuu-arena": ("neppuu-arena-atari-guide.html", "熱風のアリーナ 当たりカードランキング・封入率完全ガイド"),
+        "25th-anniversary-collection": ("25th-anniversary-collection-atari-guide.html", "25th ANNIVERSARY 当たりカード 当たりカードランキング・封入率完全ガイド"),
         "eruption-walker": ("eruption-walker-atari-guide.html", "爆炎ウォーカー 当たりカードランキング・封入率完全ガイド"),
         "legendary-heartbeat": ("legendary-heartbeat-atari-guide.html", "伝説の鼓動 当たりカードランキング・封入率完全ガイド"),
         "vmax-climax": ("vmax-climax-atari-guide.html", "VMAXクライマックス 当たりカードランキング・封入率完全ガイド"),
@@ -1986,6 +1988,7 @@ def _update_sitemap(
         ("/neppuu-arena-atari-guide.html", "monthly", "0.9", "2026-08-10"),
         ("/30th-celebration-atari-yosou.html", "weekly", "0.9", "2026-08-11"),
         ("/30th-celebration-forecast.html", "weekly", "0.9", "2026-08-11"),
+        ("/25th-anniversary-collection-atari-guide.html", "monthly", "0.8", "2026-08-11"),
         ("/eruption-walker-atari-guide.html", "monthly", "0.8", "2026-08-11"),
         ("/legendary-heartbeat-atari-guide.html", "monthly", "0.8", "2026-08-11"),
         ("/vmax-climax-atari-guide.html", "monthly", "0.8", "2026-08-11"),
@@ -2567,6 +2570,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <a href="black-bolt-atari-guide.html">ブラックボルト 当たりカード</a>
 <a href="white-flare-atari-guide.html">ホワイトフレア 当たりカード</a>
 <a href="rocket-dan-no-eiko-atari-guide.html">ロケット団の栄光 当たりカード</a>
+<a href="25th-anniversary-collection-atari-guide.html">25th ANNIVERSARY 当たりカード 当たりカード</a>
 <a href="eruption-walker-atari-guide.html">爆炎ウォーカー 当たりカード</a>
 <a href="legendary-heartbeat-atari-guide.html">伝説の鼓動 当たりカード</a>
 <a href="vmax-climax-atari-guide.html">VMAXクライマックス 当たりカード</a>
