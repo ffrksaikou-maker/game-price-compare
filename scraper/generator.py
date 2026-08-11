@@ -118,6 +118,9 @@ BLOG_ARTICLES = [
     {"url": "release-schedule-2026.html", "title": "2026年ポケカ新弾発売カレンダー", "desc": "ムニキスゼロ・ニンジャスピナー発売済み、アビスアイ(5/22発売決定・メガダークライex)、5月値上げ(180→200円)、商標予想(ストームエメラルダ等)、30周年記念商品(世界同時発売)まで完全整理。", "date": "2026-04-21"},
     {"url": "storm-emeralda-atari-guide.html", "title": "ストームエメラルダ 当たりカードランキング｜メガレックウザex MURは約13万円", "desc": "MEGA拡張パック「ストームエメラルダ」の当たりカードランキングと封入率。メガレックウザex MURは買取約130,000円で封入率は約50BOXに1枚(本弾唯一のMUR)。最高額カード÷BOX買取のカード/BOX比は6.84倍で、インフェルノX(6.67倍)を上回る当サイト最高水準です。一方でBOX買取は発売日の¥25,000から¥19,000へ12日で24%下落。1位と3位で18倍の断崖、開封期待値の概算も実データで解説。", "date": "2026-08-11"},
     {"url": "vstar-universe-atari-guide.html", "title": "VSTARユニバース 当たりカードランキング｜1位は最高レアではなくピカチュウAR", "desc": "ハイクラスパック「VSTARユニバース」の当たりカードランキングと封入率。最高額は最高レアリティのURではなくピカチュウ AR(買取約40,000円)で、約250BOXに1パックといわれるAR9枚セット由来です。上位10枚すべてが4,500円以上という層の厚さはハイクラスパック随一。BOX買取は9店舗最高¥31,000(定価×5.64)で、最高値と最安値の差は1.11倍と当サイト追跡BOXでもとくに小さく、絶版から3年で相場が固まったことを示します。", "date": "2026-08-11"},
+    {"url": "shiny-star-v-atari-guide.html", "title": "シャイニースターV 当たりカードランキング｜リザードンVMAX SSRは約17,000円", "desc": "ハイクラスパック「シャイニースターV」の当たりカードランキングと封入率。色違い(シャイニー)を大量収録した2020年の総集編で、最高額はリザードンVMAX SSR約17,000円、2位リザードンV SSR約10,000円、3位マリィ SR約10,000円。SSRは1BOXに1枚確定ですが全23種のため特定の1枚は約23BOXに1枚。BOX買取は最高¥21,300(定価×3.87)、カード/BOX比0.80倍でVMAXクライマックス(0.77倍)とほぼ同じ希少性牽引型です。", "date": "2026-08-11"},
+    {"url": "silver-lance-atari-guide.html", "title": "白銀のランス 当たりカードランキング｜はくばバドレックスVMAX SAは約6万円", "desc": "拡張パック「白銀のランス」の当たりカードランキングと封入率。はくばバドレックスVMAX SA(買取約60,000円)が突出し、2位ガラルギャロップV SA(約5,500円)とは約10.9倍の断崖がある一強型。同日発売の漆黒のガイストとは1位カードで1.17倍・BOX買取で1.11倍の差があり、当サイトが統制ペア(ソード/シールド、連撃/一撃)で確認してきた「1位カードの差はBOX価格に圧縮されて伝わる」法則がここでも成立します。", "date": "2026-08-11"},
+    {"url": "jet-black-geist-atari-guide.html", "title": "漆黒のガイスト 当たりカードランキング｜こくばバドレックスVMAX SAは約7万円", "desc": "拡張パック「漆黒のガイスト」の当たりカードランキングと封入率。こくばバドレックスVMAX SA(買取約70,000円)が最高額で、2位ゼラオラV SA約14,000円・3位カトレア SR約8,500円と2番手以降も厚い構成。同日発売の白銀のランスをBOX買取で約1.11倍上回っており、1位カードより2位・3位の差(約2.5倍)のほうが大きいのにBOX差は圧縮される、という関係を実データで解説します。", "date": "2026-08-11"},
     {"url": "storm-emeralda-spotlight.html", "title": "【徹底解剖】ストームエメラルダはなぜ高騰したのか・5年後¥70,000も狙える理由", "desc": "発売日に定価×4.17倍という、当サイト観測でMEGA弾史上最強の初動を記録したストームエメラルダ。高騰要因をメガレックウザex MUR(買取約15.8万・約51BOXに1枚)の射幸性・環境Tier1の対戦実需・ポケポケ同時展開・供給制約の4軸で分解し、68BOXの経過年数別倍率(1年×4.02/3年×2.67/5年×8.08)が描くU字カーブから1年後¥21,000・3年後¥30,000・5年後¥70,000(中立)を予想。", "date": "2026-08-10"},
     {"url": "storm-emeralda-review.html", "title": "【答え合わせ】ストームエメラルダ初動BOXは¥25,000・強気シナリオがほぼ的中", "desc": "2026-07-31発売のストームエメラルダBOX初動が¥25,000(定価×4.17倍)で着地。6月公開の3シナリオ予想を9店舗実データで答え合わせ。確率35%の強気シナリオがほぼ的中し、最有力の中立¥15,000は+67%の大外し。メガレックウザex MURが予想の2倍で始まった影響と、発売3日で-12.8%の調整局面を解説。", "date": "2026-08-02"},
     {"url": "storm-emeralda-forecast.html", "title": "【発売前予想】ストームエメラルダ BOX相場3シナリオ", "desc": "2026-07-31発売のストームエメラルダBOX相場を、過去MEGA弾M1〜M5の最新実データ+レックウザ三巨頭人気+蒼空ストリームの系譜から3シナリオ(弱気¥10,000/中立¥15,000/強気¥30,000)で徹底予想。メガレックウザex封入率・投資判断3基準も解説。", "date": "2026-06-22"},
@@ -999,6 +1002,9 @@ def _build_box_narrative(
     atari_links = {
         "storm-emeralda": ("storm-emeralda-atari-guide.html", "ストームエメラルダ 当たりカードランキング・封入率完全ガイド"),
         "vstar-universe": ("vstar-universe-atari-guide.html", "VSTARユニバース 当たりカードランキング・封入率完全ガイド"),
+        "shiny-star": ("shiny-star-v-atari-guide.html", "シャイニースターV 当たりカードランキング・封入率完全ガイド"),
+        "silver-lance": ("silver-lance-atari-guide.html", "白銀のランス 当たりカードランキング・封入率完全ガイド"),
+        "jet-black-geist": ("jet-black-geist-atari-guide.html", "漆黒のガイスト 当たりカードランキング・封入率完全ガイド"),
         "abyss-eye": ("abyss-eye-atari-guide.html", "アビスアイ 当たりカードランキング・封入率完全ガイド"),
         "mega-ex": ("mega-ex-atari-guide.html", "MEGAドリームex 当たりカードランキング・封入率完全ガイド"),
         "inferno": ("inferno-x-atari-guide.html", "インフェルノX 当たりカードランキング・封入率完全ガイド"),
@@ -1999,6 +2005,9 @@ def _update_sitemap(
         ("/30th-celebration-atari-yosou.html", "weekly", "0.9", "2026-08-11"),
         ("/30th-celebration-forecast.html", "weekly", "0.9", "2026-08-11"),
         ("/pokemon-go-atari-guide.html", "monthly", "0.8", "2026-08-11"),
+        ("/jet-black-geist-atari-guide.html", "monthly", "0.8", "2026-08-11"),
+        ("/silver-lance-atari-guide.html", "monthly", "0.8", "2026-08-11"),
+        ("/shiny-star-v-atari-guide.html", "monthly", "0.8", "2026-08-11"),
         ("/vstar-universe-atari-guide.html", "monthly", "0.8", "2026-08-11"),
         ("/storm-emeralda-atari-guide.html", "monthly", "0.8", "2026-08-11"),
         ("/sword-atari-guide.html", "monthly", "0.8", "2026-08-11"),
@@ -2581,6 +2590,9 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <a href="clay-burst-atari-guide.html">クレイバースト 当たりカード</a>
 <a href="storm-emeralda-atari-guide.html">ストームエメラルダ 当たりカード</a>
 <a href="vstar-universe-atari-guide.html">VSTARユニバース 当たりカード</a>
+<a href="shiny-star-v-atari-guide.html">シャイニースターV 当たりカード</a>
+<a href="silver-lance-atari-guide.html">白銀のランス 当たりカード</a>
+<a href="jet-black-geist-atari-guide.html">漆黒のガイスト 当たりカード</a>
 <a href="ninja-spinner-atari-guide.html">ニンジャスピナー 当たりカード</a>
 <a href="munikis-zero-atari-guide.html">ムニキスゼロ 当たりカード</a>
 <a href="mega-sinfonia-atari-guide.html">メガシンフォニア 当たりカード</a>
