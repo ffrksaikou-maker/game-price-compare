@@ -212,12 +212,12 @@ def _jsonld(products: list[MasterProduct]) -> str:
 
 
 def _ai_summary(products: list[MasterProduct]) -> str:
-    priced = [p for p in products if p.prices]
-    n = len(priced)
-    return (f'<div style="display:none" aria-hidden="true">'
-            f'ONE PIECEカードゲーム未開封BOX {n}商品の買取価格を最大9店舗で横断比較。'
-            f'通常ブースター(OP)・エクストラブースター(EB)・プレミアムブースター(PRB)・'
-            f'スタートデッキを毎日自動更新。</div>')
+    """AI検索向けサマリーの差し込み位置。現在は何も出力しない。
+
+    display:none + aria-hidden はユーザーにも支援技術にも見えず
+    クローラーだけが読む隠しテキストになるため出力を止めた。
+    """
+    return ""
 
 
 def generate_onepiece_html(products: list[MasterProduct]) -> str:

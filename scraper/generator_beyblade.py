@@ -187,13 +187,12 @@ def _jsonld(products: list[MasterProduct]) -> str:
 
 
 def _ai_summary(products: list[MasterProduct], market: dict) -> str:
-    priced = [p for p in products if p.prices]
-    n = len(priced)
-    m = len([p for p in priced if (market.get(p.name) or {}).get("price")])
-    return (f'<div style="display:none" aria-hidden="true">'
-            f'ベイブレードX {n}商品の買取価格を森森・ルデヤ・ホムラ・一丁目の4店舗で横断比較。'
-            f'うち{m}商品はメルカリの売却相場(中央値)も併記し、買取とフリマのどちらが'
-            f'高いかを比較できる。UX・CX・BXの各ラインと限定品を毎日自動更新。</div>')
+    """AI検索向けサマリーの差し込み位置。現在は何も出力しない。
+
+    display:none + aria-hidden はユーザーにも支援技術にも見えず
+    クローラーだけが読む隠しテキストになるため出力を止めた。
+    """
+    return ""
 
 
 def _append_beyblade_sitemap() -> None:

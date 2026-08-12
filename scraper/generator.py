@@ -342,42 +342,15 @@ def generate_jsonld(products: list[MasterProduct]) -> str:
 
 
 def generate_ai_summary(products: list[MasterProduct]) -> str:
-    """Generate a natural language summary for AI crawlers."""
-    now = datetime.now(JST)
-    date_str = now.strftime("%Y年%m月%d日")
+    """AI検索向けサマリーの差し込み位置。現在は何も出力しない。
 
-    # Collect top products by max buyback price
-    ranked = []
-    for p in products:
-        active = {k: v for k, v in p.prices.items() if v > 0}
-        if not active:
-            continue
-        max_shop = max(active, key=active.get)
-        ranked.append((p, active, max_shop))
-
-    ranked.sort(key=lambda x: max(x[1].values()), reverse=True)
-
-    shop_names = {
-        "morimori": "森森買取", "homura": "買取ホムラ", "icchome": "買取一丁目",
-        "runto": "ラントゥ買取", "kaikyo": "海峡通信",
-        "oku": "買取オク", "rudeya": "買取ルデヤ",
-    }
-
-    lines = []
-    lines.append(f"ポケカ買取チェッカー - {date_str}更新。ポケモンカード未開封BOXの買取価格を9店舗で横断比較。")
-
-    # Top 5 products
-    lines.append(f"【{date_str}時点の買取価格ランキング TOP5】")
-    for i, (p, active, max_shop) in enumerate(ranked[:5]):
-        max_price = max(active.values())
-        min_price = min(active.values())
-        shop = shop_names.get(max_shop, max_shop)
-        lines.append(f"{i+1}位: {p.name} - 最高¥{max_price:,}({shop}) / 最安¥{min_price:,} / {len(active)}店舗掲載")
-
-    lines.append(f"対応店舗: {', '.join(shop_names.values())}。毎日3回（11:00/15:00/18:00）自動更新。")
-
-    summary_text = "\n".join(lines)
-    return f'<div style="position:absolute;left:-9999px;font-size:1px;color:transparent" aria-hidden="true">{summary_text}</div>'
+    以前は価格TOP5を position:absolute;left:-9999px + font-size:1px +
+    color:transparent + aria-hidden で画面外に出していたが、これは
+    ユーザーにも支援技術にも見えずクローラーだけが読む隠しテキストであり、
+    検索エンジンのガイドラインに抵触する。同じ内容はトップの価格表と
+    llms.txt で公開しているため出力を止めた。
+    """
+    return ""
 
 
 def generate_blog_links() -> str:
