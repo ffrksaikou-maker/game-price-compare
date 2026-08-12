@@ -1,9 +1,9 @@
 {
  "UX-15 シャークスケイルデッキセット": {
   "price": 15000,
-  "top_avg": 14133,
+  "top_avg": 14050,
   "top_n": 6,
-  "samples": 29,
+  "samples": 28,
   "median": 12999,
   "keyword": "ベイブレードX UX-15",
   "period_days": 30
@@ -21,8 +21,8 @@
   "price": 9999,
   "top_avg": 6801,
   "top_n": 7,
-  "samples": 32,
-  "median": 5240,
+  "samples": 31,
+  "median": 5200,
   "keyword": "ベイブレードX UX-20",
   "period_days": 30
  },
@@ -138,8 +138,8 @@
   "price": 5999,
   "top_avg": 4070,
   "top_n": 4,
-  "samples": 20,
-  "median": 2989,
+  "samples": 19,
+  "median": 2999,
   "keyword": "ベイブレードX CX-18",
   "period_days": 30
  },
@@ -147,8 +147,8 @@
   "price": 4666,
   "top_avg": 3061,
   "top_n": 4,
-  "samples": 19,
-  "median": 2299,
+  "samples": 20,
+  "median": 2294,
   "keyword": "ベイブレードX CX-15",
   "period_days": 30
  },
@@ -219,7 +219,7 @@
   "price": 7999,
   "top_avg": 5296,
   "top_n": 7,
-  "samples": 33,
+  "samples": 32,
   "median": 3999,
   "keyword": "ベイブレードX BX-23",
   "period_days": 30
@@ -279,8 +279,8 @@
   "period_days": 30
  },
  "BX-10 エクストリームスタジアム": {
-  "price": 8900,
-  "top_avg": 6095,
+  "price": 5500,
+  "top_avg": 5115,
   "top_n": 4,
   "samples": 18,
   "median": 4749,
@@ -306,10 +306,10 @@
   "period_days": 30
  },
  "BX-46 バトルエントリーセット∞": {
-  "price": 17880,
-  "top_avg": 16876,
+  "price": 16800,
+  "top_avg": 16600,
   "top_n": 5,
-  "samples": 23,
+  "samples": 22,
   "median": 15000,
   "keyword": "ベイブレードX BX-46",
   "period_days": 30
