@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import json
 import logging
+import random
 import re
 from html import escape as _esc
 from datetime import datetime, timezone, timedelta
@@ -71,34 +72,33 @@ ONEPIECE_ARTICLES.append(
 
 
 def _article_links_block() -> str:
-    """トップに記事カードを出す(ポケカ同型: 最新3枚固定+ランダム1枚=計4表示)。
+    """トップに記事カードを出す(ポケカ同型: 最新3枚固定+ローテーション1枚=計4表示)。
 
-    onepiece-template.html は template.html 由来のため .blog-links CSS と
-    #blogLinks のランダム表示JS(blog-random を1枚だけ表示)を継承している。
-    ポケカ generate_blog_links() と同じ構造を出せばレイアウトが一致する。
+    ローテーション枠はビルド時に1枚選ぶ。以前は候補全部を display:none で
+    出力してJSで1枚だけ表示していたが、残りが隠しリンクとして残るため
+    表示されるものだけを出力する。
     """
     existing = [(f, t, d) for (f, t, d) in ONEPIECE_ARTICLES
                 if (PROJECT_ROOT / "onepiece" / f).exists()]
     if not existing:
         return ""
     pinned = existing[:3]        # 新しい順(リスト先頭)の3枚を常時表示
-    candidates = list(existing[3:])  # 残りはJSでランダムに1枚だけ表示
+    candidates = list(existing[3:])
     # ポケカ同様、週間値動きランキングもローテーション候補に含める
     candidates.insert(0, ("weekly.html", "【今週】ワンピBOX 週間値動きランキング",
                           "最大9店舗の実データで直近7日間の値上がり・値下がりBOXを毎日自動更新。"))
+    featured = [random.choice(candidates)] if candidates else []
 
-    def _card(f: str, t: str, d: str, rand: bool) -> str:
-        cls = "blog-card blog-random" if rand else "blog-card"
-        style = ' style="display:none"' if rand else ""
-        return (f'  <a href="onepiece/{f}" class="{cls}"{style}'
+    def _card(f: str, t: str, d: str) -> str:
+        return (f'  <a href="onepiece/{f}" class="blog-card"'
                 f' onclick="gtag(\'event\',\'blog_click\',{{article:\'onepiece/{f}\'}})">\n'
                 f'    <h3>{_esc(t)}</h3>\n    <p>{_esc(d)}</p>\n  </a>\n')
 
     html = '<div class="blog-links" id="blogLinks">\n'
-    for f, t, d in candidates:
-        html += _card(f, t, d, True)
+    for f, t, d in featured:
+        html += _card(f, t, d)
     for f, t, d in pinned:
-        html += _card(f, t, d, False)
+        html += _card(f, t, d)
     html += '</div>'
     return html
 

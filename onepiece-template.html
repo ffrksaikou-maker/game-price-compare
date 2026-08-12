@@ -627,13 +627,8 @@ if(typeof ResizeObserver!=="undefined"){
 
 render();
 
-// ===== Random blog card (left slot) =====
-(function(){
-  var cards=document.querySelectorAll("#blogLinks .blog-random");
-  if(!cards.length)return;
-  var pick=Math.floor(Math.random()*cards.length);
-  cards[pick].style.display="";
-})();
+// ローテーション枠の記事カードはビルド時に選んで出力している
+// (以前はここで1枚だけ表示していたが、残りが隠しリンクとして残るため廃止)
 </script>
 </body>
 </html>

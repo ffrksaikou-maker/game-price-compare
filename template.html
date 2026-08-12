@@ -133,6 +133,9 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
 
 /* Blog links */
 .blog-links{max-width:var(--table-width);margin:24px auto 0;padding:0 16px;display:flex;gap:16px;flex-wrap:wrap}
+.blog-more{max-width:var(--table-width);margin:10px auto 0;padding:0 16px;text-align:right}
+.blog-more a{font-size:13px;color:var(--text-sub);text-decoration:none;border-bottom:1px dotted var(--border);padding-bottom:2px}
+.blog-more a:hover{color:#d97706;border-bottom-color:#d97706}
 .blog-card{flex:1;min-width:260px;background:var(--card);border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.06);padding:20px;text-decoration:none;color:var(--text);transition:box-shadow .15s}
 .blog-card:hover{box-shadow:0 4px 12px rgba(0,0,0,.1)}
 .blog-card h3{font-size:14px;font-weight:700;margin-bottom:6px;color:#6366f1}
@@ -616,13 +619,8 @@ if(typeof ResizeObserver!=="undefined"){
 
 render();
 
-// ===== Random blog card (left slot) =====
-(function(){
-  var cards=document.querySelectorAll("#blogLinks .blog-random");
-  if(!cards.length)return;
-  var pick=Math.floor(Math.random()*cards.length);
-  cards[pick].style.display="";
-})();
+// ローテーション枠の記事カードはビルド時に選んで出力している
+// (以前はここで1枚だけ表示していたが、残りが隠しリンクとして残るため廃止)
 </script>
 </body>
 </html>

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import logging
+import random
 import re
 import unicodedata
 from datetime import datetime, timezone, timedelta
@@ -389,20 +390,22 @@ def generate_blog_links() -> str:
     )
     pinned = sorted_articles[:3]
     pinned_urls = {a["url"] for a in pinned}
-    # 残りはJSでランダム選択
+    # 残りからビルド時に1枚だけ選ぶ。以前はJSで1枚だけ表示していたが、
+    # 残り全部が display:none でHTMLに残り隠しリンク扱いになるため出力自体を絞る
     candidates = [a for a in BLOG_ARTICLES if a["url"] not in pinned_urls]
+    featured = [random.choice(candidates)] if candidates else []
 
     html = '<div class="blog-links" id="blogLinks">\n'
-    # ランダム候補（非表示、JSで1つ選んで表示）
-    for article in candidates:
+    # ローテーション枠（表示されるものだけ出力）
+    for article in featured:
         html += (
-            f'  <a href="{article["url"]}" class="blog-card blog-random" style="display:none"'
+            f'  <a href="{article["url"]}" class="blog-card"'
             f' onclick="gtag(\'event\',\'blog_click\',{{article:\'{article["url"]}\'}})">\n'
             f'    <h3>{article["title"]}</h3>\n'
             f'    <p>{article["desc"]}</p>\n'
             f'  </a>\n'
         )
-    # Pinned 2枚を常時表示
+    # Pinned 3枚を常時表示
     for article in pinned:
         html += (
             f'  <a href="{article["url"]}" class="blog-card"'
@@ -412,6 +415,11 @@ def generate_blog_links() -> str:
             f'  </a>\n'
         )
     html += '</div>'
+    html += (
+        f'\n<div class="blog-more"><a href="articles.html"'
+        f' onclick="gtag(\'event\',\'blog_click\',{{article:\'articles.html\'}})">'
+        f'📚 記事をすべて見る（全{len(BLOG_ARTICLES)}本）→</a></div>'
+    )
     return html
 
 
@@ -511,6 +519,9 @@ def generate_html(
 
     # Generate ranking page
     generate_ranking_page(products, project_root, update_date)
+
+    # Generate the full article index (トップのローテーション枠から辿れない記事の受け皿)
+    generate_articles_page(project_root, update_date)
 
     # Generate weekly hot-boxes article (task 10)
     generate_weekly_article(products, project_root, update_date)
@@ -2028,6 +2039,7 @@ def _update_sitemap(
         ("/pokemon-go-atari-guide.html", "monthly", "0.8", "2026-08-11"),
         ("/paradigm-trigger-atari-guide.html", "monthly", "0.8", "2026-08-11"),
         ("/dark-phantasma-atari-guide.html", "monthly", "0.8", "2026-08-11"),
+        ("/articles.html", "daily", "0.9", "2026-08-12"),
         ("/violet-ex-atari-guide.html", "monthly", "0.8", "2026-08-12"),
         ("/dx-vs-normal-guide.html", "monthly", "0.8", "2026-08-12"),
         ("/star-birth-atari-guide.html", "monthly", "0.8", "2026-08-12"),
@@ -2155,6 +2167,173 @@ def _update_sitemap(
     sitemap_path = project_root / "sitemap.xml"
     sitemap_path.write_text("\n".join(lines), encoding="utf-8")
     logger.info("Updated sitemap.xml (%d URLs)", len([l for l in lines if "<loc>" in l]))
+
+
+ARTICLE_SECTIONS = [
+    ("当たりカード・封入率ガイド", "収録カードの買取相場を順位付けし、BOX価格との関係まで踏み込んで解説した記事です。",
+     lambda url: url.endswith("-atari-guide.html") or url.endswith("-atari-yosou.html")),
+    ("相場の掘り下げ・高騰分析", "特定のBOXがなぜその値段になったのかを、当サイトの実データで分解した特集記事です。",
+     lambda url: any(k in url for k in ("-spotlight", "-forecast", "-review", "-vs-", "vs-", "-compare", "-guide-"))
+                 or url in ("lizardon-box-guide.html", "mega-pack-compare.html", "kokuen-vs-rocket.html",
+                            "dx-vs-normal-guide.html", "price-pattern-guide.html")),
+    ("ランキング・一覧", "相場の動きや絶版BOXを横断で並べたページです。",
+     lambda url: "ranking" in url or url.endswith("-box-list.html") or url.startswith("monthly-")),
+    ("売り方・買い方のガイド", "BOXを売る・買うときに知っておきたい実務的な内容をまとめています。",
+     lambda url: True),
+]
+
+
+def generate_articles_page(project_root: Path, update_date: str) -> None:
+    """全記事を一覧できるページ(articles.html)を生成する。
+
+    トップのローテーション枠には1枚しか出ないため、記事の全体像を
+    たどれる入口をここに用意する。
+    """
+    articles = sorted(BLOG_ARTICLES, key=lambda a: a.get("date", ""), reverse=True)
+    used: set[str] = set()
+    sections: list[tuple[str, str, list[dict]]] = []
+    for title, lead, match in ARTICLE_SECTIONS:
+        items = [a for a in articles if a["url"] not in used and match(a["url"])]
+        for a in items:
+            used.add(a["url"])
+        if items:
+            sections.append((title, lead, items))
+
+    total = len(articles)
+    nav_html = "".join(
+        f'<a href="#sec{i}">{_esc_html(t)}<span class="cnt">{len(items)}</span></a>'
+        for i, (t, _, items) in enumerate(sections)
+    )
+
+    body = ""
+    for i, (title, lead, items) in enumerate(sections):
+        body += f'<section id="sec{i}">\n<h2>{_esc_html(title)}<span class="cnt">{len(items)}記事</span></h2>\n'
+        body += f'<p class="sec-lead">{_esc_html(lead)}</p>\n<div class="alist">\n'
+        for a in items:
+            date = a.get("date", "")
+            body += (
+                f'<a class="acard" href="{a["url"]}">\n'
+                f'  <div class="atitle">{_esc_html(a["title"])}</div>\n'
+                f'  <div class="adesc">{_esc_html(a["desc"])}</div>\n'
+                f'  <div class="adate">{date}</div>\n'
+                f'</a>\n'
+            )
+        body += '</div>\n</section>\n'
+
+    html = f"""<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ポケカ買取チェッカーの記事{total}本を一覧にまとめたページです。当たりカードランキング・封入率ガイド、BOX相場の高騰分析、売り方・買い方のガイドをカテゴリ別に探せます。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://pokeca-box-hikaku.com/articles.html">
+<meta property="og:title" content="記事一覧｜ポケカ買取チェッカー">
+<meta property="og:description" content="当たりカードガイド・相場分析・売り方ガイドなど{total}本の記事をカテゴリ別に掲載しています。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pokeca-box-hikaku.com/articles.html">
+<meta property="og:image" content="https://pokeca-box-hikaku.com/ogp.png">
+<meta property="og:site_name" content="ポケカ買取チェッカー">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="記事一覧｜ポケカ買取チェッカー">
+<meta name="twitter:description" content="当たりカードガイド・相場分析・売り方ガイドなど{total}本の記事をカテゴリ別に掲載しています。">
+<meta name="twitter:image" content="https://pokeca-box-hikaku.com/ogp.png">
+<title>記事一覧（全{total}本）｜ポケカ買取チェッカー</title>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831186943118320" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPTS6CRTCS"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){{dataLayer.push(arguments);}}
+gtag('js', new Date());
+gtag('config', 'G-RPTS6CRTCS');
+</script>
+<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "記事一覧｜ポケカ買取チェッカー",
+  "description": "ポケカ買取チェッカーが公開している記事{total}本の一覧。",
+  "url": "https://pokeca-box-hikaku.com/articles.html",
+  "inLanguage": "ja",
+  "isPartOf": {{"@type": "WebSite", "name": "ポケカ買取チェッカー", "url": "https://pokeca-box-hikaku.com/"}}
+}}
+</script>
+<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {{"@type": "ListItem", "position": 1, "name": "ポケカ買取チェッカー", "item": "https://pokeca-box-hikaku.com/"}},
+    {{"@type": "ListItem", "position": 2, "name": "記事一覧"}}
+  ]
+}}
+</script>
+<style>
+:root{{--bg:#f6f7fb;--card:#fff;--border:#e5e7eb;--text:#111827;--text-sub:#6b7280;--accent:#d97706}}
+*,*::before,*::after{{box-sizing:border-box;margin:0;padding:0}}
+body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans","Yu Gothic",sans-serif;background:var(--bg);color:var(--text);line-height:1.8}}
+.header{{position:sticky;top:0;z-index:100;height:56px;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;padding:0 20px}}
+.header a{{text-decoration:none}}
+.header h1{{font-size:18px;font-weight:700;background:linear-gradient(135deg,#f59e0b,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}}
+.wrap{{max-width:1000px;margin:0 auto;padding:28px 16px 48px}}
+.breadcrumb{{font-size:12px;color:var(--text-sub);margin-bottom:16px}}
+.breadcrumb a{{color:var(--accent);text-decoration:none}}
+.lead-box{{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px 24px;margin-bottom:20px}}
+.lead-box h2{{font-size:20px;font-weight:800;margin-bottom:10px}}
+.lead-box p{{font-size:14px;color:#374151}}
+.jump{{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}}
+.jump a{{font-size:13px;text-decoration:none;color:var(--text);background:#f9fafb;border:1px solid var(--border);border-radius:999px;padding:6px 14px;transition:all .2s}}
+.jump a:hover{{border-color:var(--accent);color:var(--accent)}}
+.jump .cnt{{color:var(--text-sub);margin-left:6px;font-size:11px}}
+section{{margin-top:32px}}
+section h2{{font-size:17px;font-weight:700;padding-bottom:8px;border-bottom:2px solid var(--accent);display:flex;align-items:baseline;gap:10px}}
+section h2 .cnt{{font-size:12px;font-weight:600;color:var(--text-sub)}}
+.sec-lead{{font-size:13px;color:var(--text-sub);margin:10px 0 14px}}
+.alist{{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}}
+.acard{{display:block;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:all .2s}}
+.acard:hover{{border-color:var(--accent);box-shadow:0 2px 8px rgba(0,0,0,.06)}}
+.atitle{{font-size:14px;font-weight:700;line-height:1.5;margin-bottom:6px}}
+.adesc{{font-size:12px;color:var(--text-sub);line-height:1.7;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}}
+.adate{{font-size:11px;color:#9ca3af;margin-top:8px}}
+.ad{{text-align:center;padding:16px 0}}
+.ft{{text-align:center;padding:24px 16px;font-size:11px;color:var(--text-sub)}}
+.ft a{{color:var(--accent)}}
+@media(max-width:640px){{.alist{{grid-template-columns:1fr}}.wrap{{padding:20px 12px 40px}}}}
+</style>
+</head>
+<body>
+<div class="header"><a href="index.html"><h1>ポケカ買取チェッカー</h1></a></div>
+<div class="wrap">
+<div class="breadcrumb"><a href="index.html">トップ</a> &gt; 記事一覧</div>
+
+<div class="lead-box">
+<h2>記事一覧（全{total}本）</h2>
+<p>ポケカ買取チェッカーが公開している記事をカテゴリ別にまとめています。買取価格の比較データそのものは<a href="index.html" style="color:var(--accent)">トップページ</a>で毎日3回更新していますが、こちらのページでは「どのカードがいくらなのか」「なぜその値段になったのか」を掘り下げた記事を探せます。</p>
+<div class="jump">{nav_html}</div>
+</div>
+
+{body}
+</div>
+
+<div class="ad">
+  <a href="https://h.accesstrade.net/sp/cc?rk=0100p4pe00opz3" rel="nofollow" referrerpolicy="no-referrer-when-downgrade"><img src="https://h.accesstrade.net/sp/rr?rk=0100p4pe00opz3" alt="トレトク" border="0" width="640" height="100" loading="lazy" decoding="async" style="max-width:100%;height:auto"></a>
+</div>
+
+<div class="ft">
+  <a href="index.html">ポケカ買取チェッカー</a> / <a href="about.html">運営者情報</a> / <a href="contact.html">お問い合わせ</a> / <a href="privacy.html">プライバシーポリシー</a>
+  <br>最終更新: {update_date}
+</div>
+</body>
+</html>
+"""
+    out = project_root / "articles.html"
+    out.write_text(html, encoding="utf-8")
+    logger.info("Generated articles.html (%d articles, %d sections)", total, len(sections))
+
+
+def _esc_html(s: str) -> str:
+    return (s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+             .replace('"', "&quot;"))
 
 
 def _generate_ranking_summary(
