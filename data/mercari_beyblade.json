@@ -3,17 +3,17 @@
   "price": 20000,
   "top_avg": 15907,
   "top_n": 8,
-  "samples": 38,
-  "median": 12874,
+  "samples": 39,
+  "median": 12750,
   "keyword": "ベイブレードX UX-15",
   "period_days": 30
  },
  "UX-03 ウィザードロッド5-70DB": {
   "price": 11000,
-  "top_avg": 7885,
-  "top_n": 9,
-  "samples": 44,
-  "median": 5980,
+  "top_avg": 7747,
+  "top_n": 10,
+  "samples": 46,
+  "median": 5934,
   "keyword": "ベイブレードX UX-03",
   "period_days": 30
  },
@@ -30,8 +30,8 @@
   "price": 7999,
   "top_avg": 5379,
   "top_n": 6,
-  "samples": 28,
-  "median": 4182,
+  "samples": 27,
+  "median": 4199,
   "keyword": "ベイブレードX UX-01",
   "period_days": 30
  },
@@ -120,8 +120,8 @@
   "price": 6730,
   "top_avg": 5687,
   "top_n": 3,
-  "samples": 8,
-  "median": 4521,
+  "samples": 9,
+  "median": 4444,
   "keyword": "ベイブレードX CX-05",
   "period_days": 30
  },
@@ -172,10 +172,10 @@
  },
  "CX-13 バハムートブリッツBK1-50I": {
   "price": 4500,
-  "top_avg": 4178,
-  "top_n": 8,
-  "samples": 40,
-  "median": 3763,
+  "top_avg": 4156,
+  "top_n": 9,
+  "samples": 42,
+  "median": 3725,
   "keyword": "ベイブレードX CX-13",
   "period_days": 30
  },
@@ -217,9 +217,9 @@
  },
  "BX-23 フェニックスウイング9-60GF": {
   "price": 7777,
-  "top_avg": 5004,
+  "top_avg": 4957,
   "top_n": 8,
-  "samples": 39,
+  "samples": 38,
   "median": 3800,
   "keyword": "ベイブレードX BX-23",
   "period_days": 30
@@ -264,7 +264,7 @@
   "price": 5580,
   "top_avg": 4394,
   "top_n": 7,
-  "samples": 35,
+  "samples": 34,
   "median": 3500,
   "keyword": "ベイブレードX BX-34",
   "period_days": 30
@@ -282,7 +282,7 @@
   "price": 7880,
   "top_avg": 5728,
   "top_n": 5,
-  "samples": 21,
+  "samples": 23,
   "median": 4699,
   "keyword": "ベイブレードX BX-10",
   "period_days": 30
@@ -343,10 +343,10 @@
  },
  "CX-00 ペガサスブラストATr メタルコート:レッド": {
   "price": 12300,
-  "top_avg": 8253,
+  "top_avg": 8261,
   "top_n": 12,
-  "samples": 59,
-  "median": 5300,
+  "samples": 60,
+  "median": 5400,
   "keyword": "ベイブレードX ペガサスブラストATr",
   "period_days": 30
  },
@@ -379,7 +379,7 @@
  },
  "UX-21 ヘルズネザーデッキセット": {
   "price": 20000,
-  "top_avg": 11856,
+  "top_avg": 11888,
   "top_n": 12,
   "samples": 58,
   "median": 10000,
