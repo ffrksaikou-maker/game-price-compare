@@ -21,8 +21,8 @@
     "retail_price": 5280,
     "max_price": 14500,
     "prices": {
-      "morimori": 11000,
-      "homura": 11000,
+      "morimori": 10600,
+      "homura": 10800,
       "rudeya": 11700,
       "runto": 12000,
       "icchome": 12000,
@@ -37,7 +37,7 @@
     "retail_price": 5280,
     "max_price": 16000,
     "prices": {
-      "morimori": 15000,
+      "morimori": 14500,
       "homura": 15000,
       "rudeya": 14000,
       "runto": 16000,
@@ -53,8 +53,8 @@
     "retail_price": 5280,
     "max_price": 24000,
     "prices": {
-      "morimori": 23800,
-      "homura": 24000,
+      "morimori": 22500,
+      "homura": 23000,
       "rudeya": 20000,
       "runto": 23000,
       "icchome": 23000,
@@ -118,7 +118,7 @@
     "max_price": 23500,
     "prices": {
       "morimori": 22000,
-      "homura": 22800,
+      "homura": 22900,
       "rudeya": 20500,
       "runto": 23500,
       "icchome": 21500,
@@ -166,7 +166,7 @@
     "max_price": 25200,
     "prices": {
       "morimori": 23500,
-      "homura": 25000,
+      "homura": 24500,
       "rudeya": 25200,
       "runto": 24000,
       "icchome": 24000,
@@ -198,7 +198,7 @@
     "max_price": 21500,
     "prices": {
       "morimori": 21200,
-      "homura": 21200,
+      "homura": 21000,
       "rudeya": 21500,
       "runto": 21300,
       "icchome": 21200,
@@ -214,7 +214,7 @@
     "max_price": 19200,
     "prices": {
       "morimori": 19000,
-      "homura": 18800,
+      "homura": 18500,
       "rudeya": 19200,
       "runto": 18500,
       "icchome": 18500,
@@ -230,7 +230,7 @@
     "max_price": 26200,
     "prices": {
       "morimori": 24000,
-      "homura": 25000,
+      "homura": 24000,
       "rudeya": 26200,
       "runto": 25000,
       "icchome": 24000,
@@ -262,7 +262,7 @@
     "max_price": 14500,
     "prices": {
       "morimori": 13400,
-      "homura": 13400,
+      "homura": 13000,
       "rudeya": 13000,
       "runto": 14500,
       "icchome": 14000,
