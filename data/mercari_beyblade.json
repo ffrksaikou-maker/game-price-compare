@@ -1,19 +1,19 @@
 {
  "UX-15 シャークスケイルデッキセット": {
   "price": 19500,
-  "top_avg": 14813,
+  "top_avg": 14713,
   "top_n": 10,
-  "samples": 46,
-  "median": 12050,
+  "samples": 47,
+  "median": 11999,
   "keyword": "ベイブレードX UX-15",
   "period_days": 30
  },
  "UX-03 ウィザードロッド5-70DB": {
   "price": 8490,
-  "top_avg": 7188,
+  "top_avg": 6990,
   "top_n": 10,
-  "samples": 46,
-  "median": 5555,
+  "samples": 48,
+  "median": 5527,
   "keyword": "ベイブレードX UX-03",
   "period_days": 30
  },
@@ -30,8 +30,8 @@
   "price": 7999,
   "top_avg": 5414,
   "top_n": 5,
-  "samples": 23,
-  "median": 4199,
+  "samples": 24,
+  "median": 4182,
   "keyword": "ベイブレードX UX-01",
   "period_days": 30
  },
@@ -48,7 +48,7 @@
   "price": 10999,
   "top_avg": 9525,
   "top_n": 4,
-  "samples": 18,
+  "samples": 19,
   "median": 4800,
   "keyword": "ベイブレードX UX-09",
   "period_days": 30
@@ -81,10 +81,10 @@
   "period_days": 30
  },
  "UX-08 シルバーウルフ3-80FB": {
-  "price": 6480,
-  "top_avg": 4302,
+  "price": 3680,
+  "top_avg": 3557,
   "top_n": 4,
-  "samples": 20,
+  "samples": 19,
   "median": 3333,
   "keyword": "ベイブレードX UX-08",
   "period_days": 30
@@ -156,8 +156,8 @@
   "price": 9999,
   "top_avg": 9916,
   "top_n": 10,
-  "samples": 49,
-  "median": 9400,
+  "samples": 50,
+  "median": 9399,
   "keyword": "ベイブレードX CX-16",
   "period_days": 30
  },
@@ -165,8 +165,8 @@
   "price": 15000,
   "top_avg": 13760,
   "top_n": 3,
-  "samples": 4,
-  "median": 13140,
+  "samples": 5,
+  "median": 13000,
   "keyword": "ベイブレードX CX-11",
   "period_days": 30
  },
@@ -219,8 +219,8 @@
   "price": 7500,
   "top_avg": 4592,
   "top_n": 8,
-  "samples": 38,
-  "median": 3799,
+  "samples": 37,
+  "median": 3800,
   "keyword": "ベイブレードX BX-23",
   "period_days": 30
  },
@@ -228,8 +228,8 @@
   "price": 3899,
   "top_avg": 3716,
   "top_n": 6,
-  "samples": 27,
-  "median": 3480,
+  "samples": 28,
+  "median": 3462,
   "keyword": "ベイブレードX BX-49",
   "period_days": 30
  },
@@ -244,10 +244,10 @@
  },
  "BX-09 ベイバトルパス": {
   "price": 9555,
-  "top_avg": 9102,
-  "top_n": 11,
-  "samples": 53,
-  "median": 8222,
+  "top_avg": 9123,
+  "top_n": 10,
+  "samples": 49,
+  "median": 8200,
   "keyword": "ベイブレードX BX-09",
   "period_days": 30
  },
@@ -307,7 +307,7 @@
  },
  "BX-46 バトルエントリーセット∞": {
   "price": 16800,
-  "top_avg": 16611,
+  "top_avg": 16631,
   "top_n": 5,
   "samples": 22,
   "median": 15277,
@@ -370,10 +370,10 @@
  },
  "BX-00 ヘルズサイズ4-60T メタルコート:ゴールド": {
   "price": 8000,
-  "top_avg": 7920,
+  "top_avg": 7886,
   "top_n": 12,
-  "samples": 61,
-  "median": 4300,
+  "samples": 60,
+  "median": 4000,
   "keyword": "ベイブレードX ヘルズサイズ4-60T",
   "period_days": 30
  },
@@ -381,7 +381,7 @@
   "price": 16111,
   "top_avg": 11275,
   "top_n": 12,
-  "samples": 61,
+  "samples": 64,
   "median": 10000,
   "keyword": "ベイブレードX UX-21",
   "period_days": 30
