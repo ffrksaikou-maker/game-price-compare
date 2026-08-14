@@ -12,8 +12,8 @@
   "price": 8490,
   "top_avg": 6990,
   "top_n": 10,
-  "samples": 48,
-  "median": 5527,
+  "samples": 49,
+  "median": 5555,
   "keyword": "ベイブレードX UX-03",
   "period_days": 30
  },
@@ -21,7 +21,7 @@
   "price": 6000,
   "top_avg": 5798,
   "top_n": 6,
-  "samples": 27,
+  "samples": 28,
   "median": 5200,
   "keyword": "ベイブレードX UX-20",
   "period_days": 30
@@ -66,7 +66,7 @@
   "price": 8000,
   "top_avg": 5225,
   "top_n": 7,
-  "samples": 32,
+  "samples": 33,
   "median": 4500,
   "keyword": "ベイブレードX UX-19",
   "period_days": 30
@@ -147,8 +147,8 @@
   "price": 2590,
   "top_avg": 2504,
   "top_n": 3,
-  "samples": 12,
-  "median": 2256,
+  "samples": 11,
+  "median": 2222,
   "keyword": "ベイブレードX CX-15",
   "period_days": 30
  },
@@ -183,7 +183,7 @@
   "price": 6600,
   "top_avg": 5859,
   "top_n": 5,
-  "samples": 23,
+  "samples": 25,
   "median": 2777,
   "keyword": "ベイブレードX CX-17",
   "period_days": 30
@@ -237,8 +237,8 @@
   "price": 6000,
   "top_avg": 5266,
   "top_n": 3,
-  "samples": 11,
-  "median": 3888,
+  "samples": 12,
+  "median": 3943,
   "keyword": "ベイブレードX BX-50",
   "period_days": 30
  },
@@ -246,8 +246,8 @@
   "price": 9555,
   "top_avg": 9123,
   "top_n": 10,
-  "samples": 49,
-  "median": 8200,
+  "samples": 47,
+  "median": 8222,
   "keyword": "ベイブレードX BX-09",
   "period_days": 30
  },
@@ -280,10 +280,10 @@
  },
  "BX-10 エクストリームスタジアム": {
   "price": 5600,
-  "top_avg": 5370,
-  "top_n": 4,
-  "samples": 20,
-  "median": 4699,
+  "top_avg": 5292,
+  "top_n": 5,
+  "samples": 21,
+  "median": 4700,
   "keyword": "ベイブレードX BX-10",
   "period_days": 30
  },
@@ -300,8 +300,8 @@
   "price": 6090,
   "top_avg": 6090,
   "top_n": 3,
-  "samples": 14,
-  "median": 6065,
+  "samples": 13,
+  "median": 6090,
   "keyword": "ベイブレードX BX-36",
   "period_days": 30
  },
@@ -345,8 +345,8 @@
   "price": 12300,
   "top_avg": 7990,
   "top_n": 12,
-  "samples": 61,
-  "median": 5000,
+  "samples": 60,
+  "median": 5150,
   "keyword": "ベイブレードX ペガサスブラストATr",
   "period_days": 30
  },
@@ -369,11 +369,11 @@
   "period_days": 30
  },
  "BX-00 ヘルズサイズ4-60T メタルコート:ゴールド": {
-  "price": 8000,
-  "top_avg": 7886,
+  "price": 9200,
+  "top_avg": 8127,
   "top_n": 12,
-  "samples": 60,
-  "median": 4000,
+  "samples": 61,
+  "median": 4300,
   "keyword": "ベイブレードX ヘルズサイズ4-60T",
   "period_days": 30
  },
