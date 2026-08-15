@@ -18,11 +18,11 @@
   "period_days": 30
  },
  "UX-20 グローリーワルキューレLF": {
-  "price": 6000,
-  "top_avg": 5818,
+  "price": 5990,
+  "top_avg": 5738,
   "top_n": 5,
-  "samples": 23,
-  "median": 5199,
+  "samples": 22,
+  "median": 5149,
   "keyword": "ベイブレードX UX-20",
   "period_days": 30
  },
@@ -162,8 +162,8 @@
   "period_days": 30
  },
  "CX-11 エンペラーマイトデッキセット": {
-  "price": 13281,
-  "top_avg": 13094,
+  "price": 18850,
+  "top_avg": 15044,
   "top_n": 3,
   "samples": 5,
   "median": 13000,
@@ -181,10 +181,10 @@
  },
  "CX-17 ランダムブースターVol.10": {
   "price": 6600,
-  "top_avg": 6160,
+  "top_avg": 6363,
   "top_n": 5,
   "samples": 25,
-  "median": 3450,
+  "median": 4111,
   "keyword": "ベイブレードX CX-17",
   "period_days": 30
  },
@@ -217,10 +217,10 @@
  },
  "BX-23 フェニックスウイング9-60GF": {
   "price": 4741,
-  "top_avg": 4134,
+  "top_avg": 4120,
   "top_n": 7,
   "samples": 34,
-  "median": 3763,
+  "median": 3750,
   "keyword": "ベイブレードX BX-23",
   "period_days": 30
  },
@@ -237,8 +237,8 @@
   "price": 6000,
   "top_avg": 5166,
   "top_n": 3,
-  "samples": 15,
-  "median": 3500,
+  "samples": 14,
+  "median": 3450,
   "keyword": "ベイブレードX BX-50",
   "period_days": 30
  },
@@ -246,7 +246,7 @@
   "price": 9300,
   "top_avg": 9037,
   "top_n": 8,
-  "samples": 40,
+  "samples": 39,
   "median": 8200,
   "keyword": "ベイブレードX BX-09",
   "period_days": 30
@@ -378,10 +378,10 @@
   "period_days": 30
  },
  "UX-21 ヘルズネザーデッキセット": {
-  "price": 22000,
-  "top_avg": 13071,
+  "price": 23333,
+  "top_avg": 14059,
   "top_n": 13,
-  "samples": 67,
+  "samples": 66,
   "median": 9999,
   "keyword": "ベイブレードX UX-21",
   "period_days": 30
