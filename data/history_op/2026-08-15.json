@@ -12,7 +12,7 @@
       "icchome": 10500,
       "oku": 11000,
       "collect_tendo": 10000,
-      "shinsoku": 10800
+      "shinsoku": 11000
     }
   },
   {
@@ -99,7 +99,7 @@
     "name": "ブースターパック「王族の血統」【OP-10】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 13100,
+    "max_price": 13000,
     "prices": {
       "morimori": 12200,
       "homura": 13000,
@@ -108,7 +108,7 @@
       "icchome": 12000,
       "oku": 13000,
       "collect_tendo": 11500,
-      "shinsoku": 13100
+      "shinsoku": 12600
     }
   },
   {
@@ -122,7 +122,7 @@
       "rudeya": 20500,
       "runto": 23500,
       "icchome": 21500,
-      "oku": 22900,
+      "oku": 22800,
       "collect_tendo": 23000,
       "shinsoku": 22100
     }
@@ -236,7 +236,7 @@
       "icchome": 23000,
       "oku": 24000,
       "collect_tendo": 25000,
-      "shinsoku": 25100
+      "shinsoku": 23900
     }
   },
   {
@@ -284,7 +284,7 @@
       "icchome": 22000,
       "oku": 22500,
       "collect_tendo": 22800,
-      "shinsoku": 22600
+      "shinsoku": 22100
     }
   },
   {
