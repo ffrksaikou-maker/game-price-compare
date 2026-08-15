@@ -12,7 +12,7 @@
   "price": 8490,
   "top_avg": 6573,
   "top_n": 10,
-  "samples": 50,
+  "samples": 49,
   "median": 5499,
   "keyword": "ベイブレードX UX-03",
   "period_days": 30
@@ -172,10 +172,10 @@
  },
  "CX-13 バハムートブリッツBK1-50I": {
   "price": 4500,
-  "top_avg": 4075,
+  "top_avg": 4020,
   "top_n": 7,
-  "samples": 34,
-  "median": 3424,
+  "samples": 33,
+  "median": 3399,
   "keyword": "ベイブレードX CX-13",
   "period_days": 30
  },
