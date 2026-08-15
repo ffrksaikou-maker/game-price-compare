@@ -86,8 +86,13 @@ class CollectTendoScraper(BaseScraper):
         for url in new_urls:
             logger.info("CollectTendo: OCR %s", url[:80])
             extracted = self._ocr_image(anthropic_key, url)
+            if extracted is None:
+                # API/通信エラー(残高切れ・レート制限等)。復旧すれば読めるので
+                # 既読にもせず失敗回数にも数えない。
+                logger.warning("CollectTendo: OCR unavailable, will retry next run")
+                continue
             if not extracted:
-                # OCR失敗(APIエラー/価格表以外の画像)。既読にすると古い価格が
+                # 価格表でない画像(宣伝画像等)。既読にすると古い価格が
                 # 永久に残るため、MAX_OCR_RETRIES 回までは次回に再挑戦する。
                 fail_counts[url] = fail_counts.get(url, 0) + 1
                 if fail_counts[url] < MAX_OCR_RETRIES:
@@ -217,8 +222,11 @@ class CollectTendoScraper(BaseScraper):
 
         return urls
 
-    def _ocr_image(self, anthropic_key: str, image_url: str) -> dict[str, int]:
-        """画像をClaude APIに渡して {商品名: 価格} を抽出"""
+    def _ocr_image(self, anthropic_key: str, image_url: str) -> dict[str, int] | None:
+        """画像をClaude APIに渡して {商品名: 価格} を抽出
+
+        None = API/通信エラーで判定不能(再試行すべき)、{} = 価格表でない画像。
+        """
         try:
             img_resp = requests.get(image_url, timeout=20, headers={"User-Agent": self.HEADERS["User-Agent"]})
             img_resp.raise_for_status()
@@ -226,7 +234,7 @@ class CollectTendoScraper(BaseScraper):
             content_type = img_resp.headers.get("Content-Type", "image/jpeg").split(";")[0].strip()
         except requests.RequestException as e:
             logger.error("CollectTendo: image download failed: %s", e)
-            return {}
+            return None
 
         prompt = (
             "この画像はトレーディングカードの買取価格表です。"
@@ -286,11 +294,11 @@ class CollectTendoScraper(BaseScraper):
             r = requests.post(api_url, headers=headers, json=body, timeout=60)
             if r.status_code >= 400:
                 logger.error("CollectTendo: claude API %d: %s", r.status_code, r.text[:500])
-                return {}
+                return None
             payload = r.json()
         except (requests.RequestException, ValueError) as e:
             logger.error("CollectTendo: claude API failed: %s", e)
-            return {}
+            return None
 
         text = ""
         for block in payload.get("content", []):
