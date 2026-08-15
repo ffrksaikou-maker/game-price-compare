@@ -34,6 +34,7 @@ TARGET_USERNAME = "collect_tendo"
 PROFILE_URL = f"https://x.com/{TARGET_USERNAME}"
 STATE_FILE = Path(__file__).resolve().parent.parent.parent / "data" / "x_state" / "collect_tendo.json"
 MAX_IMAGES_TO_OCR = 4  # 最新ツイートの画像のみOCR(コスト/負荷抑制)
+MAX_OCR_RETRIES = 3  # OCRが空を返した画像を再挑戦する回数
 ANTHROPIC_MODEL = "claude-sonnet-4-6"
 
 # OCR後の名前正規化辞書(コレクト固有の表記揺れをmatcher側のキーワードに寄せる)
@@ -80,10 +81,25 @@ class CollectTendoScraper(BaseScraper):
             len(image_urls), len(new_urls),
         )
 
+        fail_counts: dict[str, int] = state.get("ocr_fail_counts", {})
         new_items: dict[str, int] = {}
         for url in new_urls:
             logger.info("CollectTendo: OCR %s", url[:80])
             extracted = self._ocr_image(anthropic_key, url)
+            if not extracted:
+                # OCR失敗(APIエラー/価格表以外の画像)。既読にすると古い価格が
+                # 永久に残るため、MAX_OCR_RETRIES 回までは次回に再挑戦する。
+                fail_counts[url] = fail_counts.get(url, 0) + 1
+                if fail_counts[url] < MAX_OCR_RETRIES:
+                    logger.warning(
+                        "CollectTendo: OCR empty (%d/%d), will retry next run",
+                        fail_counts[url], MAX_OCR_RETRIES,
+                    )
+                    continue
+                logger.warning("CollectTendo: OCR empty %d times, giving up", MAX_OCR_RETRIES)
+                seen_urls.add(url)
+                continue
+            fail_counts.pop(url, None)
             for name, price in extracted.items():
                 if price > 0 and price > new_items.get(name, 0):
                     new_items[name] = price
@@ -95,6 +111,9 @@ class CollectTendoScraper(BaseScraper):
         state["items"] = cached_items
         # processed_urls は最新50件まで保持(古いのは破棄)
         state["processed_urls"] = list(seen_urls)[-50:]
+        state["ocr_fail_counts"] = {
+            u: c for u, c in fail_counts.items() if u in image_urls
+        }
         state["last_check"] = int(time.time())
         self._save_state(state)
 
