@@ -185,6 +185,27 @@ def match_all_games(scraped: list, shop_id: str) -> None:
     match_products(scraped, shop_id, BEYBLADE_PRODUCTS, BEYBLADE_CONFIG)
 
 
+def selected_shop_ids() -> set[str] | None:
+    """SCRAPER_SHOPS で指定された取得対象の店。未指定なら None(=全店)。
+
+    急ぎ1店だけ直したいときに全店ぶんの待ち時間を省くための絞り込み。
+    対象外の店はキャッシュから復元するので、サイトの掲載店は減らない。
+    """
+    raw = os.environ.get("SCRAPER_SHOPS", "").strip()
+    if not raw:
+        return None
+    known = {c.shop_id for c in ALL_SCRAPERS}
+    ids = {s.strip() for s in raw.split(",") if s.strip()}
+    unknown = ids - known
+    if unknown:
+        logger.warning("SCRAPER_SHOPS: 未知の店を無視: %s", ", ".join(sorted(unknown)))
+    ids &= known
+    if not ids:
+        logger.warning("SCRAPER_SHOPS: 有効な店がないため全店を取得します")
+        return None
+    return ids
+
+
 def try_scrape(scraper) -> tuple[list | None, str]:
     """1店スクレイプし、(items, 結果) を返す。結果は ok / empty / failed。"""
     logger.info("--- Scraping %s (%s) ---", scraper.shop_name, scraper.shop_id)
@@ -261,10 +282,28 @@ def main() -> None:
         elif shop_id in cache:
             expired_shops.append(shop_name)
 
+    def reuse_cache(shop_id: str, shop_name: str) -> None:
+        """取得対象外の店をキャッシュから復元する(掲載を維持するため)。"""
+        nonlocal success_count
+        cached = usable_cache(cache, cache_meta, shop_id, shop_name)
+        if cached is not None:
+            logger.info("%s: 取得対象外のためキャッシュを流用 (%d件)", shop_name, len(cached))
+            match_all_games(cached, shop_id)
+            success_count += 1
+        elif shop_id in cache:
+            expired_shops.append(shop_name)
+
+    selected = selected_shop_ids()
+    if selected:
+        logger.info("対象店を限定: %s", ", ".join(sorted(selected)))
+
     # 1周目。失敗した店はここでは確定させず、待ってから再試行する
     pending: list[tuple[type, str]] = []
     for scraper_cls in ALL_SCRAPERS:
         scraper = scraper_cls()
+        if selected and scraper.shop_id not in selected:
+            reuse_cache(scraper.shop_id, scraper.shop_name)
+            continue
         items, outcome = try_scrape(scraper)
         if outcome == "ok":
             accept(scraper.shop_id, items)

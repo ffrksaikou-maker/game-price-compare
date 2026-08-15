@@ -1,0 +1,62 @@
+name: Update Mercari Market
+
+# ベイブレードのフリマ相場だけを更新する。44商品ぶんの検索で10分前後かかるが
+# 日次で十分な粒度なので、買取価格の更新(update.yml / 1日3回)からは切り離す。
+on:
+  schedule:
+    # JST 5:00 (update.yml の 11:00/15:00/18:00 と重ならない時間帯)
+    - cron: '0 20 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# 生成物の push が update.yml とぶつからないよう同じグループで直列化する
+concurrency:
+  group: update-prices
+  cancel-in-progress: false
+
+jobs:
+  mercari:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Install Playwright browsers
+        run: playwright install chromium
+
+      - name: Fetch mercari market
+        run: python scripts/update_mercari.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add beyblade.html data/mercari_beyblade.json data/history_bey/
+          git diff --staged --quiet || git commit -m "Update mercari market $(TZ=Asia/Tokyo date +%Y-%m-%d_%H:%M)"
+          git stash --include-untracked
+          pushed=0
+          for attempt in 1 2 3; do
+            if git pull --rebase -X theirs origin master && git push; then
+              pushed=1
+              break
+            fi
+            echo "push attempt $attempt failed; retrying"
+            git rebase --abort 2>/dev/null || true
+            sleep 10
+          done
+          git stash pop || true
+          if [ "$pushed" != 1 ]; then
+            echo "::error::push failed after 3 attempts"
+            exit 1
+          fi

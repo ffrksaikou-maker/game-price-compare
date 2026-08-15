@@ -23,6 +23,7 @@ import statistics
 import time
 import unicodedata
 import urllib.parse as up
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 from .matcher import MasterProduct
@@ -74,6 +75,9 @@ MIN_TOP = 3
 # APIの updated は取引成立で更新されるため、売却日時として扱う
 # (created は出品日時なので、長く売れ残った商品では実態とずれる)。
 MAX_AGE_DAYS = 30
+# 同時に走らせるブラウザ数。上げすぎるとメルカリ側が応答を返さなくなるため、
+# 1ワーカーあたりのアクセス間隔(pause_sec)は据え置いたまま台数だけ増やす。
+DEFAULT_WORKERS = 3
 
 
 def _norm(text: str) -> str:
@@ -249,16 +253,16 @@ def _search_once(ctx, keyword: str, wait_ms: int) -> list[dict] | None:
     return items or None
 
 
-def fetch(products: list[MasterProduct], headless: bool = True,
-          wait_ms: int = 6000, pause_sec: float = 2.5) -> dict:
-    """各商品のフリマ相場(中央値)を取得して {商品名: {...}} を返す。
+def _fetch_chunk(products: list[MasterProduct], other_tokens: set[str],
+                 headless: bool, wait_ms: int, pause_sec: float) -> dict:
+    """担当分の商品を1ブラウザで順に処理する。
 
-    取得に失敗した商品は結果に含めない(呼び出し側が前回キャッシュで補完する)。
+    other_tokens は「他商品の名前が混ざった出品」を弾く判定に使うため、
+    分割前の全商品から作ったものを受け取る(担当分だけでは判定が緩む)。
     """
     from playwright.sync_api import sync_playwright
 
     result: dict[str, dict] = {}
-    other_tokens = build_token_index(products)
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=headless)
@@ -312,6 +316,41 @@ def fetch(products: list[MasterProduct], headless: bool = True,
             browser.close()
 
     return result
+
+
+def fetch(products: list[MasterProduct], headless: bool = True,
+          wait_ms: int = 6000, pause_sec: float = 2.5,
+          workers: int = DEFAULT_WORKERS) -> dict:
+    """各商品のフリマ相場を取得して {商品名: {...}} を返す。
+
+    取得に失敗した商品は結果に含めない(呼び出し側が前回キャッシュで補完する)。
+    1商品あたり十数秒かかるため、商品を workers 本のブラウザに振り分けて並行に
+    処理する。同一ブラウザ内での連続アクセス間隔(pause_sec)は各ワーカーが維持する。
+    """
+    other_tokens = build_token_index(products)
+    workers = max(1, min(workers, len(products)))
+    if workers == 1:
+        return _fetch_chunk(products, other_tokens, headless, wait_ms, pause_sec)
+
+    # ストライド分割。前半/後半で分けると型番の新旧が偏り、負荷も偏るため
+    chunks = [products[i::workers] for i in range(workers)]
+    logger.info(
+        "mercari: %d商品を%d並列で取得 (各%d件前後)",
+        len(products), workers, len(chunks[0]),
+    )
+    merged: dict[str, dict] = {}
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        futures = [
+            pool.submit(_fetch_chunk, c, other_tokens, headless, wait_ms, pause_sec)
+            for c in chunks if c
+        ]
+        for f in as_completed(futures):
+            try:
+                merged.update(f.result())
+            except Exception as e:
+                # 1ワーカーが落ちても残りの取得結果は使う
+                logger.error("mercari: worker failed: %s", e)
+    return merged
 
 
 def fetch_with_cache(products: list[MasterProduct], **kwargs) -> dict:
