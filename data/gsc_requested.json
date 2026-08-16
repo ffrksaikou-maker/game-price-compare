@@ -1,0 +1,66 @@
+{
+ "https://pokeca-box-hikaku.com/abyss-eye-forecast.html": {
+  "requested_at": "2026-08-16T07:35:00+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/clay-burst-spotlight.html": {
+  "requested_at": "2026-08-16T07:20:00+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/erika-sar-guide.html": {
+  "requested_at": "2026-08-16T07:17:00+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/inferno-x-spotlight.html": {
+  "requested_at": "2026-08-16T07:04:00+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/kaitori-tips.html": {
+  "requested_at": "2026-08-16T06:55:00+09:00",
+  "result": "indexed"
+ },
+ "https://pokeca-box-hikaku.com/kokuen-spotlight.html": {
+  "requested_at": "2026-08-16T07:08:00+09:00",
+  "result": "indexed"
+ },
+ "https://pokeca-box-hikaku.com/kokuen-vs-rocket.html": {
+  "requested_at": "2026-08-16T07:10:00+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/lizardon-box-guide.html": {
+  "requested_at": "2026-08-16T07:01:00+09:00",
+  "result": "indexed"
+ },
+ "https://pokeca-box-hikaku.com/lizardon-sar-kokuen-guide.html": {
+  "requested_at": "2026-08-16T07:13:00+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/mega-lizardon-x-guide.html": {
+  "requested_at": "2026-08-16T07:15:00+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/mega-pack-compare.html": {
+  "requested_at": "2026-08-16T06:58:00+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/ninja-spinner-spotlight.html": {
+  "requested_at": "2026-08-16T07:24:00+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/rocket-dan-no-eiko-spotlight.html": {
+  "requested_at": "2026-08-16T07:27:00+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/shiny-treasure-ex-atari-guide.html": {
+  "requested_at": "2026-08-16T07:30:00+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/terastal-fes-ex-atari-guide.html": {
+  "requested_at": "2026-08-16T07:32:00+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/white-flare-atari-guide.html": {
+  "requested_at": "2026-08-16T07:34:00+09:00",
+  "result": "requested"
+ }
+}

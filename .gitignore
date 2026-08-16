@@ -12,5 +12,4 @@ authorized_user.json
 oauth_client.json
 data/snkrdunk_op/_candidates.json
 sessions/
-data/gsc_requested.json
-data/gsc_index_request.log
+data/gsc_debug_*.png
