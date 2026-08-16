@@ -127,12 +127,12 @@
     "name": "UX-08 シルバーウルフ3-80FB",
     "category": "ux",
     "retail_price": 2080,
-    "max_price": 2200,
+    "max_price": 2100,
     "prices": {
       "morimori": 2100,
       "homura": 1850,
       "rudeya": 2000,
-      "icchome": 2200
+      "icchome": 2000
     }
   },
   {
@@ -161,7 +161,7 @@
     "retail_price": 1980,
     "max_price": 2800,
     "prices": {
-      "morimori": 2600,
+      "morimori": 2500,
       "homura": 2500,
       "rudeya": 1500,
       "icchome": 2800
@@ -193,11 +193,11 @@
     "name": "CX-16 スタートダッシュセットC",
     "category": "cx",
     "retail_price": 5650,
-    "max_price": 6800,
+    "max_price": 6700,
     "prices": {
       "morimori": 6300,
       "rudeya": 5500,
-      "icchome": 6800
+      "icchome": 6700
     }
   },
   {
@@ -220,7 +220,7 @@
     "prices": {
       "morimori": 2400,
       "rudeya": 2500,
-      "icchome": 2500
+      "icchome": 2000
     }
   },
   {
@@ -259,12 +259,12 @@
     "name": "CX-07 ペガサスブラストATr",
     "category": "cx",
     "retail_price": 2600,
-    "max_price": 2500,
+    "max_price": 2400,
     "prices": {
       "morimori": 2400,
       "homura": 2000,
       "rudeya": 2000,
-      "icchome": 2500
+      "icchome": 2300
     }
   },
   {
@@ -292,11 +292,11 @@
     "name": "BX-50 ランダムブースターVol.11",
     "category": "bx",
     "retail_price": 1600,
-    "max_price": 1500,
+    "max_price": 1300,
     "prices": {
       "morimori": 1300,
       "rudeya": 800,
-      "icchome": 1500
+      "icchome": 1000
     }
   },
   {
@@ -370,7 +370,7 @@
     "prices": {
       "morimori": 1000,
       "rudeya": 2000,
-      "icchome": 1000
+      "icchome": 800
     }
   },
   {
@@ -388,10 +388,10 @@
     "name": "BX-10 エクストリームスタジアム",
     "category": "bx",
     "retail_price": 2750,
-    "max_price": 2700,
+    "max_price": 2800,
     "prices": {
       "morimori": 2700,
-      "icchome": 2700
+      "icchome": 2800
     }
   },
   {
