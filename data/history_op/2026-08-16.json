@@ -10,9 +10,9 @@
       "rudeya": 10500,
       "runto": 11000,
       "icchome": 10500,
-      "oku": 10600,
-      "collect_tendo": 10000,
-      "shinsoku": 10900
+      "oku": 10500,
+      "collect_tendo": 9500,
+      "shinsoku": 10400
     }
   },
   {
@@ -26,8 +26,8 @@
       "rudeya": 11700,
       "runto": 12000,
       "icchome": 10500,
-      "oku": 10800,
-      "collect_tendo": 10500,
+      "oku": 10500,
+      "collect_tendo": 10000,
       "shinsoku": 10900
     }
   },
@@ -42,8 +42,8 @@
       "rudeya": 14000,
       "runto": 16000,
       "icchome": 15000,
-      "oku": 15000,
-      "collect_tendo": 15200,
+      "oku": 14500,
+      "collect_tendo": 15000,
       "shinsoku": 15200
     }
   },
@@ -58,9 +58,9 @@
       "rudeya": 20000,
       "runto": 23000,
       "icchome": 22000,
-      "oku": 23000,
+      "oku": 22400,
       "collect_tendo": 23000,
-      "shinsoku": 22900
+      "shinsoku": 22500
     }
   },
   {
@@ -74,7 +74,7 @@
       "rudeya": 17500,
       "runto": 17800,
       "icchome": 18500,
-      "oku": 19500,
+      "oku": 19000,
       "collect_tendo": 20000,
       "shinsoku": 19600
     }
@@ -90,9 +90,9 @@
       "rudeya": 37500,
       "runto": 38500,
       "icchome": 38000,
-      "oku": 38000,
+      "oku": 37000,
       "collect_tendo": 38800,
-      "shinsoku": 36200
+      "shinsoku": 36000
     }
   },
   {
@@ -106,9 +106,9 @@
       "rudeya": 11000,
       "runto": 12000,
       "icchome": 12000,
-      "oku": 13000,
+      "oku": 12500,
       "collect_tendo": 11500,
-      "shinsoku": 12600
+      "shinsoku": 12500
     }
   },
   {
@@ -122,8 +122,8 @@
       "rudeya": 20500,
       "runto": 23500,
       "icchome": 21500,
-      "oku": 22800,
-      "collect_tendo": 23000,
+      "oku": 22000,
+      "collect_tendo": 23200,
       "shinsoku": 22100
     }
   },
@@ -131,7 +131,7 @@
     "name": "ブースターパック「二つの伝説」【OP-08】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 11100,
+    "max_price": 11000,
     "prices": {
       "morimori": 10000,
       "homura": 10000,
@@ -140,7 +140,7 @@
       "icchome": 11000,
       "oku": 10000,
       "collect_tendo": 10000,
-      "shinsoku": 11100
+      "shinsoku": 11000
     }
   },
   {
@@ -154,9 +154,9 @@
       "rudeya": 18500,
       "runto": 19500,
       "icchome": 19500,
-      "oku": 19500,
+      "oku": 18500,
       "collect_tendo": 18500,
-      "shinsoku": 18500
+      "shinsoku": 18000
     }
   },
   {
@@ -170,7 +170,7 @@
       "rudeya": 25200,
       "runto": 24000,
       "icchome": 24000,
-      "oku": 24500,
+      "oku": 24000,
       "collect_tendo": 20000,
       "shinsoku": 24600
     }
@@ -186,7 +186,7 @@
       "rudeya": 65000,
       "runto": 67000,
       "icchome": 64000,
-      "oku": 65000,
+      "oku": 64000,
       "collect_tendo": 65000,
       "shinsoku": 60800
     }
@@ -202,8 +202,8 @@
       "rudeya": 21500,
       "runto": 21300,
       "icchome": 21200,
-      "oku": 21000,
-      "collect_tendo": 20500,
+      "oku": 20000,
+      "collect_tendo": 21000,
       "shinsoku": 21400
     }
   },
@@ -219,7 +219,7 @@
       "runto": 18500,
       "icchome": 18500,
       "oku": 18000,
-      "collect_tendo": 18800,
+      "collect_tendo": 18200,
       "shinsoku": 18600
     }
   },
@@ -234,8 +234,8 @@
       "rudeya": 26200,
       "runto": 25000,
       "icchome": 23000,
-      "oku": 23500,
-      "collect_tendo": 25000,
+      "oku": 23000,
+      "collect_tendo": 23500,
       "shinsoku": 23900
     }
   },
@@ -268,7 +268,7 @@
       "icchome": 13000,
       "oku": 13000,
       "collect_tendo": 13500,
-      "shinsoku": 13100
+      "shinsoku": 12900
     }
   },
   {
@@ -284,7 +284,7 @@
       "icchome": 22000,
       "oku": 22500,
       "collect_tendo": 22800,
-      "shinsoku": 22000
+      "shinsoku": 21500
     }
   },
   {
@@ -298,7 +298,7 @@
       "rudeya": 37000,
       "runto": 39000,
       "icchome": 37000,
-      "oku": 37200,
+      "oku": 36500,
       "collect_tendo": 37500,
       "shinsoku": 36700
     }
@@ -314,7 +314,7 @@
       "rudeya": 21000,
       "runto": 23500,
       "icchome": 21000,
-      "oku": 21500,
+      "oku": 21200,
       "collect_tendo": 22000,
       "shinsoku": 21600
     }
@@ -330,7 +330,7 @@
       "rudeya": 10000,
       "runto": 12500,
       "icchome": 11000,
-      "oku": 11200,
+      "oku": 10500,
       "collect_tendo": 7300,
       "shinsoku": 11300
     }
@@ -339,16 +339,16 @@
     "name": "プレミアムブースター「ONE PIECE CARD THE BEST」【PRB-01】",
     "category": "prb",
     "retail_price": 5500,
-    "max_price": 22600,
+    "max_price": 22500,
     "prices": {
       "morimori": 21500,
       "homura": 22200,
       "rudeya": 21000,
       "runto": 22500,
       "icchome": 21000,
-      "oku": 22200,
+      "oku": 22000,
       "collect_tendo": 22500,
-      "shinsoku": 22600
+      "shinsoku": 21500
     }
   },
   {
