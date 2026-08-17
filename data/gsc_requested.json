@@ -3,6 +3,62 @@
   "requested_at": "2026-08-16T07:35:00+09:00",
   "result": "requested"
  },
+ "https://pokeca-box-hikaku.com/box-toushi.html": {
+  "requested_at": "2026-08-17T07:33:37+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/box/battle-partners.html": {
+  "requested_at": "2026-08-17T07:33:37+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/box/cyber-judge.html": {
+  "requested_at": "2026-08-18T08:20:41+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/box/legendary-heartbeat.html": {
+  "requested_at": "2026-08-18T08:23:50+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/box/lost-abyss.html": {
+  "requested_at": "2026-08-18T08:20:41+09:00",
+  "result": "indexed"
+ },
+ "https://pokeca-box-hikaku.com/box/neppuu-arena.html": {
+  "requested_at": "2026-08-18T08:23:50+09:00",
+  "result": "indexed"
+ },
+ "https://pokeca-box-hikaku.com/box/pokemon-go.html": {
+  "requested_at": "2026-08-18T08:28:04+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/box/rapid-strike-master.html": {
+  "requested_at": "2026-08-18T08:28:04+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/box/snow-hazard.html": {
+  "requested_at": "2026-08-18T08:20:41+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/box/stellar-miracle.html": {
+  "requested_at": "2026-08-17T07:33:37+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/box/storm-emeralda.html": {
+  "requested_at": "2026-08-17T07:33:37+09:00",
+  "result": "indexed"
+ },
+ "https://pokeca-box-hikaku.com/box/triplet-beat.html": {
+  "requested_at": "2026-08-18T08:20:41+09:00",
+  "result": "indexed"
+ },
+ "https://pokeca-box-hikaku.com/box/violet-ex.html": {
+  "requested_at": "2026-08-18T08:20:41+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/box/white-flare.html": {
+  "requested_at": "2026-08-17T07:33:37+09:00",
+  "result": "indexed"
+ },
  "https://pokeca-box-hikaku.com/clay-burst-spotlight.html": {
   "requested_at": "2026-08-16T07:20:00+09:00",
   "result": "requested"
@@ -43,8 +99,28 @@
   "requested_at": "2026-08-16T06:58:00+09:00",
   "result": "requested"
  },
+ "https://pokeca-box-hikaku.com/mercari-hikaku.html": {
+  "requested_at": "2026-08-17T07:33:37+09:00",
+  "result": "requested"
+ },
  "https://pokeca-box-hikaku.com/ninja-spinner-spotlight.html": {
   "requested_at": "2026-08-16T07:24:00+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/onepiece/kougaku-ranking.html": {
+  "requested_at": "2026-08-18T08:29:26+09:00",
+  "result": "indexed"
+ },
+ "https://pokeca-box-hikaku.com/onepiece/toushi.html": {
+  "requested_at": "2026-08-18T08:29:26+09:00",
+  "result": "indexed"
+ },
+ "https://pokeca-box-hikaku.com/price-pattern-guide.html": {
+  "requested_at": "2026-08-17T07:33:37+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/psa-guide.html": {
+  "requested_at": "2026-08-17T07:33:37+09:00",
   "result": "requested"
  },
  "https://pokeca-box-hikaku.com/rocket-dan-no-eiko-spotlight.html": {
@@ -53,6 +129,50 @@
  },
  "https://pokeca-box-hikaku.com/shiny-treasure-ex-atari-guide.html": {
   "requested_at": "2026-08-16T07:30:00+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/shop-hikaku.html": {
+  "requested_at": "2026-08-17T07:33:37+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/shop/homura.html": {
+  "requested_at": "2026-08-18T08:32:06+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/shop/icchome.html": {
+  "requested_at": "2026-08-18T08:34:46+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/shop/kaikyo.html": {
+  "requested_at": "2026-08-18T08:37:25+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/shop/morimori.html": {
+  "requested_at": "2026-08-18T08:32:06+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/shop/oku.html": {
+  "requested_at": "2026-08-18T08:37:25+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/shop/rudeya.html": {
+  "requested_at": "2026-08-18T08:38:57+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/shop/runto.html": {
+  "requested_at": "2026-08-18T08:34:46+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/shrink-nashi.html": {
+  "requested_at": "2026-08-17T07:33:37+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/single-card-tips.html": {
+  "requested_at": "2026-08-17T07:33:37+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/souba-mynumber-2026.html": {
+  "requested_at": "2026-08-17T07:33:37+09:00",
   "result": "requested"
  },
  "https://pokeca-box-hikaku.com/terastal-fes-ex-atari-guide.html": {
