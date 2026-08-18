@@ -103,6 +103,22 @@
   "requested_at": "2026-08-17T07:33:37+09:00",
   "result": "requested"
  },
+ "https://pokeca-box-hikaku.com/monthly-ranking-2026-04.html": {
+  "requested_at": "2026-08-19T07:36:38+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/monthly-ranking-2026-05.html": {
+  "requested_at": "2026-08-19T07:36:39+09:00",
+  "result": "indexed"
+ },
+ "https://pokeca-box-hikaku.com/monthly-ranking-2026-06.html": {
+  "requested_at": "2026-08-19T07:32:26+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/monthly-ranking-2026-07.html": {
+  "requested_at": "2026-08-19T07:32:26+09:00",
+  "result": "requested"
+ },
  "https://pokeca-box-hikaku.com/ninja-spinner-spotlight.html": {
   "requested_at": "2026-08-16T07:24:00+09:00",
   "result": "requested"
@@ -114,6 +130,18 @@
  "https://pokeca-box-hikaku.com/onepiece/toushi.html": {
   "requested_at": "2026-08-18T08:29:26+09:00",
   "result": "indexed"
+ },
+ "https://pokeca-box-hikaku.com/onepiece/weekly/2026-w30.html": {
+  "requested_at": "2026-08-19T08:04:05+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/onepiece/weekly/2026-w31.html": {
+  "requested_at": "2026-08-19T07:59:20+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/onepiece/weekly/2026-w32.html": {
+  "requested_at": "2026-08-19T07:54:20+09:00",
+  "result": "requested"
  },
  "https://pokeca-box-hikaku.com/price-pattern-guide.html": {
   "requested_at": "2026-08-17T07:33:37+09:00",
@@ -133,6 +161,10 @@
  },
  "https://pokeca-box-hikaku.com/shop-hikaku.html": {
   "requested_at": "2026-08-17T07:33:37+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/shop/collect_tendo.html": {
+  "requested_at": "2026-08-19T07:28:01+09:00",
   "result": "requested"
  },
  "https://pokeca-box-hikaku.com/shop/homura.html": {
@@ -163,6 +195,10 @@
   "requested_at": "2026-08-18T08:34:46+09:00",
   "result": "requested"
  },
+ "https://pokeca-box-hikaku.com/shop/shinsoku.html": {
+  "requested_at": "2026-08-19T07:28:01+09:00",
+  "result": "requested"
+ },
  "https://pokeca-box-hikaku.com/shrink-nashi.html": {
   "requested_at": "2026-08-17T07:33:37+09:00",
   "result": "requested"
@@ -177,6 +213,26 @@
  },
  "https://pokeca-box-hikaku.com/terastal-fes-ex-atari-guide.html": {
   "requested_at": "2026-08-16T07:32:00+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/weekly/2026-w16.html": {
+  "requested_at": "2026-08-19T07:48:12+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/weekly/2026-w18.html": {
+  "requested_at": "2026-08-19T07:44:20+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/weekly/2026-w29.html": {
+  "requested_at": "2026-08-19T07:44:20+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/weekly/2026-w30.html": {
+  "requested_at": "2026-08-19T07:40:50+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/weekly/2026-w31.html": {
+  "requested_at": "2026-08-19T07:40:50+09:00",
   "result": "requested"
  },
  "https://pokeca-box-hikaku.com/white-flare-atari-guide.html": {
