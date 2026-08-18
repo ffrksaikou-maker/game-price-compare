@@ -7,7 +7,7 @@
     "prices": {
       "morimori": 6100,
       "homura": 6500,
-      "rudeya": 6000,
+      "rudeya": 6200,
       "icchome": 6100
     }
   },
@@ -39,7 +39,6 @@
     "retail_price": 1600,
     "max_price": 2500,
     "prices": {
-      "morimori": 2200,
       "homura": 2400,
       "rudeya": 2000,
       "icchome": 2500
@@ -62,7 +61,6 @@
     "retail_price": 1400,
     "max_price": 2700,
     "prices": {
-      "morimori": 2300,
       "rudeya": 2700,
       "icchome": 2700
     }
@@ -84,7 +82,6 @@
     "retail_price": 1400,
     "max_price": 3800,
     "prices": {
-      "morimori": 3800,
       "homura": 2500,
       "rudeya": 2500,
       "icchome": 3800
@@ -107,7 +104,6 @@
     "retail_price": 5700,
     "max_price": 8000,
     "prices": {
-      "morimori": 7000,
       "rudeya": 8000,
       "icchome": 7000
     }
@@ -163,7 +159,7 @@
     "prices": {
       "morimori": 2500,
       "homura": 2500,
-      "rudeya": 1500,
+      "rudeya": 2000,
       "icchome": 2000
     }
   },
@@ -173,7 +169,6 @@
     "retail_price": 1600,
     "max_price": 1600,
     "prices": {
-      "morimori": 1500,
       "rudeya": 1600,
       "icchome": 1500
     }
@@ -184,7 +179,6 @@
     "retail_price": 1600,
     "max_price": 1500,
     "prices": {
-      "morimori": 1000,
       "rudeya": 800,
       "icchome": 1500
     }
@@ -193,20 +187,19 @@
     "name": "CX-16 スタートダッシュセットC",
     "category": "cx",
     "retail_price": 5650,
-    "max_price": 7000,
+    "max_price": 7200,
     "prices": {
       "morimori": 6300,
       "rudeya": 5500,
-      "icchome": 7000
+      "icchome": 7200
     }
   },
   {
     "name": "CX-15 ラグナレイジFE4-55Y",
     "category": "cx",
     "retail_price": 1600,
-    "max_price": 1500,
+    "max_price": 1300,
     "prices": {
-      "morimori": 1500,
       "homura": 1000,
       "rudeya": 800,
       "icchome": 1300
@@ -220,7 +213,7 @@
     "prices": {
       "morimori": 2000,
       "rudeya": 2400,
-      "icchome": 2000
+      "icchome": 1800
     }
   },
   {
@@ -229,7 +222,6 @@
     "retail_price": 1700,
     "max_price": 1200,
     "prices": {
-      "morimori": 900,
       "rudeya": 1200,
       "icchome": 1100
     }
@@ -240,7 +232,6 @@
     "retail_price": 5000,
     "max_price": 6500,
     "prices": {
-      "morimori": 5300,
       "rudeya": 6500,
       "icchome": 5300
     }
@@ -259,9 +250,8 @@
     "name": "CX-07 ペガサスブラストATr",
     "category": "cx",
     "retail_price": 2600,
-    "max_price": 2400,
+    "max_price": 2300,
     "prices": {
-      "morimori": 2400,
       "homura": 2000,
       "rudeya": 1600,
       "icchome": 2300
@@ -271,9 +261,8 @@
     "name": "CX-05 ランダムブースターVol.6",
     "category": "cx",
     "retail_price": 1600,
-    "max_price": 2800,
+    "max_price": 2000,
     "prices": {
-      "morimori": 2800,
       "homura": 2000,
       "rudeya": 1000,
       "icchome": 2000
@@ -382,7 +371,7 @@
     "prices": {
       "morimori": 1900,
       "rudeya": 2000,
-      "icchome": 1900
+      "icchome": 1800
     }
   },
   {
@@ -391,7 +380,6 @@
     "retail_price": 2750,
     "max_price": 3500,
     "prices": {
-      "morimori": 2700,
       "icchome": 3500
     }
   },
@@ -401,7 +389,6 @@
     "retail_price": 3300,
     "max_price": 5500,
     "prices": {
-      "morimori": 5000,
       "homura": 5000,
       "icchome": 5500
     }
@@ -424,7 +411,7 @@
     "max_price": 9100,
     "prices": {
       "homura": 9100,
-      "rudeya": 7000,
+      "rudeya": 7500,
       "icchome": 4000
     }
   },
@@ -441,9 +428,9 @@
     "name": "CX-00 ペガサスブラストATr メタルコート:レッド",
     "category": "limited",
     "retail_price": 2700,
-    "max_price": 5000,
+    "max_price": 5400,
     "prices": {
-      "rudeya": 5000
+      "rudeya": 5400
     }
   },
   {
@@ -473,7 +460,6 @@
     "retail_price": 1600,
     "max_price": 5700,
     "prices": {
-      "morimori": 5000,
       "rudeya": 5700,
       "icchome": 5000
     }
