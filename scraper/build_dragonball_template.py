@@ -7,8 +7,6 @@
   - 買取店は4店のみ(森森/ルデヤ/ホムラ/ラントゥ)
   - 記事・個別商品ページは作らないので商品名はリンクにしない
   - 発売日列を商品名の直後に追加(ベイ版と同じ。再販判断に使うため)
-  - BOX封入パック数が弾によって違う(FB=24 / ST・ダイバーズ=20)ため、
-    「定価」がBOX想定定価である旨を表の直上に明記する
 """
 import re
 from pathlib import Path
@@ -148,24 +146,6 @@ t = rep(t, '        <th style="min-width:200px">商品名</th>\n',
         '        <th style="min-width:84px">発売日</th>\n',
         count=1)
 
-# 6.5) 表の直前に定価の注記 --------------------------------------------------
-# BOXの封入パック数が弾ごとに違う(FB=24 / ST・ダイバーズ=20)ため、
-# 「定価」が何を指すのかを表から近い位置で明示する。
-t = rep(t, '<div class="tw">',
-        '<div class="msrpnote">※表の「<b>定価</b>」は1パックのメーカー希望小売価格(税込)×'
-        'BOXの封入パック数で計算したBOX想定定価です。'
-        'ブースターパック(FB)は220円×24パック、MANGA BOOSTER(SB)は330円×24パック、'
-        'STORY BOOSTER(ST)とスーパーダイバーズは330円×20パックで計算しています。</div>\n<div class="tw">',
-        count=1)
-t = rep(t, '\n.cb{max-width:var(--table-width);',
-        '\n.msrpnote{max-width:var(--table-width);margin:10px auto 0;padding:8px 13px;'
-        'background:#f9fafb;border:1px solid var(--border);border-radius:8px;'
-        'font-size:12px;line-height:1.6;color:var(--text-sub)}'
-        '\n.msrpnote b{color:var(--text)}'
-        '\n@media(max-width:768px){.msrpnote{margin:10px 12px 0;font-size:11px}}'
-        '\n.cb{max-width:var(--table-width);',
-        count=1)
-
 # 7) フッターの出典(4店のみ) -------------------------------------------------
 _FT_OLD = '''  <a href="https://www.morimori-kaitori.jp/" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'morimori',shop_name:'森森'})">森森買取</a> /'''
 assert _FT_OLD in t
@@ -177,8 +157,7 @@ t = t[:_ft_begin] + '''  <a href="https://www.morimori-kaitori.jp/" target="_bla
   <a href="https://runto666.com/" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'runto',shop_name:'ラントゥ'})">ラントゥ買取</a>''' + t[_ft_end:]
 
 t = rep(t, '  ※ 各店舗公式サイトより取得した未開封シュリンク付BOXの新品買取価格<br>\n',
-        '  ※ 各店舗公式サイトより取得した未開封BOXの新品買取価格<br>\n'
-        '  ※ 「定価」は1パック定価×BOX封入パック数で計算したBOX想定定価です<br>\n',
+        '  ※ 各店舗公式サイトより取得した未開封BOXの新品買取価格<br>\n',
         count=1)
 
 # 店舗の並びは固定にする。ポケカは「最高買取になった回数の多い順」で動的に
@@ -257,7 +236,6 @@ t = replace_section(t, '<section class="site-intro"', "</section>", '''<section 
         <div class="si-item"><h3>📊 4店舗を一括比較</h3><p>買取ホムラ・買取ルデヤ・ラントゥ買取・森森買取の公式買取表を自動収集。最高値は黄色ハイライトで明示します。</p></div>
         <div class="si-item"><h3>🎴 対象はBOX単位</h3><p>ブースターパック(FB-01〜)、MANGA BOOSTER(SB)、STORY BOOSTER(ST)、スーパーダイバーズのアドバンスパックを掲載しています。シングルカードは扱っていません。</p></div>
         <div class="si-item"><h3>💰 資産モード</h3><p>右上「資産モード」で保有個数を入力すると合計資産額をリアルタイム計算します。</p></div>
-        <div class="si-item"><h3>🏷️ 定価について</h3><p>表の「定価」は1パックのメーカー希望小売価格(税込)×BOX封入パック数で計算したBOX想定定価です。FBは220円×24パック、SBは330円×24パック、STとスーパーダイバーズは330円×20パックで算出しています。</p></div>
       </div>
       <div class="si-howto"><strong>使い方</strong>: 上部のシリーズ(ブースター/MANGA/STORY/ダイバーズ)・買取屋ボタンで絞り込み → 最高買取欄で一番高い店を確認 → 店舗名リンクから各店の公式ページへ移動できます。</div>
       <div class="si-meta">
