@@ -49,11 +49,11 @@
     "name": "UX-17 メテオドラグーン3-70J",
     "category": "ux",
     "retail_price": 2300,
-    "max_price": 2700,
+    "max_price": 2500,
     "prices": {
       "morimori": 2300,
       "rudeya": 2500,
-      "icchome": 2700
+      "icchome": 2300
     }
   },
   {
