@@ -164,7 +164,7 @@
       "morimori": 2500,
       "homura": 2000,
       "rudeya": 2000,
-      "icchome": 2000
+      "icchome": 1800
     }
   },
   {
@@ -304,9 +304,9 @@
     "name": "BX-49 ドランストライク4-50FF",
     "category": "bx",
     "retail_price": 2200,
-    "max_price": 2100,
+    "max_price": 2200,
     "prices": {
-      "morimori": 2100,
+      "morimori": 2200,
       "homura": 2000,
       "rudeya": 2000,
       "icchome": 2000
@@ -320,7 +320,7 @@
     "prices": {
       "morimori": 2500,
       "rudeya": 3000,
-      "icchome": 2900
+      "icchome": 3000
     }
   },
   {
@@ -382,7 +382,7 @@
     "prices": {
       "morimori": 1800,
       "rudeya": 2000,
-      "icchome": 1800
+      "icchome": 1700
     }
   },
   {
