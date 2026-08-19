@@ -18,6 +18,9 @@ CATEGORY_URLS = [
     # ベイブレード (sub=188)。トレカ(product_category_id=14)配下ではないため
     # category_id を付けると0件になる。sub のみで指定すること。
     "https://kaitori-homura.com/products?q[product_sub_category_id_eq]=188",
+    # ドラゴンボール未開封BOX (sub=171)。ベイブレードと同じくトレカ配下ではない
+    # ため sub のみで指定する。ポケカ/ワンピ側matcherは弾番号で弾き、DB側が拾う。
+    "https://kaitori-homura.com/products?q[product_sub_category_id_eq]=171",
 ]
 
 _PID_RE = re.compile(r"/products/(\d+)")

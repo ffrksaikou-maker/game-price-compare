@@ -22,11 +22,12 @@ from .base import BaseScraper, ScrapedItem
 
 logger = logging.getLogger(__name__)
 
-# card/: ポケカ含むトレカ全般 / onepiece/: ONE PIECE専用。
-# ポケカ側matcherはワンピを弾き、ワンピ側matcherが拾う。
+# card/: ポケカ含むトレカ全般 / onepiece/: ONE PIECE専用 / dg/: ドラゴンボール専用。
+# ポケカ側matcherはワンピ・DBを弾き、それぞれのmatcherが拾う。
 BASE_URLS = [
     "https://runto666.com/product-category/card/",
     "https://runto666.com/product-category/onepiece/",
+    "https://runto666.com/product-category/dg/",
 ]
 MAX_BOX_PRICE = 60000
 

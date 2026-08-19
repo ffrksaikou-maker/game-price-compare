@@ -22,6 +22,8 @@ from scraper.products_onepiece import ONEPIECE_PRODUCTS, ONEPIECE_CONFIG
 from scraper.generator_onepiece import generate_onepiece_html
 from scraper.products_beyblade import BEYBLADE_PRODUCTS, BEYBLADE_CONFIG
 from scraper.generator_beyblade import generate_beyblade_html
+from scraper.products_dragonball import DRAGONBALL_PRODUCTS, DRAGONBALL_CONFIG
+from scraper.generator_dragonball import generate_dragonball_html
 from scraper import mercari
 from scraper.anomaly import detect_anomalies, drop_anomalies, update_state
 
@@ -42,6 +44,7 @@ CACHE_CONSECUTIVE_THRESHOLD = 2
 CACHE_COUNT_FILE = Path(__file__).resolve().parent.parent / "data" / "cache_fallback_counts.json"
 HISTORY_OP_DIR = Path(__file__).resolve().parent.parent / "data" / "history_op"
 HISTORY_BEY_DIR = Path(__file__).resolve().parent.parent / "data" / "history_bey"
+HISTORY_DB_DIR = Path(__file__).resolve().parent.parent / "data" / "history_db"
 
 # 取得に失敗した店を全店ループ後にもう一度試すまでの待ち時間（秒）
 # 一時的な接続タイムアウト対策。失敗店が無い回はこの待ちは発生しない
@@ -175,14 +178,15 @@ def usable_cache(cache: dict, meta: dict, shop_id: str, shop_name: str) -> list 
 
 
 def match_all_games(scraped: list, shop_id: str) -> None:
-    """1店の取得結果をポケカ/ワンピ/ベイの3マスターに通す。
+    """1店の取得結果をポケカ/ワンピ/ベイ/ドラゴンボールの4マスターに通す。
 
     各 MatchConfig の exclude_indicators が互いに他ジャンルを弾くので、
-    同じ入力を3回流しても取り違えは起きない。
+    同じ入力を4回流しても取り違えは起きない。
     """
     match_products(scraped, shop_id)
     match_products(scraped, shop_id, ONEPIECE_PRODUCTS, ONEPIECE_CONFIG)
     match_products(scraped, shop_id, BEYBLADE_PRODUCTS, BEYBLADE_CONFIG)
+    match_products(scraped, shop_id, DRAGONBALL_PRODUCTS, DRAGONBALL_CONFIG)
 
 
 def selected_shop_ids() -> set[str] | None:
@@ -231,6 +235,8 @@ def main() -> None:
     for product in ONEPIECE_PRODUCTS:
         product.prices.clear()
     for product in BEYBLADE_PRODUCTS:
+        product.prices.clear()
+    for product in DRAGONBALL_PRODUCTS:
         product.prices.clear()
 
     cache = load_cache()
@@ -357,9 +363,11 @@ def main() -> None:
     anomalies = detect_anomalies(MASTER_PRODUCTS, HISTORY_DIR)
     anomalies += detect_anomalies(ONEPIECE_PRODUCTS, HISTORY_OP_DIR)
     anomalies += detect_anomalies(BEYBLADE_PRODUCTS, HISTORY_BEY_DIR)
+    anomalies += detect_anomalies(DRAGONBALL_PRODUCTS, HISTORY_DB_DIR)
     drop_anomalies(MASTER_PRODUCTS, anomalies)
     drop_anomalies(ONEPIECE_PRODUCTS, anomalies)
     drop_anomalies(BEYBLADE_PRODUCTS, anomalies)
+    drop_anomalies(DRAGONBALL_PRODUCTS, anomalies)
     new_anomalies, resolved_anomalies = update_state(anomalies)
 
     # Save daily price history
@@ -389,6 +397,13 @@ def main() -> None:
             logger.error("mercari: fetch failed:\n%s", traceback.format_exc())
     generate_beyblade_html(BEYBLADE_PRODUCTS, market)
     logger.info("Done! beyblade.html has been generated.")
+
+    # Generate ドラゴンボール page (dragonball.html)
+    db_with_prices = sum(1 for p in DRAGONBALL_PRODUCTS if p.prices)
+    logger.info("Dragon Ball products with prices: %d/%d",
+                db_with_prices, len(DRAGONBALL_PRODUCTS))
+    generate_dragonball_html(DRAGONBALL_PRODUCTS)
+    logger.info("Done! dragonball.html has been generated.")
 
     # 異常検知 → Discord通知
     alerts: list[str] = []

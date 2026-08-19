@@ -1,8 +1,12 @@
-"""ポケカ / ワンピ / ベイブレードの3ページを行き来する切替バナー。
+"""ポケカ / ワンピ / ベイブレード / ドラゴンボールの4ページを行き来する切替バナー。
 
-ページが2枚のうちは全幅1本のバナーで足りていたが、ベイブレード版の追加で3枚に
-なったため「自分以外の2つ」を横並びで出すバーに拡張した。生成スクリプト
-(build_onepiece_template.py / build_beyblade_template.py)から共用する。
+ページが2枚のうちは全幅1本のバナーで足りていたが、ページが増えるたびに
+「自分以外の全部」を横並びで出すバーに拡張してきた。生成スクリプト
+(build_onepiece_template.py / build_beyblade_template.py /
+build_dragonball_template.py)から共用する。
+
+4枚になってリンクが3つ並ぶようになったため、ラベルから「の買取比較」を外して
+ジャンル名だけにしてある(狭い画面で3つ並べると省略記号だらけになるため)。
 
 strip() は旧形式(全幅1本の <a class="gswitch">)と新形式(.gsbar)の両方を落とすので、
 どの状態のテンプレから再生成しても結果が同じになる(冪等)。
@@ -19,28 +23,32 @@ BANNER_CSS = (
     '\n.gsbar{display:flex}'
     '\n.gsbar .gswitch{flex:1;min-width:0}'
     '\n.gswitch{display:flex;align-items:center;justify-content:center;gap:6px;'
-    'padding:13px 10px;font-size:14px;font-weight:800;text-decoration:none;color:#fff;'
+    'padding:13px 8px;font-size:14px;font-weight:800;text-decoration:none;color:#fff;'
     'box-shadow:inset 0 -2px 0 rgba(0,0,0,.12);white-space:nowrap;overflow:hidden;'
     'text-overflow:ellipsis}'
     '\n.gswitch .ar{font-size:17px;line-height:1}'
     '\n.gs-op{background:linear-gradient(135deg,#ff6b6b,#e53935)}'
     '\n.gs-pk{background:linear-gradient(135deg,#4aa3ff,#1e88e5)}'
     '\n.gs-by{background:linear-gradient(135deg,#ffa726,#f57c00)}'
+    '\n.gs-db{background:linear-gradient(135deg,#66bb6a,#2e7d32)}'
     '\n.gswitch:active{filter:brightness(.94)}'
     '\n@media(hover:hover){.gswitch:hover{filter:brightness(1.08)}}'
-    '\n@media(max-width:480px){.gswitch{font-size:12px;padding:11px 6px;gap:4px}'
-    '.gswitch .ar{font-size:14px}}'
+    '\n@media(max-width:768px){.gswitch{font-size:13px;padding:12px 6px;gap:5px}'
+    '.gswitch .ar{font-size:15px}}'
+    '\n@media(max-width:480px){.gswitch{font-size:11px;padding:10px 4px;gap:3px}'
+    '.gswitch .ar{font-size:13px}}'
 )
 
 # ページ定義: key -> (CSSクラス, リンク先, ラベル)
 # href="/" はNetlify/http.server共に index.html を指す。
 _PAGES = {
     "pokemon": ("gs-pk", "/", "ポケモンカード"),
-    "onepiece": ("gs-op", "/onepiece", "ONE PIECEカード"),
+    "onepiece": ("gs-op", "/onepiece", "ONE PIECE"),
     "beyblade": ("gs-by", "/beyblade", "ベイブレード"),
+    "dragonball": ("gs-db", "/dragonball", "ドラゴンボール"),
 }
 # 並び順は固定(ページによって左右が入れ替わると迷子になるため)
-_ORDER = ["pokemon", "onepiece", "beyblade"]
+_ORDER = ["pokemon", "onepiece", "beyblade", "dragonball"]
 
 _OLD_SWITCH_CSS = (
     '\n.header .switch{position:absolute;left:12px;font-size:12px;font-weight:700;'
@@ -58,7 +66,7 @@ _CSS_RE = re.compile(
 
 
 def bar(current: str) -> str:
-    """current 以外の2ページへのリンクを横並びで返す。"""
+    """current 以外の全ページへのリンクを横並びで返す。"""
     assert current in _PAGES, current
     parts = []
     for key in _ORDER:
@@ -67,9 +75,9 @@ def bar(current: str) -> str:
         cls, href, label = _PAGES[key]
         # 自分より前のページは「◀ 戻る」、後ろのページは「進む ▶」の向きにする
         if _ORDER.index(key) < _ORDER.index(current):
-            inner = f'<span class="ar">◀</span> {label}の買取比較'
+            inner = f'<span class="ar">◀</span> {label}'
         else:
-            inner = f'{label}の買取比較 <span class="ar">▶</span>'
+            inner = f'{label} <span class="ar">▶</span>'
         parts.append(f'<a class="gswitch {cls}" href="{href}">{inner}</a>')
     return '<div class="gsbar">' + "".join(parts) + "</div>\n"
 

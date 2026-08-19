@@ -80,12 +80,24 @@ _BEY_SET_CODES = (
     + [f"UX-{i:02d}" for i in range(0, 31)] + [f"UX{i:02d}" for i in range(0, 31)]
     + [f"CX-{i:02d}" for i in range(0, 31)] + [f"CX{i:02d}" for i in range(0, 31)]
 )
+# ドラゴンボール(フュージョンワールド)の弾番号。店により「FB-07」「FB07」両表記。
+# ST(STORY BOOSTER)は ONE PIECE のスタートデッキ(ST-01〜)と番号体系が完全に
+# 衝突するため型番では引かず、商品名(STORY BOOSTER)で判別する。
+_DB_SET_CODES = (
+    [f"FB-{i:02d}" for i in range(1, 21)] + [f"FB{i:02d}" for i in range(1, 21)]
+    + [f"SB-{i:02d}" for i in range(1, 11)] + [f"SB{i:02d}" for i in range(1, 11)]
+)
+# ドラゴンボール固有の商品名。弾番号を持たない出品(ダイバーズ等)を弾くのに使う。
+_DB_NAME_INDICATORS = [
+    "ドラゴンボール", "フュージョンワールド", "スーパーダイバーズ",
+    "MANGA BOOSTER", "STORY BOOSTER", "アドバンスパック",
+]
 NON_POKEMON_INDICATORS = [
     "ONE PIECE", "ワンピース", "遊戯王", "デュエル・マスターズ",
-    "ドラゴンボール", "ヴァイスシュヴァルツ", "バトルスピリッツ",
+    "ヴァイスシュヴァルツ", "バトルスピリッツ",
     "ヴァンガード", "ウィクロス",
     "ベイブレード", "BEYBLADE",
-] + _OP_SET_CODES + _BEY_SET_CODES
+] + _OP_SET_CODES + _BEY_SET_CODES + _DB_SET_CODES + _DB_NAME_INDICATORS
 
 # Non-BOX Pokemon products to exclude
 NON_BOX_INDICATORS = [

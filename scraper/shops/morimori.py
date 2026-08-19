@@ -30,6 +30,9 @@ TARGETS = [
     ("ワンピ", f"{BASE}/category/2403"),
     ("ワンピ新弾", f"{BASE}/category/0112003"),
     ("ベイブレード", f"{BASE}/category/1904001"),
+    # ドラゴンボールは category/2404 に2件しか無く、MANGA BOOSTER は
+    # category/24 側にあるため、両方をまとめて拾える検索を使う。
+    ("ドラゴンボール", f"{BASE}/search?sk={quote('ドラゴンボール')}"),
 ]
 SEARCH_URL = TARGETS[0][1]  # 後方互換(_open_with_retry のデフォルト値)
 

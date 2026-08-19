@@ -6,6 +6,8 @@ https://pokeca-kaitorihikau.netlify.app/* https://pokeca-box-hikaku.com/:splat 3
 /onepiece-template.html /onepiece 301!
 /beyblade /beyblade.html 200
 /beyblade-template.html /beyblade 301!
+/dragonball /dragonball.html 200
+/dragonball-template.html /dragonball 301!
 /box-template.html / 301!
 /onepiece-box-template.html /onepiece 301!
 /UPDATE_IDEAS.txt / 301!

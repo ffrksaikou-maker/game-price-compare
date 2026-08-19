@@ -13,7 +13,8 @@ retail_price は「BOX想定定価(=1パック定価×パック数)」の計算�
 
 from __future__ import annotations
 
-from .matcher import _BEY_SET_CODES, MasterProduct, MatchConfig
+from .matcher import (_BEY_SET_CODES, _DB_NAME_INDICATORS, _DB_SET_CODES,
+                      MasterProduct, MatchConfig)
 
 # ===== ワンピ用マッチ設定 =====
 # ポケカ/他TCGを除外し、ワンピBOXだけを拾う。レアリティ体系が違うので単品判定も別。
@@ -22,12 +23,15 @@ ONEPIECE_CONFIG = MatchConfig(
     exclude_indicators=[
         "ポケモン", "ポケカ", "ポケモンカード",
         "遊戯王", "デュエル・マスターズ", "デュエルマスターズ",
-        "ドラゴンボール", "ヴァイスシュヴァルツ", "バトルスピリッツ",
+        "ヴァイスシュヴァルツ", "バトルスピリッツ",
         "ヴァンガード", "ウィクロス", "MTG", "マジック",
         "ユニオンアリーナ", "ガンダムカード",
         # ベイブレード。型番だけの出品名(「UX-19」等)もあるため型番接頭辞も弾く。
         "ベイブレード", "BEYBLADE",
-    ] + _BEY_SET_CODES,
+        # ドラゴンボール。弾名だけ(「CROSS FORCE [BOX]」等)の出品もあるため
+        # 弾番号と商品名の両方で弾く。ワンピのST-01とDBのST-01は番号が衝突する
+        # ので、STは弾番号ではなく「STORY BOOSTER」の名前側で判別している。
+    ] + _BEY_SET_CODES + _DB_SET_CODES + _DB_NAME_INDICATORS,
     # 非BOX(単品・カートン・アクセサリ類)を除外
     non_box_indicators=[
         "カートン", "スリーブ", "デッキケース", "プレイマット",
