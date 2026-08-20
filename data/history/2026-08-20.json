@@ -396,7 +396,7 @@
     "name": "SV ハイクラスパック「シャイニートレジャーex」",
     "category": "sv",
     "retail_price": 5500,
-    "max_price": 19500,
+    "max_price": 19600,
     "prices": {
       "morimori": 18900,
       "homura": 19500,
@@ -406,7 +406,7 @@
       "oku": 19500,
       "kaikyo": 19500,
       "collect_tendo": 19000,
-      "shinsoku": 19500
+      "shinsoku": 19600
     }
   },
   {
@@ -639,7 +639,7 @@
     "prices": {
       "homura": 28000,
       "runto": 27000,
-      "kaikyo": 16300,
+      "kaikyo": 16500,
       "collect_tendo": 27000,
       "shinsoku": 28000
     }
