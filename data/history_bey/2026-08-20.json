@@ -94,9 +94,9 @@
     "name": "UX-11 インパクトドレイク9-60LR",
     "category": "ux",
     "retail_price": 2420,
-    "max_price": 2500,
+    "max_price": 2200,
     "prices": {
-      "morimori": 2500,
+      "morimori": 2200,
       "rudeya": 2000,
       "icchome": 2200
     }
@@ -150,7 +150,7 @@
     "retail_price": 1400,
     "max_price": 3500,
     "prices": {
-      "morimori": 1400,
+      "morimori": 2700,
       "rudeya": 3500,
       "icchome": 2700
     }
@@ -159,9 +159,9 @@
     "name": "UX-01 ドランバスター1-60A",
     "category": "ux",
     "retail_price": 1980,
-    "max_price": 2500,
+    "max_price": 2000,
     "prices": {
-      "morimori": 2500,
+      "morimori": 2000,
       "homura": 2000,
       "rudeya": 2000,
       "icchome": 1800
