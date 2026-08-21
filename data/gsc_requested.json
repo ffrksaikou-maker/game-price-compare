@@ -1,4 +1,8 @@
 {
+ "https://pokeca-box-hikaku.com/about.html": {
+  "requested_at": "2026-08-22T08:44:43+09:00",
+  "result": "requested"
+ },
  "https://pokeca-box-hikaku.com/abyss-eye-forecast.html": {
   "requested_at": "2026-08-16T07:35:00+09:00",
   "result": "requested"
@@ -7,8 +11,16 @@
   "requested_at": "2026-08-21T15:50:57+09:00",
   "result": "requested"
  },
+ "https://pokeca-box-hikaku.com/beyblade": {
+  "requested_at": "2026-08-22T08:44:43+09:00",
+  "result": "requested"
+ },
  "https://pokeca-box-hikaku.com/box-toushi.html": {
   "requested_at": "2026-08-17T07:33:37+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/box/151.html": {
+  "requested_at": "2026-08-22T08:44:43+09:00",
   "result": "requested"
  },
  "https://pokeca-box-hikaku.com/box/abyss-eye.html": {
@@ -17,6 +29,10 @@
  },
  "https://pokeca-box-hikaku.com/box/battle-partners.html": {
   "requested_at": "2026-08-17T07:33:37+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/box/black-bolt.html": {
+  "requested_at": "2026-08-22T08:44:43+09:00",
   "result": "requested"
  },
  "https://pokeca-box-hikaku.com/box/cyber-judge.html": {
@@ -72,11 +88,15 @@
   "result": "requested"
  },
  "https://pokeca-box-hikaku.com/box/white-flare.html": {
-  "requested_at": "2026-08-17T07:33:37+09:00",
-  "result": "indexed"
+  "requested_at": "2026-08-22T08:44:43+09:00",
+  "result": "requested"
  },
  "https://pokeca-box-hikaku.com/clay-burst-spotlight.html": {
   "requested_at": "2026-08-16T07:20:00+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/contact.html": {
+  "requested_at": "2026-08-22T08:44:43+09:00",
   "result": "requested"
  },
  "https://pokeca-box-hikaku.com/erika-sar-guide.html": {
@@ -147,6 +167,18 @@
   "requested_at": "2026-08-16T07:24:00+09:00",
   "result": "requested"
  },
+ "https://pokeca-box-hikaku.com/onepiece": {
+  "requested_at": "2026-08-22T08:44:43+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/onepiece/box/op-15.html": {
+  "requested_at": "2026-08-22T08:44:43+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/onepiece/box/op-16.html": {
+  "requested_at": "2026-08-22T08:44:43+09:00",
+  "result": "requested"
+ },
  "https://pokeca-box-hikaku.com/onepiece/kougaku-ranking.html": {
   "requested_at": "2026-08-18T08:29:26+09:00",
   "result": "indexed"
@@ -171,6 +203,10 @@
   "requested_at": "2026-08-17T07:33:37+09:00",
   "result": "requested"
  },
+ "https://pokeca-box-hikaku.com/privacy.html": {
+  "requested_at": "2026-08-22T08:44:43+09:00",
+  "result": "requested"
+ },
  "https://pokeca-box-hikaku.com/psa-guide.html": {
   "requested_at": "2026-08-17T07:33:37+09:00",
   "result": "requested"
@@ -188,7 +224,7 @@
   "result": "requested"
  },
  "https://pokeca-box-hikaku.com/shop-hikaku.html": {
-  "requested_at": "2026-08-17T07:33:37+09:00",
+  "requested_at": "2026-08-22T08:44:43+09:00",
   "result": "requested"
  },
  "https://pokeca-box-hikaku.com/shop/collect_tendo.html": {
@@ -245,6 +281,10 @@
  },
  "https://pokeca-box-hikaku.com/startdeck100-atari-guide.html": {
   "requested_at": "2026-08-21T15:50:57+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/startdeck100-miwakekata.html": {
+  "requested_at": "2026-08-22T08:44:43+09:00",
   "result": "requested"
  },
  "https://pokeca-box-hikaku.com/sv-box-list.html": {
