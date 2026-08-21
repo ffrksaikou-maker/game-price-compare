@@ -10,7 +10,7 @@
       "rudeya": 9000,
       "runto": 11000,
       "icchome": 9000,
-      "oku": 9500,
+      "oku": 9200,
       "collect_tendo": 9000,
       "shinsoku": 9600
     }
@@ -42,7 +42,7 @@
       "rudeya": 14000,
       "runto": 16000,
       "icchome": 13500,
-      "oku": 14500,
+      "oku": 14000,
       "collect_tendo": 15000,
       "shinsoku": 14700
     }
@@ -58,7 +58,7 @@
       "rudeya": 20000,
       "runto": 21000,
       "icchome": 21000,
-      "oku": 21500,
+      "oku": 20500,
       "collect_tendo": 21500,
       "shinsoku": 20800
     }
@@ -74,7 +74,7 @@
       "rudeya": 18000,
       "runto": 17800,
       "icchome": 17000,
-      "oku": 19500,
+      "oku": 17000,
       "collect_tendo": 19000,
       "shinsoku": 18400
     }
@@ -106,7 +106,7 @@
       "rudeya": 11500,
       "runto": 12000,
       "icchome": 12000,
-      "oku": 12500,
+      "oku": 12000,
       "collect_tendo": 11500,
       "shinsoku": 12500
     }
@@ -138,7 +138,7 @@
       "rudeya": 10000,
       "runto": 11000,
       "icchome": 9800,
-      "oku": 10000,
+      "oku": 9800,
       "collect_tendo": 10000,
       "shinsoku": 11100
     }
@@ -170,7 +170,7 @@
       "rudeya": 24700,
       "runto": 24000,
       "icchome": 23000,
-      "oku": 23000,
+      "oku": 22500,
       "collect_tendo": 20000,
       "shinsoku": 24600
     }
@@ -202,7 +202,7 @@
       "rudeya": 21400,
       "runto": 21300,
       "icchome": 18000,
-      "oku": 21000,
+      "oku": 18000,
       "collect_tendo": 21000,
       "shinsoku": 20600
     }
@@ -234,7 +234,7 @@
       "rudeya": 23700,
       "runto": 25000,
       "icchome": 23000,
-      "oku": 23000,
+      "oku": 22800,
       "collect_tendo": 23500,
       "shinsoku": 23900
     }
@@ -250,7 +250,7 @@
       "rudeya": 39400,
       "runto": 41000,
       "icchome": 38000,
-      "oku": 39000,
+      "oku": 38000,
       "collect_tendo": 40000,
       "shinsoku": 41100
     }
@@ -298,7 +298,7 @@
       "rudeya": 37000,
       "runto": 39000,
       "icchome": 34000,
-      "oku": 35000,
+      "oku": 34000,
       "collect_tendo": 37500,
       "shinsoku": 36700
     }
@@ -330,7 +330,7 @@
       "rudeya": 10300,
       "runto": 12500,
       "icchome": 10000,
-      "oku": 10500,
+      "oku": 10000,
       "collect_tendo": 7300,
       "shinsoku": 11400
     }
