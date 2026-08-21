@@ -310,13 +310,6 @@ def _append_onepiece_sitemap(products: list[MasterProduct]) -> None:
     if (PROJECT_ROOT / "onepiece" / "op-17-forecast.html").exists():
         blocks.append(_url("/onepiece/op-17-forecast.html", "weekly", "0.8"))
 
-    # 週次値動きアーカイブ記事(onepiece/weekly/*.html)を自動収録
-    wk_dir = PROJECT_ROOT / "onepiece" / "weekly"
-    if wk_dir.exists():
-        for wf in sorted(wk_dir.glob("*.html")):
-            freq = "monthly" if wf.stem not in ("index",) else "weekly"
-            blocks.append(_url(f"/onepiece/weekly/{wf.name}", freq, "0.6"))
-
     injection = "".join(blocks)
     xml = xml.replace("</urlset>", injection + "</urlset>")
     sitemap_path.write_text(xml, encoding="utf-8")
@@ -854,7 +847,7 @@ def generate_onepiece_weekly_articles(products: list[MasterProduct]) -> None:
 <html lang="ja"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="ワンピースカード未開封BOXの週間買取価格変化ランキング【{iso[0]}年第{iso[1]}週】。値上がり・値下がりBOXを最大9店舗の実データでまとめた週次レポート。">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://pokeca-box-hikaku.com/onepiece/weekly/{week_id}.html">
 <meta property="og:title" content="ワンピBOX 週間値動きランキング【{iso[0]}年 第{iso[1]}週】｜ワンピ買取チェッカー">
 <meta property="og:description" content="値上がり・値下がりワンピBOXを最大9店舗の実データでまとめた週次レポート。">
@@ -907,7 +900,7 @@ def _write_onepiece_weekly_index(wk_dir: Path, current_week: str | None) -> None
 <html lang="ja"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="ワンピースカード未開封BOXの週間値動きランキング記事アーカイブ。過去の値上がり・値下がりレポートを一覧。">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://pokeca-box-hikaku.com/onepiece/weekly/index.html">
 <title>ワンピBOX 週間値動きランキング 記事アーカイブ｜ワンピ買取チェッカー</title>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831186943118320" crossorigin="anonymous"></script>

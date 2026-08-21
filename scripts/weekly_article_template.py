@@ -404,7 +404,7 @@ new Chart(document.getElementById('{canvas_id}').getContext('2d'), {{
 <link rel="preconnect" href="https://www.googletagmanager.com">
 <link rel="preconnect" href="https://h.accesstrade.net">
 <meta name="description" content="{article_desc}">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://pokeca-box-hikaku.com/weekly/{year}-w{week_no:02d}.html">
 <meta property="og:title" content="{article_headline}">
 <meta property="og:description" content="{article_desc}">

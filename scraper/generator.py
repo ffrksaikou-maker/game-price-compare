@@ -2111,19 +2111,6 @@ def _update_sitemap(
             lines.append(f"    <priority>0.7</priority>")
             lines.append(f"  </url>")
 
-    # Weekly hot-boxes articles (archived)
-    weekly_dir = project_root / "weekly"
-    if weekly_dir.exists():
-        for wf in sorted(weekly_dir.glob("*.html")):
-            if wf.name == "index.html":
-                continue
-            lines.append(f"  <url>")
-            lines.append(f"    <loc>{base}/weekly/{wf.name}</loc>")
-            lines.append(f"    <lastmod>{today}</lastmod>")
-            lines.append(f"    <changefreq>weekly</changefreq>")
-            lines.append(f"    <priority>0.8</priority>")
-            lines.append(f"  </url>")
-
     # Monthly ranking articles (archived — auto-generated per completed month)
     for mf in sorted(project_root.glob("monthly-ranking-*.html")):
         # Skip the manually-listed 2026-03 entry to avoid duplicates
