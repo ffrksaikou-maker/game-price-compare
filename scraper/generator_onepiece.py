@@ -69,6 +69,9 @@ ONEPIECE_ARTICLES.append(
 ONEPIECE_ARTICLES.append(
     ("op-17-forecast.html", "【予想】世界最強の戦士(OP-17) BOX相場3シナリオ",
      "8/22発売の4周年弾OP-17のBOX相場を過去弾の実データから3シナリオで予想。新レアリティL-SPと値上げの影響も解説。"))
+ONEPIECE_ARTICLES.append(
+    ("shikou-treasure-get.html", "4周年！四皇トレジャーゲット全7種",
+     "8/22配布開始の4周年プロモパック全7種を解説。当たりのルフィP-099の相場と、未開封で売るか開封するかの期待値検証。"))
 
 
 def _article_links_block() -> str:
@@ -309,6 +312,8 @@ def _append_onepiece_sitemap(products: list[MasterProduct]) -> None:
         blocks.append(_url("/onepiece/kougaku-ranking.html", "weekly", "0.7"))
     if (PROJECT_ROOT / "onepiece" / "op-17-forecast.html").exists():
         blocks.append(_url("/onepiece/op-17-forecast.html", "weekly", "0.8"))
+    if (PROJECT_ROOT / "onepiece" / "shikou-treasure-get.html").exists():
+        blocks.append(_url("/onepiece/shikou-treasure-get.html", "weekly", "0.8"))
 
     injection = "".join(blocks)
     xml = xml.replace("</urlset>", injection + "</urlset>")
