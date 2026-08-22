@@ -42,13 +42,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 .article-nav a:hover{color:var(--accent);border-left-color:var(--accent)}
 .article-nav a.current{color:var(--accent);border-left-color:var(--accent);font-weight:600}
 .article-nav-sub{font-size:12px;font-weight:700;margin:14px 0 6px;color:#b91c1c;padding-top:10px;border-top:1px solid var(--border)}
-.mobile-footer-nav{display:none;margin:24px 0;padding:18px 16px;background:#f9fafb;border:1px solid var(--border);border-radius:12px}
-.mfn-title{font-size:14px;font-weight:700;margin-bottom:10px;color:var(--text)}
-.mfn-section{margin-top:14px}
-.mfn-section-title{font-size:12px;font-weight:700;color:#b91c1c;margin-bottom:8px;letter-spacing:.5px}
-.mobile-footer-nav a{display:block;font-size:13px;padding:10px 12px;border-radius:8px;color:var(--text);text-decoration:none;background:#fff;margin-bottom:6px;border:1px solid var(--border);transition:all .2s}
-.mobile-footer-nav a:hover,.mobile-footer-nav a:active{color:var(--accent);border-color:var(--accent);background:#fff5f5}
-@media(max-width:1023px){.mobile-footer-nav{display:block}.content-layout{display:block}.article-nav{display:none}}
+.article-nav-more{display:block;margin-top:12px;padding:8px 12px;font-size:12px;font-weight:700;text-align:center;color:var(--accent);background:#f9fafb;border:1px solid var(--border);border-radius:8px;text-decoration:none}
+.article-nav-more:hover{border-color:var(--accent)}
+@media(max-width:1023px){.content-layout{flex-direction:column;align-items:stretch}.article-nav{order:2;width:auto;position:static;max-height:none;overflow-y:visible;margin-top:24px;padding-top:16px;border-top:1px solid var(--border)}.article-nav a{font-size:13px;padding:8px 0 8px 12px}}
 .breadcrumb{font-size:12px;color:var(--text-sub);margin-bottom:20px}
 .breadcrumb a{color:var(--accent);text-decoration:none}
 article{background:var(--card);border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.06);padding:32px 28px;margin-bottom:24px}
@@ -671,21 +667,6 @@ def _nav(current_slug: str, articles: list) -> str:
             f'<div class="article-nav-sub">📘 BOX掘り下げガイド</div>\n{links}</nav>')
 
 
-def _mobile_nav(current_slug: str, articles: list) -> str:
-    links = "".join(
-        f'<a href="{a["slug"]}-atari-guide.html">{_esc(a["nav_label"])}</a>\n'
-        for a in articles)
-    howto = _howto_nav_links(current_slug)
-    howto_section = (f'<div class="mfn-section"><div class="mfn-section-title">📰 買取ガイド</div>\n'
-                     f'{howto}</div>\n' if howto else "")
-    return (f'<nav class="mobile-footer-nav">\n<div class="mfn-title">📚 他のページを見る</div>\n'
-            f'{howto_section}'
-            f'<div class="mfn-section"><div class="mfn-section-title">📘 BOX掘り下げガイド</div>\n{links}</div>\n'
-            f'<div class="mfn-section"><div class="mfn-section-title">📰 ワンピ買取</div>\n'
-            f'<a href="/onepiece">買取価格比較トップ</a>\n<a href="weekly.html">📊 週間値動きランキング</a>\n'
-            f'<a href="weekly/index.html">📚 週間値動き記事アーカイブ</a>\n</div>\n</nav>')
-
-
 def _render(a: dict, articles: list, box: dict) -> str:
     slug = a["slug"]
     box_max, box_n = box.get(slug, (0, 0))
@@ -808,7 +789,6 @@ gtag('config', 'G-RPTS6CRTCS');
 <a href="/onepiece" class="back">&larr; ワンピ買取比較トップ</a>
 </article>
 </div><!-- /content-layout -->
-{_mobile_nav(slug, articles)}
 
 </div>
 
@@ -955,7 +935,6 @@ gtag('config', 'G-RPTS6CRTCS');
 <a href="/onepiece" class="back">&larr; ワンピ買取比較トップ</a>
 </article>
 </div><!-- /content-layout -->
-{_mobile_nav(slug, atari_articles)}
 
 </div>
 
