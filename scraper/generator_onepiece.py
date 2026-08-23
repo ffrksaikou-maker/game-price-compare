@@ -72,6 +72,15 @@ ONEPIECE_ARTICLES.append(
 ONEPIECE_ARTICLES.append(
     ("shikou-treasure-get.html", "4周年！四皇トレジャーゲット全7種",
      "8/22配布開始の4周年プロモパック全7種を解説。当たりのルフィP-099の相場と、未開封で売るか開封するかの期待値検証。"))
+ONEPIECE_ARTICLES.append(
+    ("nika-luffy-comipara.html", "ニカルフィ コミパラ徹底解説",
+     "OP05-119の買取80万・PSA10相場133万、288BOXに1枚の封入率と取得率71.7%が示す状態難を解説。"))
+ONEPIECE_ARTICLES.append(
+    ("red-comipara-guide.html", "レッドコミパラ3種 徹底解説",
+     "OP-13のルフィ230万・エース80万・サボ60万。631BOXに1枚の封入率と1年9倍の価格推移を解説。"))
+ONEPIECE_ARTICLES.append(
+    ("roger-gold-comipara.html", "ロジャー 金コミパラ徹底解説",
+     "OP09-118の買取70万・PSA10 109万。360BOXに1枚の封入率と、初動割れから2.8倍に戻した推移。"))
 
 
 def _article_links_block() -> str:
@@ -314,6 +323,9 @@ def _append_onepiece_sitemap(products: list[MasterProduct]) -> None:
         blocks.append(_url("/onepiece/op-17-forecast.html", "weekly", "0.8"))
     if (PROJECT_ROOT / "onepiece" / "shikou-treasure-get.html").exists():
         blocks.append(_url("/onepiece/shikou-treasure-get.html", "weekly", "0.8"))
+    for _slug in ("nika-luffy-comipara", "red-comipara-guide", "roger-gold-comipara"):
+        if (PROJECT_ROOT / "onepiece" / f"{_slug}.html").exists():
+            blocks.append(_url(f"/onepiece/{_slug}.html", "weekly", "0.8"))
 
     injection = "".join(blocks)
     xml = xml.replace("</urlset>", injection + "</urlset>")
