@@ -3,7 +3,8 @@
 ポケカ atari-guide 型を赤テーマで踏襲した静的記事を、共通ボイラープレート
 (head/style/nav/footer/アフィ2点)＋弾別データから生成する。BOX買取価格は
 data/history_op の当サイト実データを参照(記事内のBOX価格は自動更新)。
-カード相場はWebSearchで裏取りした2026年7月時点の目安(免責明記)。
+カード相場は CARD_ASOF 時点の altema(カードラッシュ買取)実測値(免責明記)。
+更新時は article_data_onepiece.py の ranking を差し替え、CARD_ASOF / CARD_ASOF_ISO を更新する。
 
 再実行で全記事を再生成(冪等)。nav相互リンクは全記事を自動列挙する。
 """
@@ -82,6 +83,11 @@ BASE = "https://pokeca-box-hikaku.com"
 # ===== ハウツー記事(onepiece/{slug}.html・atari接尾辞なし) =====
 # 弾別 atari-guide とは別枠の「買取ガイド」記事。body は .format() せず直接埋め込む
 # ため、リテラルの波括弧を自由に使ってよい。faq から可視FAQ+FAQPage JSON-LDを生成。
+CARD_ASOF = "2026年8月24日"
+CARD_ASOF_ISO = "2026-08-24"
+# altema未掲載などで基準日が異なる弾だけ個別指定
+CARD_ASOF_OVERRIDE = {"op-17": "2026年8月22日(発売初日)"}
+
 HOWTO_ARTICLES = [
     {
         "slug": "kaitori-hikaku",
@@ -866,6 +872,10 @@ def _nav(current_slug: str, articles: list) -> str:
             f'<div class="article-nav-sub">📘 BOX掘り下げガイド</div>\n{links}</nav>')
 
 
+def _asof(a: dict) -> str:
+    return CARD_ASOF_OVERRIDE.get(a["slug"], CARD_ASOF)
+
+
 def _render(a: dict, articles: list, box: dict) -> str:
     slug = a["slug"]
     box_max, box_n = box.get(slug, (0, 0))
@@ -877,7 +887,7 @@ def _render(a: dict, articles: list, box: dict) -> str:
     blog_ld = {
         "@context": "https://schema.org", "@type": "BlogPosting",
         "headline": a["h1_short"], "description": a["meta_desc"],
-        "datePublished": "2026-07-14", "dateModified": "2026-07-14",
+        "datePublished": "2026-07-14", "dateModified": CARD_ASOF_ISO,
         "image": f"{BASE}/ogp.jpg",
         "author": {"@type": "Organization", "name": "ワンピ買取チェッカー編集部", "url": f"{BASE}/onepiece"},
         "publisher": {"@type": "Organization", "name": "ワンピ買取チェッカー",
@@ -901,7 +911,7 @@ def _render(a: dict, articles: list, box: dict) -> str:
 
     # 公式BOX/パック画像がある弾のみ hero 左に画像(無い弾はテキストheroのまま)
     _stats = (
-        f'<div class="stat-label">看板当たり {_esc(a["hero_card"])} 買取相場(2026年7月時点)</div>'
+        f'<div class="stat-label">看板当たり {_esc(a["hero_card"])} 買取相場({_asof(a)}時点)</div>'
         f'<div class="stat-big">{_esc(a["hero_big"])}</div>'
         f'<div class="stat-sub">{a["hero_sub"]} / '
         f'<a href="box/{slug}.html" style="color:#b91c1c;font-weight:700">{box_line}</a></div>')
@@ -965,7 +975,7 @@ gtag('config', 'G-RPTS6CRTCS');
 
 <article>
 <h1>{a['h1']}</h1>
-<div class="meta">公開: 2026年7月14日 / {_esc(a['meta_line'])} / ワンピ買取チェッカー編集部</div>
+<div class="meta">公開: 2026年7月14日 / 相場更新: {_asof(a)} / {_esc(a['meta_line'])} / ワンピ買取チェッカー編集部</div>
 
 {hero_html}
 
@@ -974,7 +984,7 @@ gtag('config', 'G-RPTS6CRTCS');
 <a href="box/{slug}.html" class="cta">{_esc(a['box_name'])}の最新買取価格を最大9店舗で比較する &rarr;</a>
 
 <div class="disclaimer">
-<strong>ご注意:</strong> 本記事の当たりカード・収録種類・封入率は、複数の公開情報(カードショップの買取相場・大量開封報告等)と当サイトが自動収集した買取価格データに基づく参考情報です。封入率は公式発表ではなく推定値を含みます。買取相場は需給で日々変動し、本記事のカード金額は2026年7月時点の目安です。BOX買取価格は当サイトが最大9店舗から自動取得した実データを基準にしています。売買・開封の判断はご自身の責任で行ってください。
+<strong>ご注意:</strong> 本記事の当たりカード・収録種類・封入率は、複数の公開情報(カードショップの買取相場・大量開封報告等)と当サイトが自動収集した買取価格データに基づく参考情報です。封入率は公式発表ではなく推定値を含みます。買取相場は需給で日々変動し、本記事のカード金額は<strong>{_asof(a)}時点</strong>にカード相場メディア altema が掲載する<strong>カードラッシュの買取価格</strong>を基準にした目安です(1店舗の買取価格のため、他店や販売価格とは異なります)。BOX買取価格は当サイトが最大9店舗から自動取得した実データを基準にしています。売買・開封の判断はご自身の責任で行ってください。
 </div>
 
 <h2>関連BOX・記事もチェック</h2>
