@@ -1431,6 +1431,85 @@ def _nav(current_slug: str, articles: list) -> str:
             f'<div class="article-nav-sub">📘 BOX掘り下げガイド</div>\n{links}</nav>')
 
 
+def _card_rank_map(articles: list) -> tuple:
+    """各弾のコミックパラレル最高額から弾別順位を作る(コミパラ非収録弾は除外)。"""
+    import re
+    vals = {}
+    for a in articles:
+        best = 0
+        for _name, rarity, price in a.get("ranking", []):
+            if "コミックパラレル" in rarity:
+                best = max(best, int(re.sub(r"[^0-9]", "", price) or 0))
+        if best:
+            vals[a["slug"]] = best
+    ranked = sorted(vals.items(), key=lambda x: -x[1])
+    out, prev, rank = {}, None, 0
+    for i, (slug, price) in enumerate(ranked, 1):
+        if price != prev:
+            rank, prev = i, price
+        out[slug] = (rank, price)
+    return out, len(ranked)
+
+
+def _positioning_section(a: dict, articles: list, box: dict) -> str:
+    """全弾の中での本弾の位置づけ(カード相場順位 vs BOX買取順位)を自動生成する。"""
+    slug = a["slug"]
+    card_ranks, card_n = _card_rank_map(articles)
+    rows = _box_ranking_rows(box)
+    box_rank = next((i for i, r in enumerate(rows, 1) if r["slug"] == slug), 0)
+    box_n = len(rows)
+    if not box_rank:
+        return ""
+
+    cr = card_ranks.get(slug)
+    if cr:
+        c_rank, c_price = cr
+        card_line = (f'<tr><td>コミックパラレル最高額</td>'
+                     f'<td class="price">¥{c_price:,}</td>'
+                     f'<td class="price"><strong>{card_n}弾中 {c_rank}位</strong></td></tr>')
+    else:
+        card_line = ('<tr><td>コミックパラレル最高額</td><td class="price">—</td>'
+                     '<td class="price">対象外(本弾はコミパラ非収録)</td></tr>')
+
+    box_price = rows[box_rank - 1]["price"]
+    box_mult = rows[box_rank - 1]["mult"]
+    box_line = (f'<tr><td>BOX買取(当サイト実データ・最高値)</td>'
+                f'<td class="price">¥{box_price:,}</td>'
+                f'<td class="price"><strong>{box_n}弾中 {box_rank}位</strong></td></tr>')
+
+    if cr:
+        gap = box_rank - c_rank
+        if abs(gap) <= 3:
+            comment = ("カード相場とBOX買取の評価が<strong>おおむね一致</strong>している弾です。"
+                       "トップレアの強さがそのままBOX需要につながっていると考えられます。")
+        elif gap > 0:
+            comment = ("トップレアの高さに対して、<strong>BOX買取は相対的に控えめ</strong>な弾です。"
+                       "カードが高くてもBOXが連動しない主な要因は、未開封BOXの供給量(再販・開封の進み方)にあります。"
+                       "カードを狙うのとBOXを持つのは別の判断になります。")
+        else:
+            comment = ("コミパラ最高額は上位ではないものの、<strong>BOX買取は相対的に高い</strong>弾です。"
+                       "コミックパラレル以外の高額枠が開封需要を支えているか、"
+                       "未開封BOXの流通量が少ないことが背景として考えられます。")
+    else:
+        comment = ("本弾はコミックパラレル枠を収録していないため(新レアリティを採用した弾や"
+                   "スタートデッキが該当します)、カード相場のランキングは対象外です。"
+                   "BOX買取の位置づけのみ参考にしてください。")
+
+    return f"""
+<h2>全弾で見た本弾の位置づけ</h2>
+<p>ワンピースカードの全弾を横断して、本弾がどの位置にあるかを整理します。カード相場は当たりカードのコミックパラレル最高額、BOX買取は当サイトが最大9店舗から毎日自動取得している実データです。</p>
+<table class="price-table">
+<thead><tr><th>指標</th><th style="text-align:right">本弾の値</th><th style="text-align:right">全弾での順位</th></tr></thead>
+<tbody>
+{card_line}
+{box_line}
+</tbody>
+</table>
+<p>{comment}</p>
+<p>全弾のコミックパラレル相場ランキングは <a href="comipara-ranking.html">歴代コミックパラレル相場ランキング全22弾</a>、BOX買取の全弾ランキングは <a href="kougaku-ranking.html">高額BOXランキング・絶版ガイド</a> でまとめています。なお本弾のBOX買取は<strong>定価比{box_mult:.1f}倍</strong>の水準です。</p>
+"""
+
+
 def _asof(a: dict) -> str:
     return CARD_ASOF_OVERRIDE.get(a["slug"], CARD_ASOF)
 
@@ -1467,6 +1546,7 @@ def _render(a: dict, articles: list, box: dict) -> str:
     body = a["body"].format(
         box_price=box_price_txt, box_n=box_n, ratio=ratio,
         ranking_table=_ranking_table(a["ranking"]))
+    body += _positioning_section(a, articles, box)
 
     # 公式BOX/パック画像がある弾のみ hero 左に画像(無い弾はテキストheroのまま)
     _stats = (
