@@ -81,6 +81,9 @@ ONEPIECE_ARTICLES.append(
 ONEPIECE_ARTICLES.append(
     ("roger-gold-comipara.html", "ロジャー 金コミパラ徹底解説",
      "OP09-118の買取70万・PSA10 109万。360BOXに1枚の封入率と、初動割れから2.8倍に戻した推移。"))
+ONEPIECE_ARTICLES.append(
+    ("comipara-ranking.html", "歴代コミパラ相場ランキング",
+     "全22弾のコミックパラレルを横断ランキング。最高は230万、TOP12の6枚がルフィ。BOX買取と連動しない理由も解説。"))
 
 
 def _article_links_block() -> str:
@@ -323,7 +326,7 @@ def _append_onepiece_sitemap(products: list[MasterProduct]) -> None:
         blocks.append(_url("/onepiece/op-17-forecast.html", "weekly", "0.8"))
     if (PROJECT_ROOT / "onepiece" / "shikou-treasure-get.html").exists():
         blocks.append(_url("/onepiece/shikou-treasure-get.html", "weekly", "0.8"))
-    for _slug in ("nika-luffy-comipara", "red-comipara-guide", "roger-gold-comipara"):
+    for _slug in ("nika-luffy-comipara", "red-comipara-guide", "roger-gold-comipara", "comipara-ranking"):
         if (PROJECT_ROOT / "onepiece" / f"{_slug}.html").exists():
             blocks.append(_url(f"/onepiece/{_slug}.html", "weekly", "0.8"))
 
