@@ -1456,6 +1456,107 @@ HOWTO_ARTICLES = [
              "a": "センタリング(絵柄の片寄り)、角や縁の白かけ、表面のスレや指紋、印刷ズレや汚れの4点です。センタリングはおおむね55/45程度までが許容範囲で、60/40を超えるとPSA10は難しいとされています。一目で分かる傷がある個体はPSA10はほぼ不可能なので、自分で「ほぼ完璧」と思える個体だけを候補にするのが費用倒れを防ぐ線引きです。"},
         ],
     },
+    {
+        "slug": "box-price-pattern",
+        "nav_label": "BOX相場の値動きパターン",
+        "crumb": "ワンピBOX相場の値動きパターン",
+        "date": "2026-08-24",
+        "date_jp": "2026年8月24日",
+        "title": "ワンピBOX相場の値動きパターン｜実データで見えた「新しい弾ほど下がる」傾向と、カード相場と連動しない理由",
+        "h1": "ワンピBOX相場の値動きパターン｜実データで見えた「新しい弾ほど下がる」傾向と、カード相場と連動しない理由",
+        "meta_desc": "当サイトが最大9店舗から毎日自動取得しているワンピースカードのBOX買取実データで、全弾の値動きを横断分析。同じ期間にカード相場は全弾が下落したにもかかわらず、BOX相場は上昇と下落がほぼ拮抗しました。下落が直近弾に集中し古い弾ほど堅いという傾向、そこから読み取れる供給量の構造、買い時・売り時の考え方までを実測値で整理します。",
+        "og_title": "ワンピBOX相場の値動きパターン｜新しい弾ほど下がる傾向を実データで",
+        "og_desc": "最大9店舗のBOX買取実データで全弾の値動きを横断分析。カード相場が全弾下落した期間もBOXは拮抗。下落が直近弾に集中する傾向と、買い時・売り時の考え方。",
+        "meta_line": "全弾のBOX買取値動き実測・パターン分析・売買タイミング",
+        "hero_label": "ワンピBOX相場 値動きレポート",
+        "hero_big": "上昇{{CHG_UP}} / 下落{{CHG_DOWN}} / 横ばい{{CHG_FLAT}}",
+        "hero_sub": "当サイトが最大9店舗から毎日自動取得しているBOX買取実データで、全{{CHG_N}}弾の値動きを横断集計しました({{CHG_PERIOD}}時点)。平均変化率は{{CHG_AVG}}。同じ期間にカード相場は全弾が下落しており、BOXとカードが別の動きをしていることが実測で確認できます。",
+        "disclaimer": "本記事のBOX買取価格は、当サイトが最大9店舗から自動取得した実データです。各弾の「最高買取価格」(掲載店舗のうち最も高い店の価格)を用いており、店舗ごとの価格差や、掲載店舗の増減による変動を含みます。集計期間は当サイトのワンピ価格履歴が蓄積されている範囲に限られ、長期のトレンドを断定できるだけの期間ではありません。値動きの<strong>理由</strong>については、再販や出荷の実施状況を公開情報で確認できた範囲を超えて断定していません(バンダイは個別弾の再販を網羅的に公表していないため)。カード相場に関する記述は altema 掲載のカードラッシュ買取価格(2026年8月24日時点)を基準にした比較です。相場は今後も変動し、本記事の傾向が継続することを保証するものではありません。売買の判断はご自身の責任で行ってください。",
+        "related": '<li><a href="/onepiece">ワンピBOX買取価格比較トップ</a> — 全弾のBOX買取価格を最大9店舗で横断比較(毎日更新)</li>\n'
+                   '<li><a href="weekly.html">週間値動きランキング</a> — 直近7日間の値上がり・値下がりを毎日自動更新</li>\n'
+                   '<li><a href="kougaku-ranking.html">高額BOXランキング・絶版ガイド</a> — 全弾の最高買取・定価比ランキング</li>\n'
+                   '<li><a href="comipara-ranking.html">歴代コミックパラレル相場ランキング全22弾</a> — カード側の相場ランキング</li>\n'
+                   '<li><a href="toushi.html">ワンピカードBOX投資の始め方</a> — 値上がりしやすいBOXの特徴と保管・リスク</li>\n'
+                   '<li><a href="kaitori-hikaku.html">ワンピBOX買取比較ガイド</a> — 売るときの店舗選びと高く売るコツ</li>',
+        "body": """<p>「ワンピースカードのBOXは今、上がっているのか下がっているのか」——この問いに、<strong>当サイトが最大9店舗から毎日自動取得しているBOX買取の実データ</strong>で答えます。</p>
+
+<p>集計期間は<strong>{{CHG_PERIOD}}</strong>。全{{CHG_N}}弾を横断すると、上昇{{CHG_UP}}弾・下落{{CHG_DOWN}}弾・横ばい{{CHG_FLAT}}弾、平均変化率は<strong>{{CHG_AVG}}</strong>でした。</p>
+
+<div class="callout"><strong>3行まとめ:</strong><br>
+・同じ期間に<strong>カード相場は全弾が下落</strong>したが、<strong>BOX相場は上昇{{CHG_UP}}・下落{{CHG_DOWN}}でほぼ拮抗</strong><br>
+・<strong>下落は発売の新しい弾に集中</strong>。古い弾は横ばいか上昇で、明確な差が出た<br>
+・BOXとカードは<strong>別の力学で動く</strong>。片方の相場からもう片方を推測すると外す</div>
+
+<h2>全弾のBOX買取 値動き一覧</h2>
+<p>期間はじめと最新の最高買取価格、その変化率です(集計は{{CHG_PERIOD}}時点)。<strong>直近7日間の動きは<a href="weekly.html">週間値動きランキング</a>で毎日自動更新</strong>しているので、売買直前の判断はそちらもあわせてご確認ください。弾名から各弾の当たりカードガイドに移動できます。</p>
+
+{{PRICE_CHANGE_TABLE}}
+
+<p>最大の上昇は<strong>{{CHG_TOP_NAME}}({{CHG_TOP_PCT}})</strong>、最大の下落は<strong>{{CHG_BOTTOM_NAME}}({{CHG_BOTTOM_PCT}})</strong>でした。</p>
+
+<div class="callout"><strong>表の読み方の注意:</strong> スタートデッキEX(ST-30)は定価¥1,980の構築済みデッキで、定価¥5,280前後のブースターパックとは商品性が異なります。値動きの幅も大きく出やすいため、ブースター同士の比較とは分けて見てください。</div>
+
+<h2>発見①｜カードは全弾下落、BOXは拮抗</h2>
+<p>この期間、<strong>カード相場は極めて厳しい動きをしていました</strong>。当サイトが弾別の当たりカード相場を更新した際、コミックパラレルを収録する全22弾のトップレアが、そろって下落していたことが確認できています。下落幅は最大で40%を超える弾もありました。</p>
+
+<p>ところが同じ期間、<strong>BOX買取は上昇{{CHG_UP}}弾・下落{{CHG_DOWN}}弾・横ばい{{CHG_FLAT}}弾</strong>で、平均でも{{CHG_AVG}}にとどまっています。</p>
+
+<div class="callout"><strong>これが意味すること:</strong> 「看板カードが下がったからBOXも下がるはず」という推測は、<strong>実データでは成立していません</strong>。カードとBOXは連動しているように見えて、実際には別々の力学で動いています。この構造は静的な順位比較でも確認しており、<a href="comipara-ranking.html">歴代コミックパラレル相場ランキング</a>でカード相場1位の弾がBOX買取では上位ではない、といったズレが起きています。</div>
+
+<h2>発見②｜下落は「新しい弾」に集中している</h2>
+<p>下落した弾を発売時期で並べ直すと、はっきりした偏りが出ます。<strong>大きく下げているのは直近に発売された弾</strong>で、それ以外の弾は横ばいか小幅な動きに収まっています。</p>
+
+<p>本記事の執筆時点では、<a href="op-15-atari-guide.html">神の島の冒険(OP-15)</a>と<a href="op-16-atari-guide.html">決戦の刻(OP-16)</a>——いずれも2026年に発売された比較的新しい弾——が下落幅の上位を占めていました。一方で<a href="op-01-atari-guide.html">ROMANCE DAWN(OP-01)</a>や<a href="op-05-atari-guide.html">新時代の主役(OP-05)</a>のような古い弾は、ほぼ横ばいを維持しています。</p>
+
+<h3>考えられる構造</h3>
+<p>理由を断定できる公開情報は確認できていませんが、BOX相場の一般的な構造からは次のように整理できます。</p>
+<ul>
+<li><strong>新しい弾は供給が続いている</strong> — 発売から間もない弾は追加出荷や再販がかかりやすく、市場の未開封在庫が増えます。実際、OP-15については2026年4月中旬の追加出荷が販売店から案内されていました(それ以降の再販状況は当サイトでは確認できていません)。</li>
+<li><strong>古い弾は供給が止まっている</strong> — 時間が経つほど開封が進んで未開封BOXが減り、再販も新弾に集中するため、価格が下支えされます。</li>
+<li><strong>新弾の発売が直前弾の需要を吸う</strong> — 新しい弾が出ると開封需要がそちらに移り、直前弾の相場が緩みやすくなります。</li>
+</ul>
+
+<div class="callout"><strong>注意:</strong> ONE PIECEカードゲームには「絶版」「生産終了」の公式アナウンス制度がなく、バンダイは個別弾の再販を網羅的に公表していません。そのため上記はあくまで<strong>BOX相場の一般的な構造からの整理</strong>であり、特定の弾の値動きの原因を断定するものではありません。</div>
+
+<h2>発見③｜古い弾ほど堅い</h2>
+<p>この期間に上昇した弾・横ばいだった弾を見ると、<strong>2023〜2024年に発売された弾が中心</strong>です。発売から1年以上が経過し、未開封BOXの流通量が絞られてきた弾ほど、値動きが安定しています。</p>
+
+<p>これは<a href="kougaku-ranking.html">高額BOXランキング</a>で見られる「古い弾ほど定価比が高い」という構造とも整合します。2026年4月にブロック①としてスタンダード使用不可になったOP-01が、それでもBOX買取で上位を維持していることが象徴的です。<strong>競技での使用可否よりも、未開封BOXがどれだけ市場に残っているかのほうが、BOX相場への影響が大きい</strong>と読み取れます。</p>
+
+<h2>実務的な示唆</h2>
+<h3>買う場合</h3>
+<ul>
+<li><strong>新しい弾は焦らない</strong> — 発売直後から数ヶ月は供給が続き、相場が緩みやすい局面です。直前弾が下げているうちは、押し目を待つ判断がしやすくなります。</li>
+<li><strong>古い弾は下がりにくいが、その分すでに高い</strong> — 値動きが安定している弾は参入コストも高くなっています。定価比は<a href="kougaku-ranking.html">高額BOXランキング</a>で確認できます。</li>
+</ul>
+
+<h3>売る場合</h3>
+<ul>
+<li><strong>新弾発売前に動く</strong> — 新しい弾が出ると直前弾の需要が移りやすいため、発売スケジュールを意識した売却が有利になりやすい局面があります。</li>
+<li><strong>短期の値動きは<a href="weekly.html">週間値動きランキング</a>で</strong> — 本記事は長めの期間の傾向を見るものです。売る直前の判断は直近7日の動きも合わせて確認してください。</li>
+<li><strong>必ず複数店を比較する</strong> — 本記事の数値は「最高買取価格」です。同じ弾でも店舗差があるため、<a href="/onepiece">比較トップ</a>で最高値の店を確認してから売却してください。</li>
+</ul>
+
+<h2>この分析の限界</h2>
+<ul>
+<li><strong>期間が短い</strong> — 集計期間は{{CHG_DAYS}}日間です。季節性や年単位のトレンドを判断できる長さではありません。</li>
+<li><strong>理由は断定していない</strong> — 再販の実施状況が網羅的に公表されないため、個別弾の値動きの原因は特定できません。本記事は「何が起きたか」の記録であり、「なぜ起きたか」の証明ではありません。</li>
+<li><strong>最高買取価格ベース</strong> — 掲載店舗の増減や、特定店の値付け変更が数値に影響します。</li>
+<li><strong>傾向は変わり得る</strong> — 本記事の数値は{{CHG_PERIOD}}時点の集計です。相場は日々動くため、最新の順位は<a href="/onepiece">比較トップ</a>、直近の値動きは<a href="weekly.html">週間値動きランキング</a>でご確認ください。</li>
+</ul>""",
+        "faq": [
+            {"q": "ワンピースカードのBOX相場は今、上がっていますか？下がっていますか？",
+             "a": "集計期間{{CHG_PERIOD}}では、上昇{{CHG_UP}}弾・下落{{CHG_DOWN}}弾・横ばい{{CHG_FLAT}}弾で、平均変化率は{{CHG_AVG}}でした。全体としてどちらか一方に傾いているというより、弾ごとに動きが分かれている状況です。これは{{CHG_PERIOD}}時点の集計です。直近7日間の値動きは週間値動きランキングで毎日自動更新しています。"},
+            {"q": "カードの相場が下がったら、BOXも下がりますか？",
+             "a": "実データでは連動していません。この集計期間、コミックパラレルを収録する全22弾のトップレアがそろって下落した一方で、BOX買取は上昇{{CHG_UP}}弾・下落{{CHG_DOWN}}弾とほぼ拮抗していました。BOX価格は市場に残る未開封在庫の量に強く影響されるため、看板カードの相場とは別の力学で動きます。"},
+            {"q": "どんな弾が下がりやすいですか？",
+             "a": "本記事の集計では、下落は発売から間もない弾に集中していました。新しい弾は追加出荷や再販がかかりやすく市場の未開封在庫が増えること、新弾が出ると開封需要がそちらに移ることが、BOX相場の一般的な構造として考えられます。ただしバンダイは個別弾の再販を網羅的に公表していないため、特定の弾の値動きの原因を断定することはできません。"},
+            {"q": "スタンダードで使えなくなった弾は暴落しますか？",
+             "a": "実データではそうなっていません。2026年4月にブロック①としてスタンダード使用不可になったOP-01は、その後もBOX買取で上位を維持しています。競技での使用可否よりも、未開封BOXがどれだけ市場に残っているかのほうがBOX相場への影響が大きいと読み取れます。"},
+            {"q": "買い時・売り時はどう判断すればいいですか？",
+             "a": "買う場合は、新しい弾は供給が続いて相場が緩みやすいため焦らず押し目を待つ、古い弾は下がりにくい反面すでに高いという前提で考えます。売る場合は、新弾発売で直前弾の需要が移りやすいことを意識しつつ、直前の判断は週間値動きランキングで直近7日の動きも確認してください。いずれの場合も、実際の売却時は比較トップで最高値の店舗を確認することをおすすめします。"},
+        ],
+    },
 ]
 
 
@@ -1534,6 +1635,92 @@ def _box_ranking_table(box: dict) -> str:
             f'<tbody>{body}</tbody></table>')
 
 
+# 値動きレポート記事で使う期間(日)。history_op がこれより短ければ全期間を使う。
+PRICE_CHANGE_WINDOW_DAYS = 60
+
+
+def _history_op_at(days_ago: int):
+    """days_ago 日前に最も近い history_op を (日付文字列, {slug: max_price}) で返す。"""
+    import re
+    from datetime import date, timedelta
+    files = sorted(HISTORY_OP_DIR.glob("*.json"))
+    if not files:
+        return None, {}
+    latest = date.fromisoformat(files[-1].stem)
+    target = latest - timedelta(days=days_ago)
+    pick = files[0]
+    for f in files:
+        try:
+            if date.fromisoformat(f.stem) <= target:
+                pick = f
+        except ValueError:
+            continue
+    data = json.loads(pick.read_text(encoding="utf-8"))
+    out = {}
+    for r in data:
+        m = re.search(r"(OP|EB|PRB|ST)-?(\d+)", r["name"])
+        if not m:
+            continue
+        out[f"{m.group(1).lower()}-{int(m.group(2)):02d}"] = r.get("max_price", 0)
+    return pick.stem, out
+
+
+def _price_change_rows() -> tuple:
+    """(期間ラベル, [行], 集計) を返す。行は変化率の降順。"""
+    from datetime import date
+    files = sorted(HISTORY_OP_DIR.glob("*.json"))
+    if len(files) < 2:
+        return "", [], {}
+    old_day, old = _history_op_at(PRICE_CHANGE_WINDOW_DAYS)
+    new_day, new = _history_op_at(0)
+    if not old or not new:
+        return "", [], {}
+    labels = {a["slug"]: a["short_name"] for a in _all_articles()}
+    rows = []
+    for slug in sorted(set(old) & set(new)):
+        o, n = old.get(slug, 0), new.get(slug, 0)
+        if o <= 0 or n <= 0:
+            continue
+        rows.append({"slug": slug, "label": labels.get(slug, slug.upper()),
+                     "old": o, "new": n, "pct": (n - o) / o * 100})
+    rows.sort(key=lambda r: -r["pct"])
+    up = sum(1 for r in rows if r["pct"] > 1)
+    down = sum(1 for r in rows if r["pct"] < -1)
+    flat = len(rows) - up - down
+    avg = sum(r["pct"] for r in rows) / len(rows) if rows else 0
+    d0, d1 = date.fromisoformat(old_day), date.fromisoformat(new_day)
+    period = (f"{d0.year}年{d0.month}月{d0.day}日〜{d1.month}月{d1.day}日"
+              f"({(d1 - d0).days}日間)")
+    agg = {"up": up, "down": down, "flat": flat, "avg": avg, "n": len(rows),
+           "days": (d1 - d0).days}
+    return period, rows, agg
+
+
+def _all_articles() -> list:
+    from scraper.article_data_onepiece import ARTICLES
+    return ARTICLES
+
+
+def _price_change_table(rows: list) -> str:
+    body = ""
+    for r in rows:
+        cls = ""
+        if r["pct"] > 1:
+            cls = ' style="color:#15803d;font-weight:700"'
+        elif r["pct"] < -1:
+            cls = ' style="color:#b91c1c;font-weight:700"'
+        body += (f'<tr><td><a href="{r["slug"]}-atari-guide.html">{_esc(r["label"])}</a>'
+                 f'<br><span style="font-size:11px;color:#6b7280">{r["slug"].upper()}</span></td>'
+                 f'<td class="price">¥{r["old"]:,}</td>'
+                 f'<td class="price">¥{r["new"]:,}</td>'
+                 f'<td class="price"{cls}>{r["pct"]:+.1f}%</td></tr>')
+    return ('<table class="price-table"><thead><tr><th>弾</th>'
+            '<th style="text-align:right">期間はじめ</th>'
+            '<th style="text-align:right">最新</th>'
+            '<th style="text-align:right">変化率</th></tr></thead>'
+            f'<tbody>{body}</tbody></table>')
+
+
 def _howto_placeholders(body: str, box: dict) -> str:
     rows = _box_ranking_rows(box)
     body = body.replace("{{BOX_RANKING}}", _box_ranking_table(box))
@@ -1547,6 +1734,22 @@ def _howto_placeholders(body: str, box: dict) -> str:
         body = body.replace(f"{{{{{key}_PRICE}}}}", f"¥{r['price']:,}")
         body = body.replace(f"{{{{{key}_MULT}}}}", f"約{r['mult']:.1f}倍")
     body = body.replace("{{BOX_COUNT}}", str(len(rows)))
+
+    if "{{PRICE_CHANGE" in body or "{{CHG_" in body:
+        period, chg, agg = _price_change_rows()
+        body = body.replace("{{PRICE_CHANGE_TABLE}}", _price_change_table(chg))
+        body = body.replace("{{CHG_PERIOD}}", period)
+        body = body.replace("{{CHG_DAYS}}", str(agg.get("days", 0)))
+        body = body.replace("{{CHG_UP}}", str(agg.get("up", 0)))
+        body = body.replace("{{CHG_DOWN}}", str(agg.get("down", 0)))
+        body = body.replace("{{CHG_FLAT}}", str(agg.get("flat", 0)))
+        body = body.replace("{{CHG_N}}", str(agg.get("n", 0)))
+        body = body.replace("{{CHG_AVG}}", f"{agg.get('avg', 0):+.1f}%")
+        if chg:
+            body = body.replace("{{CHG_TOP_NAME}}", chg[0]["label"])
+            body = body.replace("{{CHG_TOP_PCT}}", f"{chg[0]['pct']:+.1f}%")
+            body = body.replace("{{CHG_BOTTOM_NAME}}", chg[-1]["label"])
+            body = body.replace("{{CHG_BOTTOM_PCT}}", f"{chg[-1]['pct']:+.1f}%")
     return body
 
 

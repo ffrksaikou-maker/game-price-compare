@@ -87,6 +87,9 @@ ONEPIECE_ARTICLES.append(
 ONEPIECE_ARTICLES.append(
     ("psa-guide.html", "ワンピカードPSA鑑定ガイド",
      "PSA10相場は素体買取の1.4〜1.66倍、取得率は71.7〜93.2%。出すべきカードの判断基準を実データで解説。"))
+ONEPIECE_ARTICLES.append(
+    ("box-price-pattern.html", "BOX相場の値動きパターン",
+     "最大9店舗の実データで全弾の値動きを横断分析。新しい弾ほど下がる傾向と、カード相場と連動しない理由。"))
 
 
 def _article_links_block() -> str:
@@ -331,7 +334,7 @@ def _append_onepiece_sitemap(products: list[MasterProduct]) -> None:
         blocks.append(_url("/onepiece/op-17-forecast.html", "weekly", "0.8"))
     if (PROJECT_ROOT / "onepiece" / "shikou-treasure-get.html").exists():
         blocks.append(_url("/onepiece/shikou-treasure-get.html", "weekly", "0.8"))
-    for _name in ("nika-luffy-comipara", "red-comipara-guide", "roger-gold-comipara", "comipara-ranking", "psa-guide"):
+    for _name in ("nika-luffy-comipara", "red-comipara-guide", "roger-gold-comipara", "comipara-ranking", "psa-guide", "box-price-pattern"):
         if (PROJECT_ROOT / "onepiece" / f"{_name}.html").exists():
             blocks.append(_url(f"/onepiece/{_name}.html", "weekly", "0.8"))
 
