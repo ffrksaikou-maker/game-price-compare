@@ -216,10 +216,10 @@
     "name": "CX-13 バハムートブリッツBK1-50I",
     "category": "cx",
     "retail_price": 2200,
-    "max_price": 2400,
+    "max_price": 1800,
     "prices": {
       "morimori": 1800,
-      "rudeya": 2400,
+      "rudeya": 1800,
       "icchome": 1800
     }
   },
@@ -292,10 +292,10 @@
     "name": "BX-50 ランダムブースターVol.11",
     "category": "bx",
     "retail_price": 1600,
-    "max_price": 1000,
+    "max_price": 1100,
     "prices": {
       "morimori": 1000,
-      "homura": 1000,
+      "homura": 1100,
       "rudeya": 800,
       "icchome": 1000
     }
