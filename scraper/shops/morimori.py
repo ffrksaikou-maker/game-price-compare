@@ -36,6 +36,13 @@ TARGETS = [
 ]
 SEARCH_URL = TARGETS[0][1]  # 後方互換(_open_with_retry のデフォルト値)
 
+# ページを開く試行回数。1回あたり goto 60s + selector 30s かかるため、
+# 森森が完全に応答しない障害時はこの回数がそのままジョブの所要時間になる。
+# 2026-08-24 に GitHub Actions から全カテゴリ goto タイムアウトが続き、
+# 5回×全カテゴリで約29分を消費してジョブごと落ちたため既定を 2 に下げた。
+# 一時的な H2 リセットを拾いたいときは環境変数で戻せる。
+OPEN_ATTEMPTS = int(os.environ.get("MORIMORI_OPEN_ATTEMPTS", "2") or 2)
+
 
 class MorimoriScraper(BaseScraper):
     shop_id = "morimori"
@@ -169,7 +176,7 @@ class MorimoriScraper(BaseScraper):
                 items.append(ScrapedItem(name=name, price=price))
 
     def _open_with_retry(self, browser, search_url: str = SEARCH_URL,
-                         max_attempts: int = 5):
+                         max_attempts: int = OPEN_ATTEMPTS):
         """Open the search page with retries.
 
         morimori-kaitori.jp resets the HTTP/2 connection

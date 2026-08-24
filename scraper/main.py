@@ -6,6 +6,7 @@ import json
 import logging
 import os
 import sys
+import threading
 import time
 import traceback
 from datetime import datetime, timezone, timedelta
@@ -49,6 +50,43 @@ HISTORY_DB_DIR = Path(__file__).resolve().parent.parent / "data" / "history_db"
 # 取得に失敗した店を全店ループ後にもう一度試すまでの待ち時間（秒）
 # 一時的な接続タイムアウト対策。失敗店が無い回はこの待ちは発生しない
 RETRY_DELAY_SECONDS = 300
+
+# 1店あたりの上限秒。1店の障害が全体を道連れにしないための保険。
+# 未設定(0)なら無制限で、従来どおりの挙動。CI では workflow の env で設定する。
+SHOP_TIMEOUT_SECONDS = int(os.environ.get("SHOP_TIMEOUT_SECONDS", "0") or 0)
+# ジョブ全体の目安秒。これを超えていたら失敗店の再試行(RETRY_DELAY_SECONDS の
+# 待機を含む)を諦めて、取得済みの結果を確定させにいく。未設定(0)なら無制限。
+JOB_DEADLINE_SECONDS = int(os.environ.get("JOB_DEADLINE_SECONDS", "0") or 0)
+_JOB_STARTED_AT = time.monotonic()
+
+
+def _job_elapsed() -> float:
+    return time.monotonic() - _JOB_STARTED_AT
+
+
+def _run_with_timeout(fn, timeout: int):
+    """fn() を別スレッドで実行し、timeout 秒を超えたら TimeoutError にする。
+
+    Playwright の goto は外から中断できないためスレッドは走り続けるが、
+    daemon スレッドなのでプロセス終了時に道連れで落ちる。呼び出し側は
+    待たずに次の店へ進めるので、1店の障害でジョブ全体を失わずに済む。
+    """
+    box: dict = {}
+
+    def _target() -> None:
+        try:
+            box["items"] = fn()
+        except Exception as e:  # 呼び出し側で従来どおり failed 扱いにする
+            box["err"] = e
+
+    t = threading.Thread(target=_target, daemon=True)
+    t.start()
+    t.join(timeout)
+    if t.is_alive():
+        raise TimeoutError(f"scrape exceeded {timeout}s")
+    if "err" in box:
+        raise box["err"]
+    return box.get("items")
 
 # キャッシュの有効期限（これを過ぎた古い取得結果はサイトに載せない）
 CACHE_MAX_AGE_HOURS = 48
@@ -214,7 +252,13 @@ def try_scrape(scraper) -> tuple[list | None, str]:
     """1店スクレイプし、(items, 結果) を返す。結果は ok / empty / failed。"""
     logger.info("--- Scraping %s (%s) ---", scraper.shop_name, scraper.shop_id)
     try:
-        items = scraper.scrape()
+        if SHOP_TIMEOUT_SECONDS > 0:
+            items = _run_with_timeout(scraper.scrape, SHOP_TIMEOUT_SECONDS)
+        else:
+            items = scraper.scrape()
+    except TimeoutError as e:
+        logger.error("%s: %s — この店を打ち切って次に進みます", scraper.shop_name, e)
+        return None, "failed"
     except Exception:
         logger.error(
             "%s: scraping failed:\n%s", scraper.shop_name, traceback.format_exc()
@@ -315,6 +359,18 @@ def main() -> None:
             accept(scraper.shop_id, items)
         else:
             pending.append((scraper_cls, outcome))
+
+    if pending and JOB_DEADLINE_SECONDS > 0 and (
+            _job_elapsed() + RETRY_DELAY_SECONDS > JOB_DEADLINE_SECONDS):
+        logger.warning(
+            "経過 %.0f s / 目安 %d s のため %d 店の再試行をスキップします: %s",
+            _job_elapsed(), JOB_DEADLINE_SECONDS, len(pending),
+            ", ".join(cls.shop_name for cls, _ in pending),
+        )
+        for scraper_cls, outcome in pending:
+            scraper = scraper_cls()
+            fall_back(scraper.shop_id, scraper.shop_name, outcome)
+        pending = []
 
     if pending:
         logger.info(
