@@ -326,9 +326,9 @@ def _append_onepiece_sitemap(products: list[MasterProduct]) -> None:
         blocks.append(_url("/onepiece/op-17-forecast.html", "weekly", "0.8"))
     if (PROJECT_ROOT / "onepiece" / "shikou-treasure-get.html").exists():
         blocks.append(_url("/onepiece/shikou-treasure-get.html", "weekly", "0.8"))
-    for _slug in ("nika-luffy-comipara", "red-comipara-guide", "roger-gold-comipara", "comipara-ranking"):
-        if (PROJECT_ROOT / "onepiece" / f"{_slug}.html").exists():
-            blocks.append(_url(f"/onepiece/{_slug}.html", "weekly", "0.8"))
+    for _name in ("nika-luffy-comipara", "red-comipara-guide", "roger-gold-comipara", "comipara-ranking"):
+        if (PROJECT_ROOT / "onepiece" / f"{_name}.html").exists():
+            blocks.append(_url(f"/onepiece/{_name}.html", "weekly", "0.8"))
 
     injection = "".join(blocks)
     xml = xml.replace("</urlset>", injection + "</urlset>")
