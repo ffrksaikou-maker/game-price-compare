@@ -84,6 +84,9 @@ ONEPIECE_ARTICLES.append(
 ONEPIECE_ARTICLES.append(
     ("comipara-ranking.html", "歴代コミパラ相場ランキング",
      "全22弾のコミックパラレルを横断ランキング。最高は230万、TOP12の6枚がルフィ。BOX買取と連動しない理由も解説。"))
+ONEPIECE_ARTICLES.append(
+    ("psa-guide.html", "ワンピカードPSA鑑定ガイド",
+     "PSA10相場は素体買取の1.4〜1.66倍、取得率は71.7〜93.2%。出すべきカードの判断基準を実データで解説。"))
 
 
 def _article_links_block() -> str:
@@ -326,7 +329,7 @@ def _append_onepiece_sitemap(products: list[MasterProduct]) -> None:
         blocks.append(_url("/onepiece/op-17-forecast.html", "weekly", "0.8"))
     if (PROJECT_ROOT / "onepiece" / "shikou-treasure-get.html").exists():
         blocks.append(_url("/onepiece/shikou-treasure-get.html", "weekly", "0.8"))
-    for _name in ("nika-luffy-comipara", "red-comipara-guide", "roger-gold-comipara", "comipara-ranking"):
+    for _name in ("nika-luffy-comipara", "red-comipara-guide", "roger-gold-comipara", "comipara-ranking", "psa-guide"):
         if (PROJECT_ROOT / "onepiece" / f"{_name}.html").exists():
             blocks.append(_url(f"/onepiece/{_name}.html", "weekly", "0.8"))
 
