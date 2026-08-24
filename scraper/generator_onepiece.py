@@ -100,8 +100,10 @@ def _article_links_block() -> str:
                 if (PROJECT_ROOT / "onepiece" / f).exists()]
     if not existing:
         return ""
-    pinned = existing[:3]        # 新しい順(リスト先頭)の3枚を常時表示
-    candidates = list(existing[3:])
+    # 先頭2枚は最新弾の当たりガイド、末尾1枚は直近に追加した記事(ハウツー枠は
+    # リスト末尾にappendされるため、末尾を取ることで新着が必ず常時表示に載る)
+    pinned = existing[:2] + existing[-1:]
+    candidates = list(existing[2:-1])
     # ポケカ同様、週間値動きランキングもローテーション候補に含める
     candidates.insert(0, ("weekly.html", "【今週】ワンピBOX 週間値動きランキング",
                           "最大9店舗の実データで直近7日間の値上がり・値下がりBOXを毎日自動更新。"))
