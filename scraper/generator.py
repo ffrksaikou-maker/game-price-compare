@@ -1967,6 +1967,8 @@ def _update_sitemap(
         ("/battle-collection-spotlight.html", "monthly", "0.8", "2026-06-06"),
         ("/abyss-eye-forecast.html", "monthly", "0.8", "2026-04-21"),
         ("/abyss-eye-review.html", "monthly", "0.8", "2026-05-22"),
+        ("/abyss-eye-rebound.html", "monthly", "0.8", "2026-08-21"),
+        ("/mega-ex-rebound.html", "monthly", "0.8", "2026-08-21"),
         ("/storm-emeralda-forecast.html", "monthly", "0.8", "2026-07-19"),
         ("/storm-emeralda-review.html", "monthly", "0.9", "2026-08-02"),
         ("/storm-emeralda-spotlight.html", "monthly", "0.9", "2026-08-10"),
