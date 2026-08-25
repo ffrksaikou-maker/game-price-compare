@@ -93,6 +93,12 @@ ONEPIECE_ARTICLES.append(
 ONEPIECE_ARTICLES.append(
     ("anniversary-sp-guide.html", "3周年スペシャル(金/銀)徹底解説",
      "ルフィ金140万・ティーチ25万・バギー18万。金は銀の約2倍、ルフィ金だけBOX代を上回る理由を解説。"))
+ONEPIECE_ARTICLES.append(
+    ("kaigun-taisho-guide.html", "海軍大将トリオ 徹底解説",
+     "OP-16のサカズキ・クザン・ボルサリーノ。3枚が横並びになる理由と302BOXに1枚の封入率を解説。"))
+ONEPIECE_ARTICLES.append(
+    ("restock-guide.html", "再販・入荷ガイド",
+     "絶版制度がない仕組み、2026年の再販実績、コンビニ入荷の傾向、再販が相場に効く弾・効かない弾。"))
 
 
 def _article_links_block() -> str:
@@ -337,7 +343,7 @@ def _append_onepiece_sitemap(products: list[MasterProduct]) -> None:
         blocks.append(_url("/onepiece/op-17-forecast.html", "weekly", "0.8"))
     if (PROJECT_ROOT / "onepiece" / "shikou-treasure-get.html").exists():
         blocks.append(_url("/onepiece/shikou-treasure-get.html", "weekly", "0.8"))
-    for _name in ("nika-luffy-comipara", "red-comipara-guide", "roger-gold-comipara", "comipara-ranking", "psa-guide", "box-price-pattern", "anniversary-sp-guide"):
+    for _name in ("nika-luffy-comipara", "red-comipara-guide", "roger-gold-comipara", "comipara-ranking", "psa-guide", "box-price-pattern", "anniversary-sp-guide", "kaigun-taisho-guide", "restock-guide"):
         if (PROJECT_ROOT / "onepiece" / f"{_name}.html").exists():
             blocks.append(_url(f"/onepiece/{_name}.html", "weekly", "0.8"))
 
