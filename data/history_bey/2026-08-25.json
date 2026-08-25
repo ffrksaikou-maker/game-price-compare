@@ -127,9 +127,9 @@
     "name": "UX-08 シルバーウルフ3-80FB",
     "category": "ux",
     "retail_price": 2080,
-    "max_price": 2100,
+    "max_price": 1900,
     "prices": {
-      "morimori": 2100,
+      "morimori": 1900,
       "homura": 1800,
       "rudeya": 1500,
       "icchome": 1800
@@ -161,7 +161,7 @@
     "retail_price": 1980,
     "max_price": 2000,
     "prices": {
-      "morimori": 2000,
+      "morimori": 1850,
       "homura": 2000,
       "rudeya": 2000,
       "icchome": 1800

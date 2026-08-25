@@ -3,15 +3,16 @@
     "name": "ブースターパック「世界最強の戦士」【OP-17】",
     "category": "op",
     "retail_price": 5760,
-    "max_price": 15200,
+    "max_price": 15000,
     "prices": {
       "morimori": 12800,
       "homura": 14600,
-      "rudeya": 14800,
+      "rudeya": 15000,
       "runto": 15000,
       "icchome": 14000,
       "oku": 14500,
-      "collect_tendo": 15200
+      "collect_tendo": 14500,
+      "shinsoku": 11000
     }
   },
   {
@@ -52,7 +53,7 @@
     "retail_price": 5280,
     "max_price": 16000,
     "prices": {
-      "morimori": 13000,
+      "morimori": 11000,
       "homura": 11500,
       "rudeya": 12500,
       "runto": 16000,
@@ -68,7 +69,7 @@
     "retail_price": 5280,
     "max_price": 21500,
     "prices": {
-      "morimori": 20000,
+      "morimori": 19000,
       "homura": 19500,
       "rudeya": 19000,
       "runto": 20000,
@@ -313,7 +314,7 @@
       "rudeya": 35000,
       "runto": 39000,
       "icchome": 34000,
-      "oku": 35000,
+      "oku": 32000,
       "collect_tendo": 37500,
       "shinsoku": 32000
     }
@@ -329,7 +330,7 @@
       "rudeya": 21000,
       "runto": 23500,
       "icchome": 20500,
-      "oku": 21500,
+      "oku": 20000,
       "collect_tendo": 22000,
       "shinsoku": 19800
     }
@@ -345,7 +346,7 @@
       "rudeya": 10300,
       "runto": 10500,
       "icchome": 10000,
-      "oku": 11300,
+      "oku": 10000,
       "collect_tendo": 7300,
       "shinsoku": 11400
     }
@@ -354,7 +355,7 @@
     "name": "プレミアムブースター「ONE PIECE CARD THE BEST」【PRB-01】",
     "category": "prb",
     "retail_price": 5500,
-    "max_price": 22700,
+    "max_price": 22500,
     "prices": {
       "morimori": 21500,
       "homura": 22500,
@@ -362,7 +363,7 @@
       "runto": 22500,
       "icchome": 22000,
       "oku": 22500,
-      "collect_tendo": 22700,
+      "collect_tendo": 22500,
       "shinsoku": 21900
     }
   },
