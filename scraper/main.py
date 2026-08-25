@@ -440,6 +440,19 @@ def main() -> None:
     generate_onepiece_html(ONEPIECE_PRODUCTS)
     logger.info("Done! onepiece.html has been generated.")
 
+    # ワンピ記事(弾別の当たりガイド + 買取ガイド)を再生成する。
+    # 記事には BOX 買取価格・全弾での順位・値動きテーブルを実データから
+    # 差し込んでいるため、history_op を保存する generate_onepiece_html の
+    # 後に走らせて当日の値を反映させる。記事生成が落ちても価格更新の
+    # コミットまでは到達させたいので、例外はログに残して続行する。
+    try:
+        from scraper.build_onepiece_articles import build as build_onepiece_articles
+        build_onepiece_articles()
+        logger.info("ONE PIECE articles rebuilt")
+    except Exception:
+        logger.error("ONE PIECE article build failed (価格更新は継続)")
+        logger.error(traceback.format_exc())
+
     # Generate ベイブレード page (beyblade.html)
     bey_with_prices = sum(1 for p in BEYBLADE_PRODUCTS if p.prices)
     logger.info("Beyblade products with prices: %d/%d",
