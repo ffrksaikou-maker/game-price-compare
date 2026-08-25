@@ -453,6 +453,15 @@ def main() -> None:
         logger.error("ONE PIECE article build failed (価格更新は継続)")
         logger.error(traceback.format_exc())
 
+    # ポケカ側のデータ差し込み記事も同様に再生成する(既存の手書き記事は対象外)。
+    try:
+        from scraper.build_pokeca_articles import build as build_pokeca_articles
+        build_pokeca_articles()
+        logger.info("Pokeca data articles rebuilt")
+    except Exception:
+        logger.error("Pokeca article build failed (価格更新は継続)")
+        logger.error(traceback.format_exc())
+
     # Generate ベイブレード page (beyblade.html)
     bey_with_prices = sum(1 for p in BEYBLADE_PRODUCTS if p.prices)
     logger.info("Beyblade products with prices: %d/%d",
