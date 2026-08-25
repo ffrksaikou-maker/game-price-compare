@@ -144,6 +144,73 @@ def _change_table(rows: list, limit: int = 0) -> str:
             f'<tbody>{body}</tbody></table>')
 
 
+# 経過月数を区切る幅(月)
+AGE_BUCKET_MONTHS = 6
+
+
+def _age_multiple_rows() -> list:
+    """発売からの経過月数ごとに「現在の最高買取 ÷ 定価」の分布を返す。
+
+    対象は現在買取価格が付いている商品のみ。買取掲載が終わった商品は
+    含まれないため、生存バイアスがある点は記事側で明示する。
+    """
+    import sys
+    sys.path.insert(0, str(ROOT))
+    from scraper.matcher import MASTER_PRODUCTS
+
+    files = sorted(HISTORY_DIR.glob("*.json"))
+    if not files:
+        return []
+    now = _load_history(files[-1])
+    latest = date.fromisoformat(files[-1].stem)
+
+    buckets: dict[int, list] = {}
+    for p in MASTER_PRODUCTS:
+        price = now.get(p.name, 0)
+        retail = getattr(p, "retail_price", 0) or 0
+        rel = getattr(p, "release_date", None)
+        if price <= 0 or retail <= 0 or not rel:
+            continue
+        try:
+            months = (latest - date.fromisoformat(str(rel)[:10])).days / 30.44
+        except ValueError:
+            continue
+        if months < 0:
+            continue
+        key = int(months // AGE_BUCKET_MONTHS) * AGE_BUCKET_MONTHS
+        buckets.setdefault(key, []).append(price / retail)
+
+    rows = []
+    for key in sorted(buckets):
+        vals = sorted(buckets[key])
+        if len(vals) < 2:  # 1件だけの区間は個別商品の値そのものになるため除く
+            continue
+        rows.append({
+            "from": key, "to": key + AGE_BUCKET_MONTHS, "n": len(vals),
+            "avg": sum(vals) / len(vals),
+            "med": vals[len(vals) // 2],
+        })
+    return rows
+
+
+def _age_multiple_table(rows: list) -> str:
+    if not rows:
+        return ""
+    peak = max(rows, key=lambda r: r["med"])
+    body = ""
+    for r in rows:
+        cls = ' class="up"' if r is peak else ""
+        body += (f'<tr{cls}><td>{r["from"]}〜{r["to"]}ヶ月</td>'
+                 f'<td class="num">{r["n"]}</td>'
+                 f'<td class="num">{r["avg"]:.2f}倍</td>'
+                 f'<td class="num">{r["med"]:.2f}倍</td></tr>')
+    return ('<table class="data-table"><thead><tr><th>発売からの経過</th>'
+            '<th style="text-align:right">対象数</th>'
+            '<th style="text-align:right">平均</th>'
+            '<th style="text-align:right">中央値</th></tr></thead>'
+            f'<tbody>{body}</tbody></table>')
+
+
 def _placeholders(text: str) -> str:
     """記事テキストの {{...}} を実データで置換する。"""
     if "{{" not in text:
@@ -203,6 +270,27 @@ def _placeholders(text: str) -> str:
             text = text.replace("{{OP_N}}", str(op["n"]))
             text = text.replace("{{OP_AVG}}", f"{op['avg']:+.1f}%")
             text = text.replace("{{OP_PERIOD}}", op["period"])
+
+    if "{{PK_AGE" in text:
+        age = _age_multiple_rows()
+        text = text.replace("{{PK_AGE_TABLE}}", _age_multiple_table(age))
+        if age:
+            # 初期ピーク=3年以内での最大、ボトム=初期ピーク後〜3年以内での最小。
+            # 単に全体の最大を取ると「最も古い区間」を拾ってしまうため区切る。
+            early = [r for r in age if r["to"] <= 36]
+            peak = max(early, key=lambda r: r["med"]) if early else age[0]
+            after = [r for r in early if r["from"] > peak["from"]]
+            bottom = min(after, key=lambda r: r["med"]) if after else peak
+            first, last = age[0], age[-1]
+            for tag, r in (("FIRST", first), ("PEAK", peak),
+                           ("BOTTOM", bottom), ("LAST", last)):
+                text = text.replace(f"{{{{PK_AGE_{tag}_RANGE}}}}",
+                                    f'{r["from"]}〜{r["to"]}ヶ月')
+                text = text.replace(f"{{{{PK_AGE_{tag}_MED}}}}", f'{r["med"]:.2f}倍')
+                text = text.replace(f"{{{{PK_AGE_{tag}_AVG}}}}", f'{r["avg"]:.2f}倍')
+            text = text.replace("{{PK_AGE_N}}", str(sum(r["n"] for r in age)))
+            text = text.replace("{{PK_AGE_PEAK_YEARS}}", f'{peak["from"] / 12:.1f}')
+            text = text.replace("{{PK_AGE_LAST_YEARS}}", f'{last["from"] / 12:.0f}')
     return text
 
 
@@ -320,6 +408,97 @@ POKECA_ARTICLES: list[dict] = [
              "a": "同じ期間で集計すると、ポケカが平均{{PKM_AVG}}、ワンピースカードが平均{{OP_AVG}}と同じ方向に動いています。タイトルをまたいで同時に起きている以上、どちらか固有の事情というよりトレカ市場全体の地合いが効いている可能性があります。"},
             {"q": "この記事の数値はいつ時点のものですか？",
              "a": "当サイトが最大9店舗から毎日自動取得しているBOX買取実データをもとに、記事の再生成時点で集計しています。集計期間は本文の各表に明記しています。直近の値動きは週間価格変化ランキング、最新の店舗別価格は比較トップでご確認ください。"},
+        ],
+    },
+    {
+        "slug": "box-age-multiple",
+        "crumb": "発売から何年で何倍になるか",
+        "date": "2026-08-26",
+        "date_jp": "2026年8月26日",
+        "title": "ポケカBOXは発売から何年で何倍になるか｜経過年数別の定価比を実データで検証",
+        "h1": "ポケカBOXは発売から何年で何倍になるか｜経過年数別の定価比を実データで検証",
+        "meta_desc": "当サイトが最大9店舗から毎日自動取得しているBOX買取実データで、発売からの経過月数と「現在の買取価格÷定価」の関係を{{PK_AGE_N}}商品ぶん集計。発売直後は約{{PK_AGE_FIRST_MED}}、{{PK_AGE_PEAK_RANGE}}で{{PK_AGE_PEAK_MED}}まで上がった後、{{PK_AGE_BOTTOM_RANGE}}で{{PK_AGE_BOTTOM_MED}}まで下げ、そこから年を追って上昇していくという推移が見えました。買い時の考え方と、この集計に生存バイアスがある点まで正直に整理します。",
+        "og_title": "ポケカBOXは発売から何年で何倍になるか｜経過年数別の定価比",
+        "og_desc": "BOX買取実データで経過月数と定価比の関係を{{PK_AGE_N}}商品ぶん集計。発売直後{{PK_AGE_FIRST_MED}}→{{PK_AGE_PEAK_RANGE}}で{{PK_AGE_PEAK_MED}}→{{PK_AGE_BOTTOM_RANGE}}で{{PK_AGE_BOTTOM_MED}}という推移。",
+        "meta_line": "経過年数別の定価比・買い時の考え方",
+        "hero_label": "発売からの経過年数と定価比({{PK_AGE_N}}商品)",
+        "hero_big": "{{PK_AGE_PEAK_RANGE}}で{{PK_AGE_PEAK_MED}}",
+        "hero_sub": "発売直後は約{{PK_AGE_FIRST_MED}}、{{PK_AGE_PEAK_RANGE}}で{{PK_AGE_PEAK_MED}}に達したあと、{{PK_AGE_BOTTOM_RANGE}}で{{PK_AGE_BOTTOM_MED}}まで下げ、そこから年を追って切り上がっていきます。最も古い{{PK_AGE_LAST_RANGE}}の区間は{{PK_AGE_LAST_MED}}です。",
+        "disclaimer": "本記事のBOX買取価格は、当サイトが最大9店舗から自動取得した実データ(各商品の最高買取価格)です。定価比は「現在の最高買取価格 ÷ 定価」で算出しています。<strong>集計対象は現在も買取価格が付いている商品に限られる</strong>ため、買取掲載が終わった商品は含まれません(生存バイアス)。この点は本文でも詳しく触れています。各区間の対象数は少ないものでは数件しかなく、統計的に十分な標本数ではありません。過去の傾向であり、将来同じ推移をたどることを保証するものではありません。売買の判断はご自身の責任で行ってください。",
+        "related": '<li><a href="index.html">ポケカBOX買取価格比較トップ</a> — 全BOXの買取価格を最大9店舗で横断比較(毎日更新)</li>\n'
+                   '<li><a href="box-price-trend.html">BOX相場の値動きレポート</a> — 期間別の値動きと上がる弾・下がる弾</li>\n'
+                   '<li><a href="price-pattern-guide.html">BOX買取価格の5段階パターン</a> — 発売から絶版までの相場推移フェーズ解説</li>\n'
+                   '<li><a href="sv-box-list.html">SV全BOX一覧</a> / <a href="ss-box-list.html">S&amp;S全BOX一覧</a> — シリーズ別の買取価格一覧</li>\n'
+                   '<li><a href="kaitori-tips.html">BOX買取のコツ</a> — 高く売るための実践ポイント</li>\n'
+                   '<li><a href="ranking.html">週間価格変化ランキング</a> — 直近の値上がり・値下がりを毎日自動更新</li>',
+        "body": """<p>「ポケカのBOXは寝かせておけば上がる」とよく言われますが、<strong>実際にはどのくらいの期間で、どのくらい上がるのか</strong>。当サイトが最大9店舗から毎日自動取得しているBOX買取の実データで検証しました。</p>
+
+<p>指標は<strong>定価比(現在の最高買取価格 ÷ 定価)</strong>です。発売からの経過月数ごとに{{PK_AGE_N}}商品を集計すると、単純な右肩上がりではない推移が見えてきます。</p>
+
+<div class="callout"><strong>3行まとめ:</strong><br>
+・発売直後は約{{PK_AGE_FIRST_MED}}。そこから<strong>{{PK_AGE_PEAK_RANGE}}で{{PK_AGE_PEAK_MED}}</strong>まで一度上がる<br>
+・ところが<strong>{{PK_AGE_BOTTOM_RANGE}}で{{PK_AGE_BOTTOM_MED}}まで下げる</strong>。ここが調整の谷<br>
+・4年目以降は年を追って切り上がり、最も古い{{PK_AGE_LAST_RANGE}}の区間は<strong>{{PK_AGE_LAST_MED}}</strong></div>
+
+<h2>経過月数別の定価比</h2>
+<p>発売からの経過月数を6ヶ月刻みで区切り、それぞれの区間に属する商品の定価比を集計しました。<strong>中央値</strong>を併記しているのは、一部の超高額BOXが平均を大きく引き上げるためです(後述)。</p>
+
+{{PK_AGE_TABLE}}
+
+<p>色を付けた行が、発売から3年以内でもっとも定価比が高い区間です。</p>
+
+<h2>発見①｜単純な右肩上がりではない</h2>
+<p>「古いBOXほど高い」は大枠では正しいのですが、<strong>発売から3年以内に限ると一度上がって下がる</strong>という動きをしています。</p>
+
+<table class="data-table">
+<thead><tr><th>局面</th><th>経過</th><th style="text-align:right">定価比(中央値)</th></tr></thead>
+<tbody>
+<tr><td>発売直後</td><td>{{PK_AGE_FIRST_RANGE}}</td><td class="num">{{PK_AGE_FIRST_MED}}</td></tr>
+<tr class="up"><td><strong>初期ピーク</strong></td><td>{{PK_AGE_PEAK_RANGE}}</td><td class="num"><strong>{{PK_AGE_PEAK_MED}}</strong></td></tr>
+<tr><td><strong>調整の谷</strong></td><td>{{PK_AGE_BOTTOM_RANGE}}</td><td class="num"><strong>{{PK_AGE_BOTTOM_MED}}</strong></td></tr>
+<tr><td>長期</td><td>{{PK_AGE_LAST_RANGE}}</td><td class="num">{{PK_AGE_LAST_MED}}</td></tr>
+</tbody>
+</table>
+
+<p>発売直後に{{PK_AGE_FIRST_MED}}、そこから1年ほどで{{PK_AGE_PEAK_MED}}まで上がります。ところが2年目に入ると{{PK_AGE_BOTTOM_MED}}まで下げ、<strong>初期ピークの水準を割り込みます</strong>。</p>
+
+<div class="callout"><strong>考えられる構造:</strong> 発売から1年前後は「新弾としての注目」と「まだ在庫が枯れていない」がせめぎ合う時期で、供給が絞られはじめると価格が伸びます。その後2年目に入ると、次の新弾に話題が移り、再販も行き渡って需要が一巡します。ここが谷です。さらに時間が経つと、開封が進んで未開封BOXが本格的に減りはじめ、今度はコレクション需要が価格を押し上げていく——という流れとして整理できます。<br><br>
+ただし<strong>これは値動きの傾向から読み取れる構造の説明であって、個別商品の値動きの原因を特定したものではありません</strong>。相場が動くフェーズの考え方は<a href="price-pattern-guide.html">BOX買取価格の5段階パターン</a>で詳しく扱っています。</div>
+
+<h2>発見②｜4年目以降は年を追って上昇</h2>
+<p>谷を抜けたあとは、経過年数とともに定価比が切り上がっていきます。最も古い{{PK_AGE_LAST_RANGE}}の区間では中央値{{PK_AGE_LAST_MED}}、平均では{{PK_AGE_LAST_AVG}}に達しています。</p>
+
+<p>この帯域の商品は、すでに定価では手に入らず、再販もかからない状態です。<strong>供給が完全に止まった商品の価格は、残った未開封BOXをどれだけの人が欲しがるかだけで決まります。</strong></p>
+
+<h2>平均と中央値が離れる理由</h2>
+<p>表を見ると、区間によっては<strong>平均と中央値が大きく離れています</strong>。これは一部の突出した高額BOXが平均を引き上げているためです。</p>
+
+<p>ポケカには定価の10倍を超えるBOXがいくつか存在し、それらが含まれる区間では平均が跳ね上がります。<strong>「その年代のBOXが一般的にどのくらいか」を知りたい場合は、平均ではなく中央値を見てください。</strong>平均だけを見ると、実際より高く見積もることになります。</p>
+
+<h2>重要な限界｜生存バイアス</h2>
+<div class="callout"><strong>この集計には構造的な偏りがあります。</strong> 対象は<strong>現在も買取価格が付いている商品</strong>だけです。買取掲載が終わった商品——つまり<strong>価値が下がって店が扱わなくなった商品</strong>——は集計に入っていません。<br><br>
+つまり「古い商品ほど定価比が高い」という結果には、<strong>生き残った商品だけを見ているという偏り</strong>が含まれます。もし過去に値下がりして買取対象から外れた商品が相当数あるなら、実際の期待値は本記事の数字より低くなります。</div>
+
+<p>加えて、各区間の対象数は少ないものでは数件しかありません。<strong>統計的に十分な標本数ではない</strong>ため、区間ごとの数値は「そういう傾向がある」程度に受け取ってください。</p>
+
+<h2>買い時の考え方</h2>
+<ul>
+<li><strong>発売直後は定価比が低い</strong> — 数字のうえでは、発売直後は{{PK_AGE_FIRST_MED}}と低い水準です。定価で買えるなら参入コストは最も低くなります。</li>
+<li><strong>2年目の谷は仕込みどころになり得る</strong> — {{PK_AGE_BOTTOM_RANGE}}の区間は{{PK_AGE_BOTTOM_MED}}と、初期ピークより低い水準です。ここで拾えれば、その後の上昇局面を取れる可能性があります。ただし谷がさらに深くなるリスクもあります。</li>
+<li><strong>古い商品は高いが、すでに織り込まれている</strong> — {{PK_AGE_LAST_RANGE}}の商品は{{PK_AGE_LAST_MED}}ですが、その分の購入コストも高くなっています。今から買って同じ倍率が乗るわけではありません。</li>
+<li><strong>短期の動きは別に確認する</strong> — 本記事は経過年数という長期の軸で見たものです。今この瞬間に上がっているか下がっているかは<a href="box-price-trend.html">BOX相場の値動きレポート</a>と<a href="ranking.html">週間価格変化ランキング</a>で確認してください。</li>
+</ul>""",
+        "faq": [
+            {"q": "ポケカのBOXは発売から何年で何倍になりますか？",
+             "a": "当サイトの実データ({{PK_AGE_N}}商品)では、定価比の中央値が発売直後{{PK_AGE_FIRST_RANGE}}で{{PK_AGE_FIRST_MED}}、{{PK_AGE_PEAK_RANGE}}で{{PK_AGE_PEAK_MED}}、{{PK_AGE_BOTTOM_RANGE}}で{{PK_AGE_BOTTOM_MED}}、最も古い{{PK_AGE_LAST_RANGE}}の区間で{{PK_AGE_LAST_MED}}となっています。単純な右肩上がりではなく、一度上がって2年目に下げ、そこから年を追って上昇するという推移です。"},
+            {"q": "なぜ2年目に下がるのですか？",
+             "a": "本記事は値動きの記録であり、原因を特定したものではありません。構造としては、発売1年前後は新弾としての注目と在庫の減少で価格が伸び、2年目に入ると話題が次の新弾へ移り再販も行き渡って需要が一巡する、という流れが考えられます。その後は開封が進んで未開封BOXが本格的に減り、コレクション需要が価格を押し上げていくと整理できます。"},
+            {"q": "平均と中央値のどちらを見ればいいですか？",
+             "a": "その年代のBOXが一般的にどのくらいかを知りたい場合は中央値です。ポケカには定価の10倍を超えるBOXがいくつかあり、それらが含まれる区間では平均が大きく引き上げられます。平均だけを見ると実際より高く見積もることになります。"},
+            {"q": "この数字を信じて買っても大丈夫ですか？",
+             "a": "そのまま将来の期待値として使うのは避けてください。集計対象は現在も買取価格が付いている商品だけで、価値が下がって買取対象から外れた商品は含まれていません(生存バイアス)。また各区間の対象数は少ないものでは数件しかなく、統計的に十分な標本数ではありません。過去の傾向として参考にする程度が適切です。"},
+            {"q": "買い時はいつですか？",
+             "a": "数字のうえでは、定価で買える発売直後({{PK_AGE_FIRST_MED}})と、初期ピークより低い水準まで下げる{{PK_AGE_BOTTOM_RANGE}}の区間({{PK_AGE_BOTTOM_MED}})が候補になります。ただし谷がさらに深くなるリスクもあり、BOXは値上がりを保証する商品ではありません。短期の方向感はBOX相場の値動きレポートや週間価格変化ランキングもあわせて確認してください。"},
         ],
     },
 ]

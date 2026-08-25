@@ -86,7 +86,16 @@ BASE = "https://pokeca-box-hikaku.com"
 CARD_ASOF = "2026年8月24日"
 CARD_ASOF_ISO = "2026-08-24"
 # altema未掲載などで基準日が異なる弾だけ個別指定
-CARD_ASOF_OVERRIDE = {"op-17": "2026年8月22日(発売初日)"}
+CARD_ASOF_OVERRIDE = {"op-17": "2026年8月26日"}
+# 相場の出典が altema 以外の弾だけ個別指定(免責に正しい基準を書くため)
+_SRC_ALTEMA = ('カード相場メディア altema が掲載する<strong>カードラッシュの買取価格'
+               '</strong>を基準にした目安です(1店舗の買取価格のため、他店や販売価格'
+               'とは異なります)')
+CARD_SOURCE_OVERRIDE = {
+    "op-17": ('カード相場メディア「トレカの地図」が掲載する<strong>買取価格</strong>を'
+              '基準にした目安です(複数店舗の集計値のため、altema を基準にしている'
+              '他の弾の記事とは基準が異なります)'),
+}
 
 HOWTO_ARTICLES = [
     {
@@ -2345,6 +2354,10 @@ def _asof(a: dict) -> str:
     return CARD_ASOF_OVERRIDE.get(a["slug"], CARD_ASOF)
 
 
+def _source(a: dict) -> str:
+    return CARD_SOURCE_OVERRIDE.get(a["slug"], _SRC_ALTEMA)
+
+
 def _render(a: dict, articles: list, box: dict) -> str:
     slug = a["slug"]
     box_max, box_n = box.get(slug, (0, 0))
@@ -2454,7 +2467,7 @@ gtag('config', 'G-RPTS6CRTCS');
 <a href="box/{slug}.html" class="cta">{_esc(a['box_name'])}の最新買取価格を最大9店舗で比較する &rarr;</a>
 
 <div class="disclaimer">
-<strong>ご注意:</strong> 本記事の当たりカード・収録種類・封入率は、複数の公開情報(カードショップの買取相場・大量開封報告等)と当サイトが自動収集した買取価格データに基づく参考情報です。封入率は公式発表ではなく推定値を含みます。買取相場は需給で日々変動し、本記事のカード金額は<strong>{_asof(a)}時点</strong>にカード相場メディア altema が掲載する<strong>カードラッシュの買取価格</strong>を基準にした目安です(1店舗の買取価格のため、他店や販売価格とは異なります)。BOX買取価格は当サイトが最大9店舗から自動取得した実データを基準にしています。売買・開封の判断はご自身の責任で行ってください。
+<strong>ご注意:</strong> 本記事の当たりカード・収録種類・封入率は、複数の公開情報(カードショップの買取相場・大量開封報告等)と当サイトが自動収集した買取価格データに基づく参考情報です。封入率は公式発表ではなく推定値を含みます。買取相場は需給で日々変動し、本記事のカード金額は<strong>{_asof(a)}時点</strong>に{_source(a)}。BOX買取価格は当サイトが最大9店舗から自動取得した実データを基準にしています。売買・開封の判断はご自身の責任で行ってください。
 </div>
 
 <h2>関連BOX・記事もチェック</h2>
