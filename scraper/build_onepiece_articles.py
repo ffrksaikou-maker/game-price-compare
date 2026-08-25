@@ -1537,6 +1537,26 @@ HOWTO_ARTICLES = [
 <li><strong>必ず複数店を比較する</strong> — 本記事の数値は「最高買取価格」です。同じ弾でも店舗差があるため、<a href="/onepiece">比較トップ</a>で最高値の店を確認してから売却してください。</li>
 </ul>
 
+<h2>ポケカでも同じことが起きているか</h2>
+<p>当サイトは<a href="/">ポケモンカードのBOX買取価格</a>も同じ方法で毎日自動取得しています。同じ期間・同じ集計方法でポケカを見ると、傾向の答え合わせができます。</p>
+
+<table class="price-table">
+<thead><tr><th>タイトル</th><th>期間</th><th style="text-align:right">上昇</th><th style="text-align:right">下落</th><th style="text-align:right">平均変化率</th></tr></thead>
+<tbody>
+<tr class="best"><td><strong>ワンピース</strong></td><td>{{CHG_DAYS}}日間</td><td class="price">{{CHG_UP}}</td><td class="price">{{CHG_DOWN}}</td><td class="price"><strong>{{CHG_AVG}}</strong></td></tr>
+<tr><td>ポケモンカード</td><td>{{PK_SHORT_DAYS}}日間(同期間)</td><td class="price">{{PK_SHORT_UP}}</td><td class="price">{{PK_SHORT_DOWN}}</td><td class="price"><strong>{{PK_SHORT_AVG}}</strong></td></tr>
+<tr><td>ポケモンカード</td><td>{{PK_LONG_DAYS}}日間(長期)</td><td class="price">{{PK_LONG_UP}}</td><td class="price">{{PK_LONG_DOWN}}</td><td class="price"><strong>{{PK_LONG_AVG}}</strong></td></tr>
+</tbody>
+</table>
+
+<p><strong>同じ{{CHG_DAYS}}日間で見ると、ポケカも{{PK_SHORT_AVG}}とワンピースと同じ方向に動いています。</strong>タイトルをまたいで同時に起きている以上、ワンピース固有の事情というより<strong>トレカ市場全体の地合い</strong>が効いている可能性があります。</p>
+
+<div class="callout"><strong>ここが重要 — 期間を変えると結論が真逆になります:</strong><br>
+ポケカは当サイトに{{PK_LONG_DAYS}}日分の履歴が蓄積されています。<strong>同じ{{PK_LONG_N}}商品</strong>を対象に長期で見ると<strong>上昇{{PK_LONG_UP}}・下落{{PK_LONG_DOWN}}、平均{{PK_LONG_AVG}}</strong>。ところが直近{{PK_SHORT_DAYS}}日間だけを切り取ると<strong>上昇{{PK_SHORT_UP}}・下落{{PK_SHORT_DOWN}}、平均{{PK_SHORT_AVG}}</strong>と、<strong>同じ商品なのに結論が逆</strong>になります。<br><br>
+つまり直近の下げは、<strong>長期の上昇トレンドの中の調整</strong>とも読めますし、<strong>トレンドの転換点</strong>とも読めます。どちらかを断定できるだけの材料は、現時点のデータにはありません。</div>
+
+<p>ワンピースの履歴は現時点で{{CHG_DAYS}}日分しかないため、同じ検証ができません。<strong>本記事の傾向を「長期トレンド」と受け取らないでください</strong>——あくまで直近{{CHG_DAYS}}日間に何が起きたかの記録です。</p>
+
 <h2>この分析の限界</h2>
 <ul>
 <li><strong>期間が短い</strong> — 集計期間は{{CHG_DAYS}}日間です。季節性や年単位のトレンドを判断できる長さではありません。</li>
@@ -2098,6 +2118,66 @@ def _price_change_table(rows: list) -> str:
             f'<tbody>{body}</tbody></table>')
 
 
+HISTORY_PK_DIR = ROOT / "data" / "history"
+
+
+def _pokeca_change_summary(short_days: int = PRICE_CHANGE_WINDOW_DAYS) -> dict:
+    """ポケカBOXの値動きを、ワンピと同じ期間・同じ集計方法でまとめる。
+
+    比較を公平にするため、対象は「起点の日に価格が存在した商品」に固定する
+    (期間によって対象商品数が変わると上昇/下落の比較が成立しないため)。
+    """
+    import json as _json
+    from datetime import date, timedelta
+    files = sorted(HISTORY_PK_DIR.glob("*.json"))
+    if len(files) < 2:
+        return {}
+
+    def load(p):
+        return {r["name"]: r.get("max_price", 0)
+                for r in _json.loads(p.read_text(encoding="utf-8"))}
+
+    def at(days_ago):
+        latest = date.fromisoformat(files[-1].stem)
+        target = latest - timedelta(days=days_ago)
+        pick = files[0]
+        for f in files:
+            try:
+                if date.fromisoformat(f.stem) <= target:
+                    pick = f
+            except ValueError:
+                continue
+        return pick, load(pick)
+
+    now_f, now = at(0)
+    span = (date.fromisoformat(now_f.stem) - date.fromisoformat(files[0].stem)).days
+
+    def agg(days, base=None):
+        old_f, old = at(days)
+        if base is None:
+            base = [n for n in old if old[n] > 0 and now.get(n, 0) > 0]
+        else:
+            base = [n for n in base if old.get(n, 0) > 0]
+        if not base:
+            return None
+        ch = [(now[n] - old[n]) / old[n] * 100 for n in base]
+        up = sum(1 for c in ch if c > 1)
+        down = sum(1 for c in ch if c < -1)
+        d0 = date.fromisoformat(old_f.stem)
+        d1 = date.fromisoformat(now_f.stem)
+        return {"n": len(ch), "up": up, "down": down, "flat": len(ch) - up - down,
+                "avg": sum(ch) / len(ch), "days": (d1 - d0).days,
+                "from": f"{d0.year}年{d0.month}月{d0.day}日",
+                "to": f"{d1.month}月{d1.day}日"}
+
+    # 長期と短期で対象商品が変わると上昇/下落の比較が成立しないため、
+    # 短期は長期と同じ商品セット(起点日に価格があったもの)に固定する。
+    long_f, long_old = at(span)
+    base = [n for n in long_old if long_old[n] > 0 and now.get(n, 0) > 0]
+    out = {"long": agg(span, base), "short": agg(short_days, base)}
+    return out if out["long"] and out["short"] else {}
+
+
 def _howto_placeholders(body: str, box: dict) -> str:
     rows = _box_ranking_rows(box)
     body = body.replace("{{BOX_RANKING}}", _box_ranking_table(box))
@@ -2127,6 +2207,19 @@ def _howto_placeholders(body: str, box: dict) -> str:
             body = body.replace("{{CHG_TOP_PCT}}", f"{chg[0]['pct']:+.1f}%")
             body = body.replace("{{CHG_BOTTOM_NAME}}", chg[-1]["label"])
             body = body.replace("{{CHG_BOTTOM_PCT}}", f"{chg[-1]['pct']:+.1f}%")
+
+    if "{{PK_" in body:
+        _p, _c, _a = _price_change_rows()
+        pk = _pokeca_change_summary(_a.get("days") or PRICE_CHANGE_WINDOW_DAYS)
+        if pk:
+            for key, d in (("LONG", pk["long"]), ("SHORT", pk["short"])):
+                body = body.replace(f"{{{{PK_{key}_DAYS}}}}", str(d["days"]))
+                body = body.replace(f"{{{{PK_{key}_UP}}}}", str(d["up"]))
+                body = body.replace(f"{{{{PK_{key}_DOWN}}}}", str(d["down"]))
+                body = body.replace(f"{{{{PK_{key}_FLAT}}}}", str(d["flat"]))
+                body = body.replace(f"{{{{PK_{key}_AVG}}}}", f"{d['avg']:+.1f}%")
+                body = body.replace(f"{{{{PK_{key}_N}}}}", str(d["n"]))
+                body = body.replace(f"{{{{PK_{key}_PERIOD}}}}", f"{d['from']}〜{d['to']}")
     return body
 
 
