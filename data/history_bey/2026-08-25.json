@@ -421,9 +421,9 @@
     "name": "UX-00 サムライセイバー5-60K メタルコート:サムライブルー サッカー日本代表Ver.",
     "category": "limited",
     "retail_price": 2500,
-    "max_price": 9100,
+    "max_price": 9200,
     "prices": {
-      "homura": 9100,
+      "homura": 9200,
       "rudeya": 7500,
       "icchome": 4000
     }
