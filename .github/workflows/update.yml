@@ -96,7 +96,7 @@ jobs:
             box/ weekly/ shop/ \
             monthly-ranking-*.html \
             sv-box-list.html mega-box-list.html ss-box-list.html \
-            box-price-trend.html box-age-multiple.html \
+            box-price-trend.html box-age-multiple.html shop-price-gap.html \
             151-spotlight.html kokuen-spotlight.html inferno-x-spotlight.html \
             chouden-breaker-spotlight.html clay-burst-spotlight.html \
             ninja-spinner-spotlight.html rocket-dan-no-eiko-spotlight.html \

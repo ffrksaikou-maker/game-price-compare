@@ -211,6 +211,65 @@ def _age_multiple_table(rows: list) -> str:
             f'<tbody>{body}</tbody></table>')
 
 
+# 店舗間の価格差を集計する対象条件(この店数以上が掲載している商品のみ)
+GAP_MIN_SHOPS = 4
+
+
+def _shop_gap_rows() -> dict:
+    """同一商品の店舗間価格差を集計する。
+
+    最新の履歴から、GAP_MIN_SHOPS 店以上が価格を出している商品について
+    最高値・最安値・差額・差率を出す。あわせて「最高値を出した店」の
+    偏りも数える(特定の1店に集中しているかを見るため)。
+    """
+    import statistics
+    from collections import Counter
+    files = sorted(HISTORY_DIR.glob("*.json"))
+    if not files:
+        return {}
+    data = json.loads(files[-1].read_text(encoding="utf-8"))
+    rows, best, appear = [], Counter(), Counter()
+    for r in data:
+        prices = {k: v for k, v in (r.get("prices") or {}).items() if v > 0}
+        if len(prices) < GAP_MIN_SHOPS:
+            continue
+        mx, mn = max(prices.values()), min(prices.values())
+        for k, v in prices.items():
+            appear[k] += 1
+            if v == mx:
+                best[k] += 1
+        rows.append({"name": r["name"], "shops": len(prices), "max": mx, "min": mn,
+                     "gap": mx - mn, "pct": (mx - mn) / mn * 100 if mn else 0})
+    if not rows:
+        return {}
+    rows.sort(key=lambda r: -r["pct"])
+    return {
+        "rows": rows, "n": len(rows),
+        "shops": len(appear),
+        "med_pct": statistics.median([r["pct"] for r in rows]),
+        "med_gap": statistics.median([r["gap"] for r in rows]),
+        "max_share": max(best.values()) / len(rows) * 100 if best else 0,
+        "date": files[-1].stem,
+    }
+
+
+def _shop_gap_table(rows: list, limit: int = 10) -> str:
+    body = ""
+    for r in rows[:limit]:
+        body += (f'<tr><td>{_esc(r["name"])}</td>'
+                 f'<td class="num">{r["shops"]}店</td>'
+                 f'<td class="num">¥{r["max"]:,}</td>'
+                 f'<td class="num">¥{r["min"]:,}</td>'
+                 f'<td class="num" style="color:#b91c1c;font-weight:700">'
+                 f'¥{r["gap"]:,}</td></tr>')
+    return ('<table class="data-table"><thead><tr><th>BOX</th>'
+            '<th style="text-align:right">掲載店</th>'
+            '<th style="text-align:right">最高値</th>'
+            '<th style="text-align:right">最安値</th>'
+            '<th style="text-align:right">差額</th></tr></thead>'
+            f'<tbody>{body}</tbody></table>')
+
+
 def _placeholders(text: str) -> str:
     """記事テキストの {{...}} を実データで置換する。"""
     if "{{" not in text:
@@ -291,6 +350,24 @@ def _placeholders(text: str) -> str:
             text = text.replace("{{PK_AGE_N}}", str(sum(r["n"] for r in age)))
             text = text.replace("{{PK_AGE_PEAK_YEARS}}", f'{peak["from"] / 12:.1f}')
             text = text.replace("{{PK_AGE_LAST_YEARS}}", f'{last["from"] / 12:.0f}')
+
+    if "{{PK_GAP" in text:
+        gap = _shop_gap_rows()
+        if gap:
+            text = text.replace("{{PK_GAP_TABLE}}", _shop_gap_table(gap["rows"]))
+            text = text.replace("{{PK_GAP_N}}", str(gap["n"]))
+            text = text.replace("{{PK_GAP_SHOPS}}", str(gap["shops"]))
+            text = text.replace("{{PK_GAP_MIN_SHOPS}}", str(GAP_MIN_SHOPS))
+            text = text.replace("{{PK_GAP_MED_PCT}}", f'{gap["med_pct"]:.0f}%')
+            text = text.replace("{{PK_GAP_MED_YEN}}", f'¥{int(gap["med_gap"]):,}')
+            text = text.replace("{{PK_GAP_MAX_SHARE}}", f'{gap["max_share"]:.0f}%')
+            top = gap["rows"][0]
+            text = text.replace("{{PK_GAP_MAX_NAME}}", top["name"])
+            text = text.replace("{{PK_GAP_MAX_PCT}}", f'{top["pct"]:.0f}%')
+            text = text.replace("{{PK_GAP_MAX_YEN}}", f'¥{top["gap"]:,}')
+            byyen = sorted(gap["rows"], key=lambda r: -r["gap"])[0]
+            text = text.replace("{{PK_GAP_MAXYEN_NAME}}", byyen["name"])
+            text = text.replace("{{PK_GAP_MAXYEN_YEN}}", f'¥{byyen["gap"]:,}')
     return text
 
 
@@ -499,6 +576,106 @@ POKECA_ARTICLES: list[dict] = [
              "a": "そのまま将来の期待値として使うのは避けてください。集計対象は現在も買取価格が付いている商品だけで、価値が下がって買取対象から外れた商品は含まれていません(生存バイアス)。また各区間の対象数は少ないものでは数件しかなく、統計的に十分な標本数ではありません。過去の傾向として参考にする程度が適切です。"},
             {"q": "買い時はいつですか？",
              "a": "数字のうえでは、定価で買える発売直後({{PK_AGE_FIRST_MED}})と、初期ピークより低い水準まで下げる{{PK_AGE_BOTTOM_RANGE}}の区間({{PK_AGE_BOTTOM_MED}})が候補になります。ただし谷がさらに深くなるリスクもあり、BOXは値上がりを保証する商品ではありません。短期の方向感はBOX相場の値動きレポートや週間価格変化ランキングもあわせて確認してください。"},
+        ],
+    },
+    {
+        "slug": "shop-price-gap",
+        "crumb": "店舗間の買取価格差",
+        "date": "2026-08-26",
+        "date_jp": "2026年8月26日",
+        "title": "同じBOXでも店で{{PK_GAP_MED_YEN}}違う｜9店舗の買取価格差を実データで検証",
+        "h1": "同じBOXでも買取価格は店でどれだけ違うか｜9店舗の実データで検証",
+        "meta_desc": "まったく同じポケカBOXでも、買取価格は店舗によって大きく違います。当サイトが最大9店舗から毎日自動取得している実データで、{{PK_GAP_MIN_SHOPS}}店以上が掲載する{{PK_GAP_N}}商品の最高値と最安値を比較したところ、差額の中央値は{{PK_GAP_MED_YEN}}({{PK_GAP_MED_PCT}})、最大では{{PK_GAP_MAXYEN_YEN}}に達しました。さらに最高値を出す店は1店に集中しておらず、商品ごとに入れ替わります。損をしないための確認手順まで実データで解説します。",
+        "og_title": "同じBOXでも店で{{PK_GAP_MED_YEN}}違う｜9店舗の買取価格差",
+        "og_desc": "9店舗の実データで{{PK_GAP_N}}商品の最高値と最安値を比較。差額の中央値{{PK_GAP_MED_YEN}}、最大{{PK_GAP_MAXYEN_YEN}}。最高値の店は商品ごとに入れ替わります。",
+        "meta_line": "店舗間の買取価格差・比較の実践手順",
+        "hero_label": "店舗間の買取価格差({{PK_GAP_N}}商品・最大{{PK_GAP_SHOPS}}店)",
+        "hero_big": "差額の中央値 {{PK_GAP_MED_YEN}}",
+        "hero_sub": "まったく同じBOXでも、最高値の店と最安値の店では中央値で{{PK_GAP_MED_YEN}}({{PK_GAP_MED_PCT}})の開きがあります。最大では{{PK_GAP_MAXYEN_YEN}}。しかも最高値を出す店は1店に固定されておらず、商品ごとに入れ替わります。",
+        "disclaimer": "本記事の買取価格は、当サイトが最大9店舗から自動取得した実データ({{PK_GAP_MIN_SHOPS}}店以上が価格を掲載している{{PK_GAP_N}}商品が対象)です。各店の掲載状況は日々変わるため、対象商品数や価格差も変動します。掲載価格はあくまで各店が公表している買取価格であり、実際の査定額はシュリンクの有無・外箱の状態・点数などにより上下します。特定の店舗を推奨・非推奨する意図はなく、本記事で示すのは「店舗間に差がある」という事実と、その確認手順です。売却の判断はご自身の責任で行ってください。",
+        "related": '<li><a href="index.html">ポケカBOX買取価格比較トップ</a> — 全BOXの買取価格を最大9店舗で横断比較(毎日更新)</li>\n'
+                   '<li><a href="shop-hikaku.html">9店舗比較</a> — 各店の特徴・買取方法の違い</li>\n'
+                   '<li><a href="kaitori-tips.html">BOX買取のコツ</a> — 高く売るための実践ポイント</li>\n'
+                   '<li><a href="box-price-trend.html">BOX相場の値動きレポート</a> — いつ売るかの判断材料</li>\n'
+                   '<li><a href="ranking.html">週間価格変化ランキング</a> — 直近の値上がり・値下がりを毎日自動更新</li>\n'
+                   '<li><a href="mercari-hikaku.html">メルカリ・スニダン比較</a> — 買取店以外の売却先との比較</li>',
+        "body": """<p>「BOXを売るなら、どこの店でも大して変わらないだろう」——そう思って1店だけで決めていませんか。</p>
+
+<p>当サイトは最大9店舗の買取価格を毎日自動で取得しています。そのデータで<strong>まったく同じBOXの最高値と最安値を突き合わせた</strong>結果、想像以上の差がありました。</p>
+
+<div class="callout"><strong>3行まとめ:</strong><br>
+・{{PK_GAP_MIN_SHOPS}}店以上が掲載する{{PK_GAP_N}}商品で、<strong>差額の中央値は{{PK_GAP_MED_YEN}}({{PK_GAP_MED_PCT}})</strong><br>
+・最大では<strong>{{PK_GAP_MAXYEN_YEN}}</strong>。1BOX売るだけで、店選びだけこれだけ変わる<br>
+・しかも<strong>最高値を出す店は1店に固定されていない</strong>。商品ごとに入れ替わるので「いつもこの店」は損になり得る</div>
+
+<h2>店舗間の価格差はどのくらいか</h2>
+<p>集計対象は、{{PK_GAP_MIN_SHOPS}}店以上が買取価格を掲載している<strong>{{PK_GAP_N}}商品</strong>です(掲載店が少ない商品は比較にならないため除外しています)。</p>
+
+<table class="data-table">
+<thead><tr><th>指標</th><th style="text-align:right">値</th></tr></thead>
+<tbody>
+<tr class="up"><td><strong>差額の中央値</strong></td><td class="num"><strong>{{PK_GAP_MED_YEN}}</strong></td></tr>
+<tr><td>差率の中央値</td><td class="num">{{PK_GAP_MED_PCT}}</td></tr>
+<tr><td>最大の差額</td><td class="num">{{PK_GAP_MAXYEN_YEN}}</td></tr>
+<tr><td>最大の差率</td><td class="num">{{PK_GAP_MAX_PCT}}</td></tr>
+</tbody>
+</table>
+
+<p>中央値で{{PK_GAP_MED_YEN}}ということは、<strong>半分の商品はこれ以上の差がある</strong>ということです。「たかが数百円」ではありません。</p>
+
+<h2>差が大きいBOX TOP10</h2>
+<p>最高値と最安値の開きが大きい順に並べたものです。同じ商品を、同じ日に、違う店が査定した結果がこれだけ違います。</p>
+
+{{PK_GAP_TABLE}}
+
+<p>最大は<strong>{{PK_GAP_MAX_NAME}}</strong>で、差率にして{{PK_GAP_MAX_PCT}}、金額では{{PK_GAP_MAX_YEN}}の開きがありました。金額ベースで最も大きかったのは<strong>{{PK_GAP_MAXYEN_NAME}}</strong>の{{PK_GAP_MAXYEN_YEN}}です。</p>
+
+<h2>最高値の店は1店に固定されていない</h2>
+<p>ここが本記事でもっとも実用的な発見です。「どこか1店が常に高い」なら話は簡単ですが、<strong>実際はそうなっていません</strong>。</p>
+
+<p>{{PK_GAP_N}}商品それぞれで最高値を出した店を数えると、<strong>最も多く最高値を取った店でもシェアは{{PK_GAP_MAX_SHARE}}</strong>にとどまります。裏を返せば、<strong>半分以上の商品では別の店のほうが高い</strong>ということです。</p>
+
+<div class="callout"><strong>これが意味すること:</strong> 「前回この店が高かったから今回もここ」という決め方は、<strong>半分以上の確率で最高値を逃します</strong>。店ごとに得意なシリーズや在庫状況が違うため、<strong>売りたい商品ごとに比較し直す</strong>のが正解です。当サイトの<a href="index.html">比較トップ</a>は商品ごとに全店の価格を並べているので、この確認が一度で済みます。</div>
+
+<h2>なぜこれだけ差が出るのか</h2>
+<p>買取価格は「その店がいくらで仕入れたいか」で決まります。同じ商品でも店によって事情が違うため、価格に差が出ます。</p>
+<ul>
+<li><strong>在庫状況</strong> — すでに十分な在庫を持つ店は積極的に買う理由がなく、価格を下げます。逆に品切れなら強気に出ます。</li>
+<li><strong>得意なシリーズ</strong> — 店ごとに客層や販売力が違い、売りやすい商品には高値を付けられます。</li>
+<li><strong>価格改定のタイミング</strong> — 相場が動いたとき、すぐ追随する店と数日遅れる店があります。この時差がそのまま差額になります。</li>
+<li><strong>買取キャンペーン</strong> — 特定期間・特定商品を強化している店があります。</li>
+</ul>
+
+<p>相場が大きく動いている時期ほど、3つ目の「追随の時差」で差が開きやすくなります。直近の相場の動きは<a href="box-price-trend.html">BOX相場の値動きレポート</a>で確認できます。</p>
+
+<h2>損しないための3ステップ</h2>
+<h3>1. 売りたい商品ごとに全店を並べる</h3>
+<p>「店を選ぶ」のではなく「商品ごとに店を選ぶ」のが正解です。<a href="index.html">比較トップ</a>で商品を探せば、全店の価格が横並びで表示されます。</p>
+
+<h3>2. 差額と手間を天秤にかける</h3>
+<p>差額が{{PK_GAP_MED_YEN}}程度なら、送料や手数料で相殺される可能性もあります。一方で万円単位の差がある商品なら、多少手間をかけても高い店に送る価値があります。<strong>差額を先に把握してから動く</strong>のが効率的です。</p>
+
+<h3>3. 売る直前に見る</h3>
+<p>価格は日々動きます。数日前に調べた順位が、売る日には入れ替わっていることもあります。<strong>当サイトは毎日自動更新している</strong>ので、発送・来店の直前にもう一度確認してください。</p>
+
+<h2>この集計の限界</h2>
+<ul>
+<li><strong>掲載価格であって査定額ではない</strong> — 実際の買取額はシュリンクの有無・外箱の状態・まとめ売りの点数などで上下します。本記事の数値は各店が公表している価格の比較です。</li>
+<li><strong>対象は{{PK_GAP_MIN_SHOPS}}店以上が掲載する商品のみ</strong> — 掲載店が少ない商品は比較対象から外れています。</li>
+<li><strong>掲載状況は日々変わる</strong> — 店が取り扱いをやめたり再開したりするため、対象商品数も価格差も変動します。</li>
+<li><strong>特定店の推奨ではない</strong> — 本記事は「差がある」という事実と確認手順を示すもので、どの店が良い・悪いという評価ではありません。買取方法や入金スピードなど価格以外の条件は<a href="shop-hikaku.html">9店舗比較</a>をご覧ください。</li>
+</ul>""",
+        "faq": [
+            {"q": "同じBOXでも店によって買取価格は違いますか？",
+             "a": "違います。当サイトが最大9店舗から取得した実データでは、{{PK_GAP_MIN_SHOPS}}店以上が掲載する{{PK_GAP_N}}商品で、最高値と最安値の差額は中央値{{PK_GAP_MED_YEN}}({{PK_GAP_MED_PCT}})でした。最大では{{PK_GAP_MAXYEN_YEN}}の開きがあります。中央値ということは、半分の商品はこれ以上の差があるということです。"},
+            {"q": "一番高く買い取ってくれる店はどこですか？",
+             "a": "商品によって変わります。{{PK_GAP_N}}商品それぞれで最高値を出した店を数えると、最も多く最高値を取った店でもシェアは{{PK_GAP_MAX_SHARE}}にとどまり、半分以上の商品では別の店のほうが高いという結果でした。「いつもこの店」という決め方では最高値を逃しやすいため、売りたい商品ごとに比較し直すことをおすすめします。"},
+            {"q": "なぜ店によって価格が違うのですか？",
+             "a": "買取価格は「その店がいくらで仕入れたいか」で決まるためです。在庫を十分に持つ店は価格を下げ、品切れの店は強気に出ます。また店ごとに得意なシリーズや客層が違い、売りやすい商品には高値を付けられます。相場が動いたときにすぐ追随する店と数日遅れる店があり、この時差も差額になります。"},
+            {"q": "何円くらい差があれば比較する価値がありますか？",
+             "a": "差額が中央値の{{PK_GAP_MED_YEN}}程度だと送料や手数料で相殺される可能性もあります。一方、本記事の集計では万円単位の差がある商品も複数あり、そうした商品なら多少手間をかけても高い店を選ぶ価値があります。差額を先に把握してから動くのが効率的です。"},
+            {"q": "この価格で必ず買い取ってもらえますか？",
+             "a": "保証はできません。本記事の数値は各店が公表している買取価格の比較で、実際の査定額はシュリンクの有無・外箱の状態・まとめ売りの点数などにより上下します。また価格は日々変動するため、発送や来店の直前にもう一度ご確認ください。"},
         ],
     },
 ]

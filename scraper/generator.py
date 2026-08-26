@@ -110,6 +110,7 @@ def get_box_image_url(slug: str) -> str:
 
 # Blog articles (newest first) - 記事追加時はここに1行足すだけ
 BLOG_ARTICLES = [
+    {"url": "shop-price-gap.html", "title": "同じBOXでも店で買取価格はどれだけ違うか", "desc": "9店舗の実データで52商品の最高値と最安値を比較。差額の中央値は1,800円、最大17,000円。しかも最高値を出す店は1店に固定されず商品ごとに入れ替わるため、商品単位での比較が必要。", "date": "2026-08-26"},
     {"url": "box-age-multiple.html", "title": "ポケカBOXは発売から何年で何倍になるか", "desc": "9店舗の実データで経過年数と定価比の関係を68商品ぶん集計。発売直後2.11倍→1年で4.22倍→2年目に2.69倍まで下げ、そこから年を追って上昇。買い時の考え方と生存バイアスの限界まで整理。", "date": "2026-08-26"},
     {"url": "box-price-trend.html", "title": "ポケカBOX相場の値動きレポート｜上がる弾・下がる弾", "desc": "9店舗の実データで全BOXの値動きを横断集計。長期では大きくプラスでも直近を切り取ると逆になるなど、期間の取り方で結論が変わる点を実測値で解説。ワンピースカードとの同期間比較も掲載。", "date": "2026-08-26"},
     {"url": "weekly/", "title": "【今週】ポケカBOX 週間値動きランキング", "desc": "SV・MEGA TOP10 + S&S TOP3を毎日自動更新。9店舗実データから直近7日間で値上がり・値下がりしたBOXをグラフ付きで掲載。現在の下落トレンドもひと目で分かる。", "date": "2026-04-12"},
@@ -1959,6 +1960,7 @@ def _update_sitemap(
         ("/souba-mynumber-2026.html", "monthly", "0.9", "2026-06-09"),
         ("/box-price-trend.html", "daily", "0.9", today),
         ("/box-age-multiple.html", "daily", "0.9", today),
+        ("/shop-price-gap.html", "daily", "0.9", today),
         ("/inferno-x-spotlight.html", "monthly", "0.8", "2026-04-12"),
         ("/151-spotlight.html", "monthly", "0.8", "2026-04-14"),
         ("/kokuen-spotlight.html", "monthly", "0.8", "2026-04-14"),
@@ -2144,7 +2146,8 @@ ARTICLE_SECTIONS = [
      lambda url: any(k in url for k in ("-spotlight", "-forecast", "-review", "-vs-", "vs-", "-compare", "-guide-"))
                  or url in ("lizardon-box-guide.html", "mega-pack-compare.html", "kokuen-vs-rocket.html",
                             "dx-vs-normal-guide.html", "price-pattern-guide.html",
-                            "box-price-trend.html", "box-age-multiple.html")),
+                            "box-price-trend.html", "box-age-multiple.html",
+                            "shop-price-gap.html")),
     ("ランキング・一覧", "相場の動きや絶版BOXを横断で並べたページです。",
      lambda url: "ranking" in url or url.endswith("-box-list.html") or url.startswith("monthly-")),
     ("売り方・買い方のガイド", "BOXを売る・買うときに知っておきたい実務的な内容をまとめています。",
