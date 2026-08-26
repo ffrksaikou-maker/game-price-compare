@@ -115,10 +115,10 @@
     "retail_price": 7920,
     "max_price": 85000,
     "prices": {
-      "morimori": 19800,
       "homura": 60000,
       "rudeya": 62000,
-      "runto": 85000
+      "runto": 85000,
+      "morimori": 19800
     }
   },
   {
@@ -138,10 +138,10 @@
     "retail_price": 6600,
     "max_price": 20000,
     "prices": {
-      "morimori": 15000,
       "homura": 16000,
       "rudeya": 17000,
-      "runto": 20000
+      "runto": 20000,
+      "morimori": 15000
     }
   },
   {
@@ -159,9 +159,9 @@
     "retail_price": 6600,
     "max_price": 55000,
     "prices": {
-      "morimori": 25000,
       "homura": 53000,
-      "rudeya": 55000
+      "rudeya": 55000,
+      "morimori": 25000
     }
   }
 ]
