@@ -91,11 +91,8 @@ CARD_ASOF_OVERRIDE = {"op-17": "2026年8月26日"}
 _SRC_ALTEMA = ('カード相場メディア altema が掲載する<strong>カードラッシュの買取価格'
                '</strong>を基準にした目安です(1店舗の買取価格のため、他店や販売価格'
                'とは異なります)')
-CARD_SOURCE_OVERRIDE = {
-    "op-17": ('カード相場メディア「トレカの地図」が掲載する<strong>買取価格</strong>を'
-              '基準にした目安です(複数店舗の集計値のため、altema を基準にしている'
-              '他の弾の記事とは基準が異なります)'),
-}
+# 全弾 altema(カードラッシュ買取)で統一。別ソースを使う弾が出たらここに追加する。
+CARD_SOURCE_OVERRIDE: dict[str, str] = {}
 
 HOWTO_ARTICLES = [
     {
