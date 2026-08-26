@@ -1253,7 +1253,7 @@ HOWTO_ARTICLES = [
 
 <p>コミパラが1種しかない弾(OP-15・EB-04)は「コミパラを引けば必ず当たり」ですが、5種あるOP-09では<strong>狙いのロジャーを引く確率は約5分の1</strong>になります。OP-13のレッドコミパラに至っては<strong>約631BOXに1枚</strong>です。</p>
 
-<div class="callout"><strong>BOX代に換算すると:</strong> 631BOX×定価¥5,280＝<strong>約333万円</strong>。ルフィ レッドコミパラの買取230万円・販売278万円を上回ります。<strong>高額コミパラは「自引きより買うほうが安い」</strong>のが基本構造です。同じ計算はOP-09のロジャー(約360BOX＝約190万円に対し買取70万円)、OP-05のニカルフィ(約288BOX＝約152万円に対し買取80万円)でも成立します。</div>
+<div class="callout"><strong>BOX代に換算すると:</strong> 631BOX×定価¥5,280＝<strong>約333万円</strong>。ルフィ レッドコミパラの買取230万円・販売278万円を上回ります。<strong>高額コミパラは「自引きより買うほうが安い」</strong>のが基本構造です。ただし例外もあり、コミパラが1種しかない<a href="eb02-luffy-comipara.html">EB-02のルフィ</a>だけは定価換算でカード価格を下回ります(こちらも定価で買える前提の話です)。同じ計算はOP-09のロジャー(約360BOX＝約190万円に対し買取70万円)、OP-05のニカルフィ(約288BOX＝約152万円に対し買取80万円)でも成立します。</div>
 
 <h2>分析③｜コミパラ最高額とBOX買取は連動しない</h2>
 <p>ここからが当サイト独自の検証です。当サイトは<strong>最大9店舗のBOX買取価格を毎日自動取得</strong>しています。「トップレアが高い弾はBOXも高いはず」という直感が正しいかを、実データで確かめてみます。</p>
@@ -1683,6 +1683,7 @@ HOWTO_ARTICLES = [
 ・<strong>封入率は公式非公表の推定値</strong>です。ソースにより数値に幅があり、この計算の前提が揺らげば結論も変わります<br>
 ・<strong>分散が極めて大きい</strong>確率帯です。211BOXは「平均して1枚出る」という意味であり、その倍を開けても出ないことは普通に起こります<br>
 ・<strong>211BOX＝約112万円の資金</strong>が先に必要です。資金効率と在庫リスクを考えれば、素直にカードを買うほうが確実です<br>
+・<strong>そもそもBOXを定価で買えることが前提</strong>です。OP-11のBOXはすでに定価を大きく上回る相場が付いており、市場価格で211BOX集めると計算はまったく成立しません(同じ論点は <a href='eb02-luffy-comipara.html'>EB-02 ルフィ コミパラ徹底解説</a> で詳しく扱っています)<br>
 ・買取価格は変動します。別ソースでは同じルフィ金を約125万円としており、その水準でもプラスではありますが差は縮みます</div>
 
 <p>結論としては「<strong>理論上はプラスだが、実行する合理性は薄い</strong>」というのが正確なところです。むしろこの計算が示しているのは、<strong>ルフィ金の相場が封入率に対して割高</strong>——言い換えれば<strong>人気が希少性を大きく上回って評価されている</strong>という事実です。</p>
@@ -1958,6 +1959,154 @@ HOWTO_ARTICLES = [
              "a": "ローソンは新商品の入荷が火曜に多く、トレーディングカードの販売開始は全店共通で午前7時とされています。ファミリーマートは月曜から火曜の入荷が多いとされます。ただし店舗や配送ルートで異なるため目安です。重要なのは、店舗が発注しても抽選で当選した店にのみ配分されるため「一部店舗のみ」の入荷になるという点で、近所の店に来なくても再販自体はあったというケースが起こります。"},
             {"q": "再販されると相場は下がりますか？",
              "a": "当サイトのBOX買取実データでは、下落は発売から日の浅い弾に集中しており、古い弾は横ばいか上昇で安定しています。新しい弾は追加出荷や再販がかかりやすく未開封在庫が増えるためと考えられます。ただしバンダイが個別弾の再販を網羅的に公表していないため、特定の弾の値動きを再販が原因と断定することはできません。"},
+        ],
+    },
+    {
+        "slug": "eb02-luffy-comipara",
+        "nav_label": "EB-02 ルフィ コミパラ徹底解説",
+        "crumb": "モンキー・D・ルフィ コミパラ(EB-02)",
+        "date": "2026-08-26",
+        "date_jp": "2026年8月26日",
+        "title": "EB-02 ルフィ コミパラ徹底解説｜コミパラが1種しかない唯一の弾と、定価換算でプラスになる構造",
+        "h1": "モンキー・D・ルフィ コミパラ(EB-02)徹底解説｜コミパラが1種しかない唯一の弾と、定価換算でプラスになる構造",
+        "meta_desc": "Anime 25th collection(EB-02)のモンキー・D・ルフィ コミックパラレルを単体で徹底解説。2026年8月26日時点の買取50万円・販売64.8万円・PSA10相場70万円、鑑定枚数1,920枚と取得率90.8%、そして本弾はコミパラが全1種しか存在しないため「コミパラを引けば必ずルフィ」という他弾にない構造を持つ点まで整理。定価換算では必要BOX代38万円に対しカードが50万円と唯一プラスになりますが、実際には定価で買えないという現実も含めて解説します。",
+        "og_title": "EB-02 ルフィ コミパラ徹底解説｜コミパラ1種の唯一の弾",
+        "og_desc": "買取50万・PSA10相場70万。本弾はコミパラが全1種しかなく「引けば必ずルフィ」。定価換算では唯一プラスになる構造と、その但し書きを実データで解説。",
+        "meta_line": "EB-02ルフィ コミパラの相場・封入率・PSA10・定価換算",
+        "hero_label": "モンキー・D・ルフィ コミックパラレル【EB-02】",
+        "hero_big": "買取 約¥500,000",
+        "hero_sub": "Anime 25th collection(EB-02)収録。本弾は<strong>コミックパラレルが全1種類しか存在しない</strong>ため、コミパラ枠を引けば必ずこのルフィになります。狙い撃ちの倍率がかからない唯一の弾です。相場・鑑定データは2026年8月26日時点。",
+        "disclaimer": "本記事のカード相場は<strong>2026年8月26日時点</strong>にカード相場メディア altema が掲載する<strong>カードラッシュの買取・販売価格</strong>、およびPSA10相場を基準にした目安です。1店舗の価格を基準にしているため、他店の買取額や実際の取引価格とは異なります。封入率は公式発表ではなく開封報告等に基づく推定値です。<strong>本記事のBOX代換算は定価(¥5,280)で計算した机上の数字</strong>で、実際にはEB-02のBOXが定価で流通していないため、そのまま実行できる話ではありません(本文で詳述します)。BOX買取価格は当サイトが最大9店舗から自動取得した実データです。売買・開封の判断はご自身の責任で行ってください。",
+        "related": '<li><a href="eb-02-atari-guide.html">Anime 25th collection(EB-02) 当たりカードガイド</a> — 収録弾の当たり全体と封入率</li>\n'
+                   '<li><a href="box/eb-02.html">Anime 25th collection(EB-02) BOX買取価格</a> — 店舗別のBOX買取価格を毎日更新</li>\n'
+                   '<li><a href="comipara-ranking.html">歴代コミックパラレル相場ランキング全22弾</a> — 全弾のコミパラ相場ランキング</li>\n'
+                   '<li><a href="anniversary-sp-guide.html">3周年スペシャル(金/銀)徹底解説</a> — もうひとつの「定価換算でプラス」になるカード</li>\n'
+                   '<li><a href="psa-guide.html">ワンピースカードのPSA鑑定ガイド</a> — 鑑定に出すべきかの判断基準</li>\n'
+                   '<li><a href="/onepiece">ワンピBOX買取価格比較トップ</a> — 全弾のBOX買取価格を最大9店舗で横断比較</li>',
+        "body": """<p><strong>モンキー・D・ルフィ コミックパラレル</strong>は、<a href="eb-02-atari-guide.html">Anime 25th collection(EB-02)</a>に収録された本弾の看板カードです。アニメ25周年を記念したエクストラブースターの目玉で、買取相場は<strong>約50万円</strong>。</p>
+
+<p>ただしこのカードには、当サイトが扱ってきた他の高額コミパラとは<strong>決定的に違う特徴</strong>があります。</p>
+
+<div class="callout"><strong>3行まとめ:</strong><br>
+・買取<strong>約50万円</strong>／販売約64.8万円／PSA10相場<strong>約70万円</strong>(2026年8月26日時点)<br>
+・本弾は<strong>コミパラが全1種類しか存在しない</strong>。「コミパラ枠を引けば必ずルフィ」で、狙い撃ちの倍率がかからない<br>
+・そのため<strong>定価換算では必要BOX代38万円に対しカードが50万円</strong>と、当サイトが比較した中で数少ないプラス。ただし<strong>定価では買えない</strong>という但し書きが付く</div>
+
+<h2>基本情報</h2>
+<table class="price-table">
+<thead><tr><th>項目</th><th>内容</th></tr></thead>
+<tbody>
+<tr><td>カード名</td><td>モンキー・D・ルフィ</td></tr>
+<tr><td>レアリティ</td><td>コミックパラレル(スーパーパラレル)</td></tr>
+<tr><td>収録</td><td><a href="eb-02-atari-guide.html">エクストラブースター「Anime 25th collection」(EB-02)</a></td></tr>
+<tr><td>発売日</td><td>2025年1月25日</td></tr>
+<tr><td>BOX定価</td><td>¥5,280</td></tr>
+<tr><td>テーマ</td><td>アニメ25周年記念</td></tr>
+</tbody>
+</table>
+
+<h2>現在の相場(2026年8月26日時点)</h2>
+<table class="price-table">
+<thead><tr><th>区分</th><th style="text-align:right">金額</th><th>備考</th></tr></thead>
+<tbody>
+<tr class="best"><td><strong>買取価格</strong></td><td class="price"><strong>約¥500,000</strong></td><td>素体(未鑑定)</td></tr>
+<tr><td>販売価格</td><td class="price">約¥648,000</td><td>素体(未鑑定)</td></tr>
+<tr><td>PSA10相場</td><td class="price">約¥700,000</td><td>鑑定済み</td></tr>
+</tbody>
+</table>
+
+<p>素体買取50万円に対しPSA10が70万円で、<strong>鑑定による上乗せは約1.4倍</strong>です。</p>
+
+<h3>PSA10データ</h3>
+<table class="price-table">
+<thead><tr><th>項目</th><th style="text-align:right">数値</th></tr></thead>
+<tbody>
+<tr><td>PSA10鑑定枚数</td><td class="price">1,920枚</td></tr>
+<tr class="best"><td><strong>PSA10取得率</strong></td><td class="price"><strong>90.8%</strong></td></tr>
+</tbody>
+</table>
+
+<p>取得率<strong>90.8%</strong>は高水準で、状態がよければ高い確率でPSA10が期待できます。2025年1月発売と比較的新しく、高額カードとして丁寧に扱われてきたことが背景と考えられます(参考: 2023年発売の<a href="nika-luffy-comipara.html">ニカルフィ コミパラは71.7%</a>)。</p>
+
+<h2>発見①｜コミパラが全1種しかない唯一の弾</h2>
+<p>ここが本カード最大の特徴です。EB-02の封入率は次のとおりで、<strong>コミックパラレルは「全1種類」</strong>と記載されています。</p>
+
+<table class="price-table">
+<thead><tr><th>レアリティ</th><th>封入率</th><th style="text-align:right">種類数</th></tr></thead>
+<tbody>
+<tr class="best"><td><strong>コミックパラレル</strong></td><td>6カートン(約72BOX)に約1枚</td><td class="price"><strong>全1種類</strong></td></tr>
+<tr><td>リーダーパラレル</td><td>3カートンに約1枚</td><td class="price">全1種類</td></tr>
+<tr><td>スペシャルカード</td><td>1カートンに約1枚</td><td class="price">全26種類</td></tr>
+<tr><td>パラレル/SEC</td><td>1BOXに約1枚</td><td class="price">全16+1種類</td></tr>
+</tbody>
+</table>
+
+<p>他の弾はコミパラが複数種あるため、狙いの1枚を引く確率は「コミパラ枠を引く確率 ÷ 種類数」まで下がります。ところが<strong>EB-02はコミパラが1種しかないので、その割り算が発生しません</strong>。</p>
+
+<div class="callout"><strong>他弾との違い:</strong> <a href="op-13-atari-guide.html">受け継がれる意志(OP-13)</a>のレッドコミパラは3種あるため狙いの1枚は約631BOXに1枚、<a href="op-09-atari-guide.html">新たなる皇帝(OP-09)</a>はコミパラ5種で約360BOXに1枚。対してEB-02は<strong>約72BOXに1枚でそのままルフィ</strong>です。「コミパラを引いたのに欲しいカードじゃなかった」が起こりません。</div>
+
+<h2>発見②｜定価換算では数少ないプラス</h2>
+<p>この構造を金額に直すと、他弾との差がはっきりします。BOX定価¥5,280で換算した「狙いの1枚に必要なBOX代」とカードの買取価格を並べます。</p>
+
+<table class="price-table">
+<thead><tr><th>カード</th><th style="text-align:right">必要BOX数</th><th style="text-align:right">BOX代(定価換算)</th><th style="text-align:right">カード買取</th><th style="text-align:right">差</th></tr></thead>
+<tbody>
+<tr class="best"><td><strong>ルフィ コミパラ(EB-02)</strong></td><td class="price">約72BOX</td><td class="price">約¥380,000</td><td class="price"><strong>¥500,000</strong></td><td class="price" style="color:#15803d;font-weight:700">+約12万円</td></tr>
+<tr><td><a href="nika-luffy-comipara.html">ニカルフィ(OP-05)</a></td><td class="price">約288BOX</td><td class="price">約¥1,521,000</td><td class="price">¥800,000</td><td class="price" style="color:#b91c1c;font-weight:700">-約72万円</td></tr>
+<tr><td><a href="roger-gold-comipara.html">ロジャー金(OP-09)</a></td><td class="price">約360BOX</td><td class="price">約¥1,901,000</td><td class="price">¥700,000</td><td class="price" style="color:#b91c1c;font-weight:700">-約120万円</td></tr>
+<tr><td><a href="red-comipara-guide.html">ルフィ赤(OP-13)</a></td><td class="price">約631BOX</td><td class="price">約¥3,332,000</td><td class="price">¥2,300,000</td><td class="price" style="color:#b91c1c;font-weight:700">-約103万円</td></tr>
+<tr><td><a href="kaigun-taisho-guide.html">大将トリオ(OP-16)</a></td><td class="price">約302BOX</td><td class="price">約¥1,595,000</td><td class="price">¥230,000</td><td class="price" style="color:#b91c1c;font-weight:700">-約136万円</td></tr>
+</tbody>
+</table>
+
+<p>他の高額コミパラが軒並み大きくマイナスなのに対し、<strong>EB-02のルフィだけがプラス</strong>です。理由は単純で、<strong>コミパラが1種しかないぶん必要BOX数が他弾の4〜9分の1で済む</strong>からです。</p>
+
+<h2>ただし「定価で買えない」という現実</h2>
+<p>ここまでの計算には重大な前提があります。<strong>BOXを定価¥5,280で買えること</strong>です。</p>
+
+<p>ところが当サイトの実データでは、<strong>EB-02のBOX買取価格は{{EB02_PRICE}}({{EB02_MULT}})</strong>。買取でこの水準ということは、購入価格はさらに上になります。</p>
+
+<div class="callout"><strong>市場価格で計算し直すと:</strong> かりにBOXを買取価格と同水準の{{EB02_PRICE}}で入手できたとしても、72BOX分では<strong>280万円を超えます</strong>。カードの買取50万円に対して大幅なマイナスです。<br><br>
+つまり「定価換算でプラス」という結論は、<strong>定価で入手できる場合に限った話</strong>。すでに定価の何倍もの相場が付いている弾では、実行できません。同じことは<a href="anniversary-sp-guide.html">3周年スペシャルのルフィ金</a>にも当てはまります。</div>
+
+<p>この計算が実務的に意味を持つのは、<strong>発売直後に定価で大量に確保できる新弾</strong>の場合です。旧弾では「カードを直接買うほうが安い」という他弾と同じ結論に戻ります。</p>
+
+<h2>発見③｜弾の価値がこの1枚に集中している</h2>
+<p>EB-02の当たりカード上位を見ると、価格差の構造が分かります。</p>
+
+<table class="price-table">
+<thead><tr><th>順位</th><th>カード</th><th style="text-align:right">買取価格</th></tr></thead>
+<tbody>
+<tr class="best"><td>1位</td><td><strong>モンキー・D・ルフィ コミパラ</strong></td><td class="price"><strong>¥500,000</strong></td></tr>
+<tr><td>2位</td><td>モンキー・D・ルフィ スペシャルカード</td><td class="price">¥300,000</td></tr>
+<tr><td>3位</td><td>ボア・ハンコック スペシャルカード</td><td class="price">¥150,000</td></tr>
+<tr><td>4位</td><td>トニートニー・チョッパー スペシャルカード</td><td class="price">¥120,000</td></tr>
+<tr><td>5位</td><td>モンキー・D・ルフィ リーダーパラレル</td><td class="price">¥80,000</td></tr>
+<tr><td>6位</td><td>ヴィンスモーク・レイジュ スペシャルカード</td><td class="price">¥45,000</td></tr>
+</tbody>
+</table>
+
+<p>上位6枚のうち<strong>3枚がルフィ</strong>で、しかも1位と2位の差は約1.7倍にとどまります。<a href="comipara-ranking.html">他弾では1位が2位を3〜9倍引き離すケースが多い</a>のに対し、EB-02は<strong>上位が比較的なだらか</strong>です。アニメ25周年という記念弾の性格上、人気キャラのスペシャルカードが厚く用意されていることが影響していると考えられます。</p>
+
+<h2>売買の注意点</h2>
+<ul>
+<li><strong>コミパラは1種のみ</strong> — 「EB-02のコミパラ」と言えばこのルフィです。他弾のように種類を確認する必要がありません。</li>
+<li><strong>ルフィのスペシャルカードと混同しない</strong> — 同じ弾にルフィのSP(買取約30万円)があります。コミパラは背景が漫画のコマになっているのが目印です。</li>
+<li><strong>PSA10は狙いやすい</strong> — 取得率90.8%と高水準です。素体50万円に対しPSA10が70万円(約1.4倍)なので、鑑定料と期間を踏まえて判断してください(詳細は<a href="psa-guide.html">PSA鑑定ガイド</a>)。</li>
+<li><strong>定価換算の数字を鵜呑みにしない</strong> — BOX代38万円という計算は定価前提です。現在のBOX相場では成立しません。</li>
+<li><strong>複数店を比較する</strong> — 50万円クラスでは店舗差がそのまま数万円になります。</li>
+</ul>""",
+        "faq": [
+            {"q": "EB-02のルフィ コミパラはいくらで売れますか？",
+             "a": "2026年8月26日時点で買取約50万円、販売約64.8万円、PSA10相場は約70万円です(altema掲載のカードラッシュ価格基準)。素体からPSA10への上乗せは約1.4倍で、PSA10取得率は90.8%と高水準です。"},
+            {"q": "EB-02のコミパラは何種類ありますか？",
+             "a": "全1種類で、このモンキー・D・ルフィのみです。これは他弾にない特徴で、コミパラ枠を引けば必ずルフィになります。受け継がれる意志(OP-13)のレッドコミパラは3種、新たなる皇帝(OP-09)は5種あるため狙いの1枚を引く確率がその分下がりますが、EB-02にはその割り算が発生しません。"},
+            {"q": "BOXを買って狙うのは得ですか？",
+             "a": "定価で買える場合に限れば、計算上はプラスです。約72BOXに1枚とされ、定価¥5,280で換算すると約38万円。カードの買取50万円を下回ります。ただし現在EB-02のBOXは定価では流通しておらず、市場価格で72BOX買うと280万円を超えるため実行できません。この計算が意味を持つのは、発売直後に定価で確保できる新弾の場合です。"},
+            {"q": "なぜEB-02だけ計算がプラスになるのですか？",
+             "a": "コミパラが1種しかないため、必要BOX数が他弾の4〜9分の1で済むからです。他弾はコミパラが3〜5種あり、狙いの1枚を引くには種類数で割った確率になります(OP-13レッドコミパラは約631BOX、OP-09は約360BOX)。EB-02は約72BOXでそのままルフィなので、コストが大きく下がります。"},
+            {"q": "ルフィのスペシャルカードとどう見分けますか？",
+             "a": "コミックパラレルは背景が漫画のコマになっているのが目印です。EB-02には同じルフィのスペシャルカード(買取約30万円)もあり、相場が1.7倍ほど違います。購入時はレアリティ表記と背景の両方を確認してください。"},
         ],
     },
 ]
