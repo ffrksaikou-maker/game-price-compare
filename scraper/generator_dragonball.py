@@ -1,8 +1,9 @@
 """ドラゴンボール版ページ(dragonball.html)を dragonball-template.html から生成する。
 
 ポケカ側 generator.py / ワンピ側 generator_onepiece.py / ベイ側
-generator_beyblade.py は無改修。記事・個別商品ページは作らず、比較表1枚だけを
-出力する。価格履歴は data/history_db に保存し、前日比(y)に使う。
+generator_beyblade.py は無改修。個別商品ページは作らず、比較表1枚を出力し、
+買取ガイド記事(build_dragonball_articles)へのリンクを差し込む。価格履歴は
+data/history_db に保存し、前日比(y)に使う。
 """
 
 from __future__ import annotations
@@ -11,6 +12,7 @@ import json
 import logging
 import re
 from datetime import datetime, timedelta, timezone
+from html import escape
 from pathlib import Path
 
 from .matcher import MasterProduct
@@ -180,16 +182,44 @@ def _append_dragonball_sitemap() -> None:
         logger.warning("sitemap.xml not found; skip dragonball entry")
         return
     xml = path.read_text(encoding="utf-8")
-    if "/dragonball" in xml:
-        return
     today = datetime.now(JST).strftime("%Y-%m-%d")
-    entry = (f"  <url>\n    <loc>{SITE_URL}</loc>\n"
-             f"    <lastmod>{today}</lastmod>\n"
-             f"    <changefreq>daily</changefreq>\n"
-             f"    <priority>0.9</priority>\n  </url>\n")
-    xml = xml.replace("</urlset>", entry + "</urlset>")
+
+    def _entry(loc: str, freq: str, prio: str) -> str:
+        return (f"  <url>\n    <loc>{loc}</loc>\n"
+                f"    <lastmod>{today}</lastmod>\n"
+                f"    <changefreq>{freq}</changefreq>\n"
+                f"    <priority>{prio}</priority>\n  </url>\n")
+
+    blocks = []
+    if f"<loc>{SITE_URL}</loc>" not in xml:
+        blocks.append(_entry(SITE_URL, "daily", "0.9"))
+    for art in sorted((PROJECT_ROOT / "dragonball").glob("*.html")):
+        loc = f"{SITE_URL}/{art.name}"
+        if f"<loc>{loc}</loc>" not in xml:
+            blocks.append(_entry(loc, "weekly", "0.8"))
+    if not blocks:
+        return
+    xml = xml.replace("</urlset>", "".join(blocks) + "</urlset>")
     path.write_text(xml, encoding="utf-8")
-    logger.info("sitemap.xml: added %s", SITE_URL)
+    logger.info("sitemap.xml: added %d dragonball URLs", len(blocks))
+
+
+def _article_links_block() -> str:
+    """買取ガイド記事のカードHTML。記事を足せば自動で並ぶ(単一ソースは
+    build_dragonball_articles.HOWTO_ARTICLES)。"""
+    try:
+        from scraper.build_dragonball_articles import HOWTO_ARTICLES
+    except Exception:
+        logger.warning("dragonball articles not available; skip link block")
+        return ""
+    cards = []
+    for h in HOWTO_ARTICLES:
+        cards.append(
+            f'<a class="blog-card" href="/dragonball/{h["slug"]}.html">'
+            f'<h3>{escape(h["nav_label"])}</h3>'
+            f'<p>{escape(h["meta_line"])}</p></a>'
+        )
+    return "".join(cards)
 
 
 def generate_dragonball_html(products: list[MasterProduct]) -> str:
@@ -205,6 +235,7 @@ def generate_dragonball_html(products: list[MasterProduct]) -> str:
     html = template.replace("// {{PRODUCT_DATA}}", _product_js(products))
     html = html.replace("<!-- {{JSONLD}} -->", _jsonld(products))
     html = html.replace("<!-- {{AI_SUMMARY}} -->", "")
+    html = html.replace("{{ARTICLE_LINKS}}", _article_links_block())
     html = html.replace("{{UPDATE_DATE}}", update_date)
 
     output_path.write_text(html, encoding="utf-8")

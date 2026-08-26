@@ -251,7 +251,14 @@ t = t.replace("ポケモンカード", "ドラゴンボールカード")
 t = t.replace("ポケカ買取チェッカー", "ドラゴンボール買取チェッカー")
 t = t.replace("ポケカ", "ドラゴンボール")
 
-# 14) 切替バナー -------------------------------------------------------------
+# 14) 買取ガイド記事へのリンク枠(中身は generator が {{ARTICLE_LINKS}} に差し込む)
+_article_block = (
+    '<div class="blog-links" id="blogLinks">{{ARTICLE_LINKS}}</div>\n'
+    '<section class="site-intro"'
+)
+t = t.replace('<section class="site-intro"', _article_block, 1)
+
+# 15) 切替バナー -------------------------------------------------------------
 t = sb.apply(t, "dragonball")
 
 out = ROOT / "dragonball-template.html"

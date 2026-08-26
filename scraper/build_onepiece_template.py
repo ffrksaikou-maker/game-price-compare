@@ -148,7 +148,7 @@ t = rep(t, 'href="https://runto666.com/product-category/card/"',
 
 # 「について」セクションの数値
 t = rep(t, 'ポケモンカード未開封BOX 67商品×9店舗',
-        'ONE PIECEカード未開封BOX 24商品×9店舗')
+        'ONE PIECEカード未開封BOX 25商品×9店舗')
 
 # 2) グローバル文言置換(ブランディング) --------------------------------------
 t = t.replace("ポケモンカードゲーム", "ONE PIECEカードゲーム")

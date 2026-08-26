@@ -58,6 +58,9 @@ except Exception:  # 記事データが読めない環境でも生成は続行
 
 # ハウツー記事(atari自動生成とは別枠・手動append)
 ONEPIECE_ARTICLES.append(
+    ("hatsubai-schedule.html", "新弾発売スケジュール",
+     "EB-05(10/31・BOX5,760円)とOP-18(11月予定)の発売日をまとめ、OP-17からの定価改定と相場への影響を解説。"))
+ONEPIECE_ARTICLES.append(
     ("kaitori-hikaku.html", "ワンピBOX買取比較・高く売るコツ",
      "最大9店舗の実データでワンピBOXを高く売るコツと店舗の選び方を解説。"))
 ONEPIECE_ARTICLES.append(
@@ -346,7 +349,7 @@ def _append_onepiece_sitemap(products: list[MasterProduct]) -> None:
         blocks.append(_url("/onepiece/op-17-forecast.html", "weekly", "0.8"))
     if (PROJECT_ROOT / "onepiece" / "shikou-treasure-get.html").exists():
         blocks.append(_url("/onepiece/shikou-treasure-get.html", "weekly", "0.8"))
-    for _name in ("nika-luffy-comipara", "red-comipara-guide", "roger-gold-comipara", "comipara-ranking", "psa-guide", "box-price-pattern", "anniversary-sp-guide", "kaigun-taisho-guide", "restock-guide", "eb02-luffy-comipara"):
+    for _name in ("hatsubai-schedule", "nika-luffy-comipara", "red-comipara-guide", "roger-gold-comipara", "comipara-ranking", "psa-guide", "box-price-pattern", "anniversary-sp-guide", "kaigun-taisho-guide", "restock-guide", "eb02-luffy-comipara"):
         if (PROJECT_ROOT / "onepiece" / f"{_name}.html").exists():
             blocks.append(_url(f"/onepiece/{_name}.html", "weekly", "0.8"))
 

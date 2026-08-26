@@ -483,6 +483,14 @@ def main() -> None:
     generate_dragonball_html(DRAGONBALL_PRODUCTS)
     logger.info("Done! dragonball.html has been generated.")
 
+    try:
+        from scraper.build_dragonball_articles import build as build_dragonball_articles
+        build_dragonball_articles()
+        logger.info("Dragon Ball articles rebuilt")
+    except Exception:
+        logger.error("Dragon Ball article build failed (価格更新は継続)")
+        logger.error(traceback.format_exc())
+
     # 異常検知 → Discord通知
     alerts: list[str] = []
     shop_names = {c.shop_id: c.shop_name for c in ALL_SCRAPERS}

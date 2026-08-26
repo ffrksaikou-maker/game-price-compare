@@ -86,7 +86,7 @@ jobs:
             index.html ranking.html sitemap.xml articles.html \
             onepiece.html onepiece/ \
             beyblade.html \
-            dragonball.html \
+            dragonball.html dragonball/ \
             data/cache.json data/history/ data/history_op/ data/history_bey/ \
             data/history_db/ \
             data/mercari_beyblade.json data/x_state/ \
