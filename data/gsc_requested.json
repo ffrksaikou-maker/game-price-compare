@@ -8,8 +8,8 @@
   "result": "indexed"
  },
  "https://pokeca-box-hikaku.com/151-spotlight.html": {
-  "requested_at": "2026-08-25T20:58:43+09:00",
-  "result": "indexed"
+  "requested_at": "2026-08-27T06:37:43+09:00",
+  "result": "requested"
  },
  "https://pokeca-box-hikaku.com/30th-celebration-atari-yosou.html": {
   "requested_at": "2026-08-23T07:08:23+09:00",
@@ -35,6 +35,10 @@
   "requested_at": "2026-08-24T07:45:36+09:00",
   "result": "indexed"
  },
+ "https://pokeca-box-hikaku.com/abyss-eye-review.html": {
+  "requested_at": "2026-08-27T06:37:43+09:00",
+  "result": "indexed"
+ },
  "https://pokeca-box-hikaku.com/ancient-roar-atari-guide.html": {
   "requested_at": "2026-08-23T06:57:40+09:00",
   "result": "requested"
@@ -43,12 +47,24 @@
   "requested_at": "2026-08-24T07:50:12+09:00",
   "result": "requested"
  },
+ "https://pokeca-box-hikaku.com/battle-collection-spotlight.html": {
+  "requested_at": "2026-08-27T06:37:43+09:00",
+  "result": "indexed"
+ },
  "https://pokeca-box-hikaku.com/beyblade": {
   "requested_at": "2026-08-22T08:44:43+09:00",
   "result": "requested"
  },
  "https://pokeca-box-hikaku.com/black-bolt-atari-guide.html": {
   "requested_at": "2026-08-23T06:51:30+09:00",
+  "result": "indexed"
+ },
+ "https://pokeca-box-hikaku.com/box-age-multiple.html": {
+  "requested_at": "2026-08-27T06:23:56+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/box-price-trend.html": {
+  "requested_at": "2026-08-27T06:23:56+09:00",
   "result": "indexed"
  },
  "https://pokeca-box-hikaku.com/box-toushi.html": {
@@ -176,7 +192,7 @@
   "result": "indexed"
  },
  "https://pokeca-box-hikaku.com/inferno-x-spotlight.html": {
-  "requested_at": "2026-08-16T07:04:00+09:00",
+  "requested_at": "2026-08-27T06:37:43+09:00",
   "result": "requested"
  },
  "https://pokeca-box-hikaku.com/kaitori-tips.html": {
@@ -196,11 +212,15 @@
   "result": "requested"
  },
  "https://pokeca-box-hikaku.com/lizardon-box-guide.html": {
-  "requested_at": "2026-08-16T07:01:00+09:00",
-  "result": "indexed"
+  "requested_at": "2026-08-27T06:37:43+09:00",
+  "result": "requested"
  },
  "https://pokeca-box-hikaku.com/lizardon-sar-kokuen-guide.html": {
   "requested_at": "2026-08-16T07:13:00+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/masterball-mirror-guide.html": {
+  "requested_at": "2026-08-27T06:37:43+09:00",
   "result": "requested"
  },
  "https://pokeca-box-hikaku.com/mega-box-list.html": {
@@ -210,6 +230,10 @@
  "https://pokeca-box-hikaku.com/mega-brave-atari-guide.html": {
   "requested_at": "2026-08-23T06:49:04+09:00",
   "result": "indexed"
+ },
+ "https://pokeca-box-hikaku.com/mega-brave-spotlight.html": {
+  "requested_at": "2026-08-27T06:37:43+09:00",
+  "result": "requested"
  },
  "https://pokeca-box-hikaku.com/mega-ex-atari-guide.html": {
   "requested_at": "2026-08-23T06:47:53+09:00",
@@ -283,6 +307,10 @@
   "requested_at": "2026-08-26T07:36:43+09:00",
   "result": "requested"
  },
+ "https://pokeca-box-hikaku.com/onepiece/box-price-pattern.html": {
+  "requested_at": "2026-08-27T06:18:55+09:00",
+  "result": "requested"
+ },
  "https://pokeca-box-hikaku.com/onepiece/box/op-13.html": {
   "requested_at": "2026-08-22T09:00:24+09:00",
   "result": "requested"
@@ -303,6 +331,14 @@
   "requested_at": "2026-08-25T20:59:49+09:00",
   "result": "indexed"
  },
+ "https://pokeca-box-hikaku.com/onepiece/comipara-ranking.html": {
+  "requested_at": "2026-08-27T06:18:55+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/onepiece/eb02-luffy-comipara.html": {
+  "requested_at": "2026-08-27T06:18:55+09:00",
+  "result": "requested"
+ },
  "https://pokeca-box-hikaku.com/onepiece/kaigun-taisho-guide.html": {
   "requested_at": "2026-08-26T07:35:20+09:00",
   "result": "requested"
@@ -310,6 +346,10 @@
  "https://pokeca-box-hikaku.com/onepiece/kougaku-ranking.html": {
   "requested_at": "2026-08-18T08:29:26+09:00",
   "result": "indexed"
+ },
+ "https://pokeca-box-hikaku.com/onepiece/nika-luffy-comipara.html": {
+  "requested_at": "2026-08-27T06:18:55+09:00",
+  "result": "requested"
  },
  "https://pokeca-box-hikaku.com/onepiece/op-11-atari-guide": {
   "requested_at": "2026-08-24T07:26:39+09:00",
@@ -319,8 +359,16 @@
   "requested_at": "2026-08-23T06:42:01+09:00",
   "result": "requested"
  },
+ "https://pokeca-box-hikaku.com/onepiece/red-comipara-guide.html": {
+  "requested_at": "2026-08-27T06:18:55+09:00",
+  "result": "requested"
+ },
  "https://pokeca-box-hikaku.com/onepiece/restock-guide.html": {
   "requested_at": "2026-08-26T07:38:08+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/onepiece/roger-gold-comipara.html": {
+  "requested_at": "2026-08-27T06:18:55+09:00",
   "result": "requested"
  },
  "https://pokeca-box-hikaku.com/onepiece/shikou-treasure-get.html": {
@@ -347,6 +395,10 @@
   "requested_at": "2026-08-23T07:07:00+09:00",
   "result": "requested"
  },
+ "https://pokeca-box-hikaku.com/pigeot-sar-guide.html": {
+  "requested_at": "2026-08-27T06:37:43+09:00",
+  "result": "indexed"
+ },
  "https://pokeca-box-hikaku.com/pokemon-go-atari-guide.html": {
   "requested_at": "2026-08-23T07:05:42+09:00",
   "result": "requested"
@@ -371,6 +423,10 @@
   "requested_at": "2026-08-21T15:50:57+09:00",
   "result": "requested"
  },
+ "https://pokeca-box-hikaku.com/release-schedule-2026.html": {
+  "requested_at": "2026-08-27T06:37:43+09:00",
+  "result": "indexed"
+ },
  "https://pokeca-box-hikaku.com/restock-guide.html": {
   "requested_at": "2026-08-24T07:30:45+09:00",
   "result": "requested"
@@ -389,6 +445,10 @@
  },
  "https://pokeca-box-hikaku.com/shop-hikaku.html": {
   "requested_at": "2026-08-22T08:44:43+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/shop-price-gap.html": {
+  "requested_at": "2026-08-27T06:23:56+09:00",
   "result": "requested"
  },
  "https://pokeca-box-hikaku.com/shop/collect_tendo.html": {
