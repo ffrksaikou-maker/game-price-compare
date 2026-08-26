@@ -57,7 +57,8 @@ def _shell() -> dict:
         "css": css.group(1) if css else "",
         "nav": nav.group(1) if nav else "",
         "ft": ft.group(1) if ft else "",
-        "links": "\n".join(re.findall(r"<link[^>]*>", head)),
+        "links": "\n".join(l for l in re.findall(r"<link[^>]*>", head)
+                           if "canonical" not in l),
         "scripts": "\n".join(re.findall(r"<script[^>]*src=[^>]*></script>", h)),
     }
 
