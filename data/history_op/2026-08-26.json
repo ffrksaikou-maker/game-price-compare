@@ -10,7 +10,7 @@
       "rudeya": 14700,
       "runto": 15000,
       "icchome": 14000,
-      "oku": 14500,
+      "oku": 14000,
       "collect_tendo": 14500,
       "shinsoku": 12500
     }
@@ -23,10 +23,10 @@
     "prices": {
       "morimori": 9000,
       "homura": 9000,
-      "rudeya": 8500,
+      "rudeya": 8000,
       "runto": 9000,
       "icchome": 8300,
-      "oku": 9000,
+      "oku": 8500,
       "collect_tendo": 9000,
       "shinsoku": 8900
     }
@@ -55,10 +55,10 @@
     "prices": {
       "morimori": 11000,
       "homura": 11500,
-      "rudeya": 12500,
+      "rudeya": 10500,
       "runto": 16000,
       "icchome": 8500,
-      "oku": 12000,
+      "oku": 9000,
       "collect_tendo": 15000,
       "shinsoku": 10400
     }
@@ -71,10 +71,10 @@
     "prices": {
       "morimori": 19000,
       "homura": 19500,
-      "rudeya": 19000,
+      "rudeya": 18000,
       "runto": 20000,
       "icchome": 15000,
-      "oku": 19000,
+      "oku": 16000,
       "collect_tendo": 21500,
       "shinsoku": 18200
     }
@@ -88,7 +88,7 @@
       "morimori": 19000,
       "homura": 19500,
       "rudeya": 18000,
-      "runto": 17800,
+      "runto": 18000,
       "icchome": 17000,
       "oku": 17000,
       "collect_tendo": 19000,
@@ -102,7 +102,7 @@
     "max_price": 38500,
     "prices": {
       "morimori": 38000,
-      "homura": 37600,
+      "homura": 37500,
       "rudeya": 35000,
       "runto": 38500,
       "icchome": 34000,
@@ -115,12 +115,12 @@
     "name": "ブースターパック「王族の血統」【OP-10】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 13000,
+    "max_price": 12500,
     "prices": {
       "morimori": 12200,
-      "homura": 13000,
+      "homura": 12500,
       "rudeya": 11500,
-      "runto": 12000,
+      "runto": 12500,
       "icchome": 12000,
       "oku": 10000,
       "collect_tendo": 11500,
@@ -135,10 +135,10 @@
     "prices": {
       "morimori": 22000,
       "homura": 22500,
-      "rudeya": 21000,
-      "runto": 20000,
+      "rudeya": 21500,
+      "runto": 20500,
       "icchome": 22000,
-      "oku": 22500,
+      "oku": 22000,
       "collect_tendo": 23200,
       "shinsoku": 21200
     }
@@ -147,14 +147,14 @@
     "name": "ブースターパック「二つの伝説」【OP-08】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 11000,
+    "max_price": 10000,
     "prices": {
       "morimori": 10000,
-      "homura": 10000,
+      "homura": 9800,
       "rudeya": 10000,
-      "runto": 11000,
+      "runto": 10000,
       "icchome": 9800,
-      "oku": 9800,
+      "oku": 9000,
       "collect_tendo": 10000,
       "shinsoku": 9800
     }
@@ -182,7 +182,7 @@
     "max_price": 25000,
     "prices": {
       "morimori": 23500,
-      "homura": 24800,
+      "homura": 24500,
       "rudeya": 25000,
       "runto": 24000,
       "icchome": 23000,
@@ -202,7 +202,7 @@
       "rudeya": 64200,
       "runto": 67000,
       "icchome": 60000,
-      "oku": 60000,
+      "oku": 62000,
       "collect_tendo": 65000,
       "shinsoku": 60500
     }
@@ -215,7 +215,7 @@
     "prices": {
       "morimori": 21200,
       "homura": 20500,
-      "rudeya": 21000,
+      "rudeya": 20700,
       "runto": 21300,
       "icchome": 18000,
       "oku": 18000,
@@ -263,7 +263,7 @@
     "prices": {
       "morimori": 40500,
       "homura": 39500,
-      "rudeya": 39700,
+      "rudeya": 39800,
       "runto": 41000,
       "icchome": 38000,
       "oku": 38000,
@@ -275,12 +275,12 @@
     "name": "エクストラブースター「EGGHEAD CRISIS」【EB-04】",
     "category": "eb",
     "retail_price": 5280,
-    "max_price": 14500,
+    "max_price": 13000,
     "prices": {
       "morimori": 13000,
       "homura": 13000,
       "rudeya": 12500,
-      "runto": 14500,
+      "runto": 13000,
       "icchome": 13000,
       "oku": 13000,
       "collect_tendo": 12000,
@@ -295,7 +295,7 @@
     "prices": {
       "morimori": 22500,
       "homura": 22500,
-      "rudeya": 21000,
+      "rudeya": 21500,
       "runto": 23500,
       "icchome": 22500,
       "oku": 22500,
@@ -344,7 +344,7 @@
       "morimori": 11300,
       "homura": 11300,
       "rudeya": 10300,
-      "runto": 10500,
+      "runto": 11000,
       "icchome": 10000,
       "oku": 10000,
       "collect_tendo": 7300,
@@ -359,10 +359,10 @@
     "prices": {
       "morimori": 21500,
       "homura": 22500,
-      "rudeya": 21500,
+      "rudeya": 22000,
       "runto": 22500,
       "icchome": 22000,
-      "oku": 22500,
+      "oku": 22000,
       "collect_tendo": 22500,
       "shinsoku": 21400
     }
@@ -371,9 +371,9 @@
     "name": "スタートデッキEX ルフィ＆エース【ST-30】",
     "category": "st",
     "retail_price": 1980,
-    "max_price": 3000,
+    "max_price": 2500,
     "prices": {
-      "rudeya": 3000
+      "rudeya": 2500
     }
   }
 ]
