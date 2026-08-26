@@ -1,14 +1,14 @@
 {
   "MANGA BOOSTER 02【SB-02】|morimori": {
     "price": 19800,
-    "ref": 65000,
-    "ratio": 0.3,
+    "ref": 62000,
+    "ratio": 0.32,
     "drop": false
   },
   "MANGA BOOSTER 01【SB-01】|morimori": {
     "price": 15000,
-    "ref": 135000,
-    "ratio": 0.11,
+    "ref": 130000,
+    "ratio": 0.12,
     "drop": true
   }
 }

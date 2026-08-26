@@ -117,7 +117,7 @@
     "prices": {
       "morimori": 19800,
       "homura": 60000,
-      "rudeya": 65000,
+      "rudeya": 62000,
       "runto": 85000
     }
   },
@@ -128,7 +128,7 @@
     "max_price": 163000,
     "prices": {
       "homura": 100000,
-      "rudeya": 135000,
+      "rudeya": 130000,
       "runto": 163000
     }
   },
@@ -136,12 +136,12 @@
     "name": "STORY BOOSTER 01【ST-01】",
     "category": "st",
     "retail_price": 6600,
-    "max_price": 23000,
+    "max_price": 20000,
     "prices": {
       "morimori": 15000,
       "homura": 16000,
       "rudeya": 17000,
-      "runto": 23000
+      "runto": 20000
     }
   },
   {

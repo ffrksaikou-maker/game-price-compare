@@ -6,12 +6,12 @@
     "max_price": 15000,
     "prices": {
       "morimori": 12800,
-      "homura": 14600,
+      "homura": 14800,
       "rudeya": 14700,
       "runto": 15000,
       "icchome": 14000,
       "oku": 14000,
-      "collect_tendo": 14500,
+      "collect_tendo": 14800,
       "shinsoku": 12500
     }
   },
@@ -22,9 +22,9 @@
     "max_price": 9000,
     "prices": {
       "morimori": 9000,
-      "homura": 9000,
+      "homura": 8500,
       "rudeya": 8000,
-      "runto": 9000,
+      "runto": 8500,
       "icchome": 8300,
       "oku": 8500,
       "collect_tendo": 9000,
@@ -37,10 +37,10 @@
     "retail_price": 5280,
     "max_price": 9600,
     "prices": {
-      "morimori": 9500,
+      "morimori": 8500,
       "homura": 9500,
       "rudeya": 8000,
-      "runto": 9000,
+      "runto": 8500,
       "icchome": 8000,
       "oku": 8500,
       "collect_tendo": 9500,
@@ -51,16 +51,16 @@
     "name": "ブースターパック「蒼海の七傑」【OP-14】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 16000,
+    "max_price": 15000,
     "prices": {
-      "morimori": 11000,
-      "homura": 11500,
-      "rudeya": 10500,
-      "runto": 16000,
+      "morimori": 9500,
+      "homura": 10500,
+      "rudeya": 8700,
+      "runto": 10500,
       "icchome": 8500,
       "oku": 9000,
       "collect_tendo": 15000,
-      "shinsoku": 10400
+      "shinsoku": 9700
     }
   },
   {
@@ -69,10 +69,10 @@
     "retail_price": 5280,
     "max_price": 21500,
     "prices": {
-      "morimori": 19000,
-      "homura": 19500,
-      "rudeya": 18000,
-      "runto": 20000,
+      "morimori": 17000,
+      "homura": 19000,
+      "rudeya": 15200,
+      "runto": 18500,
       "icchome": 15000,
       "oku": 16000,
       "collect_tendo": 21500,
@@ -108,7 +108,7 @@
       "icchome": 34000,
       "oku": 34000,
       "collect_tendo": 38000,
-      "shinsoku": 34300
+      "shinsoku": 34200
     }
   },
   {
@@ -124,7 +124,7 @@
       "icchome": 12000,
       "oku": 10000,
       "collect_tendo": 11500,
-      "shinsoku": 12200
+      "shinsoku": 12100
     }
   },
   {
@@ -136,7 +136,7 @@
       "morimori": 22000,
       "homura": 22500,
       "rudeya": 21500,
-      "runto": 20500,
+      "runto": 22000,
       "icchome": 22000,
       "oku": 22000,
       "collect_tendo": 23200,
@@ -149,7 +149,7 @@
     "retail_price": 5280,
     "max_price": 10000,
     "prices": {
-      "morimori": 10000,
+      "morimori": 9800,
       "homura": 9800,
       "rudeya": 10000,
       "runto": 10000,
@@ -195,12 +195,12 @@
     "name": "ブースターパック「新時代の主役」【OP-05】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 67000,
+    "max_price": 65000,
     "prices": {
       "morimori": 64000,
       "homura": 64000,
       "rudeya": 64200,
-      "runto": 67000,
+      "runto": 63000,
       "icchome": 60000,
       "oku": 62000,
       "collect_tendo": 65000,
@@ -278,7 +278,7 @@
     "max_price": 13000,
     "prices": {
       "morimori": 13000,
-      "homura": 13000,
+      "homura": 12600,
       "rudeya": 12500,
       "runto": 13000,
       "icchome": 13000,
@@ -294,7 +294,7 @@
     "max_price": 23500,
     "prices": {
       "morimori": 22500,
-      "homura": 22500,
+      "homura": 22200,
       "rudeya": 21500,
       "runto": 23500,
       "icchome": 22500,
@@ -326,7 +326,7 @@
     "max_price": 23500,
     "prices": {
       "morimori": 21500,
-      "homura": 21500,
+      "homura": 21000,
       "rudeya": 21000,
       "runto": 23500,
       "icchome": 20500,
@@ -355,15 +355,15 @@
     "name": "プレミアムブースター「ONE PIECE CARD THE BEST」【PRB-01】",
     "category": "prb",
     "retail_price": 5500,
-    "max_price": 22500,
+    "max_price": 22800,
     "prices": {
       "morimori": 21500,
-      "homura": 22500,
+      "homura": 22400,
       "rudeya": 22000,
       "runto": 22500,
       "icchome": 22000,
       "oku": 22000,
-      "collect_tendo": 22500,
+      "collect_tendo": 22800,
       "shinsoku": 21400
     }
   },
@@ -371,9 +371,9 @@
     "name": "スタートデッキEX ルフィ＆エース【ST-30】",
     "category": "st",
     "retail_price": 1980,
-    "max_price": 2500,
+    "max_price": 2300,
     "prices": {
-      "rudeya": 2500
+      "rudeya": 2300
     }
   }
 ]
