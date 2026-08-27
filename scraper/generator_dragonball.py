@@ -221,12 +221,12 @@ def _article_links_block() -> str:
     """買取ガイド記事のカードHTML。記事を足せば自動で並ぶ(単一ソースは
     build_dragonball_articles.HOWTO_ARTICLES)。"""
     try:
-        from scraper.build_dragonball_articles import HOWTO_ARTICLES
+        from scraper.build_dragonball_articles import ATARI_ARTICLES, HOWTO_ARTICLES
     except Exception:
         logger.warning("dragonball articles not available; skip link block")
         return ""
     cards = []
-    for h in HOWTO_ARTICLES:
+    for h in HOWTO_ARTICLES + ATARI_ARTICLES:
         cards.append(
             f'<a class="blog-card" href="/dragonball/{h["slug"]}.html">'
             f'<h3>{escape(h["nav_label"])}</h3>'
