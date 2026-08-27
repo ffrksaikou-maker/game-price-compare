@@ -180,20 +180,32 @@ t = rep(t, 'const CL={"mega":"MEGA","sv":"SV","special":"スペシャルBOX","ss
 t = rep(t, 'cc===""?P.filter(x=>x.c!=="ss")', 'cc===""?P.slice()')
 t = rep(t, 'const INV_KEY="pokeca_inventory";', 'const INV_KEY="dragonball_inventory";')
 
-# 9) 商品名はリンクにしない(個別ページを作らないため) ------------------------
+# 9) 商品名から個別BOXページ(dragonball/box/*.html)へリンクする ---------------
+#    買取価格が1店も付いていない商品は個別ページを生成しないため、
+#    リンクにせず素のテキストで出す(404を作らない)。
 t = rep(t,
         '''    const aName=document.createElement("a");
     aName.href="box/"+x.s+".html";
     aName.textContent=x.n;
     aName.style.cssText="color:inherit;text-decoration:none;border-bottom:1px dashed #c4b5fd";
     tdN.appendChild(aName);''',
-        '''    tdN.textContent=x.n;''')
+        '''    if(Object.keys(x.p).some(function(k){return x.p[k]>0})){
+      const aName=document.createElement("a");
+      aName.href="dragonball/box/"+x.s+".html";
+      aName.textContent=x.n;
+      aName.style.cssText="color:inherit;text-decoration:none;border-bottom:1px dashed #fed7aa";
+      tdN.appendChild(aName);
+    }else{
+      tdN.textContent=x.n;
+    }''')
 
 # 発売日セル(商品名の直後。モバイルでも隠さない)
 t = rep(t,
-        '''    tdN.textContent=x.n;
+        '''      tdN.textContent=x.n;
+    }
     tr.appendChild(tdN);''',
-        '''    tdN.textContent=x.n;
+        '''      tdN.textContent=x.n;
+    }
     tr.appendChild(tdN);
 
     // Release date
@@ -264,6 +276,30 @@ t = sb.apply(t, "dragonball")
 out = ROOT / "dragonball-template.html"
 out.write_text(t, encoding="utf-8")
 print(f"wrote {out} ({len(t)} bytes)")
+
+# 16) 個別BOXページのテンプレ(onepiece-box-template.html から変換・冪等)
+_box_src = ROOT / "onepiece-box-template.html"
+if _box_src.exists():
+    bt = _box_src.read_text(encoding="utf-8")
+    for _old, _new in [
+        ("ワンピ買取チェッカー", "ドラゴンボール買取チェッカー"),
+        ("ワンピ買取比較", "ドラゴンボール買取比較"),
+        ("ONE PIECEカードゲーム", "ドラゴンボールカード"),
+        ("ONE PIECEカード", "ドラゴンボールカード"),
+        ("ワンピBOX", "ドラゴンボールBOX"),
+        ("/onepiece", "/dragonball"),
+        ("#e53935", "#f57c00"),
+        ("#ff6b6b", "#f59e0b"),
+        ("#fff5f5", "#fff7ed"),
+        ("#ffe3e3", "#ffedd5"),
+        ("#ffe0e0", "#ffe8cc"),
+        ("#ffabab", "#fed7aa"),
+        ("#b91c1c", "#c2410c"),
+    ]:
+        bt = bt.replace(_old, _new)
+    _box_out = ROOT / "dragonball-box-template.html"
+    _box_out.write_text(bt, encoding="utf-8")
+    print(f"wrote {_box_out} ({len(bt)} bytes)")
 
 # ===== 既存3ページのテンプレにもDBへの導線を入れて4択にする(冪等) =====
 for filename, page in [("template.html", "pokemon"),
