@@ -226,7 +226,9 @@ def _article_links_block() -> str:
         logger.warning("dragonball articles not available; skip link block")
         return ""
     cards = []
-    for h in HOWTO_ARTICLES + ATARI_ARTICLES:
+    # トップに並べるのは4枚まで(ハウツー→当たりガイドの順で、買取価格の
+    # 高い弾から並んでいるリストの先頭を採る)
+    for h in (HOWTO_ARTICLES + ATARI_ARTICLES)[:4]:
         cards.append(
             f'<a class="blog-card" href="/dragonball/{h["slug"]}.html">'
             f'<h3>{escape(h["nav_label"])}</h3>'
