@@ -322,7 +322,6 @@ def _append_onepiece_sitemap(products: list[MasterProduct]) -> None:
 
     blocks = [
         _url("/onepiece", "daily", "0.9"),
-        _url("/onepiece/weekly.html", "weekly", "0.8"),
     ]
     seen: set[str] = set()
     for p in products:
@@ -754,7 +753,7 @@ def generate_onepiece_weekly(products: list[MasterProduct], update_date: str) ->
 <html lang="ja"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="ONE PIECEカード未開封BOXの週間買取価格変化ランキング。値上がり・値下がりBOXを最大9店舗の実データで毎日更新。">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://pokeca-box-hikaku.com/onepiece/weekly.html">
 {wk_jsonld}
 <meta property="og:title" content="ワンピBOX 週間値動きランキング｜ワンピ買取チェッカー">

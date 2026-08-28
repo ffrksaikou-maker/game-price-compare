@@ -640,7 +640,7 @@ def build_weekly_index_html(week_entries: list[dict]) -> str:
 <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
 <link rel="preconnect" href="https://www.googletagmanager.com">
 <meta name="description" content="ポケカBOX 週間値動きランキング記事のアーカイブ一覧。毎週更新のBOX買取価格値動きレポート。">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://pokeca-box-hikaku.com/weekly/">
 <meta property="og:title" content="週間値動き記事アーカイブ｜ポケカ買取チェッカー">
 <meta property="og:description" content="毎週更新のポケカBOX 買取値動きランキング記事の一覧。">
