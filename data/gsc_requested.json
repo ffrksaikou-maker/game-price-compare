@@ -175,6 +175,54 @@
   "requested_at": "2026-08-24T07:44:54+09:00",
   "result": "indexed"
  },
+ "https://pokeca-box-hikaku.com/dragonball/fb-03-atari-guide.html": {
+  "requested_at": "2026-08-29T01:28:17+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/dragonball/fb-04-atari-guide.html": {
+  "requested_at": "2026-08-29T01:28:17+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/dragonball/fb-05-atari-guide.html": {
+  "requested_at": "2026-08-29T01:28:17+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/dragonball/fb-06-atari-guide.html": {
+  "requested_at": "2026-08-29T01:28:17+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/dragonball/fb-07-atari-guide.html": {
+  "requested_at": "2026-08-29T01:15:45+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/dragonball/fb-08-atari-guide.html": {
+  "requested_at": "2026-08-29T01:28:17+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/dragonball/fb-09-atari-guide.html": {
+  "requested_at": "2026-08-29T01:28:17+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/dragonball/fb-10-atari-guide.html": {
+  "requested_at": "2026-08-29T01:28:17+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/dragonball/hatsubai-schedule.html": {
+  "requested_at": "2026-08-29T01:15:45+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/dragonball/sb-01-atari-guide.html": {
+  "requested_at": "2026-08-29T01:15:45+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/dragonball/sb-02-atari-guide.html": {
+  "requested_at": "2026-08-29T01:15:45+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/dragonball/st-01-atari-guide.html": {
+  "requested_at": "2026-08-29T01:28:17+09:00",
+  "result": "requested"
+ },
  "https://pokeca-box-hikaku.com/erika-sar-guide.html": {
   "requested_at": "2026-08-16T07:17:00+09:00",
   "result": "requested"
@@ -337,6 +385,10 @@
  },
  "https://pokeca-box-hikaku.com/onepiece/eb02-luffy-comipara.html": {
   "requested_at": "2026-08-27T06:18:55+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/onepiece/hatsubai-schedule.html": {
+  "requested_at": "2026-08-29T01:15:45+09:00",
   "result": "requested"
  },
  "https://pokeca-box-hikaku.com/onepiece/kaigun-taisho-guide.html": {
