@@ -11,9 +11,9 @@
       "runto": 15000,
       "icchome": 14000,
       "oku": 15200,
-      "kaikyo": 14000,
       "collect_tendo": 15500,
-      "shinsoku": 13600
+      "shinsoku": 13500,
+      "kaikyo": 14000
     }
   },
   {
@@ -40,7 +40,7 @@
     "prices": {
       "homura": 7200,
       "rudeya": 7500,
-      "runto": 7500,
+      "runto": 7200,
       "icchome": 7000,
       "oku": 7200,
       "collect_tendo": 9500,
@@ -55,7 +55,7 @@
     "prices": {
       "homura": 8000,
       "rudeya": 9000,
-      "runto": 8500,
+      "runto": 9000,
       "icchome": 9000,
       "oku": 8000,
       "collect_tendo": 15000,
@@ -106,7 +106,7 @@
       "icchome": 34000,
       "oku": 34000,
       "collect_tendo": 38000,
-      "shinsoku": 35000
+      "shinsoku": 34900
     }
   },
   {
@@ -138,7 +138,7 @@
       "icchome": 22000,
       "oku": 20500,
       "collect_tendo": 23200,
-      "shinsoku": 20500
+      "shinsoku": 20400
     }
   },
   {
@@ -202,7 +202,7 @@
       "icchome": 59000,
       "oku": 62000,
       "collect_tendo": 65000,
-      "shinsoku": 58700
+      "shinsoku": 60500
     }
   },
   {
