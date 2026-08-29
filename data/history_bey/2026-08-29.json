@@ -193,11 +193,11 @@
     "name": "CX-16 スタートダッシュセットC",
     "category": "cx",
     "retail_price": 5650,
-    "max_price": 7200,
+    "max_price": 7000,
     "prices": {
       "morimori": 6300,
       "rudeya": 5500,
-      "icchome": 7200
+      "icchome": 7000
     }
   },
   {
@@ -264,7 +264,7 @@
       "morimori": 2400,
       "homura": 2000,
       "rudeya": 1600,
-      "icchome": 2300
+      "icchome": 1800
     }
   },
   {
@@ -389,10 +389,10 @@
     "name": "BX-10 エクストリームスタジアム",
     "category": "bx",
     "retail_price": 2750,
-    "max_price": 3500,
+    "max_price": 3200,
     "prices": {
       "morimori": 2700,
-      "icchome": 3500
+      "icchome": 3200
     }
   },
   {
