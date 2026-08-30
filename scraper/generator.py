@@ -2014,7 +2014,7 @@ def _update_sitemap(
         ("/cyber-judge-atari-guide.html", "monthly", "0.8", "2026-08-10"),
         ("/snow-hazard-atari-guide.html", "monthly", "0.8", "2026-08-10"),
         ("/neppuu-arena-atari-guide.html", "monthly", "0.9", "2026-08-10"),
-        ("/30th-celebration-atari-yosou.html", "weekly", "0.9", "2026-08-11"),
+        ("/30th-celebration-atari-yosou.html", "weekly", "0.9", "2026-08-30"),
         ("/30th-celebration-forecast.html", "weekly", "0.9", "2026-08-30"),
         ("/pokemon-go-atari-guide.html", "monthly", "0.8", "2026-08-11"),
         ("/paradigm-trigger-atari-guide.html", "monthly", "0.8", "2026-08-11"),
