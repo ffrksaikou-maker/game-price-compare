@@ -11,9 +11,9 @@
       "runto": 15500,
       "icchome": 14000,
       "oku": 15000,
-      "kaikyo": 14000,
       "collect_tendo": 16000,
-      "shinsoku": 13800
+      "shinsoku": 14100,
+      "kaikyo": 14000
     }
   },
   {
@@ -27,7 +27,7 @@
       "rudeya": 7500,
       "runto": 8000,
       "icchome": 7000,
-      "oku": 8100,
+      "oku": 8000,
       "collect_tendo": 9000,
       "shinsoku": 8100
     }
