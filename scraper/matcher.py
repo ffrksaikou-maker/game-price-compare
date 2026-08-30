@@ -159,6 +159,20 @@ class MatchConfig:
 # Master product list - canonical names and keywords for matching
 MASTER_PRODUCTS: list[MasterProduct] = [
     # ===== MEGA (新しい順) =====
+    # 30周年記念商品(2026-09-16発売)。同じ「30th CELEBRATION」を名前に含む
+    # 商品が3つあるため、より限定的なキーワードを持つ FUTURISTIC BOX と
+    # プレミアムデッキセットを先に置く(マッチはリスト順で先勝ち)。
+    MasterProduct("mega", '30th CELEBRATION FUTURISTIC BOX', 27500, "2026-09-16",
+                  desc="ポケモンカード30周年記念のプレミアム商品。FUR仕様のピカチュウex2種に加え、プレイマット・デッキケース・ディスプレイフレーム等のサプライ一式が同梱される。2026年9月16日世界同時発売、定価27,500円。",
+                  keywords=["FUTURISTIC", "フューチャリスティック", "フューチャリスティックBOX"]),
+    MasterProduct("mega", '30th CELEBRATION プレミアムデッキセット エーフィ・ブラッキー', 6200, "2026-09-16",
+                  desc="ポケモンカード30周年記念のデッキセット。エーフィとブラッキーがテーマ。2026年9月16日発売、定価6,200円。",
+                  keywords=["プレミアムデッキセット", "エーフィ・ブラッキー", "エーフィ&ブラッキー",
+                            "エーフィブラッキー", "エーフィ ブラッキー"]),
+    MasterProduct("mega", 'MEGA 拡張パック「30th CELEBRATION」', 7200, "2026-09-16",
+                  desc="ポケモンカード30周年記念の拡張パック。1パック360円でカード6枚すべてがキラ仕様、BOXは20パック入りで定価7,200円と通常弾と仕様が異なる。新レアリティ「FUR」のミュウツーex・ミュウex、30人のイラストレーターが描くピカチュウ30種を収録。2026年9月16日世界同時発売。",
+                  keywords=["30th CELEBRATION", "30thCELEBRATION", "30th セレブレーション",
+                            "30thセレブレーション", "セレブレーション"]),
     MasterProduct("mega", 'MEGA 拡張パック「ストームエメラルダ」', 6000, "2026-07-31",
                   desc="MEGAシリーズ最新弾。メガレックウザex収録、2026年7月31日発売(定価200円/BOX 6,000円)。伝説三巨頭レックウザのメガ進化が目玉。",
                   keywords=["ストームエメラルダ", "STORMEMERALDA", "STORM EMERALDA", "MEGA 拡張パック ストーム", "ストームエメラルド"],

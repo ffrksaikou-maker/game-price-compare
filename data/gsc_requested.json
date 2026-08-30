@@ -175,6 +175,42 @@
   "requested_at": "2026-08-24T07:44:54+09:00",
   "result": "indexed"
  },
+ "https://pokeca-box-hikaku.com/dragonball/box/dragon-ball-40th-anniversary-edition.html": {
+  "requested_at": "2026-08-30T09:45:43+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/dragonball/box/dv-battle-of-saiyan.html": {
+  "requested_at": "2026-08-30T09:45:43+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/dragonball/box/fb-01.html": {
+  "requested_at": "2026-08-30T09:45:43+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/dragonball/box/fb-02.html": {
+  "requested_at": "2026-08-30T09:45:43+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/dragonball/box/fb-03.html": {
+  "requested_at": "2026-08-30T09:45:43+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/dragonball/box/fb-04.html": {
+  "requested_at": "2026-08-30T09:45:43+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/dragonball/box/fb-05.html": {
+  "requested_at": "2026-08-30T09:45:43+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/dragonball/fb-01-atari-guide.html": {
+  "requested_at": "2026-08-30T09:37:09+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/dragonball/fb-02-atari-guide.html": {
+  "requested_at": "2026-08-30T09:37:09+09:00",
+  "result": "requested"
+ },
  "https://pokeca-box-hikaku.com/dragonball/fb-03-atari-guide.html": {
   "requested_at": "2026-08-29T01:28:17+09:00",
   "result": "requested"
@@ -491,6 +527,10 @@
   "requested_at": "2026-08-16T07:27:00+09:00",
   "result": "requested"
  },
+ "https://pokeca-box-hikaku.com/shiny-star-v-atari-guide.html": {
+  "requested_at": "2026-08-30T09:37:09+09:00",
+  "result": "indexed"
+ },
  "https://pokeca-box-hikaku.com/shiny-treasure-ex-atari-guide.html": {
   "requested_at": "2026-08-16T07:30:00+09:00",
   "result": "requested"
@@ -597,6 +637,10 @@
  },
  "https://pokeca-box-hikaku.com/triplet-beat-atari-guide.html": {
   "requested_at": "2026-08-25T20:56:22+09:00",
+  "result": "indexed"
+ },
+ "https://pokeca-box-hikaku.com/vstar-universe-atari-guide.html": {
+  "requested_at": "2026-08-30T09:37:09+09:00",
   "result": "indexed"
  },
  "https://pokeca-box-hikaku.com/weekly/2026-w16.html": {
