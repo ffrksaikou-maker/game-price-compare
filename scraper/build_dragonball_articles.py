@@ -995,6 +995,53 @@ ATARI_ARTICLES = [
              "a": "当サイトが4店舗から収集している実データでは{BOX_PRICE}です(定価{BOX_RETAIL}の{BOX_RATIO})。トップレアが約5万円である一方でBOX買取が低めなのは、カード1枚の価格とBOX価格が連動しないためです。"},
         ],
     },
+    {
+        # 発売前の仕込み。9/12発売後に当たりカードの買取相場を入れて draft を外す。
+        # 埋める箇所: TOP5の表(カード名・レアリティ・買取相場)、封入率、hero_big、meta_desc の金額
+        "draft": True,
+        "slug": "fb-11-atari-guide",
+        "box_slug": "fb-11",
+        "box_name": 'ブースターパック「BRIGHTNESS OF HOPE」【FB-11】',
+        "retail": 5760,
+        "nav_label": "BRIGHTNESS OF HOPE(FB-11)",
+        "crumb": "BRIGHTNESS OF HOPE(FB-11) 当たりカードランキング",
+        "date": "2026-09-12",
+        "title": "BRIGHTNESS OF HOPE(FB-11) 当たりカードランキング｜SCR3種の買取相場と封入率",
+        "h1": "BRIGHTNESS OF HOPE(FB-11) 当たりカードランキング｜SCR3種の買取相場・封入率を解説",
+        "meta_desc": "ドラゴンボールカード「BRIGHTNESS OF HOPE」(FB-11)の当たりカードランキング・買取相場・封入率を解説。SCRは孫悟空・シャレット・バーダックの3種。この弾から1パック240円・BOX5,760円に改定されています。BOX買取価格は当サイトが4店舗から毎日収集した実データで更新しています。",
+        "og_title": "BRIGHTNESS OF HOPE(FB-11) 当たりカードランキング",
+        "og_desc": "FB-11の当たりカードと買取相場を実データで解説。SCRは孫悟空・シャレット・バーダックの3種。BOX定価は5,760円。",
+        "meta_line": "ドラゴンボールスーパーカードゲーム フュージョンワールド ブースターパック「BRIGHTNESS OF HOPE」(FB-11・2026年9月12日発売)",
+        "hero_label": "FB-11 当たりカード",
+        "hero_big": "BOX買取 {BOX_PRICE}",
+        "hero_sub": "2026年9月12日発売。SCRは孫悟空・シャレット・バーダックの3種で、全123種＋パラレル構成です。BOX買取価格は当サイトが4店舗から毎日収集しています。",
+        "body": """<p>2026年9月12日に発売されたドラゴンボールスーパーカードゲーム フュージョンワールドのブースターパック第11弾 <strong>「BRIGHTNESS OF HOPE」【FB-11】</strong> の当たりカードと買取相場をまとめます。BOXの買取価格は <a href="/dragonball">ドラゴンボールBOX買取価格比較トップ</a> で毎日更新しています。</p>
+
+<h2>当たりカードランキング TOP5</h2>
+<p>※発売直後は各店の買取価格が出そろっていないため、価格が固まった段階で掲載します。</p>
+
+<h2>レアリティ構成</h2>
+<p>全123種の内訳はSCR3種・リーダーカード5種・SR15種・R25種・UC35種・C40種です。これに加えてスーパーパラレル・パラレル・ビジュアルパラレル・スーパーコンボパラレルの各仕様が封入されます。</p>
+
+<h2>この弾から定価が変わっています</h2>
+<p>FB-11から1パックが220円→240円に改定され、BOX定価は5,280円→5,760円になりました。<strong>定価比で過去弾と比較する場合は基準が変わる</strong>点に注意してください。詳しくは <a href="hatsubai-schedule.html">新弾発売スケジュール</a> にまとめています。</p>
+
+<h2>封入率について</h2>
+<p>封入率は公式から公表されていません。情報源によって数値に開きがあるため、当サイトでは断定していません。</p>
+
+<h2>売却を考えている場合</h2>
+<p>BOXの買取価格は店舗によって差が出ます。当サイトは4店舗の価格を毎日収集しているので、<a href="/dragonball">比較トップ</a>で最高値の店舗を確認できます。</p>""",
+        "faq": [
+            {"q": "FB-11「BRIGHTNESS OF HOPE」の当たりカードは何ですか?",
+             "a": "シークレットレア(SCR)は孫悟空(FB11-121)・シャレット(FB11-122)・バーダック(FB11-123)の3種です。買取相場は各店の価格が出そろい次第、当サイトの実データで掲載します。"},
+            {"q": "FB-11のBOX定価はいくらですか?",
+             "a": "1パック240円(税込・カード6枚＋デジタル版連動コード1枚)、1BOX24パック入りで5,760円(税込)です。FB-10までは1パック220円・BOX5,280円でした。"},
+            {"q": "FB-11のレアリティ構成はどうなっていますか?",
+             "a": "全123種の内訳はSCR3種・リーダーカード5種・SR15種・R25種・UC35種・C40種です。これに加えてパラレル版が封入されます。"},
+            {"q": "FB-11のBOX買取価格はいくらですか?",
+             "a": "当サイトが4店舗から収集している実データでは{BOX_PRICE}です(定価{BOX_RETAIL}の{BOX_RATIO})。相場は日々変動するため、個別ページで最新値をご確認ください。"},
+        ],
+    },
 ]
 
 
@@ -1002,6 +1049,8 @@ def _nav_links(current_slug: str) -> str:
     def _items(arts):
         out = []
         for h in arts:
+            if h.get("draft"):
+                continue
             cls = ' class="current"' if h["slug"] == current_slug else ""
             out.append(f'<a href="{h["slug"]}.html"{cls}>{_esc(h["nav_label"])}</a>')
         return "\n".join(out)
@@ -1090,7 +1139,7 @@ def _render_howto(h: dict) -> str:
     rel.append('<li><a href="/dragonball">ドラゴンボールBOX買取価格比較トップ</a>'
                ' — 全BOXの買取価格を店舗横断で比較(毎日更新)</li>')
     for _a in ATARI_ARTICLES:
-        if _a["slug"] != h["slug"]:
+        if _a["slug"] != h["slug"] and not _a.get("draft"):
             rel.append(f'<li><a href="{_a["slug"]}.html">{_esc(_a["box_name"])} 当たりカードランキング</a>'
                        ' — トップレアの買取相場と封入率</li>')
     if h["slug"] != "hatsubai-schedule":
@@ -1189,6 +1238,10 @@ def build() -> None:
 
     box_prices = _box_max_prices()
     for a in ATARI_ARTICLES:
+        # draft は発売前の仕込み。相場を入れてフラグを外すまで生成しない
+        if a.get("draft"):
+            print(f"skip dragonball/{a['slug']}.html (draft)")
+            continue
         price = box_prices.get(a["box_name"], 0)
         art = dict(a)
         for key in ("body", "hero_sub", "meta_desc", "og_desc"):
