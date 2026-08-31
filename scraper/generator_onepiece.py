@@ -105,6 +105,9 @@ ONEPIECE_ARTICLES.append(
 ONEPIECE_ARTICLES.append(
     ("eb02-luffy-comipara.html", "EB-02 ルフィ コミパラ徹底解説",
      "買取50万・PSA10 70万。コミパラが全1種しかない唯一の弾で、定価換算では数少ないプラスになる構造を解説。"))
+ONEPIECE_ARTICLES.append(
+    ("round1-promo.html", "ラウンドワン プロモ全10種",
+     "10/17まで配布中のROUND1プロモ全10種の相場。1位ルフィ約1.1万、7月末比で10種すべてが平均64%下落。"))
 
 
 def _article_links_block() -> str:
@@ -348,7 +351,7 @@ def _append_onepiece_sitemap(products: list[MasterProduct]) -> None:
         blocks.append(_url("/onepiece/op-17-forecast.html", "weekly", "0.8"))
     if (PROJECT_ROOT / "onepiece" / "shikou-treasure-get.html").exists():
         blocks.append(_url("/onepiece/shikou-treasure-get.html", "weekly", "0.8"))
-    for _name in ("hatsubai-schedule", "nika-luffy-comipara", "red-comipara-guide", "roger-gold-comipara", "comipara-ranking", "psa-guide", "box-price-pattern", "anniversary-sp-guide", "kaigun-taisho-guide", "restock-guide", "eb02-luffy-comipara"):
+    for _name in ("hatsubai-schedule", "nika-luffy-comipara", "red-comipara-guide", "roger-gold-comipara", "comipara-ranking", "psa-guide", "box-price-pattern", "anniversary-sp-guide", "kaigun-taisho-guide", "restock-guide", "eb02-luffy-comipara", "round1-promo"):
         if (PROJECT_ROOT / "onepiece" / f"{_name}.html").exists():
             blocks.append(_url(f"/onepiece/{_name}.html", "weekly", "0.8"))
 
