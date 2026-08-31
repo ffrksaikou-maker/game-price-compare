@@ -1,12 +1,12 @@
 {
-  "morimori": 0,
+  "morimori": 1,
   "homura": 0,
   "rudeya": 0,
   "runto": 0,
   "icchome": 0,
-  "kaikyo": 1,
+  "kaikyo": 0,
   "sommelier": 0,
-  "oku": 0,
+  "oku": 1,
   "collect_tendo": 0,
   "shinsoku": 0
 }
