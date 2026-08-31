@@ -14,3 +14,12 @@ https://pokeca-kaitorihikau.netlify.app/* https://pokeca-box-hikaku.com/:splat 3
 /requirements.txt / 301!
 /trigger_update.bat / 301!
 /ss_box_hit_cards.json / 301!
+
+# 拡張子なしURLと .html が両方200を返し、Googleが別ページとして評価していたため
+# .html 側(canonical・内部リンク・sitemapの基準)に301で集約する
+/startdeck100-miwakekata /startdeck100-miwakekata.html 301!
+/onepiece/shikou-treasure-get /onepiece/shikou-treasure-get.html 301!
+/shrink-nashi /shrink-nashi.html 301!
+/rocket-dan-no-eiko-spotlight /rocket-dan-no-eiko-spotlight.html 301!
+/mercari-hikaku /mercari-hikaku.html 301!
+/souba-mynumber-2026 /souba-mynumber-2026.html 301!
