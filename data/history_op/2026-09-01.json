@@ -122,7 +122,7 @@
       "icchome": 9500,
       "oku": 10000,
       "collect_tendo": 11500,
-      "shinsoku": 12100
+      "shinsoku": 11900
     }
   },
   {
@@ -170,7 +170,7 @@
       "icchome": 19000,
       "oku": 19000,
       "collect_tendo": 18500,
-      "shinsoku": 17600
+      "shinsoku": 17900
     }
   },
   {
@@ -202,7 +202,7 @@
       "icchome": 55000,
       "oku": 60000,
       "collect_tendo": 65000,
-      "shinsoku": 60300
+      "shinsoku": 59600
     }
   },
   {
@@ -282,7 +282,7 @@
       "icchome": 11500,
       "oku": 12000,
       "collect_tendo": 12000,
-      "shinsoku": 12100
+      "shinsoku": 12000
     }
   },
   {
@@ -298,7 +298,7 @@
       "icchome": 22000,
       "oku": 22000,
       "collect_tendo": 22800,
-      "shinsoku": 20400
+      "shinsoku": 20600
     }
   },
   {
@@ -337,7 +337,7 @@
     "name": "プレミアムブースター「ONE PIECE CARD THE BEST vol.2」【PRB-02】",
     "category": "prb",
     "retail_price": 5500,
-    "max_price": 10600,
+    "max_price": 10500,
     "prices": {
       "morimori": 10000,
       "homura": 10500,
@@ -346,19 +346,19 @@
       "icchome": 7000,
       "oku": 10500,
       "collect_tendo": 7300,
-      "shinsoku": 10600
+      "shinsoku": 10400
     }
   },
   {
     "name": "プレミアムブースター「ONE PIECE CARD THE BEST」【PRB-01】",
     "category": "prb",
     "retail_price": 5500,
-    "max_price": 23500,
+    "max_price": 23000,
     "prices": {
       "morimori": 21500,
       "homura": 22200,
       "rudeya": 22000,
-      "runto": 23500,
+      "runto": 23000,
       "icchome": 22000,
       "oku": 22000,
       "collect_tendo": 22500,
