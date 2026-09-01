@@ -83,10 +83,10 @@ BASE = "https://pokeca-box-hikaku.com"
 # ===== ハウツー記事(onepiece/{slug}.html・atari接尾辞なし) =====
 # 弾別 atari-guide とは別枠の「買取ガイド」記事。body は .format() せず直接埋め込む
 # ため、リテラルの波括弧を自由に使ってよい。faq から可視FAQ+FAQPage JSON-LDを生成。
-CARD_ASOF = "2026年8月24日"
-CARD_ASOF_ISO = "2026-08-24"
+CARD_ASOF = "2026年9月1日"
+CARD_ASOF_ISO = "2026-09-01"
 # altema未掲載などで基準日が異なる弾だけ個別指定
-CARD_ASOF_OVERRIDE = {"op-17": "2026年8月26日"}
+CARD_ASOF_OVERRIDE = {"st-30": "2026年8月24日"}
 # 相場の出典が altema 以外の弾だけ個別指定(免責に正しい基準を書くため)
 _SRC_ALTEMA = ('カード相場メディア altema が掲載する<strong>カードラッシュの買取価格'
                '</strong>を基準にした目安です(1店舗の買取価格のため、他店や販売価格'
