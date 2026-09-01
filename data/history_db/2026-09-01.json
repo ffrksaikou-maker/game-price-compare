@@ -5,7 +5,7 @@
     "retail_price": 5280,
     "max_price": 16500,
     "prices": {
-      "homura": 12200,
+      "homura": 11200,
       "rudeya": 10500,
       "runto": 16500
     }
@@ -16,8 +16,8 @@
     "retail_price": 5280,
     "max_price": 16500,
     "prices": {
-      "homura": 12000,
-      "rudeya": 13000,
+      "homura": 10000,
+      "rudeya": 12000,
       "runto": 16500
     }
   },
@@ -27,7 +27,7 @@
     "retail_price": 5280,
     "max_price": 12800,
     "prices": {
-      "homura": 9500,
+      "homura": 9000,
       "rudeya": 11500,
       "runto": 12800
     }
@@ -38,7 +38,7 @@
     "retail_price": 5280,
     "max_price": 41500,
     "prices": {
-      "homura": 24000,
+      "homura": 22000,
       "rudeya": 27000,
       "runto": 41500
     }
@@ -49,7 +49,7 @@
     "retail_price": 5280,
     "max_price": 17800,
     "prices": {
-      "homura": 13000,
+      "homura": 12200,
       "rudeya": 9500,
       "runto": 17800
     }
@@ -60,7 +60,7 @@
     "retail_price": 5280,
     "max_price": 10500,
     "prices": {
-      "homura": 9200,
+      "homura": 8800,
       "rudeya": 6500,
       "runto": 10500
     }
@@ -71,7 +71,7 @@
     "retail_price": 5280,
     "max_price": 14000,
     "prices": {
-      "homura": 8000,
+      "homura": 7500,
       "rudeya": 6000,
       "runto": 14000
     }
@@ -82,7 +82,7 @@
     "retail_price": 5280,
     "max_price": 9500,
     "prices": {
-      "homura": 6500,
+      "homura": 6000,
       "rudeya": 8000,
       "runto": 9500
     }
@@ -93,7 +93,7 @@
     "retail_price": 5280,
     "max_price": 7000,
     "prices": {
-      "homura": 6000,
+      "homura": 5500,
       "rudeya": 4500,
       "runto": 7000
     }
@@ -104,7 +104,7 @@
     "retail_price": 5280,
     "max_price": 7500,
     "prices": {
-      "homura": 6000,
+      "homura": 5500,
       "rudeya": 5000,
       "runto": 7500
     }
@@ -113,23 +113,23 @@
     "name": "MANGA BOOSTER 02【SB-02】",
     "category": "sb",
     "retail_price": 7920,
-    "max_price": 85000,
+    "max_price": 62000,
     "prices": {
       "morimori": 19800,
-      "homura": 60000,
+      "homura": 50000,
       "rudeya": 62000,
-      "runto": 85000
+      "runto": 60000
     }
   },
   {
     "name": "MANGA BOOSTER 01【SB-01】",
     "category": "sb",
     "retail_price": 7920,
-    "max_price": 163000,
+    "max_price": 145000,
     "prices": {
-      "homura": 100000,
+      "homura": 90000,
       "rudeya": 130000,
-      "runto": 163000
+      "runto": 145000
     }
   },
   {
@@ -158,7 +158,7 @@
     "max_price": 55000,
     "prices": {
       "morimori": 25000,
-      "homura": 52000,
+      "homura": 50000,
       "rudeya": 55000
     }
   }

@@ -24,10 +24,10 @@
     "prices": {
       "morimori": 8000,
       "homura": 8000,
-      "rudeya": 7500,
-      "runto": 8500,
+      "rudeya": 6500,
+      "runto": 8000,
       "icchome": 6500,
-      "oku": 8000,
+      "oku": 6000,
       "collect_tendo": 9000,
       "shinsoku": 8100
     }
@@ -39,10 +39,10 @@
     "max_price": 9500,
     "prices": {
       "homura": 7000,
-      "rudeya": 7500,
+      "rudeya": 6500,
       "runto": 7000,
       "icchome": 6000,
-      "oku": 7000,
+      "oku": 6000,
       "collect_tendo": 9500,
       "shinsoku": 7100
     }
@@ -54,8 +54,8 @@
     "max_price": 15000,
     "prices": {
       "homura": 7700,
-      "rudeya": 7000,
-      "runto": 9000,
+      "rudeya": 6500,
+      "runto": 8500,
       "icchome": 7000,
       "oku": 7700,
       "collect_tendo": 15000,
@@ -69,7 +69,7 @@
     "max_price": 21500,
     "prices": {
       "homura": 12500,
-      "rudeya": 14500,
+      "rudeya": 11000,
       "runto": 14000,
       "icchome": 11500,
       "oku": 12500,
@@ -83,7 +83,7 @@
     "retail_price": 5280,
     "max_price": 19000,
     "prices": {
-      "morimori": 18300,
+      "morimori": 18000,
       "homura": 18500,
       "rudeya": 18000,
       "runto": 17500,
@@ -101,7 +101,7 @@
     "prices": {
       "morimori": 34000,
       "homura": 35000,
-      "rudeya": 35000,
+      "rudeya": 32000,
       "runto": 34000,
       "icchome": 33000,
       "oku": 33000,
@@ -113,12 +113,12 @@
     "name": "ブースターパック「王族の血統」【OP-10】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 12100,
+    "max_price": 12200,
     "prices": {
       "morimori": 12000,
       "homura": 12000,
-      "rudeya": 11500,
-      "runto": 11500,
+      "rudeya": 10000,
+      "runto": 12200,
       "icchome": 9500,
       "oku": 10000,
       "collect_tendo": 11500,
@@ -133,8 +133,8 @@
     "prices": {
       "morimori": 20000,
       "homura": 20600,
-      "rudeya": 21500,
-      "runto": 20000,
+      "rudeya": 20000,
+      "runto": 20500,
       "icchome": 21000,
       "oku": 20000,
       "collect_tendo": 23200,
@@ -149,7 +149,7 @@
     "prices": {
       "morimori": 9500,
       "homura": 9500,
-      "rudeya": 9800,
+      "rudeya": 8000,
       "runto": 9500,
       "icchome": 8500,
       "oku": 9000,
@@ -166,7 +166,7 @@
       "morimori": 19000,
       "homura": 19000,
       "rudeya": 17500,
-      "runto": 19000,
+      "runto": 18000,
       "icchome": 19000,
       "oku": 19000,
       "collect_tendo": 18500,
@@ -177,11 +177,11 @@
     "name": "ブースターパック「双璧の覇者」【OP-06】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 24700,
+    "max_price": 24500,
     "prices": {
       "morimori": 23500,
       "homura": 24500,
-      "rudeya": 24700,
+      "rudeya": 20500,
       "runto": 22000,
       "icchome": 20000,
       "oku": 22000,
@@ -197,7 +197,7 @@
     "prices": {
       "morimori": 60000,
       "homura": 60500,
-      "rudeya": 60000,
+      "rudeya": 56000,
       "runto": 58000,
       "icchome": 55000,
       "oku": 60000,
@@ -245,7 +245,7 @@
     "prices": {
       "morimori": 22000,
       "homura": 22500,
-      "rudeya": 23200,
+      "rudeya": 22700,
       "runto": 20000,
       "icchome": 21000,
       "oku": 22000,
@@ -261,7 +261,7 @@
     "prices": {
       "morimori": 38000,
       "homura": 38000,
-      "rudeya": 39800,
+      "rudeya": 39300,
       "runto": 32000,
       "icchome": 34000,
       "oku": 38000,
@@ -277,7 +277,7 @@
     "prices": {
       "morimori": 12000,
       "homura": 12000,
-      "rudeya": 12100,
+      "rudeya": 12000,
       "runto": 12500,
       "icchome": 11500,
       "oku": 12000,
@@ -337,16 +337,16 @@
     "name": "プレミアムブースター「ONE PIECE CARD THE BEST vol.2」【PRB-02】",
     "category": "prb",
     "retail_price": 5500,
-    "max_price": 10700,
+    "max_price": 10600,
     "prices": {
-      "morimori": 10600,
+      "morimori": 10000,
       "homura": 10500,
       "rudeya": 10300,
       "runto": 10500,
       "icchome": 7000,
       "oku": 10500,
       "collect_tendo": 7300,
-      "shinsoku": 10700
+      "shinsoku": 10600
     }
   },
   {
