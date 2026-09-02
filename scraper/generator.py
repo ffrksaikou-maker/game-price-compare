@@ -1941,6 +1941,36 @@ def _last_price_change_dates(project_root: Path) -> dict[str, str]:
     return changed_on
 
 
+REDIRECT_AUTO_MARK = "# --- ここから下は generator.py が自動生成 (直接編集しない) ---"
+
+
+def _update_redirects(project_root: Path, html_paths: list) -> None:
+    """拡張子なしURLを .html へ301集約する規則を _redirects に書き出す。
+
+    Netlify は /foo でも /foo.html を200で配信するため、両方が別ページとして
+    評価されクリックと順位が分散する。sitemap に載っている .html ページ全部に
+    ついて拡張子なし版から301を張り、評価を .html 側へ寄せる。
+    """
+    path = project_root / "_redirects"
+    text = path.read_text(encoding="utf-8") if path.exists() else ""
+    manual = text.split(REDIRECT_AUTO_MARK)[0].rstrip()
+    taken = {
+        line.split()[0]
+        for line in manual.splitlines()
+        if line.strip() and not line.startswith("#")
+    }
+    lines = [manual, "", REDIRECT_AUTO_MARK]
+    for page in sorted(set(html_paths)):
+        if not page.endswith(".html"):
+            continue
+        bare = page[: -len(".html")]
+        if not bare or bare in taken:
+            continue
+        lines.append(f"{bare} {page} 301!")
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    logger.info("Updated _redirects (%d auto rules)", len(lines) - 3)
+
+
 def _update_sitemap(
     products: list[MasterProduct],
     slug_map: dict[str, str],
@@ -2135,6 +2165,12 @@ def _update_sitemap(
     sitemap_path = project_root / "sitemap.xml"
     sitemap_path.write_text("\n".join(lines), encoding="utf-8")
     logger.info("Updated sitemap.xml (%d URLs)", len([l for l in lines if "<loc>" in l]))
+
+    _update_redirects(
+        project_root,
+        [l.strip()[len("<loc>") + len(base):-len("</loc>")]
+         for l in lines if "<loc>" in l],
+    )
 
 
 ARTICLE_SECTIONS = [
