@@ -78,6 +78,58 @@ def _esc(s) -> str:
 
 
 HOWTO_ARTICLES = [
+    {'slug': 'kougaku-ranking',
+     'nav_label': '高額BOXランキング',
+     'crumb': '高額BOXランキング',
+     'date': '2026-09-02',
+     'title': 'ドラゴンボールカード 高額BOXランキング｜MANGA BOOSTERだけ定価の18倍になる理由',
+     'h1': 'ドラゴンボールカード 高額BOXランキング｜MANGA BOOSTERだけが突出する理由',
+     'meta_desc': 'ドラゴンボールカード(フュージョンワールド・スーパーダイバーズ)の未開封BOX買取価格を、当サイトが4店舗から毎日自動収集した実データで高い順にランキング。1位のMANGA BOOSTER '
+                  '01は定価7,920円に対し{{TOP1_PRICE}}と突出し、通常ブースター(FB)の水準とは別物です。定価割れしている商品まで含めて全{{DB_COUNT}}商品を掲載しています。',
+     'og_title': 'ドラゴンボールカード 高額BOXランキング｜MANGA BOOSTERだけ別格',
+     'og_desc': '全{{DB_COUNT}}商品の最高買取と定価比を当サイト実データでランキング。MANGA BOOSTER 01は{{TOP1_PRICE}}({{TOP1_MULT}})。',
+     'meta_line': 'ドラゴンボールカードの未開封BOX 最高買取ランキング(当サイト実データ・毎日更新)',
+     'hero_label': 'BOX最高買取ランキング 1位',
+     'hero_big': 'MANGA BOOSTER 01 {{TOP1_PRICE}}',
+     'hero_sub': '{{TOP1_MULT}}。2位 MANGA BOOSTER 02 {{TOP2_PRICE}}({{TOP2_MULT}})、3位 {{TOP3_NAME}} {{TOP3_PRICE}}({{TOP3_MULT}})。全{{DB_COUNT}}商品の最高買取と定価比を4店舗の実データで毎日更新しています。',
+     'body': '<p>ドラゴンボールのカードは、同じ「BOX」でも商品によって買取価格が<strong>20倍以上</strong>開きます。定価5,280円前後の通常ブースターが1万円台で落ち着く一方、<strong>MANGA '
+             'BOOSTERは10万円を超える</strong>のが実情です。本記事では、当サイトが4店舗から毎日自動収集している買取データをもとに、<strong>全{{DB_COUNT}}商品を最高買取価格の高い順にランキング</strong>し、なぜMANGA BOOSTERだけが別格なのかを整理します。</p>\n'
+             '\n'
+             '<h2>高額BOXランキング｜全{{DB_COUNT}}商品(当サイト実データ)</h2>\n'
+             '<p>各商品の<strong>最高買取価格</strong>(当サイト掲載店舗のうち最も高い店の価格)と、<strong>定価に対する倍率</strong>を並べたものが以下の表です。商品名をクリックすると、その弾の当たりカードガイドに移動できます。</p>\n'
+             '{{DB_RANKING}}\n'
+             '<div class="callout"><strong>表の見方:</strong> 定価はBOX想定定価(1パック税込定価×BOX封入パック数)です。実売価格ではないため、倍率は「定価どおりに買えた場合」の目安として見てください。最新値は <a href="/dragonball">ドラゴンボールBOX買取価格比較トップ</a> でご確認ください。</div>\n'
+             '\n'
+             '<h2>なぜMANGA BOOSTERだけが突出するのか</h2>\n'
+             '<p>1位と2位を <strong>MANGA BOOSTER</strong> が占めています。通常ブースター(FBシリーズ)は上の表のとおり最高でも4万円台で、明らかに別の商品カテゴリとして扱われていることが分かります。</p>\n'
+             '<p>理由は<strong>「エナジーマーカー★」</strong>という原作コミックスの表紙をそのまま使った特別なカードにあります。</p>\n'
+             '<ul>\n'
+             '<li><a href="sb-01-atari-guide.html">MANGA BOOSTER 01(SB-01)</a>: <strong>1巻表紙のエナジーマーカー★が約180万円</strong>。2位の孫悟空SCR★★でも約60〜65万円</li>\n'
+             '<li><a href="sb-02-atari-guide.html">MANGA BOOSTER 02(SB-02)</a>: <strong>42巻(最終巻)表紙のエナジーマーカー★が約100万円</strong></li>\n'
+             '</ul>\n'
+             '<p>カード1枚で100万円を超える枠が存在するため、未開封BOXの価値がそこに引っ張られます。当サイトが他タイトルでも確認している<strong>「BOX価格を決めるのは看板カードがどこまで高くなれるか」</strong>という構造が、ここでも当てはまっています。</p>\n'
+             '<div class="callout"><strong>注意:</strong> エナジーマーカー★は極端な低確率です。BOXを買えば当たるものではなく、BOX買取価格が高いこと自体は「開封して回収できる」という意味ではありません。</div>\n'
+             '\n'
+             '<h2>通常ブースター(FB)で最も高いのはFB-07</h2>\n'
+             '<p>FBシリーズの中では <a href="fb-07-atari-guide.html">「神龍への願い」(FB-07)</a> が突出しています。看板は<strong>孫悟飯:SH '
+             'SCR★★(約4〜4.8万円)</strong>で、240BOXに1枚とされるスーパーパラレル枠です。ほかのFBが定価の1.3〜3.4倍に収まるなかで、この弾だけ倍率が跳ね上がっています。</p>\n'
+             '<p>逆に言えば、<strong>FBシリーズは基本的に定価の1〜3倍のレンジ</strong>で動く商品群です。MANGA BOOSTERの倍率をFBに当てはめて考えると、期待値を大きく見誤ります。</p>\n'
+             '\n'
+             '<h2>定価割れしている商品もある</h2>\n'
+             '<p>ランキング最下位の<strong>スーパーダイバーズ アドバンスパック「バトルオブサイヤン」</strong>は、当サイト掲載の中で唯一<strong>定価を下回っています</strong>。同じスーパーダイバーズでも「DRAGON BALL 40th Anniversary」は上位に入っており、シリーズ名ではなく商品単位で見る必要があることが分かります。</p>\n'
+             '<p>「ドラゴンボールのカードは値上がりする」と一括りにできない、というのがデータから言えることです。</p>\n'
+             '\n'
+             '<h2>売るとき・買うときの考え方</h2>\n'
+             '<ul>\n'
+             '<li><strong>売る場合</strong>: 当サイトは4店舗の買取価格を毎日取得しています。同じBOXでも店によって価格が違うため、<a href="/dragonball">比較トップ</a>で最高値の店を確認してから持ち込んでください</li>\n'
+             '<li><strong>買う場合</strong>: 定価比が高い商品ほど、すでに評価が織り込まれています。倍率が低い弾は「まだ上がっていない」のではなく、看板カードの水準がそのまま反映されていると考えるほうが実態に近いです</li>\n'
+             '<li><strong>新弾</strong>: 発売直後は相場が動きやすい時期です。今後の発売予定は <a href="hatsubai-schedule.html">ドラゴンボールカード 新弾スケジュール</a> にまとめています</li>\n'
+             '</ul>\n',
+     'faq': [{'q': 'ドラゴンボールカードで一番高いBOXはどれですか？',
+              'a': '当サイトが4店舗から毎日取得している実データでは、MANGA BOOSTER 01(SB-01)が{{TOP1_PRICE}}で1位です。BOX想定定価7,920円に対して{{TOP1_MULT}}にあたります。2位はMANGA BOOSTER 02(SB-02)の{{TOP2_PRICE}}です。'},
+             {'q': 'なぜMANGA BOOSTERは通常のブースターパックより高いのですか？', 'a': '原作コミックスの表紙をそのまま使った「エナジーマーカー★」という枠があり、SB-01の1巻表紙は約180万円、SB-02の42巻表紙は約100万円という水準で取引されているためです。カード1枚の天井が通常ブースターと桁違いで、その価値がBOX価格に反映されています。'},
+             {'q': '通常ブースター(FB)はどのくらいの倍率になりますか？', 'a': '多くは定価の1.3〜3.4倍のレンジです。例外は「神龍への願い」(FB-07)で、孫悟飯:SH SCR★★という240BOXに1枚とされる枠があるため倍率が跳ね上がっています。'},
+             {'q': '定価より安くなっているBOXはありますか？', 'a': 'あります。スーパーダイバーズ アドバンスパック「バトルオブサイヤン」は当サイト掲載の中で唯一、最高買取がBOX想定定価を下回っています。同じスーパーダイバーズでも40th Anniversaryは上位に入っており、シリーズ単位ではなく商品単位で見る必要があります。'}]},
     {
         "slug": "fb-11-forecast",
         "nav_label": "【予想】BRIGHTNESS OF HOPE(FB-11)",
@@ -1096,6 +1148,64 @@ def _subst_box(text: str, box_price: int, retail: int) -> str:
                 .replace("{BOX_RETAIL}", f"{retail:,}円"))
 
 
+def _set_code(name: str) -> str:
+    """商品名から弾コードを取り出す。スーパーダイバーズなど無い商品は空文字。"""
+    if "【" in name and "】" in name:
+        return name.split("【")[1].split("】")[0]
+    return ""
+
+
+def _ranking_rows() -> list:
+    """(商品名, 弾コード, 定価, 最高買取, 定価比) を買取の高い順に返す。"""
+    from scraper.products_dragonball import DRAGONBALL_PRODUCTS
+    retail = {p.name: p.retail_price for p in DRAGONBALL_PRODUCTS}
+    rows = []
+    for name, price in _box_max_prices().items():
+        r = retail.get(name, 0)
+        rows.append((name, _set_code(name), r, price, price / r if r else 0))
+    rows.sort(key=lambda x: x[3], reverse=True)
+    return rows
+
+
+def _ranking_table(rows: list) -> str:
+    body = ""
+    for i, (name, code, r, price, mult) in enumerate(rows, 1):
+        slug = code.lower()
+        label = _esc(name)
+        if slug and (OUT_DIR / f"{slug}-atari-guide.html").exists():
+            label = f'<a href="{slug}-atari-guide.html">{label}</a>'
+        cls = ' class="best"' if i == 1 else ""
+        mult_txt = f"{mult:.1f}倍" if mult else "—"
+        retail_txt = f"¥{r:,}" if r else "—"
+        body += (f'<tr{cls}><td>{i}位</td><td>{label}</td>'
+                 f'<td class="price">{retail_txt}</td>'
+                 f'<td class="price">¥{price:,}</td>'
+                 f'<td class="price">{mult_txt}</td></tr>')
+    return ('<table class="tbl"><thead><tr><th>順位</th><th>商品</th>'
+            '<th class="price">定価</th><th class="price">最高買取</th>'
+            '<th class="price">定価比</th></tr></thead>'
+            f'<tbody>{body}</tbody></table>')
+
+
+def _subst_ranking(text: str) -> str:
+    """高額ランキング記事のプレースホルダを当サイト実データで埋める。"""
+    rows = _ranking_rows()
+    if not rows:
+        return text
+    text = text.replace("{{DB_RANKING}}", _ranking_table(rows))
+    text = text.replace("{{DB_COUNT}}", str(len(rows)))
+    for i in range(1, 6):
+        if i > len(rows):
+            break
+        name, code, r, price, mult = rows[i - 1]
+        short = name.split("「")[-1].split("」")[0] if "「" in name else name
+        text = text.replace("{{TOP%d_NAME}}" % i, short)
+        text = text.replace("{{TOP%d_CODE}}" % i, code)
+        text = text.replace("{{TOP%d_PRICE}}" % i, f"¥{price:,}")
+        text = text.replace("{{TOP%d_MULT}}" % i, f"定価の{mult:.1f}倍" if mult else "—")
+    return text
+
+
 def _render_howto(h: dict) -> str:
     slug = h["slug"]
     url = f"{BASE}/dragonball/{slug}.html"
@@ -1232,8 +1342,13 @@ def _render_howto(h: dict) -> str:
 def build() -> None:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     for h in HOWTO_ARTICLES:
+        art = dict(h)
+        for key in ("body", "hero_big", "hero_sub", "meta_desc", "og_desc"):
+            if key in art:
+                art[key] = _subst_ranking(art[key])
+        art["faq"] = [{"q": f["q"], "a": _subst_ranking(f["a"])} for f in h["faq"]]
         path = OUT_DIR / f"{h['slug']}.html"
-        path.write_text(_render_howto(h), encoding="utf-8")
+        path.write_text(_render_howto(art), encoding="utf-8")
         print(f"wrote dragonball/{h['slug']}.html")
 
     box_prices = _box_max_prices()
