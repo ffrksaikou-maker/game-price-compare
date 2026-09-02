@@ -37,6 +37,12 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://pokeca-box-hikaku.com/kougaku-box-ranking.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://pokeca-box-hikaku.com/inferno-x-spotlight.html</loc>
     <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
@@ -207,6 +213,12 @@
   <url>
     <loc>https://pokeca-box-hikaku.com/startdeck100-miwakekata.html</loc>
     <lastmod>2026-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://pokeca-box-hikaku.com/startdeck100-mirror.html</loc>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -788,7 +800,7 @@
   </url>
   <url>
     <loc>https://pokeca-box-hikaku.com/box/rocket-dan-no-eiko.html</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -800,7 +812,7 @@
   </url>
   <url>
     <loc>https://pokeca-box-hikaku.com/box/battle-partners.html</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -908,7 +920,7 @@
   </url>
   <url>
     <loc>https://pokeca-box-hikaku.com/box/triplet-beat.html</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -974,7 +986,7 @@
   </url>
   <url>
     <loc>https://pokeca-box-hikaku.com/box/battle-region.html</loc>
-    <lastmod>2026-08-30</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1682,6 +1694,12 @@
   </url>
   <url>
     <loc>https://pokeca-box-hikaku.com/dragonball/hatsubai-schedule.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pokeca-box-hikaku.com/dragonball/kougaku-ranking.html</loc>
     <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

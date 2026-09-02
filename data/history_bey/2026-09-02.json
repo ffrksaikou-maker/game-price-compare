@@ -95,11 +95,11 @@
     "name": "UX-11 インパクトドレイク9-60LR",
     "category": "ux",
     "retail_price": 2420,
-    "max_price": 2200,
+    "max_price": 2500,
     "prices": {
       "morimori": 2200,
       "rudeya": 2000,
-      "icchome": 2100
+      "icchome": 2500
     }
   },
   {
@@ -117,11 +117,11 @@
     "name": "UX-09 サムライセイバー2-70L",
     "category": "ux",
     "retail_price": 3300,
-    "max_price": 3000,
+    "max_price": 3300,
     "prices": {
       "morimori": 3000,
       "rudeya": 2500,
-      "icchome": 3000
+      "icchome": 3300
     }
   },
   {
@@ -390,10 +390,10 @@
     "name": "BX-10 エクストリームスタジアム",
     "category": "bx",
     "retail_price": 2750,
-    "max_price": 3200,
+    "max_price": 2900,
     "prices": {
       "morimori": 2700,
-      "icchome": 3200
+      "icchome": 2900
     }
   },
   {
@@ -465,7 +465,7 @@
     "max_price": 4000,
     "prices": {
       "rudeya": 4000,
-      "icchome": 2500
+      "icchome": 4000
     }
   },
   {
