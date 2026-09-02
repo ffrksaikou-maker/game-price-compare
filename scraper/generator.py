@@ -110,6 +110,7 @@ def get_box_image_url(slug: str) -> str:
 
 # Blog articles (newest first) - 記事追加時はここに1行足すだけ
 BLOG_ARTICLES = [
+    {"url": "startdeck100-mirror.html", "title": "スタートデッキ100 ミラーデッキは何番？オールミラーの番号一覧", "desc": "オールミラーのデッキ番号は公式非公表。開封報告で挙がっている番号と、よく見る「12種類・約11.9%」が旧スタートデッキ100(2022年)由来である点を整理。1枚目でミラーを見抜く方法、ミラーと通常版の買取差(メガリザードンYex 約5,000円 vs 約2,000円)、未開封の買取が2026年8月4日で掲載終了した推移まで当サイト実データで掲載。", "date": "2026-09-02"},
     {"url": "shop-price-gap.html", "title": "同じBOXでも店で買取価格はどれだけ違うか", "desc": "9店舗の実データで52商品の最高値と最安値を比較。差額の中央値は1,800円、最大17,000円。しかも最高値を出す店は1店に固定されず商品ごとに入れ替わるため、商品単位での比較が必要。", "date": "2026-08-26"},
     {"url": "box-age-multiple.html", "title": "ポケカBOXは発売から何年で何倍になるか", "desc": "9店舗の実データで経過年数と定価比の関係を68商品ぶん集計。発売直後2.11倍→1年で4.22倍→2年目に2.69倍まで下げ、そこから年を追って上昇。買い時の考え方と生存バイアスの限界まで整理。", "date": "2026-08-26"},
     {"url": "box-price-trend.html", "title": "ポケカBOX相場の値動きレポート｜上がる弾・下がる弾", "desc": "9店舗の実データで全BOXの値動きを横断集計。長期では大きくプラスでも直近を切り取ると逆になるなど、期間の取り方で結論が変わる点を実測値で解説。ワンピースカードとの同期間比較も掲載。", "date": "2026-08-26"},
@@ -2018,6 +2019,7 @@ def _update_sitemap(
         ("/kokuen-atari-guide.html", "monthly", "0.8", "2026-04-14"),
         ("/startdeck100-atari-guide.html", "monthly", "0.8", "2026-08-31"),
         ("/startdeck100-miwakekata.html", "monthly", "0.9", "2026-08-10"),
+        ("/startdeck100-mirror.html", "monthly", "0.9", "2026-09-02"),
         ("/abyss-eye-atari-guide.html", "monthly", "0.8", "2026-09-01"),
         ("/mega-ex-atari-guide.html", "monthly", "0.8", "2026-09-01"),
         ("/inferno-x-atari-guide.html", "monthly", "0.8", "2026-09-01"),
