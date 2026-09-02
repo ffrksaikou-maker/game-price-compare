@@ -64,6 +64,7 @@ article li{margin-bottom:8px}
 .price-table th,.price-table td{padding:10px 12px;border-bottom:1px solid var(--border)}
 .price-table th{background:#f9fafb;text-align:left;font-size:11px;color:var(--text-sub);letter-spacing:.5px}
 .price-table tr.best td{background:#ffe0e0;font-weight:700}
+.price-table tr.warnrow td{background:#fef2f2}
 .price-table td.price{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
 .callout{background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:14px 18px;margin:14px 0;font-size:13px}
 .callout strong{color:#1d4ed8}
@@ -99,6 +100,95 @@ CARD_SOURCE_OVERRIDE: dict[str, str] = {
 }
 
 HOWTO_ARTICLES = [
+    {'slug': 'eb-05-forecast',
+     'nav_label': '【予想】ヒロインズ vol.2(EB-05)',
+     'crumb': 'ヒロインズエディション vol.2(EB-05) 発売前予想',
+     'date': '2026-09-02',
+     'date_jp': '2026年9月2日',
+     'title': '【発売前予想】ヒロインズエディション vol.2(EB-05) BOX相場予想｜10月31日発売・EBシリーズ4弾の実績から読む',
+     'h1': '【発売前予想】ヒロインズエディション vol.2(EB-05) BOX相場予想｜10月31日発売',
+     'meta_desc': '2026年10月31日発売のワンピカード エクストラブースター第5弾「ONE PIECE Heroines Edition '
+                  'vol.2」(EB-05)のBOX相場を、当サイトが最大9店舗から自動収集したEB-01〜EB-04の実データで予想します。この弾から定価が5,280円→5,760円に変わるため定価比の基準が動く点、前作ヒロインズ(EB-03)が発売10か月で定価比4.3倍を保っている一方でEB-04が直近51日で-17.2%と下げている点を踏まえ、3シナリオで整理します。',
+     'og_title': '【発売前予想】ヒロインズエディション vol.2(EB-05) BOX相場予想',
+     'og_desc': '10月31日発売のEB-05を発売前予想。定価5,760円へ変更。EB-01〜04の実データ(定価比2.3〜7.1倍)から3シナリオで整理。',
+     'meta_line': 'ONE PIECEカードゲーム エクストラブースター「ONE PIECE Heroines Edition vol.2」(EB-05・2026年10月31日発売)',
+     'hero_label': '🔮 発売前予想 - 2026年10月31日(土)発売',
+     'hero_big': '着地予想 中立¥24,800',
+     'hero_sub': '弱気¥13,000 / 中立¥24,800 / 強気¥40,000。前作ヒロインズ(EB-03)は発売10か月で定価比4.3倍(¥22,800)を保っています。EB-05はこの弾から定価が¥5,760になるため、同じ倍率でも金額が変わります。',
+     'disclaimer': '本記事は2026年9月2日時点で公表されている情報と、当サイトが最大9店舗から自動取得したエクストラブースター各弾のBOX買取実データに基づく<strong>発売前の予想記事</strong>です。3シナリオのBOX相場は筆者の分析であり、公式発表や確定情報ではありません。EB-05の収録内容は本記事作成時点で全種が公開されていません。収録カードの相場予想を掲載している各メディアの数値は<strong>非公式の予想値</strong>で、ソースにより幅があります。実際の相場は需給・再販・大会環境など多くの要因で大きく変動し、購入価格を下回ることもあります。投資助言を目的とするものではありません。売買の判断はご自身の責任で行ってください。実際のBOX買取価格は発売後に当サイトの実データで随時更新します。',
+     'related': '<li><a href="/onepiece">ワンピBOX買取価格比較トップ</a> — 全弾のBOX買取価格を最大9店舗で横断比較(毎日更新)</li>\n'
+                '<li><a href="eb-03-atari-guide.html">ヒロインズエディション(EB-03) 当たりカードガイド</a> — 前作の当たりと相場</li>\n'
+                '<li><a href="hatsubai-schedule.html">新弾発売スケジュール</a> — EB-05・OP-18の発売日と定価改定</li>\n'
+                '<li><a href="kougaku-ranking.html">高額BOXランキング・絶版ガイド</a> — 全弾の最高買取と定価比</li>\n'
+                '<li><a href="box-price-pattern.html">BOX価格の型で見る全弾比較</a> — 相場が決まる構造</li>',
+     'body': '<p>2026年10月31日(土)、ONE PIECEカードゲームのエクストラブースター第5弾 <strong>「ONE PIECE Heroines Edition vol.2」(EB-05)</strong> '
+             'が発売されます。女性キャラクターだけを収録するヒロインズエディションの第2弾です。本記事では、当サイトが最大9店舗から毎日自動収集している<strong>エクストラブースター4弾ぶんの実データ</strong>から、EB-05のBOX相場がどのあたりに着地しそうかを整理します。</p>\n'
+             '\n'
+             '<div class="callout"><strong>この記事は発売前の予想を含みます。</strong> 確定情報(発売日・定価・公開済みの仕様)と、過去弾の実績にもとづく<strong>推定</strong>を分けて記載しています。実際の相場は発売後の需給で決まるため、予想が外れる可能性があります。</div>\n'
+             '\n'
+             '<h2>確定している基本情報</h2>\n'
+             '<table class="price-table">\n'
+             '<thead><tr><th>項目</th><th>内容</th></tr></thead>\n'
+             '<tbody>\n'
+             '<tr><td>発売日</td><td>2026年10月31日(土)</td></tr>\n'
+             '<tr><td>1パック</td><td><strong>240円(税込)</strong>・カード6枚入り</td></tr>\n'
+             '<tr><td>1BOX</td><td>24パック入り・<strong>5,760円(税込)</strong></td></tr>\n'
+             '<tr><td>テーマ</td><td>女性キャラクターのみを収録</td></tr>\n'
+             '<tr><td>同時発売</td><td>ONE PIECE HEROINES PRECIOUS BOX(BOX・スリーブ・ドン!!カードのセット)</td></tr>\n'
+             '</tbody>\n'
+             '</table>\n'
+             '<p>アニメ『ONE PIECE HEROINES』のキャラクターも収録され、公開されたイラストはアニメのキャラクターデザインを担当する小島崇史氏の描き下ろしです。収録カードは本記事作成時点で全種が公開されていません。</p>\n'
+             '\n'
+             '<h2>【重要】この弾から定価の基準が変わる</h2>\n'
+             '<p>見落とされがちですが、<strong>EB-05はエクストラブースターで初めて定価5,760円になる弾</strong>です。EB-01〜EB-04はいずれも1パック220円×24パックで<strong>5,280円</strong>でした。</p>\n'
+             '<div class="callout"><strong>定価比を見るときの注意:</strong> '
+             '過去弾と同じ「定価比◯倍」でも、EB-05は分母が480円大きくなります。たとえば定価比4.3倍なら、EB-03は¥22,800ですがEB-05では<strong>¥24,800</strong>になります。他サイトの予想値を過去弾と並べて見るときは、この基準の違いに注意してください。</div>\n'
+             '\n'
+             '<h2>エクストラブースター4弾の実績(当サイト実データ)</h2>\n'
+             '<p>まず土台になるのが、既存のエクストラブースターが今どうなっているかです。以下はすべて当サイトが最大9店舗から自動取得した実データです。</p>\n'
+             '<table class="price-table">\n'
+             '<thead><tr><th>弾</th><th>発売日</th><th class="price">最高買取</th><th class="price">定価比</th><th class="price">直近51日</th></tr></thead>\n'
+             '<tbody>\n'
+             '<tr class="best"><td><a href="eb-02-atari-guide.html">Anime 25th collection(EB-02)</a></td><td>2025年1月25日</td><td class="price">¥37,500</td><td class="price">7.1倍</td><td '
+             'class="price">-1.3%</td></tr>\n'
+             '<tr><td><a href="eb-03-atari-guide.html">Heroines Edition(EB-03)</a></td><td>2025年10月25日</td><td class="price">¥22,800</td><td class="price">4.3倍</td><td class="price">-0.9%</td></tr>\n'
+             '<tr><td><a href="eb-01-atari-guide.html">メモリアルコレクション(EB-01)</a></td><td>2024年1月27日</td><td class="price">¥22,000</td><td class="price">4.2倍</td><td class="price">-4.3%</td></tr>\n'
+             '<tr class="warnrow"><td><a href="eb-04-atari-guide.html">EGGHEAD CRISIS(EB-04)</a></td><td>2026年1月31日</td><td class="price">¥12,000</td><td class="price">2.3倍</td><td '
+             'class="price"><strong>-17.2%</strong></td></tr>\n'
+             '</tbody>\n'
+             '</table>\n'
+             '<p>ここから読み取れることが2つあります。</p>\n'
+             '<ul>\n'
+             '<li><strong>定価比のレンジは2.3〜7.1倍</strong>。エクストラブースターだから高いとは限らず、弾ごとの差が3倍以上あります</li>\n'
+             '<li><strong>直近51日で下げているのは最新のEB-04だけ</strong>(-17.2%)。発売から1年以上経った3弾は-1〜-4%で安定しています。<strong>下落は発売後1年前後に集中し、そこを抜けると落ち着く</strong>という形です</li>\n'
+             '</ul>\n'
+             '\n'
+             '<h2>前作ヒロインズ(EB-03)はどう評価されているか</h2>\n'
+             '<p>EB-05を占ううえで最も参考になるのが、2025年10月発売の <a href="eb-03-atari-guide.html">Heroines Edition(EB-03)</a> です。発売から約10か月が経った現在で<strong>¥22,800(定価比4.3倍)</strong>、直近51日でも-0.9%とほぼ動いていません。</p>\n'
+             '<p>女性キャラ限定というテーマは<strong>コレクション需要が強く出る一方、対戦環境での需要は限定的</strong>という特徴があり、それが4.3倍という水準に表れていると考えられます。当たりカードの詳細は <a href="eb-03-atari-guide.html">EB-03当たりカードガイド</a> にまとめています。</p>\n'
+             '\n'
+             '<h2>3シナリオ｜EB-05のBOX相場はどこに着地するか</h2>\n'
+             '<p>ここからは予想です。<strong>発売直後の初動ではなく、発売から半年〜1年後の着地点</strong>を想定しています。</p>\n'
+             '<h3>弱気シナリオ｜約¥13,000(定価比2.3倍)</h3>\n'
+             '<p>EB-04と同じ道をたどるケースです。EB-04は発売から7か月で定価比2.3倍まで下げ、まだ下落が続いています。<strong>再販が潤沢で供給が絞られない場合</strong>や、看板カードの相場が伸びない場合はこの水準です。</p>\n'
+             '<h3>中立シナリオ｜約¥24,800(定価比4.3倍)</h3>\n'
+             '<p>前作EB-03と同じ倍率に着地するケースで、<strong>当サイトはこれを最有力と見ています</strong>。同じテーマ・同じ商品カテゴリで、前作が10か月にわたって4.3倍を維持している以上、まずはこの水準が基準になります。定価が上がったぶん、金額はEB-03より約2,000円高くなります。</p>\n'
+             '<h3>強気シナリオ｜約¥40,000(定価比7.0倍)</h3>\n'
+             '<p>EB-02(Anime 25th collection)の水準です。EB-02は<strong>アニメ25周年という記念性</strong>が乗った特殊な弾で、コミックパラレルのルフィが数十万円規模で取引されています。EB-05でこの水準に届くには、<strong>看板カードが単体で10万円を大きく超える</strong>ことが条件になります。アニメ『ONE '
+             'PIECE HEROINES』との連動がどれだけ話題を作るかが分かれ目です。</p>\n'
+             '<div class="callout"><strong>まとめ:</strong> 中立¥24,800を基準に、供給が緩ければ弱気側、看板カードが跳ねれば強気側。<strong>発売直後は初動でこれより高く出るのが通例</strong>なので、発売週の価格をそのまま「その弾の実力」と読まないでください。</div>\n'
+             '\n'
+             '<h2>PRECIOUS BOXとの違いに注意</h2>\n'
+             '<p>同日に「ONE PIECE HEROINES PRECIOUS BOX」が発売されます。BOX・スリーブ・ドン!!カードがセットになった商品で、<strong>通常のEB-05 BOXとは別商品</strong>です。買取価格も別建てになるため、売買のときは商品名を必ず確認してください。当サイトでも発売後に別商品として追跡します。</p>\n'
+             '\n'
+             '<h2>発売後は実データで追跡します</h2>\n'
+             '<p>10月31日の発売後は、当サイトが最大9店舗の買取価格を毎日自動取得し、<a href="/onepiece">比較トップ</a>で更新します。予想がどこまで当たったかは、発売後に本記事へ追記する形で答え合わせをします。</p>\n',
+     'faq': [{'q': 'EB-05「ヒロインズエディション vol.2」の発売日と定価は？', 'a': '2026年10月31日(土)発売で、定価は1パック240円(税込)、1BOX(24パック)5,760円(税込)です。エクストラブースターとしては初めて5,760円になる弾で、EB-01〜EB-04はいずれも5,280円でした。'},
+             {'q': 'EB-05のBOX相場はいくらくらいになりますか？',
+              'a': '当サイトは発売から半年〜1年後の着地点として、弱気約13,000円(定価比2.3倍)・中立約24,800円(4.3倍)・強気約40,000円(7.0倍)の3シナリオで見ています。最有力は中立で、前作ヒロインズ(EB-03)が発売10か月で定価比4.3倍を維持していることが根拠です。発売直後は初動でこれより高く出るのが通例です。'},
+             {'q': '前作のヒロインズエディション(EB-03)は今いくらですか？', 'a': '当サイトが最大9店舗から取得した実データで最高22,800円(定価5,280円の約4.3倍)です。直近51日でも-0.9%とほぼ動いておらず、発売から10か月が経って相場が安定した状態にあります。'},
+             {'q': 'エクストラブースターは買っておけば値上がりしますか？', 'a': '弾によって差が大きく、一括りにはできません。当サイトの実データでは定価比がEB-02の7.1倍からEB-04の2.3倍まで3倍以上開いています。また直近51日で下げているのは最新のEB-04だけ(-17.2%)で、下落は発売から1年前後に集中する傾向があります。'},
+             {'q': 'PRECIOUS BOXと通常のBOXは同じものですか？', 'a': '別商品です。ONE PIECE HEROINES PRECIOUS BOXはBOXにスリーブとドン!!カードが付いたセット商品で、通常のEB-05 BOXとは買取価格も別建てになります。売買のときは商品名を必ず確認してください。'}]},
     {
         "slug": "hatsubai-schedule",
         "nav_label": "新弾発売スケジュール",
