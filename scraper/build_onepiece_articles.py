@@ -3,7 +3,7 @@
 ポケカ atari-guide 型を赤テーマで踏襲した静的記事を、共通ボイラープレート
 (head/style/nav/footer/アフィ2点)＋弾別データから生成する。BOX買取価格は
 data/history_op の当サイト実データを参照(記事内のBOX価格は自動更新)。
-カード相場は CARD_ASOF 時点の altema(カードラッシュ買取)実測値(免責明記)。
+カード相場は CARD_ASOF 時点の altema(カードラッシュ買取)実測値(免責明記)。弾ごとに基準日/出典を変える場合は CARD_ASOF_OVERRIDE / CARD_SOURCE_OVERRIDE を使う。
 更新時は article_data_onepiece.py の ranking を差し替え、CARD_ASOF / CARD_ASOF_ISO を更新する。
 
 再実行で全記事を再生成(冪等)。nav相互リンクは全記事を自動列挙する。
@@ -86,13 +86,17 @@ BASE = "https://pokeca-box-hikaku.com"
 CARD_ASOF = "2026年9月1日"
 CARD_ASOF_ISO = "2026-09-01"
 # altema未掲載などで基準日が異なる弾だけ個別指定
-CARD_ASOF_OVERRIDE = {"st-30": "2026年8月24日"}
+CARD_ASOF_OVERRIDE = {"st-30": "2026年9月2日"}
 # 相場の出典が altema 以外の弾だけ個別指定(免責に正しい基準を書くため)
 _SRC_ALTEMA = ('カード相場メディア altema が掲載する<strong>カードラッシュの買取価格'
                '</strong>を基準にした目安です(1店舗の買取価格のため、他店や販売価格'
                'とは異なります)')
 # 全弾 altema(カードラッシュ買取)で統一。別ソースを使う弾が出たらここに追加する。
-CARD_SOURCE_OVERRIDE: dict[str, str] = {}
+CARD_SOURCE_OVERRIDE: dict[str, str] = {
+    "st-30": ("カードショップ<strong>遊々亭の買取価格(美品)</strong>を基にした目安です"
+              "(本弾は altema に1位以外のカードの掲載が無いため、弾内で基準を揃える目的で遊々亭に統一しています。"
+              "他弾のカードラッシュ買取とは店舗が異なるため、弾をまたいだ単純比較はできません)"),
+}
 
 HOWTO_ARTICLES = [
     {
@@ -2380,6 +2384,15 @@ def _box_data() -> dict:
     return out
 
 
+def _box_asof() -> str:
+    """BOX実データの基準日(history_op の最新ファイル名)を日本語表記で返す。"""
+    files = sorted(HISTORY_OP_DIR.glob("*.json"))
+    if not files:
+        return CARD_ASOF
+    y, m, d = files[-1].stem.split("-")
+    return f"{int(y)}年{int(m)}月{int(d)}日"
+
+
 def _ranking_table(rows: list) -> str:
     body = ""
     for i, (name, rarity, price) in enumerate(rows, 1):
@@ -2784,6 +2797,7 @@ def _render(a: dict, articles: list, box: dict) -> str:
 
     body = a["body"].format(
         box_price=box_price_txt, box_n=box_n, ratio=ratio,
+        asof=_asof(a), box_asof=_box_asof(),
         ranking_table=_ranking_table(a["ranking"]))
     body += _positioning_section(a, articles, box)
 
