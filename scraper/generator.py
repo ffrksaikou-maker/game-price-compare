@@ -110,6 +110,7 @@ def get_box_image_url(slug: str) -> str:
 
 # Blog articles (newest first) - 記事追加時はここに1行足すだけ
 BLOG_ARTICLES = [
+    {"url": "kougaku-box-ranking.html", "title": "ポケカ 高額BOX買取ランキング｜全商品の最高買取と定価比", "desc": "最大10店舗の実データで未開封BOXを最高買取の高い順にランキング。TOP10の大半を再販が止まったS&S世代が占める一方、高額BOXほど買取を掲載する店舗が減る(TOP10の平均掲載店舗数は下位10商品の半分以下)という構造まで実測値で解説。毎日自動更新。", "date": "2026-09-02"},
     {"url": "startdeck100-mirror.html", "title": "スタートデッキ100 ミラーデッキは何番？オールミラーの番号一覧", "desc": "オールミラーのデッキ番号は公式非公表。開封報告で挙がっている番号と、よく見る「12種類・約11.9%」が旧スタートデッキ100(2022年)由来である点を整理。1枚目でミラーを見抜く方法、ミラーと通常版の買取差(メガリザードンYex 約5,000円 vs 約2,000円)、未開封の買取が2026年8月4日で掲載終了した推移まで当サイト実データで掲載。", "date": "2026-09-02"},
     {"url": "shop-price-gap.html", "title": "同じBOXでも店で買取価格はどれだけ違うか", "desc": "9店舗の実データで52商品の最高値と最安値を比較。差額の中央値は1,800円、最大17,000円。しかも最高値を出す店は1店に固定されず商品ごとに入れ替わるため、商品単位での比較が必要。", "date": "2026-08-26"},
     {"url": "box-age-multiple.html", "title": "ポケカBOXは発売から何年で何倍になるか", "desc": "9店舗の実データで経過年数と定価比の関係を68商品ぶん集計。発売直後2.11倍→1年で4.22倍→2年目に2.69倍まで下げ、そこから年を追って上昇。買い時の考え方と生存バイアスの限界まで整理。", "date": "2026-08-26"},
@@ -1990,6 +1991,7 @@ def _update_sitemap(
         ("/box-price-trend.html", "daily", "0.9", today),
         ("/box-age-multiple.html", "daily", "0.9", today),
         ("/shop-price-gap.html", "daily", "0.9", today),
+        ("/kougaku-box-ranking.html", "daily", "0.9", today),
         ("/inferno-x-spotlight.html", "monthly", "0.8", "2026-04-12"),
         ("/151-spotlight.html", "monthly", "0.8", "2026-04-14"),
         ("/kokuen-spotlight.html", "monthly", "0.8", "2026-04-14"),

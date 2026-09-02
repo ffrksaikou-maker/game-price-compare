@@ -271,6 +271,44 @@ def _shop_gap_table(rows: list, limit: int = 10) -> str:
             f'<tbody>{body}</tbody></table>')
 
 
+def _kougaku_rows() -> list:
+    """商品ごとの最高買取・定価比・掲載店舗数を、買取の高い順に返す。"""
+    from scraper.matcher import MASTER_PRODUCTS
+    retail = {p.name: p.retail_price for p in MASTER_PRODUCTS}
+    files = sorted(HISTORY_DIR.glob("*.json"))
+    if not files:
+        return []
+    data = json.loads(files[-1].read_text(encoding="utf-8"))
+    rows = []
+    for r in data:
+        vals = [v for v in r.get("prices", {}).values() if v > 0]
+        if not vals:
+            continue
+        mx = max(vals)
+        rt = retail.get(r["name"], 0)
+        rows.append({"name": r["name"], "retail": rt, "max": mx,
+                     "mult": mx / rt if rt else 0, "shops": len(vals)})
+    rows.sort(key=lambda r: -r["max"])
+    return rows
+
+
+def _kougaku_table(rows: list, limit: int = 0) -> str:
+    body = ""
+    for i, r in enumerate(rows if not limit else rows[:limit], 1):
+        cls = ' class="up"' if i == 1 else ""
+        mult = f'{r["mult"]:.1f}倍' if r["mult"] else "—"
+        retail = f'¥{r["retail"]:,}' if r["retail"] else "—"
+        body += (f'<tr{cls}><td>{i}位</td><td>{_esc(r["name"])}</td>'
+                 f'<td class="num">{retail}</td>'
+                 f'<td class="num">¥{r["max"]:,}</td>'
+                 f'<td class="num">{mult}</td>'
+                 f'<td class="num">{r["shops"]}店</td></tr>')
+    return ('<table class="data-table"><thead><tr><th>順位</th><th>商品</th>'
+            '<th class="num">定価</th><th class="num">最高買取</th>'
+            '<th class="num">定価比</th><th class="num">掲載店舗</th></tr></thead>'
+            f'<tbody>{body}</tbody></table>')
+
+
 def _placeholders(text: str) -> str:
     """記事テキストの {{...}} を実データで置換する。"""
     if "{{" not in text:
@@ -369,12 +407,93 @@ def _placeholders(text: str) -> str:
             byyen = sorted(gap["rows"], key=lambda r: -r["gap"])[0]
             text = text.replace("{{PK_GAP_MAXYEN_NAME}}", byyen["name"])
             text = text.replace("{{PK_GAP_MAXYEN_YEN}}", f'¥{byyen["gap"]:,}')
+
+    rows = _kougaku_rows()
+    if rows and "{{PK_KG_" in text:
+        text = text.replace("{{PK_KG_TABLE}}", _kougaku_table(rows))
+        text = text.replace("{{PK_KG_TOP20}}", _kougaku_table(rows, 20))
+        text = text.replace("{{PK_KG_N}}", str(len(rows)))
+        for i in range(1, 6):
+            if i > len(rows):
+                break
+            r = rows[i - 1]
+            text = text.replace("{{PK_KG_TOP%d_NAME}}" % i, r["name"])
+            text = text.replace("{{PK_KG_TOP%d_PRICE}}" % i, f'¥{r["max"]:,}')
+            text = text.replace("{{PK_KG_TOP%d_MULT}}" % i, f'{r["mult"]:.1f}倍')
+            text = text.replace("{{PK_KG_TOP%d_SHOPS}}" % i, f'{r["shops"]}店')
+        ss = [r for r in rows[:10] if r["name"].startswith("S&S")]
+        text = text.replace("{{PK_KG_SS_IN_TOP10}}", str(len(ss)))
+        bymult = sorted(rows, key=lambda r: -r["mult"])[0]
+        text = text.replace("{{PK_KG_MULT_NAME}}", bymult["name"])
+        text = text.replace("{{PK_KG_MULT_VAL}}", f'{bymult["mult"]:.1f}倍')
+        top10_shops = sum(r["shops"] for r in rows[:10]) / 10
+        bottom = rows[-10:]
+        low_shops = sum(r["shops"] for r in bottom) / len(bottom)
+        text = text.replace("{{PK_KG_TOP10_SHOPS_AVG}}", f'{top10_shops:.1f}店')
+        text = text.replace("{{PK_KG_LOW10_SHOPS_AVG}}", f'{low_shops:.1f}店')
+        under = [r for r in rows if 0 < r["mult"] < 1]
+        text = text.replace("{{PK_KG_UNDER_N}}", str(len(under)))
     return text
 
 
 # ---------------------------------------------------------------- 記事データ
 
 POKECA_ARTICLES: list[dict] = [
+    {'slug': 'kougaku-box-ranking',
+     'crumb': 'ポケカ高額BOX買取ランキング',
+     'date': '2026-09-02',
+     'date_jp': '2026年9月2日',
+     'title': 'ポケカ 高額BOX買取ランキング｜全{{PK_KG_N}}商品の最高買取と定価比',
+     'h1': 'ポケカ 高額BOX買取ランキング｜全{{PK_KG_N}}商品を最高買取の順に並べた',
+     'meta_desc': 'ポケモンカードの未開封BOX買取価格を、当サイトが最大10店舗から毎日自動収集した実データで高い順にランキング。1位は{{PK_KG_TOP1_NAME}}の{{PK_KG_TOP1_PRICE}}({{PK_KG_TOP1_MULT}})です。TOP10のうち{{PK_KG_SS_IN_TOP10}}件をS&S世代が占め、高額BOXほど買取を掲載する店舗が減るという構造まで、全{{PK_KG_N}}商品の実測値で解説します。',
+     'og_title': 'ポケカ 高額BOX買取ランキング｜全{{PK_KG_N}}商品',
+     'og_desc': '1位は{{PK_KG_TOP1_NAME}} {{PK_KG_TOP1_PRICE}}({{PK_KG_TOP1_MULT}})。最大10店舗の実データで全{{PK_KG_N}}商品を毎日更新。',
+     'meta_line': 'ポケカ未開封BOXの最高買取ランキング(当サイト実データ・毎日更新)',
+     'hero_label': 'BOX最高買取ランキング 1位',
+     'hero_big': '{{PK_KG_TOP1_NAME}} {{PK_KG_TOP1_PRICE}}',
+     'hero_sub': '定価比{{PK_KG_TOP1_MULT}}。2位 {{PK_KG_TOP2_NAME}} {{PK_KG_TOP2_PRICE}}({{PK_KG_TOP2_MULT}})、3位 {{PK_KG_TOP3_NAME}} '
+                 '{{PK_KG_TOP3_PRICE}}({{PK_KG_TOP3_MULT}})。全{{PK_KG_N}}商品の最高買取・定価比・掲載店舗数を毎日更新しています。',
+     'disclaimer': '本記事の買取価格は、当サイトが最大10店舗から自動取得した実データです。表示は取得時点のスナップショットで、相場は需給・再販・各店の在庫状況により日々変動します。金額は目安であり、特定の買取価格を保証するものではありません。定価はメーカー希望小売価格(税込)で、実売価格とは異なります。掲載店舗数は当サイトが価格を取得できた店舗の数で、その商品を扱う店の総数ではありません。売買の判断はご自身の責任で行ってください。',
+     'related': '<li><a href="index.html">ポケカBOX買取価格比較トップ</a> — 全商品の店舗別価格を毎日更新</li>\n'
+                '<li><a href="ranking.html">週間価格変化ランキング</a> — 直近で値上がり・値下がりしたBOX</li>\n'
+                '<li><a href="box-age-multiple.html">発売から何年で何倍になるか</a> — 経過月数と定価比の関係</li>\n'
+                '<li><a href="shop-price-gap.html">同じBOXでも店で買取価格はどれだけ違うか</a> — 店舗差の実測</li>\n'
+                '<li><a href="ss-box-list.html">S&amp;S全BOX一覧</a> — 上位を独占する絶版世代の一覧</li>',
+     'body': '<p>ポケモンカードの未開封BOXは、商品によって買取価格が<strong>数十倍</strong>開きます。同じ定価5,000円前後の拡張パックでも、1万円に届かないものから<strong>{{PK_KG_TOP1_PRICE}}</strong>になるものまであるのが実情です。本記事では、当サイトが最大10店舗から毎日自動収集している買取データをもとに、<strong>全{{PK_KG_N}}商品を最高買取価格の高い順にランキング</strong>します。</p>\n'
+             '\n'
+             '<h2>高額BOX TOP20</h2>\n'
+             '<p>各商品の<strong>最高買取価格</strong>(当サイト掲載店舗のうち最も高い店の価格)、<strong>定価に対する倍率</strong>、そして<strong>買取価格を掲載している店舗数</strong>を並べたものです。</p>\n'
+             '{{PK_KG_TOP20}}\n'
+             '<div class="callout"><strong>掲載店舗の列に注目してください。</strong> '
+             '高額BOXほど買取を出している店が少なくなります。TOP10の平均が{{PK_KG_TOP10_SHOPS_AVG}}なのに対し、下位10商品は{{PK_KG_LOW10_SHOPS_AVG}}です。<strong>高く売れる商品ほど、売り先が限られる</strong>という構造があります。</div>\n'
+             '\n'
+             '<h2>TOP10はS&amp;S世代がほぼ独占している</h2>\n'
+             '<p>TOP10のうち<strong>{{PK_KG_SS_IN_TOP10}}件</strong>がS&amp;S(ソード&amp;シールド)シリーズです。2019年から2022年に発売された、すでに再販が止まっている世代にあたります。</p>\n'
+             '<p>1位の<strong>{{PK_KG_TOP1_NAME}}</strong>は{{PK_KG_TOP1_PRICE}}、定価比{{PK_KG_TOP1_MULT}}という水準です。定価比で見ても全商品中トップで、{{PK_KG_MULT_NAME}}の{{PK_KG_MULT_VAL}}が最高倍率になっています。</p>\n'
+             '<div class="callout"><strong>読み違えやすい点:</strong> 「新しい弾ほど高い」わけでも「古いほど高い」わけでもありません。同じS&amp;S世代でも上位と下位で10倍以上の差があります。決めているのは<strong>その弾の看板カードがどこまで高くなれるか</strong>で、これは当サイトが<a '
+             'href="box-price-trend.html">値動きレポート</a>や各弾の当たりカードガイドで繰り返し確認している構造です。</p></div>\n'
+             '\n'
+             '<h2>定価割れしている商品はあるか</h2>\n'
+             '<p>現時点で定価を下回っている商品は<strong>{{PK_KG_UNDER_N}}件</strong>です。ポケカの未開封BOXは、買取価格が付いている限り定価を割りにくい商品群だと言えます。</p>\n'
+             '<p>ただしこれは<strong>買取掲載が続いている商品だけを見た結果</strong>である点に注意が必要です。買い取ってもらえなくなった商品はこの表から消えるため、生き残りだけを見て「ポケカBOXは値下がりしない」と結論づけることはできません。経過年数との関係は <a href="box-age-multiple.html">発売から何年で何倍になるか</a> '
+             'で詳しく扱っています。</p>\n'
+             '\n'
+             '<h2>全{{PK_KG_N}}商品の完全ランキング</h2>\n'
+             '<p>掲載しているすべての商品を、最高買取の高い順に並べたものです。</p>\n'
+             '{{PK_KG_TABLE}}\n'
+             '\n'
+             '<h2>売るときに見るべきポイント</h2>\n'
+             '<ul>\n'
+             '<li><strong>店舗差を必ず確認する</strong>: 同じBOXでも店によって価格が違い、最高値の店は商品ごとに入れ替わります。詳しくは <a href="shop-price-gap.html">店舗差の実測記事</a> をご覧ください</li>\n'
+             '<li><strong>掲載店舗が少ない商品は急がない</strong>: 上の表で掲載店舗が1〜2店の商品は、その店の在庫状況ひとつで価格が動きます。1店だけの価格を相場と見なさないでください</li>\n'
+             '<li><strong>最新値はトップページで</strong>: 本記事の数値は毎日自動更新されますが、店頭に持ち込む前に <a href="index.html">買取価格比較トップ</a> で最終確認をおすすめします</li>\n'
+             '</ul>\n',
+     'faq': [{'q': 'ポケカで一番高く買い取られているBOXはどれですか？',
+              'a': '当サイトが最大10店舗から毎日取得している実データでは、{{PK_KG_TOP1_NAME}}が{{PK_KG_TOP1_PRICE}}で1位です。定価に対して{{PK_KG_TOP1_MULT}}にあたります。2位は{{PK_KG_TOP2_NAME}}の{{PK_KG_TOP2_PRICE}}、3位は{{PK_KG_TOP3_NAME}}の{{PK_KG_TOP3_PRICE}}です。'},
+             {'q': '高額BOXはどこの店でも買い取ってもらえますか？',
+              'a': 'いいえ。当サイトのデータでは、TOP10の平均掲載店舗数が{{PK_KG_TOP10_SHOPS_AVG}}なのに対し、下位10商品は{{PK_KG_LOW10_SHOPS_AVG}}です。高額BOXほど買取を出している店が少なく、売り先が限られます。1店だけの価格を相場と見なさないよう注意してください。'},
+             {'q': '新しい弾のほうが高く売れますか？', 'a': 'そうとは限りません。上位は再販が止まったS&Sシリーズ(2019〜2022年発売)が中心で、TOP10のうち{{PK_KG_SS_IN_TOP10}}件を占めています。ただし同じS&S世代でも上位と下位で10倍以上の差があり、世代だけでは決まりません。'},
+             {'q': '定価より安くなっているBOXはありますか？', 'a': '現時点で定価を下回っているのは{{PK_KG_UNDER_N}}件です。ただしこれは買取掲載が続いている商品だけを見た数字で、買い取ってもらえなくなった商品は集計から外れています。生存バイアスがある点に注意してください。'}]},
     {
         "slug": "box-price-trend",
         "crumb": "ポケカBOX相場の値動きレポート",
