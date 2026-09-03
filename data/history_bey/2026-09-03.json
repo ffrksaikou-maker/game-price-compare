@@ -27,9 +27,9 @@
     "name": "UX-19 バレットグリフォンH",
     "category": "ux",
     "retail_price": 2600,
-    "max_price": 3300,
+    "max_price": 3000,
     "prices": {
-      "morimori": 3300,
+      "morimori": 2800,
       "rudeya": 3000,
       "icchome": 2000
     }
@@ -194,11 +194,11 @@
     "name": "CX-16 スタートダッシュセットC",
     "category": "cx",
     "retail_price": 5650,
-    "max_price": 7000,
+    "max_price": 6600,
     "prices": {
       "morimori": 5500,
       "rudeya": 5500,
-      "icchome": 7000
+      "icchome": 6600
     }
   },
   {
