@@ -61,6 +61,7 @@ article li{margin-bottom:8px}
 .tbl th,.tbl td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
 .tbl th{background:#f9fafb;font-size:11px;color:var(--text-sub);letter-spacing:.5px}
 .tbl td.num{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.tbl tr.best td{background:#fff7ed;font-weight:700}
 .callout{background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:14px 18px;margin:14px 0;font-size:13px}
 .callout strong{color:#1d4ed8}
 .disclaimer{background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:14px 18px;margin:24px 0;font-size:12px;color:#9a3412}
@@ -1047,53 +1048,116 @@ ATARI_ARTICLES = [
              "a": "当サイトが4店舗から収集している実データでは{BOX_PRICE}です(定価{BOX_RETAIL}の{BOX_RATIO})。トップレアが約5万円である一方でBOX買取が低めなのは、カード1枚の価格とBOX価格が連動しないためです。"},
         ],
     },
-    {
-        # 発売前の仕込み。9/12発売後に当たりカードの買取相場を入れて draft を外す。
-        # 埋める箇所: TOP5の表(カード名・レアリティ・買取相場)、封入率、hero_big、meta_desc の金額
-        "draft": True,
-        "slug": "fb-11-atari-guide",
-        "box_slug": "fb-11",
-        "box_name": 'ブースターパック「BRIGHTNESS OF HOPE」【FB-11】',
-        "retail": 5760,
-        "nav_label": "BRIGHTNESS OF HOPE(FB-11)",
-        "crumb": "BRIGHTNESS OF HOPE(FB-11) 当たりカードランキング",
-        "date": "2026-09-12",
-        "title": "BRIGHTNESS OF HOPE(FB-11) 当たりカードランキング｜SCR3種の買取相場と封入率",
-        "h1": "BRIGHTNESS OF HOPE(FB-11) 当たりカードランキング｜SCR3種の買取相場・封入率を解説",
-        "meta_desc": "ドラゴンボールカード「BRIGHTNESS OF HOPE」(FB-11)の当たりカードランキング・買取相場・封入率を解説。SCRは孫悟空・シャレット・バーダックの3種。この弾から1パック240円・BOX5,760円に改定されています。BOX買取価格は当サイトが4店舗から毎日収集した実データで更新しています。",
-        "og_title": "BRIGHTNESS OF HOPE(FB-11) 当たりカードランキング",
-        "og_desc": "FB-11の当たりカードと買取相場を実データで解説。SCRは孫悟空・シャレット・バーダックの3種。BOX定価は5,760円。",
-        "meta_line": "ドラゴンボールスーパーカードゲーム フュージョンワールド ブースターパック「BRIGHTNESS OF HOPE」(FB-11・2026年9月12日発売)",
-        "hero_label": "FB-11 当たりカード",
-        "hero_big": "BOX買取 {BOX_PRICE}",
-        "hero_sub": "2026年9月12日発売。SCRは孫悟空・シャレット・バーダックの3種で、全123種＋パラレル構成です。BOX買取価格は当サイトが4店舗から毎日収集しています。",
-        "body": """<p>2026年9月12日に発売されたドラゴンボールスーパーカードゲーム フュージョンワールドのブースターパック第11弾 <strong>「BRIGHTNESS OF HOPE」【FB-11】</strong> の当たりカードと買取相場をまとめます。BOXの買取価格は <a href="/dragonball">ドラゴンボールBOX買取価格比較トップ</a> で毎日更新しています。</p>
-
-<h2>当たりカードランキング TOP5</h2>
-<p>※発売直後は各店の買取価格が出そろっていないため、価格が固まった段階で掲載します。</p>
-
-<h2>レアリティ構成</h2>
-<p>全123種の内訳はSCR3種・リーダーカード5種・SR15種・R25種・UC35種・C40種です。これに加えてスーパーパラレル・パラレル・ビジュアルパラレル・スーパーコンボパラレルの各仕様が封入されます。</p>
-
-<h2>この弾から定価が変わっています</h2>
-<p>FB-11から1パックが220円→240円に改定され、BOX定価は5,280円→5,760円になりました。<strong>定価比で過去弾と比較する場合は基準が変わる</strong>点に注意してください。詳しくは <a href="hatsubai-schedule.html">新弾発売スケジュール</a> にまとめています。</p>
-
-<h2>封入率について</h2>
-<p>封入率は公式から公表されていません。情報源によって数値に開きがあるため、当サイトでは断定していません。</p>
-
-<h2>売却を考えている場合</h2>
-<p>BOXの買取価格は店舗によって差が出ます。当サイトは4店舗の価格を毎日収集しているので、<a href="/dragonball">比較トップ</a>で最高値の店舗を確認できます。</p>""",
-        "faq": [
-            {"q": "FB-11「BRIGHTNESS OF HOPE」の当たりカードは何ですか?",
-             "a": "シークレットレア(SCR)は孫悟空(FB11-121)・シャレット(FB11-122)・バーダック(FB11-123)の3種です。買取相場は各店の価格が出そろい次第、当サイトの実データで掲載します。"},
-            {"q": "FB-11のBOX定価はいくらですか?",
-             "a": "1パック240円(税込・カード6枚＋デジタル版連動コード1枚)、1BOX24パック入りで5,760円(税込)です。FB-10までは1パック220円・BOX5,280円でした。"},
-            {"q": "FB-11のレアリティ構成はどうなっていますか?",
-             "a": "全123種の内訳はSCR3種・リーダーカード5種・SR15種・R25種・UC35種・C40種です。これに加えてパラレル版が封入されます。"},
-            {"q": "FB-11のBOX買取価格はいくらですか?",
-             "a": "当サイトが4店舗から収集している実データでは{BOX_PRICE}です(定価{BOX_RETAIL}の{BOX_RATIO})。相場は日々変動するため、個別ページで最新値をご確認ください。"},
-        ],
-    },
+    {'slug': 'fb-11-atari-guide',
+     # box_slug は BOXページ(dragonball/box/fb-11.html)が生成される発売後に 'fb-11' へ戻す
+     'box_slug': '',
+     'box_name': 'ブースターパック「BRIGHTNESS OF HOPE」【FB-11】',
+     'retail': 5760,
+     'nav_label': 'BRIGHTNESS OF HOPE(FB-11)',
+     'crumb': 'BRIGHTNESS OF HOPE(FB-11) 当たりカード事前ガイド',
+     'date': '2026-09-03',
+     'title': '【9月12日発売】FB-11「BRIGHTNESS OF HOPE」当たりカード事前ガイド｜SCR3種と過去弾の買取実績',
+     'h1': '【9月12日発売】BRIGHTNESS OF HOPE(FB-11) 当たりカード事前ガイド｜SCR3種と過去弾の買取実績',
+     'meta_desc': '2026年9月12日発売のドラゴンボールカード「BRIGHTNESS OF '
+                  'HOPE」(FB-11)の当たりカードを発売前に整理。SCRは孫悟空(FB11-121)・シャレット(FB11-122)・バーダック(FB11-123)の3種で、カード番号の並びまで前弾FB-10と同じ構成です。FB-10ではSCR★★3枚がいずれも20万円超になりました。SCR★★3種構成の過去弾(FB-09・FB-10)の買取実績と、今回の注意点を当サイトの実データで整理します。',
+     'og_title': '【9月12日発売】FB-11 当たりカード事前ガイド｜SCR3種と過去弾の買取実績',
+     'og_desc': 'SCRは孫悟空・シャレット・バーダックの3種。前弾FB-10と同じ構成で、FB-10ではSCR★★3枚がいずれも20万円超。過去弾の実績から整理。',
+     'meta_line': 'ドラゴンボールスーパーカードゲーム フュージョンワールド ブースターパック「BRIGHTNESS OF HOPE」(FB-11・2026年9月12日発売)',
+     'hero_label': 'FB-11 SCR(シークレットレア)は3種',
+     'hero_big': '孫悟空 / シャレット / バーダック',
+     'hero_sub': '2026年9月12日発売・BOX定価5,760円。カード番号FB11-121〜123の並びまで前弾FB-10と同じ構成で、FB-10ではSCR★★3枚がいずれも20万円を超えました。発売後は当サイトが4店舗の買取価格を毎日収集します。',
+     'body': '<p>2026年9月12日(土)発売のドラゴンボールスーパーカードゲーム フュージョンワールド ブースターパック第11弾 <strong>「BRIGHTNESS OF HOPE」【FB-11】</strong> '
+             'について、<strong>発売前に判明している当たりカードの情報</strong>と、<strong>似た構成だった過去弾が実際いくらになったか</strong>を整理します。BOXの買取価格は発売後に <a href="/dragonball">ドラゴンボールBOX買取価格比較トップ</a> で毎日更新します。</p>\n'
+             '\n'
+             '<div class="callout"><strong>この記事は発売前の内容です。</strong> FB-11のカード買取相場はまだ付いていません。本記事に載せている金額は<strong>すべて過去弾の実績</strong>で、FB-11の予想価格ではありません。発売後に実際の相場へ差し替えます。BOX相場の予想は <a '
+             'href="fb-11-forecast.html">FB-11 発売前予想</a> で扱っています。</div>\n'
+             '\n'
+             '<h2>確定している基本情報</h2>\n'
+             '<table class="tbl">\n'
+             '<thead><tr><th>項目</th><th>内容</th></tr></thead>\n'
+             '<tbody>\n'
+             '<tr><td>発売日</td><td>2026年9月12日(土)</td></tr>\n'
+             '<tr><td>1パック</td><td>240円(税込)・カード6枚入り</td></tr>\n'
+             '<tr><td>1BOX</td><td>24パック入り・<strong>5,760円(税込)</strong></td></tr>\n'
+             '<tr><td>1カートン</td><td>12BOX(288パック)・69,120円(税込)</td></tr>\n'
+             '<tr><td>収録種類</td><td>全123種(＋パラレル)</td></tr>\n'
+             '<tr><td>内訳</td><td>リーダー5種 / SCR3種 / SR15種 / R25種 / UC35種 / C40種</td></tr>\n'
+             '</tbody>\n'
+             '</table>\n'
+             '\n'
+             '<h2>SCR(シークレットレア)は3種｜孫悟空・シャレット・バーダック</h2>\n'
+             '<p>この弾の頂点にあたるSCRは次の3枚です。</p>\n'
+             '<table class="tbl">\n'
+             '<thead><tr><th>カード番号</th><th>カード名</th><th>備考</th></tr></thead>\n'
+             '<tbody>\n'
+             '<tr><td>FB11-121</td><td><strong>孫悟空</strong></td><td>原作の主人公</td></tr>\n'
+             '<tr><td>FB11-122</td><td><strong>シャレット</strong></td><td>『ドラゴンボール レジェンズ』発のキャラクター</td></tr>\n'
+             '<tr><td>FB11-123</td><td><strong>バーダック</strong></td><td>孫悟空の父</td></tr>\n'
+             '</tbody>\n'
+             '</table>\n'
+             '<p>そして<strong>すべてのSCRに「★★」仕様が存在します</strong>。フュージョンワールドでは、この★★(スーパーパラレル)が各弾の最高額帯を形成してきました。</p>\n'
+             '<div class="callout"><strong>押さえておきたい点:</strong> シャレットは<strong>シャロットとジブレットのフュージョン</strong>で、スマートフォンゲーム『ドラゴンボール '
+             'レジェンズ』発のキャラクターです。原作漫画・アニメには登場しません。過去にSCR★★の最高額を付けてきたのはベジット・ゴジータ・孫悟飯といった<strong>原作キャラ</strong>だったため、ゲーム出自のキャラがどう評価されるかは前例が少なく、当サイトも読み切れていません。</div>\n'
+             '\n'
+             '<h2>前弾FB-10と同じ構成｜カード番号の並びまで一致</h2>\n'
+             '<p>FB-11の構成を見るうえで最も参考になるのが、2026年6月13日発売の <a href="fb-10-atari-guide.html">CROSS FORCE(FB-10)</a> です。<strong>SCRが3種、カード番号が121・122・123、全SCRに★★あり</strong>という並びが完全に一致しています。</p>\n'
+             '<p>そのFB-10が実際どうなったかというと、次のとおりです。</p>\n'
+             '<table class="tbl">\n'
+             '<thead><tr><th>順位</th><th>カード</th><th>レアリティ</th><th class="num">買取相場</th></tr></thead>\n'
+             '<tbody>\n'
+             '<tr class="best"><td>1位</td><td>ベジット(FB10-121)</td><td>SCR★★</td><td class="num">約35〜50万円</td></tr>\n'
+             '<tr><td>2位</td><td>孫悟飯:少年期(FB10-122)</td><td>SCR★★</td><td class="num">約22〜33万円</td></tr>\n'
+             '<tr><td>3位</td><td>セル(FB10-123)</td><td>SCR★★</td><td class="num">約22〜32万円</td></tr>\n'
+             '</tbody>\n'
+             '</table>\n'
+             '<p><strong>SCR★★の3枚がいずれも20万円を超えました</strong>。1位に極端に寄らず、上位3枚が高額帯に並ぶ形です。</p>\n'
+             '\n'
+             '<h2>SCR★★が3種の弾は「厚みのある」相場になってきた</h2>\n'
+             '<p>フュージョンワールドの弾は、当たりの分布で大きく2つの型に分かれます。</p>\n'
+             '<table class="tbl">\n'
+             '<thead><tr><th>型</th><th>弾</th><th>1位</th><th>2位以下</th></tr></thead>\n'
+             '<tbody>\n'
+             '<tr class="best"><td rowspan="2"><strong>厚みのある型</strong><br>(SCR★★が3種)</td><td><a href="fb-10-atari-guide.html">FB-10 CROSS FORCE</a></td><td>ベジット 約35〜50万円</td><td>2位・3位も20万円超</td></tr>\n'
+             '<tr class="best"><td><a href="fb-09-atari-guide.html">FB-09 DUAL EVOLUTION</a></td><td>ゴジータ:GT 約13〜19.5万円</td><td>2位・3位も13〜17万円</td></tr>\n'
+             '<tr><td rowspan="2"><strong>一枚勝ちの型</strong></td><td><a href="fb-07-atari-guide.html">FB-07 神龍への願い</a></td><td>孫悟飯:SH 約4〜4.8万円</td><td>2位は約6,000円(<strong>約7倍差</strong>)</td></tr>\n'
+             '<tr><td><a href="fb-06-atari-guide.html">FB-06 迫り来る脅威</a></td><td>ブロリー:BR 約4〜5.5万円</td><td>1位と2位で約5〜6倍差</td></tr>\n'
+             '</tbody>\n'
+             '</table>\n'
+             '<p>FB-11はSCR3種＋全SCRに★★という構成なので、<strong>「厚みのある型」に入る可能性が高い</strong>と見ています。この型は、どのSCR★★を引いても価値が付きやすい一方、<strong>狙いの1枚を引く確率は3分の1になる</strong>という性質があります。</p>\n'
+             '<div class="callout"><strong>注意:</strong> 上の金額はあくまで<strong>過去弾の実績</strong>です。FB-11が同じ水準になる保証はありません。FB-09とFB-10は同じ「3種構成」でも最高額が約13万円と約35〜50万円で3倍近い差があり、構成が同じでも金額はキャラクター人気で大きく変わります。</div>\n'
+             '\n'
+             '<h2>「フュージョン進化」が再登場</h2>\n'
+             '<p>FB-11には、周年弾で初めて導入された<strong>「フュージョン進化」</strong>のギミックが再び収録されます。フュージョンをテーマにした弾といえば <a href="fb-09-atari-guide.html">FB-09 DUAL EVOLUTION</a> '
+             'で、こちらは上位5枚のうち4枚をゴジータ系が占める「ゴジータ尽くし」の弾になりました。</p>\n'
+             '<p>FB-11のSCRにフュージョン体である<strong>シャレット</strong>が入っていることも、この流れに沿ったものです。対戦環境でフュージョン進化が強く使われるかどうかは、プレイ需要の側からカード相場に影響します。</p>\n'
+             '\n'
+             '<h2>当たりカードランキング TOP5</h2>\n'
+             '<p>※<strong>発売後に掲載します。</strong> 発売直後は各店の買取価格が出そろわず、情報源によって金額が大きく食い違います。当サイトは価格が固まった段階で、根拠を示せる数値だけを載せる方針です。</p>\n'
+             '\n'
+             '<h2>封入率について</h2>\n'
+             '<p>FB-11の封入率は<strong>公式から公表されていません</strong>。情報源によって数値に開きがあるため、当サイトでは断定していません。</p>\n'
+             '<p>参考として、過去弾では<strong>SCR★★が240BOXに約1枚、SCRパラレルが12BOXに約1枚</strong>とされてきました(<a '
+             'href="fb-07-atari-guide.html">FB-07</a>の例)。この水準が正しいとすれば、SCR★★を狙って自引きするのは<strong>1カートン(12BOX)を20箱開けて1枚</strong>という計算になり、現実的な狙い方ではありません。</p>\n'
+             '\n'
+             '<h2>この弾から定価が変わっています</h2>\n'
+             '<p>FB-11から1パックが220円→240円に改定され、BOX定価は5,280円→5,760円になりました。<strong>定価比で過去弾と比較する場合は基準が変わる点に注意してください</strong>。詳しくは <a href="hatsubai-schedule.html">新弾発売スケジュール</a> にまとめています。</p>\n'
+             '\n'
+             '<h2>発売後にこのページで確認できること</h2>\n'
+             '<ul>\n'
+             '<li><strong>当たりカードTOP5の実際の買取相場</strong>(価格が固まり次第)</li>\n'
+             '<li><strong>BOX買取価格</strong>: 当サイトが4店舗から毎日自動収集します。最高値の店舗は <a href="/dragonball">比較トップ</a> で確認できます</li>\n'
+             '<li><strong>過去弾との比較</strong>: SCR★★3種構成のFB-09・FB-10と並べて、どの型に着地したかを検証します</li>\n'
+             '</ul>\n',
+     'faq': [{'q': 'FB-11「BRIGHTNESS OF HOPE」の当たりカードは何ですか?',
+              'a': 'SCR(シークレットレア)は孫悟空(FB11-121)・シャレット(FB11-122)・バーダック(FB11-123)の3種で、すべてに★★仕様が存在します。フュージョンワールドでは★★(スーパーパラレル)が各弾の最高額帯を形成してきたため、この3枚が当たりの中心になる見込みです。発売前のため実際の買取相場はまだ付いていません。'},
+             {'q': 'FB-11の当たりカードはいくらくらいになりますか?',
+              'a': '発売前のため当サイトでは予想額を出していません。参考として、カード番号の並びまで同じ構成だった前弾FB-10では、SCR★★の3枚がベジット約35〜50万円・孫悟飯:少年期約22〜33万円・セル約22〜32万円といずれも20万円を超えました。ただし同じ3種構成のFB-09は最高額が約13〜19.5万円で、構成が同じでもキャラクター人気で3倍近い差が出ています。'},
+             {'q': 'シャレットとはどのキャラクターですか?',
+              'a': 'シャロットとジブレットがフュージョンした姿で、スマートフォンゲーム『ドラゴンボール レジェンズ』発のキャラクターです。原作漫画・アニメには登場しません。過去にSCR★★の最高額を付けてきたのはベジット・ゴジータ・孫悟飯といった原作キャラだったため、ゲーム出自のキャラがどう評価されるかは前例が少ない状況です。'},
+             {'q': 'FB-11のBOX定価はいくらですか?',
+              'a': '1パック240円(税込)・カード6枚入りで、1BOX(24パック)5,760円(税込)、1カートン(12BOX)69,120円(税込)です。この弾から1パックが220円→240円に改定され、BOX定価が5,280円→5,760円に上がっています。定価比で過去弾と比較する際は基準が変わる点に注意してください。'},
+             {'q': 'FB-11のSCR★★の封入率はどれくらいですか?', 'a': '公式から公表されていません。過去弾ではSCR★★が240BOXに約1枚、SCRパラレルが12BOXに約1枚とされてきました。この水準であれば、SCR★★の自引きは1カートン(12BOX)を20箱開けて1枚という計算になります。'},
+             {'q': 'FB-11のBOX買取価格はいくらですか?', 'a': '発売前のため買取価格はまだ付いていません。発売後は当サイトが4店舗から毎日自動収集し、ドラゴンボールBOX買取価格比較トップで最高値の店舗を確認できるようにします。'}]},
 ]
 
 
@@ -1178,12 +1242,12 @@ def _ranking_table(rows: list) -> str:
         mult_txt = f"{mult:.1f}倍" if mult else "—"
         retail_txt = f"¥{r:,}" if r else "—"
         body += (f'<tr{cls}><td>{i}位</td><td>{label}</td>'
-                 f'<td class="price">{retail_txt}</td>'
-                 f'<td class="price">¥{price:,}</td>'
-                 f'<td class="price">{mult_txt}</td></tr>')
+                 f'<td class="num">{retail_txt}</td>'
+                 f'<td class="num">¥{price:,}</td>'
+                 f'<td class="num">{mult_txt}</td></tr>')
     return ('<table class="tbl"><thead><tr><th>順位</th><th>商品</th>'
-            '<th class="price">定価</th><th class="price">最高買取</th>'
-            '<th class="price">定価比</th></tr></thead>'
+            '<th class="num">定価</th><th class="num">最高買取</th>'
+            '<th class="num">定価比</th></tr></thead>'
             f'<tbody>{body}</tbody></table>')
 
 
