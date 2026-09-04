@@ -3,7 +3,7 @@
     "name": "ブースターパック「世界最強の戦士」【OP-17】",
     "category": "op",
     "retail_price": 5760,
-    "max_price": 16300,
+    "max_price": 16500,
     "prices": {
       "morimori": 12800,
       "homura": 16300,
@@ -11,7 +11,7 @@
       "runto": 16200,
       "icchome": 16000,
       "oku": 16200,
-      "collect_tendo": 16000,
+      "collect_tendo": 16500,
       "shinsoku": 15500
     }
   },
