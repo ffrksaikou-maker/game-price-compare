@@ -1,4 +1,10 @@
 {
+  "UX-19 バレットグリフォンH|rudeya": {
+    "price": 5000,
+    "ref": 1900,
+    "ratio": 2.63,
+    "drop": false
+  },
   "UX-04 バトルエントリーセットU|rudeya": {
     "price": 7000,
     "ref": 25000,

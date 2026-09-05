@@ -5,7 +5,7 @@
     "retail_price": 4500,
     "max_price": 6000,
     "prices": {
-      "morimori": 5400,
+      "morimori": 5500,
       "homura": 6000,
       "rudeya": 5000,
       "icchome": 5500
@@ -17,7 +17,7 @@
     "retail_price": 2700,
     "max_price": 2500,
     "prices": {
-      "morimori": 2100,
+      "morimori": 800,
       "homura": 1700,
       "rudeya": 2500,
       "icchome": 1700
@@ -29,7 +29,7 @@
     "retail_price": 2600,
     "max_price": 5000,
     "prices": {
-      "morimori": 2800,
+      "morimori": 1800,
       "rudeya": 5000,
       "icchome": 2000
     }
@@ -40,7 +40,7 @@
     "retail_price": 1600,
     "max_price": 2500,
     "prices": {
-      "morimori": 2200,
+      "morimori": 2500,
       "homura": 2500,
       "rudeya": 2000,
       "icchome": 2500
@@ -52,7 +52,7 @@
     "retail_price": 2300,
     "max_price": 2500,
     "prices": {
-      "morimori": 2500,
+      "morimori": 2300,
       "rudeya": 2500,
       "icchome": 2300
     }
@@ -63,7 +63,7 @@
     "retail_price": 1400,
     "max_price": 3300,
     "prices": {
-      "morimori": 2300,
+      "morimori": 2700,
       "rudeya": 3300,
       "icchome": 2700
     }
@@ -97,7 +97,7 @@
     "retail_price": 2420,
     "max_price": 2500,
     "prices": {
-      "morimori": 2200,
+      "morimori": 2100,
       "rudeya": 2500,
       "icchome": 2500
     }
@@ -108,7 +108,7 @@
     "retail_price": 5700,
     "max_price": 13000,
     "prices": {
-      "morimori": 7500,
+      "morimori": 7000,
       "rudeya": 13000,
       "icchome": 7000
     }
@@ -128,9 +128,9 @@
     "name": "UX-08 シルバーウルフ3-80FB",
     "category": "ux",
     "retail_price": 2080,
-    "max_price": 1900,
+    "max_price": 1800,
     "prices": {
-      "morimori": 1900,
+      "morimori": 1800,
       "homura": 1800,
       "rudeya": 1800,
       "icchome": 1800
@@ -160,9 +160,9 @@
     "name": "UX-01 ドランバスター1-60A",
     "category": "ux",
     "retail_price": 1980,
-    "max_price": 2000,
+    "max_price": 1800,
     "prices": {
-      "morimori": 2000,
+      "morimori": 1700,
       "homura": 1800,
       "rudeya": 1800,
       "icchome": 1800
@@ -196,7 +196,7 @@
     "retail_price": 5650,
     "max_price": 5000,
     "prices": {
-      "morimori": 5000,
+      "morimori": 4500,
       "rudeya": 5000,
       "icchome": 5000
     }
@@ -207,7 +207,7 @@
     "retail_price": 1600,
     "max_price": 1300,
     "prices": {
-      "morimori": 1300,
+      "morimori": 1100,
       "homura": 1300,
       "rudeya": 1000,
       "icchome": 1300
@@ -260,9 +260,9 @@
     "name": "CX-07 ペガサスブラストATr",
     "category": "cx",
     "retail_price": 2600,
-    "max_price": 2400,
+    "max_price": 2000,
     "prices": {
-      "morimori": 2400,
+      "morimori": 1600,
       "homura": 2000,
       "rudeya": 2000,
       "icchome": 1800
@@ -274,7 +274,7 @@
     "retail_price": 1600,
     "max_price": 3000,
     "prices": {
-      "morimori": 2800,
+      "morimori": 2000,
       "homura": 2000,
       "rudeya": 3000,
       "icchome": 2000
@@ -305,9 +305,9 @@
     "name": "BX-49 ドランストライク4-50FF",
     "category": "bx",
     "retail_price": 2200,
-    "max_price": 2300,
+    "max_price": 2000,
     "prices": {
-      "morimori": 2300,
+      "morimori": 2000,
       "homura": 2000,
       "rudeya": 1900,
       "icchome": 2000
@@ -319,7 +319,7 @@
     "retail_price": 1600,
     "max_price": 3500,
     "prices": {
-      "morimori": 2500,
+      "morimori": 3000,
       "rudeya": 3500,
       "icchome": 3000
     }
@@ -339,7 +339,7 @@
     "retail_price": 1500,
     "max_price": 2000,
     "prices": {
-      "morimori": 1400,
+      "morimori": 1500,
       "rudeya": 2000,
       "icchome": 1800
     }
@@ -370,7 +370,7 @@
     "retail_price": 2321,
     "max_price": 1500,
     "prices": {
-      "morimori": 1500,
+      "morimori": 800,
       "rudeya": 1500,
       "icchome": 800
     }
@@ -381,7 +381,7 @@
     "retail_price": 2420,
     "max_price": 2000,
     "prices": {
-      "morimori": 1600,
+      "morimori": 1400,
       "rudeya": 2000,
       "icchome": 1600
     }
@@ -411,9 +411,9 @@
     "name": "BX-00 ストームペガシス3-70RA",
     "category": "limited",
     "retail_price": 2620,
-    "max_price": 1700,
+    "max_price": 1600,
     "prices": {
-      "morimori": 1700,
+      "morimori": 1500,
       "rudeya": 1600,
       "icchome": 1500
     }
