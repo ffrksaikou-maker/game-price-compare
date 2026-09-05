@@ -58,6 +58,8 @@ class RuntoScraper(BaseScraper):
 
         # Priority: シュリンク有 (ari) > variant labelled as BOX > other BOX-range prices
         for v in variations:
+            if not v.get("is_in_stock", True):
+                continue
             attrs = v.get("attributes", {})
             shrink = attrs.get("attribute_pa_shrink", "")
             if shrink == "ari":
@@ -74,6 +76,8 @@ class RuntoScraper(BaseScraper):
         box_prices = []
         candidates = []
         for v in variations:
+            if not v.get("is_in_stock", True):
+                continue
             p = int(v.get("display_price", 0))
             if p <= 0:
                 continue
@@ -94,6 +98,7 @@ class RuntoScraper(BaseScraper):
 
     def scrape(self) -> list[ScrapedItem]:
         items: list[ScrapedItem] = []
+        skipped = 0
 
         for base_url in BASE_URLS:
           for page in range(1, 15):  # up to 14 pages safety limit
@@ -109,6 +114,12 @@ class RuntoScraper(BaseScraper):
                 break
 
             for product in products:
+                # 買取停止(売り切れ)の商品は価格が残ったまま表示されるため除外する。
+                # WooCommerce が商品カードに instock / outofstock のクラスを付ける。
+                if "outofstock" in product.get("class", []):
+                    skipped += 1
+                    continue
+
                 # Product title
                 name_el = product.select_one("h2.woocommerce-loop-product__title")
                 if not name_el:
@@ -157,5 +168,6 @@ class RuntoScraper(BaseScraper):
             if not next_link:
                 break
 
-        logger.info("%s: scraped %d items", self.shop_name, len(items))
+        logger.info("%s: scraped %d items (在庫切れ %d件を除外)",
+                    self.shop_name, len(items), skipped)
         return items

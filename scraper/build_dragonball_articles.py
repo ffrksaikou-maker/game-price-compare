@@ -93,8 +93,8 @@ HOWTO_ARTICLES = [
      'hero_label': 'BOX最高買取ランキング 1位',
      'hero_big': 'MANGA BOOSTER 01 {{TOP1_PRICE}}',
      'hero_sub': '{{TOP1_MULT}}。2位 MANGA BOOSTER 02 {{TOP2_PRICE}}({{TOP2_MULT}})、3位 {{TOP3_NAME}} {{TOP3_PRICE}}({{TOP3_MULT}})。全{{DB_COUNT}}商品の最高買取と定価比を4店舗の実データで毎日更新しています。',
-     'body': '<p>ドラゴンボールのカードは、同じ「BOX」でも商品によって買取価格が<strong>20倍以上</strong>開きます。定価5,280円前後の通常ブースターが1万円台で落ち着く一方、<strong>MANGA '
-             'BOOSTERは10万円を超える</strong>のが実情です。本記事では、当サイトが4店舗から毎日自動収集している買取データをもとに、<strong>全{{DB_COUNT}}商品を最高買取価格の高い順にランキング</strong>し、なぜMANGA BOOSTERだけが別格なのかを整理します。</p>\n'
+     'body': '<p>ドラゴンボールのカードは、同じ「BOX」でも商品によって買取価格が大きく開きます。定価5,280円前後の通常ブースターが1万円前後で落ち着く一方、<strong>MANGA '
+             'BOOSTERは10万円規模</strong>になるのが実情です。本記事では、当サイトが4店舗から毎日自動収集している買取データをもとに、<strong>全{{DB_COUNT}}商品を最高買取価格の高い順にランキング</strong>し、なぜMANGA BOOSTERだけが別格なのかを整理します。</p>\n'
              '\n'
              '<h2>高額BOXランキング｜全{{DB_COUNT}}商品(当サイト実データ)</h2>\n'
              '<p>各商品の<strong>最高買取価格</strong>(当サイト掲載店舗のうち最も高い店の価格)と、<strong>定価に対する倍率</strong>を並べたものが以下の表です。商品名をクリックすると、その弾の当たりカードガイドに移動できます。</p>\n'
@@ -102,7 +102,7 @@ HOWTO_ARTICLES = [
              '<div class="callout"><strong>表の見方:</strong> 定価はBOX想定定価(1パック税込定価×BOX封入パック数)です。実売価格ではないため、倍率は「定価どおりに買えた場合」の目安として見てください。最新値は <a href="/dragonball">ドラゴンボールBOX買取価格比較トップ</a> でご確認ください。</div>\n'
              '\n'
              '<h2>なぜMANGA BOOSTERだけが突出するのか</h2>\n'
-             '<p>1位と2位を <strong>MANGA BOOSTER</strong> が占めています。通常ブースター(FBシリーズ)は上の表のとおり最高でも4万円台で、明らかに別の商品カテゴリとして扱われていることが分かります。</p>\n'
+             '<p>上位には <strong>MANGA BOOSTER</strong> が並びます。通常ブースター(FBシリーズ)は上の表のとおり明確に下の水準で、別の商品カテゴリとして扱われていることが分かります。</p>\n'
              '<p>理由は<strong>「エナジーマーカー★」</strong>という原作コミックスの表紙をそのまま使った特別なカードにあります。</p>\n'
              '<ul>\n'
              '<li><a href="sb-01-atari-guide.html">MANGA BOOSTER 01(SB-01)</a>: <strong>1巻表紙のエナジーマーカー★が約180万円</strong>。2位の孫悟空SCR★★でも約60〜65万円</li>\n'
@@ -117,8 +117,8 @@ HOWTO_ARTICLES = [
              '<p>逆に言えば、<strong>FBシリーズは基本的に定価の1〜3倍のレンジ</strong>で動く商品群です。MANGA BOOSTERの倍率をFBに当てはめて考えると、期待値を大きく見誤ります。</p>\n'
              '\n'
              '<h2>定価割れしている商品もある</h2>\n'
-             '<p>ランキング最下位の<strong>スーパーダイバーズ アドバンスパック「バトルオブサイヤン」</strong>は、当サイト掲載の中で唯一<strong>定価を下回っています</strong>。同じスーパーダイバーズでも「DRAGON BALL 40th Anniversary」は上位に入っており、シリーズ名ではなく商品単位で見る必要があることが分かります。</p>\n'
-             '<p>「ドラゴンボールのカードは値上がりする」と一括りにできない、というのがデータから言えることです。</p>\n'
+             '<p>当サイト掲載の中で<strong>定価を下回っているのは{{DB_UNDER_N}}商品</strong>({{DB_UNDER_NAMES}})です。同じスーパーダイバーズでも「DRAGON BALL 40th Anniversary」は上位に入っており、シリーズ名ではなく商品単位で見る必要があることが分かります。</p>\n'
+             '<p>「ドラゴンボールのカードは値上がりする」と一括りにできない、というのがデータから言えることです。なお本記事の価格は、<strong>買取を停止している店舗の価格を除外</strong>したうえで集計しています。</p>\n'
              '\n'
              '<h2>売るとき・買うときの考え方</h2>\n'
              '<ul>\n'
@@ -127,7 +127,7 @@ HOWTO_ARTICLES = [
              '<li><strong>新弾</strong>: 発売直後は相場が動きやすい時期です。今後の発売予定は <a href="hatsubai-schedule.html">ドラゴンボールカード 新弾スケジュール</a> にまとめています</li>\n'
              '</ul>\n',
      'faq': [{'q': 'ドラゴンボールカードで一番高いBOXはどれですか？',
-              'a': '当サイトが4店舗から毎日取得している実データでは、MANGA BOOSTER 01(SB-01)が{{TOP1_PRICE}}で1位です。BOX想定定価7,920円に対して{{TOP1_MULT}}にあたります。2位はMANGA BOOSTER 02(SB-02)の{{TOP2_PRICE}}です。'},
+              'a': '当サイトが4店舗から毎日取得している実データでは、{{TOP1_NAME}}が{{TOP1_PRICE}}で1位です({{TOP1_MULT}})。2位は{{TOP2_NAME}}の{{TOP2_PRICE}}、3位は{{TOP3_NAME}}の{{TOP3_PRICE}}です。'},
              {'q': 'なぜMANGA BOOSTERは通常のブースターパックより高いのですか？', 'a': '原作コミックスの表紙をそのまま使った「エナジーマーカー★」という枠があり、SB-01の1巻表紙は約180万円、SB-02の42巻表紙は約100万円という水準で取引されているためです。カード1枚の天井が通常ブースターと桁違いで、その価値がBOX価格に反映されています。'},
              {'q': '通常ブースター(FB)はどのくらいの倍率になりますか？', 'a': '多くは定価の1.3〜3.4倍のレンジです。例外は「神龍への願い」(FB-07)で、孫悟飯:SH SCR★★という240BOXに1枚とされる枠があるため倍率が跳ね上がっています。'},
              {'q': '定価より安くなっているBOXはありますか？', 'a': 'あります。スーパーダイバーズ アドバンスパック「バトルオブサイヤン」は当サイト掲載の中で唯一、最高買取がBOX想定定価を下回っています。同じスーパーダイバーズでも40th Anniversaryは上位に入っており、シリーズ単位ではなく商品単位で見る必要があります。'}]},
@@ -197,17 +197,17 @@ HOWTO_ARTICLES = [
 <p>SCRが3種という構成は、<a href="fb-10-atari-guide.html">FB-10「CROSS FORCE」</a>(ベジット・孫悟飯:少年期・セル)や <a href="fb-09-atari-guide.html">FB-09「DUAL EVOLUTION」</a>(ゴジータ3バージョン)と同じです。</p>
 
 <h2>過去弾の実績から見た相場の水準</h2>
-<p>予想の土台になるのは、<strong>同じ構成の弾が実際にどの水準にあるか</strong>です。当サイトが4店舗から収集している実データ(2026年8月30日時点)では次のようになっています。</p>
+<p>予想の土台になるのは、<strong>同じ構成の弾が実際にどの水準にあるか</strong>です。当サイトが4店舗から毎日自動収集している実データでは次のようになっています。</p>
 <table class="tbl">
 <thead><tr><th>弾</th><th>発売日</th><th>定価</th><th>BOX買取(最高)</th><th>定価比</th></tr></thead>
 <tbody>
-<tr><td><a href="box/fb-10.html">FB-10 CROSS FORCE</a></td><td>2026-06-13</td><td>5,280円</td><td class="num">16,500円</td><td>約3.1倍</td></tr>
-<tr><td><a href="box/fb-09.html">FB-09 DUAL EVOLUTION</a></td><td>2026-03-14</td><td>5,280円</td><td class="num">16,500円</td><td>約3.1倍</td></tr>
-<tr><td><a href="box/fb-08.html">FB-08 誇り高き戦闘民族</a></td><td>2025-12-13</td><td>5,280円</td><td class="num">12,800円</td><td>約2.4倍</td></tr>
-<tr><td><a href="box/fb-07.html">FB-07 神龍への願い</a></td><td>2025-09-13</td><td>5,280円</td><td class="num">41,500円</td><td>約7.9倍</td></tr>
+<tr><td><a href="box/fb-10.html">FB-10 CROSS FORCE</a></td><td>2026-06-13</td><td>5,280円</td><td class="num">{{DB_BOX:FB-10}}</td><td>{{DB_MULT:FB-10}}</td></tr>
+<tr><td><a href="box/fb-09.html">FB-09 DUAL EVOLUTION</a></td><td>2026-03-14</td><td>5,280円</td><td class="num">{{DB_BOX:FB-09}}</td><td>{{DB_MULT:FB-09}}</td></tr>
+<tr><td><a href="box/fb-08.html">FB-08 誇り高き戦闘民族</a></td><td>2025-12-13</td><td>5,280円</td><td class="num">{{DB_BOX:FB-08}}</td><td>{{DB_MULT:FB-08}}</td></tr>
+<tr><td><a href="box/fb-07.html">FB-07 神龍への願い</a></td><td>2025-09-13</td><td>5,280円</td><td class="num">{{DB_BOX:FB-07}}</td><td>{{DB_MULT:FB-07}}</td></tr>
 </tbody>
 </table>
-<p>SCR★★が3種だったFB-09・FB-10はいずれも定価の約3.1倍で並んでいます。一方、トップレア1枚に集中する構成の <a href="fb-07-atari-guide.html">FB-07</a> は約7.9倍と大きく外れており、<strong>構成の違いだけで水準が決まるわけではない</strong>ことがわかります。FB-07については、240BOXに1枚という封入率を踏まえるとカードの期待値ではBOX価格を説明できず、当サイトでも理由を断定していません。</p>
+<p>上の表のとおり、直近弾のBOX買取は<strong>定価の2倍前後</strong>に収まる一方、トップレア1枚に集中する構成の <a href="fb-07-atari-guide.html">FB-07</a> だけが大きく外れています。<strong>構成の違いだけで水準が決まるわけではない</strong>ことがわかります。FB-07については、240BOXに1枚という封入率を踏まえるとカードの期待値ではBOX価格を説明できず、当サイトでも理由を断定していません。表の数値は当サイトが毎日自動収集している実データで、<strong>買取を停止している店舗の価格は除外</strong>しています。</p>
 
 <h3>FB-11の見立て</h3>
 <p>以上から、FB-11は<strong>SCR★★3種構成という点でFB-09・FB-10に近い</strong>と考えられます。ただし相場は需給で決まるため、次の点で振れ幅があります。</p>
@@ -233,7 +233,7 @@ HOWTO_ARTICLES = [
             {"q": "FB-11の当たりカードは何ですか?",
              "a": "発売前のため確定していません。シークレットレア(SCR)は孫悟空(FB11-121)・シャレット(FB11-122)・バーダック(FB11-123)の3種が公開されています。SCRが3種という構成はFB-09・FB-10と同じです。実際の買取価格は発売後に当サイトへ掲載します。"},
             {"q": "FB-11のBOX買取価格はどのくらいになりそうですか?",
-             "a": "当サイトでは発売前の具体的な予想金額は掲載していません。参考として、SCR★★が3種だったFB-09・FB-10はいずれも現在(2026年8月30日時点)定価の約3.1倍で推移しています。ただし相場は需給で決まり、FB-07のように約7.9倍まで離れる弾もあるため、発売後の実データでご確認ください。"},
+             "a": "当サイトでは発売前の具体的な予想金額は掲載していません。参考として、直近弾のBOX買取は定価の2倍前後に収まる一方、FB-07のように大きく離れる弾もあります。最新の実データは本記事の表で毎日更新しているのでそちらをご確認ください。"},
             {"q": "FB-11のレアリティ構成はどうなっていますか?",
              "a": "全123種の内訳はSCR3種・リーダーカード5種・SR15種・R25種・UC35種・C40種です。これに加えてパラレル版(スーパーパラレル・パラレル・ビジュアルパラレル・スーパーコンボパラレル)が封入されます。封入率は公表されていないため、当サイトでは掲載していません。"},
             {"q": "発売前でも買取価格を比較できますか?",
@@ -1256,8 +1256,17 @@ def _subst_ranking(text: str) -> str:
     rows = _ranking_rows()
     if not rows:
         return text
+    for name, code, r, price, mult in rows:
+        if not code:
+            continue
+        text = text.replace("{{DB_BOX:%s}}" % code, f"{price:,}円")
+        text = text.replace("{{DB_MULT:%s}}" % code, f"約{mult:.1f}倍")
     text = text.replace("{{DB_RANKING}}", _ranking_table(rows))
     text = text.replace("{{DB_COUNT}}", str(len(rows)))
+    under = [r for r in rows if 0 < r[4] < 1]
+    text = text.replace("{{DB_UNDER_N}}", str(len(under)))
+    text = text.replace("{{DB_UNDER_NAMES}}", "、".join(
+        (r[0].split("「")[-1].split("」")[0] if "「" in r[0] else r[0]) for r in under) or "なし")
     for i in range(1, 6):
         if i > len(rows):
             break
