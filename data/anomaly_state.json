@@ -1,4 +1,10 @@
 {
+  "UX-04 バトルエントリーセットU|rudeya": {
+    "price": 7000,
+    "ref": 25000,
+    "ratio": 0.28,
+    "drop": false
+  },
   "MANGA BOOSTER 02【SB-02】|morimori": {
     "price": 19800,
     "ref": 50000,
