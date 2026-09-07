@@ -1,10 +1,4 @@
 {
-  "UX-19 バレットグリフォンH|rudeya": {
-    "price": 5000,
-    "ref": 1900,
-    "ratio": 2.63,
-    "drop": false
-  },
   "UX-04 バトルエントリーセットU|rudeya": {
     "price": 7000,
     "ref": 25000,
@@ -19,8 +13,8 @@
   },
   "MANGA BOOSTER 01【SB-01】|morimori": {
     "price": 15000,
-    "ref": 100000,
-    "ratio": 0.15,
+    "ref": 107500,
+    "ratio": 0.14,
     "drop": true
   }
 }
