@@ -83,6 +83,10 @@
   "requested_at": "2026-08-17T07:33:37+09:00",
   "result": "requested"
  },
+ "https://pokeca-box-hikaku.com/box/black-bolt-dx.html": {
+  "requested_at": "2026-09-07T16:43:33+09:00",
+  "result": "indexed"
+ },
  "https://pokeca-box-hikaku.com/box/black-bolt.html": {
   "requested_at": "2026-08-22T08:44:43+09:00",
   "result": "requested"
@@ -111,9 +115,17 @@
   "requested_at": "2026-08-18T08:20:41+09:00",
   "result": "indexed"
  },
+ "https://pokeca-box-hikaku.com/box/mega-brave.html": {
+  "requested_at": "2026-09-07T16:43:33+09:00",
+  "result": "indexed"
+ },
  "https://pokeca-box-hikaku.com/box/mega-ex.html": {
   "requested_at": "2026-08-21T15:50:57+09:00",
   "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/box/munikis-zero.html": {
+  "requested_at": "2026-09-07T16:43:33+09:00",
+  "result": "indexed"
  },
  "https://pokeca-box-hikaku.com/box/neppuu-arena.html": {
   "requested_at": "2026-08-18T08:23:50+09:00",
@@ -153,6 +165,10 @@
  },
  "https://pokeca-box-hikaku.com/box/vstar-universe.html": {
   "requested_at": "2026-08-31T06:05:05+09:00",
+  "result": "indexed"
+ },
+ "https://pokeca-box-hikaku.com/box/white-flare-dx.html": {
+  "requested_at": "2026-09-07T16:43:33+09:00",
   "result": "indexed"
  },
  "https://pokeca-box-hikaku.com/box/white-flare.html": {
@@ -287,12 +303,20 @@
   "requested_at": "2026-08-29T01:28:17+09:00",
   "result": "requested"
  },
+ "https://pokeca-box-hikaku.com/dragonball/fb-11-atari-guide.html": {
+  "requested_at": "2026-09-07T16:37:45+09:00",
+  "result": "requested"
+ },
  "https://pokeca-box-hikaku.com/dragonball/fb-11-forecast.html": {
   "requested_at": "2026-08-31T05:51:48+09:00",
   "result": "requested"
  },
  "https://pokeca-box-hikaku.com/dragonball/hatsubai-schedule.html": {
   "requested_at": "2026-08-29T01:15:45+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/dragonball/kougaku-ranking.html": {
+  "requested_at": "2026-09-07T16:37:45+09:00",
   "result": "requested"
  },
  "https://pokeca-box-hikaku.com/dragonball/sb-01-atari-guide.html": {
@@ -345,6 +369,10 @@
  },
  "https://pokeca-box-hikaku.com/kokuen-vs-rocket.html": {
   "requested_at": "2026-08-16T07:10:00+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/kougaku-box-ranking.html": {
+  "requested_at": "2026-09-07T16:37:45+09:00",
   "result": "requested"
  },
  "https://pokeca-box-hikaku.com/legendary-heartbeat-atari-guide.html": {
@@ -431,6 +459,10 @@
   "requested_at": "2026-08-19T07:32:26+09:00",
   "result": "requested"
  },
+ "https://pokeca-box-hikaku.com/monthly-ranking-2026-08.html": {
+  "requested_at": "2026-09-07T16:43:31+09:00",
+  "result": "requested"
+ },
  "https://pokeca-box-hikaku.com/munikis-zero-atari-guide.html": {
   "requested_at": "2026-08-23T06:50:14+09:00",
   "result": "indexed"
@@ -487,6 +519,10 @@
   "requested_at": "2026-08-27T06:18:55+09:00",
   "result": "requested"
  },
+ "https://pokeca-box-hikaku.com/onepiece/eb-05-forecast.html": {
+  "requested_at": "2026-09-07T16:37:45+09:00",
+  "result": "requested"
+ },
  "https://pokeca-box-hikaku.com/onepiece/eb02-luffy-comipara.html": {
   "requested_at": "2026-08-27T06:18:55+09:00",
   "result": "requested"
@@ -529,6 +565,10 @@
  },
  "https://pokeca-box-hikaku.com/onepiece/roger-gold-comipara.html": {
   "requested_at": "2026-08-27T06:18:55+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/onepiece/round1-promo.html": {
+  "requested_at": "2026-09-07T16:37:45+09:00",
   "result": "requested"
  },
  "https://pokeca-box-hikaku.com/onepiece/shikou-treasure-get.html": {
@@ -681,6 +721,10 @@
  },
  "https://pokeca-box-hikaku.com/startdeck100-atari-guide.html": {
   "requested_at": "2026-09-01T01:48:38+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/startdeck100-mirror.html": {
+  "requested_at": "2026-09-07T16:37:45+09:00",
   "result": "requested"
  },
  "https://pokeca-box-hikaku.com/startdeck100-miwakekata.html": {

@@ -100,6 +100,84 @@ CARD_SOURCE_OVERRIDE: dict[str, str] = {
 }
 
 HOWTO_ARTICLES = [
+    {'slug': 'chusen-matome',
+     'nav_label': '抽選販売まとめ',
+     'crumb': 'ワンピBOX 抽選販売まとめ',
+     'date': '2026-09-08',
+     'date_jp': '2026年9月8日',
+     'title': 'ワンピカードBOX 抽選販売まとめ｜当たったら定価からいくら得か【実データ】',
+     'h1': 'ワンピカードBOX 抽選販売まとめ｜当たったら定価からいくら得か',
+     'meta_desc': 'ONE '
+                  'PIECEカードゲームのBOX抽選販売を、当サイトが最大9店舗から毎日自動収集している買取実データと突き合わせて整理します。直近{{CH_N}}弾のうち{{CH_OVER_N}}弾が定価を上回っており、最も差が大きい{{CH_TOP_NAME}}は定価{{CH_TOP_RETAIL}}に対し買取{{CH_TOP_PRICE}}({{CH_TOP_GAIN}}差)。抽選をやっている店舗と、応募する価値の判断材料をまとめました。',
+     'og_title': 'ワンピカードBOX 抽選販売まとめ｜当たったら定価からいくら得か',
+     'og_desc': '抽選対象になりやすい直近{{CH_N}}弾の定価と買取相場の差を実データで掲載。毎日更新。',
+     'meta_line': 'ワンピカードBOXの抽選販売と、当たった場合の定価との差額(当サイト実データ・毎日更新)',
+     'hero_label': '抽選で当たった場合の定価との差',
+     'hero_big': '{{CH_TOP_NAME}} {{CH_TOP_GAIN}}',
+     'hero_sub': '定価{{CH_TOP_RETAIL}}に対して現在の最高買取は{{CH_TOP_PRICE}}({{CH_TOP_MULT}})。直近{{CH_DONE_N}}弾のうち{{CH_OVER_N}}弾が定価を上回っています。数値は当サイトが最大9店舗から毎日自動収集した実データです。',
+     'disclaimer': '本記事の買取価格は当サイトが最大9店舗から自動取得した実データで、表示は取得時点のスナップショットです。定価はメーカー希望小売価格(税込)で、実売価格とは異なります。抽選の受付状況・応募条件は各店舗が随時変更するため、応募の前に必ず各店舗の公式ページで最新情報をご確認ください。当サイトは抽選の当選を保証するものではなく、転売を推奨するものでもありません。買取価格は需給で日々変動し、当選から売却までの間に下落することもあります。売買の判断はご自身の責任で行ってください。当サイトはAmazonのアソシエイトとして、適格販売により収入を得ています。',
+     'related': '<li><a href="/onepiece">ワンピBOX買取価格比較トップ</a> — 全弾のBOX買取価格を最大9店舗で横断比較(毎日更新)</li>\n'
+                '<li><a href="kougaku-ranking.html">高額BOXランキング・絶版ガイド</a> — 全弾の最高買取と定価比</li>\n'
+                '<li><a href="hatsubai-schedule.html">新弾発売スケジュール</a> — 今後の発売予定と定価</li>\n'
+                '<li><a href="restock-guide.html">再販・入荷ガイド</a> — 再販の実績と入手経路</li>\n'
+                '<li><a href="kaitori-hikaku.html">ワンピBOX買取比較ガイド</a> — 高く売るコツと店舗選び</li>',
+     'body': '<p>ONE PIECEカードゲームの人気弾は、発売時に<strong>抽選販売</strong>になることがあります。抽選は定価で買える機会ですが、「応募する価値があるのか」を判断するには<strong>定価と実際の相場の差</strong>を知る必要があります。</p>\n'
+             '<p>本記事では、当サイトが最大9店舗から毎日自動収集している買取実データを使い、<strong>抽選対象になりやすい弾が、いま定価に対してどの水準にあるか</strong>を整理します。抽選の受付状況そのものは各店舗が日々更新しているため、本記事では<strong>変わりにくい情報と、毎日更新できる数値</strong>に絞っています。</p>\n'
+             '\n'
+             '<h2>いまAmazonで招待リクエストを受け付けている弾</h2>\n'
+             '<p>{{CH_INVITE_CHECKED}}時点で、Amazonの<strong>招待リクエスト(抽選)</strong>の対象になっているのは次の<strong>{{CH_INVITE_N}}弾</strong>です。'
+             '定価と買取価格は当サイトが最大9店舗から自動収集している実データで、<strong>差額がプラスなら定価で買えた場合にその分の価値がある</strong>という見方ができます。</p>\n'
+             '{{CH_INVITE}}\n'
+             '<div class="callout"><strong>受付状況は変わります。</strong> 上の一覧は{{CH_INVITE_CHECKED}}に全ASINを実際のAmazonページで確認したものです。'
+             '受付が終了している場合、リンク先は通常の商品ページとして表示されます(リンク自体は切れません)。定価・買取価格の欄は毎日自動更新されます。</div>\n'
+             '\n'
+             '<h2>抽選対象になりやすい弾の「定価 vs 現在の買取」</h2>\n'
+             '<p>直近{{CH_N}}弾を、<strong>定価との差額が大きい順</strong>に並べています。差額がプラスなら、抽選で定価購入できた場合にその分の含み益がある計算です。</p>\n'
+             '{{CH_TABLE}}\n'
+             '<div class="callout"><strong>読み方:</strong> 「差額」は<strong>現在の最高買取 − 定価</strong>です。実際に売る場合は送料や手数料が引かれるため、手取りはこれより少なくなります。また買取価格は日々変動するので、当選してから売却するまでの間に下がることもあります。</div>\n'
+             '<p>直近{{CH_DONE_N}}弾のうち<strong>{{CH_OVER_N}}弾が定価を上回り</strong>、平均は定価の{{CH_AVG_MULT}}です。抽選は「当たれば必ず得」ではなく、<strong>弾によって差が大きい</strong>点が数字に出ています。</p>\n'
+             '\n'
+             '<h2>まだ発売前の弾</h2>\n'
+             '<p>発売前で買取価格が付いていないのは<strong>{{CH_PRE_N}}弾</strong>({{CH_PRE_NAMES}})です。これらは<strong>抽選の受付が集中する時期</strong>にあたります。発売後は当サイトが毎日価格を取得するので、本記事の表にも自動で反映されます。</p>\n'
+             '<p>発売前の弾がどのくらいの水準に着地しそうかは、過去の同種の弾の実績から見積もるのが現実的です。エクストラブースターの実績は <a href="eb-05-forecast.html">EB-05の発売前予想</a> で、全弾の定価比は <a href="kougaku-ranking.html">高額BOXランキング</a> でまとめています。</p>\n'
+             '\n'
+             '<h2>抽選をやっている主な窓口</h2>\n'
+             '<p>抽選の実施は商品ごとに変わりますが、<strong>継続的に抽選販売を行っている窓口</strong>はある程度決まっています。</p>\n'
+             '<table class="price-table">\n'
+             '<thead><tr><th>窓口</th><th>特徴</th><th>応募のしやすさ</th></tr></thead>\n'
+             '<tbody>\n'
+             '<tr class="best"><td><strong>Amazon(招待リクエスト)</strong></td><td>応募後に当選者へ購入用の招待が届く形式</td><td>アカウントがあれば1クリック</td></tr>\n'
+             '<tr><td>家電量販店(ビックカメラ・ヨドバシ等)</td><td>店舗受取指定が条件になることがある</td><td>会員登録＋条件確認が必要</td></tr>\n'
+             '<tr><td>カードショップ・通販(駿河屋・ゲオ等)</td><td>弾ごとに実施。受付期間が短いことがある</td><td>店舗ごとに条件が異なる</td></tr>\n'
+             '<tr><td>公式イベント・大会</td><td>プロモ付きの限定商品が対象になることがある</td><td>参加条件あり</td></tr>\n'
+             '</tbody>\n'
+             '</table>\n'
+             '<div class="callout"><strong>受付状況は本記事では追いません。</strong> 抽選の開始・締切は日単位で変わるため、専門の速報サイトのほうが正確です。当サイトは「当たった場合にどれだけの価値があるか」を実データで示す役割に絞っています。応募の前に各窓口の公式ページで最新の受付状況をご確認ください。</div>\n'
+             '\n'
+             '<h3>Amazonの招待リクエストについて</h3>\n'
+             '<p>Amazonの抽選は<strong>「招待リクエスト」</strong>という形式です。商品ページからリクエストを送り、当選するとメールで購入用リンクが届きます。応募自体は数秒で終わりますが、<strong>当選までに数日かかる</strong>点と、<strong>招待には購入期限がある</strong>点に注意してください。期限を過ぎると権利が消えます。</p>\n'
+             '<p><a href="{{CH_AMAZON}}" rel="nofollow sponsored" target="_blank">Amazonでワンピースカードのラインナップを見る</a>(現在の取り扱い状況が確認できます)</p>\n'
+             '\n'
+             '<h2>応募するかどうかの判断</h2>\n'
+             '<ul>\n'
+             '<li><strong>定価との差が小さい弾</strong>: 上の表で差額が小さい弾は、抽選に応募する労力に見合いません。通常販売を待つか、必要なときにシングルで買う方が合理的です</li>\n'
+             '<li><strong>差が大きい弾</strong>: 定価で入手できる価値が明確にあります。ただし<strong>その差は「今の相場」であって、当選する頃には変わっている</strong>可能性があります</li>\n'
+             '<li><strong>発売前の弾</strong>: 相場が存在しないため、過去の実績から判断するしかありません。<strong>発売直後は初動で高く出て、その後下がる</strong>のが通例です</li>\n'
+             '</ul>\n'
+             '<div class="callout"><strong>当サイトの立場:</strong> '
+             '抽選は<strong>定価で確実に手に入れるための仕組み</strong>であって、転売のための手段としては勧めません。開封して楽しむにせよ、未開封で保管するにせよ、<strong>いま定価がどの程度の価値なのかを知ったうえで応募するかどうかを決める</strong>ための材料として本記事を使ってください。</div>\n'
+             '\n'
+             '<h2>抽選に外れたときの選択肢</h2>\n'
+             '<ul>\n'
+             '<li><strong>再販を待つ</strong>: ONE PIECEカードゲームは再販・増産が継続しています。実績は <a href="restock-guide.html">再販・入荷ガイド</a> にまとめています</li>\n'
+             '<li><strong>相場を見て買う</strong>: <a href="/onepiece">買取価格比較トップ</a>で各弾の買取水準が分かります。買取価格は販売価格の目安にもなるので、「いくらまでなら妥当か」の判断に使えます</li>\n'
+             '<li><strong>通常販売の在庫を確認する</strong>: 抽選以外にも在庫が出ることがあります。<a href="{{CH_AMAZON}}" rel="nofollow sponsored" target="_blank">Amazonの在庫を見る</a></li>\n'
+             '</ul>\n',
+     'faq': [{'q': 'ワンピカードの抽選に当たったら、どのくらい得なのですか？',
+              'a': '弾によって大きく違います。当サイトの実データでは、直近{{CH_DONE_N}}弾のうち{{CH_OVER_N}}弾が定価を上回っており、平均は定価の{{CH_AVG_MULT}}です。最も差が大きいのは{{CH_TOP_NAME}}で、定価{{CH_TOP_RETAIL}}に対して現在の最高買取が{{CH_TOP_PRICE}}({{CH_TOP_GAIN}}差)です。ただし売却時は送料や手数料が引かれ、買取価格自体も日々変動します。'},
+             {'q': 'どこで抽選に応募できますか？', 'a': '継続的に抽選販売を行っているのはAmazon(招待リクエスト)、家電量販店、カードショップ・通販各社です。ただし実施の有無は弾ごとに変わり、受付期間も短いことがあるため、応募前に各窓口の公式ページで最新の受付状況をご確認ください。当サイトは受付状況の速報は行っていません。'},
+             {'q': 'Amazonの招待リクエストとは何ですか？', 'a': '商品ページからリクエストを送り、当選するとメールで購入用のリンクが届く抽選形式です。応募自体は数秒で終わりますが、当選までに数日かかること、招待には購入期限があり過ぎると権利が消えることに注意してください。'},
+             {'q': '抽選に外れた場合はどうすればいいですか？', 'a': '再販を待つ、相場を見て納得できる価格で買う、通常販売の在庫を探す、の3つが基本です。ONE PIECEカードゲームは再販・増産が継続しているため、時間をおくと入手しやすくなる傾向があります。'}]},
     {'slug': 'eb-05-forecast',
      'nav_label': '【予想】ヒロインズ vol.2(EB-05)',
      'crumb': 'ヒロインズエディション vol.2(EB-05) 発売前予想',
@@ -2685,6 +2763,134 @@ def _pokeca_change_summary(short_days: int = PRICE_CHANGE_WINDOW_DAYS) -> dict:
     return out if out["long"] and out["short"] else {}
 
 
+AMAZON_TAG = "chappin175s-22"
+CHUSEN_MONTHS = 13
+
+
+def _amazon_search(keyword: str) -> str:
+    """Amazonの検索リンク。商品ページ直リンクはASIN差し替え・販売終了で壊れるため使わない。"""
+    from urllib.parse import quote
+    return f"https://www.amazon.co.jp/s?k={quote(keyword)}&tag={AMAZON_TAG}"
+
+
+def _chusen_rows() -> list:
+    """抽選対象になりやすい新しめの弾(未発売含む)を、定価と現在の買取で並べる。"""
+    from datetime import date, timedelta
+    from scraper.products_onepiece import ONEPIECE_PRODUCTS
+    files = sorted(HISTORY_OP_DIR.glob("*.json"))
+    if not files:
+        return []
+    data = json.loads(files[-1].read_text(encoding="utf-8"))
+    cur = {}
+    for r in data:
+        vals = [v for v in r.get("prices", {}).values() if v > 0]
+        if vals:
+            cur[r["name"]] = max(vals)
+    limit = (date.today() - timedelta(days=CHUSEN_MONTHS * 30)).isoformat()
+    rows = []
+    for m in ONEPIECE_PRODUCTS:
+        rel = getattr(m, "release_date", "") or ""
+        if not rel or rel < limit or not m.retail_price:
+            continue
+        price = cur.get(m.name, 0)
+        rows.append({
+            "name": m.name,
+            "rel": rel,
+            "retail": m.retail_price,
+            "price": price,
+            "gain": price - m.retail_price if price else 0,
+            "mult": price / m.retail_price if price else 0,
+            "unreleased": rel > date.today().isoformat(),
+        })
+    rows.sort(key=lambda r: (r["unreleased"], -r["gain"]))
+    return rows
+
+
+def _chusen_table(rows: list) -> str:
+    body = ""
+    for r in rows:
+        rel = r["rel"].replace("-", "/")
+        if r["unreleased"]:
+            body += (f'<tr><td>{_esc(r["name"])}</td><td>{rel}</td>'
+                     f'<td class="price">\u00a5{r["retail"]:,}</td>'
+                     f'<td class="price">発売前</td><td class="price">—</td><td class="price">—</td></tr>')
+            continue
+        cls = ' class="best"' if r["gain"] > 0 else ""
+        gain = f'+\u00a5{r["gain"]:,}' if r["gain"] > 0 else f'\u00a5{r["gain"]:,}'
+        body += (f'<tr{cls}><td>{_esc(r["name"])}</td><td>{rel}</td>'
+                 f'<td class="price">\u00a5{r["retail"]:,}</td>'
+                 f'<td class="price">\u00a5{r["price"]:,}</td>'
+                 f'<td class="price">{gain}</td>'
+                 f'<td class="price">{r["mult"]:.2f}倍</td></tr>')
+    return ('<table class="price-table"><thead><tr><th>商品</th><th>発売日</th>'
+            '<th class="price">定価</th><th class="price">現在の最高買取</th>'
+            '<th class="price">差額</th><th class="price">定価比</th></tr></thead>'
+            f'<tbody>{body}</tbody></table>')
+
+
+# Amazonで招待リクエスト(抽選)を受け付けている弾。2026-09-08に全ASINを実地で確認した。
+# ASINは商品ページのIDなので、招待受付が終わっても通常販売ページとして生きる(死にリンクにならない)。
+AMAZON_INVITE_CHECKED = "2026年9月8日"
+AMAZON_INVITE = [
+    ("B0HB3JQ6P4", "EB-05"),
+    ("B0H43ZX8LK", "OP-17"),
+    ("B0GN5JV7JS", "OP-16"),
+    ("B0G2VKBZML", "OP-15"),
+    ("B0FQB2BQHM", "OP-14"),
+    ("B0G6J9VPN2", "ST-30"),
+]
+
+
+def _amazon_dp(asin: str) -> str:
+    return f"https://www.amazon.co.jp/dp/{asin}?tag={AMAZON_TAG}"
+
+
+def _invite_rows() -> list:
+    from scraper.products_onepiece import ONEPIECE_PRODUCTS
+    files = sorted(HISTORY_OP_DIR.glob("*.json"))
+    cur = {}
+    if files:
+        for r in json.loads(files[-1].read_text(encoding="utf-8")):
+            vals = [v for v in r.get("prices", {}).values() if v > 0]
+            if vals:
+                cur[r["name"]] = max(vals)
+    out = []
+    for asin, key in AMAZON_INVITE:
+        hit = next((m for m in ONEPIECE_PRODUCTS if key in m.name), None)
+        if not hit:
+            continue
+        from datetime import date
+        rel = getattr(hit, "release_date", "") or ""
+        price = cur.get(hit.name, 0)
+        out.append({"asin": asin, "name": hit.name, "retail": hit.retail_price,
+                    "price": price,
+                    "gain": price - hit.retail_price if price and hit.retail_price else 0,
+                    "unreleased": bool(rel) and rel > date.today().isoformat()})
+    out.sort(key=lambda r: -r["gain"])
+    return out
+
+
+def _invite_table() -> str:
+    """Amazon側の価格は載せない(アソシエイト規約でPA-API以外の価格表示は不可)。"""
+    body = ""
+    for r in _invite_rows():
+        link = (f'<a href="{_amazon_dp(r["asin"])}" rel="nofollow sponsored" '
+                f'target="_blank">招待をリクエスト</a>')
+        if not r["price"]:
+            price_txt = "発売前" if r.get("unreleased") else "買取掲載なし"
+            gain_txt, cls = "—", ""
+        else:
+            price_txt = f'\u00a5{r["price"]:,}'
+            gain_txt = (f'+\u00a5{r["gain"]:,}' if r["gain"] > 0 else f'\u00a5{r["gain"]:,}')
+            cls = ' class="best"' if r["gain"] > 0 else ""
+        body += (f'<tr{cls}><td>{_esc(r["name"])}</td>'
+                 f'<td class="price">\u00a5{r["retail"]:,}</td>'
+                 f'<td class="price">{price_txt}</td>'
+                 f'<td class="price">{gain_txt}</td><td>{link}</td></tr>')
+    return ('<table class="price-table"><thead><tr><th>弾</th><th class="price">定価</th>'
+            '<th class="price">現在の最高買取</th><th class="price">差額</th>'
+            '<th>Amazon</th></tr></thead>'
+            f'<tbody>{body}</tbody></table>')
 def _howto_placeholders(body: str, box: dict) -> str:
     rows = _box_ranking_rows(box)
     body = body.replace("{{BOX_RANKING}}", _box_ranking_table(box))
@@ -2727,6 +2933,33 @@ def _howto_placeholders(body: str, box: dict) -> str:
                 body = body.replace(f"{{{{PK_{key}_AVG}}}}", f"{d['avg']:+.1f}%")
                 body = body.replace(f"{{{{PK_{key}_N}}}}", str(d["n"]))
                 body = body.replace(f"{{{{PK_{key}_PERIOD}}}}", f"{d['from']}〜{d['to']}")
+
+    if "{{CH_" in body:
+        crows = _chusen_rows()
+        if crows:
+            body = body.replace("{{CH_TABLE}}", _chusen_table(crows))
+            body = body.replace("{{CH_N}}", str(len(crows)))
+            done = [r for r in crows if not r["unreleased"] and r["price"]]
+            pre = [r for r in crows if r["unreleased"]]
+            body = body.replace("{{CH_PRE_N}}", str(len(pre)))
+            body = body.replace("{{CH_PRE_NAMES}}",
+                                "、".join(r["name"] for r in pre[:3]) if pre else "現在なし")
+            if done:
+                top = done[0]
+                body = body.replace("{{CH_TOP_NAME}}", top["name"])
+                body = body.replace("{{CH_TOP_GAIN}}", f"¥{top['gain']:,}")
+                body = body.replace("{{CH_TOP_RETAIL}}", f"¥{top['retail']:,}")
+                body = body.replace("{{CH_TOP_PRICE}}", f"¥{top['price']:,}")
+                body = body.replace("{{CH_TOP_MULT}}", f"{top['mult']:.2f}倍")
+                over = [r for r in done if r["gain"] > 0]
+                body = body.replace("{{CH_OVER_N}}", str(len(over)))
+                body = body.replace("{{CH_DONE_N}}", str(len(done)))
+                avg = sum(r["mult"] for r in done) / len(done)
+                body = body.replace("{{CH_AVG_MULT}}", f"{avg:.2f}倍")
+        body = body.replace("{{CH_AMAZON}}", _amazon_search("ワンピースカード BOX"))
+        body = body.replace("{{CH_INVITE}}", _invite_table())
+        body = body.replace("{{CH_INVITE_N}}", str(len(AMAZON_INVITE)))
+        body = body.replace("{{CH_INVITE_CHECKED}}", AMAZON_INVITE_CHECKED)
     return body
 
 
