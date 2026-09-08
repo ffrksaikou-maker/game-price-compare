@@ -3,12 +3,12 @@
     "name": "UX-21 ヘルズネザーデッキセット",
     "category": "ux",
     "retail_price": 4500,
-    "max_price": 5500,
+    "max_price": 5000,
     "prices": {
-      "morimori": 5500,
+      "morimori": 5000,
       "homura": 5000,
       "rudeya": 5000,
-      "icchome": 5500
+      "icchome": 5000
     }
   },
   {
@@ -29,7 +29,7 @@
     "retail_price": 2600,
     "max_price": 2800,
     "prices": {
-      "morimori": 1800,
+      "morimori": 2000,
       "rudeya": 2800,
       "icchome": 2000
     }
@@ -74,7 +74,7 @@
     "retail_price": 4200,
     "max_price": 9500,
     "prices": {
-      "morimori": 7800,
+      "morimori": 7100,
       "rudeya": 9500,
       "icchome": 7800
     }
@@ -97,7 +97,7 @@
     "retail_price": 2420,
     "max_price": 2500,
     "prices": {
-      "morimori": 2100,
+      "morimori": 1900,
       "rudeya": 2500,
       "icchome": 2500
     }
@@ -185,7 +185,7 @@
     "retail_price": 1600,
     "max_price": 1000,
     "prices": {
-      "morimori": 1000,
+      "morimori": 900,
       "rudeya": 1000,
       "icchome": 1000
     }
@@ -263,7 +263,7 @@
     "max_price": 2000,
     "prices": {
       "morimori": 1600,
-      "homura": 2000,
+      "homura": 1800,
       "rudeya": 2000,
       "icchome": 1800
     }
@@ -381,7 +381,7 @@
     "retail_price": 2420,
     "max_price": 2000,
     "prices": {
-      "morimori": 1400,
+      "morimori": 1600,
       "rudeya": 2000,
       "icchome": 1600
     }
