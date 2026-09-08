@@ -65,6 +65,25 @@ article li{margin-bottom:8px}
 .price-table th{background:#f9fafb;text-align:left;font-size:11px;color:var(--text-sub);letter-spacing:.5px}
 .price-table tr.best td{background:#ffe0e0;font-weight:700}
 .price-table tr.warnrow td{background:#fef2f2}
+article h2{margin:36px 0 14px;padding:6px 0 6px 13px;border-left:5px solid #d32f2f;font-size:19px;line-height:1.45;background:linear-gradient(90deg,#fff1f1,transparent);border-radius:0 6px 6px 0}
+article h3{margin:26px 0 10px;font-size:15px;color:#b91c1c;padding-bottom:5px;border-bottom:1px dashed #fecaca}
+article p{line-height:1.95;margin-bottom:15px}
+article ul{margin:16px 0;padding-left:0;list-style:none}
+article li{position:relative;margin-bottom:12px;line-height:1.9;padding-left:20px}
+article li::before{content:"";position:absolute;left:4px;top:11px;width:7px;height:7px;border-radius:50%;background:#fca5a5}
+.price-table{border-collapse:separate;border-spacing:0;overflow:hidden;border-radius:10px;border:1px solid #e5e7eb}
+.price-table th{background:#fff1f1;color:#991b1b;font-weight:700;font-size:11.5px;letter-spacing:.3px}
+.price-table tbody tr:nth-child(even){background:#fafafa}
+.price-table tbody tr:hover{background:#fff5f5}
+.price-table td,.price-table th{border-bottom:1px solid #f0f0f0}
+.price-table td.price{font-variant-numeric:tabular-nums}
+td.gain{color:#047857;font-weight:800}
+td.loss{color:#b91c1c;font-weight:700}
+td.pre{color:#9ca3af}
+.price-table tr.best td{background:#f0fdf4}
+.price-table tr.best:hover td{background:#dcfce7}
+.callout{border-left:4px solid #f4511e}
+
 .price-table td.price{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
 .callout{background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:14px 18px;margin:14px 0;font-size:13px}
 .callout strong{color:#1d4ed8}
@@ -2820,7 +2839,7 @@ def _chusen_table(rows: list) -> str:
         body += (f'<tr{cls}><td>{_esc(r["name"])}</td><td>{rel}</td>'
                  f'<td class="price">\u00a5{r["retail"]:,}</td>'
                  f'<td class="price">\u00a5{r["price"]:,}</td>'
-                 f'<td class="price">{gain}</td>'
+                 f'<td class="price {"gain" if r["gain"] > 0 else "loss"}">{gain}</td>'
                  f'<td class="price">{r["mult"]:.2f}倍</td></tr>')
     return ('<table class="price-table"><thead><tr><th>商品</th><th>発売日</th>'
             '<th class="price">定価</th><th class="price">現在の最高買取</th>'
@@ -2885,8 +2904,9 @@ def _invite_table() -> str:
             cls = ' class="best"' if r["gain"] > 0 else ""
         body += (f'<tr{cls}><td>{_esc(r["name"])}</td>'
                  f'<td class="price">\u00a5{r["retail"]:,}</td>'
-                 f'<td class="price">{price_txt}</td>'
-                 f'<td class="price">{gain_txt}</td><td>{link}</td></tr>')
+                 f'<td class="price{"" if r["price"] else " pre"}">{price_txt}</td>'
+                 f'<td class="price {"gain" if r["gain"] > 0 else ("loss" if r["price"] else "pre")}">{gain_txt}</td>'
+                 f'<td>{link}</td></tr>')
     return ('<table class="price-table"><thead><tr><th>弾</th><th class="price">定価</th>'
             '<th class="price">現在の最高買取</th><th class="price">差額</th>'
             '<th>Amazon</th></tr></thead>'

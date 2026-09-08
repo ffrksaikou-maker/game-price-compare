@@ -38,6 +38,25 @@ EXTRA_CSS = """
 .stat-big{font-size:30px;font-weight:800;color:#4338ca;line-height:1.2;margin:4px 0 12px}
 .stat-sub{font-size:12px;color:#4f46e5;line-height:1.7}
 .callout{background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:14px 18px;margin:14px 0;font-size:13px}
+
+article h2{margin:36px 0 14px;padding:9px 0 9px 14px;border-left:5px solid #6366f1;border-bottom:none;font-size:19px;font-weight:800;line-height:1.45;background:linear-gradient(90deg,#eef2ff,transparent);border-radius:0 8px 8px 0;color:#312e81}
+article h3{margin:26px 0 10px;font-size:15px;color:#4338ca;padding-bottom:5px;border-bottom:1px dashed #ddd6fe}
+article p{line-height:1.95;margin-bottom:15px}
+article ul{margin:16px 0;padding-left:0;list-style:none}
+article li{position:relative;margin-bottom:12px;line-height:1.9;padding-left:20px}
+article li::before{content:"";position:absolute;left:4px;top:11px;width:7px;height:7px;border-radius:50%;background:#a5b4fc}
+.data-table{border-collapse:separate;border-spacing:0;overflow:hidden;border-radius:10px;border:1px solid #e5e7eb}
+.data-table th{background:#eef2ff;color:#3730a3;font-weight:700;font-size:11.5px;letter-spacing:.3px;text-transform:none}
+.data-table tbody tr:nth-child(even){background:#fafafa}
+.data-table tbody tr:hover{background:#f5f3ff}
+.data-table td,.data-table th{border-bottom:1px solid #f0f0f0}
+.data-table td.num{font-variant-numeric:tabular-nums}
+td.gain{color:#047857;font-weight:800}
+td.loss{color:#b91c1c;font-weight:700}
+td.pre{color:#9ca3af}
+.data-table tr.up td{background:#f0fdf4}
+.data-table tr.up:hover td{background:#dcfce7}
+.callout{border-left:4px solid #3b82f6}
 """
 
 
@@ -366,7 +385,7 @@ def _chusen_table(rows: list) -> str:
         body += (f'<tr{cls}><td>{_esc(r["name"])}</td><td>{rel}</td>'
                  f'<td class="num">\u00a5{r["retail"]:,}</td>'
                  f'<td class="num">\u00a5{r["price"]:,}</td>'
-                 f'<td class="num">{gain}</td>'
+                 f'<td class="num {"gain" if r["gain"] > 0 else "loss"}">{gain}</td>'
                  f'<td class="num">{r["mult"]:.2f}倍</td></tr>')
     return ('<table class="data-table"><thead><tr><th>商品</th><th>発売日</th>'
             '<th class="num">定価</th><th class="num">現在の最高買取</th>'
@@ -453,8 +472,9 @@ def _invite_table() -> str:
             cls = ' class="up"' if r["gain"] > 0 else ""
         body += (f'<tr{cls}><td>{_esc(r["name"])}</td>'
                  f'<td class="num">\u00a5{r["retail"]:,}</td>'
-                 f'<td class="num">{price_txt}</td>'
-                 f'<td class="num">{gain_txt}</td><td>{link}</td></tr>')
+                 f'<td class="num{"" if r["price"] else " pre"}">{price_txt}</td>'
+                 f'<td class="num {"gain" if r["gain"] > 0 else ("loss" if r["price"] else "pre")}">{gain_txt}</td>'
+                 f'<td>{link}</td></tr>')
     return ('<table class="data-table"><thead><tr><th>商品</th><th class="num">定価</th>'
             '<th class="num">現在の最高買取</th><th class="num">差額</th>'
             '<th>Amazon</th></tr></thead>'
