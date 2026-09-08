@@ -72,6 +72,13 @@ jobs:
           # これを超えていたら失敗店の再試行(+300秒待機)を諦める。
           JOB_DEADLINE_SECONDS: '1500'
 
+      # タイトルの【YYYY年M月最新】を今月に揃える。古い月が検索結果に出ると
+      # クリック率が落ちるため。月が変わらなければ差分は出ない。
+      # 書き換えたファイルは --stage で git add まで済ませ、下のコミットに含める。
+      - name: Refresh title month
+        continue-on-error: true
+        run: python scripts/refresh_title_month.py --stage
+
       # sitemap再生成後・コミット前に走らせ、送信記録を同じコミットに含める。
       # 送信対象は lastmod が前回送信時から変わったURLのみ。失敗してもCIは止めない。
       - name: Notify IndexNow
