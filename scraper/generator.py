@@ -744,6 +744,20 @@ def _format_price(price: int) -> str:
     return f"\u00a5{price:,}"
 
 
+def _short_product_name(name: str) -> str:
+    """\u30bf\u30a4\u30c8\u30eb\u7528\u306b\u5f3e\u540d\u3060\u3051\u3092\u53d6\u308a\u51fa\u3059\u3002
+
+    \u5546\u54c1\u540d\u306f\u300cSV \u62e1\u5f35\u30d1\u30c3\u30af\u300c\u30af\u30ea\u30e0\u30be\u30f3\u30d8\u30a4\u30ba\u300d\u300d\u306e\u3088\u3046\u306b\u30b7\u30ea\u30fc\u30ba\u63a5\u982d\u8f9e\u304c\u4ed8\u304f\u3002
+    \u305d\u306e\u307e\u307e\u30bf\u30a4\u30c8\u30eb\u306b\u3059\u308b\u3068\u691c\u7d22\u8a9e(\u300c\u30af\u30ea\u30e0\u30be\u30f3\u30d8\u30a4\u30ba \u8cb7\u53d6\u300d)\u304c\u5148\u982d\u306b\u6765\u305a\u3001
+    \u5b9f\u6e2c\u3067\u300c\u3007\u3007 \u8cb7\u53d6\u300d\u7cfb\u306e\u30af\u30a8\u30ea\u304c\u8ed2\u4e26\u307f\u9806\u4f4d40\u301c70\u4f4d\u306b\u6c88\u3093\u3067\u3044\u305f\u3002
+    """
+    m = re.search(r"\u300c([^\u300d]+)\u300d", name)
+    if m:
+        return m.group(1)
+    # \u30ab\u30ae\u62ec\u5f27\u304c\u7121\u3044\u3082\u306e(\u30b9\u30da\u30b7\u30e3\u30ebBOX \u25cb\u25cb / SV \u30cf\u30a4\u30af\u30e9\u30b9\u30d1\u30c3\u30af \u25cb\u25cb)\u306f\u672b\u5c3e\u306e\u8a9e
+    return name.split()[-1] if name.split() else name
+
+
 def _generate_trend_comment(
     product_name: str,
     history_dir: Path,
@@ -1445,6 +1459,7 @@ def generate_product_pages(
 
         # Replace all placeholders
         html = template
+        html = html.replace("{{PRODUCT_SHORT}}", _short_product_name(p.name))
         html = html.replace("{{PRODUCT_NAME}}", p.name)
         html = html.replace("{{PRODUCT_DESC}}", p.desc or "")
         # 当たりカードセクション
