@@ -336,24 +336,17 @@ def _append_onepiece_sitemap(products: list[MasterProduct]) -> None:
         seen.add(slug)
         blocks.append(_url(f"/onepiece/box/{slug}.html", "daily", "0.7"))
 
-    # BOX掘り下げ記事(onepiece/*-atari-guide.html)を自動収録
-    for art in sorted((PROJECT_ROOT / "onepiece").glob("*-atari-guide.html")):
-        blocks.append(_url(f"/onepiece/{art.name}", "weekly", "0.8"))
-
-    # ハウツー記事(globは*-atari-guide.htmlしか拾わないため明示追加)
-    if (PROJECT_ROOT / "onepiece" / "kaitori-hikaku.html").exists():
-        blocks.append(_url("/onepiece/kaitori-hikaku.html", "weekly", "0.7"))
-    if (PROJECT_ROOT / "onepiece" / "toushi.html").exists():
-        blocks.append(_url("/onepiece/toushi.html", "weekly", "0.7"))
-    if (PROJECT_ROOT / "onepiece" / "kougaku-ranking.html").exists():
-        blocks.append(_url("/onepiece/kougaku-ranking.html", "weekly", "0.7"))
-    if (PROJECT_ROOT / "onepiece" / "op-17-forecast.html").exists():
-        blocks.append(_url("/onepiece/op-17-forecast.html", "weekly", "0.8"))
-    if (PROJECT_ROOT / "onepiece" / "shikou-treasure-get.html").exists():
-        blocks.append(_url("/onepiece/shikou-treasure-get.html", "weekly", "0.8"))
-    for _name in ("hatsubai-schedule", "nika-luffy-comipara", "red-comipara-guide", "roger-gold-comipara", "comipara-ranking", "psa-guide", "box-price-pattern", "anniversary-sp-guide", "kaigun-taisho-guide", "restock-guide", "eb02-luffy-comipara", "round1-promo"):
-        if (PROJECT_ROOT / "onepiece" / f"{_name}.html").exists():
-            blocks.append(_url(f"/onepiece/{_name}.html", "weekly", "0.8"))
+    # onepiece 直下の記事を自動収録する。
+    # ファイル名を書き足す運用だと新記事の登録漏れに気づけない
+    # (実際 eb-05-forecast と chusen-matome が漏れていた)
+    low_priority = {"kaitori-hikaku.html", "toushi.html", "kougaku-ranking.html"}
+    for art in sorted((PROJECT_ROOT / "onepiece").glob("*.html")):
+        if art.name == "index.html":
+            continue  # /onepiece として既に登録済み
+        if "noindex" in art.read_text(encoding="utf-8", errors="ignore")[:4000]:
+            continue
+        prio = "0.7" if art.name in low_priority else "0.8"
+        blocks.append(_url(f"/onepiece/{art.name}", "weekly", prio))
 
     injection = "".join(blocks)
     xml = xml.replace("</urlset>", injection + "</urlset>")
