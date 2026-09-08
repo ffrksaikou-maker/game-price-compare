@@ -12,7 +12,7 @@
       "icchome": 16300,
       "oku": 16000,
       "collect_tendo": 16500,
-      "shinsoku": 14900
+      "shinsoku": 14500
     }
   },
   {
@@ -58,7 +58,7 @@
       "icchome": 8500,
       "oku": 8500,
       "collect_tendo": 15000,
-      "shinsoku": 8200
+      "shinsoku": 8500
     }
   },
   {
@@ -112,16 +112,15 @@
     "name": "ブースターパック「王族の血統」【OP-10】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 12200,
+    "max_price": 12000,
     "prices": {
       "morimori": 12000,
-      "homura": 12200,
+      "homura": 12000,
       "rudeya": 11000,
-      "runto": 12000,
       "icchome": 9500,
       "oku": 10000,
       "collect_tendo": 11500,
-      "shinsoku": 10400
+      "shinsoku": 11300
     }
   },
   {
@@ -233,7 +232,7 @@
       "icchome": 15000,
       "oku": 16000,
       "collect_tendo": 18200,
-      "shinsoku": 17000
+      "shinsoku": 16000
     }
   },
   {
@@ -249,7 +248,7 @@
       "icchome": 21000,
       "oku": 20000,
       "collect_tendo": 23500,
-      "shinsoku": 20000
+      "shinsoku": 19600
     }
   },
   {
@@ -281,7 +280,7 @@
       "icchome": 11500,
       "oku": 11500,
       "collect_tendo": 12000,
-      "shinsoku": 12100
+      "shinsoku": 11700
     }
   },
   {
@@ -297,7 +296,7 @@
       "icchome": 21500,
       "oku": 21000,
       "collect_tendo": 22800,
-      "shinsoku": 19400
+      "shinsoku": 20700
     }
   },
   {
@@ -336,7 +335,7 @@
     "name": "プレミアムブースター「ONE PIECE CARD THE BEST vol.2」【PRB-02】",
     "category": "prb",
     "retail_price": 5500,
-    "max_price": 11000,
+    "max_price": 11100,
     "prices": {
       "morimori": 10000,
       "homura": 11000,
@@ -345,7 +344,7 @@
       "icchome": 7000,
       "oku": 9000,
       "collect_tendo": 7300,
-      "shinsoku": 11000
+      "shinsoku": 11100
     }
   },
   {
