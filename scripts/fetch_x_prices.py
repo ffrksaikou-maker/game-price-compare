@@ -22,6 +22,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import subprocess
 import sys
 import time
@@ -46,6 +47,14 @@ STATE_DIR = ROOT / "data" / "x_state"
 # ジャンルごとに from: 検索で狙い撃ちするほうが確実に最新の表を拾える。
 ACCOUNTS = [
     ("kaitoriexpo", "kaitoriexpo", ["ドラゴンボール", "ポケカ", "ワンピース"]),
+]
+
+# 価格表を画像で出すアカウント。OCRにはClaude APIキーが要るので、
+# ローカルでは画像URLを集めるだけにして state の pending_images に置き、
+# OCR自体は既にキーを持っているCI側でやらせる。
+IMAGE_ACCOUNTS = [
+    ("collect_tendo", "collect_tendo", None),
+    ("shinsoku_price", "shinsoku", "ドラゴンボール"),
 ]
 
 
@@ -152,6 +161,63 @@ def fetch_texts(username: str, headless: bool, url: str | None = None) -> list[s
     return texts
 
 
+def fetch_image_urls(username: str, headless: bool, keyword: str | None = None) -> list[str]:
+    """価格表画像のURLを集める。OCRはしない(APIキーを持たせないため)。"""
+    from playwright.sync_api import sync_playwright
+    from urllib.parse import quote
+
+    url = f"https://x.com/{username}"
+    if keyword:
+        url = f"https://x.com/search?q={quote(f'from:{username} {keyword}')}&f=live"
+    urls: list[str] = []
+    with sync_playwright() as p:
+        ctx = _launch(p, headless)
+        page = ctx.pages[0] if ctx.pages else ctx.new_page()
+        try:
+            page.goto(url, wait_until="domcontentloaded", timeout=60000)
+            try:
+                page.wait_for_selector('article[data-testid="tweet"]', timeout=25000)
+            except Exception:
+                print(f"  タイムライン未取得 title={page.title()[:50]}")
+                return []
+            page.wait_for_timeout(1500)
+            seen: list[str] = []
+            for _ in range(3):
+                got = page.evaluate(
+                    """() => Array.from(
+                        document.querySelectorAll('article[data-testid="tweet"] img')
+                    ).map(i => i.src).filter(s => s.includes('pbs.twimg.com/media'))"""
+                ) or []
+                for u in got:
+                    u = re.sub(r"name=[a-z0-9]+", "name=large", u)
+                    if u not in seen:
+                        seen.append(u)
+                page.mouse.wheel(0, 2200)
+                page.wait_for_timeout(1000)
+            urls = seen
+        finally:
+            ctx.close()
+    return urls[:8]
+
+
+def update_pending_images(name: str, urls: list[str]) -> int:
+    """CIがOCRする画像URLを state に置く。既にOCR済みのURLは除く。"""
+    path = STATE_DIR / f"{name}.json"
+    STATE_DIR.mkdir(parents=True, exist_ok=True)
+    state = {}
+    if path.exists():
+        try:
+            state = json.loads(path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            state = {}
+    done = set(state.get("processed_urls", []))
+    fresh = [u for u in urls if u not in done]
+    state["pending_images"] = fresh
+    state["last_image_check"] = int(time.time())
+    path.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
+    return len(fresh)
+
+
 def update_state(name: str, items: dict) -> int:
     path = STATE_DIR / f"{name}.json"
     STATE_DIR.mkdir(parents=True, exist_ok=True)
@@ -214,6 +280,13 @@ def main() -> int:
         print(f"  ツイート{len(texts)}件 / 価格{len(found)}件 (新規{added})")
         for n, v in list(found.items())[:8]:
             print(f"     {n[:40]:42} {v:>7,}")
+
+    for username, state_name, kw in IMAGE_ACCOUNTS:
+        print(f"--- @{username} (画像) ---", flush=True)
+        urls = fetch_image_urls(username, headless=not args.show, keyword=kw)
+        n = update_pending_images(state_name, urls)
+        print(f"  画像{len(urls)}件 / CIに渡す未処理{n}件", flush=True)
+        total_new += n
 
     if args.push and total_new:
         subprocess.run(["git", "add", "data/x_state"], cwd=ROOT, check=False)

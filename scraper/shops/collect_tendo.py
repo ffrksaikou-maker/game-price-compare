@@ -71,6 +71,13 @@ class CollectTendoScraper(BaseScraper):
         # Step 1: Playwrightで画像URL取得
         image_urls = self._fetch_recent_image_urls(auth_token, ct0)
         if not image_urls:
+            # CIからXを開くとCloudflareのボット検証で止まる。その場合は
+            # ローカル(scripts/fetch_x_prices.py)が集めておいた画像URLを使う。
+            image_urls = state.get("pending_images", [])
+            if image_urls:
+                logger.info("CollectTendo: using %d image URLs collected locally",
+                            len(image_urls))
+        if not image_urls:
             logger.warning("CollectTendo: no images found, returning cached items")
             return self._items_from_state(state)
 
@@ -120,6 +127,8 @@ class CollectTendoScraper(BaseScraper):
             u: c for u, c in fail_counts.items() if u in image_urls
         }
         state["last_check"] = int(time.time())
+        state["pending_images"] = [u for u in state.get("pending_images", [])
+                                   if u not in seen_urls]
         self._save_state(state)
 
         return [ScrapedItem(name=n, price=p) for n, p in cached_items.items() if p > 0]

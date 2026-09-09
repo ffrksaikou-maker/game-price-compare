@@ -125,11 +125,18 @@ class ShinsokuScraper(BaseScraper):
         ct0 = os.environ.get("X_CT0")
         anthropic_key = os.environ.get("ANTHROPIC_API_KEY")
         state = self._load_x_state()
-        if not auth_token or not ct0 or not anthropic_key:
-            logger.warning("Shinsoku: X/Anthropic secrets missing, using cached DB prices")
+        if not anthropic_key:
+            logger.warning("Shinsoku: ANTHROPIC_API_KEY missing, using cached DB prices")
             return self._items_from_x_state(state)
 
-        image_urls = self._fetch_x_image_urls(auth_token, ct0)
+        image_urls = (self._fetch_x_image_urls(auth_token, ct0)
+                      if auth_token and ct0 else [])
+        if not image_urls:
+            # CIからXを開くとCloudflareで止まるため、ローカルが集めた分を使う。
+            image_urls = state.get("pending_images", [])
+            if image_urls:
+                logger.info("Shinsoku: using %d image URLs collected locally",
+                            len(image_urls))
         if not image_urls:
             logger.warning("Shinsoku: no X images found, using cached DB prices")
             return self._items_from_x_state(state)
@@ -162,6 +169,8 @@ class ShinsokuScraper(BaseScraper):
         state["processed_urls"] = list(seen)[-50:]
         state["ocr_fail_counts"] = {u: c for u, c in fails.items() if u in image_urls}
         state["last_check"] = int(time.time())
+        state["pending_images"] = [u for u in state.get("pending_images", [])
+                                   if u not in seen]
         self._save_x_state(state)
         logger.info("Shinsoku: X DB prices %d new / %d total", len(new_items), len(cached))
         return self._items_from_x_state(state)
