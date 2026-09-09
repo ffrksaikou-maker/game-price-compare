@@ -1947,7 +1947,7 @@ function computeShopOrder(cat) {
   const listed = Object.fromEntries(S.map(s => [s, 0]));
   const best = Object.fromEntries(S.map(s => [s, 0]));
   for (const p of P) {
-    if (cat !== 'all' && p.c !== cat) continue;
+    if (cat && cat !== 'all' && p.c !== cat) continue;
     if (!p.p) continue;
     let maxPrice = 0, maxShop = null;
     for (const sid of S) {
