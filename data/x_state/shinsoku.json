@@ -1,11 +1,5 @@
 {
-  "pending_images": [
-    "https://pbs.twimg.com/media/HRvakp4boAAdzuv?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HRqQVbGbIAArYBw?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HRlFjGIaYAADtQf?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HRgA1hdaQAAfF-W?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HRa1SRKa8AA0i86?format=jpg&name=large"
-  ],
+  "pending_images": [],
   "last_image_check": 1788946955,
   "items": {
     "FB-01 覚醒の鼓動": 6500,
@@ -32,16 +26,45 @@
     "SB02 MANGA BOOSTER 02": 61700
   },
   "processed_urls": [
-    "https://pbs.twimg.com/media/HRqWXema4AAwTfU?format=jpg&name=large",
     "https://pbs.twimg.com/media/HRvfMlQawAA3L2-?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HRlwzLXaQAA8vet?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HRqQVbGbIAArYBw?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HRvakp4boAAdzuv?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HRlFjGIaYAADtQf?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HRlwzLXaQAA8vet?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HRa1SRKa8AA0i86?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HRqWXema4AAwTfU?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HRgA1hdaQAAfF-W?format=jpg&name=large"
   ],
   "ocr_fail_counts": {
-    "https://pbs.twimg.com/media/HRvakp4boAAdzuv?format=jpg&name=large": 2,
-    "https://pbs.twimg.com/media/HRqQVbGbIAArYBw?format=jpg&name=large": 2,
-    "https://pbs.twimg.com/media/HRlFjGIaYAADtQf?format=jpg&name=large": 2,
-    "https://pbs.twimg.com/media/HRgA1hdaQAAfF-W?format=jpg&name=large": 2,
-    "https://pbs.twimg.com/media/HRa1SRKa8AA0i86?format=jpg&name=large": 2
+    "https://pbs.twimg.com/media/HRvakp4boAAdzuv?format=jpg&name=large": 3,
+    "https://pbs.twimg.com/media/HRqQVbGbIAArYBw?format=jpg&name=large": 3,
+    "https://pbs.twimg.com/media/HRlFjGIaYAADtQf?format=jpg&name=large": 3,
+    "https://pbs.twimg.com/media/HRgA1hdaQAAfF-W?format=jpg&name=large": 3,
+    "https://pbs.twimg.com/media/HRa1SRKa8AA0i86?format=jpg&name=large": 3
   },
-  "last_check": 1788940667
+  "last_check": 1788960768,
+  "seen_at": {
+    "FB-01 覚醒の鼓動": 1788960768,
+    "FB-02 烈火の闘気": 1788960768,
+    "FB-03 怒りの咆哮": 1788960768,
+    "FB-04 限界を超えし者": 1788960768,
+    "FB-05 未知なる冒険": 1788960768,
+    "FB-06 迫り来る脅威": 1788960768,
+    "FB-07 神龍への願い": 1788960768,
+    "FB-08 誇り高き戦闘民族": 1788960768,
+    "FB-10 CROSS FORCE": 1788960768,
+    "FB01 覚醒の鼓動": 1788960768,
+    "FB02 烈火の闘気": 1788960768,
+    "FB03 怒りの超拳": 1788960768,
+    "FB04 限界を超えし者": 1788960768,
+    "FB05 未知なる冒険": 1788960768,
+    "FB06 迫り来る脅威": 1788960768,
+    "FB07 神龍への願い": 1788960768,
+    "FB08 誇り高き戦闘民族": 1788960768,
+    "FB10 CROSS FORCE": 1788960768,
+    "FB03 怒りの咆哮": 1788960768,
+    "FB04 界を超えし者": 1788960768,
+    "SB01 MANGA BOOSTER 01": 1788960768,
+    "SB02 MANGA BOOSTER 02": 1788960768
+  }
 }

@@ -3,11 +3,12 @@
     "name": "ブースターパック「CROSS FORCE」【FB-10】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 10000,
+    "max_price": 11000,
     "prices": {
       "rudeya": 8500,
       "runto": 9500,
-      "shinsoku": 10000
+      "shinsoku": 10000,
+      "kaitoriexpo": 11000
     }
   },
   {
@@ -27,7 +28,8 @@
     "max_price": 11500,
     "prices": {
       "rudeya": 11500,
-      "shinsoku": 9000
+      "shinsoku": 9000,
+      "kaitoriexpo": 7500
     }
   },
   {
@@ -37,7 +39,8 @@
     "max_price": 27800,
     "prices": {
       "rudeya": 27000,
-      "shinsoku": 27800
+      "shinsoku": 27800,
+      "kaitoriexpo": 25000
     }
   },
   {
@@ -135,10 +138,11 @@
     "name": "STORY BOOSTER 01【ST-01】",
     "category": "st",
     "retail_price": 6600,
-    "max_price": 15000,
+    "max_price": 15500,
     "prices": {
       "rudeya": 12000,
-      "runto": 15000
+      "runto": 15000,
+      "kaitoriexpo": 15500
     }
   },
   {

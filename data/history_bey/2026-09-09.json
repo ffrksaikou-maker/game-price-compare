@@ -97,7 +97,7 @@
     "retail_price": 2420,
     "max_price": 2500,
     "prices": {
-      "morimori": 1600,
+      "morimori": 1500,
       "rudeya": 2500,
       "icchome": 2000
     }
@@ -117,9 +117,9 @@
     "name": "UX-09 サムライセイバー2-70L",
     "category": "ux",
     "retail_price": 3300,
-    "max_price": 3000,
+    "max_price": 2500,
     "prices": {
-      "morimori": 3000,
+      "morimori": 2500,
       "rudeya": 2000,
       "icchome": 2500
     }
