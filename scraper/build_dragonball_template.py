@@ -120,6 +120,7 @@ t = rep(t,
     <button class="fb st active" data-s="icchome">一丁目</button>
     <button class="fb st active" data-s="runto">ラントゥ</button>
     <button class="fb st active" data-s="collect_tendo">コレクト</button>
+    <button class="fb st active" data-s="kaitoriexpo">EXPO</button>
     <button class="fb st active" data-s="shinsoku">シンソク</button>
     <button class="fb st active" data-s="oku">オク</button>
     <button class="fb st active" data-s="rudeya">ルデヤ</button>
@@ -127,7 +128,9 @@ t = rep(t,
         '''    <button class="fb st active" data-s="homura">ホムラ</button>
     <button class="fb st active" data-s="rudeya">ルデヤ</button>
     <button class="fb st active" data-s="runto">ラントゥ</button>
-    <button class="fb st active" data-s="morimori">森森</button>''')
+    <button class="fb st active" data-s="morimori">森森</button>
+    <button class="fb st active" data-s="kaitoriexpo">EXPO</button>
+    <button class="fb st active" data-s="shinsoku">シンソク</button>''')
 
 # 6) テーブルヘッダ(店舗列を4店に) -------------------------------------------
 _TH_OLD_START = '''        <th class="sc" data-s="morimori"><a href="https://www.morimori-kaitori.jp/category/0112"'''
@@ -138,6 +141,8 @@ t = t[:_th_begin] + '''        <th class="sc" data-s="homura"><a href="https://k
         <th class="sc" data-s="rudeya"><a href="https://kaitori-rudeya.com/category/detail/225" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'rudeya',shop_name:'ルデヤ'})">ルデヤ</a></th>
         <th class="sc" data-s="runto"><a href="https://runto666.com/product-category/dg/" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'runto',shop_name:'ラントゥ'})">ラントゥ</a></th>
         <th class="sc" data-s="morimori"><a href="https://www.morimori-kaitori.jp/category/2404" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'morimori',shop_name:'森森'})">森森</a></th>
+        <th class="sc" data-s="kaitoriexpo"><a href="https://x.com/kaitoriexpo" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'kaitoriexpo',shop_name:'買取EXPO'})">EXPO</a></th>
+        <th class="sc" data-s="shinsoku"><a href="https://x.com/shinsoku_price" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'shinsoku',shop_name:'シンソク'})">シンソク</a></th>
 ''' + t[_th_end:]
 
 # 発売日を商品名の直後に足す(再販が狙えるかの判断材料として需要が高い)
@@ -154,27 +159,21 @@ _ft_end = t.index("<br>\n  <a href=\"privacy.html\"", _ft_begin)
 t = t[:_ft_begin] + '''  <a href="https://www.morimori-kaitori.jp/" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'morimori',shop_name:'森森'})">森森買取</a> /
   <a href="https://kaitori-rudeya.com/" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'rudeya',shop_name:'ルデヤ'})">買取ルデヤ</a> /
   <a href="https://kaitori-homura.com/" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'homura',shop_name:'ホムラ'})">買取ホムラ</a> /
-  <a href="https://runto666.com/" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'runto',shop_name:'ラントゥ'})">ラントゥ買取</a>''' + t[_ft_end:]
+  <a href="https://runto666.com/" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'runto',shop_name:'ラントゥ'})">ラントゥ買取</a> /
+  <a href="https://x.com/kaitoriexpo" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'kaitoriexpo',shop_name:'買取EXPO'})">買取EXPO</a> /
+  <a href="https://x.com/shinsoku_price" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'shinsoku',shop_name:'シンソク'})">買取シンソク</a>''' + t[_ft_end:]
 
 t = rep(t, '  ※ 各店舗公式サイトより取得した未開封シュリンク付BOXの新品買取価格<br>\n',
         '  ※ 各店舗公式サイトより取得した未開封BOXの新品買取価格<br>\n',
         count=1)
 
-# 店舗の並びは固定にする。ポケカは「最高買取になった回数の多い順」で動的に
-# 並べ替えるが、DBは4店しかなく、カテゴリを切り替えるたびに列が入れ替わると
-# 読みにくい。掲載数の多いホムラを左、最も少ない森森を右に固定する。
-t = replace_section(
-    t, "function computeShopOrder(cat) {", "function computeS_SS() {",
-    """function computeShopOrder(cat) {
-  return [...S];
-}
-function computeS_SS() {""")
-
+# 店舗の並びは template.html と同じロジック(掲載商品数の多い順→最高値回数の多い順)。
+# 店舗が増えても、価格の入っていない列が右に寄るので読みやすさが保たれる。
 # 8) JS: 店舗配列 / カテゴリラベル / 既定表示 --------------------------------
-t = rep(t, 'const S=["morimori","homura","icchome","runto","collect_tendo","shinsoku","oku","rudeya","kaikyo"];',
-        'const S=["homura","rudeya","runto","morimori"];')
-t = rep(t, 'let S_SS = ["homura","runto","morimori","icchome","oku","rudeya","kaikyo","collect_tendo","shinsoku"];',
-        'let S_SS = ["homura","rudeya","runto","morimori"];')
+t = rep(t, 'const S=["morimori","homura","icchome","runto","collect_tendo","shinsoku","oku","rudeya","kaikyo","kaitoriexpo"];',
+        'const S=["homura","rudeya","runto","morimori","kaitoriexpo","shinsoku"];')
+t = rep(t, 'let S_SS = ["homura","runto","morimori","icchome","oku","rudeya","kaikyo","collect_tendo","shinsoku","kaitoriexpo"];',
+        'let S_SS = ["homura","rudeya","runto","morimori","kaitoriexpo","shinsoku"];')
 t = rep(t, 'const CL={"mega":"MEGA","sv":"SV","special":"スペシャルBOX","ss":"S&S ソード&シールド"};',
         'const CL={"fb":"ブースターパック (FB)","sb":"MANGA BOOSTER (SB)","st":"STORY BOOSTER (ST)","dv":"スーパーダイバーズ"};')
 t = rep(t, 'cc===""?P.filter(x=>x.c!=="ss")', 'cc===""?P.slice()')

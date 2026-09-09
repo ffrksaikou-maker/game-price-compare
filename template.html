@@ -278,6 +278,7 @@ details[open] .si-summary::after{transform:rotate(180deg)}
     <button class="fb st active" data-s="icchome">一丁目</button>
     <button class="fb st active" data-s="runto">ラントゥ</button>
     <button class="fb st active" data-s="collect_tendo">コレクト</button>
+    <button class="fb st active" data-s="kaitoriexpo">EXPO</button>
     <button class="fb st active" data-s="shinsoku">シンソク</button>
     <button class="fb st active" data-s="oku">オク</button>
     <button class="fb st active" data-s="rudeya">ルデヤ</button>
@@ -319,6 +320,7 @@ details[open] .si-summary::after{transform:rotate(180deg)}
         <th class="sc" data-s="runto"><a href="https://runto666.com/product-category/card/" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'runto',shop_name:'ラントゥ'})">ラントゥ</a></th>
         <th class="sc" data-s="collect_tendo"><a href="https://x.com/collect_tendo" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'collect_tendo',shop_name:'コレクト'})">コレクト</a></th>
         <th class="sc" data-s="shinsoku"><a href="https://shinsoku-tcg.com/yuso-kaitori" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'shinsoku',shop_name:'シンソク'})">シンソク</a></th>
+        <th class="sc" data-s="kaitoriexpo"><a href="https://x.com/kaitoriexpo" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'kaitoriexpo',shop_name:'買取EXPO'})">EXPO</a></th>
         <th class="sc" data-s="oku"><a href="https://kaitori-oku.jp/category.html?cat1=340&cat2=363" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'oku',shop_name:'オク'})">オク</a></th>
         <th class="sc" data-s="rudeya"><a href="https://kaitori-rudeya.com/category/detail/114" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'rudeya',shop_name:'ルデヤ'})">ルデヤ</a></th>
         <th class="sc" data-s="kaikyo"><a href="https://www.mobile-ichiban.com/Prod/3/" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'kaikyo',shop_name:'海峡'})">海峡</a></th>
@@ -349,6 +351,7 @@ details[open] .si-summary::after{transform:rotate(180deg)}
   <a href="https://runto666.com/" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'runto',shop_name:'ラントゥ'})">ラントゥ買取</a> /
   <a href="https://x.com/collect_tendo" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'collect_tendo',shop_name:'コレクト'})">買取コレクト</a> /
   <a href="https://shinsoku-tcg.com/yuso-kaitori" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'shinsoku',shop_name:'シンソク'})">買取シンソク</a><br>
+  <a href="https://x.com/kaitoriexpo" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'kaitoriexpo',shop_name:'買取EXPO'})">買取EXPO</a><br>
   <span style="color:#9ca3af;font-size:10px">当サイトはAmazonのアソシエイトとして、適格販売により収入を得ています。</span><br>
   <a href="privacy.html" style="color:#9ca3af;font-size:10px">プライバシーポリシー</a>
 </div>
@@ -390,39 +393,34 @@ details[open] .si-summary::after{transform:rotate(180deg)}
 
 <script>
 "use strict";
-const S=["morimori","homura","icchome","runto","collect_tendo","shinsoku","oku","rudeya","kaikyo"];
+const S=["morimori","homura","icchome","runto","collect_tendo","shinsoku","oku","rudeya","kaikyo","kaitoriexpo"];
 // カテゴリ毎の店舗並び順を動的算出
 //  - SS: 取扱数の多い順 (扱ってる店舗が偏ってるため)
 //  - SV/MEGA/special: 最高買取になっている回数の多い順 (各商品で勝ってる店が左)
 //  - all: 元のS順
 // 同数の場合は S の元の並び順を維持(タイブレーク)
-let S_SS = ["homura","runto","morimori","icchome","oku","rudeya","kaikyo","collect_tendo","shinsoku"];
+let S_SS = ["homura","runto","morimori","icchome","oku","rudeya","kaikyo","collect_tendo","shinsoku","kaitoriexpo"];
 const SHOP_ORDER_CACHE = {};
 function computeShopOrder(cat) {
-  if (cat === 'all' || typeof P === 'undefined') return [...S];
+  if (typeof P === 'undefined') return [...S];
   if (SHOP_ORDER_CACHE[cat]) return SHOP_ORDER_CACHE[cat];
-  const counts = Object.fromEntries(S.map(s => [s, 0]));
-  if (cat === 'ss') {
-    // S&Sは取扱数(掲載店舗数)で並び替え
-    for (const p of P) {
-      if (p.c !== 'ss' || !p.p) continue;
-      for (const sid of S) {
-        if (p.p[sid] && p.p[sid] > 0) counts[sid]++;
-      }
+  // 第1キー: 掲載商品数(価格が入っている商品の数) / 第2キー: 最高買取になった回数。
+  // 掲載の多い店を左に置くと、空欄だらけの列が右に寄って表が読みやすくなる。
+  const listed = Object.fromEntries(S.map(s => [s, 0]));
+  const best = Object.fromEntries(S.map(s => [s, 0]));
+  for (const p of P) {
+    if (cat !== 'all' && p.c !== cat) continue;
+    if (!p.p) continue;
+    let maxPrice = 0, maxShop = null;
+    for (const sid of S) {
+      const v = p.p[sid] || 0;
+      if (v > 0) listed[sid]++;
+      if (v > maxPrice) { maxPrice = v; maxShop = sid; }
     }
-  } else {
-    // SV/MEGA/special: 各商品の最高買取になっている回数で並び替え
-    for (const p of P) {
-      if (p.c !== cat || !p.p) continue;
-      let maxPrice = 0, maxShop = null;
-      for (const sid of S) {
-        const v = p.p[sid] || 0;
-        if (v > maxPrice) { maxPrice = v; maxShop = sid; }
-      }
-      if (maxShop) counts[maxShop]++;
-    }
+    if (maxShop) best[maxShop]++;
   }
-  const ordered = [...S].sort((a, b) => counts[b] - counts[a] || S.indexOf(a) - S.indexOf(b));
+  const ordered = [...S].sort((a, b) =>
+    listed[b] - listed[a] || best[b] - best[a] || S.indexOf(a) - S.indexOf(b));
   SHOP_ORDER_CACHE[cat] = ordered;
   return ordered;
 }

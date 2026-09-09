@@ -119,6 +119,7 @@ t = rep(t,
     <button class="fb st active" data-s="icchome">一丁目</button>
     <button class="fb st active" data-s="runto">ラントゥ</button>
     <button class="fb st active" data-s="collect_tendo">コレクト</button>
+    <button class="fb st active" data-s="kaitoriexpo">EXPO</button>
     <button class="fb st active" data-s="shinsoku">シンソク</button>
     <button class="fb st active" data-s="oku">オク</button>
     <button class="fb st active" data-s="rudeya">ルデヤ</button>
@@ -213,20 +214,12 @@ t = rep(t, '  ※ 各店舗公式サイトより取得した未開封シュリ�
         '手数料・送料は含みません。あくまで参考値としてご利用ください<br>\n',
         count=1)
 
-# 店舗の並びは固定にする。ポケカは「最高買取になった回数の多い順」で動的に
-# 並べ替えるが、ベイは4店しかなく、カテゴリを切り替えるたびに列が入れ替わると
-# 読みにくい。掲載数の多い一丁目を左、最も少ないホムラを右に固定する。
-t = replace_section(
-    t, "function computeShopOrder(cat) {", "function computeS_SS() {",
-    """function computeShopOrder(cat) {
-  return [...S];
-}
-function computeS_SS() {""")
-
+# 店舗の並びは template.html と同じロジック(掲載商品数の多い順→最高値回数の多い順)。
+# 店舗が増えても、価格の入っていない列が右に寄るので読みやすさが保たれる。
 # 8) JS: 店舗配列 / カテゴリラベル / 既定表示 --------------------------------
-t = rep(t, 'const S=["morimori","homura","icchome","runto","collect_tendo","shinsoku","oku","rudeya","kaikyo"];',
+t = rep(t, 'const S=["morimori","homura","icchome","runto","collect_tendo","shinsoku","oku","rudeya","kaikyo","kaitoriexpo"];',
         'const S=["icchome","morimori","rudeya","homura"];')
-t = rep(t, 'let S_SS = ["homura","runto","morimori","icchome","oku","rudeya","kaikyo","collect_tendo","shinsoku"];',
+t = rep(t, 'let S_SS = ["homura","runto","morimori","icchome","oku","rudeya","kaikyo","collect_tendo","shinsoku","kaitoriexpo"];',
         'let S_SS = ["icchome","morimori","rudeya","homura"];')
 t = rep(t, 'const CL={"mega":"MEGA","sv":"SV","special":"スペシャルBOX","ss":"S&S ソード&シールド"};',
         'const CL={"ux":"UX (アルティメット)","cx":"CX (カスタム)","bx":"BX (ベーシック)","limited":"限定品"};')

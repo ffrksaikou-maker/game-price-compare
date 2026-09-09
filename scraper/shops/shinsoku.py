@@ -8,13 +8,30 @@
 
 from __future__ import annotations
 
+import base64
+import json
 import logging
+import os
+import re
+import time
+from pathlib import Path
+
+import requests
 
 from .base import BaseScraper, ScrapedItem
 
 logger = logging.getLogger(__name__)
 
 URL = "https://shinsoku-tcg.com/yuso-kaitori"
+
+# ドラゴンボールはWebの買取表に無く、X(@shinsoku_price)に価格表の画像で出る。
+# サイト内検索でも0件なので、画像をOCRして拾うしか経路がない。
+X_USERNAME = "shinsoku_price"
+X_PROFILE_URL = f"https://x.com/{X_USERNAME}"
+X_STATE_FILE = Path(__file__).resolve().parent.parent.parent / "data" / "x_state" / "shinsoku.json"
+X_MAX_IMAGES = 6          # 直近ツイートの画像のみ見る(コスト/負荷を抑える)
+X_MAX_OCR_RETRIES = 3     # 価格表でない画像を諦めるまでの回数
+ANTHROPIC_MODEL = "claude-sonnet-4-6"
 # ワンピBOXは既定のBOXフィルタ一覧に含まれないため、title検索で別取得する。
 # ポケカ側matcherはワンピを弾き、ワンピ側matcherが拾う。
 ONEPIECE_URL = "https://shinsoku-tcg.com/yuso-kaitori?title=%E3%83%AF%E3%83%B3%E3%83%94%E3%83%BC%E3%82%B9"
@@ -58,6 +75,12 @@ class ShinsokuScraper(BaseScraper):
             finally:
                 browser.close()
 
+        # --- ドラゴンボール: Xの価格表画像からOCRで取得 ---
+        try:
+            items.extend(self._scrape_x_dragonball())
+        except Exception as e:
+            logger.warning("Shinsoku: X(DB) pass failed: %s", e)
+
         return items
 
     def _scroll_and_extract(self, page, items: list[ScrapedItem], label: str) -> None:
@@ -93,3 +116,200 @@ class ShinsokuScraper(BaseScraper):
                 items.append(ScrapedItem(name=name, price=price))
         logger.info("Shinsoku[%s]: %d BOX cards -> %d items",
                     label, len(raw), len(items) - before)
+
+    # ----- X(@shinsoku_price)のドラゴンボール価格表 -----
+
+    def _scrape_x_dragonball(self) -> list[ScrapedItem]:
+        """Xの画像をOCRしてドラゴンボールBOXの買取価格を取る。"""
+        auth_token = os.environ.get("X_AUTH_TOKEN")
+        ct0 = os.environ.get("X_CT0")
+        anthropic_key = os.environ.get("ANTHROPIC_API_KEY")
+        state = self._load_x_state()
+        if not auth_token or not ct0 or not anthropic_key:
+            logger.warning("Shinsoku: X/Anthropic secrets missing, using cached DB prices")
+            return self._items_from_x_state(state)
+
+        image_urls = self._fetch_x_image_urls(auth_token, ct0)
+        if not image_urls:
+            logger.warning("Shinsoku: no X images found, using cached DB prices")
+            return self._items_from_x_state(state)
+
+        seen = set(state.get("processed_urls", []))
+        fails: dict = state.get("ocr_fail_counts", {})
+        new_items: dict = {}
+        for url in [u for u in image_urls if u not in seen]:
+            logger.info("Shinsoku: OCR %s", url[:80])
+            got = self._ocr_dragonball_image(anthropic_key, url)
+            if got is None:
+                # API/通信エラー。復旧すれば読めるので既読にしない。
+                logger.warning("Shinsoku: OCR unavailable, will retry next run")
+                continue
+            if not got:
+                fails[url] = fails.get(url, 0) + 1
+                if fails[url] < X_MAX_OCR_RETRIES:
+                    continue
+                seen.add(url)
+                continue
+            fails.pop(url, None)
+            for name, price in got.items():
+                if price > 0 and price > new_items.get(name, 0):
+                    new_items[name] = price
+            seen.add(url)
+
+        cached = state.get("items", {})
+        cached.update(new_items)
+        state["items"] = cached
+        state["processed_urls"] = list(seen)[-50:]
+        state["ocr_fail_counts"] = {u: c for u, c in fails.items() if u in image_urls}
+        state["last_check"] = int(time.time())
+        self._save_x_state(state)
+        logger.info("Shinsoku: X DB prices %d new / %d total", len(new_items), len(cached))
+        return self._items_from_x_state(state)
+
+    def _load_x_state(self) -> dict:
+        if X_STATE_FILE.exists():
+            try:
+                return json.loads(X_STATE_FILE.read_text(encoding="utf-8"))
+            except (json.JSONDecodeError, OSError):
+                logger.warning("Shinsoku: X state broken, starting fresh")
+        return {}
+
+    def _save_x_state(self, state: dict) -> None:
+        X_STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
+        X_STATE_FILE.write_text(json.dumps(state, ensure_ascii=False, indent=2),
+                                encoding="utf-8")
+
+    def _items_from_x_state(self, state: dict) -> list[ScrapedItem]:
+        return [ScrapedItem(name=n, price=p)
+                for n, p in state.get("items", {}).items() if p > 0]
+
+    def _fetch_x_image_urls(self, auth_token: str, ct0: str) -> list[str]:
+        from playwright.sync_api import sync_playwright
+
+        urls: list[str] = []
+        with sync_playwright() as p:
+            browser = p.chromium.launch(
+                headless=True,
+                args=["--disable-blink-features=AutomationControlled"],
+            )
+            ctx = browser.new_context(
+                user_agent=self.HEADERS["User-Agent"],
+                viewport={"width": 1280, "height": 1800},
+                locale="ja-JP",
+            )
+            ctx.add_cookies([
+                {"name": "auth_token", "value": auth_token, "domain": ".x.com",
+                 "path": "/", "httpOnly": True, "secure": True, "sameSite": "Lax"},
+                {"name": "ct0", "value": ct0, "domain": ".x.com",
+                 "path": "/", "httpOnly": False, "secure": True, "sameSite": "Lax"},
+            ])
+            page = ctx.new_page()
+            try:
+                page.goto(X_PROFILE_URL, wait_until="domcontentloaded", timeout=30000)
+                try:
+                    page.wait_for_selector('article[data-testid="tweet"]', timeout=15000)
+                except Exception:
+                    logger.warning("Shinsoku: X timeline not loaded (login expired?)")
+                    browser.close()
+                    return []
+                page.wait_for_timeout(1500)
+                # 画像は遅延読み込みなので少しスクロールして読み込ませる
+                for _ in range(3):
+                    page.mouse.wheel(0, 2200)
+                    page.wait_for_timeout(1200)
+                raw = page.evaluate(
+                    """() => Array.from(document.querySelectorAll('article[data-testid="tweet"] img'))
+                        .map(i => i.src)
+                        .filter(s => s.includes('pbs.twimg.com/media'))"""
+                ) or []
+            except Exception as e:
+                logger.warning("Shinsoku: X fetch failed: %s", e)
+                raw = []
+            finally:
+                browser.close()
+        for u in raw:
+            # サムネイルではなく大きい画像を取る
+            u = re.sub(r"name=[a-z0-9]+", "name=large", u)
+            if u not in urls:
+                urls.append(u)
+        return urls[:X_MAX_IMAGES]
+
+    def _ocr_dragonball_image(self, anthropic_key: str, image_url: str) -> dict | None:
+        """画像から {商品名: 価格} を抽出。None=通信/APIエラー、{}=価格表でない画像。"""
+        try:
+            r = requests.get(image_url, timeout=20,
+                             headers={"User-Agent": self.HEADERS["User-Agent"]})
+            r.raise_for_status()
+            image_b64 = base64.standard_b64encode(r.content).decode("utf-8")
+            content_type = r.headers.get("Content-Type", "image/jpeg").split(";")[0].strip()
+        except requests.RequestException as e:
+            logger.error("Shinsoku: image download failed: %s", e)
+            return None
+
+        prompt = (
+            "この画像はトレーディングカードの買取価格表です。"
+            "**ドラゴンボールスーパーカードゲーム フュージョンワールド(および スーパーダイバーズ)の未開封BOX** "
+            "だけを抽出してください。"
+            "ポケモンカード/ONE PIECE/遊戯王/ヴァイスシュヴァルツ/その他TCGは絶対に除外してください。"
+            "ドラゴンボールの価格表でない画像なら、items を空配列で返してください。\n\n"
+            "出力は以下のJSON形式のみ、説明文や前置きは一切不要:\n"
+            '{"items": [{"name": "商品名", "price": 価格(整数、円)}, ...]}\n\n'
+            "ルール:\n"
+            "- 弾番号を必ず商品名に含める(例: 「FB-07 神龍への願い」「SB-01 MANGA BOOSTER 01」"
+            "「ST-01 STORY BOOSTER 01」)。弾番号が読み取れるなら必ず併記する\n"
+            "- **シュリンク有りと無しの2列がある場合は必ずシュリンク有りの価格を採用**する。"
+            "シュリンク無しの値は使わない\n"
+            "- 価格は商品名と同じ行の金額のみを採用し、隣の行と混同しない\n"
+            "- 桁を慎重に読む(11,500 と 115,000 を間違えない)\n"
+            "- カートン売り/シングルカード/デッキ/バラパックは除外\n"
+            "- 価格が空欄・取り消し線・『〆切』『買取停止』などのものは含めない\n"
+            "- 価格は半角整数、単位や¥は含めない\n"
+            "- 読み取りに自信がない商品はスキップ(誤った値を出すよりスキップ優先)\n"
+        )
+        body = {
+            "model": ANTHROPIC_MODEL,
+            "max_tokens": 2000,
+            "messages": [{
+                "role": "user",
+                "content": [
+                    {"type": "image",
+                     "source": {"type": "base64", "media_type": content_type, "data": image_b64}},
+                    {"type": "text", "text": prompt},
+                ],
+            }],
+        }
+        try:
+            resp = requests.post(
+                "https://api.anthropic.com/v1/messages",
+                headers={"x-api-key": anthropic_key,
+                         "anthropic-version": "2023-06-01",
+                         "content-type": "application/json"},
+                json=body, timeout=60)
+            if resp.status_code >= 400:
+                logger.error("Shinsoku: claude API %d: %s", resp.status_code, resp.text[:300])
+                return None
+            payload = resp.json()
+        except (requests.RequestException, ValueError) as e:
+            logger.error("Shinsoku: claude API failed: %s", e)
+            return None
+
+        try:
+            text = "".join(b.get("text", "") for b in payload.get("content", []))
+            m = re.search(r"\{.*\}", text, re.S)
+            if not m:
+                return {}
+            data = json.loads(m.group(0))
+        except (ValueError, KeyError) as e:
+            logger.warning("Shinsoku: OCR parse failed: %s", e)
+            return {}
+
+        out = {}
+        for it in data.get("items", []):
+            name = str(it.get("name", "")).strip()
+            try:
+                price = int(it.get("price", 0))
+            except (TypeError, ValueError):
+                continue
+            if name and 500 <= price <= 900000:
+                out[name] = max(price, out.get(name, 0))
+        return out

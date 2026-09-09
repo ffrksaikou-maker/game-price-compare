@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 JST = timezone(timedelta(hours=9))
 
 # Shop IDs in display order
-SHOP_IDS = ["morimori", "homura", "icchome", "runto", "collect_tendo", "shinsoku", "kaikyo", "oku", "rudeya"]
+SHOP_IDS = ["morimori", "homura", "icchome", "runto", "collect_tendo", "shinsoku", "kaikyo", "oku", "rudeya", "kaitoriexpo"]
 
 # BOX individual images (gamepedia.jp + 楽天から取得、ユーザー目視確認済み)
 BOX_IMAGE_FILES: dict[str, str] = {
@@ -639,6 +639,7 @@ SHOP_NAMES = {
     "rudeya": "買取ルデヤ",
     "collect_tendo": "買取コレクト",
     "shinsoku": "買取シンソク",
+    "kaitoriexpo": "買取EXPO",
 }
 
 SHOP_URLS = {
@@ -651,6 +652,7 @@ SHOP_URLS = {
     "rudeya": "https://kaitori-rudeya.com/",
     "collect_tendo": "https://x.com/collect_tendo",
     "shinsoku": "https://shinsoku-tcg.com/yuso-kaitori",
+    "kaitoriexpo": "https://x.com/kaitoriexpo",
 }
 
 # 店舗別ページ用プロフィール (shop-hikaku.html の記述を単一ソース化)
@@ -690,6 +692,10 @@ SHOP_PROFILES = {
     "shinsoku": {
         "methods": ["店頭", "郵送"],
         "desc": "買取商品数業界トップが売りの買取店。現行のSV/MEGA系BOXからS&S絶版BOX、さらにポケモンカード初代/neo/eシリーズ等のヴィンテージBOXまで圧倒的な品揃えで買取対応しています。レトロカードや希少品の売却を考えている方にも有力な選択肢です。",
+    },
+    "kaitoriexpo": {
+        "methods": ["店頭", "郵送"],
+        "desc": "名古屋の大須店・天白店を構えるトレカ買取店。ホームページではなくX(@kaitoriexpo)でポケカ・ワンピース・ドラゴンボールの買取価格を毎日テキストで公開しているのが特徴です。20BOX以上は着払い対応、大須店は現金即日。当サイトではX投稿の本文から自動で価格を取得して掲載しています。",
     },
 }
 
