@@ -15,7 +15,7 @@ from . import switch_banner as sb
 
 ROOT = Path(__file__).resolve().parent.parent
 
-TITLE = "ドラゴンボール買取チェッカー｜フュージョンワールドBOXの買取価格を4店舗比較"
+TITLE = "ドラゴンボール買取チェッカー｜フュージョンワールドBOXの買取価格を6店舗比較"
 DESC = ("ドラゴンボールカード(フュージョンワールド・スーパーダイバーズ)未開封BOXの買取価格を"
         "森森・ルデヤ・ホムラ・ラントゥの4店舗から自動収集して比較。"
         "FB-01〜の各弾やMANGA BOOSTER・STORY BOOSTERの最高買取店が一目でわかります。登録不要・無料。")

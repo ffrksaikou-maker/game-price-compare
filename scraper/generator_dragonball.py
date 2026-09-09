@@ -307,7 +307,7 @@ def _chart_section(p: MasterProduct) -> str:
   <button class="cp-btn" data-period="1m">1ヶ月</button>
 </div>
 <canvas id="boxChart"></canvas>
-<div class="chart-note">※ 4店舗の最高買取価格の推移</div>
+<div class="chart-note">※ 6店舗の最高買取価格の推移</div>
 </div>
 <script>
 (function(){{

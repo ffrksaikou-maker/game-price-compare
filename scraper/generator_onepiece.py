@@ -62,7 +62,7 @@ ONEPIECE_ARTICLES.append(
      "EB-05(10/31・BOX5,760円)とOP-18(11月予定)の発売日をまとめ、OP-17からの定価改定と相場への影響を解説。"))
 ONEPIECE_ARTICLES.append(
     ("kaitori-hikaku.html", "ワンピBOX買取比較・高く売るコツ",
-     "最大9店舗の実データでワンピBOXを高く売るコツと店舗の選び方を解説。"))
+     "最大10店舗の実データでワンピBOXを高く売るコツと店舗の選び方を解説。"))
 ONEPIECE_ARTICLES.append(
     ("toushi.html", "ワンピBOX投資の始め方",
      "値上がりしやすいBOXの特徴・予算別の始め方・保管・リスクを解説。"))
@@ -92,7 +92,7 @@ ONEPIECE_ARTICLES.append(
      "PSA10相場は素体買取の1.4〜1.66倍、取得率は71.7〜93.2%。出すべきカードの判断基準を実データで解説。"))
 ONEPIECE_ARTICLES.append(
     ("box-price-pattern.html", "BOX相場の値動きパターン",
-     "最大9店舗の実データで全弾の値動きを横断分析。新しい弾ほど下がる傾向と、カード相場と連動しない理由。"))
+     "最大10店舗の実データで全弾の値動きを横断分析。新しい弾ほど下がる傾向と、カード相場と連動しない理由。"))
 ONEPIECE_ARTICLES.append(
     ("anniversary-sp-guide.html", "3周年スペシャル(金/銀)徹底解説",
      "ルフィ金140万・ティーチ25万・バギー18万。金は銀の約2倍、ルフィ金だけBOX代を上回る理由を解説。"))
@@ -127,7 +127,7 @@ def _article_links_block() -> str:
     candidates = list(existing[2:-1])
     # ポケカ同様、週間値動きランキングもローテーション候補に含める
     candidates.insert(0, ("weekly.html", "【今週】ワンピBOX 週間値動きランキング",
-                          "最大9店舗の実データで直近7日間の値上がり・値下がりBOXを毎日自動更新。"))
+                          "最大10店舗の実データで直近7日間の値上がり・値下がりBOXを毎日自動更新。"))
     featured = [random.choice(candidates)] if candidates else []
 
     def _card(f: str, t: str, d: str) -> str:
@@ -423,7 +423,7 @@ def _op_chart_section(product: MasterProduct) -> str:
   <button class="cp-btn" data-period="1m">1ヶ月</button>
 </div>
 <canvas id="boxChart"></canvas>
-<div class="chart-note">※ 最大9店舗の最高買取価格の推移（発売初期はスニダン相場を参考値として表示）</div>
+<div class="chart-note">※ 最大10店舗の最高買取価格の推移（発売初期はスニダン相場を参考値として表示）</div>
 </div>
 <script>
 (function(){{
@@ -575,7 +575,7 @@ def generate_onepiece_box_pages(products: list[MasterProduct], update_date: str)
             parts.append(_esc(p.desc))
         parts.append(
             "買取価格は封入されるトップレアの相場や在庫状況で日々変動します。"
-            "売却を検討している場合は、上の価格表で最大9店舗の最新買取価格を比較し、"
+            "売却を検討している場合は、上の価格表で最大10店舗の最新買取価格を比較し、"
             "価格推移グラフで底値・高値のタイミングを確認するのがおすすめです。")
         box_overview = (
             f'<h3 class="section-title">{_esc(p.name)}の買取について</h3>'
@@ -748,12 +748,12 @@ def generate_onepiece_weekly(products: list[MasterProduct], update_date: str) ->
     page = f"""<!DOCTYPE html>
 <html lang="ja"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="ONE PIECEカード未開封BOXの週間買取価格変化ランキング。値上がり・値下がりBOXを最大9店舗の実データで毎日更新。">
+<meta name="description" content="ONE PIECEカード未開封BOXの週間買取価格変化ランキング。値上がり・値下がりBOXを最大10店舗の実データで毎日更新。">
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://pokeca-box-hikaku.com/onepiece/weekly.html">
 {wk_jsonld}
 <meta property="og:title" content="ワンピBOX 週間値動きランキング｜ワンピ買取チェッカー">
-<meta property="og:description" content="ONE PIECEカード未開封BOXの週間買取価格変化ランキング。値上がり・値下がりBOXを最大9店舗の実データで毎日更新。">
+<meta property="og:description" content="ONE PIECEカード未開封BOXの週間買取価格変化ランキング。値上がり・値下がりBOXを最大10店舗の実データで毎日更新。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://pokeca-box-hikaku.com/onepiece/weekly.html">
 <meta property="og:image" content="https://pokeca-box-hikaku.com/ogp.jpg">
@@ -761,7 +761,7 @@ def generate_onepiece_weekly(products: list[MasterProduct], update_date: str) ->
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ワンピBOX 週間値動きランキング｜ワンピ買取チェッカー">
-<meta name="twitter:description" content="ONE PIECEカード未開封BOXの週間買取価格変化ランキング。最大9店舗の実データで毎日更新。">
+<meta name="twitter:description" content="ONE PIECEカード未開封BOXの週間買取価格変化ランキング。最大10店舗の実データで毎日更新。">
 <meta name="twitter:image" content="https://pokeca-box-hikaku.com/ogp.jpg">
 <title>ワンピBOX 週間値動きランキング｜ワンピ買取チェッカー</title>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831186943118320" crossorigin="anonymous"></script>
@@ -780,7 +780,7 @@ th{{background:#f9fafb}}
 <div class="header"><a href="/onepiece"><h1>ワンピ買取チェッカー</h1></a></div>
 <div class="wrap">
 <h2>📊 ワンピBOX 週間値動きランキング</h2>
-<div class="upd">更新: {update_date} ／ 7日前比・最大9店舗の最高買取価格ベース</div>
+<div class="upd">更新: {update_date} ／ 7日前比・最大10店舗の最高買取価格ベース</div>
 {table}
 <a class="back" href="weekly/index.html">📚 過去の週間値動き記事アーカイブ</a>
 <a class="back" href="/onepiece">← ワンピ買取比較に戻る</a>
@@ -884,11 +884,11 @@ def generate_onepiece_weekly_articles(products: list[MasterProduct]) -> None:
     page = f"""<!DOCTYPE html>
 <html lang="ja"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="ワンピースカード未開封BOXの週間買取価格変化ランキング【{iso[0]}年第{iso[1]}週】。値上がり・値下がりBOXを最大9店舗の実データでまとめた週次レポート。">
+<meta name="description" content="ワンピースカード未開封BOXの週間買取価格変化ランキング【{iso[0]}年第{iso[1]}週】。値上がり・値下がりBOXを最大10店舗の実データでまとめた週次レポート。">
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://pokeca-box-hikaku.com/onepiece/weekly/{week_id}.html">
 <meta property="og:title" content="ワンピBOX 週間値動きランキング【{iso[0]}年 第{iso[1]}週】｜ワンピ買取チェッカー">
-<meta property="og:description" content="値上がり・値下がりワンピBOXを最大9店舗の実データでまとめた週次レポート。">
+<meta property="og:description" content="値上がり・値下がりワンピBOXを最大10店舗の実データでまとめた週次レポート。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://pokeca-box-hikaku.com/onepiece/weekly/{week_id}.html">
 <meta property="og:image" content="https://pokeca-box-hikaku.com/ogp.jpg">
@@ -903,11 +903,11 @@ def generate_onepiece_weekly_articles(products: list[MasterProduct]) -> None:
 <div class="wrap">
 <div class="breadcrumb"><a href="/">ホーム</a> &gt; <a href="/onepiece">ワンピ買取チェッカー</a> &gt; <a href="index.html">週間値動き記事</a> &gt; {iso[0]}年 第{iso[1]}週</div>
 <h2>📊 ワンピBOX 週間値動きランキング【{iso[0]}年 第{iso[1]}週】</h2>
-<div class="upd">更新: {date_txt} ／ 7日前比・最大9店舗の最高買取価格ベース</div>
+<div class="upd">更新: {date_txt} ／ 7日前比・最大10店舗の最高買取価格ベース</div>
 <p>{lead_txt} 各BOX名をタップすると店舗別の最新買取価格・価格推移グラフを確認できます。</p>
 {_wk_change_table("📈 値上がりランキング", ups, True)}
 {_wk_change_table("📉 値下がりランキング", downs, False)}
-<div class="disc"><strong>ご注意:</strong> 本記事の価格は当サイトが最大9店舗から自動取得した未開封BOX買取価格の最高値ベースで、7日前(履歴が浅い場合は取得できた最古)との比較です。相場は日々変動します。売買の判断はご自身の責任で行ってください。</div>
+<div class="disc"><strong>ご注意:</strong> 本記事の価格は当サイトが最大10店舗から自動取得した未開封BOX買取価格の最高値ベースで、7日前(履歴が浅い場合は取得できた最古)との比較です。相場は日々変動します。売買の判断はご自身の責任で行ってください。</div>
 {_WK_AFFILIATE}
 <a class="back" href="weekly.html">← 最新の週間ランキングへ</a>
 <a class="back" href="index.html">← 週間記事アーカイブ</a>

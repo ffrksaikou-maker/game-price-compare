@@ -79,6 +79,14 @@ jobs:
         continue-on-error: true
         run: python scripts/refresh_title_month.py --stage
 
+      # 店舗を足すと記事中の「最大9店舗から自動取得」のような表記が置き去りになり
+      # 実態と食い違う。テンプレートの店舗配列を基準に決まった言い回しだけを直す。
+      # 数字だけを見て置換すると「1店舗(カードラッシュ)」等を壊すため、
+      # 対象フレーズはスクリプト側でホワイトリスト化してある。
+      - name: Sync shop counts
+        continue-on-error: true
+        run: python -m scripts.sync_shop_counts
+
       # sitemap再生成後・コミット前に走らせ、送信記録を同じコミットに含める。
       # 送信対象は lastmod が前回送信時から変わったURLのみ。失敗してもCIは止めない。
       - name: Notify IndexNow
