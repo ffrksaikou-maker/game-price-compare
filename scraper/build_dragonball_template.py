@@ -148,7 +148,7 @@ t = t[:_th_begin] + '''        <th class="sc" data-s="homura"><a href="https://k
         <th class="sc" data-s="runto"><a href="https://runto666.com/product-category/dg/" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'runto',shop_name:'ラントゥ'})">ラントゥ</a></th>
         <th class="sc" data-s="morimori"><a href="https://www.morimori-kaitori.jp/category/2404" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'morimori',shop_name:'森森'})">森森</a></th>
         <th class="sc" data-s="kaitoriexpo"><a href="https://x.com/kaitoriexpo" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'kaitoriexpo',shop_name:'買取EXPO'})">EXPO</a></th>
-        <th class="sc" data-s="shinsoku"><a href="https://x.com/shinsoku_price" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'shinsoku',shop_name:'シンソク'})">シンソク</a></th>
+        <th class="sc" data-s="shinsoku"><a href="https://shinsoku-tcg.com/yuso-kaitori?title=DB" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'shinsoku',shop_name:'シンソク'})">シンソク</a></th>
 ''' + t[_th_end:]
 
 # 発売日を商品名の直後に足す(再販が狙えるかの判断材料として需要が高い)
@@ -167,7 +167,7 @@ t = t[:_ft_begin] + '''  <a href="https://www.morimori-kaitori.jp/" target="_bla
   <a href="https://kaitori-homura.com/" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'homura',shop_name:'ホムラ'})">買取ホムラ</a> /
   <a href="https://runto666.com/" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'runto',shop_name:'ラントゥ'})">ラントゥ買取</a> /
   <a href="https://x.com/kaitoriexpo" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'kaitoriexpo',shop_name:'買取EXPO'})">買取EXPO</a> /
-  <a href="https://x.com/shinsoku_price" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'shinsoku',shop_name:'シンソク'})">買取シンソク</a>''' + t[_ft_end:]
+  <a href="https://shinsoku-tcg.com/yuso-kaitori?title=DB" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'shinsoku',shop_name:'シンソク'})">買取シンソク</a>''' + t[_ft_end:]
 
 t = rep(t, '  ※ 各店舗公式サイトより取得した未開封シュリンク付BOXの新品買取価格<br>\n',
         '  ※ 各店舗公式サイトより取得した未開封BOXの新品買取価格<br>\n',
