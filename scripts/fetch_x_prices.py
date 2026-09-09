@@ -143,6 +143,7 @@ def fetch_texts(username: str, headless: bool, url: str | None = None) -> list[s
             # Xのタイムラインは仮想スクロールで、下へ進むと上のツイートがDOMから
             # 消える。まとめて取ると取りこぼすので、スクロールしながら毎回集める。
             seen: dict[str, str] = {}
+            status_urls: list[str] = []
             # f=live は新しい順。深追いすると古い価格表まで拾うので浅くする。
             for _ in range(2):
                 chunk = page.evaluate(
@@ -153,9 +154,38 @@ def fetch_texts(username: str, headless: bool, url: str | None = None) -> list[s
                 for t in chunk:
                     if t and t not in seen:
                         seen[t] = t
+                # 長い価格表は一覧だと「さらに表示」で切られるので、
+                # 個別ページで全文を取り直すためURLを控える。
+                links = page.evaluate(
+                    """() => Array.from(
+                        document.querySelectorAll('article[data-testid="tweet"] a[href*="/status/"]')
+                    ).map(a => a.href.split('?')[0])"""
+                ) or []
+                for h in links:
+                    if h.rstrip("/").split("/")[-1].isdigit() and h not in status_urls:
+                        status_urls.append(h)
                 page.mouse.wheel(0, 2200)
                 page.wait_for_timeout(1100)
-            texts = list(seen.values())
+
+            # 個別ページの全文を優先する(集計は先勝ちなので前に置く)
+            full: list[str] = []
+            for h in status_urls[:6]:
+                try:
+                    page.goto(h, wait_until="domcontentloaded", timeout=45000)
+                    page.wait_for_selector('article[data-testid="tweet"]', timeout=15000)
+                    page.wait_for_timeout(1200)
+                    txt = page.evaluate(
+                        """() => {
+                            const a = document.querySelector('article[data-testid="tweet"]');
+                            return a ? a.innerText : '';
+                        }"""
+                    )
+                    if txt:
+                        full.append(txt)
+                except Exception:
+                    continue
+            print(f"    個別ページ {len(full)}/{len(status_urls)}件で全文取得", flush=True)
+            texts = full + list(seen.values())
         finally:
             ctx.close()
     return texts

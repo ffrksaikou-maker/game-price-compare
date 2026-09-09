@@ -31,6 +31,7 @@ X_PROFILE_URL = f"https://x.com/{X_USERNAME}"
 X_STATE_FILE = Path(__file__).resolve().parent.parent.parent / "data" / "x_state" / "shinsoku.json"
 X_MAX_IMAGES = 6          # 直近ツイートの画像のみ見る(コスト/負荷を抑える)
 X_MAX_OCR_RETRIES = 3     # 価格表でない画像を諦めるまでの回数
+X_STALE_DAYS = 14         # 価格表に出てこなくなった商品を落とすまでの日数
 ANTHROPIC_MODEL = "claude-sonnet-4-6"
 # ワンピBOXは既定のBOXフィルタ一覧に含まれないため、title検索で別取得する。
 # ポケカ側matcherはワンピを弾き、ワンピ側matcherが拾う。
@@ -166,6 +167,13 @@ class ShinsokuScraper(BaseScraper):
         cached = state.get("items", {})
         cached.update(new_items)
         state["items"] = cached
+        now = int(time.time())
+        seen_at = state.get("seen_at", {})
+        for _n in new_items:
+            seen_at[_n] = now
+        for _n in cached:
+            seen_at.setdefault(_n, now)
+        state["seen_at"] = {k: v for k, v in seen_at.items() if k in cached}
         state["processed_urls"] = list(seen)[-50:]
         state["ocr_fail_counts"] = {u: c for u, c in fails.items() if u in image_urls}
         state["last_check"] = int(time.time())
@@ -189,8 +197,17 @@ class ShinsokuScraper(BaseScraper):
                                 encoding="utf-8")
 
     def _items_from_x_state(self, state: dict) -> list[ScrapedItem]:
-        return [ScrapedItem(name=n, price=p)
-                for n, p in state.get("items", {}).items() if p > 0]
+        """X_STALE_DAYS を過ぎても価格表に出てこない商品は掲載しない。"""
+        cutoff = int(time.time()) - X_STALE_DAYS * 86400
+        seen_at = state.get("seen_at", {})
+        out = []
+        for n, p in state.get("items", {}).items():
+            if p <= 0:
+                continue
+            if seen_at and seen_at.get(n, 0) < cutoff:
+                continue
+            out.append(ScrapedItem(name=n, price=p))
+        return out
 
     def _fetch_x_image_urls(self, auth_token: str, ct0: str) -> list[str]:
         from playwright.sync_api import sync_playwright

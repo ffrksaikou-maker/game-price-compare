@@ -35,6 +35,10 @@ PROFILE_URL = f"https://x.com/{TARGET_USERNAME}"
 STATE_FILE = Path(__file__).resolve().parent.parent.parent / "data" / "x_state" / "collect_tendo.json"
 MAX_IMAGES_TO_OCR = 4  # 最新ツイートの画像のみOCR(コスト/負荷抑制)
 MAX_OCR_RETRIES = 3  # OCRが空を返した画像を再挑戦する回数
+# 価格表に出てこなくなった商品を落とすまでの日数。買取をやめた商品の価格が
+# 残り続けるのを防ぐ。コレクトは不定期投稿なので短くしすぎない。
+STALE_DAYS = 14
+
 ANTHROPIC_MODEL = "claude-sonnet-4-6"
 
 # OCR後の名前正規化辞書(コレクト固有の表記揺れをmatcher側のキーワードに寄せる)
@@ -121,6 +125,15 @@ class CollectTendoScraper(BaseScraper):
         cached_items = state.get("items", {})
         cached_items.update(new_items)
         state["items"] = cached_items
+        # 商品ごとの最終確認日。今回の価格表に出た商品だけ更新する。
+        now = int(time.time())
+        seen_at = state.get("seen_at", {})
+        for _n in new_items:
+            seen_at[_n] = now
+        # 導入前からある商品は起点が無いので、今回を起点にして猶予を与える
+        for _n in cached_items:
+            seen_at.setdefault(_n, now)
+        state["seen_at"] = {k: v for k, v in seen_at.items() if k in cached_items}
         # processed_urls は最新50件まで保持(古いのは破棄)
         state["processed_urls"] = list(seen_urls)[-50:]
         state["ocr_fail_counts"] = {
@@ -131,7 +144,7 @@ class CollectTendoScraper(BaseScraper):
                                    if u not in seen_urls]
         self._save_state(state)
 
-        return [ScrapedItem(name=n, price=p) for n, p in cached_items.items() if p > 0]
+        return self._items_from_state(state)
 
     # ----- helpers -----
 
@@ -151,7 +164,17 @@ class CollectTendoScraper(BaseScraper):
         )
 
     def _items_from_state(self, state: dict) -> list[ScrapedItem]:
-        return [ScrapedItem(name=n, price=p) for n, p in state.get("items", {}).items() if p > 0]
+        """STALE_DAYS を過ぎても価格表に出てこない商品は掲載しない。"""
+        cutoff = int(time.time()) - STALE_DAYS * 86400
+        seen_at = state.get("seen_at", {})
+        out = []
+        for n, p in state.get("items", {}).items():
+            if p <= 0:
+                continue
+            if seen_at and seen_at.get(n, 0) < cutoff:
+                continue
+            out.append(ScrapedItem(name=n, price=p))
+        return out
 
     def _fetch_recent_image_urls(self, auth_token: str, ct0: str) -> list[str]:
         """Playwrightで@collect_tendoの最新ツイートから画像URLを収集"""
