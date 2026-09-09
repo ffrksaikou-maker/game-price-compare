@@ -22,6 +22,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import subprocess
 import sys
@@ -54,7 +55,6 @@ ACCOUNTS = [
 # OCR自体は既にキーを持っているCI側でやらせる。
 IMAGE_ACCOUNTS = [
     ("collect_tendo", "collect_tendo", ["ポケモンカード", "ワンピース"]),
-    ("shinsoku_price", "shinsoku", ["ドラゴンボール"]),
 ]
 
 
@@ -268,6 +268,101 @@ def update_state(name: str, items: dict) -> int:
     return len(cached) - before
 
 
+def _git(*args) -> subprocess.CompletedProcess:
+    return subprocess.run(["git", *args], cwd=ROOT,
+                          capture_output=True, text=True, encoding="utf-8",
+                          errors="replace")
+
+
+def _merge_state(ours: dict, theirs: dict) -> dict:
+    """CIのOCR結果とローカルの取得結果を、どちらも捨てずに混ぜる。"""
+    newer, older = ((ours, theirs)
+                    if ours.get("last_check", 0) >= theirs.get("last_check", 0)
+                    else (theirs, ours))
+    merged = {**older, **newer}
+    merged["items"] = {**older.get("items", {}), **newer.get("items", {})}
+    seen = dict(older.get("seen_at", {}))
+    for k, v in newer.get("seen_at", {}).items():
+        seen[k] = max(v, seen.get(k, 0))
+    merged["seen_at"] = {k: v for k, v in seen.items() if k in merged["items"]}
+    done = list(dict.fromkeys(ours.get("processed_urls", [])
+                              + theirs.get("processed_urls", [])))[-50:]
+    merged["processed_urls"] = done
+    merged["pending_images"] = [
+        u for u in dict.fromkeys(ours.get("pending_images", [])
+                                 + theirs.get("pending_images", []))
+        if u not in done
+    ]
+    for k in ("last_check", "last_image_check"):
+        merged[k] = max(ours.get(k, 0), theirs.get(k, 0))
+    return merged
+
+
+def resolve_conflicts() -> bool:
+    """rebase中に衝突した state をマージして解決する。
+
+    ローカルは4時間おき、CIは1日3回、同じ data/x_state/*.json を書くので
+    衝突は日常的に起きる。放置すると rebase が途中で止まったままになり、
+    以降のpushが全て失敗する(2026-09-09にそれで丸一日止まった)。
+    """
+    files = [f for f in _git("diff", "--name-only", "--diff-filter=U").stdout.split()
+             if f.strip()]
+    if not files:
+        return False
+    if any(not f.startswith("data/x_state/") for f in files):
+        print(f"  state以外が衝突: {files}")
+        return False
+    for f in files:
+        try:
+            ours = json.loads(_git("show", f":2:{f}").stdout or "{}")
+            theirs = json.loads(_git("show", f":3:{f}").stdout or "{}")
+        except json.JSONDecodeError as e:
+            print(f"  {f} を読めない: {e}")
+            return False
+        (ROOT / f).write_text(
+            json.dumps(_merge_state(ours, theirs), ensure_ascii=False, indent=2),
+            encoding="utf-8")
+        _git("add", f)
+        print(f"  {f} をマージした")
+    return True
+
+
+def push_state() -> None:
+    if (ROOT / ".git" / "rebase-merge").exists() or (ROOT / ".git" / "rebase-apply").exists():
+        print("前回のrebaseが中断されたままなので解決する")
+        if not (resolve_conflicts() and _continue_rebase()):
+            _git("rebase", "--abort")
+            print("解決できないので中断を取り消した")
+
+    _git("add", "data/x_state")
+    if _git("diff", "--staged", "--quiet").returncode == 0:
+        print("差分なし")
+        return
+    _git("commit", "-m", f"X価格を更新(ローカル取得 {time.strftime('%Y-%m-%d %H:%M')})")
+
+    if _git("pull", "--rebase").returncode != 0:
+        if not (resolve_conflicts() and _continue_rebase()):
+            _git("rebase", "--abort")
+            print("衝突を解決できなかった。手で確認する")
+            return
+
+    r = _git("push")
+    print("git push 済み" if r.returncode == 0 else f"push失敗: {r.stderr.strip()[:200]}")
+
+
+def _continue_rebase() -> bool:
+    env = {**os.environ, "GIT_EDITOR": "true"}
+    for _ in range(20):
+        r = subprocess.run(["git", "rebase", "--continue"], cwd=ROOT, env=env,
+                           capture_output=True, text=True, encoding="utf-8",
+                           errors="replace")
+        if r.returncode == 0:
+            return True
+        if not resolve_conflicts():
+            return False
+    return False
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--login", action="store_true", help="初回セットアップ(手動ログイン)")
@@ -326,19 +421,8 @@ def main() -> int:
         print(f"  画像{len(urls)}件 / CIに渡す未処理{n}件", flush=True)
         total_new += n
 
-    if args.push and total_new:
-        subprocess.run(["git", "add", "data/x_state"], cwd=ROOT, check=False)
-        r = subprocess.run(["git", "diff", "--staged", "--quiet"], cwd=ROOT)
-        if r.returncode != 0:
-            subprocess.run(
-                ["git", "commit", "-m",
-                 f"X価格を更新(ローカル取得 {time.strftime('%Y-%m-%d %H:%M')})"],
-                cwd=ROOT, check=False)
-            subprocess.run(["git", "pull", "--rebase", "-q"], cwd=ROOT, check=False)
-            subprocess.run(["git", "push", "-q"], cwd=ROOT, check=False)
-            print("git push 済み")
-        else:
-            print("差分なし")
+    if args.push:
+        push_state()
     return 0
 
 
