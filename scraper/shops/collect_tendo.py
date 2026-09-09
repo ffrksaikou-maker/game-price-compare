@@ -187,7 +187,16 @@ class CollectTendoScraper(BaseScraper):
                 try:
                     page.wait_for_selector('article[data-testid="tweet"]', timeout=15000)
                 except Exception:
-                    logger.warning("CollectTendo: timeline not loaded (login expired?)")
+                    # ログイン切れか、Xのセレクタ変更かを切り分けられるように
+                    # 実際に何が表示されているかを残す。
+                    try:
+                        _url = page.url
+                        _title = page.title()[:80]
+                        _body = page.inner_text("body")[:200].replace("\n", " ")
+                    except Exception:
+                        _url = _title = _body = "?"
+                    logger.warning("CollectTendo: timeline not loaded. url=%s title=%s body=%s",
+                                   _url, _title, _body)
                     browser.close()
                     return []
 
