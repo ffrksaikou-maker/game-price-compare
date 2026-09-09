@@ -257,6 +257,13 @@ details[open] .si-summary::after{transform:rotate(180deg)}
   .si-item h3{font-size:11px}
   .si-item p{font-size:11px}
 }
+.chusen-banner{max-width:var(--table-width);margin:22px auto 8px;padding:0 16px}
+.chusen-banner a{display:block;background:linear-gradient(135deg,var(--cb-a,#6366f1),var(--cb-b,#a855f7));border-radius:12px;padding:16px 20px;text-decoration:none;color:#fff;box-shadow:0 4px 14px var(--cb-sh,rgba(99,102,241,.35));transition:transform .12s,box-shadow .12s}
+.chusen-banner a:hover{transform:translateY(-2px);box-shadow:0 7px 20px var(--cb-sh,rgba(99,102,241,.45))}
+.cb-tag{display:inline-block;background:#fff;color:var(--cb-a,#6366f1);font-size:11px;font-weight:800;padding:3px 10px;border-radius:999px;margin-right:9px;vertical-align:2px;letter-spacing:.4px}
+.chusen-banner b{font-size:16px;font-weight:800;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.12)}
+.cb-sub{display:block;font-size:12.5px;color:rgba(255,255,255,.95);margin-top:6px;line-height:1.6}
+.chusen-banner{--cb-a:#6366f1;--cb-b:#a855f7;--cb-sh:rgba(99,102,241,.35)}
 </style>
 </head>
 <body>
@@ -265,7 +272,7 @@ details[open] .si-summary::after{transform:rotate(180deg)}
 <div class="gsbar"><a class="gswitch gs-pk" href="/"><span class="ar">◀</span> ポケモンカード</a><a class="gswitch gs-op" href="/onepiece"><span class="ar">◀</span> ONE PIECE</a><a class="gswitch gs-by" href="/beyblade"><span class="ar">◀</span> ベイブレード</a></div>
 <div class="header">
   <h1>ドラゴンボール買取チェッカー</h1>
-  <span class="upd">更新: <span id="ud">2026/09/08 22:23</span></span>
+  <span class="upd">更新: <span id="ud">2026/09/09 15:10</span></span>
 </div>
 
 <div class="fbar" id="fbar">
@@ -284,6 +291,8 @@ details[open] .si-summary::after{transform:rotate(180deg)}
     <button class="fb st active" data-s="rudeya">ルデヤ</button>
     <button class="fb st active" data-s="runto">ラントゥ</button>
     <button class="fb st active" data-s="morimori">森森</button>
+    <button class="fb st active" data-s="kaitoriexpo">EXPO</button>
+    <button class="fb st active" data-s="shinsoku">シンソク</button>
   </div>
   <div class="fg">
     <button class="sb" id="srt">最高買取順 ▼</button>
@@ -320,10 +329,16 @@ details[open] .si-summary::after{transform:rotate(180deg)}
         <th class="sc" data-s="rudeya"><a href="https://kaitori-rudeya.com/category/detail/225" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'rudeya',shop_name:'ルデヤ'})">ルデヤ</a></th>
         <th class="sc" data-s="runto"><a href="https://runto666.com/product-category/dg/" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'runto',shop_name:'ラントゥ'})">ラントゥ</a></th>
         <th class="sc" data-s="morimori"><a href="https://www.morimori-kaitori.jp/category/2404" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'morimori',shop_name:'森森'})">森森</a></th>
+        <th class="sc" data-s="kaitoriexpo"><a href="https://x.com/kaitoriexpo" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'kaitoriexpo',shop_name:'買取EXPO'})">EXPO</a></th>
+        <th class="sc" data-s="shinsoku"><a href="https://x.com/shinsoku_price" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'shinsoku',shop_name:'シンソク'})">シンソク</a></th>
       </tr>
     </thead>
     <tbody id="tb"></tbody>
   </table>
+</div>
+
+<div class="chusen-banner">
+  <a href="chusen-matome.html"><span class="cb-tag">受付中</span><b>Amazon抽選(招待リクエスト)まとめ</b><span class="cb-sub">対象商品の定価と現在の買取価格の差を毎日更新。当たったらいくら得かが一覧で分かります &rarr;</span></a>
 </div>
 
 <div class="ft">
@@ -333,7 +348,9 @@ details[open] .si-summary::after{transform:rotate(180deg)}
   <a href="https://www.morimori-kaitori.jp/" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'morimori',shop_name:'森森'})">森森買取</a> /
   <a href="https://kaitori-rudeya.com/" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'rudeya',shop_name:'ルデヤ'})">買取ルデヤ</a> /
   <a href="https://kaitori-homura.com/" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'homura',shop_name:'ホムラ'})">買取ホムラ</a> /
-  <a href="https://runto666.com/" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'runto',shop_name:'ラントゥ'})">ラントゥ買取</a><br>
+  <a href="https://runto666.com/" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'runto',shop_name:'ラントゥ'})">ラントゥ買取</a> /
+  <a href="https://x.com/kaitoriexpo" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'kaitoriexpo',shop_name:'買取EXPO'})">買取EXPO</a> /
+  <a href="https://x.com/shinsoku_price" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{shop:'shinsoku',shop_name:'シンソク'})">買取シンソク</a><br>
   <a href="privacy.html" style="color:#9ca3af;font-size:10px">プライバシーポリシー</a>
 </div>
 
@@ -373,16 +390,36 @@ details[open] .si-summary::after{transform:rotate(180deg)}
 
 <script>
 "use strict";
-const S=["homura","rudeya","runto","morimori"];
+const S=["homura","rudeya","runto","morimori","kaitoriexpo","shinsoku"];
 // カテゴリ毎の店舗並び順を動的算出
 //  - SS: 取扱数の多い順 (扱ってる店舗が偏ってるため)
 //  - SV/MEGA/special: 最高買取になっている回数の多い順 (各商品で勝ってる店が左)
 //  - all: 元のS順
 // 同数の場合は S の元の並び順を維持(タイブレーク)
-let S_SS = ["homura","rudeya","runto","morimori"];
+let S_SS = ["homura","rudeya","runto","morimori","kaitoriexpo","shinsoku"];
 const SHOP_ORDER_CACHE = {};
 function computeShopOrder(cat) {
-  return [...S];
+  if (typeof P === 'undefined') return [...S];
+  if (SHOP_ORDER_CACHE[cat]) return SHOP_ORDER_CACHE[cat];
+  // 第1キー: 掲載商品数(価格が入っている商品の数) / 第2キー: 最高買取になった回数。
+  // 掲載の多い店を左に置くと、空欄だらけの列が右に寄って表が読みやすくなる。
+  const listed = Object.fromEntries(S.map(s => [s, 0]));
+  const best = Object.fromEntries(S.map(s => [s, 0]));
+  for (const p of P) {
+    if (cat !== 'all' && p.c !== cat) continue;
+    if (!p.p) continue;
+    let maxPrice = 0, maxShop = null;
+    for (const sid of S) {
+      const v = p.p[sid] || 0;
+      if (v > 0) listed[sid]++;
+      if (v > maxPrice) { maxPrice = v; maxShop = sid; }
+    }
+    if (maxShop) best[maxShop]++;
+  }
+  const ordered = [...S].sort((a, b) =>
+    listed[b] - listed[a] || best[b] - best[a] || S.indexOf(a) - S.indexOf(b));
+  SHOP_ORDER_CACHE[cat] = ordered;
+  return ordered;
 }
 function computeS_SS() {
   if (typeof P === 'undefined') return S_SS;
