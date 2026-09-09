@@ -57,6 +57,12 @@ t = set_content(t, '<meta name="twitter:title"', TITLE)
 t = set_content(t, '<meta name="twitter:description"', DESC_SHORT)
 t = re.sub(r"<title>[^<]*</title>", f"<title>{TITLE}</title>", t, count=1)
 
+# 抽選まとめページはポケカ/ワンピにしか無い。相対リンクのままだと
+# ポケカ版へ飛んでしまうので、このジャンルではバナーごと落とす。
+def remove_chusen(src):
+    return re.sub(r'<div class="chusen-banner">.*?</div>\s*', "", src, flags=re.S)
+t = remove_chusen(t)
+
 t = rep(t, '<meta property="og:url" content="https://pokeca-box-hikaku.com/">',
         '<meta property="og:url" content="https://pokeca-box-hikaku.com/dragonball">')
 t = rep(t, '<link rel="canonical" href="https://pokeca-box-hikaku.com/">',

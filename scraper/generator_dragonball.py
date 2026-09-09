@@ -25,10 +25,11 @@ HISTORY_DB_DIR = PROJECT_ROOT / "data" / "history_db"
 
 # ドラゴンボールを扱っている4店のみ(ポケカ/ワンピの店舗リストとは別)。
 # 一丁目・シンソク・海峡・オクはドラゴンボールの買取カテゴリ自体が無い。
-SHOP_IDS = ["homura", "rudeya", "runto", "morimori"]
+SHOP_IDS = ["homura", "rudeya", "runto", "morimori", "kaitoriexpo", "shinsoku"]
 SHOP_NAMES = {
     "homura": "ホムラ", "rudeya": "ルデヤ",
     "runto": "ラントゥ", "morimori": "森森",
+    "kaitoriexpo": "買取EXPO", "shinsoku": "シンソク",
 }
 CATEGORY_LABELS = {
     "fb": "ブースターパック (FB)", "sb": "MANGA BOOSTER (SB)",
