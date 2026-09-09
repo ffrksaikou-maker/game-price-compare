@@ -200,6 +200,11 @@ class ShinsokuScraper(BaseScraper):
         """X_STALE_DAYS を過ぎても価格表に出てこない商品は掲載しない。"""
         cutoff = int(time.time()) - X_STALE_DAYS * 86400
         seen_at = state.get("seen_at", {})
+        # 取得側が壊れて価格表がまったく取れなくなった場合、期限切れ判定を
+        # 続けると全商品が消える。直近の更新自体が無いときは何も落とさない。
+        if not seen_at or max(seen_at.values(), default=0) < cutoff:
+            return [ScrapedItem(name=n, price=p)
+                    for n, p in state.get("items", {}).items() if p > 0]
         out = []
         for n, p in state.get("items", {}).items():
             if p <= 0:

@@ -94,6 +94,7 @@ class CollectTendoScraper(BaseScraper):
 
         fail_counts: dict[str, int] = state.get("ocr_fail_counts", {})
         new_items: dict[str, int] = {}
+        stopped: set[str] = set()  # 価格表に「-」で載っていた=買取停止
         for url in new_urls:
             logger.info("CollectTendo: OCR %s", url[:80])
             extracted = self._ocr_image(anthropic_key, url)
@@ -119,16 +120,23 @@ class CollectTendoScraper(BaseScraper):
             for name, price in extracted.items():
                 if price > 0 and price > new_items.get(name, 0):
                     new_items[name] = price
+                elif price == 0:
+                    stopped.add(name)
             seen_urls.add(url)
 
         # Step 3: state更新 — 新OCR結果は既存をオーバーライト
         cached_items = state.get("items", {})
         cached_items.update(new_items)
+        # 「-」だった商品は買取停止として落とす。ただし価格を1件も読めて
+        # いないときは、誤読で全商品が消えるのを避けるため何もしない。
+        if new_items:
+            for name in stopped - set(new_items):
+                cached_items[name] = 0
         state["items"] = cached_items
         # 商品ごとの最終確認日。今回の価格表に出た商品だけ更新する。
         now = int(time.time())
         seen_at = state.get("seen_at", {})
-        for _n in new_items:
+        for _n in set(new_items) | stopped:
             seen_at[_n] = now
         # 導入前からある商品は起点が無いので、今回を起点にして猶予を与える
         for _n in cached_items:
@@ -167,6 +175,11 @@ class CollectTendoScraper(BaseScraper):
         """STALE_DAYS を過ぎても価格表に出てこない商品は掲載しない。"""
         cutoff = int(time.time()) - STALE_DAYS * 86400
         seen_at = state.get("seen_at", {})
+        # 取得側が壊れて価格表がまったく取れなくなった場合、期限切れ判定を
+        # 続けると全商品が消える。直近の更新自体が無いときは何も落とさない。
+        if not seen_at or max(seen_at.values(), default=0) < cutoff:
+            return [ScrapedItem(name=n, price=p)
+                    for n, p in state.get("items", {}).items() if p > 0]
         out = []
         for n, p in state.get("items", {}).items():
             if p <= 0:
@@ -300,7 +313,10 @@ class CollectTendoScraper(BaseScraper):
             "「PRB-02 ONE PIECE CARD THE BEST vol.2」)。弾番号が読み取れる場合は必ず併記する\n"
             "- 商品名は表記そのまま、ただしOCR誤認は文脈から修正(例: 「初天」→「仰天」、「ゲーファンタズマ」→「ダークファンタズマ」)\n"
             "- 価格は半角整数、単位や¥は含めない\n"
-            "- 価格不明・取り消し線・空欄のものは含めない\n"
+            "- **買取していない商品(価格欄が『-』『—』『×』の行)は price を 0 にして必ず出力する**。"
+            "その店が今その商品を買取していないことを伝えるために要る(省略しないこと)\n"
+            "- 価格そのものが読み取れない・取り消し線・空欄のものは含めない(明示的な『-』とは区別する)\n"
+            "- **『未開封カートン』セクションは除外し、『未開封BOX』の行だけを採用する**\n"
             "- シングルカード/デッキ/単パック1袋/カートン売りは除外\n"
             "- 価格が読み取りにくい/自信がない場合はその商品をスキップ(誤った値を出すよりスキップ優先)\n"
         )
@@ -363,7 +379,11 @@ class CollectTendoScraper(BaseScraper):
                 price = int(re.sub(r"[^\d]", "", price)) if re.search(r"\d", price) else 0
             # 正規化: コレクト固有の表記揺れを既存matcherのキーワードに寄せる
             name = NAME_NORMALIZE.get(name, name)
-            if name and isinstance(price, int) and price > 0:
-                result[name] = max(result.get(name, 0), price)
+            if name and isinstance(price, int) and price >= 0:
+                if price:
+                    result[name] = max(result.get(name, 0), price)
+                else:
+                    # 「-」= 買取停止。同じ画像に価格があればそちらを優先
+                    result.setdefault(name, 0)
         logger.info("CollectTendo: OCR extracted %d items from image", len(result))
         return result
