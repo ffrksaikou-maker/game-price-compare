@@ -1,13 +1,47 @@
 {
   "pending_images": [
-    "https://pbs.twimg.com/media/HRvfMlQawAA3L2-?format=jpg&name=large",
     "https://pbs.twimg.com/media/HRvakp4boAAdzuv?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HRqWXema4AAwTfU?format=jpg&name=large",
     "https://pbs.twimg.com/media/HRqQVbGbIAArYBw?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HRlwzLXaQAA8vet?format=jpg&name=large",
     "https://pbs.twimg.com/media/HRlFjGIaYAADtQf?format=jpg&name=large",
     "https://pbs.twimg.com/media/HRgA1hdaQAAfF-W?format=jpg&name=large",
     "https://pbs.twimg.com/media/HRa1SRKa8AA0i86?format=jpg&name=large"
   ],
-  "last_image_check": 1788939661
+  "last_image_check": 1788939661,
+  "items": {
+    "FB-01 覚醒の鼓動": 6500,
+    "FB-02 烈火の闘気": 6000,
+    "FB-03 怒りの咆哮": 8000,
+    "FB-04 限界を超えし者": 8100,
+    "FB-05 未知なる冒険": 8600,
+    "FB-06 迫り来る脅威": 13500,
+    "FB-07 神龍への願い": 27800,
+    "FB-08 誇り高き戦闘民族": 9000,
+    "FB-10 CROSS FORCE": 10000,
+    "FB01 覚醒の鼓動": 7600,
+    "FB02 烈火の闘気": 7100,
+    "FB03 怒りの超拳": 8000,
+    "FB04 限界を超えし者": 8100,
+    "FB05 未知なる冒険": 9900,
+    "FB06 迫り来る脅威": 14200,
+    "FB07 神龍への願い": 32300,
+    "FB08 誇り高き戦闘民族": 13300,
+    "FB10 CROSS FORCE": 10900,
+    "FB03 怒りの咆哮": 10400,
+    "FB04 界を超えし者": 8500,
+    "SB01 MANGA BOOSTER 01": 120000,
+    "SB02 MANGA BOOSTER 02": 61700
+  },
+  "processed_urls": [
+    "https://pbs.twimg.com/media/HRqWXema4AAwTfU?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HRlwzLXaQAA8vet?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HRvfMlQawAA3L2-?format=jpg&name=large"
+  ],
+  "ocr_fail_counts": {
+    "https://pbs.twimg.com/media/HRvakp4boAAdzuv?format=jpg&name=large": 1,
+    "https://pbs.twimg.com/media/HRqQVbGbIAArYBw?format=jpg&name=large": 1,
+    "https://pbs.twimg.com/media/HRlFjGIaYAADtQf?format=jpg&name=large": 1,
+    "https://pbs.twimg.com/media/HRgA1hdaQAAfF-W?format=jpg&name=large": 1,
+    "https://pbs.twimg.com/media/HRa1SRKa8AA0i86?format=jpg&name=large": 1
+  },
+  "last_check": 1788939952
 }

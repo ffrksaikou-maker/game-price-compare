@@ -3,7 +3,7 @@
     "name": "ブースターパック「世界最強の戦士」【OP-17】",
     "category": "op",
     "retail_price": 5760,
-    "max_price": 16500,
+    "max_price": 15800,
     "prices": {
       "morimori": 12800,
       "homura": 15800,
@@ -11,7 +11,7 @@
       "runto": 15500,
       "icchome": 15000,
       "oku": 15800,
-      "collect_tendo": 16500,
+      "collect_tendo": 15500,
       "shinsoku": 14500
     }
   },
@@ -27,7 +27,7 @@
       "runto": 8700,
       "icchome": 8600,
       "oku": 8000,
-      "collect_tendo": 8500,
+      "collect_tendo": 8700,
       "shinsoku": 8100
     }
   },
@@ -35,14 +35,14 @@
     "name": "ブースターパック「神の島の冒険」【OP-15】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 7500,
+    "max_price": 7300,
     "prices": {
       "homura": 7000,
       "rudeya": 7000,
       "runto": 7000,
       "icchome": 7300,
       "oku": 7000,
-      "collect_tendo": 7500,
+      "collect_tendo": 7100,
       "shinsoku": 7100
     }
   },
@@ -50,14 +50,14 @@
     "name": "ブースターパック「蒼海の七傑」【OP-14】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 15000,
+    "max_price": 8500,
     "prices": {
       "homura": 8500,
       "rudeya": 7000,
       "runto": 8500,
       "icchome": 8500,
       "oku": 8500,
-      "collect_tendo": 15000,
+      "collect_tendo": 8500,
       "shinsoku": 8500
     }
   },
@@ -363,7 +363,7 @@
       "runto": 23000,
       "icchome": 22000,
       "oku": 22500,
-      "collect_tendo": 22500,
+      "collect_tendo": 22000,
       "shinsoku": 21400
     }
   },

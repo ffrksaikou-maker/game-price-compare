@@ -3,10 +3,11 @@
     "name": "ブースターパック「CROSS FORCE」【FB-10】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 9500,
+    "max_price": 10000,
     "prices": {
       "rudeya": 8500,
-      "runto": 9500
+      "runto": 9500,
+      "shinsoku": 10000
     }
   },
   {
@@ -25,25 +26,28 @@
     "retail_price": 5280,
     "max_price": 11500,
     "prices": {
-      "rudeya": 11500
+      "rudeya": 11500,
+      "shinsoku": 9000
     }
   },
   {
     "name": "ブースターパック「神龍への願い」【FB-07】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 27000,
+    "max_price": 27800,
     "prices": {
-      "rudeya": 27000
+      "rudeya": 27000,
+      "shinsoku": 27800
     }
   },
   {
     "name": "ブースターパック「迫り来る脅威」【FB-06】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 9500,
+    "max_price": 13500,
     "prices": {
       "rudeya": 9500,
+      "shinsoku": 13500,
       "kaitoriexpo": 9000
     }
   },
@@ -51,9 +55,10 @@
     "name": "ブースターパック「未知なる冒険」【FB-05】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 8200,
+    "max_price": 8600,
     "prices": {
       "rudeya": 6500,
+      "shinsoku": 8600,
       "kaitoriexpo": 8200
     }
   },
@@ -61,9 +66,10 @@
     "name": "ブースターパック「限界を超えし者」【FB-04】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 7300,
+    "max_price": 8100,
     "prices": {
       "rudeya": 6000,
+      "shinsoku": 8100,
       "kaitoriexpo": 7300
     }
   },
@@ -71,9 +77,10 @@
     "name": "ブースターパック「怒りの咆哮」【FB-03】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 7500,
+    "max_price": 8000,
     "prices": {
       "rudeya": 7000,
+      "shinsoku": 8000,
       "kaitoriexpo": 7500
     }
   },
@@ -84,6 +91,7 @@
     "max_price": 6500,
     "prices": {
       "rudeya": 4500,
+      "shinsoku": 6000,
       "kaitoriexpo": 6500
     }
   },
@@ -91,9 +99,10 @@
     "name": "ブースターパック「覚醒の鼓動」【FB-01】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 5300,
+    "max_price": 6500,
     "prices": {
       "rudeya": 5000,
+      "shinsoku": 6500,
       "kaitoriexpo": 5300
     }
   },
@@ -101,11 +110,12 @@
     "name": "MANGA BOOSTER 02【SB-02】",
     "category": "sb",
     "retail_price": 7920,
-    "max_price": 50000,
+    "max_price": 61700,
     "prices": {
       "morimori": 19800,
       "rudeya": 50000,
       "runto": 50000,
+      "shinsoku": 61700,
       "kaitoriexpo": 47000
     }
   },
@@ -113,10 +123,11 @@
     "name": "MANGA BOOSTER 01【SB-01】",
     "category": "sb",
     "retail_price": 7920,
-    "max_price": 115000,
+    "max_price": 120000,
     "prices": {
       "rudeya": 115000,
       "runto": 100000,
+      "shinsoku": 120000,
       "kaitoriexpo": 90000
     }
   },
