@@ -2,8 +2,10 @@ name: Update Prices
 
 on:
   schedule:
-    # JST 11:00, 15:00, 18:00 (3 times daily)
-    - cron: '0 2,6,9 * * *'
+    # JST 11:23, 15:23, 18:23 (3 times daily)
+    # 毎時0分はGitHub側の負荷が高く遅延・ドロップされる。実際 '0 2,6,9' では
+    # 8日連続で11時の回が実行されず、18時の回も3〜6時間遅れていた。
+    - cron: '23 2,6,9 * * *'
   workflow_dispatch:
     inputs:
       shops:
