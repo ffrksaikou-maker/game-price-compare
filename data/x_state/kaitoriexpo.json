@@ -12,8 +12,8 @@
     "ST01 STORY BOOSTER 01": 15500,
     "SB01 MANGA BOOSTER 01": 90000,
     "SB02 MANGA BOOSTER 02": 47000,
-    "ストームエメラルダ": 11700,
-    "アビスアイ": 8200,
+    "ストームエメラルダ": 11800,
+    "アビスアイ": 8000,
     "ニンジャスピナー": 7800,
     "ムニキスゼロ": 8500,
     "MEGAドリームex": 12200,
@@ -118,7 +118,11 @@
     "遊戯王 LIMIT OVER COLLECTION THE HEROES": 12900,
     "遊戯王 LIMIT OVER COLLECTION THE RIVALS": 6100
   },
-  "last_check": 1789023983,
-  "last_found": 47,
-  "source": "local"
+  "last_check": 1789033320,
+  "last_found": 83,
+  "source": "local",
+  "seen_at": {},
+  "processed_urls": [],
+  "pending_images": [],
+  "last_image_check": 0
 }
