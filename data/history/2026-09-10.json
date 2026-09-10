@@ -13,8 +13,8 @@
       "oku": 11700,
       "kaikyo": 8500,
       "collect_tendo": 11900,
-      "shinsoku": 11000,
-      "kaitoriexpo": 11700
+      "shinsoku": 11500,
+      "kaitoriexpo": 11800
     }
   },
   {
@@ -32,7 +32,7 @@
       "kaikyo": 7000,
       "collect_tendo": 7400,
       "shinsoku": 8000,
-      "kaitoriexpo": 8200
+      "kaitoriexpo": 8000
     }
   },
   {
@@ -49,7 +49,7 @@
       "oku": 7500,
       "kaikyo": 7500,
       "collect_tendo": 7800,
-      "shinsoku": 8200,
+      "shinsoku": 8100,
       "kaitoriexpo": 7800
     }
   },
@@ -255,13 +255,13 @@
     "name": "SV ハイクラスパック テラスタルフェスex",
     "category": "sv",
     "retail_price": 5500,
-    "max_price": 18000,
+    "max_price": 17800,
     "prices": {
       "morimori": 17000,
       "homura": 17200,
       "rudeya": 17700,
       "runto": 17000,
-      "icchome": 18000,
+      "icchome": 17000,
       "kaikyo": 14500,
       "collect_tendo": 17400,
       "shinsoku": 16800,
@@ -416,10 +416,10 @@
     "name": "SV 拡張パック「古代の咆哮」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 12200,
+    "max_price": 12000,
     "prices": {
       "morimori": 11000,
-      "homura": 12200,
+      "homura": 12000,
       "rudeya": 10000,
       "runto": 11500,
       "icchome": 10000,
@@ -512,10 +512,10 @@
     "name": "SV 強化拡張パック「スノーハザード」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 12500,
+    "max_price": 12400,
     "prices": {
       "morimori": 11800,
-      "homura": 12500,
+      "homura": 12400,
       "rudeya": 10000,
       "runto": 11500,
       "icchome": 9500,
@@ -577,7 +577,7 @@
     "max_price": 29000,
     "prices": {
       "morimori": 28500,
-      "homura": 29000,
+      "homura": 28800,
       "rudeya": 25000,
       "runto": 28500,
       "icchome": 27000,
@@ -645,10 +645,9 @@
     "name": "S&S 強化拡張パック「ダークファンタズマ」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 27000,
+    "max_price": 26500,
     "prices": {
       "homura": 26500,
-      "runto": 27000,
       "collect_tendo": 26000,
       "shinsoku": 26500
     }
@@ -955,7 +954,6 @@
     "prices": {
       "homura": 11000,
       "rudeya": 10000,
-      "runto": 11500,
       "collect_tendo": 14500
     }
   }

@@ -7,12 +7,12 @@
     "prices": {
       "morimori": 12800,
       "homura": 15000,
-      "rudeya": 14000,
+      "rudeya": 15000,
       "runto": 14000,
       "icchome": 15000,
       "oku": 15000,
       "collect_tendo": 16300,
-      "shinsoku": 14500,
+      "shinsoku": 13500,
       "kaitoriexpo": 15000
     }
   },
@@ -60,7 +60,7 @@
       "runto": 8500,
       "icchome": 8500,
       "oku": 8500,
-      "collect_tendo": 8000,
+      "collect_tendo": 8500,
       "shinsoku": 8500,
       "kaitoriexpo": 8800
     }
@@ -69,11 +69,11 @@
     "name": "ブースターパック「受け継がれる意志」【OP-13】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 16500,
+    "max_price": 16000,
     "prices": {
       "homura": 13000,
       "rudeya": 12700,
-      "runto": 16500,
+      "runto": 16000,
       "icchome": 12500,
       "oku": 14000,
       "shinsoku": 13000,
@@ -140,7 +140,7 @@
       "runto": 21000,
       "icchome": 20000,
       "oku": 21000,
-      "shinsoku": 19300,
+      "shinsoku": 19800,
       "kaitoriexpo": 20200
     }
   },
@@ -169,10 +169,9 @@
       "morimori": 19000,
       "homura": 19500,
       "rudeya": 19000,
-      "runto": 17000,
       "icchome": 19000,
       "oku": 19000,
-      "shinsoku": 17100,
+      "shinsoku": 17000,
       "kaitoriexpo": 16000
     }
   },
@@ -308,12 +307,12 @@
     "name": "エクストラブースター「Anime 25th collection」【EB-02】",
     "category": "eb",
     "retail_price": 5280,
-    "max_price": 34000,
+    "max_price": 35000,
     "prices": {
       "morimori": 34000,
       "homura": 33000,
       "rudeya": 34000,
-      "runto": 34000,
+      "runto": 35000,
       "icchome": 31000,
       "oku": 31000,
       "shinsoku": 30500,
