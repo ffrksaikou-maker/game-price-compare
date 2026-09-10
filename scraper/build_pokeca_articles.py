@@ -422,6 +422,9 @@ AMAZON_INVITE = [
 ]
 
 
+AZ_RE = re.compile(r"\{\{AZ:([A-Z0-9]{10})\}\}")
+
+
 def _amazon_dp(asin: str) -> str:
     return f"https://www.amazon.co.jp/dp/{asin}?tag={AMAZON_TAG}"
 
@@ -483,6 +486,8 @@ def _placeholders(text: str) -> str:
     """記事テキストの {{...}} を実データで置換する。"""
     if "{{" not in text:
         return text
+
+    text = AZ_RE.sub(lambda m: _amazon_dp(m.group(1)), text)
 
     span = _full_span_days(HISTORY_DIR)
     long_agg = _change_summary(HISTORY_DIR, span) if span else {}
@@ -639,6 +644,118 @@ def _placeholders(text: str) -> str:
 # ---------------------------------------------------------------- 記事データ
 
 POKECA_ARTICLES: list[dict] = [
+    {'slug': 'box-hokan',
+ 'crumb': 'ポケカBOXの保管方法',
+ 'date': '2026-09-11',
+ 'date_jp': '2026年9月11日',
+ 'title': 'ポケカBOXの保管方法｜シュリンクを剥がすと買取は平均12.3%落ちる【実データ】',
+ 'h1': 'ポケカBOXの保管方法｜シュリンクを剥がすと買取はいくら落ちるか',
+ 'meta_desc': 'シュリンク付きとシュリンクなしの買取価格を38商品ぶん集計したところ、下落率の平均は12.3%、最大はポケモンカード151の9,000円でした。湿気による反り、2026年8月の記録的大雨をふまえた置き場所のリスク、BOXローダーや防湿庫といった実際に使える保管方法まで、買取価格を落とさない条件を実データで整理します。',
+ 'og_title': 'ポケカBOXの保管方法｜シュリンクを剥がすと買取は平均12.3%落ちる',
+ 'og_desc': 'シュリンク有無の買取差を38商品で集計。平均-12.3%、最大は151の-9,000円。大雨をふまえた置き場所の注意も。',
+ 'meta_line': 'シュリンクの有無で買取がいくら変わるか(38商品の実データ・2026年9月7日時点)',
+ 'hero_label': 'シュリンクを剥がしたときの買取下落率(38商品平均)',
+ 'hero_big': '-12.3%',
+ 'hero_sub': '金額では平均約2,155円。最大はポケモンカード151の-9,000円',
+ 'disclaimer': 'シュリンク付き・なしの価格は<strong>買取コレクトが2026年9月7日に公開した価格表</strong>を集計したもので、当サイトが比較表で使っている最大10店舗の買取実データとは別の集計です。価格は日々変動します。当サイトの比較表に掲載している買取価格は<strong>シュリンク付き</strong>のものです。大雨に関する数値は日本気象協会および国土交通省の公表値によります。本記事にはAmazonアソシエイトのリンクを含みます。',
+ 'related': ['box-toushi', 'box-age-multiple', 'kaitori-tips'],
+ 'body': '<p>未開封BOXの買取は<strong>シュリンクが付いたまま</strong>であることが前提になります。ただ「剥がすと実際いくら落ちるのか」は、両方の価格を出している店の価格表を見ないと分かりません。</p>\n'
+         '<p>買取コレクトはシュリンク付きとシュリンクなしを<strong>別々の列で公開している</strong>ため、その差を<strong>38商品ぶん集計</strong>しました。あわせて、2026年8月に各地で起きた記録的な大雨をふまえた<strong>置き場所のリスク</strong>と、実際に使える保管用品を整理します。</p>\n'
+         '\n'
+         '<h2>シュリンクを剥がすと買取は平均12.3%落ちる</h2>\n'
+         '<p>2026年9月7日時点、シュリンク付き・なしの<strong>両方に価格が付いている38商品</strong>で集計すると、下落率の平均は<strong>12.3%</strong>(中央値12.7%)、下落額の平均は<strong>約2,155円</strong>でした。</p>\n'
+         '<p>ただし一律ではありません。下落額が大きい順に並べると、差の付き方が弾によってまったく違うことが分かります。</p>\n'
+         '<table class="price-table"><thead><tr><th>BOX</th><th class="price">シュリンク付き</th><th '
+         'class="price">シュリンクなし</th><th class="price">差額</th><th '
+         'class="price">下落率</th></tr></thead><tbody><tr class="best"><td>ポケモンカード151</td><td '
+         'class="price">¥51,000</td><td class="price">¥42,000</td><td class="price '
+         'loss">-¥9,000</td><td class="price">-17.6%</td></tr><tr class="best"><td>ロストアビス</td><td '
+         'class="price">¥47,000</td><td class="price">¥39,000</td><td class="price '
+         'loss">-¥8,000</td><td class="price">-17.0%</td></tr><tr '
+         'class="best"><td>パラダイムトリガー</td><td class="price">¥21,000</td><td '
+         'class="price">¥16,000</td><td class="price loss">-¥5,000</td><td '
+         'class="price">-23.8%</td></tr><tr><td>トリプレットビート</td><td class="price">¥18,700</td><td '
+         'class="price">¥15,200</td><td class="price loss">-¥3,500</td><td '
+         'class="price">-18.7%</td></tr><tr><td>スターバース</td><td class="price">¥19,500</td><td '
+         'class="price">¥16,000</td><td class="price loss">-¥3,500</td><td '
+         'class="price">-17.9%</td></tr><tr><td>超電ブレイカー</td><td class="price">¥30,500</td><td '
+         'class="price">¥27,200</td><td class="price loss">-¥3,300</td><td '
+         'class="price">-10.8%</td></tr><tr><td>ストームエメラルダ</td><td class="price">¥12,300</td><td '
+         'class="price">¥9,300</td><td class="price loss">-¥3,000</td><td '
+         'class="price">-24.4%</td></tr><tr><td>スカーレットex</td><td class="price">¥13,500</td><td '
+         'class="price">¥10,500</td><td class="price loss">-¥3,000</td><td '
+         'class="price">-22.2%</td></tr><tr><td>拡張パックデラックス ブラックボルト</td><td '
+         'class="price">¥23,000</td><td class="price">¥20,000</td><td class="price '
+         'loss">-¥3,000</td><td class="price">-13.0%</td></tr><tr><td>拡張パックデラックス ホワイトフレア</td><td '
+         'class="price">¥21,000</td><td class="price">¥18,000</td><td class="price '
+         'loss">-¥3,000</td><td class="price">-14.3%</td></tr><tr><td>VSTARユニバース</td><td '
+         'class="price">¥29,000</td><td class="price">¥28,000</td><td class="price '
+         'loss">-¥1,000</td><td class="price">-3.4%</td></tr><tr><td>アビスアイ</td><td '
+         'class="price">¥7,400</td><td class="price">¥7,200</td><td class="price '
+         'loss">-¥200</td><td '
+         'class="price">-2.7%</td></tr></tbody></table><p><strong>高額なBOXほど、落ちる金額が大きくなります。</strong>151は9,000円、ロストアビスは8,000円下がります。一方で<strong>率</strong>で見ると順位が変わり、ストームエメラルダの<strong>-24.4%</strong>が最大、パラダイムトリガーの-23.8%が続きます。定価5,000円台のBOXでも、2割以上落ちれば実額で3,000〜5,000円です。</p>\n'
+         '<p>逆に差が小さいものもあります。アビスアイは<strong>200円(-2.7%)</strong>、VSTARユニバースは1,000円(-3.4%)しか変わりません。在庫が潤沢で相場が動いていない弾は、シュリンクの有無が価格に反映されにくい傾向があります。</p>\n'
+         '<div class="callout"><strong>開ける前に考えること。</strong> '
+         '中身を見たくて開封する場合、失う金額は平均で1割強、高額弾なら1万円近くになります。「その差額を払ってでも今すぐ中身を見たいか」で判断すると、迷いが減ります。当サイトの比較表に載せているのは<strong>シュリンク付きの買取価格</strong>です。</p></div>\n'
+         '\n'
+         '<h2>湿気は「反り」として値段に出る</h2>\n'
+         '<p>紙は湿気を吸って伸び、乾いて縮みます。BOX内のパックやカードが波打つと、開封後にシングルとして売るときの状態評価が落ちます。未開封のままでも、外箱が湿気を吸えば角が丸くなったりシュリンクが緩んだりします。</p>\n'
+         '<p>目安として<strong>湿度40〜50%</strong>を保てる場所に置くのが無難です。押し入れやクローゼットの<strong>下段は湿気がたまりやすい</strong>ので、上段に移すだけでも違います。</p>\n'
+         '<ul>\n'
+         '<li><a href="{{AZ:B0C6Z6FN9B}}" rel="nofollow sponsored" target="_blank">ハクバ トレカ用防湿庫 '
+         'E-ドライボックス KED-P60ETC</a> — トレカ向けに湿度を自動管理するタイプ。枚数と資産額が増えてきたら選択肢に入ります</li>\n'
+         '<li><a href="{{AZ:B00CYZA4O6}}" rel="nofollow sponsored" target="_blank">Kenko 乾燥剤 '
+         'ドライフレッシュ スティックタイプ</a> — 繰り返し使えるシリカゲル。ストレージや衣装ケースに入れる手軽な方法です</li>\n'
+         '</ul>\n'
+         '\n'
+         '<h2>2026年8月の大雨で見えた「置き場所」のリスク</h2>\n'
+         '<p>2026年8月は各地で記録的な大雨が続きました。</p>\n'
+         '<ul>\n'
+         '<li><strong>8月13〜14日(令和8年8月千葉豪雨)</strong>: '
+         '千葉の8月の月降水量は467ミリ、平年比404%で<strong>8月として観測1位</strong>を更新</li>\n'
+         '<li><strong>8月27日</strong>: '
+         '石川・富山で線状降水帯が発生。氷見で24時間362.0ミリ、羽咋で343.0ミリと<strong>両地点とも観測史上1位</strong></li>\n'
+         '<li><strong>8月29〜30日</strong>: 福井・勝山で24時間350ミリ前後。県内で浸水や道路冠水</li>\n'
+         '</ul>\n'
+         '<p>浸水は<strong>床から来ます</strong>。段ボールのまま床に直置きしていると、水位が数センチ上がっただけで底面が水を吸います。<strong>水を吸った外箱は買取対象外か、大幅な減額になります</strong>。シュリンクが無事でも、外箱が波打っていれば同じです。</p>\n'
+         '<p>やることは単純で、費用もほとんどかかりません。</p>\n'
+         '<ul>\n'
+         '<li><strong>床に直置きしない</strong> — カラーボックスや棚に上げるだけで、床上浸水の初期は避けられます</li>\n'
+         '<li><strong>1階より上階に置く</strong> — 資産価値のあるBOXほど上へ</li>\n'
+         '<li><strong>ふた付きの箱に入れる</strong> — 雨漏りや結露、スプリンクラー作動のような「上から」にも効きます</li>\n'
+         '</ul>\n'
+         '<ul>\n'
+         '<li><a href="{{AZ:B0BSGGF215}}" rel="nofollow sponsored" target="_blank">河島製作所 '
+         'フルプロテクトパックケースP(2個入り)</a> — パックやカードをまとめて隔離しておく用途に</li>\n'
+         '</ul>\n'
+         '\n'
+         '<h2>潰れ・日焼けから守る</h2>\n'
+         '<p>BOXは積み重ねると<strong>下のものから潰れます</strong>。角が潰れた箱は、未開封でも査定が下がります。また直射日光の当たる場所では、外箱の印刷が退色し、シュリンクが縮んで白化することがあります。</p>\n'
+         '<ul>\n'
+         '<li><a href="{{AZ:B0BS226SYW}}" rel="nofollow sponsored" target="_blank">RIMINA ポケモンカード '
+         'BOXローダー(UVカット)</a> — BOXを1箱ずつ収めるセミハードケース。積み重ねても潰れず、日焼けも抑えられます</li>\n'
+         '<li><a href="{{AZ:B0BM77B55S}}" rel="nofollow sponsored" target="_blank">sunista カードの鎧 '
+         'マグネットローダー 35pt</a> — 開封後に出た高額シングルはこれに入れておくと、反りと擦れを同時に防げます</li>\n'
+         '</ul>\n'
+         '\n'
+         '<h2>売るときに見られるところ</h2>\n'
+         '<p>買取査定でチェックされるのは、おおむね次の順です。</p>\n'
+         '<ol>\n'
+         '<li><strong>シュリンクの有無</strong> — ここが最大。上の表のとおり平均12.3%</li>\n'
+         '<li><strong>シュリンクの破れ・傷</strong> — 付いていても切れていれば減額対象になります</li>\n'
+         '<li><strong>外箱の潰れ・角の状態</strong></li>\n'
+         '<li><strong>日焼け・変色</strong></li>\n'
+         '<li><strong>臭い</strong> — 喫煙環境の臭いが付くと影響する場合があります</li>\n'
+         '</ol>\n'
+         '<p>保管の良し悪しは、同じ商品でも数千円から1万円の差になります。売るタイミングでの<strong>店舗ごとの価格差</strong>と合わせると、手取りはさらに変わります。</p>\n',
+ 'faq': [{'q': 'シュリンクを剥がすと買取はどれくらい下がりますか？',
+          'a': '買取コレクトが公開している2026年9月7日時点の価格表で、シュリンク付きとなしの両方に価格が付いている38商品を集計すると、平均で<strong>12.3%</strong>(中央値12.7%)、金額にして平均約2,155円下がります。ただし弾による差が大きく、ポケモンカード151は9,000円(-17.6%)、ストームエメラルダは-24.4%と大きい一方、アビスアイは200円(-2.7%)しか変わりません。'},
+         {'q': 'シュリンクなしでも買い取ってもらえますか？',
+          'a': '買い取ってもらえます。シュリンクなしの価格を別建てで公開している店もあります。ただし当サイトの比較表に掲載しているのは<strong>シュリンク付きの買取価格</strong>なので、シュリンクを剥がした状態で売る場合は、表の金額から1割前後を差し引いて考えてください。'},
+         {'q': 'BOXはどこに置くのがいいですか？',
+          'a': '湿度が40〜50%で安定し、直射日光が当たらず、<strong>床に直置きしない</strong>場所です。2026年8月には千葉・石川・富山・福井で観測1位クラスの大雨が続き、各地で浸水が起きました。浸水は床から来るため、棚に上げる・上階に置くだけでもリスクが下がります。押し入れの下段は湿気がたまりやすいので、上段のほうが向いています。'},
+         {'q': '水に濡れたBOXは売れますか？',
+          'a': '外箱が水を吸った時点で、買取対象外になるか大幅な減額になります。シュリンクが無事でも、箱が波打っていたり底面にシミがあれば同じ扱いです。濡らさないことが唯一の対策で、乾かしても元の評価には戻りません。'}]},
     {'slug': 'chusen-matome',
      'crumb': 'ポケカBOX 抽選販売まとめ',
      'date': '2026-09-08',
