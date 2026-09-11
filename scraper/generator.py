@@ -1753,10 +1753,12 @@ def _build_shop_page_html(
     # title は SERP 表示上限(全角約32字)に収める。サイト名は og:site_name 側に持たせる
     # 店名で検索する人が知りたいのは「この店は高いのか」なので、価格表の羅列ではなく
     # 比較であることを出す。「一覧【全N商品】」表記のときCTRが0.1%まで落ちていた
-    title = f"{name}は高い？{scope}BOX{total}商品を9店舗と価格比較"
+    # 店舗数は SHOP_IDS から取る。店を増やしたときに数字が置き去りになるため
+    shop_n = len(SHOP_IDS)
+    title = f"{name}は高い？{scope}BOX{total}商品を{shop_n}店舗と価格比較"
     desc = (
         f"{name}の買取価格は他店より高いのか。ポケモンカード"
-        f"{'・ワンピースカード' if has_op else ''}未開封BOX全{total}商品を9店舗と比較したところ、"
+        f"{'・ワンピースカード' if has_op else ''}未開封BOX全{total}商品を{shop_n}店舗と比較したところ、"
         f"{best_total}商品で最高値でした。毎日3回自動更新で、商品ごとの価格差も確認できます。"
     )
 
