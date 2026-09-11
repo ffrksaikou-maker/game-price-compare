@@ -33,6 +33,7 @@ RANKING_LIMIT = 20
 # 既存のポケカ記事CSSに無いクラスだけ補う。テーブルは既存の .data-table を
 # 使うのでここでは定義しない(デザインは既存記事側の変更に追従させる)。
 EXTRA_CSS = """
+.nav-new{display:inline-block;background:#e11d48;color:#fff;font-size:9px;font-weight:900;padding:1px 5px;border-radius:999px;margin-left:5px;vertical-align:1px;letter-spacing:.3px}
 .hero{margin-bottom:24px;padding:22px;background:linear-gradient(135deg,#eef2ff,#e0e7ff);border-radius:12px;border:1px solid #c7d2fe}
 .stat-label{font-size:11px;color:#4338ca;font-weight:700;letter-spacing:.5px}
 .stat-big{font-size:30px;font-weight:800;color:#4338ca;line-height:1.2;margin:4px 0 12px}
@@ -1208,10 +1209,21 @@ POKECA_ARTICLES: list[dict] = [
 
 # ---------------------------------------------------------------- 描画
 
+
+def _nav_new_badge() -> str:
+    """未発売の弾が抽選対象なら、ナビの抽選まとめにNEWを付ける。"""
+    return '<span class="nav-new">NEW</span>' if any(
+        r.get("unreleased") for r in _invite_rows()) else ""
+
+
 def _render(a: dict) -> str:
     global _current_tag
     _current_tag = ARTICLE_TAGS.get(a["slug"], AMAZON_TAG)
     sh = _shell()
+    _badge = _nav_new_badge()
+    if _badge:
+        sh = dict(sh, nav=sh["nav"].replace(
+            "Amazon抽選まとめ</a>", f"Amazon抽選まとめ{_badge}</a>"))
     slug = a["slug"]
     url = f"{BASE}/{slug}.html"
     body = _placeholders(a["body"])

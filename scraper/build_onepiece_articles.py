@@ -41,6 +41,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 .article-nav{width:200px;flex-shrink:0;position:sticky;top:72px;max-height:calc(100vh - 88px);overflow-y:auto}
 .article-nav-title{font-size:13px;font-weight:700;margin-bottom:8px;color:var(--text)}
 .article-nav a{display:block;font-size:12px;color:var(--text-sub);text-decoration:none;padding:5px 0 5px 12px;border-left:2px solid var(--border);line-height:1.4;transition:all .2s}
+.article-nav a.nav-push{font-weight:800;color:#b45309;border-left-color:#f59e0b;background:linear-gradient(90deg,#fffbeb,transparent)}
+.article-nav a.nav-push:hover{color:#92400e;border-left-color:#d97706}
+.nav-new{display:inline-block;background:#e11d48;color:#fff;font-size:9px;font-weight:900;padding:1px 5px;border-radius:999px;margin-left:5px;vertical-align:1px;letter-spacing:.3px}
 .article-nav a:hover{color:var(--accent);border-left-color:var(--accent)}
 .article-nav a.current{color:var(--accent);border-left-color:var(--accent);font-weight:600}
 .article-nav-sub{font-size:12px;font-weight:700;margin:14px 0 6px;color:#b91c1c;padding-top:10px;border-top:1px solid var(--border)}
@@ -3180,12 +3183,24 @@ def _howto_subst(h: dict, box: dict) -> dict:
     return out
 
 
+NAV_PUSH = ("chusen-matome", "box-hokan")
+
+
+def _nav_new_badge() -> str:
+    """未発売の弾が抽選対象なら、ナビの抽選まとめにNEWを付ける。"""
+    return '<span class="nav-new">NEW</span>' if any(
+        r.get("unreleased") for r in _invite_rows()) else ""
+
+
 def _howto_nav_links(current_slug: str) -> str:
-    return "".join(
-        f'<a href="{h["slug"]}.html"'
-        + (' class="current"' if h["slug"] == current_slug else "")
-        + f'>{_esc(h["nav_label"])}</a>\n'
-        for h in HOWTO_ARTICLES)
+    out = ""
+    for h in HOWTO_ARTICLES:
+        cls = [c for c in (("current" if h["slug"] == current_slug else ""),
+                           ("nav-push" if h["slug"] in NAV_PUSH else "")) if c]
+        attr = f' class="{" ".join(cls)}"' if cls else ""
+        badge = _nav_new_badge() if h["slug"] == "chusen-matome" else ""
+        out += f'<a href="{h["slug"]}.html"{attr}>{_esc(h["nav_label"])}{badge}</a>\n'
+    return out
 
 
 def _nav(current_slug: str, articles: list) -> str:

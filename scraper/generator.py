@@ -439,6 +439,46 @@ def generate_chart_data(products: list[MasterProduct], project_root: Path) -> st
     return "const SC=" + json.dumps(chart_data, ensure_ascii=False) + ";"
 
 
+
+def _upcoming_product(products):
+    """未発売のうち最も発売が近い商品。無ければ None。"""
+    today = datetime.now(JST).date().isoformat()
+    up = [p for p in products if (getattr(p, "release_date", "") or "") > today]
+    return min(up, key=lambda p: p.release_date) if up else None
+
+
+def _upcoming_label(p) -> str:
+    m = re.search(r"「(.+?)」", p.name)
+    return m.group(1) if m else p.name
+
+
+def _cb_parts(products) -> dict:
+    """新弾があるときだけバナーを赤くして見出しを差し替える。"""
+    today = datetime.now(JST).date().isoformat()
+    up = sorted((p for p in products if (getattr(p, "release_date", "") or "") > today),
+                key=lambda p: p.release_date)
+    if not up:
+        return {"{{CB_CLASS}}": "", "{{NEW_BADGE}}": "", "{{NEW_SUB}}": "",
+                "{{CB_TITLE}}": "Amazon抽選(招待リクエスト)まとめ"}
+    day = up[0].release_date
+    same = [p for p in up if p.release_date == day]
+    mm, dd = (int(x) for x in day.split("-")[1:])
+    if len(same) == 1:
+        label = _upcoming_label(same[0])
+        badge = label if len(label) <= 16 else label[:15] + "…"
+        title = f'新弾「{label}」が抽選受付中｜Amazon抽選まとめ'
+        sub = f'{mm}月{dd}日発売の「{label}」が抽選対象になりました'
+    else:
+        badge = f"{mm}/{dd}新弾"
+        title = f'{mm}月{dd}日発売の新弾が抽選受付中｜Amazon抽選まとめ'
+        sub = f'{mm}月{dd}日発売の新弾{len(same)}商品が抽選対象になりました'
+    return {
+        "{{CB_CLASS}}": " is-new",
+        "{{NEW_BADGE}}": f'<span class="cb-new">NEW!! {badge}</span>',
+        "{{NEW_SUB}}": f'<span class="cb-tagline">{sub}</span>',
+        "{{CB_TITLE}}": title,
+    }
+
 def generate_html(
     products: list[MasterProduct],
     template_path: Path | None = None,
@@ -481,6 +521,8 @@ def generate_html(
     html = html.replace("<!-- {{AI_SUMMARY}} -->", ai_summary)
     html = html.replace("{{UPDATE_DATE}}", update_date)
     html = html.replace("<!-- {{BLOG_LINKS}} -->", generate_blog_links())
+    for _k, _v in _cb_parts(products).items():
+        html = html.replace(_k, _v)
 
     # Generate ranking page (before summary, so we can use the data)
     ranking_summary = _generate_ranking_summary(products, project_root)
