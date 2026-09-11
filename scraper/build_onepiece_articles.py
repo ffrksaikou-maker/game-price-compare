@@ -251,6 +251,7 @@ HOWTO_ARTICLES = [
              '<p>本記事では、当サイトが最大10店舗から毎日自動収集している買取実データを使い、<strong>抽選対象になりやすい弾が、いま定価に対してどの水準にあるか</strong>を整理します。抽選の受付状況そのものは各店舗が日々更新しているため、本記事では<strong>変わりにくい情報と、毎日更新できる数値</strong>に絞っています。</p>\n'
              '\n'
              '<h2>いまAmazonで招待リクエストを受け付けている弾</h2>\n'
+             '{{CH_INVITE_UPCOMING}}'
              '<p>{{CH_INVITE_CHECKED}}時点で、Amazonの<strong>招待リクエスト(抽選)</strong>の対象になっているのは次の<strong>{{CH_INVITE_N}}弾</strong>です。定価と買取価格は当サイトが最大10店舗から自動収集している実データで、<strong>差額がプラスなら定価で買えた場合にその分の価値がある</strong>という見方ができます。</p>\n'
              '{{CH_INVITE}}\n'
              '<div class="callout"><strong>受付状況は変わります。</strong> 上の一覧は{{CH_INVITE_CHECKED}}に全ASINを実際のAmazonページで確認したものです。受付が終了している場合、リンク先は通常の商品ページとして表示されます(リンク自体は切れません)。定価・買取価格の欄は毎日自動更新されます。</div>\n'
@@ -3021,11 +3022,47 @@ def _invite_rows() -> list:
         rel = getattr(hit, "release_date", "") or ""
         price = cur.get(hit.name, 0)
         out.append({"asin": asin, "name": hit.name, "retail": hit.retail_price,
-                    "price": price,
+                    "price": price, "release": rel,
                     "gain": price - hit.retail_price if price and hit.retail_price else 0,
                     "unreleased": bool(rel) and rel > date.today().isoformat()})
-    out.sort(key=lambda r: -r["gain"])
+    out.sort(key=lambda r: (not r["unreleased"], -r["gain"]))
     return out
+
+
+def _rel_jp(iso: str) -> str:
+    y, m, d = iso.split("-")
+    return f"{y}年{int(m)}月{int(d)}日"
+
+
+def _invite_upcoming() -> str:
+    rows = _invite_rows()
+    up = [r for r in rows if r.get("unreleased")]
+    if not up:
+        return ""
+    up.sort(key=lambda r: r["release"])
+    ref = max((r for r in rows if not r["unreleased"] and r["price"] > 0),
+              key=lambda r: r["release"], default=None)
+
+    items = ""
+    for r in up:
+        items += (f'<li><strong>{_esc(r["name"])}</strong> — '
+                  f'{_rel_jp(r["release"])}発売 / 定価\u00a5{r["retail"]:,}'
+                  f' / <a href="{_amazon_dp(r["asin"])}" rel="nofollow sponsored" '
+                  f'target="_blank">招待をリクエスト</a></li>')
+
+    tail = ""
+    if ref:
+        mult = ref["price"] / ref["retail"] if ref["retail"] else 0
+        tail = (f'<p style="margin:10px 0 0">前の弾がいまどうなっているかというと、'
+                f'<strong>{_esc(ref["name"])}</strong>は定価\u00a5{ref["retail"]:,}に対して'
+                f'最高買取が<strong>\u00a5{ref["price"]:,}</strong>'
+                f'({mult:.2f}倍)です。'
+                f'発売前の抽選は<strong>定価で買える数少ない機会</strong>で、'
+                f'当たれば実質この差額ぶんの価値があります。</p>')
+
+    return ('<div class="callout" style="border-left-color:#dc2626;background:#fef2f2">'
+            '<strong style="color:#b91c1c;font-size:14px">発売前の新弾が抽選を受付中</strong>'
+            f'<ul style="margin:8px 0 0">{items}</ul>{tail}</div>')
 
 
 def _invite_table() -> str:
@@ -3120,6 +3157,7 @@ def _howto_placeholders(body: str, box: dict) -> str:
         body = body.replace("{{CH_INVITE}}", _invite_table())
         body = body.replace("{{CH_INVITE_N}}", str(len(AMAZON_INVITE)))
         body = body.replace("{{CH_INVITE_CHECKED}}", AMAZON_INVITE_CHECKED)
+        body = body.replace("{{CH_INVITE_UPCOMING}}", _invite_upcoming())
     return body
 
 

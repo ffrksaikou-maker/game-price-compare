@@ -261,6 +261,33 @@ def _ai_summary(products: list[MasterProduct]) -> str:
     return ""
 
 
+
+def _new_badge() -> str:
+    """未発売の弾があればバナーに出すバッジを返す。発売後は自動で消える。"""
+    from scraper.products_onepiece import ONEPIECE_PRODUCTS
+    today = datetime.now(timezone(timedelta(hours=9))).date().isoformat()
+    up = [p for p in ONEPIECE_PRODUCTS
+          if (getattr(p, "release_date", "") or "") > today]
+    if not up:
+        return ""
+    latest = max(up, key=lambda p: p.release_date)
+    m = re.search(r"【([A-Z]+-\d+)】", latest.name)
+    return f'<span class="cb-new">NEW!! {m.group(1) if m else "新弾"}</span>'
+
+
+def _new_sub() -> str:
+    """未発売の弾を先頭で名指しする。発売後は自動で消える。"""
+    from scraper.products_onepiece import ONEPIECE_PRODUCTS
+    today = datetime.now(timezone(timedelta(hours=9))).date().isoformat()
+    up = [p for p in ONEPIECE_PRODUCTS
+          if (getattr(p, "release_date", "") or "") > today]
+    if not up:
+        return ""
+    latest = max(up, key=lambda p: p.release_date)
+    y, m, d = latest.release_date.split("-")
+    return (f'<strong>{_esc(latest.name)}</strong>({int(m)}月{int(d)}日発売)が'
+            f'受付中。')
+
 def generate_onepiece_html(products: list[MasterProduct]) -> str:
     template_path = PROJECT_ROOT / "onepiece-template.html"
     output_path = PROJECT_ROOT / "onepiece.html"
@@ -274,6 +301,8 @@ def generate_onepiece_html(products: list[MasterProduct]) -> str:
     html = html.replace("<!-- {{JSONLD}} -->", _jsonld(products))
     html = html.replace("<!-- {{AI_SUMMARY}} -->", _ai_summary(products))
     html = html.replace("{{UPDATE_DATE}}", update_date)
+    html = html.replace("{{NEW_BADGE}}", _new_badge())
+    html = html.replace("{{NEW_SUB}}", _new_sub())
     html = html.replace("<!-- {{BLOG_LINKS}} -->", _article_links_block())
     html = html.replace("<!-- {{RANKING_SUMMARY}} -->", _weekly_summary_block(products))
 
