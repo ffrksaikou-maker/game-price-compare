@@ -2981,10 +2981,11 @@ def _chusen_table(rows: list) -> str:
             f'<tbody>{body}</tbody></table>')
 
 
-# Amazonで招待リクエスト(抽選)を受け付けている弾。2026-09-09に全ASINを実地で確認した。
+# Amazonで招待リクエスト(抽選)を受け付けている弾。2026-09-12に全ASINを実地で確認した。
 # ASINは商品ページのIDなので、招待受付が終わっても通常販売ページとして生きる(死にリンクにならない)。
-AMAZON_INVITE_CHECKED = "2026年9月9日"
+AMAZON_INVITE_CHECKED = "2026年9月12日"
 AMAZON_INVITE = [
+    ("B0HFVPJF4Q", "OP-18"),
     ("B0HB3JQ6P4", "EB-05"),
     ("B0FJ7Z6RML", "EB-03"),
     ("B0H43ZX8LK", "OP-17"),
