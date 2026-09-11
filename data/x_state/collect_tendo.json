@@ -127,8 +127,6 @@
     "テラスタルフェスex (ハイクラスパック)": 18200
   },
   "processed_urls": [
-    "https://pbs.twimg.com/media/HR55KwMbcAAzYzS?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HRW8XNjagAAG6eT?format=jpg&name=large",
     "https://pbs.twimg.com/media/HNeNhj7bcAAGUAT?format=jpg&name=large",
     "https://pbs.twimg.com/media/HQI0aAJbkAA8BS3?format=jpg&name=large",
     "https://pbs.twimg.com/media/HRquREBa4AATc6I?format=jpg&name=large",
@@ -176,12 +174,17 @@
     "https://pbs.twimg.com/media/HQJSr-2a4AE2ROm?format=jpg&name=large",
     "https://pbs.twimg.com/media/HR5-UmFb0AAzbKs?format=png&name=large",
     "https://pbs.twimg.com/media/HPF2SX9agAA1NUR?format=png&name=large",
-    "https://pbs.twimg.com/media/HRrDyhAaYAAV9GZ?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HRrDyhAaYAAV9GZ?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HQ3GLD-awAAmLM0?format=png&name=large",
+    "https://pbs.twimg.com/media/HQitWSwbwAAPWCL?format=jpg&name=large"
   ],
   "last_check": 1789111437,
   "ocr_fail_counts": {},
-  "pending_images": [],
-  "last_image_check": 1789105324,
+  "pending_images": [
+    "https://pbs.twimg.com/media/HR55KwMbcAAzYzS?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HR5-UmgbQAABe7X?format=png&name=large"
+  ],
+  "last_image_check": 1789119725,
   "seen_at": {
     "OP-14 蒼海の七傑": 1789111437,
     "OP-15 神の島の冒険": 1789111437,
