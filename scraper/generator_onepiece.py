@@ -275,18 +275,42 @@ def _new_badge() -> str:
     return f'<span class="cb-new">NEW!! {m.group(1) if m else "新弾"}</span>'
 
 
-def _new_sub() -> str:
-    """未発売の弾を先頭で名指しする。発売後は自動で消える。"""
+def _upcoming_product():
+    """未発売のうち最も新しい弾。無ければ None。"""
     from scraper.products_onepiece import ONEPIECE_PRODUCTS
     today = datetime.now(timezone(timedelta(hours=9))).date().isoformat()
     up = [p for p in ONEPIECE_PRODUCTS
           if (getattr(p, "release_date", "") or "") > today]
-    if not up:
+    return max(up, key=lambda p: p.release_date) if up else None
+
+
+def _new_sub() -> str:
+    """未発売の弾を名指しする一行。発売後は自動で消える。"""
+    p = _upcoming_product()
+    if p is None:
         return ""
-    latest = max(up, key=lambda p: p.release_date)
-    y, m, d = latest.release_date.split("-")
-    return (f'<strong>{_esc(latest.name)}</strong>({int(m)}月{int(d)}日発売)が'
-            f'受付中。')
+    m, d = p.release_date.split("-")[1:]
+    _m = re.search(r"「(.+?)」", p.name)
+    short = _m.group(1) if _m else p.name
+    code = re.search(r"【([A-Z]+-\d+)】", p.name)
+    label = f'{code.group(1)}「{short}」' if code else p.name
+    return (f'<span class="cb-tagline">{int(m)}月{int(d)}日発売の'
+            f'{_esc(label)}が抽選対象になりました</span>')
+
+
+def _cb_class() -> str:
+    return " is-new" if _upcoming_product() is not None else ""
+
+
+def _cb_title() -> str:
+    p = _upcoming_product()
+    if p is None:
+        return "Amazon抽選(招待リクエスト)まとめ"
+    code = re.search(r"【([A-Z]+-\d+)】", p.name)
+    _m = re.search(r"「(.+?)」", p.name)
+    short = _m.group(1) if _m else p.name
+    label = f'{code.group(1)}「{short}」' if code else p.name
+    return f'新弾{_esc(label)}が抽選受付中｜Amazon抽選まとめ' 
 
 def generate_onepiece_html(products: list[MasterProduct]) -> str:
     template_path = PROJECT_ROOT / "onepiece-template.html"
@@ -303,6 +327,8 @@ def generate_onepiece_html(products: list[MasterProduct]) -> str:
     html = html.replace("{{UPDATE_DATE}}", update_date)
     html = html.replace("{{NEW_BADGE}}", _new_badge())
     html = html.replace("{{NEW_SUB}}", _new_sub())
+    html = html.replace("{{CB_CLASS}}", _cb_class())
+    html = html.replace("{{CB_TITLE}}", _cb_title())
     html = html.replace("<!-- {{BLOG_LINKS}} -->", _article_links_block())
     html = html.replace("<!-- {{RANKING_SUMMARY}} -->", _weekly_summary_block(products))
 
