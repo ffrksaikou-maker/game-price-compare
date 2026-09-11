@@ -63,6 +63,10 @@
   "requested_at": "2026-08-27T06:23:56+09:00",
   "result": "requested"
  },
+ "https://pokeca-box-hikaku.com/box-hokan.html": {
+  "requested_at": "2026-09-12T06:10:37+09:00",
+  "result": "requested"
+ },
  "https://pokeca-box-hikaku.com/box-price-trend.html": {
   "requested_at": "2026-08-27T06:23:56+09:00",
   "result": "indexed"
@@ -182,6 +186,10 @@
  "https://pokeca-box-hikaku.com/chouden-breaker-spotlight.html": {
   "requested_at": "2026-08-31T06:05:05+09:00",
   "result": "indexed"
+ },
+ "https://pokeca-box-hikaku.com/chusen-matome.html": {
+  "requested_at": "2026-09-12T06:10:37+09:00",
+  "result": "requested"
  },
  "https://pokeca-box-hikaku.com/clay-burst-atari-guide.html": {
   "requested_at": "2026-08-31T05:56:54+09:00",
@@ -491,6 +499,10 @@
   "requested_at": "2026-08-26T07:36:43+09:00",
   "result": "requested"
  },
+ "https://pokeca-box-hikaku.com/onepiece/box-hokan.html": {
+  "requested_at": "2026-09-12T06:10:37+09:00",
+  "result": "requested"
+ },
  "https://pokeca-box-hikaku.com/onepiece/box-price-pattern.html": {
   "requested_at": "2026-08-27T06:18:55+09:00",
   "result": "requested"
@@ -514,6 +526,10 @@
  "https://pokeca-box-hikaku.com/onepiece/box/prb-02.html": {
   "requested_at": "2026-08-25T20:59:49+09:00",
   "result": "indexed"
+ },
+ "https://pokeca-box-hikaku.com/onepiece/chusen-matome.html": {
+  "requested_at": "2026-09-12T06:10:37+09:00",
+  "result": "requested"
  },
  "https://pokeca-box-hikaku.com/onepiece/comipara-ranking.html": {
   "requested_at": "2026-08-27T06:18:55+09:00",
@@ -677,6 +693,10 @@
  },
  "https://pokeca-box-hikaku.com/shop/kaikyo.html": {
   "requested_at": "2026-08-18T08:37:25+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/shop/kaitoriexpo.html": {
+  "requested_at": "2026-09-12T06:10:37+09:00",
   "result": "requested"
  },
  "https://pokeca-box-hikaku.com/shop/morimori.html": {

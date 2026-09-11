@@ -329,13 +329,18 @@ def _kougaku_table(rows: list, limit: int = 0) -> str:
 
 
 AMAZON_TAG = "chappin175s-22"
+ARTICLE_TAGS = {
+    "box-hokan": "chappinhokan-22",
+    "chusen-matome": "chappinchusen-22",
+}
+_current_tag = AMAZON_TAG
 CHUSEN_MONTHS = 13
 
 
 def _amazon_search(keyword: str) -> str:
     """Amazonの検索リンク。商品ページ直リンクはASIN差し替え・販売終了で壊れるため使わない。"""
     from urllib.parse import quote
-    return f"https://www.amazon.co.jp/s?k={quote(keyword)}&tag={AMAZON_TAG}"
+    return f"https://www.amazon.co.jp/s?k={quote(keyword)}&tag={_current_tag}"
 
 
 def _chusen_rows() -> list:
@@ -426,7 +431,7 @@ AZ_RE = re.compile(r"\{\{AZ:([A-Z0-9]{10})\}\}")
 
 
 def _amazon_dp(asin: str) -> str:
-    return f"https://www.amazon.co.jp/dp/{asin}?tag={AMAZON_TAG}"
+    return f"https://www.amazon.co.jp/dp/{asin}?tag={_current_tag}"
 
 
 def _invite_rows() -> list:
@@ -1204,6 +1209,8 @@ POKECA_ARTICLES: list[dict] = [
 # ---------------------------------------------------------------- 描画
 
 def _render(a: dict) -> str:
+    global _current_tag
+    _current_tag = ARTICLE_TAGS.get(a["slug"], AMAZON_TAG)
     sh = _shell()
     slug = a["slug"]
     url = f"{BASE}/{slug}.html"
