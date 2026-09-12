@@ -467,10 +467,18 @@ def generate_dragonball_box_pages(products: list[MasterProduct], update_date: st
                 'style="color:var(--accent);font-weight:700">'
                 'ドラゴンボールカード 新弾発売スケジュール</a> にまとめています。</p>')
 
+        from scraper.generator import build_box_faq
+        faq_html, faq_jsonld = build_box_faq(
+            p.name, getattr(p, "release_date", ""), p.retail_price, max_price,
+            max_shop, shop_count, getattr(p, "hit_cards", None), update_date)
+        if faq_jsonld:
+            jsonld += '<script type="application/ld+json">' + faq_jsonld + '</script>'
+
         page = template
         for k, v in {
             "{{PRODUCT_NAME}}": _esc(p.name), "{{SLUG}}": slug,
             "{{ROBOTS}}": "index, follow", "{{JSONLD}}": jsonld,
+            "{{FAQ_SECTION}}": faq_html,
             "{{UPDATE_DATE}}": update_date,
             "{{CATEGORY_LABEL}}": cat_label,
             "{{MAX_PRICE_TEXT}}": _fmt(max_price),

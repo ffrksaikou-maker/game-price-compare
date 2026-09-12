@@ -793,6 +793,79 @@ def _format_price(price: int) -> str:
     return f"\u00a5{price:,}"
 
 
+
+def build_box_faq(name, release_date, retail_price, max_price, max_shop_name,
+                  shop_count, hit_cards, update_date, unit="BOX"):
+    """個別BOXページのFAQを組み立てて (html, jsonld) を返す。
+
+    事実ベースのQ&Aだけを入れる(絶版・再販などの推測は入れない)。
+    ポケカ・ワンピ・ドラゴンボールで共用する。
+    """
+    items: list[dict] = []
+    if release_date:
+        try:
+            rd = datetime.strptime(release_date, "%Y-%m-%d").date()
+            items.append({
+                "q": f"{name}はいつ発売されましたか？",
+                "a": f"{name}は{rd.year}年{rd.month}月{rd.day}日に発売された{unit}です。",
+            })
+        except ValueError:
+            pass
+    if retail_price > 0:
+        items.append({
+            "q": f"{name}の定価はいくらですか？",
+            "a": f"{name}の定価(メーカー希望小売価格)は1{unit}あたり¥{retail_price:,}(税込)です。",
+        })
+    if max_price > 0:
+        items.append({
+            "q": f"{name}の最高買取価格はいくらですか？",
+            "a": (f"{update_date}時点の最高買取価格は¥{max_price:,}({max_shop_name})です。"
+                  f"当サイトでは{shop_count}店舗の買取価格を毎日自動比較しています。"),
+        })
+    if retail_price > 0 and max_price > 0:
+        ratio = max_price / retail_price
+        if ratio >= 1.3:
+            items.append({
+                "q": f"{name}は定価より高く売れますか？",
+                "a": (f"現在の最高買取価格¥{max_price:,}は定価¥{retail_price:,}の約{ratio:.1f}倍です。"
+                      f"ただしシュリンク有無・外箱の状態により実際の買取額は変動します。"),
+            })
+        elif ratio < 1.0:
+            items.append({
+                "q": f"{name}は定価を下回っていますか？",
+                "a": (f"現在の最高買取価格¥{max_price:,}は定価¥{retail_price:,}の約{ratio:.2f}倍で、"
+                      f"定価を下回っています。買取価格は日々変動するため、"
+                      f"売却を急がない場合は推移を見てから判断する方法もあります。"),
+            })
+    if hit_cards:
+        names = [c[0] if isinstance(c, (list, tuple)) else c for c in hit_cards[:3]]
+        items.append({
+            "q": f"{name}の当たりカードは何ですか？",
+            "a": (f"主な当たりカードは「{'」「'.join(names)}」です。"
+                  f"これらの高額レアカードを引けるかどうかが{unit}相場に影響しています。"),
+        })
+    items.append({
+        "q": f"{name}はどこで売るのが一番高いですか？",
+        "a": (f"買取価格は店舗ごとに差があり、同じ{unit}でも数千円変わることがあります。"
+              f"当サイトは最大10店舗の買取価格を毎日自動で取得して並べているので、"
+              f"その時点で最も高い店舗を比較表から確認できます。"
+              f"なお掲載しているのはシュリンク付き未開封の価格です。"),
+    })
+    if not items:
+        return "", ""
+    jsonld = json.dumps({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{"@type": "Question", "name": it["q"],
+                        "acceptedAnswer": {"@type": "Answer", "text": it["a"]}}
+                       for it in items],
+    }, ensure_ascii=False, indent=2)
+    html = ('<h3 class="section-title">よくある質問</h3>\n<div class="faq-list">\n'
+            + "\n".join(f'<details class="faq-item"><summary>{it["q"]}</summary>'
+                        f'<div class="faq-answer">{it["a"]}</div></details>' for it in items)
+            + "\n</div>")
+    return html, jsonld
+
 def _short_product_name(name: str) -> str:
     """\u30bf\u30a4\u30c8\u30eb\u7528\u306b\u5f3e\u540d\u3060\u3051\u3092\u53d6\u308a\u51fa\u3059\u3002
 

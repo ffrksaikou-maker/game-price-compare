@@ -642,10 +642,18 @@ def generate_onepiece_box_pages(products: list[MasterProduct], update_date: str)
                 f'▶ 詳しくは <a href="/onepiece/{slug}-atari-guide.html" style="color:var(--accent);font-weight:700">'
                 f'{_esc(p.name)}の当たりカードランキング・買取相場・封入率ガイド</a> で解説しています。</p>')
 
+        from scraper.generator import build_box_faq
+        faq_html, faq_jsonld = build_box_faq(
+            p.name, getattr(p, "release_date", ""), p.retail_price, max_price,
+            max_shop, shop_count, getattr(p, "hit_cards", None), update_date)
+        if faq_jsonld:
+            jsonld += '<script type="application/ld+json">' + faq_jsonld + '</script>'
+
         page = template
         for k, v in {
             "{{PRODUCT_NAME}}": _esc(p.name), "{{SLUG}}": slug,
             "{{ROBOTS}}": "index, follow", "{{JSONLD}}": jsonld,
+            "{{FAQ_SECTION}}": faq_html,
             "{{UPDATE_DATE}}": update_date,
             "{{CATEGORY_LABEL}}": CATEGORY_LABELS.get(p.category, ""),
             "{{PRODUCT_DESC}}": _esc(p.desc or ""),
