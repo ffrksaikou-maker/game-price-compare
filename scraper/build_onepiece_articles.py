@@ -3307,6 +3307,72 @@ def _source(a: dict) -> str:
     return CARD_SOURCE_OVERRIDE.get(a["slug"], _SRC_ALTEMA)
 
 
+
+def _guide_faq(a: dict, box_max: int, box_n: int) -> tuple:
+    """当たりガイドのFAQを弾別データから組み立てて (html, jsonld) を返す。"""
+    name = a.get("box_name") or a.get("h1_short") or a["slug"]
+    short = a.get("short_name") or name
+    rank = a.get("ranking") or []
+    items = []
+
+    if rank:
+        tops = [r[0] if isinstance(r, (list, tuple)) else r.get("name", "") for r in rank[:3]]
+        tops = [t for t in tops if t]
+        if tops:
+            items.append({
+                "q": f"{short}の当たりカードは何ですか？",
+                "a": (f"買取相場の高い順に「{'」「'.join(tops)}」です。"
+                      f"本記事では{CARD_ASOF}時点の相場をランキング形式で掲載しています。"),
+            })
+    if a.get("retail"):
+        if box_max:
+            ratio = box_max / a["retail"]
+            items.append({
+                "q": f"{short}のBOXはいくらで売れますか？",
+                "a": (f"当サイトが最大10店舗から毎日自動取得している実データでは、"
+                      f"現在の最高買取価格は¥{box_max:,}({box_n}店舗掲載)で、"
+                      f"定価¥{a['retail']:,}の約{ratio:.1f}倍です。"
+                      f"買取価格は店舗ごとに差があり、日々変動します。"),
+            })
+        else:
+            items.append({
+                "q": f"{short}のBOXの定価はいくらですか？",
+                "a": f"{short}の定価は1BOXあたり¥{a['retail']:,}(税込)です。",
+            })
+    items.append({
+        "q": f"{short}は開封と未開封のどちらが得ですか？",
+        "a": ("一概には言えません。未開封BOXは買取価格が安定している一方、"
+              "開封して高額カードを引ければ上回ることがあります。"
+              "ただしシュリンクを剥がした時点でBOXとしての価値は下がり、"
+              "実測では平均12.3%落ちます。"
+              "確実性を取るなら未開封、期待値に賭けるなら開封という判断になります。"),
+    })
+    items.append({
+        "q": f"{short}の封入率は公式に発表されていますか？",
+        "a": ("公式からの封入率の発表はありません。本記事に掲載している数値は、"
+              "開封報告やカード相場メディアの情報をもとにした推定値です。"
+              "パックの重さによる判別は不確実なうえ、店頭での測定はマナー違反にあたります。"),
+    })
+    items.append({
+        "q": f"{short}を高く売るにはどうすればいいですか？",
+        "a": ("同じBOXでも店舗によって買取価格に差が出ます。"
+              "当サイトは最大10店舗の買取価格を毎日自動で取得して並べているので、"
+              "その時点で最も高い店舗を比較表から確認できます。"
+              "シュリンク付き・外箱がきれいな状態を保つことも条件になります。"),
+    })
+
+    ld = {
+        "@context": "https://schema.org", "@type": "FAQPage",
+        "mainEntity": [{"@type": "Question", "name": it["q"],
+                        "acceptedAnswer": {"@type": "Answer", "text": it["a"]}}
+                       for it in items],
+    }
+    html = ('<h2>よくある質問(FAQ)</h2>\n<div class="faq-list">\n'
+            + "\n".join(f'<details class="faq-item"><summary>{_esc(it["q"])}</summary>'
+                        f'<div class="faq-answer">{it["a"]}</div></details>' for it in items)
+            + "\n</div>\n")
+    return html, json.dumps(ld, ensure_ascii=False, indent=0)
+
 def _render(a: dict, articles: list, box: dict) -> str:
     global _current_tag
     _current_tag = ARTICLE_TAGS.get(a["slug"], AMAZON_TAG)
@@ -3316,6 +3382,8 @@ def _render(a: dict, articles: list, box: dict) -> str:
     box_line = (f'当サイト実データのBOX買取最高{box_price_txt}({box_n}店舗)'
                 if box_max else 'BOX買取価格は個別ページ参照')
     ratio = f"（定価¥{a['retail']:,}の約{box_max / a['retail']:.1f}倍）" if box_max else ""
+
+    faq_html_g, faq_ld_g = _guide_faq(a, box_max, box_n)
 
     blog_ld = {
         "@context": "https://schema.org", "@type": "BlogPosting",
@@ -3397,6 +3465,9 @@ gtag('config', 'G-RPTS6CRTCS');
 <script type="application/ld+json">
 {json.dumps(crumb_ld, ensure_ascii=False, indent=0)}
 </script>
+<script type="application/ld+json">
+{faq_ld_g}
+</script>
 {STYLE}
 </head>
 <body>
@@ -3422,6 +3493,7 @@ gtag('config', 'G-RPTS6CRTCS');
 <strong>ご注意:</strong> 本記事の当たりカード・収録種類・封入率は、複数の公開情報(カードショップの買取相場・大量開封報告等)と当サイトが自動収集した買取価格データに基づく参考情報です。封入率は公式発表ではなく推定値を含みます。買取相場は需給で日々変動し、本記事のカード金額は<strong>{_asof(a)}時点</strong>に{_source(a)}。BOX買取価格は当サイトが最大10店舗から自動取得した実データを基準にしています。売買・開封の判断はご自身の責任で行ってください。
 </div>
 
+{faq_html_g}
 <h2>関連BOX・記事もチェック</h2>
 <ul>
 <li><a href="box/{slug}.html">{_esc(a['box_name'])}</a> — 本商品の店舗別最新買取価格(毎日更新)</li>

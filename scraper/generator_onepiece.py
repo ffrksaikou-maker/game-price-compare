@@ -776,7 +776,7 @@ def generate_onepiece_weekly(products: list[MasterProduct], update_date: str) ->
         col = "#16a34a" if c["change"] > 0 else ("#dc2626" if c["change"] < 0 else "#6b7280")
         rows.append(
             f'<tr><td style="{B};text-align:center">{i}</td>'
-            f'<td style="{B};text-align:left"><a href="box/{c["slug"]}.html" style="color:#e53935;text-decoration:none">{_esc(c["name"])}</a></td>'
+            f'<td style="{B};text-align:left"><a href="/onepiece/box/{c["slug"]}.html" style="color:#e53935;text-decoration:none">{_esc(c["name"])}</a></td>'
             f'<td style="{B};text-align:center">{_format_price(c["cur"])}</td>'
             f'<td style="{B};text-align:center;color:{col};font-weight:700">{sign}{_format_price(abs(c["change"]))}</td>'
             f'<td style="{B};text-align:center;color:{col};font-weight:700">{sign}{abs(c["pct"]):.1f}%</td></tr>')
@@ -891,7 +891,7 @@ def _wk_change_table(title: str, rows: list[dict], up: bool) -> str:
         amt = _format_price(abs(c["change"]))
         col = "#16a34a" if up else "#dc2626"
         trs += (f'<tr><td>{i}</td>'
-                f'<td class="nm"><a href="box/{c["slug"]}.html">{_esc(c["name"])}</a></td>'
+                f'<td class="nm"><a href="/onepiece/box/{c["slug"]}.html">{_esc(c["name"])}</a></td>'
                 f'<td>{_format_price(c["cur"])}</td>'
                 f'<td style="color:{col};font-weight:700">{sign}{amt}</td>'
                 f'<td style="color:{col};font-weight:700">{sign}{abs(c["pct"]):.1f}%</td></tr>')
