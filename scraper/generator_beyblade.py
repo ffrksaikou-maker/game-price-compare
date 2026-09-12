@@ -205,8 +205,13 @@ def _append_beyblade_sitemap() -> None:
         logger.warning("sitemap.xml not found; skip beyblade entry")
         return
     xml = path.read_text(encoding="utf-8")
+    # ベイブレードは比較表1枚だけで解説記事が無く、AdSenseの「有用性の低い
+    # コンテンツ」の材料になるため sitemap には載せない(ページはnoindex)。
     if "/beyblade" in xml:
-        return
+        xml = re.sub(r"  <url>\s*<loc>[^<]*?/beyblade</loc>.*?</url>\n", "", xml, flags=re.S)
+        path.write_text(xml, encoding="utf-8")
+        logger.info("sitemap.xml: removed %s", SITE_URL)
+    return
     today = datetime.now(JST).strftime("%Y-%m-%d")
     entry = (f"  <url>\n    <loc>{SITE_URL}</loc>\n"
              f"    <lastmod>{today}</lastmod>\n"

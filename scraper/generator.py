@@ -1488,79 +1488,10 @@ def generate_product_pages(
             ],
         }, ensure_ascii=False, indent=2)
 
-        # FAQ: 事実ベースのQ&A (絶版・再販など推測要素は入れない)
-        faq_items: list[dict] = []
-        if p.release_date:
-            try:
-                rd = datetime.strptime(p.release_date, "%Y-%m-%d").date()
-                faq_items.append({
-                    "q": f"{p.name}はいつ発売されましたか？",
-                    "a": f"{p.name}は{rd.year}年{rd.month}月{rd.day}日に発売されたBOXです。",
-                })
-            except ValueError:
-                pass
-        if p.retail_price > 0:
-            faq_items.append({
-                "q": f"{p.name}の定価はいくらですか？",
-                "a": f"{p.name}の定価(メーカー希望小売価格)は1BOXあたり¥{p.retail_price:,}(税込)です。",
-            })
-        if max_price > 0:
-            faq_items.append({
-                "q": f"{p.name}の最高買取価格はいくらですか？",
-                "a": (
-                    f"{update_date}時点の最高買取価格は¥{max_price:,}({max_shop_name})です。"
-                    f"当サイトでは{shop_count}店舗の買取価格を毎日自動比較しています。"
-                ),
-            })
-        if p.retail_price > 0 and max_price > 0:
-            ratio = max_price / p.retail_price
-            if ratio >= 1.3:
-                faq_items.append({
-                    "q": f"{p.name}は定価より高く売れますか？",
-                    "a": (
-                        f"現在の最高買取価格¥{max_price:,}は定価¥{p.retail_price:,}の約{ratio:.1f}倍です。"
-                        f"ただしシュリンク有無・外箱の状態により実際の買取額は変動します。"
-                    ),
-                })
-        if p.hit_cards:
-            card_names = [
-                c[0] if isinstance(c, (list, tuple)) else c
-                for c in p.hit_cards[:3]
-            ]
-            faq_items.append({
-                "q": f"{p.name}の当たりカードは何ですか？",
-                "a": (
-                    f"主な当たりカードは「{'」「'.join(card_names)}」です。"
-                    f"これらの高額レアカードを引けるかどうかがBOX相場に影響しています。"
-                ),
-            })
-
-        if faq_items:
-            faq_jsonld = json.dumps({
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                "mainEntity": [
-                    {
-                        "@type": "Question",
-                        "name": it["q"],
-                        "acceptedAnswer": {"@type": "Answer", "text": it["a"]},
-                    }
-                    for it in faq_items
-                ],
-            }, ensure_ascii=False, indent=2)
-            faq_html = (
-                '<h3 class="section-title">よくある質問</h3>\n'
-                '<div class="faq-list">\n'
-                + "\n".join(
-                    f'<details class="faq-item"><summary>{it["q"]}</summary>'
-                    f'<div class="faq-answer">{it["a"]}</div></details>'
-                    for it in faq_items
-                )
-                + '\n</div>'
-            )
-        else:
-            faq_jsonld = ""
-            faq_html = ""
+        # FAQはワンピ・ドラゴンボールと共通の組み立てを使う
+        faq_html, faq_jsonld = build_box_faq(
+            p.name, p.release_date, p.retail_price, max_price, max_shop_name,
+            shop_count, p.hit_cards, update_date)
 
         jsonld_parts = [
             f'<script type="application/ld+json">\n{product_jsonld}\n</script>',
