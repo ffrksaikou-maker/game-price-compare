@@ -5,7 +5,7 @@
     "retail_price": 4500,
     "max_price": 5000,
     "prices": {
-      "morimori": 4800,
+      "morimori": 4700,
       "homura": 4600,
       "rudeya": 5000,
       "icchome": 4800
@@ -74,7 +74,7 @@
     "retail_price": 4200,
     "max_price": 9500,
     "prices": {
-      "morimori": 6300,
+      "morimori": 7100,
       "rudeya": 9500,
       "icchome": 7800
     }
@@ -149,11 +149,11 @@
     "name": "UX-03 ウィザードロッド5-70DB",
     "category": "ux",
     "retail_price": 1400,
-    "max_price": 3600,
+    "max_price": 3500,
     "prices": {
-      "morimori": 3100,
+      "morimori": 3000,
       "rudeya": 3500,
-      "icchome": 3600
+      "icchome": 3100
     }
   },
   {
@@ -464,7 +464,7 @@
     "max_price": 4000,
     "prices": {
       "rudeya": 4000,
-      "icchome": 4000
+      "icchome": 3600
     }
   },
   {
