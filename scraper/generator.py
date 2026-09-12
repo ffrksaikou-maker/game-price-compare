@@ -802,6 +802,9 @@ def _short_product_name(name: str) -> str:
     """
     m = re.search(r"\u300c([^\u300d]+)\u300d", name)
     if m:
+        # デラックスは通常版と弾名が同じでタイトルが完全に重複するため区別する
+        if "デラックス" in name or " DX" in name:
+            return f"{m.group(1)}(デラックス)"
         return m.group(1)
     # \u30ab\u30ae\u62ec\u5f27\u304c\u7121\u3044\u3082\u306e(\u30b9\u30da\u30b7\u30e3\u30ebBOX \u25cb\u25cb / SV \u30cf\u30a4\u30af\u30e9\u30b9\u30d1\u30c3\u30af \u25cb\u25cb)\u306f\u672b\u5c3e\u306e\u8a9e
     return name.split()[-1] if name.split() else name
@@ -2355,7 +2358,7 @@ gtag('config', 'G-RPTS6CRTCS');
 body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans","Yu Gothic",sans-serif;background:var(--bg);color:var(--text);line-height:1.8}}
 .header{{position:sticky;top:0;z-index:100;height:56px;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;padding:0 20px}}
 .header a{{text-decoration:none}}
-.header h1{{font-size:18px;font-weight:700;background:linear-gradient(135deg,#f59e0b,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}}
+.header .site-title{{font-size:18px;font-weight:700;background:linear-gradient(135deg,#f59e0b,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}}
 .wrap{{max-width:1000px;margin:0 auto;padding:28px 16px 48px}}
 .breadcrumb{{font-size:12px;color:var(--text-sub);margin-bottom:16px}}
 .breadcrumb a{{color:var(--accent);text-decoration:none}}
@@ -2383,7 +2386,7 @@ section h2 .cnt{{font-size:12px;font-weight:600;color:var(--text-sub)}}
 </style>
 </head>
 <body>
-<div class="header"><a href="index.html"><h1>ポケカ買取チェッカー</h1></a></div>
+<div class="header"><a href="index.html"><span class="site-title">ポケカ買取チェッカー</span></a></div>
 <div class="wrap">
 <div class="breadcrumb"><a href="index.html">トップ</a> &gt; 記事一覧</div>
 
@@ -2782,7 +2785,7 @@ gtag('config', 'G-RPTS6CRTCS');
 body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans","Yu Gothic",sans-serif;background:var(--bg);color:var(--text);line-height:1.8}}
 .header{{position:sticky;top:0;z-index:100;height:56px;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;padding:0 20px}}
 .header a{{text-decoration:none}}
-.header h1{{font-size:18px;font-weight:700;background:linear-gradient(135deg,#f59e0b,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}}
+.header .site-title{{font-size:18px;font-weight:700;background:linear-gradient(135deg,#f59e0b,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}}
 .wrap{{max-width:1240px;margin:0 auto;padding:32px 16px 48px}}
 .content-layout{{display:flex;gap:24px;align-items:flex-start}}
 .content-layout .main-card{{flex:1;min-width:0}}
@@ -2831,7 +2834,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 </style>
 </head>
 <body>
-<div class="header"><a href="index.html"><h1>ポケカ買取チェッカー</h1></a></div>
+<div class="header"><a href="index.html"><span class="site-title">ポケカ買取チェッカー</span></a></div>
 <div class="wrap">
 <div class="breadcrumb"><a href="index.html">トップ</a> &gt; 週間価格変化ランキング</div>
 
@@ -3587,7 +3590,7 @@ gtag('config', 'G-RPTS6CRTCS');
 body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans","Yu Gothic",sans-serif;background:var(--bg);color:var(--text);line-height:1.8}}
 .header{{position:sticky;top:0;z-index:100;height:56px;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;padding:0 20px}}
 .header a{{text-decoration:none}}
-.header h1{{font-size:18px;font-weight:700;background:linear-gradient(135deg,#f59e0b,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}}
+.header .site-title{{font-size:18px;font-weight:700;background:linear-gradient(135deg,#f59e0b,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}}
 .wrap{{max-width:1240px;margin:0 auto;padding:32px 16px 48px}}
 .content-layout{{display:flex;gap:24px;align-items:flex-start}}
 .content-layout article{{flex:1;min-width:0}}
@@ -3672,7 +3675,7 @@ article p{{font-size:14px;margin-bottom:14px}}
 </style>
 </head>
 <body>
-<div class="header"><a href="index.html"><h1>ポケカ買取チェッカー</h1></a></div>
+<div class="header"><a href="index.html"><span class="site-title">ポケカ買取チェッカー</span></a></div>
 <div class="wrap">
 <div class="breadcrumb"><a href="index.html">トップ</a> &gt; {config['short']} 一覧</div>
 

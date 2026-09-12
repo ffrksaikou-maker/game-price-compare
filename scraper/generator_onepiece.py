@@ -824,7 +824,7 @@ def generate_onepiece_weekly(products: list[MasterProduct], update_date: str) ->
 body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans","Yu Gothic",sans-serif;background:#f6f7fb;color:#111827;line-height:1.7;margin:0}}
 .gswitch{{display:flex;align-items:center;justify-content:center;gap:8px;padding:11px 16px;font-size:14px;font-weight:800;text-decoration:none;color:#fff;background:linear-gradient(135deg,#4aa3ff,#1e88e5)}}
 .header{{height:52px;display:flex;align-items:center;justify-content:center;background:#fff;border-bottom:1px solid #e5e7eb}}
-.header h1{{font-size:17px;font-weight:700;background:linear-gradient(135deg,#ff6b6b,#e53935);-webkit-background-clip:text;-webkit-text-fill-color:transparent}}
+.header .site-title{{font-size:17px;font-weight:700;background:linear-gradient(135deg,#ff6b6b,#e53935);-webkit-background-clip:text;-webkit-text-fill-color:transparent}}
 .header a{{text-decoration:none}}
 .wrap{{max-width:840px;margin:0 auto;padding:26px 16px 48px}}
 h2{{font-size:20px;margin:0 0 4px}}.upd{{font-size:12px;color:#6b7280;margin-bottom:18px}}
@@ -832,7 +832,7 @@ th{{background:#f9fafb}}
 .back{{display:inline-block;margin-top:20px;color:#e53935;text-decoration:none;font-weight:600}}
 </style></head><body>
 <a class="gswitch" href="/">◀ ポケモンカードの買取比較はこちら</a>
-<div class="header"><a href="/onepiece"><h1>ワンピ買取チェッカー</h1></a></div>
+<div class="header"><a href="/onepiece"><span class="site-title">ワンピ買取チェッカー</span></a></div>
 <div class="wrap">
 <h2>📊 ワンピBOX 週間値動きランキング</h2>
 <div class="upd">更新: {update_date} ／ 7日前比・最大10店舗の最高買取価格ベース</div>
@@ -860,7 +860,7 @@ _WK_STYLE = (
     'body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans","Yu Gothic",sans-serif;background:#f6f7fb;color:#111827;line-height:1.7;margin:0}'
     '.gswitch{display:flex;align-items:center;justify-content:center;gap:8px;padding:11px 16px;font-size:14px;font-weight:800;text-decoration:none;color:#fff;background:linear-gradient(135deg,#4aa3ff,#1e88e5)}'
     '.header{height:52px;display:flex;align-items:center;justify-content:center;background:#fff;border-bottom:1px solid #e5e7eb}'
-    '.header h1{font-size:17px;font-weight:700;background:linear-gradient(135deg,#ff6b6b,#e53935);-webkit-background-clip:text;-webkit-text-fill-color:transparent}'
+    '.header .site-title{font-size:17px;font-weight:700;background:linear-gradient(135deg,#ff6b6b,#e53935);-webkit-background-clip:text;-webkit-text-fill-color:transparent}'
     '.header a{text-decoration:none}.wrap{max-width:840px;margin:0 auto;padding:26px 16px 48px}'
     '.breadcrumb{font-size:12px;color:#6b7280;margin-bottom:16px}.breadcrumb a{color:#e53935;text-decoration:none}'
     'h2{font-size:20px;margin:0 0 4px}.upd{font-size:12px;color:#6b7280;margin-bottom:18px}'
@@ -954,7 +954,7 @@ def generate_onepiece_weekly_articles(products: list[MasterProduct]) -> None:
 <script type="application/ld+json">{blog_ld}</script>
 <style>{_WK_STYLE}</style></head><body>
 <a class="gswitch" href="/">◀ ポケモンカードの買取比較はこちら</a>
-<div class="header"><a href="/onepiece"><h1>ワンピ買取チェッカー</h1></a></div>
+<div class="header"><a href="/onepiece"><span class="site-title">ワンピ買取チェッカー</span></a></div>
 <div class="wrap">
 <div class="breadcrumb"><a href="/">ホーム</a> &gt; <a href="/onepiece">ワンピ買取チェッカー</a> &gt; <a href="index.html">週間値動き記事</a> &gt; {iso[0]}年 第{iso[1]}週</div>
 <h2>📊 ワンピBOX 週間値動きランキング【{iso[0]}年 第{iso[1]}週】</h2>
@@ -999,7 +999,7 @@ def _write_onepiece_weekly_index(wk_dir: Path, current_week: str | None) -> None
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831186943118320" crossorigin="anonymous"></script>
 <style>{_WK_STYLE}</style></head><body>
 <a class="gswitch" href="/">◀ ポケモンカードの買取比較はこちら</a>
-<div class="header"><a href="/onepiece"><h1>ワンピ買取チェッカー</h1></a></div>
+<div class="header"><a href="/onepiece"><span class="site-title">ワンピ買取チェッカー</span></a></div>
 <div class="wrap">
 <div class="breadcrumb"><a href="/">ホーム</a> &gt; <a href="/onepiece">ワンピ買取チェッカー</a> &gt; 週間値動き記事</div>
 <h2>📚 ワンピBOX 週間値動きランキング 記事アーカイブ</h2>

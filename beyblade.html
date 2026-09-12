@@ -64,7 +64,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 
 /* Header */
 .header{position:sticky;top:0;z-index:100;height:var(--header-h);background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;padding:0 20px}
-.header h1{font-size:18px;font-weight:700;background:linear-gradient(135deg,#f59e0b,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-align:center}
+.header .site-title{display:inline-block;font-size:18px;font-weight:700;background:linear-gradient(135deg,#f59e0b,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-align:center}
 .header .upd{position:absolute;right:20px;font-size:11px;color:var(--text-sub)}
 .gsbar{display:flex}
 .gsbar .gswitch{flex:1;min-width:0}
@@ -181,7 +181,7 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
 @media(max-width:768px){
   :root{--header-h:48px}
   .header{position:relative;padding:0 12px}
-  .header h1{font-size:14px}
+  .header .site-title{font-size:14px}
   .header .upd{position:static;display:block;font-size:10px;margin-left:8px;flex-shrink:0}
 
   .fbar{position:relative;padding:8px 10px;gap:6px 10px;justify-content:flex-start}
@@ -228,7 +228,7 @@ td.qi input::-webkit-inner-spin-button{opacity:1}
 
 /* ===== Small mobile: <= 480px ===== */
 @media(max-width:480px){
-  .header h1{font-size:12px}
+  .header .site-title{font-size:12px}
   .fb,.sb{font-size:10px;padding:5px 8px}
   td.pn{min-width:130px;max-width:170px;font-size:10px;white-space:normal;word-break:break-word;line-height:1.3}
   thead th{font-size:9px;padding:6px 3px}

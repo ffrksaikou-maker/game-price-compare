@@ -1286,7 +1286,7 @@ def _render(a: dict) -> str:
 {sh['scripts']}
 </head>
 <body>
-<div class="header"><a href="index.html"><h1>ポケカ買取チェッカー</h1></a></div>
+<div class="header"><a href="index.html"><span class="site-title">ポケカ買取チェッカー</span></a></div>
 <div class="wrap">
 <div class="breadcrumb"><a href="index.html">トップ</a> &gt; {_esc(a['crumb'])}</div>
 
