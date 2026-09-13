@@ -3,15 +3,15 @@
     "name": "ブースターパック「世界最強の戦士」【OP-17】",
     "category": "op",
     "retail_price": 5760,
-    "max_price": 11000,
+    "max_price": 10700,
     "prices": {
-      "homura": 11000,
+      "homura": 10600,
       "rudeya": 9000,
-      "runto": 10500,
+      "runto": 10700,
       "icchome": 9000,
       "oku": 10500,
       "collect_tendo": 10000,
-      "shinsoku": 8000,
+      "shinsoku": 10100,
       "kaitoriexpo": 10000
     }
   },
@@ -19,12 +19,12 @@
     "name": "ブースターパック「決戦の刻」【OP-16】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 8500,
+    "max_price": 8000,
     "prices": {
       "rudeya": 7000,
       "icchome": 8000,
       "collect_tendo": 8000,
-      "shinsoku": 8500,
+      "shinsoku": 7500,
       "kaitoriexpo": 8000
     }
   },
@@ -84,7 +84,7 @@
       "runto": 17000,
       "icchome": 14000,
       "oku": 15000,
-      "shinsoku": 15900,
+      "shinsoku": 16200,
       "kaitoriexpo": 17000
     }
   },
@@ -132,7 +132,7 @@
       "runto": 20500,
       "icchome": 20000,
       "oku": 19000,
-      "shinsoku": 18700,
+      "shinsoku": 18900,
       "kaitoriexpo": 19000
     }
   },
@@ -142,12 +142,13 @@
     "retail_price": 5280,
     "max_price": 9600,
     "prices": {
+      "morimori": 8500,
       "homura": 9500,
       "rudeya": 9000,
       "runto": 9500,
       "icchome": 8500,
       "oku": 9000,
-      "shinsoku": 9600,
+      "shinsoku": 9500,
       "kaitoriexpo": 9600
     }
   },
@@ -163,7 +164,7 @@
       "runto": 16000,
       "icchome": 19000,
       "oku": 18000,
-      "shinsoku": 17100,
+      "shinsoku": 16700,
       "kaitoriexpo": 15700
     }
   },
@@ -173,6 +174,7 @@
     "retail_price": 5280,
     "max_price": 23500,
     "prices": {
+      "morimori": 23500,
       "homura": 23500,
       "rudeya": 21000,
       "runto": 22000,
@@ -188,6 +190,7 @@
     "retail_price": 5280,
     "max_price": 57600,
     "prices": {
+      "morimori": 55800,
       "homura": 57500,
       "rudeya": 56000,
       "runto": 50000,
@@ -203,6 +206,7 @@
     "retail_price": 5280,
     "max_price": 18200,
     "prices": {
+      "morimori": 16000,
       "homura": 16000,
       "rudeya": 18200,
       "runto": 18000,
@@ -218,6 +222,7 @@
     "retail_price": 4752,
     "max_price": 17800,
     "prices": {
+      "morimori": 15500,
       "homura": 16000,
       "rudeya": 17800,
       "runto": 16000,
@@ -233,6 +238,7 @@
     "retail_price": 4752,
     "max_price": 23500,
     "prices": {
+      "morimori": 18500,
       "homura": 19000,
       "rudeya": 21300,
       "runto": 18000,
@@ -248,6 +254,7 @@
     "retail_price": 4752,
     "max_price": 38800,
     "prices": {
+      "morimori": 37000,
       "homura": 38000,
       "rudeya": 38800,
       "runto": 30000,
