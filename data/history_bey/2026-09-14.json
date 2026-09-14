@@ -5,10 +5,10 @@
     "retail_price": 4500,
     "max_price": 5000,
     "prices": {
-      "morimori": 4700,
+      "morimori": 3900,
       "homura": 4600,
       "rudeya": 5000,
-      "icchome": 4800
+      "icchome": 4000
     }
   },
   {
@@ -72,10 +72,10 @@
     "name": "UX-15 シャークスケイルデッキセット",
     "category": "ux",
     "retail_price": 4200,
-    "max_price": 9500,
+    "max_price": 7800,
     "prices": {
       "morimori": 7100,
-      "rudeya": 9500,
+      "rudeya": 7000,
       "icchome": 7800
     }
   },
@@ -95,10 +95,10 @@
     "name": "UX-11 インパクトドレイク9-60LR",
     "category": "ux",
     "retail_price": 2420,
-    "max_price": 2500,
+    "max_price": 2200,
     "prices": {
       "morimori": 1500,
-      "rudeya": 2500,
+      "rudeya": 2200,
       "icchome": 2000
     }
   },
@@ -152,8 +152,8 @@
     "max_price": 3500,
     "prices": {
       "morimori": 3000,
-      "rudeya": 3500,
-      "icchome": 3100
+      "rudeya": 3000,
+      "icchome": 3500
     }
   },
   {
@@ -172,10 +172,10 @@
     "name": "CX-18 ランダムブースター ブラキオウィップセレクト",
     "category": "cx",
     "retail_price": 1600,
-    "max_price": 1500,
+    "max_price": 1400,
     "prices": {
       "morimori": 1400,
-      "rudeya": 1500,
+      "rudeya": 1300,
       "icchome": 1400
     }
   },
@@ -196,8 +196,8 @@
     "retail_price": 5650,
     "max_price": 5000,
     "prices": {
-      "morimori": 4500,
-      "rudeya": 5000,
+      "morimori": 5000,
+      "rudeya": 4000,
       "icchome": 5000
     }
   },
@@ -453,7 +453,7 @@
     "max_price": 18700,
     "prices": {
       "homura": 18700,
-      "rudeya": 15000,
+      "rudeya": 10000,
       "icchome": 18700
     }
   },
@@ -471,10 +471,10 @@
     "name": "BX-00 ヘルズサイズ4-60T メタルコート:ゴールド",
     "category": "limited",
     "retail_price": 1600,
-    "max_price": 5500,
+    "max_price": 5000,
     "prices": {
       "morimori": 5000,
-      "rudeya": 5500,
+      "rudeya": 5000,
       "icchome": 5000
     }
   }
