@@ -101,7 +101,7 @@
       "runto": 32000,
       "icchome": 33000,
       "oku": 33000,
-      "shinsoku": 32100,
+      "shinsoku": 31800,
       "kaitoriexpo": 32000
     }
   },
@@ -149,7 +149,7 @@
       "runto": 9500,
       "icchome": 8500,
       "oku": 9000,
-      "shinsoku": 9500,
+      "shinsoku": 9600,
       "kaitoriexpo": 9600
     }
   },
@@ -229,7 +229,7 @@
       "runto": 16000,
       "icchome": 15000,
       "oku": 16000,
-      "shinsoku": 14200,
+      "shinsoku": 13900,
       "kaitoriexpo": 17500
     }
   },

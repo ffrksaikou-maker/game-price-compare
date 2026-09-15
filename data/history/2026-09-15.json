@@ -1,10 +1,32 @@
 [
   {
+    "name": "30th CELEBRATION FUTURISTIC BOX",
+    "category": "mega",
+    "retail_price": 27500,
+    "max_price": 50000,
+    "prices": {
+      "homura": 50000,
+      "rudeya": 40000
+    }
+  },
+  {
+    "name": "30th CELEBRATION プレミアムデッキセット エーフィ・ブラッキー",
+    "category": "mega",
+    "retail_price": 6200,
+    "max_price": 14000,
+    "prices": {
+      "homura": 14000,
+      "rudeya": 13000
+    }
+  },
+  {
     "name": "MEGA 拡張パック「30th CELEBRATION」",
     "category": "mega",
     "retail_price": 7200,
     "max_price": 20000,
     "prices": {
+      "homura": 17000,
+      "rudeya": 15000,
       "icchome": 18000,
       "kaikyo": 20000
     }
@@ -21,10 +43,10 @@
       "runto": 9000,
       "icchome": 9000,
       "oku": 9500,
-      "kaikyo": 8500,
       "collect_tendo": 9200,
-      "shinsoku": 9000,
-      "kaitoriexpo": 8400
+      "shinsoku": 10000,
+      "kaitoriexpo": 8400,
+      "kaikyo": 8500
     }
   },
   {
@@ -39,10 +61,10 @@
       "runto": 6500,
       "icchome": 6300,
       "oku": 6300,
-      "kaikyo": 7000,
       "collect_tendo": 7400,
       "shinsoku": 6800,
-      "kaitoriexpo": 7300
+      "kaitoriexpo": 7300,
+      "kaikyo": 7000
     }
   },
   {
@@ -57,10 +79,10 @@
       "runto": 6300,
       "icchome": 6000,
       "oku": 6000,
-      "kaikyo": 7000,
       "collect_tendo": 7200,
       "shinsoku": 6500,
-      "kaitoriexpo": 7300
+      "kaitoriexpo": 7300,
+      "kaikyo": 7000
     }
   },
   {
@@ -75,10 +97,10 @@
       "runto": 6600,
       "icchome": 6800,
       "oku": 6800,
-      "kaikyo": 7000,
       "collect_tendo": 8000,
-      "shinsoku": 6900,
-      "kaitoriexpo": 7500
+      "shinsoku": 6800,
+      "kaitoriexpo": 7500,
+      "kaikyo": 7000
     }
   },
   {
@@ -93,10 +115,10 @@
       "runto": 9200,
       "icchome": 9300,
       "oku": 9500,
-      "kaikyo": 9500,
       "collect_tendo": 11000,
-      "shinsoku": 9500,
-      "kaitoriexpo": 10500
+      "shinsoku": 9700,
+      "kaitoriexpo": 10500,
+      "kaikyo": 9500
     }
   },
   {
@@ -111,10 +133,10 @@
       "runto": 15500,
       "icchome": 13500,
       "oku": 13500,
-      "kaikyo": 13500,
       "collect_tendo": 15500,
-      "shinsoku": 12800,
-      "kaitoriexpo": 15800
+      "shinsoku": 12500,
+      "kaitoriexpo": 15800,
+      "kaikyo": 13500
     }
   },
   {
@@ -128,10 +150,10 @@
       "rudeya": 6800,
       "runto": 6200,
       "icchome": 6500,
-      "kaikyo": 7500,
       "collect_tendo": 7300,
-      "shinsoku": 6000,
-      "kaitoriexpo": 6800
+      "shinsoku": 6300,
+      "kaitoriexpo": 6800,
+      "kaikyo": 7500
     }
   },
   {
@@ -145,10 +167,10 @@
       "rudeya": 6500,
       "runto": 6000,
       "icchome": 6000,
-      "kaikyo": 6500,
       "collect_tendo": 6500,
-      "shinsoku": 6000,
-      "kaitoriexpo": 6600
+      "shinsoku": 6100,
+      "kaitoriexpo": 6600,
+      "kaikyo": 6500
     }
   },
   {
@@ -272,10 +294,10 @@
       "rudeya": 13000,
       "runto": 13000,
       "icchome": 12000,
-      "kaikyo": 13500,
       "collect_tendo": 16200,
       "shinsoku": 13500,
-      "kaitoriexpo": 15000
+      "kaitoriexpo": 15000,
+      "kaikyo": 13500
     }
   },
   {
@@ -322,7 +344,7 @@
       "runto": 10500,
       "icchome": 10200,
       "collect_tendo": 11000,
-      "shinsoku": 10000,
+      "shinsoku": 10300,
       "kaitoriexpo": 10000
     }
   },
@@ -338,7 +360,7 @@
       "runto": 10000,
       "icchome": 10200,
       "collect_tendo": 11000,
-      "shinsoku": 10000,
+      "shinsoku": 10300,
       "kaitoriexpo": 10700
     }
   },
@@ -370,7 +392,7 @@
       "runto": 11000,
       "icchome": 10500,
       "collect_tendo": 11700,
-      "shinsoku": 11000,
+      "shinsoku": 10000,
       "kaitoriexpo": 11000
     }
   },
@@ -417,9 +439,9 @@
       "rudeya": 14800,
       "runto": 15000,
       "icchome": 14000,
-      "kaikyo": 12000,
       "collect_tendo": 16000,
-      "shinsoku": 14000
+      "shinsoku": 14500,
+      "kaikyo": 12000
     }
   },
   {
@@ -497,10 +519,10 @@
       "rudeya": 35000,
       "runto": 35000,
       "icchome": 33000,
-      "kaikyo": 35000,
       "collect_tendo": 43000,
       "shinsoku": 35000,
-      "kaitoriexpo": 42000
+      "kaitoriexpo": 42000,
+      "kaikyo": 35000
     }
   },
   {
@@ -515,7 +537,7 @@
       "runto": 10000,
       "icchome": 10000,
       "collect_tendo": 9500,
-      "shinsoku": 9500
+      "shinsoku": 9800
     }
   },
   {
@@ -530,7 +552,7 @@
       "runto": 11000,
       "icchome": 9500,
       "collect_tendo": 11800,
-      "shinsoku": 11000,
+      "shinsoku": 11200,
       "kaitoriexpo": 9200
     }
   },
@@ -546,7 +568,7 @@
       "runto": 16000,
       "icchome": 15000,
       "collect_tendo": 18400,
-      "shinsoku": 16500,
+      "shinsoku": 16800,
       "kaitoriexpo": 17000
     }
   },
@@ -577,7 +599,7 @@
       "runto": 9500,
       "icchome": 9500,
       "collect_tendo": 10000,
-      "shinsoku": 9000
+      "shinsoku": 9300
     }
   },
   {
@@ -591,10 +613,10 @@
       "rudeya": 25000,
       "runto": 25000,
       "icchome": 25000,
-      "kaikyo": 23000,
       "collect_tendo": 26800,
       "shinsoku": 25000,
-      "kaitoriexpo": 27000
+      "kaitoriexpo": 27000,
+      "kaikyo": 23000
     }
   },
   {
@@ -634,7 +656,7 @@
       "homura": 44000,
       "runto": 45000,
       "collect_tendo": 43000,
-      "shinsoku": 45000,
+      "shinsoku": 44000,
       "kaitoriexpo": 42500
     }
   },
@@ -645,9 +667,9 @@
     "max_price": 24000,
     "prices": {
       "homura": 22400,
-      "kaikyo": 17500,
       "collect_tendo": 24000,
-      "shinsoku": 22000
+      "shinsoku": 22000,
+      "kaikyo": 17500
     }
   },
   {
@@ -731,7 +753,7 @@
     "prices": {
       "homura": 57000,
       "rudeya": 45000,
-      "shinsoku": 57000
+      "shinsoku": 55000
     }
   },
   {
@@ -760,11 +782,11 @@
     "name": "S&S 拡張パック「摩天パーフェクト」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 17500,
+    "max_price": 17000,
     "prices": {
       "homura": 17000,
       "collect_tendo": 16000,
-      "shinsoku": 17500
+      "shinsoku": 17000
     }
   },
   {
