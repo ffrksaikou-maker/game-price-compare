@@ -5,7 +5,7 @@
     "retail_price": 5760,
     "max_price": 7500,
     "prices": {
-      "runto": 7000,
+      "runto": 7500,
       "kaitoriexpo": 7500
     }
   },
@@ -48,7 +48,7 @@
     "max_price": 27000,
     "prices": {
       "rudeya": 27000,
-      "shinsoku": 25200,
+      "shinsoku": 25600,
       "kaitoriexpo": 22000
     }
   },
@@ -67,10 +67,10 @@
     "name": "ブースターパック「未知なる冒険」【FB-05】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 8600,
+    "max_price": 8200,
     "prices": {
       "rudeya": 6500,
-      "shinsoku": 8600,
+      "shinsoku": 8200,
       "kaitoriexpo": 7500
     }
   },
@@ -111,10 +111,10 @@
     "name": "ブースターパック「覚醒の鼓動」【FB-01】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 6500,
+    "max_price": 6300,
     "prices": {
       "rudeya": 5000,
-      "shinsoku": 6500,
+      "shinsoku": 6300,
       "kaitoriexpo": 5300
     }
   },
@@ -158,9 +158,9 @@
     "name": "スーパーダイバーズ アドバンスパック バトルオブサイヤン",
     "category": "dv",
     "retail_price": 6600,
-    "max_price": 6200,
+    "max_price": 6500,
     "prices": {
-      "rudeya": 6200
+      "rudeya": 6500
     }
   },
   {

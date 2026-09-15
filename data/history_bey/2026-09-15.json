@@ -5,22 +5,21 @@
     "retail_price": 4500,
     "max_price": 5000,
     "prices": {
-      "morimori": 3900,
-      "homura": 4600,
+      "morimori": 3500,
       "rudeya": 5000,
-      "icchome": 4000
+      "icchome": 3800
     }
   },
   {
     "name": "UX-20 グローリーワルキューレLF",
     "category": "ux",
     "retail_price": 2700,
-    "max_price": 2500,
+    "max_price": 2600,
     "prices": {
-      "morimori": 1700,
+      "morimori": 1800,
       "homura": 1700,
       "rudeya": 2500,
-      "icchome": 1700
+      "icchome": 2600
     }
   },
   {
@@ -72,11 +71,11 @@
     "name": "UX-15 シャークスケイルデッキセット",
     "category": "ux",
     "retail_price": 4200,
-    "max_price": 7800,
+    "max_price": 8500,
     "prices": {
-      "morimori": 7100,
+      "morimori": 7300,
       "rudeya": 7000,
-      "icchome": 7800
+      "icchome": 8500
     }
   },
   {
@@ -117,23 +116,23 @@
     "name": "UX-09 サムライセイバー2-70L",
     "category": "ux",
     "retail_price": 3300,
-    "max_price": 2500,
+    "max_price": 3000,
     "prices": {
-      "morimori": 2500,
+      "morimori": 3000,
       "rudeya": 2000,
-      "icchome": 2500
+      "icchome": 3000
     }
   },
   {
     "name": "UX-08 シルバーウルフ3-80FB",
     "category": "ux",
     "retail_price": 2080,
-    "max_price": 1800,
+    "max_price": 2100,
     "prices": {
       "morimori": 1800,
       "homura": 1800,
       "rudeya": 1800,
-      "icchome": 1800
+      "icchome": 2100
     }
   },
   {
@@ -149,11 +148,11 @@
     "name": "UX-03 ウィザードロッド5-70DB",
     "category": "ux",
     "retail_price": 1400,
-    "max_price": 3500,
+    "max_price": 3600,
     "prices": {
-      "morimori": 3000,
+      "morimori": 3100,
       "rudeya": 3000,
-      "icchome": 3500
+      "icchome": 3600
     }
   },
   {
@@ -194,11 +193,11 @@
     "name": "CX-16 スタートダッシュセットC",
     "category": "cx",
     "retail_price": 5650,
-    "max_price": 5000,
+    "max_price": 4000,
     "prices": {
-      "morimori": 5000,
+      "morimori": 4000,
       "rudeya": 4000,
-      "icchome": 5000
+      "icchome": 4000
     }
   },
   {
@@ -219,7 +218,7 @@
     "retail_price": 2200,
     "max_price": 1800,
     "prices": {
-      "morimori": 1800,
+      "morimori": 1700,
       "rudeya": 1800,
       "icchome": 1800
     }
@@ -380,9 +379,9 @@
     "retail_price": 2420,
     "max_price": 2000,
     "prices": {
-      "morimori": 1600,
+      "morimori": 1700,
       "rudeya": 2000,
-      "icchome": 1600
+      "icchome": 2000
     }
   },
   {
@@ -412,7 +411,7 @@
     "retail_price": 2620,
     "max_price": 1600,
     "prices": {
-      "morimori": 1500,
+      "morimori": 1400,
       "rudeya": 1600,
       "icchome": 1500
     }
