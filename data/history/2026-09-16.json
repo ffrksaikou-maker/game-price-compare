@@ -5,12 +5,13 @@
     "retail_price": 27500,
     "max_price": 50000,
     "prices": {
-      "homura": 45000,
-      "rudeya": 40000,
+      "homura": 40000,
+      "rudeya": 41000,
       "runto": 40000,
-      "icchome": 40000,
-      "oku": 50000,
-      "kaikyo": 45000
+      "icchome": 37000,
+      "oku": 40000,
+      "kaikyo": 40000,
+      "kaitoriexpo": 50000
     }
   },
   {
@@ -19,12 +20,12 @@
     "retail_price": 6200,
     "max_price": 16000,
     "prices": {
-      "homura": 16000,
-      "rudeya": 16000,
-      "runto": 14000,
-      "icchome": 14000,
+      "homura": 15000,
+      "rudeya": 15000,
+      "icchome": 13500,
       "oku": 14000,
-      "kaikyo": 14000
+      "kaikyo": 14000,
+      "kaitoriexpo": 16000
     }
   },
   {
@@ -33,11 +34,11 @@
     "retail_price": 7200,
     "max_price": 20500,
     "prices": {
-      "homura": 19000,
+      "homura": 18000,
       "rudeya": 18500,
       "runto": 19000,
-      "icchome": 19500,
-      "oku": 19000,
+      "icchome": 17500,
+      "oku": 18000,
       "kaikyo": 19000,
       "collect_tendo": 18000,
       "shinsoku": 18000,
@@ -54,7 +55,7 @@
       "homura": 10000,
       "rudeya": 8700,
       "runto": 9000,
-      "icchome": 9200,
+      "icchome": 9500,
       "oku": 9500,
       "kaikyo": 8500,
       "collect_tendo": 9200,
@@ -938,22 +939,22 @@
     "name": "S&S 強化拡張パック「爆炎ウォーカー」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 39000,
+    "max_price": 33000,
     "prices": {
       "homura": 31000,
       "shinsoku": 33000,
-      "kaitoriexpo": 39000
+      "kaitoriexpo": 30000
     }
   },
   {
     "name": "S&S 拡張パック「反逆クラッシュ」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 45000,
+    "max_price": 41000,
     "prices": {
       "homura": 40000,
       "shinsoku": 41000,
-      "kaitoriexpo": 45000
+      "kaitoriexpo": 39000
     }
   },
   {
@@ -964,7 +965,7 @@
     "prices": {
       "homura": 86000,
       "shinsoku": 98000,
-      "kaitoriexpo": 88000
+      "kaitoriexpo": 85000
     }
   },
   {
