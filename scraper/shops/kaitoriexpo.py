@@ -168,6 +168,23 @@ class KaitoriExpoScraper(BaseScraper):
                 for _ in range(3):
                     page.mouse.wheel(0, 2400)
                     page.wait_for_timeout(1200)
+                # 長いツイートは「さらに表示」で折りたたまれ、innerText に本文の
+                # 後半が入らない。実際 30th CELEBRATION 20500円 がこれで落ちていた。
+                # 展開ボタンを押してから読む。
+                for _ in range(3):
+                    clicked = page.evaluate(
+                        """() => {
+                            const btns = Array.from(document.querySelectorAll(
+                                'button[data-testid="tweet-text-show-more-link"], ' +
+                                'div[data-testid="tweet-text-show-more-link"]'
+                            ));
+                            btns.forEach(b => b.click());
+                            return btns.length;
+                        }"""
+                    ) or 0
+                    if not clicked:
+                        break
+                    page.wait_for_timeout(800)
                 texts = page.evaluate(
                     """() => Array.from(
                         document.querySelectorAll('article[data-testid="tweet"]')
