@@ -35,10 +35,9 @@
     "max_price": 7500,
     "prices": {
       "rudeya": 6300,
-      "runto": 6500,
       "icchome": 6000,
       "collect_tendo": 7500,
-      "shinsoku": 6100,
+      "shinsoku": 6000,
       "kaitoriexpo": 7000
     }
   },
@@ -51,7 +50,7 @@
       "rudeya": 6700,
       "runto": 8000,
       "icchome": 6500,
-      "shinsoku": 7100,
+      "shinsoku": 6500,
       "kaitoriexpo": 8500
     }
   },
@@ -161,7 +160,7 @@
       "runto": 16000,
       "icchome": 17000,
       "oku": 15500,
-      "shinsoku": 16200,
+      "shinsoku": 15600,
       "kaitoriexpo": 15500
     }
   },
@@ -209,7 +208,7 @@
       "runto": 16000,
       "icchome": 16000,
       "oku": 14500,
-      "shinsoku": 16100,
+      "shinsoku": 15100,
       "kaitoriexpo": 17500
     }
   },
@@ -225,7 +224,7 @@
       "runto": 16000,
       "icchome": 15000,
       "oku": 14500,
-      "shinsoku": 13900,
+      "shinsoku": 14700,
       "kaitoriexpo": 17500
     }
   },
@@ -249,7 +248,7 @@
     "name": "ブースターパック「ROMANCE DAWN」【OP-01】",
     "category": "op",
     "retail_price": 4752,
-    "max_price": 38600,
+    "max_price": 38500,
     "prices": {
       "morimori": 37000,
       "homura": 38000,
@@ -257,7 +256,7 @@
       "runto": 30000,
       "icchome": 31000,
       "oku": 33000,
-      "shinsoku": 38600,
+      "shinsoku": 38100,
       "kaitoriexpo": 38500
     }
   },
@@ -321,7 +320,7 @@
       "runto": 19000,
       "icchome": 19000,
       "oku": 17500,
-      "shinsoku": 17200,
+      "shinsoku": 16700,
       "kaitoriexpo": 19000
     }
   },
@@ -337,7 +336,7 @@
       "runto": 10000,
       "icchome": 9000,
       "oku": 9000,
-      "shinsoku": 9800,
+      "shinsoku": 9000,
       "kaitoriexpo": 10000
     }
   },
@@ -354,7 +353,7 @@
       "icchome": 21000,
       "oku": 20000,
       "collect_tendo": 22000,
-      "shinsoku": 20000,
+      "shinsoku": 19100,
       "kaitoriexpo": 21500
     }
   },
