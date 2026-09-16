@@ -3,14 +3,13 @@
     "name": "30th CELEBRATION FUTURISTIC BOX",
     "category": "mega",
     "retail_price": 27500,
-    "max_price": 50000,
+    "max_price": 37000,
     "prices": {
       "morimori": 31000,
       "homura": 35000,
       "rudeya": 35000,
       "icchome": 37000,
       "oku": 35000,
-      "kaitoriexpo": 50000,
       "kaikyo": 35000
     }
   },
@@ -18,14 +17,13 @@
     "name": "30th CELEBRATION プレミアムデッキセット エーフィ・ブラッキー",
     "category": "mega",
     "retail_price": 6200,
-    "max_price": 16000,
+    "max_price": 13300,
     "prices": {
       "morimori": 13000,
       "homura": 13000,
-      "rudeya": 13800,
+      "rudeya": 13300,
       "icchome": 13000,
       "oku": 13000,
-      "kaitoriexpo": 16000,
       "kaikyo": 12000
     }
   },
@@ -33,17 +31,16 @@
     "name": "MEGA 拡張パック「30th CELEBRATION」",
     "category": "mega",
     "retail_price": 7200,
-    "max_price": 20500,
+    "max_price": 19000,
     "prices": {
       "morimori": 16500,
       "homura": 17000,
-      "rudeya": 18500,
+      "rudeya": 17500,
       "runto": 17000,
       "icchome": 17000,
       "oku": 18000,
-      "collect_tendo": 18000,
+      "collect_tendo": 19000,
       "shinsoku": 16500,
-      "kaitoriexpo": 20500,
       "kaikyo": 17500
     }
   },
@@ -133,7 +130,6 @@
       "oku": 9500,
       "collect_tendo": 12800,
       "shinsoku": 10100,
-      "kaitoriexpo": 9800,
       "kaikyo": 9500
     }
   },
@@ -151,7 +147,6 @@
       "oku": 12000,
       "collect_tendo": 18800,
       "shinsoku": 12000,
-      "kaitoriexpo": 15800,
       "kaikyo": 13500
     }
   },
