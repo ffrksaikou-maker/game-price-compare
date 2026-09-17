@@ -252,6 +252,25 @@ def update_pending_images(name: str, urls: list[str]) -> int:
     return len(fresh)
 
 
+def _excluded_keys(name: str) -> set[str]:
+    """買取終了などで掲載しない商品。<state名>_excluded.json から読む。
+
+    店が買取を止めても過去の価格表ツイートは残るため、state を手で消しても
+    次の取得で復活してしまう。終了した商品を高値のまま出し続けないよう、
+    ここで恒久的に弾く。買取が再開したらファイルから消す。
+    """
+    path = STATE_DIR / f"{name}_excluded.json"
+    if not path.exists():
+        return set()
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        print(f"  [警告] {path.name} を読めませんでした")
+        return set()
+    return {re.sub(r"[\s　]+", "", e["name"]).lower()
+            for e in data.get("excluded", []) if e.get("name")}
+
+
 def update_state(name: str, items: dict) -> int:
     path = STATE_DIR / f"{name}.json"
     STATE_DIR.mkdir(parents=True, exist_ok=True)
@@ -264,6 +283,16 @@ def update_state(name: str, items: dict) -> int:
     cached = state.get("items", {})
     before = len(cached)
     cached.update(items)
+
+    # 買取終了した商品は、古い価格表ツイートから再取得されても弾く。
+    # state を手で消しても次の取得で戻ってしまうため、ここで毎回落とす。
+    excluded = _excluded_keys(name)
+    if excluded:
+        for n in list(cached):
+            if re.sub(r"[\s　]+", "", n).lower() in excluded:
+                print(f"     [買取終了のため除外] {n} ({cached[n]:,}円)")
+                del cached[n]
+
     state["items"] = cached
     state["last_check"] = int(time.time())
     state["last_found"] = len(items)
