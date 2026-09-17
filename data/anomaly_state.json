@@ -1,4 +1,10 @@
 {
+  "S&S 拡張パック「反逆クラッシュ」|kaitoriexpo": {
+    "price": 6000,
+    "ref": 40000,
+    "ratio": 0.15,
+    "drop": true
+  },
   "MANGA BOOSTER 02【SB-02】|morimori": {
     "price": 19800,
     "ref": 50000,

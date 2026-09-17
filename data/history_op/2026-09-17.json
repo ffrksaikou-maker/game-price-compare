@@ -7,9 +7,9 @@
     "prices": {
       "homura": 10000,
       "rudeya": 10000,
-      "runto": 10500,
-      "icchome": 10500,
-      "oku": 10500,
+      "runto": 11000,
+      "icchome": 10000,
+      "oku": 10000,
       "collect_tendo": 16000,
       "shinsoku": 10600,
       "kaitoriexpo": 11200
@@ -203,7 +203,7 @@
     "max_price": 17500,
     "prices": {
       "morimori": 16000,
-      "homura": 15000,
+      "homura": 14800,
       "rudeya": 16200,
       "runto": 16000,
       "icchome": 16000,
@@ -219,7 +219,7 @@
     "max_price": 17500,
     "prices": {
       "morimori": 15000,
-      "homura": 15000,
+      "homura": 14800,
       "rudeya": 16200,
       "runto": 16000,
       "icchome": 15000,
@@ -235,7 +235,7 @@
     "max_price": 22000,
     "prices": {
       "morimori": 18000,
-      "homura": 18500,
+      "homura": 18200,
       "rudeya": 19300,
       "runto": 18000,
       "icchome": 19000,
@@ -251,7 +251,7 @@
     "max_price": 38500,
     "prices": {
       "morimori": 37000,
-      "homura": 38000,
+      "homura": 36000,
       "rudeya": 38300,
       "runto": 30000,
       "icchome": 31000,
@@ -351,7 +351,7 @@
       "rudeya": 21000,
       "runto": 20000,
       "icchome": 21000,
-      "oku": 20000,
+      "oku": 19500,
       "collect_tendo": 22000,
       "shinsoku": 19100,
       "kaitoriexpo": 21500
@@ -361,10 +361,10 @@
     "name": "スタートデッキEX ルフィ＆エース【ST-30】",
     "category": "st",
     "retail_price": 1980,
-    "max_price": 3000,
+    "max_price": 3400,
     "prices": {
       "rudeya": 2500,
-      "kaitoriexpo": 3000
+      "kaitoriexpo": 3400
     }
   }
 ]
