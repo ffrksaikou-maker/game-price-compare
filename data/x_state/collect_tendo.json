@@ -131,9 +131,6 @@
     "30th CELEBRATION プレミアムデッキセット エーフィ・ブラッキー": 14000
   },
   "processed_urls": [
-    "https://pbs.twimg.com/media/HQTJ_v8bMAAWMf4?format=png&name=large",
-    "https://pbs.twimg.com/media/HRBojmEa4AA8-2s?format=png&name=large",
-    "https://pbs.twimg.com/media/HQtE_eSagAAnLHy?format=jpg&name=large",
     "https://pbs.twimg.com/media/HSO6ctWaEAAsAh5?format=png&name=large",
     "https://pbs.twimg.com/media/HR_PizqbkAA21vm?format=png&name=large",
     "https://pbs.twimg.com/media/HQ3GLD-awAAmLM0?format=png&name=large",
@@ -180,7 +177,10 @@
     "https://pbs.twimg.com/media/HSTQxLfaEAASwpj?format=jpg&name=large",
     "https://pbs.twimg.com/media/HR1ikZmasAA4uXZ?format=jpg&name=large",
     "https://pbs.twimg.com/media/HR_hoGjbEAAWFzS?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HSUgcWNaEAEbcQ9?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HSUgcWNaEAEbcQ9?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HR5-UmgbQAABe7X?format=png&name=large",
+    "https://pbs.twimg.com/media/HNeljObbUAAaO6v?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HQ8aHgObAAAMu68?format=jpg&name=large"
   ],
   "last_check": 1789631471,
   "ocr_fail_counts": {
@@ -191,7 +191,7 @@
     "https://pbs.twimg.com/media/HSZHQ1bbwAAZLv0?format=jpg&name=large",
     "https://pbs.twimg.com/media/HSY8k7IbYAAsUSb?format=jpg&name=large"
   ],
-  "last_image_check": 1789623883,
+  "last_image_check": 1789638145,
   "seen_at": {
     "OP-14 蒼海の七傑": 1789532683,
     "OP-15 神の島の冒険": 1789532683,
