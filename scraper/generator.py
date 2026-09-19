@@ -1751,7 +1751,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans"
 .header{position:sticky;top:0;z-index:100;height:56px;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;padding:0 20px}
 .header a{text-decoration:none}
 .header .logo{font-size:18px;font-weight:700;background:linear-gradient(135deg,#f59e0b,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.wrap{max-width:900px;margin:0 auto;padding:28px 16px 48px}
+.wrap{max-width:1120px;margin:0 auto;padding:28px 16px 48px}
 .breadcrumb{font-size:12px;color:var(--text-sub);margin-bottom:18px}
 .breadcrumb a{color:var(--accent);text-decoration:none}
 article{background:var(--card);border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.06);padding:30px 26px;margin-bottom:24px}
@@ -1786,6 +1786,20 @@ article li{margin-bottom:8px}
 .ad{text-align:center;padding:12px 0}
 .ft{text-align:center;padding:24px 16px;font-size:11px;color:var(--text-sub)}
 .ft a{color:var(--accent)}
+/* 店舗ページは価格表だけで終わっていて直帰率が9割近かった。
+   BOX個別ページと同じ左サイドバーを出して記事への導線を作る。 */
+.content-layout{display:flex;gap:28px;align-items:flex-start}
+.content-layout>article{flex:1;min-width:0}
+.article-nav{width:180px;flex-shrink:0;position:sticky;top:16px;max-height:calc(100vh - 32px);overflow-y:auto}
+.article-nav-title{font-size:13px;font-weight:700;margin-bottom:8px;color:var(--text)}
+.article-nav-sub{font-size:11px;font-weight:700;color:var(--text-sub);margin:12px 0 4px}
+.article-nav a{display:block;font-size:12px;color:var(--text-sub);text-decoration:none;padding:5px 0 5px 12px;border-left:2px solid var(--border);line-height:1.4;transition:all .2s}
+.article-nav a:hover{color:var(--accent);border-left-color:var(--accent)}
+.article-nav a.nav-push{font-weight:800;color:#b45309;border-left-color:#f59e0b;background:linear-gradient(90deg,#fffbeb,transparent)}
+.article-nav a.nav-push:hover{color:#92400e;border-left-color:#d97706}
+.article-nav-more{margin-top:10px;font-weight:700;border:1px solid var(--border);border-radius:8px;text-align:center;padding:8px 4px!important;border-left:1px solid var(--border)!important}
+.article-nav-more:hover{border-color:var(--accent)}
+@media(max-width:1023px){.content-layout{flex-direction:column;align-items:stretch}.article-nav{order:2;width:auto;position:static;max-height:none;overflow-y:visible;margin-top:24px;padding-top:16px;border-top:1px solid var(--border)}.article-nav a{font-size:13px;padding:8px 0 8px 12px}}
 @media(max-width:640px){article{padding:20px 16px}article h1{font-size:19px}.hero .stat-big{font-size:21px}}
 </style>"""
 
@@ -1827,7 +1841,7 @@ def _build_shop_page_html(
         )
         best_section = (
             f'<h2>{name}が最高値をつけているBOX</h2>'
-            f'<p>当サイト掲載9店舗の買取価格を突き合わせた結果、<strong>{name}が最も高い金額を提示している商品が{best_total}件</strong>'
+            f'<p>当サイト掲載{shop_n}店舗の買取価格を突き合わせた結果、<strong>{name}が最も高い金額を提示している商品が{best_total}件</strong>'
             f'あります。差額が大きい順に上位を掲載します（2位の店舗との差）。</p>'
             f'<table class="price-table"><thead><tr><th>商品</th>'
             f'<th style="text-align:right">{name}の買取価格</th>'
@@ -1836,7 +1850,7 @@ def _build_shop_page_html(
     else:
         best_section = (
             f'<h2>{name}の価格ポジション</h2>'
-            f'<p>2026年{update_date}時点では、{name}が9店舗中の最高値をつけている商品はありません。'
+            f'<p>2026年{update_date}時点では、{name}が{shop_n}店舗中の最高値をつけている商品はありません。'
             f'ただし買取価格は毎日動くため、売却前には最新の比較をご確認ください。</p>'
         )
 
@@ -1935,17 +1949,37 @@ gtag('config', 'G-RPTS6CRTCS');
 <div class="wrap">
 <div class="breadcrumb"><a href="../index.html">トップ</a> &gt; <a href="../shop-hikaku.html">買取店比較</a> &gt; {name}の買取価格一覧</div>
 
+<div class="content-layout">
+<nav class="article-nav">
+<div class="article-nav-title">ポケカ買取チェッカー</div>
+<a href="../index.html">買取価格比較トップ</a>
+<a href="../sv-box-list.html">📋 SV全BOX一覧</a>
+<a href="../mega-box-list.html">📋 MEGA全BOX一覧</a>
+<a href="../ss-box-list.html">📋 S&amp;S全BOX一覧</a>
+<a href="../ranking.html">📊 週間価格変化ランキング</a>
+<div class="article-nav-sub">買取の基礎</div>
+<a class="nav-push" href="../chusen-matome.html">🎯 Amazon抽選まとめ</a>
+<a class="nav-push" href="../box-hokan.html">📦 BOXの保管方法</a>
+<a href="../kaitori-tips.html">BOX買取のコツ</a>
+<a href="../shop-hikaku.html">{shop_n}店舗比較</a>
+<a href="../mercari-hikaku.html">メルカリ・スニダン比較</a>
+<a href="../psa-guide.html">PSA鑑定ガイド</a>
+<a href="../shrink-nashi.html">シュリンクなしBOX</a>
+<a href="../release-schedule-2026.html">📅 2026年 新弾カレンダー</a>
+<a href="../about.html">運営者情報</a>
+<a class="article-nav-more" href="../articles.html">📚 記事をすべて見る</a>
+</nav>
 <article>
-<h1>{name}の{scope}BOX買取価格一覧｜全{total}商品を毎日自動更新</h1>
-<div class="meta">更新: {update_date} / 当サイト掲載9店舗の実測データ / ポケカ買取チェッカー</div>
+<h1>{name}は高い？{scope}BOX{total}商品を{shop_n}店舗と価格比較</h1>
+<div class="meta">更新: {update_date} / 当サイト掲載{shop_n}店舗の実測データ / ポケカ買取チェッカー</div>
 
 <div class="hero">
 <div class="stat-label">{name} 掲載商品数と最高値件数（{update_date}時点）</div>
 <div class="stat-big">全{total}商品 / 最高値 {best_total}件</div>
-<div class="stat-sub">当サイトが毎日3回自動収集した9店舗の買取価格をもとに、{name}の取扱商品と価格を一覧化しています。価格はすべて実測値です。</div>
+<div class="stat-sub">当サイトが毎日3回自動収集した{shop_n}店舗の買取価格をもとに、{name}の取扱商品と価格を一覧化しています。価格はすべて実測値です。</div>
 </div>
 
-<p>このページでは、<strong>{name}</strong>が買取対象としているポケモンカード{'・ONE PIECEカード' if has_op else ''}の未開封BOXについて、<strong>現在の買取価格を全{total}商品ぶん掲載</strong>しています。当サイトは9店舗の買取ページを毎日3回自動で収集しているため、<strong>{name}が他店と比べて高いのか安いのか</strong>を商品単位で確認できます。</p>
+<p>このページでは、<strong>{name}</strong>が買取対象としているポケモンカード{'・ONE PIECEカード' if has_op else ''}の未開封BOXについて、<strong>現在の買取価格を全{total}商品ぶん掲載</strong>しています。当サイトは{shop_n}店舗の買取ページを毎日3回自動で収集しているため、<strong>{name}が他店と比べて高いのか安いのか</strong>を商品単位で確認できます。</p>
 
 {best_section}
 
@@ -1961,7 +1995,7 @@ gtag('config', 'G-RPTS6CRTCS');
 <ul>
 <li><strong>公式サイト</strong>: <a href="{official}" target="_blank" rel="noopener noreferrer">{official}</a></li>
 <li><strong>当サイト掲載商品数</strong>: {total}商品（ポケカ{len(p_rows)}{f' / ワンピ{len(o_rows)}' if has_op else ''}）</li>
-<li><strong>9店舗中で最高値の商品</strong>: {best_total}件</li>
+<li><strong>{shop_n}店舗中で最高値の商品</strong>: {best_total}件</li>
 </ul>
 
 <a href="{official}" class="cta" target="_blank" rel="noopener noreferrer">{name}の公式サイトで買取条件を確認する &rarr;</a>
@@ -1969,7 +2003,7 @@ gtag('config', 'G-RPTS6CRTCS');
 <h2>他の買取店の価格も見る</h2>
 <p>売却前には複数店舗の比較をおすすめします。同じBOXでも店舗により買取価格は異なり、高額BOXほど差が大きくなります。</p>
 <div class="shop-links">{others}</div>
-<p><a href="../shop-hikaku.html">9店舗の特徴を比較する</a> / <a href="../index.html">全BOXの買取価格を比較する</a> / <a href="../ranking.html">週間価格変化ランキング</a></p>
+<p><a href="../shop-hikaku.html">{shop_n}店舗の特徴を比較する</a> / <a href="../index.html">全BOXの買取価格を比較する</a> / <a href="../ranking.html">週間価格変化ランキング</a></p>
 
 <div class="disclaimer">
 <strong>ご注意:</strong> 掲載価格は当サイトが{name}の公開買取情報から自動取得した{update_date}時点の実測値です。買取価格は需給や在庫状況により日々変動し、シュリンクの有無・外箱の状態等により実際の査定額は変わります。最終的な価格・条件は必ず{name}の公式サイトでご確認ください。当サイトは{name}とは独立した第三者の比較サイトであり、掲載内容について同店が保証するものではありません。
@@ -1978,6 +2012,7 @@ gtag('config', 'G-RPTS6CRTCS');
 <a href="../shop-hikaku.html" class="back">&larr; 買取店比較へ</a>
 <a href="../index.html" class="back">&larr; 買取価格比較トップ</a>
 </article>
+</div><!-- /content-layout -->
 </div>
 
 {AFFILIATE_BLOCK}
