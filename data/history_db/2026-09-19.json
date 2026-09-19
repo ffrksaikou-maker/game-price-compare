@@ -14,9 +14,10 @@
     "name": "ブースターパック「CROSS FORCE」【FB-10】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 9000,
+    "max_price": 9500,
     "prices": {
       "rudeya": 8500,
+      "runto": 9500,
       "shinsoku": 8500,
       "kaitoriexpo": 9000
     }
