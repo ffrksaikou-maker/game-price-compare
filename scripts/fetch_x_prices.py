@@ -58,7 +58,12 @@ ACCOUNTS = [
 # ローカルでは画像URLを集めるだけにして state の pending_images に置き、
 # OCR自体は既にキーを持っているCI側でやらせる。
 IMAGE_ACCOUNTS = [
-    ("collect_tendo", "collect_tendo", ["ポケモンカード", "ワンピース"]),
+    # None = プロフィールのタイムラインをそのまま見る。価格表の投稿は
+    # 「30th CELEBRATIONシリーズ 高価買取」のようにジャンル名を本文に含まない
+    # ことがあり、キーワード検索だけだと最新の価格表を丸ごと取りこぼす。
+    # 実際 30th の改定(23,000/60,000)を4日間1枚も拾えていなかった。
+    # 取りこぼしを防ぐため TL を先頭に置き、件数上限に先に入れる。
+    ("collect_tendo", "collect_tendo", [None, "高価買取", "ポケモンカード", "ワンピース"]),
 ]
 
 
@@ -444,12 +449,11 @@ def main() -> int:
         urls: list[str] = []
         for kw in (kws or [None]):
             got = fetch_image_urls(username, headless=not args.show, keyword=kw)
-            if kw:
-                print(f"  [{kw}] 画像{len(got)}件", flush=True)
+            print(f"  [{kw or 'TL'}] 画像{len(got)}件", flush=True)
             for u in got:
                 if u not in urls:
                     urls.append(u)
-        urls = urls[:12]
+        urls = urls[:16]
         n = update_pending_images(state_name, urls)
         print(f"  画像{len(urls)}件 / CIに渡す未処理{n}件", flush=True)
         total_new += n
