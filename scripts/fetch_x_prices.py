@@ -299,7 +299,17 @@ def update_state(name: str, items: dict) -> int:
                 del cached[n]
 
     state["items"] = cached
-    state["last_check"] = int(time.time())
+    # 商品ごとの最終確認日。スクレイパー側がこれを見て、価格表に出てこなく
+    # なった商品を一定日数で落とす。今回の価格表に出た商品だけ更新する。
+    now = int(time.time())
+    seen_at = state.get("seen_at", {})
+    for _n in items:
+        seen_at[_n] = now
+    # 導入前からある商品は起点が無いので、今回を起点にして猶予を与える
+    for _n in cached:
+        seen_at.setdefault(_n, now)
+    state["seen_at"] = {k: v for k, v in seen_at.items() if k in cached}
+    state["last_check"] = now
     state["last_found"] = len(items)
     state["source"] = "local"
     path.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")

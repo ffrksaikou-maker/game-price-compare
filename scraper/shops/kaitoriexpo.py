@@ -41,6 +41,10 @@ NOISE_WORDS = ("以上は着払い", "持ち込み", "記載商品", "現金可�
                "買取価格", "リポスト", "いいね", "返信", "→", "⇒", "->")
 MIN_PRICE = 500
 MAX_PRICE = 900000
+# 価格表に出てこなくなった商品を落とすまでの日数。買取をやめた商品の価格が
+# 残り続けるのを防ぐ。EXPOはジャンルごとに投稿が分かれ、日によって出ない
+# ジャンルがあるため短くしすぎない。
+STALE_DAYS = 14
 
 
 def parse_tweet_text(text: str) -> dict[str, int]:
@@ -98,13 +102,22 @@ class KaitoriExpoScraper(BaseScraper):
         # 同じ商品が再掲されたら新しい値で上書きする。
         cached.update(found)
         state["items"] = cached
-        state["last_check"] = int(time.time())
+        # 商品ごとの最終確認日。今回の価格表に出た商品だけ更新する。
+        now = int(time.time())
+        seen_at = state.get("seen_at", {})
+        for _n in found:
+            seen_at[_n] = now
+        # 導入前からある商品は起点が無いので、今回を起点にして猶予を与える
+        for _n in cached:
+            seen_at.setdefault(_n, now)
+        state["seen_at"] = {k: v for k, v in seen_at.items() if k in cached}
+        state["last_check"] = now
         state["last_found"] = len(found)
         self._save_state(state)
 
         logger.info("KaitoriExpo: %d tweets, %d items parsed (%d cached total)",
                     len(texts), len(found), len(cached))
-        return [ScrapedItem(name=n, price=p) for n, p in cached.items() if p > 0]
+        return self._items_from_state(state)
 
     # ----- helpers -----
 
@@ -122,8 +135,17 @@ class KaitoriExpoScraper(BaseScraper):
                               encoding="utf-8")
 
     def _items_from_state(self, state: dict) -> list[ScrapedItem]:
+        """STALE_DAYS を過ぎても価格表に出てこない商品は掲載しない。"""
+        cutoff = int(time.time()) - STALE_DAYS * 86400
+        seen_at = state.get("seen_at", {})
+        # 取得側が壊れて価格表がまったく取れなくなった場合、期限切れ判定を
+        # 続けると全商品が消える。直近の更新自体が無いときは何も落とさない。
+        if not seen_at or max(seen_at.values(), default=0) < cutoff:
+            return [ScrapedItem(name=n, price=p)
+                    for n, p in state.get("items", {}).items() if p > 0]
         return [ScrapedItem(name=n, price=p)
-                for n, p in state.get("items", {}).items() if p > 0]
+                for n, p in state.get("items", {}).items()
+                if p > 0 and seen_at.get(n, 0) >= cutoff]
 
     def _fetch_recent_tweet_texts(self, auth_token: str, ct0: str) -> list[str]:
         """Playwrightで@kaitoriexpoの最新ツイート本文を収集する。"""
