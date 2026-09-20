@@ -52,6 +52,29 @@ NAME_NORMALIZE = {
     "ポケセンフクオカ": "スペシャルBOX フクオカ",
 }
 
+# 同じ商品でも価格表ごとに「ポケモンカードゲーム」等の接頭辞が付いたり消えたり
+# するため、OCR結果が別キーとして溜まる。古い表記が残っていると matcher が
+# そちらを拾い、価格改定が反映されない(30thで実際に4日ぶん古い値が出ていた)。
+# 表記の揺れを吸収するキーを作り、同一商品は最後に見た日が新しい方だけ残す。
+DEDUP_NOISE = ("ポケモンカードゲーム", "ポケモンカード", "ポケカ",
+               "強化拡張パック", "ハイクラスパック", "拡張パック",
+               "MEGA", "BOX", "ボックス", "未開封")
+_SHRINK_LESS_RE = re.compile(r"シュリ(ンク)?\s*(無|なし|ナシ)")
+_PAREN_RE = re.compile(r"[（(][^）)]*[)）]")
+_SHRINK_ON_RE = re.compile(r"シュリンク\s*付き?")
+_SEP_RE = re.compile(r"[\s　・/／\-–—]")
+
+
+def dedup_key(name: str) -> str:
+    """表記揺れを吸収した比較用キー。シュリンクなしは別商品として残す。"""
+    s = name
+    if not _SHRINK_LESS_RE.search(s):
+        s = _PAREN_RE.sub("", s)
+    s = _SHRINK_ON_RE.sub("", s)
+    for w in DEDUP_NOISE:
+        s = s.replace(w, "")
+    return _SEP_RE.sub("", s).lower()
+
 
 class CollectTendoScraper(BaseScraper):
     shop_id = "collect_tendo"
@@ -180,14 +203,17 @@ class CollectTendoScraper(BaseScraper):
         if not seen_at or max(seen_at.values(), default=0) < cutoff:
             return [ScrapedItem(name=n, price=p)
                     for n, p in state.get("items", {}).items() if p > 0]
-        out = []
+        best: dict[str, tuple[int, str, int]] = {}
         for n, p in state.get("items", {}).items():
             if p <= 0:
                 continue
             if seen_at and seen_at.get(n, 0) < cutoff:
                 continue
-            out.append(ScrapedItem(name=n, price=p))
-        return out
+            k = dedup_key(n)
+            t = seen_at.get(n, 0)
+            if k not in best or t > best[k][0]:
+                best[k] = (t, n, p)
+        return [ScrapedItem(name=n, price=p) for _t, n, p in best.values()]
 
     def _fetch_recent_image_urls(self, auth_token: str, ct0: str) -> list[str]:
         """Playwrightで@collect_tendoの最新ツイートから画像URLを収集"""
