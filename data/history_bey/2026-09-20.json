@@ -62,7 +62,6 @@
     "retail_price": 1400,
     "max_price": 3300,
     "prices": {
-      "morimori": 2700,
       "rudeya": 3300,
       "icchome": 2700
     }
@@ -229,7 +228,6 @@
     "retail_price": 1700,
     "max_price": 2500,
     "prices": {
-      "morimori": 900,
       "rudeya": 2500,
       "icchome": 1100
     }
@@ -273,7 +271,6 @@
     "retail_price": 1600,
     "max_price": 3000,
     "prices": {
-      "morimori": 2000,
       "homura": 2000,
       "rudeya": 3000,
       "icchome": 2000
@@ -338,7 +335,6 @@
     "retail_price": 1500,
     "max_price": 2000,
     "prices": {
-      "morimori": 1500,
       "rudeya": 2000,
       "icchome": 1800
     }
@@ -390,7 +386,6 @@
     "retail_price": 2750,
     "max_price": 2900,
     "prices": {
-      "morimori": 2500,
       "icchome": 2900
     }
   },
