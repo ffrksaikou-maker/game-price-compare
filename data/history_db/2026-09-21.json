@@ -3,10 +3,10 @@
     "name": "ブースターパック「BRIGHTNESS OF HOPE」【FB-11】",
     "category": "fb",
     "retail_price": 5760,
-    "max_price": 7500,
+    "max_price": 7000,
     "prices": {
       "rudeya": 6000,
-      "kaitoriexpo": 7500
+      "kaitoriexpo": 7000
     }
   },
   {
@@ -158,9 +158,9 @@
     "name": "スーパーダイバーズ アドバンスパック バトルオブサイヤン",
     "category": "dv",
     "retail_price": 6600,
-    "max_price": 6500,
+    "max_price": 6700,
     "prices": {
-      "rudeya": 6500
+      "rudeya": 6700
     }
   },
   {
