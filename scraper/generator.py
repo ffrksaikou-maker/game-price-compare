@@ -569,6 +569,12 @@ def generate_html(
 
 # Manual slug overrides for products with tricky names
 SLUG_OVERRIDES = {
+    # 「」で囲まれた弾名を持たない商品は、自動生成だと語尾だけを拾って
+    # 意味のないslugになる。FUTURISTIC BOX は末尾の "BOX" だけが残って
+    # box.html に、日本語だけの商品名は英字が消えて unknown.html になった。
+    # 商品を足すときは box/ に意味の通るファイル名が出ているか確認すること。
+    "30th CELEBRATION FUTURISTIC BOX": "30th-celebration-futuristic-box",
+    "30th CELEBRATION プレミアムデッキセット エーフィ・ブラッキー": "30th-celebration-premium-deck-set",
     "MEGA スタートデッキ100「バトルコレクション」": "battle-collection",
     "S&S 拡張パック「25th ANNIVERSARY COLLECTION」": "25th-anniversary-collection",
     "S&S 拡張パック「ソード」": "sword",
@@ -671,6 +677,13 @@ def _generate_slug(product_name: str) -> str:
     slug = unicodedata.normalize("NFKC", slug)
     slug = re.sub(r"[^a-z0-9]+", "-", slug)
     slug = slug.strip("-")
+    # 語尾だけ/空になったslugは商品を識別できずURLが衝突する。
+    # SLUG_OVERRIDES に明示的な名前を足して直すこと。
+    if not slug or slug in ("box", "unknown", "ex", "set", "pack"):
+        logger.error(
+            "slugを自動生成できません: %r -> %r。SLUG_OVERRIDES に追加してください",
+            product_name, slug or "unknown",
+        )
     return slug or "unknown"
 
 
@@ -882,7 +895,16 @@ def _short_product_name(name: str) -> str:
             return f"{m.group(1)}(デラックス)"
         return m.group(1)
     # \u30ab\u30ae\u62ec\u5f27\u304c\u7121\u3044\u3082\u306e(\u30b9\u30da\u30b7\u30e3\u30ebBOX \u25cb\u25cb / SV \u30cf\u30a4\u30af\u30e9\u30b9\u30d1\u30c3\u30af \u25cb\u25cb)\u306f\u672b\u5c3e\u306e\u8a9e
-    return name.split()[-1] if name.split() else name
+    tail = name.split()[-1] if name.split() else name
+    # 末尾が汎用語だと商品を識別できない(「30th CELEBRATION FUTURISTIC BOX」が
+    # 「BOX」になり、タイトルが「BOX BOX買取価格を…」になっていた)。
+    # その場合だけシリーズ接頭辞を落とした全体を使う。
+    if tail in ("BOX", "box", "ボックス", "セット", "パック"):
+        core = re.sub(r"^(MEGA|SV|S&S)\s+", "", name)
+        # テンプレート側が「{short} BOX買取価格を…」と続けるため、
+        # 末尾のBOXは落とさないと「BOX BOX買取価格」と重複する。
+        return re.sub(r"\s*(BOX|box|ボックス)$", "", core)
+    return tail
 
 
 def _generate_trend_comment(
@@ -1056,7 +1078,7 @@ def _build_box_narrative(
         except ValueError:
             pass
     if product.retail_price > 0:
-        intro += f"定価は1BOXあたり¥{product.retail_price:,}(税込)で、30パック入りが基本構成です。"
+        intro += f"定価は¥{product.retail_price:,}(税込)です。"
     intro += "</p>"
     parts.append(intro)
 
