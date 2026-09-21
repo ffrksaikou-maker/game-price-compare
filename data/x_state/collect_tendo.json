@@ -137,8 +137,6 @@
     "30th CELEBRATION BOX": 26000
   },
   "processed_urls": [
-    "https://pbs.twimg.com/media/HSoMoo6bkAACAuV?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HSEtgTlbkAAoid7?format=jpg&name=large",
     "https://pbs.twimg.com/media/HSt6LzFaAAEgplP?format=jpg&name=large",
     "https://pbs.twimg.com/media/HQ8aHgObAAAMu68?format=jpg&name=large",
     "https://pbs.twimg.com/media/HSjeVopbAAErRGA?format=png&name=large",
@@ -186,12 +184,14 @@
     "https://pbs.twimg.com/media/HSUizGsbsAAgEys?format=jpg&name=large",
     "https://pbs.twimg.com/media/HSjfPaUbgAATtBG?format=jpg&name=large",
     "https://pbs.twimg.com/media/HSZHQ1bbwAAZLv0?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HR06sa1bAAAYNSb?format=png&name=large"
+    "https://pbs.twimg.com/media/HR06sa1bAAAYNSb?format=png&name=large",
+    "https://pbs.twimg.com/media/HRv1PapaEAAbh6G?format=png&name=large",
+    "https://pbs.twimg.com/media/HSJ_FQxasAAx5Uq?format=jpg&name=large"
   ],
   "last_check": 1790006576,
   "ocr_fail_counts": {},
   "pending_images": [],
-  "last_image_check": 1789998174,
+  "last_image_check": 1790012583,
   "seen_at": {
     "OP-14 蒼海の七傑": 1789802850,
     "OP-15 神の島の冒険": 1789802850,
