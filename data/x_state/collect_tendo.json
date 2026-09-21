@@ -137,7 +137,6 @@
     "30th CELEBRATION BOX": 26000
   },
   "processed_urls": [
-    "https://pbs.twimg.com/media/HRrDyhAaYAAV9GZ?format=jpg&name=large",
     "https://pbs.twimg.com/media/HSZIczlaIAAe8RI?format=jpg&name=large",
     "https://pbs.twimg.com/media/HR_PizqbkAA21vm?format=png&name=large",
     "https://pbs.twimg.com/media/HR5-UmFb0AAzbKs?format=png&name=large",
@@ -186,12 +185,16 @@
     "https://pbs.twimg.com/media/HRBojmEa4AA8-2s?format=png&name=large",
     "https://pbs.twimg.com/media/HRq1vcsasAAGAJ4?format=jpg&name=large",
     "https://pbs.twimg.com/media/HR1ikZmasAA4uXZ?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HRRU72mbEAAURfl?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HRRU72mbEAAURfl?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HSjfPaSbkAA-MmZ?format=jpg&name=large"
   ],
   "last_check": 1789977877,
   "ocr_fail_counts": {},
-  "pending_images": [],
-  "last_image_check": 1789969419,
+  "pending_images": [
+    "https://pbs.twimg.com/media/HSt-ZzibQAAfWxc?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HStgKaubcAA7JH2?format=jpg&name=large"
+  ],
+  "last_image_check": 1789983787,
   "seen_at": {
     "OP-14 蒼海の七傑": 1789802850,
     "OP-15 神の島の冒険": 1789802850,
