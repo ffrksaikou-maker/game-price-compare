@@ -23,6 +23,10 @@
   "requested_at": "2026-08-25T20:57:39+09:00",
   "result": "indexed"
  },
+ "https://pokeca-box-hikaku.com/30th-celebration-review.html": {
+  "requested_at": "2026-09-24T08:44:58+09:00",
+  "result": "indexed"
+ },
  "https://pokeca-box-hikaku.com/about.html": {
   "requested_at": "2026-08-22T08:44:43+09:00",
   "result": "requested"
@@ -81,6 +85,14 @@
  },
  "https://pokeca-box-hikaku.com/box/151.html": {
   "requested_at": "2026-08-31T06:05:05+09:00",
+  "result": "indexed"
+ },
+ "https://pokeca-box-hikaku.com/box/30th-celebration-futuristic-box.html": {
+  "requested_at": "2026-09-24T08:44:58+09:00",
+  "result": "indexed"
+ },
+ "https://pokeca-box-hikaku.com/box/30th-celebration-premium-deck-set.html": {
+  "requested_at": "2026-09-24T08:44:58+09:00",
   "result": "indexed"
  },
  "https://pokeca-box-hikaku.com/box/30th-celebration.html": {
