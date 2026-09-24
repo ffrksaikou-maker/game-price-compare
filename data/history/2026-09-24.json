@@ -89,7 +89,7 @@
     "name": "MEGA 拡張パック「ニンジャスピナー」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 7500,
+    "max_price": 7600,
     "prices": {
       "morimori": 7300,
       "homura": 7500,
@@ -99,7 +99,7 @@
       "oku": 7500,
       "kaikyo": 7000,
       "collect_tendo": 7000,
-      "shinsoku": 7500,
+      "shinsoku": 7600,
       "kaitoriexpo": 7300
     }
   },
@@ -335,7 +335,7 @@
     "name": "SV 強化拡張パック「楽園ドラゴーナ」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 14000,
+    "max_price": 13800,
     "prices": {
       "morimori": 13600,
       "homura": 13800,
@@ -343,7 +343,7 @@
       "runto": 13000,
       "icchome": 13000,
       "collect_tendo": 13500,
-      "shinsoku": 14000,
+      "shinsoku": 13800,
       "kaitoriexpo": 13000
     }
   },
@@ -536,7 +536,7 @@
       "icchome": 33000,
       "kaikyo": 35000,
       "collect_tendo": 32000,
-      "shinsoku": 33000,
+      "shinsoku": 32000,
       "kaitoriexpo": 42000
     }
   },
@@ -631,7 +631,7 @@
       "icchome": 23000,
       "kaikyo": 23000,
       "collect_tendo": 25000,
-      "shinsoku": 23000,
+      "shinsoku": 23200,
       "kaitoriexpo": 27000
     }
   },
@@ -670,7 +670,7 @@
     "prices": {
       "homura": 41500,
       "runto": 40000,
-      "shinsoku": 41500,
+      "shinsoku": 41000,
       "kaitoriexpo": 42500
     }
   },
@@ -742,7 +742,7 @@
     "prices": {
       "homura": 18500,
       "collect_tendo": 18000,
-      "shinsoku": 18500,
+      "shinsoku": 18000,
       "kaitoriexpo": 17000
     }
   },
@@ -935,10 +935,10 @@
     "name": "S&S 拡張パック「VMAXライジング」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 98000,
+    "max_price": 95000,
     "prices": {
       "homura": 86000,
-      "shinsoku": 98000,
+      "shinsoku": 95000,
       "kaitoriexpo": 84000
     }
   },
