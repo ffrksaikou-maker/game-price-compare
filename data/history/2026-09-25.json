@@ -37,15 +37,15 @@
     "retail_price": 7200,
     "max_price": 25000,
     "prices": {
-      "morimori": 24000,
+      "morimori": 23000,
       "homura": 23500,
       "rudeya": 22000,
-      "runto": 24000,
+      "runto": 23500,
       "icchome": 23000,
       "oku": 25000,
       "kaikyo": 23000,
       "collect_tendo": 22800,
-      "shinsoku": 23500,
+      "shinsoku": 22800,
       "kaitoriexpo": 23800
     }
   },
@@ -56,7 +56,7 @@
     "max_price": 11500,
     "prices": {
       "morimori": 10000,
-      "homura": 11200,
+      "homura": 11000,
       "rudeya": 8700,
       "runto": 11000,
       "icchome": 9500,
@@ -89,7 +89,7 @@
     "name": "MEGA 拡張パック「ニンジャスピナー」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 7600,
+    "max_price": 7500,
     "prices": {
       "morimori": 7300,
       "homura": 7500,
@@ -99,7 +99,7 @@
       "oku": 7500,
       "kaikyo": 7000,
       "collect_tendo": 7000,
-      "shinsoku": 7600,
+      "shinsoku": 7500,
       "kaitoriexpo": 7500
     }
   },
@@ -153,7 +153,7 @@
       "oku": 15500,
       "kaikyo": 13500,
       "collect_tendo": 16500,
-      "shinsoku": 16000,
+      "shinsoku": 16100,
       "kaitoriexpo": 16000
     }
   },
@@ -169,7 +169,7 @@
       "runto": 7000,
       "icchome": 7500,
       "oku": 7700,
-      "shinsoku": 7400,
+      "shinsoku": 7500,
       "kaitoriexpo": 7500
     }
   },
@@ -186,7 +186,7 @@
       "icchome": 7000,
       "oku": 6300,
       "kaikyo": 6500,
-      "shinsoku": 6900,
+      "shinsoku": 7000,
       "kaitoriexpo": 7000
     }
   },
@@ -327,7 +327,7 @@
       "runto": 25000,
       "icchome": 21000,
       "collect_tendo": 24200,
-      "shinsoku": 23500,
+      "shinsoku": 23000,
       "kaitoriexpo": 20000
     }
   },
@@ -335,7 +335,7 @@
     "name": "SV 強化拡張パック「楽園ドラゴーナ」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 13800,
+    "max_price": 14000,
     "prices": {
       "morimori": 13600,
       "homura": 13800,
@@ -343,7 +343,7 @@
       "runto": 13000,
       "icchome": 13000,
       "collect_tendo": 13500,
-      "shinsoku": 13800,
+      "shinsoku": 14000,
       "kaitoriexpo": 13000
     }
   },
@@ -375,7 +375,7 @@
       "runto": 9500,
       "icchome": 10000,
       "collect_tendo": 9500,
-      "shinsoku": 10100,
+      "shinsoku": 10200,
       "kaitoriexpo": 9800
     }
   },
@@ -456,7 +456,7 @@
       "icchome": 12500,
       "kaikyo": 12000,
       "collect_tendo": 14500,
-      "shinsoku": 13600
+      "shinsoku": 13800
     }
   },
   {
@@ -694,7 +694,7 @@
     "prices": {
       "homura": 25000,
       "collect_tendo": 24000,
-      "shinsoku": 22500
+      "shinsoku": 22000
     }
   },
   {
