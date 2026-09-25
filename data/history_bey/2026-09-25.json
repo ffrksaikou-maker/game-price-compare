@@ -16,7 +16,7 @@
     "retail_price": 2700,
     "max_price": 2500,
     "prices": {
-      "morimori": 2050,
+      "morimori": 2000,
       "homura": 1700,
       "rudeya": 2500,
       "icchome": 2500
@@ -130,7 +130,7 @@
     "max_price": 1900,
     "prices": {
       "morimori": 1600,
-      "homura": 1800,
+      "homura": 1500,
       "rudeya": 1800,
       "icchome": 1900
     }
@@ -152,7 +152,7 @@
     "prices": {
       "morimori": 2300,
       "rudeya": 3000,
-      "icchome": 2500
+      "icchome": 2200
     }
   },
   {
@@ -271,11 +271,11 @@
     "name": "CX-05 ランダムブースターVol.6",
     "category": "cx",
     "retail_price": 1600,
-    "max_price": 3000,
+    "max_price": 2500,
     "prices": {
       "morimori": 2000,
       "homura": 2000,
-      "rudeya": 3000,
+      "rudeya": 2500,
       "icchome": 2000
     }
   },
@@ -316,10 +316,10 @@
     "name": "BX-48 ランダムブースターVol.9",
     "category": "bx",
     "retail_price": 1600,
-    "max_price": 3500,
+    "max_price": 3000,
     "prices": {
       "morimori": 2700,
-      "rudeya": 3500,
+      "rudeya": 2000,
       "icchome": 3000
     }
   },
@@ -380,7 +380,7 @@
     "retail_price": 2420,
     "max_price": 2000,
     "prices": {
-      "morimori": 2000,
+      "morimori": 1800,
       "rudeya": 2000,
       "icchome": 2000
     }
@@ -452,7 +452,7 @@
     "retail_price": 6501,
     "max_price": 18700,
     "prices": {
-      "homura": 18700,
+      "homura": 10000,
       "rudeya": 10000,
       "icchome": 18700
     }
