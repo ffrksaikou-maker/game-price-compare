@@ -142,11 +142,6 @@
     "テラスタルフェスex シュリンク付BOX": 15200
   },
   "processed_urls": [
-    "https://pbs.twimg.com/media/HSUgcWNaEAEbcQ9?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HSUizGsbsAAgEys?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HS4naoVaIAA2v5F?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HSjeVopbAAErRGA?format=png&name=large",
-    "https://pbs.twimg.com/media/HR1ikZmasAA4uXZ?format=jpg&name=large",
     "https://pbs.twimg.com/media/HSoMoo6bgAADBZa?format=jpg&name=large",
     "https://pbs.twimg.com/media/HS4Dru3bYAAZneH?format=jpg&name=large",
     "https://pbs.twimg.com/media/HS9AbyfagAA3jTj?format=png&name=large",
@@ -191,12 +186,19 @@
     "https://pbs.twimg.com/media/HSyx9JdaYAAseHI?format=png&name=large",
     "https://pbs.twimg.com/media/HPF2SX9agAA1NUR?format=png&name=large",
     "https://pbs.twimg.com/media/HSZwfnQboAAGBd4?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HRBojmEa4AA8-2s?format=png&name=large"
+    "https://pbs.twimg.com/media/HRBojmEa4AA8-2s?format=png&name=large",
+    "https://pbs.twimg.com/media/HSZHyUaagAAieVJ?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HS4Etzba8AEgnxq?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HP5VR3CaAAEWuHR?format=png&name=large",
+    "https://pbs.twimg.com/media/HSt6LzFaAAEgplP?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HR06sa1bAAAYNSb?format=png&name=large"
   ],
   "last_check": 1790323294,
   "ocr_fail_counts": {},
-  "pending_images": [],
-  "last_image_check": 1790314992,
+  "pending_images": [
+    "https://pbs.twimg.com/media/HTCu8KcaoAA862E?format=jpg&name=large"
+  ],
+  "last_image_check": 1790329364,
   "seen_at": {
     "OP-14 蒼海の七傑": 1790323294,
     "OP-15 神の島の冒険": 1790323294,
