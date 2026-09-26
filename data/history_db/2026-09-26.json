@@ -6,7 +6,6 @@
     "max_price": 7000,
     "prices": {
       "rudeya": 5500,
-      "runto": 7000,
       "kaitoriexpo": 7000
     }
   },
@@ -25,10 +24,9 @@
     "name": "ブースターパック「DUAL EVOLUTION」【FB-09】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 10100,
+    "max_price": 7000,
     "prices": {
-      "rudeya": 7000,
-      "shinsoku": 10100
+      "rudeya": 7000
     }
   },
   {

@@ -8,7 +8,7 @@
       "morimori": 31000,
       "homura": 55000,
       "rudeya": 57000,
-      "runto": 57000,
+      "runto": 58000,
       "icchome": 55000,
       "oku": 50000,
       "collect_tendo": 60000,
@@ -22,7 +22,7 @@
     "max_price": 17500,
     "prices": {
       "morimori": 15000,
-      "homura": 17000,
+      "homura": 17200,
       "rudeya": 15500,
       "runto": 16500,
       "icchome": 15500,
@@ -45,7 +45,7 @@
       "oku": 24000,
       "kaikyo": 24500,
       "collect_tendo": 24000,
-      "shinsoku": 24000,
+      "shinsoku": 23500,
       "kaitoriexpo": 23500
     }
   },
@@ -63,7 +63,7 @@
       "oku": 10800,
       "kaikyo": 10500,
       "collect_tendo": 10800,
-      "shinsoku": 10800,
+      "shinsoku": 10500,
       "kaitoriexpo": 10000
     }
   },
@@ -130,7 +130,7 @@
       "morimori": 11500,
       "homura": 12200,
       "rudeya": 10000,
-      "runto": 12000,
+      "runto": 12200,
       "icchome": 11500,
       "oku": 11000,
       "kaikyo": 9500,
@@ -153,7 +153,7 @@
       "oku": 15500,
       "kaikyo": 13500,
       "collect_tendo": 16500,
-      "shinsoku": 16100,
+      "shinsoku": 16000,
       "kaitoriexpo": 16100
     }
   },
@@ -186,7 +186,7 @@
       "icchome": 7000,
       "oku": 6300,
       "kaikyo": 6500,
-      "shinsoku": 7000,
+      "shinsoku": 6800,
       "kaitoriexpo": 7100
     }
   },
@@ -456,7 +456,7 @@
       "icchome": 13000,
       "kaikyo": 12000,
       "collect_tendo": 14500,
-      "shinsoku": 13800
+      "shinsoku": 14000
     }
   },
   {
@@ -977,11 +977,11 @@
     "name": "スペシャルBOX ヒロシマ",
     "category": "special",
     "retail_price": 2090,
-    "max_price": 13500,
+    "max_price": 14000,
     "prices": {
       "homura": 13200,
       "rudeya": 10000,
-      "runto": 13500
+      "runto": 14000
     }
   },
   {
