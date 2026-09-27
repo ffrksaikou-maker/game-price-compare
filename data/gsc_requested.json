@@ -12,8 +12,8 @@
   "result": "requested"
  },
  "https://pokeca-box-hikaku.com/30th-celebration-atari-guide.html": {
-  "requested_at": "2026-09-16T17:05:00",
-  "result": "requested"
+  "requested_at": "2026-09-27T11:32:48+09:00",
+  "result": "indexed"
  },
  "https://pokeca-box-hikaku.com/30th-celebration-atari-yosou.html": {
   "requested_at": "2026-08-23T07:08:23+09:00",
@@ -24,7 +24,7 @@
   "result": "indexed"
  },
  "https://pokeca-box-hikaku.com/30th-celebration-review.html": {
-  "requested_at": "2026-09-24T08:44:58+09:00",
+  "requested_at": "2026-09-27T11:32:48+09:00",
   "result": "indexed"
  },
  "https://pokeca-box-hikaku.com/about.html": {
@@ -96,8 +96,8 @@
   "result": "indexed"
  },
  "https://pokeca-box-hikaku.com/box/30th-celebration.html": {
-  "requested_at": "2026-09-17T08:26:49+09:00",
-  "result": "requested"
+  "requested_at": "2026-09-27T11:32:48+09:00",
+  "result": "indexed"
  },
  "https://pokeca-box-hikaku.com/box/abyss-eye.html": {
   "requested_at": "2026-08-21T15:50:57+09:00",
@@ -673,6 +673,10 @@
  },
  "https://pokeca-box-hikaku.com/restock-guide.html": {
   "requested_at": "2026-08-31T06:05:05+09:00",
+  "result": "indexed"
+ },
+ "https://pokeca-box-hikaku.com/rgb-mew-guide.html": {
+  "requested_at": "2026-09-27T11:32:48+09:00",
   "result": "indexed"
  },
  "https://pokeca-box-hikaku.com/rocket-dan-no-eiko-atari-guide.html": {
