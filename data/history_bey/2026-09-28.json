@@ -16,9 +16,10 @@
     "retail_price": 2700,
     "max_price": 2500,
     "prices": {
+      "morimori": 2000,
       "homura": 1700,
       "rudeya": 2500,
-      "icchome": 2100
+      "icchome": 2000
     }
   },
   {
@@ -27,8 +28,9 @@
     "retail_price": 2600,
     "max_price": 2800,
     "prices": {
+      "morimori": 2000,
       "rudeya": 2800,
-      "icchome": 2500
+      "icchome": 2300
     }
   },
   {
@@ -37,6 +39,7 @@
     "retail_price": 1600,
     "max_price": 2500,
     "prices": {
+      "morimori": 2500,
       "homura": 2500,
       "rudeya": 2000,
       "icchome": 2500
@@ -59,6 +62,7 @@
     "retail_price": 1400,
     "max_price": 3300,
     "prices": {
+      "morimori": 2700,
       "rudeya": 3300,
       "icchome": 2700
     }
@@ -67,11 +71,11 @@
     "name": "UX-15 シャークスケイルデッキセット",
     "category": "ux",
     "retail_price": 4200,
-    "max_price": 8400,
+    "max_price": 8200,
     "prices": {
       "morimori": 7200,
       "rudeya": 7000,
-      "icchome": 8400
+      "icchome": 8200
     }
   },
   {
@@ -80,6 +84,7 @@
     "retail_price": 1400,
     "max_price": 3800,
     "prices": {
+      "morimori": 3800,
       "homura": 2500,
       "rudeya": 2500,
       "icchome": 3800
@@ -91,6 +96,7 @@
     "retail_price": 2420,
     "max_price": 2200,
     "prices": {
+      "morimori": 1900,
       "rudeya": 2200,
       "icchome": 2200
     }
@@ -101,6 +107,7 @@
     "retail_price": 5700,
     "max_price": 13000,
     "prices": {
+      "morimori": 7000,
       "rudeya": 13000,
       "icchome": 7000
     }
@@ -122,6 +129,7 @@
     "retail_price": 2080,
     "max_price": 1900,
     "prices": {
+      "morimori": 1600,
       "homura": 1500,
       "rudeya": 1800,
       "icchome": 1900
@@ -142,9 +150,9 @@
     "retail_price": 1400,
     "max_price": 3000,
     "prices": {
-      "morimori": 1500,
+      "morimori": 1200,
       "rudeya": 3000,
-      "icchome": 2200
+      "icchome": 1900
     }
   },
   {
@@ -165,6 +173,7 @@
     "retail_price": 1600,
     "max_price": 1600,
     "prices": {
+      "morimori": 1300,
       "rudeya": 1300,
       "icchome": 1600
     }
@@ -175,6 +184,7 @@
     "retail_price": 1600,
     "max_price": 1000,
     "prices": {
+      "morimori": 1000,
       "rudeya": 1000,
       "icchome": 1000
     }
@@ -196,6 +206,7 @@
     "retail_price": 1600,
     "max_price": 1500,
     "prices": {
+      "morimori": 1100,
       "homura": 1000,
       "rudeya": 1000,
       "icchome": 1500
@@ -207,6 +218,7 @@
     "retail_price": 2200,
     "max_price": 1800,
     "prices": {
+      "morimori": 1800,
       "rudeya": 1800,
       "icchome": 1800
     }
@@ -217,6 +229,7 @@
     "retail_price": 1700,
     "max_price": 2500,
     "prices": {
+      "morimori": 900,
       "rudeya": 2500,
       "icchome": 1100
     }
@@ -227,6 +240,7 @@
     "retail_price": 5000,
     "max_price": 7000,
     "prices": {
+      "morimori": 5300,
       "rudeya": 7000,
       "icchome": 5300
     }
@@ -247,6 +261,7 @@
     "retail_price": 2600,
     "max_price": 2000,
     "prices": {
+      "morimori": 1600,
       "homura": 1800,
       "rudeya": 2000,
       "icchome": 1800
@@ -258,6 +273,7 @@
     "retail_price": 1600,
     "max_price": 2500,
     "prices": {
+      "morimori": 2000,
       "homura": 2000,
       "rudeya": 2500,
       "icchome": 2000
@@ -278,6 +294,7 @@
     "retail_price": 1600,
     "max_price": 1100,
     "prices": {
+      "morimori": 1100,
       "homura": 1000,
       "rudeya": 800,
       "icchome": 1100
@@ -287,22 +304,23 @@
     "name": "BX-49 ドランストライク4-50FF",
     "category": "bx",
     "retail_price": 2200,
-    "max_price": 2200,
+    "max_price": 2100,
     "prices": {
+      "morimori": 1900,
       "homura": 1900,
       "rudeya": 1900,
-      "icchome": 2200
+      "icchome": 2100
     }
   },
   {
     "name": "BX-48 ランダムブースターVol.9",
     "category": "bx",
     "retail_price": 1600,
-    "max_price": 3000,
+    "max_price": 2400,
     "prices": {
-      "morimori": 2600,
+      "morimori": 2400,
       "rudeya": 2000,
-      "icchome": 3000
+      "icchome": 2200
     }
   },
   {
@@ -320,6 +338,7 @@
     "retail_price": 1500,
     "max_price": 2000,
     "prices": {
+      "morimori": 1500,
       "rudeya": 2000,
       "icchome": 1800
     }
@@ -350,6 +369,7 @@
     "retail_price": 2321,
     "max_price": 1500,
     "prices": {
+      "morimori": 800,
       "rudeya": 1500,
       "icchome": 800
     }
@@ -360,6 +380,7 @@
     "retail_price": 2420,
     "max_price": 2000,
     "prices": {
+      "morimori": 1800,
       "rudeya": 2000,
       "icchome": 2000
     }
@@ -378,10 +399,11 @@
     "name": "BX-09 ベイバトルパス",
     "category": "bx",
     "retail_price": 3300,
-    "max_price": 5600,
+    "max_price": 5000,
     "prices": {
+      "morimori": 5000,
       "homura": 5000,
-      "icchome": 5600
+      "icchome": 5000
     }
   },
   {
@@ -390,6 +412,7 @@
     "retail_price": 2620,
     "max_price": 1600,
     "prices": {
+      "morimori": 1200,
       "rudeya": 1600,
       "icchome": 1500
     }
@@ -450,6 +473,7 @@
     "retail_price": 1600,
     "max_price": 5000,
     "prices": {
+      "morimori": 5000,
       "rudeya": 5000,
       "icchome": 5000
     }
