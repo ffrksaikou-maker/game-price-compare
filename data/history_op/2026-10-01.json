@@ -3,23 +3,23 @@
     "name": "ブースターパック「世界最強の戦士」【OP-17】",
     "category": "op",
     "retail_price": 5760,
-    "max_price": 11000,
+    "max_price": 11100,
     "prices": {
       "homura": 10000,
-      "rudeya": 10500,
+      "rudeya": 10000,
       "runto": 11000,
       "icchome": 9800,
       "oku": 10500,
       "collect_tendo": 8500,
-      "shinsoku": 10900,
-      "kaitoriexpo": 10800
+      "shinsoku": 11100,
+      "kaitoriexpo": 10000
     }
   },
   {
     "name": "ブースターパック「決戦の刻」【OP-16】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 9000,
+    "max_price": 8800,
     "prices": {
       "homura": 7500,
       "rudeya": 7600,
@@ -27,40 +27,40 @@
       "icchome": 7500,
       "oku": 8000,
       "collect_tendo": 8400,
-      "shinsoku": 7700,
-      "kaitoriexpo": 9000
+      "shinsoku": 8000,
+      "kaitoriexpo": 8800
     }
   },
   {
     "name": "ブースターパック「神の島の冒険」【OP-15】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 8200,
+    "max_price": 8400,
     "prices": {
-      "homura": 6000,
+      "homura": 6500,
       "rudeya": 6800,
       "runto": 7000,
       "icchome": 6500,
       "oku": 6300,
       "collect_tendo": 7000,
-      "shinsoku": 6100,
-      "kaitoriexpo": 8200
+      "shinsoku": 6500,
+      "kaitoriexpo": 8400
     }
   },
   {
     "name": "ブースターパック「蒼海の七傑」【OP-14】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 8500,
+    "max_price": 8600,
     "prices": {
-      "homura": 6500,
+      "homura": 7000,
       "rudeya": 6800,
       "runto": 8000,
       "icchome": 6500,
       "oku": 7200,
       "collect_tendo": 8000,
-      "shinsoku": 7400,
-      "kaitoriexpo": 8500
+      "shinsoku": 7600,
+      "kaitoriexpo": 8600
     }
   },
   {
@@ -93,7 +93,7 @@
       "icchome": 14000,
       "oku": 13500,
       "collect_tendo": 14000,
-      "shinsoku": 12900,
+      "shinsoku": 13800,
       "kaitoriexpo": 14000
     }
   },
@@ -101,16 +101,16 @@
     "name": "ブースターパック「神速の拳」【OP-11】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 32500,
+    "max_price": 32000,
     "prices": {
       "morimori": 31000,
       "homura": 32000,
-      "rudeya": 32500,
+      "rudeya": 32000,
       "runto": 30000,
       "icchome": 30000,
       "oku": 31500,
       "collect_tendo": 32000,
-      "shinsoku": 30900,
+      "shinsoku": 30000,
       "kaitoriexpo": 30000
     }
   },
@@ -126,7 +126,7 @@
       "runto": 9500,
       "icchome": 9500,
       "oku": 9000,
-      "shinsoku": 9700,
+      "shinsoku": 9500,
       "kaitoriexpo": 10200
     }
   },
@@ -138,7 +138,7 @@
     "prices": {
       "morimori": 16500,
       "homura": 17000,
-      "rudeya": 17200,
+      "rudeya": 17000,
       "runto": 17000,
       "icchome": 15000,
       "oku": 16500,
@@ -151,7 +151,7 @@
     "name": "ブースターパック「二つの伝説」【OP-08】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 10600,
+    "max_price": 10500,
     "prices": {
       "morimori": 8500,
       "homura": 9500,
@@ -161,7 +161,7 @@
       "oku": 9000,
       "collect_tendo": 10500,
       "shinsoku": 8800,
-      "kaitoriexpo": 10600
+      "kaitoriexpo": 10300
     }
   },
   {
@@ -227,7 +227,7 @@
       "oku": 13500,
       "collect_tendo": 15000,
       "shinsoku": 14600,
-      "kaitoriexpo": 15700
+      "kaitoriexpo": 15500
     }
   },
   {
@@ -236,7 +236,7 @@
     "retail_price": 4752,
     "max_price": 15300,
     "prices": {
-      "morimori": 14000,
+      "morimori": 13000,
       "homura": 13000,
       "rudeya": 15300,
       "runto": 12000,
@@ -253,7 +253,7 @@
     "retail_price": 4752,
     "max_price": 19300,
     "prices": {
-      "morimori": 18000,
+      "morimori": 17000,
       "homura": 17000,
       "rudeya": 19300,
       "runto": 15000,
@@ -304,14 +304,14 @@
     "retail_price": 5280,
     "max_price": 16500,
     "prices": {
-      "morimori": 14500,
-      "homura": 13800,
+      "morimori": 13000,
+      "homura": 13500,
       "rudeya": 13900,
       "runto": 12000,
       "icchome": 13500,
       "oku": 13500,
       "collect_tendo": 14000,
-      "shinsoku": 12800,
+      "shinsoku": 13200,
       "kaitoriexpo": 16500
     }
   },
@@ -337,8 +337,8 @@
     "retail_price": 5280,
     "max_price": 18200,
     "prices": {
-      "morimori": 17500,
-      "homura": 17500,
+      "morimori": 16500,
+      "homura": 17000,
       "rudeya": 18200,
       "runto": 16000,
       "icchome": 15500,
