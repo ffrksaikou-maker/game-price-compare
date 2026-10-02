@@ -61,7 +61,7 @@
     "prices": {
       "rudeya": 7500,
       "shinsoku": 11000,
-      "kaitoriexpo": 9000
+      "kaitoriexpo": 8500
     }
   },
   {
@@ -94,7 +94,7 @@
     "prices": {
       "rudeya": 6000,
       "shinsoku": 8300,
-      "kaitoriexpo": 7500
+      "kaitoriexpo": 7200
     }
   },
   {
@@ -116,7 +116,7 @@
     "prices": {
       "rudeya": 3900,
       "shinsoku": 6300,
-      "kaitoriexpo": 5800
+      "kaitoriexpo": 5400
     }
   },
   {
@@ -146,11 +146,11 @@
     "name": "STORY BOOSTER 01【ST-01】",
     "category": "st",
     "retail_price": 6600,
-    "max_price": 11300,
+    "max_price": 11000,
     "prices": {
       "rudeya": 8000,
       "runto": 10000,
-      "kaitoriexpo": 11300
+      "kaitoriexpo": 11000
     }
   },
   {
