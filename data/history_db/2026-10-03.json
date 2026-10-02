@@ -1,0 +1,173 @@
+[
+  {
+    "name": "ブースターパック「BRIGHTNESS OF HOPE」【FB-11】",
+    "category": "fb",
+    "retail_price": 5760,
+    "max_price": 7200,
+    "prices": {
+      "rudeya": 5300,
+      "kaitoriexpo": 7200
+    }
+  },
+  {
+    "name": "ブースターパック「CROSS FORCE」【FB-10】",
+    "category": "fb",
+    "retail_price": 5280,
+    "max_price": 9000,
+    "prices": {
+      "rudeya": 7000,
+      "kaitoriexpo": 9000
+    }
+  },
+  {
+    "name": "ブースターパック「DUAL EVOLUTION」【FB-09】",
+    "category": "fb",
+    "retail_price": 5280,
+    "max_price": 6500,
+    "prices": {
+      "rudeya": 6500
+    }
+  },
+  {
+    "name": "ブースターパック「誇り高き戦闘民族」【FB-08】",
+    "category": "fb",
+    "retail_price": 5280,
+    "max_price": 11000,
+    "prices": {
+      "rudeya": 8000,
+      "shinsoku": 11000,
+      "kaitoriexpo": 7500
+    }
+  },
+  {
+    "name": "ブースターパック「神龍への願い」【FB-07】",
+    "category": "fb",
+    "retail_price": 5280,
+    "max_price": 22900,
+    "prices": {
+      "homura": 22000,
+      "rudeya": 18000,
+      "shinsoku": 22900,
+      "kaitoriexpo": 21000
+    }
+  },
+  {
+    "name": "ブースターパック「迫り来る脅威」【FB-06】",
+    "category": "fb",
+    "retail_price": 5280,
+    "max_price": 11000,
+    "prices": {
+      "rudeya": 7500,
+      "shinsoku": 11000,
+      "kaitoriexpo": 8500
+    }
+  },
+  {
+    "name": "ブースターパック「未知なる冒険」【FB-05】",
+    "category": "fb",
+    "retail_price": 5280,
+    "max_price": 8800,
+    "prices": {
+      "rudeya": 6500,
+      "shinsoku": 8800,
+      "kaitoriexpo": 7500
+    }
+  },
+  {
+    "name": "ブースターパック「限界を超えし者」【FB-04】",
+    "category": "fb",
+    "retail_price": 5280,
+    "max_price": 7500,
+    "prices": {
+      "rudeya": 5000,
+      "shinsoku": 7500,
+      "kaitoriexpo": 6500
+    }
+  },
+  {
+    "name": "ブースターパック「怒りの咆哮」【FB-03】",
+    "category": "fb",
+    "retail_price": 5280,
+    "max_price": 8300,
+    "prices": {
+      "rudeya": 6000,
+      "shinsoku": 8300,
+      "kaitoriexpo": 7200
+    }
+  },
+  {
+    "name": "ブースターパック「烈火の闘気」【FB-02】",
+    "category": "fb",
+    "retail_price": 5280,
+    "max_price": 5800,
+    "prices": {
+      "rudeya": 3700,
+      "shinsoku": 5500,
+      "kaitoriexpo": 5800
+    }
+  },
+  {
+    "name": "ブースターパック「覚醒の鼓動」【FB-01】",
+    "category": "fb",
+    "retail_price": 5280,
+    "max_price": 6300,
+    "prices": {
+      "rudeya": 3900,
+      "shinsoku": 6300,
+      "kaitoriexpo": 5400
+    }
+  },
+  {
+    "name": "MANGA BOOSTER 02【SB-02】",
+    "category": "sb",
+    "retail_price": 7920,
+    "max_price": 50000,
+    "prices": {
+      "morimori": 19800,
+      "homura": 50000,
+      "rudeya": 42000,
+      "kaitoriexpo": 50000
+    }
+  },
+  {
+    "name": "MANGA BOOSTER 01【SB-01】",
+    "category": "sb",
+    "retail_price": 7920,
+    "max_price": 100000,
+    "prices": {
+      "homura": 100000,
+      "rudeya": 85000,
+      "kaitoriexpo": 90000
+    }
+  },
+  {
+    "name": "STORY BOOSTER 01【ST-01】",
+    "category": "st",
+    "retail_price": 6600,
+    "max_price": 11000,
+    "prices": {
+      "rudeya": 8000,
+      "runto": 10000,
+      "kaitoriexpo": 11000
+    }
+  },
+  {
+    "name": "スーパーダイバーズ アドバンスパック バトルオブサイヤン",
+    "category": "dv",
+    "retail_price": 6600,
+    "max_price": 6700,
+    "prices": {
+      "rudeya": 6700
+    }
+  },
+  {
+    "name": "スーパーダイバーズ アドバンスパック DRAGON BALL 40th Anniversary Edition",
+    "category": "dv",
+    "retail_price": 6600,
+    "max_price": 38000,
+    "prices": {
+      "morimori": 25000,
+      "rudeya": 38000
+    }
+  }
+]
