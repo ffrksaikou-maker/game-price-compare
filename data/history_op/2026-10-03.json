@@ -3,15 +3,15 @@
     "name": "ブースターパック「世界最強の戦士」【OP-17】",
     "category": "op",
     "retail_price": 5760,
-    "max_price": 10900,
+    "max_price": 10800,
     "prices": {
       "homura": 10800,
       "rudeya": 10500,
       "runto": 10500,
       "icchome": 9800,
       "oku": 10500,
-      "collect_tendo": 8500,
-      "shinsoku": 10900,
+      "collect_tendo": 9000,
+      "shinsoku": 10700,
       "kaitoriexpo": 10800
     }
   },
@@ -26,7 +26,7 @@
       "runto": 8200,
       "icchome": 7500,
       "oku": 9000,
-      "collect_tendo": 9000,
+      "collect_tendo": 6600,
       "shinsoku": 8000,
       "kaitoriexpo": 9000
     }
@@ -135,7 +135,7 @@
     "name": "ブースターパック「新たなる皇帝」【OP-09】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 17500,
+    "max_price": 18000,
     "prices": {
       "morimori": 16500,
       "homura": 17000,
@@ -143,7 +143,7 @@
       "runto": 17000,
       "icchome": 15000,
       "oku": 16500,
-      "collect_tendo": 17500,
+      "collect_tendo": 18000,
       "shinsoku": 17100,
       "kaitoriexpo": 16000
     }
@@ -152,7 +152,7 @@
     "name": "ブースターパック「二つの伝説」【OP-08】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 10500,
+    "max_price": 10000,
     "prices": {
       "morimori": 8500,
       "homura": 9200,
@@ -160,7 +160,7 @@
       "runto": 9500,
       "icchome": 9200,
       "oku": 9000,
-      "collect_tendo": 10500,
+      "collect_tendo": 9800,
       "shinsoku": 8800,
       "kaitoriexpo": 10000
     }
@@ -201,7 +201,7 @@
     "name": "ブースターパック「新時代の主役」【OP-05】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 55800,
+    "max_price": 56000,
     "prices": {
       "morimori": 55800,
       "homura": 50000,
@@ -209,7 +209,7 @@
       "runto": 45000,
       "icchome": 50000,
       "oku": 51000,
-      "collect_tendo": 52000,
+      "collect_tendo": 56000,
       "shinsoku": 50100,
       "kaitoriexpo": 49000
     }
@@ -261,7 +261,7 @@
       "icchome": 19000,
       "oku": 16500,
       "collect_tendo": 18000,
-      "shinsoku": 16300,
+      "shinsoku": 17100,
       "kaitoriexpo": 14800
     }
   },
@@ -286,7 +286,7 @@
     "name": "エクストラブースター「EGGHEAD CRISIS」【EB-04】",
     "category": "eb",
     "retail_price": 5280,
-    "max_price": 12400,
+    "max_price": 12000,
     "prices": {
       "morimori": 10600,
       "homura": 11500,
@@ -294,7 +294,7 @@
       "runto": 11500,
       "icchome": 11000,
       "oku": 11000,
-      "collect_tendo": 12400,
+      "collect_tendo": 12000,
       "shinsoku": 11600,
       "kaitoriexpo": 12000
     }
@@ -303,7 +303,7 @@
     "name": "エクストラブースター「ONE PIECE Heroines Edition」【EB-03】",
     "category": "eb",
     "retail_price": 5280,
-    "max_price": 14000,
+    "max_price": 16000,
     "prices": {
       "morimori": 13000,
       "homura": 13000,
@@ -311,7 +311,7 @@
       "runto": 12000,
       "icchome": 13000,
       "oku": 13000,
-      "collect_tendo": 14000,
+      "collect_tendo": 16000,
       "shinsoku": 11900,
       "kaitoriexpo": 12000
     }
