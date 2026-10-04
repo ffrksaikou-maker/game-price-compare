@@ -32,10 +32,10 @@
     "name": "ブースターパック「誇り高き戦闘民族」【FB-08】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 10600,
+    "max_price": 11000,
     "prices": {
       "rudeya": 8000,
-      "shinsoku": 10600,
+      "shinsoku": 11000,
       "kaitoriexpo": 7500
     }
   },
@@ -43,11 +43,11 @@
     "name": "ブースターパック「神龍への願い」【FB-07】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 22500,
+    "max_price": 22900,
     "prices": {
       "homura": 22000,
       "rudeya": 18000,
-      "shinsoku": 22500,
+      "shinsoku": 22900,
       "kaitoriexpo": 21500
     }
   },
@@ -66,10 +66,10 @@
     "name": "ブースターパック「未知なる冒険」【FB-05】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 8800,
+    "max_price": 9300,
     "prices": {
       "rudeya": 6500,
-      "shinsoku": 8800,
+      "shinsoku": 9300,
       "kaitoriexpo": 7500
     }
   },
@@ -110,10 +110,10 @@
     "name": "ブースターパック「覚醒の鼓動」【FB-01】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 6300,
+    "max_price": 5900,
     "prices": {
       "rudeya": 3900,
-      "shinsoku": 6300,
+      "shinsoku": 5900,
       "kaitoriexpo": 5500
     }
   },
