@@ -7,9 +7,8 @@
     "prices": {
       "morimori": 31000,
       "homura": 61000,
-      "rudeya": 58000,
-      "runto": 58000,
-      "icchome": 57000,
+      "rudeya": 58500,
+      "icchome": 58000,
       "oku": 50000,
       "kaikyo": 56000,
       "collect_tendo": 58000,
@@ -26,20 +25,20 @@
       "morimori": 17000,
       "homura": 18200,
       "rudeya": 18200,
-      "runto": 17500,
+      "runto": 18000,
       "icchome": 17500,
       "oku": 17000,
       "kaikyo": 16000,
       "collect_tendo": 18300,
       "shinsoku": 16000,
-      "kaitoriexpo": 17500
+      "kaitoriexpo": 18000
     }
   },
   {
     "name": "MEGA 拡張パック「30th CELEBRATION」",
     "category": "mega",
     "retail_price": 7200,
-    "max_price": 26800,
+    "max_price": 26500,
     "prices": {
       "morimori": 25800,
       "homura": 26000,
@@ -48,27 +47,27 @@
       "icchome": 25500,
       "oku": 26000,
       "kaikyo": 26000,
-      "collect_tendo": 26800,
+      "collect_tendo": 26500,
       "shinsoku": 25800,
-      "kaitoriexpo": 26800
+      "kaitoriexpo": 26000
     }
   },
   {
     "name": "MEGA 拡張パック「ストームエメラルダ」",
     "category": "mega",
     "retail_price": 6000,
-    "max_price": 9500,
+    "max_price": 9200,
     "prices": {
       "morimori": 9000,
       "homura": 9200,
       "rudeya": 8700,
-      "runto": 9300,
+      "runto": 9100,
       "icchome": 8800,
       "oku": 9200,
       "kaikyo": 9000,
-      "collect_tendo": 9500,
+      "collect_tendo": 9200,
       "shinsoku": 9000,
-      "kaitoriexpo": 9200
+      "kaitoriexpo": 9000
     }
   },
   {
@@ -85,7 +84,7 @@
       "oku": 8000,
       "collect_tendo": 7700,
       "shinsoku": 8100,
-      "kaitoriexpo": 7700
+      "kaitoriexpo": 7800
     }
   },
   {
@@ -102,14 +101,14 @@
       "oku": 8200,
       "kaikyo": 7000,
       "shinsoku": 8100,
-      "kaitoriexpo": 8200
+      "kaitoriexpo": 8000
     }
   },
   {
     "name": "MEGA 拡張パック「ムニキスゼロ」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 8400,
+    "max_price": 8100,
     "prices": {
       "morimori": 8000,
       "homura": 8100,
@@ -120,25 +119,25 @@
       "kaikyo": 7000,
       "collect_tendo": 7600,
       "shinsoku": 8100,
-      "kaitoriexpo": 8400
+      "kaitoriexpo": 7800
     }
   },
   {
     "name": "MEGA ハイクラスパック「MEGAドリームex」",
     "category": "mega",
     "retail_price": 5500,
-    "max_price": 12500,
+    "max_price": 12300,
     "prices": {
       "morimori": 12000,
       "homura": 12200,
       "rudeya": 10000,
-      "runto": 12300,
+      "runto": 12000,
       "icchome": 12000,
       "oku": 11000,
       "kaikyo": 9500,
-      "collect_tendo": 12500,
+      "collect_tendo": 12300,
       "shinsoku": 11800,
-      "kaitoriexpo": 12500
+      "kaitoriexpo": 12000
     }
   },
   {
@@ -154,9 +153,9 @@
       "icchome": 14000,
       "oku": 15000,
       "kaikyo": 13500,
-      "collect_tendo": 15000,
+      "collect_tendo": 14000,
       "shinsoku": 14800,
-      "kaitoriexpo": 14500
+      "kaitoriexpo": 14000
     }
   },
   {
@@ -171,8 +170,9 @@
       "runto": 7500,
       "icchome": 7800,
       "oku": 7500,
+      "collect_tendo": 7800,
       "shinsoku": 7700,
-      "kaitoriexpo": 7500
+      "kaitoriexpo": 7000
     }
   },
   {
@@ -190,7 +190,7 @@
       "kaikyo": 6500,
       "collect_tendo": 7100,
       "shinsoku": 7000,
-      "kaitoriexpo": 6900
+      "kaitoriexpo": 6400
     }
   },
   {
@@ -246,23 +246,23 @@
       "rudeya": 17000,
       "runto": 16500,
       "icchome": 16000,
-      "collect_tendo": 16500,
+      "collect_tendo": 16300,
       "shinsoku": 16800,
-      "kaitoriexpo": 16200
+      "kaitoriexpo": 16500
     }
   },
   {
     "name": "SV 拡張パック「ロケット団の栄光」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 20000,
+    "max_price": 19500,
     "prices": {
       "morimori": 19000,
       "homura": 19100,
       "rudeya": 17000,
       "runto": 19500,
       "icchome": 18500,
-      "collect_tendo": 20000,
+      "collect_tendo": 19000,
       "shinsoku": 19200
     }
   },
@@ -277,7 +277,7 @@
       "rudeya": 14000,
       "runto": 14000,
       "icchome": 14000,
-      "collect_tendo": 15000,
+      "collect_tendo": 14500,
       "shinsoku": 15000
     }
   },
@@ -311,7 +311,7 @@
       "kaikyo": 13500,
       "collect_tendo": 16000,
       "shinsoku": 16500,
-      "kaitoriexpo": 15800
+      "kaitoriexpo": 16200
     }
   },
   {
@@ -356,9 +356,9 @@
       "rudeya": 10200,
       "runto": 9500,
       "icchome": 10100,
-      "collect_tendo": 10300,
+      "collect_tendo": 10500,
       "shinsoku": 10500,
-      "kaitoriexpo": 3800
+      "kaitoriexpo": 4200
     }
   },
   {
@@ -374,7 +374,7 @@
       "icchome": 10100,
       "collect_tendo": 9500,
       "shinsoku": 10500,
-      "kaitoriexpo": 10200
+      "kaitoriexpo": 10300
     }
   },
   {
@@ -404,7 +404,7 @@
       "rudeya": 10200,
       "runto": 10000,
       "icchome": 10000,
-      "collect_tendo": 10000,
+      "collect_tendo": 10500,
       "shinsoku": 10500,
       "kaitoriexpo": 10000
     }
@@ -438,7 +438,7 @@
       "icchome": 9500,
       "collect_tendo": 8500,
       "shinsoku": 9500,
-      "kaitoriexpo": 8800
+      "kaitoriexpo": 9200
     }
   },
   {
@@ -455,7 +455,7 @@
       "kaikyo": 12000,
       "collect_tendo": 15300,
       "shinsoku": 15100,
-      "kaitoriexpo": 13700
+      "kaitoriexpo": 15000
     }
   },
   {
@@ -485,9 +485,9 @@
       "rudeya": 8300,
       "runto": 7500,
       "icchome": 7700,
-      "collect_tendo": 7800,
+      "collect_tendo": 8000,
       "shinsoku": 7800,
-      "kaitoriexpo": 7800
+      "kaitoriexpo": 7000
     }
   },
   {
@@ -501,9 +501,9 @@
       "rudeya": 13000,
       "runto": 13000,
       "icchome": 13500,
-      "collect_tendo": 13700,
+      "collect_tendo": 13800,
       "shinsoku": 13600,
-      "kaitoriexpo": 13100
+      "kaitoriexpo": 13000
     }
   },
   {
@@ -517,7 +517,7 @@
       "rudeya": 12500,
       "runto": 14000,
       "icchome": 14500,
-      "collect_tendo": 14000,
+      "collect_tendo": 14500,
       "shinsoku": 15200,
       "kaitoriexpo": 4100
     }
@@ -551,7 +551,7 @@
       "icchome": 9500,
       "collect_tendo": 9000,
       "shinsoku": 10000,
-      "kaitoriexpo": 8200
+      "kaitoriexpo": 9000
     }
   },
   {
@@ -567,7 +567,7 @@
       "icchome": 10200,
       "collect_tendo": 9800,
       "shinsoku": 10700,
-      "kaitoriexpo": 8500
+      "kaitoriexpo": 9700
     }
   },
   {
@@ -703,7 +703,7 @@
       "runto": 15500,
       "collect_tendo": 14700,
       "shinsoku": 15600,
-      "kaitoriexpo": 10500
+      "kaitoriexpo": 11000
     }
   },
   {
@@ -742,7 +742,7 @@
       "runto": 18500,
       "collect_tendo": 18000,
       "shinsoku": 18500,
-      "kaitoriexpo": 16500
+      "kaitoriexpo": 16000
     }
   },
   {
@@ -761,12 +761,12 @@
     "name": "S&S 拡張パック「25th ANNIVERSARY COLLECTION」",
     "category": "ss",
     "retail_price": 5500,
-    "max_price": 50000,
+    "max_price": 52000,
     "prices": {
       "homura": 50000,
       "rudeya": 45000,
       "shinsoku": 50000,
-      "kaitoriexpo": 45000
+      "kaitoriexpo": 52000
     }
   },
   {
@@ -777,7 +777,8 @@
     "prices": {
       "homura": 46000,
       "collect_tendo": 45000,
-      "shinsoku": 47000
+      "shinsoku": 47000,
+      "kaitoriexpo": 39000
     }
   },
   {
@@ -878,7 +879,7 @@
       "runto": 15000,
       "collect_tendo": 16500,
       "shinsoku": 17200,
-      "kaitoriexpo": 16200
+      "kaitoriexpo": 17000
     }
   },
   {
