@@ -175,7 +175,6 @@
     "ポケモンカードゲームMEGA 30th Celebration (シュリンク付き)": 26900
   },
   "processed_urls": [
-    "https://pbs.twimg.com/media/HTHsDkTacAAyAmu?format=jpg&name=large",
     "https://pbs.twimg.com/media/HTrfd_IbsAAuRMn?format=jpg&name=large",
     "https://pbs.twimg.com/media/HTXaMMKa8AA3tB2?format=jpg&name=large",
     "https://pbs.twimg.com/media/HRqyhFeaoAAZ6tX?format=jpg&name=large",
@@ -224,12 +223,19 @@
     "https://pbs.twimg.com/media/HTb9OBuaQAAQyYp?format=jpg&name=large",
     "https://pbs.twimg.com/media/HS9CMnhaAAALMSJ?format=jpg&name=large",
     "https://pbs.twimg.com/media/HTb5lVfbIAAoJJS?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HTwNS74bcAAcl5F?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HTwNS74bcAAcl5F?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HTXrCPobUAEq_8X?format=jpg&name=large"
   ],
   "last_check": 1791169557,
   "ocr_fail_counts": {},
-  "pending_images": [],
-  "last_image_check": 1791164535,
+  "pending_images": [
+    "https://pbs.twimg.com/media/HT1tTNXbIAAABBB?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HT1qsvwbMAAibOX?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HT1tXWpbMAAAZf5?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HT1syawasAAgJjI?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HT1sHJyaYAAUjE1?format=jpg&name=large"
+  ],
+  "last_image_check": 1791178937,
   "seen_at": {
     "OP-14 蒼海の七傑": 1791169557,
     "OP-15 神の島の冒険": 1791169557,
