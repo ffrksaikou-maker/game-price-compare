@@ -6,6 +6,7 @@
     "max_price": 7700,
     "prices": {
       "rudeya": 5300,
+      "shinsoku": 6800,
       "kaitoriexpo": 7700
     }
   },
@@ -53,10 +54,10 @@
     "name": "ブースターパック「迫り来る脅威」【FB-06】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 10100,
+    "max_price": 10600,
     "prices": {
       "rudeya": 7500,
-      "shinsoku": 10100,
+      "shinsoku": 10600,
       "kaitoriexpo": 9000
     }
   },
@@ -75,10 +76,10 @@
     "name": "ブースターパック「限界を超えし者」【FB-04】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 6700,
+    "max_price": 7000,
     "prices": {
       "rudeya": 4500,
-      "shinsoku": 6600,
+      "shinsoku": 7000,
       "kaitoriexpo": 6700
     }
   },
