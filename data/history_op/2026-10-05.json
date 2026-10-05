@@ -3,7 +3,7 @@
     "name": "ブースターパック「世界最強の戦士」【OP-17】",
     "category": "op",
     "retail_price": 5760,
-    "max_price": 10900,
+    "max_price": 10800,
     "prices": {
       "homura": 10500,
       "rudeya": 10500,
@@ -11,7 +11,7 @@
       "icchome": 9800,
       "oku": 10500,
       "collect_tendo": 8500,
-      "shinsoku": 10900,
+      "shinsoku": 10600,
       "kaitoriexpo": 10800
     }
   },
@@ -43,7 +43,7 @@
       "icchome": 7000,
       "oku": 7500,
       "collect_tendo": 7000,
-      "shinsoku": 7300,
+      "shinsoku": 7400,
       "kaitoriexpo": 8300
     }
   },
@@ -110,7 +110,7 @@
       "icchome": 30000,
       "oku": 28500,
       "collect_tendo": 31000,
-      "shinsoku": 27800
+      "shinsoku": 28500
     }
   },
   {
@@ -126,7 +126,7 @@
       "icchome": 9500,
       "oku": 9000,
       "collect_tendo": 10000,
-      "shinsoku": 9400,
+      "shinsoku": 9300,
       "kaitoriexpo": 10200
     }
   },
@@ -143,7 +143,7 @@
       "icchome": 15000,
       "oku": 16500,
       "collect_tendo": 17500,
-      "shinsoku": 17100,
+      "shinsoku": 17000,
       "kaitoriexpo": 16000
     }
   },
@@ -209,7 +209,7 @@
       "icchome": 50000,
       "oku": 50000,
       "collect_tendo": 52000,
-      "shinsoku": 50100
+      "shinsoku": 50000
     }
   },
   {
@@ -293,7 +293,7 @@
       "icchome": 11000,
       "oku": 11000,
       "collect_tendo": 12400,
-      "shinsoku": 11600,
+      "shinsoku": 11200,
       "kaitoriexpo": 12000
     }
   },
@@ -310,7 +310,7 @@
       "icchome": 13000,
       "oku": 12000,
       "collect_tendo": 14000,
-      "shinsoku": 11600,
+      "shinsoku": 11800,
       "kaitoriexpo": 12000
     }
   },
@@ -376,7 +376,7 @@
       "icchome": 21000,
       "oku": 20000,
       "collect_tendo": 20000,
-      "shinsoku": 20500,
+      "shinsoku": 19500,
       "kaitoriexpo": 19500
     }
   },
