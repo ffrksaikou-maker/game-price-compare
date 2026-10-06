@@ -26,7 +26,7 @@
       "homura": 17800,
       "rudeya": 17700,
       "runto": 17500,
-      "icchome": 17500,
+      "icchome": 17000,
       "oku": 17000,
       "kaikyo": 16000,
       "collect_tendo": 18300,
@@ -46,7 +46,7 @@
       "runto": 25500,
       "icchome": 25000,
       "oku": 25700,
-      "kaikyo": 26300,
+      "kaikyo": 26000,
       "collect_tendo": 26800,
       "shinsoku": 25600,
       "kaitoriexpo": 26000
@@ -81,7 +81,7 @@
       "rudeya": 6500,
       "runto": 8000,
       "icchome": 7800,
-      "oku": 8000,
+      "oku": 8100,
       "collect_tendo": 7700,
       "shinsoku": 8200,
       "kaitoriexpo": 7800
@@ -115,7 +115,7 @@
       "rudeya": 7500,
       "runto": 7800,
       "icchome": 8000,
-      "oku": 8000,
+      "oku": 8100,
       "kaikyo": 7000,
       "collect_tendo": 7600,
       "shinsoku": 8200,
@@ -132,7 +132,7 @@
       "homura": 12000,
       "rudeya": 10000,
       "runto": 12000,
-      "icchome": 12000,
+      "icchome": 11800,
       "oku": 11000,
       "kaikyo": 9500,
       "collect_tendo": 12500,
@@ -256,7 +256,7 @@
     "retail_price": 5400,
     "max_price": 20000,
     "prices": {
-      "morimori": 19100,
+      "morimori": 19400,
       "homura": 19400,
       "rudeya": 17000,
       "runto": 19500,
@@ -529,7 +529,7 @@
       "morimori": 31500,
       "homura": 32000,
       "rudeya": 30000,
-      "runto": 35000,
+      "runto": 36000,
       "icchome": 32000,
       "kaikyo": 40000,
       "collect_tendo": 32000,
@@ -652,7 +652,7 @@
       "homura": 9500,
       "runto": 9000,
       "collect_tendo": 9500,
-      "shinsoku": 9500,
+      "shinsoku": 9600,
       "kaitoriexpo": 8700
     }
   },
@@ -675,7 +675,7 @@
     "prices": {
       "homura": 20000,
       "runto": 20000,
-      "kaikyo": 16000,
+      "kaikyo": 15500,
       "collect_tendo": 20000,
       "shinsoku": 19000
     }
@@ -696,12 +696,12 @@
     "name": "S&S 拡張パック「タイムゲイザー」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 15600,
+    "max_price": 15500,
     "prices": {
       "homura": 15500,
       "runto": 15500,
       "collect_tendo": 14700,
-      "shinsoku": 15600,
+      "shinsoku": 15000,
       "kaitoriexpo": 11000
     }
   },
@@ -807,10 +807,10 @@
     "name": "S&S 強化拡張パック「イーブイヒーローズ」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 98000,
+    "max_price": 100000,
     "prices": {
       "homura": 97000,
-      "runto": 97000,
+      "runto": 100000,
       "collect_tendo": 95000,
       "shinsoku": 98000
     }
