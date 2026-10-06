@@ -3,7 +3,7 @@
     "name": "ブースターパック「世界最強の戦士」【OP-17】",
     "category": "op",
     "retail_price": 5760,
-    "max_price": 10800,
+    "max_price": 10900,
     "prices": {
       "homura": 10500,
       "rudeya": 10500,
@@ -11,15 +11,15 @@
       "icchome": 9800,
       "oku": 10500,
       "collect_tendo": 8500,
-      "shinsoku": 10600,
-      "kaitoriexpo": 10500
+      "shinsoku": 10900,
+      "kaitoriexpo": 10700
     }
   },
   {
     "name": "ブースターパック「決戦の刻」【OP-16】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 9000,
+    "max_price": 9500,
     "prices": {
       "morimori": 8500,
       "homura": 8600,
@@ -27,7 +27,7 @@
       "runto": 8200,
       "icchome": 7500,
       "oku": 8600,
-      "collect_tendo": 9000,
+      "collect_tendo": 9500,
       "shinsoku": 8100,
       "kaitoriexpo": 8000
     }
@@ -52,7 +52,7 @@
     "name": "ブースターパック「蒼海の七傑」【OP-14】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 8100,
+    "max_price": 8500,
     "prices": {
       "homura": 8000,
       "rudeya": 7700,
@@ -61,14 +61,14 @@
       "oku": 8000,
       "collect_tendo": 8000,
       "shinsoku": 7600,
-      "kaitoriexpo": 8100
+      "kaitoriexpo": 8500
     }
   },
   {
     "name": "ブースターパック「受け継がれる意志」【OP-13】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 15200,
+    "max_price": 15500,
     "prices": {
       "morimori": 14800,
       "homura": 15200,
@@ -77,8 +77,8 @@
       "icchome": 11000,
       "oku": 15000,
       "collect_tendo": 15000,
-      "shinsoku": 15100,
-      "kaitoriexpo": 15000
+      "shinsoku": 15300,
+      "kaitoriexpo": 15500
     }
   },
   {
@@ -102,7 +102,7 @@
     "name": "ブースターパック「神速の拳」【OP-11】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 31000,
+    "max_price": 30200,
     "prices": {
       "morimori": 28500,
       "homura": 28500,
@@ -110,8 +110,8 @@
       "runto": 25000,
       "icchome": 30000,
       "oku": 28500,
-      "collect_tendo": 31000,
-      "shinsoku": 28500
+      "collect_tendo": 30000,
+      "shinsoku": 28600
     }
   },
   {
@@ -127,7 +127,7 @@
       "icchome": 9500,
       "oku": 9600,
       "collect_tendo": 10000,
-      "shinsoku": 9200,
+      "shinsoku": 9000,
       "kaitoriexpo": 10200
     }
   },
@@ -162,7 +162,7 @@
       "oku": 9000,
       "collect_tendo": 10500,
       "shinsoku": 8800,
-      "kaitoriexpo": 10000
+      "kaitoriexpo": 10200
     }
   },
   {
@@ -177,7 +177,7 @@
       "runto": 14000,
       "icchome": 15000,
       "oku": 15500,
-      "shinsoku": 14700,
+      "shinsoku": 14600,
       "kaitoriexpo": 14000
     }
   },
@@ -210,7 +210,7 @@
       "icchome": 50000,
       "oku": 50000,
       "collect_tendo": 52000,
-      "shinsoku": 49500
+      "shinsoku": 47700
     }
   },
   {
@@ -294,7 +294,7 @@
       "icchome": 11000,
       "oku": 11000,
       "collect_tendo": 12400,
-      "shinsoku": 11200,
+      "shinsoku": 10900,
       "kaitoriexpo": 12500
     }
   },
@@ -344,7 +344,7 @@
       "icchome": 15500,
       "oku": 16000,
       "collect_tendo": 18000,
-      "shinsoku": 16000,
+      "shinsoku": 16100,
       "kaitoriexpo": 16000
     }
   },
