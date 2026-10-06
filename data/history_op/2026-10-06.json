@@ -19,15 +19,15 @@
     "name": "ブースターパック「決戦の刻」【OP-16】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 9400,
+    "max_price": 9000,
     "prices": {
       "morimori": 8500,
       "homura": 8600,
       "rudeya": 8200,
       "runto": 8200,
       "icchome": 7500,
-      "oku": 8500,
-      "collect_tendo": 9400,
+      "oku": 8600,
+      "collect_tendo": 9000,
       "shinsoku": 8100,
       "kaitoriexpo": 8000
     }
@@ -68,14 +68,14 @@
     "name": "ブースターパック「受け継がれる意志」【OP-13】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 15100,
+    "max_price": 15200,
     "prices": {
       "morimori": 14800,
-      "homura": 15000,
+      "homura": 15200,
       "rudeya": 14800,
       "runto": 15000,
       "icchome": 11000,
-      "oku": 14000,
+      "oku": 15000,
       "collect_tendo": 15000,
       "shinsoku": 15100,
       "kaitoriexpo": 15000
@@ -102,7 +102,7 @@
     "name": "ブースターパック「神速の拳」【OP-11】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 30200,
+    "max_price": 31000,
     "prices": {
       "morimori": 28500,
       "homura": 28500,
@@ -110,7 +110,7 @@
       "runto": 25000,
       "icchome": 30000,
       "oku": 28500,
-      "collect_tendo": 30000,
+      "collect_tendo": 31000,
       "shinsoku": 28500
     }
   },
@@ -125,7 +125,7 @@
       "rudeya": 9700,
       "runto": 9500,
       "icchome": 9500,
-      "oku": 9000,
+      "oku": 9500,
       "collect_tendo": 10000,
       "shinsoku": 9200,
       "kaitoriexpo": 10200
@@ -142,7 +142,7 @@
       "rudeya": 17100,
       "runto": 17000,
       "icchome": 15000,
-      "oku": 16500,
+      "oku": 17000,
       "collect_tendo": 17500,
       "shinsoku": 17000,
       "kaitoriexpo": 16000
@@ -156,7 +156,7 @@
     "prices": {
       "morimori": 9200,
       "homura": 9200,
-      "rudeya": 9400,
+      "rudeya": 9300,
       "runto": 9500,
       "icchome": 9200,
       "oku": 9000,
@@ -258,7 +258,7 @@
       "rudeya": 19300,
       "runto": 15000,
       "icchome": 19000,
-      "oku": 16500,
+      "oku": 17000,
       "collect_tendo": 18000,
       "shinsoku": 17100,
       "kaitoriexpo": 14800
@@ -308,7 +308,7 @@
       "homura": 12000,
       "rudeya": 13000,
       "runto": 12000,
-      "icchome": 13000,
+      "icchome": 12000,
       "oku": 12000,
       "collect_tendo": 14000,
       "shinsoku": 12100,
@@ -375,7 +375,7 @@
       "rudeya": 21100,
       "runto": 20500,
       "icchome": 21000,
-      "oku": 20000,
+      "oku": 20500,
       "collect_tendo": 20000,
       "shinsoku": 19500,
       "kaitoriexpo": 20000
