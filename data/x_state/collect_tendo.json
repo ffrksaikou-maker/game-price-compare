@@ -180,7 +180,6 @@
     "OP-12 絆の絆": 14000
   },
   "processed_urls": [
-    "https://pbs.twimg.com/media/HTWzwfqaUAA2kFz?format=jpg&name=large",
     "https://pbs.twimg.com/media/HT69H7GaMAEgdgH?format=jpg&name=large",
     "https://pbs.twimg.com/media/HTW1ZnCbEAAezix?format=jpg&name=large",
     "https://pbs.twimg.com/media/HTb8BXbbgAAylCZ?format=jpg&name=large",
@@ -229,14 +228,15 @@
     "https://pbs.twimg.com/media/HT67OibawAAxcRl?format=jpg&name=large",
     "https://pbs.twimg.com/media/HR_PizqbkAA21vm?format=png&name=large",
     "https://pbs.twimg.com/media/HTW2KHsacAABc1f?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HTIWFtTaYAAnceY?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HTIWFtTaYAAnceY?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HThENWZboAAwGO9?format=jpg&name=large"
   ],
   "last_check": 1791342595,
   "ocr_fail_counts": {
     "https://pbs.twimg.com/media/HT6_El3bQAAIWzR?format=jpg&name=large": 3
   },
   "pending_images": [],
-  "last_image_check": 1791337335,
+  "last_image_check": 1791351736,
   "seen_at": {
     "OP-14 蒼海の七傑": 1791277865,
     "OP-15 神の島の冒険": 1791277865,
