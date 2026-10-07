@@ -6,7 +6,6 @@
     "max_price": 7000,
     "prices": {
       "rudeya": 5300,
-      "shinsoku": 6800,
       "kaitoriexpo": 7000
     }
   },
@@ -14,9 +13,10 @@
     "name": "ブースターパック「CROSS FORCE」【FB-10】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 6500,
+    "max_price": 7000,
     "prices": {
       "rudeya": 5500,
+      "runto": 7000,
       "kaitoriexpo": 6500
     }
   },
@@ -24,10 +24,10 @@
     "name": "ブースターパック「DUAL EVOLUTION」【FB-09】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 7500,
+    "max_price": 7000,
     "prices": {
       "rudeya": 5500,
-      "runto": 7500,
+      "runto": 7000,
       "kaitoriexpo": 6500
     }
   },
@@ -125,9 +125,9 @@
     "retail_price": 7920,
     "max_price": 50000,
     "prices": {
+      "morimori": 19800,
       "homura": 50000,
-      "rudeya": 37000,
-      "morimori": 19800
+      "rudeya": 37000
     }
   },
   {
@@ -148,7 +148,7 @@
     "prices": {
       "homura": 10800,
       "rudeya": 8000,
-      "runto": 10000,
+      "runto": 10500,
       "kaitoriexpo": 11500
     }
   },
@@ -167,8 +167,8 @@
     "retail_price": 6600,
     "max_price": 38000,
     "prices": {
-      "rudeya": 38000,
-      "morimori": 25000
+      "morimori": 25000,
+      "rudeya": 38000
     }
   }
 ]
