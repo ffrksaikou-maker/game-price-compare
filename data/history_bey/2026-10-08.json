@@ -71,11 +71,11 @@
     "name": "UX-15 シャークスケイルデッキセット",
     "category": "ux",
     "retail_price": 4200,
-    "max_price": 7300,
+    "max_price": 6800,
     "prices": {
       "morimori": 6800,
       "rudeya": 5500,
-      "icchome": 7300
+      "icchome": 6800
     }
   },
   {
@@ -162,7 +162,7 @@
     "max_price": 2000,
     "prices": {
       "morimori": 1900,
-      "homura": 1700,
+      "homura": 1400,
       "rudeya": 1300,
       "icchome": 2000
     }
@@ -262,7 +262,7 @@
     "max_price": 1800,
     "prices": {
       "morimori": 1600,
-      "homura": 1800,
+      "homura": 1600,
       "rudeya": 1400,
       "icchome": 1800
     }
@@ -453,7 +453,7 @@
     "retail_price": 6501,
     "max_price": 18700,
     "prices": {
-      "homura": 10000,
+      "homura": 7000,
       "rudeya": 7000,
       "icchome": 18700
     }

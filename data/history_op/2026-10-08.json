@@ -68,10 +68,10 @@
     "name": "ブースターパック「受け継がれる意志」【OP-13】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 16500,
+    "max_price": 17000,
     "prices": {
       "morimori": 15000,
-      "homura": 16500,
+      "homura": 17000,
       "rudeya": 15000,
       "runto": 16500,
       "icchome": 11000,
@@ -155,7 +155,7 @@
     "max_price": 10500,
     "prices": {
       "morimori": 9200,
-      "homura": 9200,
+      "homura": 9400,
       "rudeya": 9300,
       "runto": 9500,
       "icchome": 9200,
@@ -220,7 +220,7 @@
     "max_price": 15700,
     "prices": {
       "morimori": 14000,
-      "homura": 14000,
+      "homura": 14500,
       "rudeya": 15700,
       "runto": 14500,
       "icchome": 14000,
@@ -305,7 +305,7 @@
     "max_price": 14000,
     "prices": {
       "morimori": 11000,
-      "homura": 13000,
+      "homura": 13200,
       "rudeya": 12000,
       "runto": 13000,
       "icchome": 12000,
@@ -355,7 +355,7 @@
     "max_price": 10000,
     "prices": {
       "morimori": 10000,
-      "homura": 9500,
+      "homura": 9700,
       "rudeya": 9600,
       "runto": 10000,
       "icchome": 9000,
