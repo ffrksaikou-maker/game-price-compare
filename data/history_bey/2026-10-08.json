@@ -74,7 +74,7 @@
     "max_price": 6800,
     "prices": {
       "rudeya": 5500,
-      "icchome": 6800,
+      "icchome": 6400,
       "morimori": 6800
     }
   },
@@ -348,10 +348,10 @@
     "name": "BX-36 ランダムブースター ホエールウェーブセレクト",
     "category": "bx",
     "retail_price": 1400,
-    "max_price": 1400,
+    "max_price": 1200,
     "prices": {
       "rudeya": 1000,
-      "icchome": 1400
+      "icchome": 1200
     }
   },
   {
