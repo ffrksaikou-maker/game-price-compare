@@ -181,7 +181,6 @@
     "OP-17 世界最強の戦：": 11000
   },
   "processed_urls": [
-    "https://pbs.twimg.com/media/HS3-WZGakAA4o41?format=png&name=large",
     "https://pbs.twimg.com/media/HT65KmtbAAEclSO?format=jpg&name=large",
     "https://pbs.twimg.com/media/HT67OibawAAxcRl?format=jpg&name=large",
     "https://pbs.twimg.com/media/HT69H7GaMAEgdgH?format=jpg&name=large",
@@ -230,12 +229,13 @@
     "https://pbs.twimg.com/media/HT6_El3bQAAIWzR?format=jpg&name=large",
     "https://pbs.twimg.com/media/HTW1ZnCbEAAezix?format=jpg&name=large",
     "https://pbs.twimg.com/media/HTrhGM5aEAAXeSA?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HTwNS74bcAAcl5F?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HTwNS74bcAAcl5F?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HT66EFpaYAAaJoI?format=jpg&name=large"
   ],
   "last_check": 1791477908,
   "ocr_fail_counts": {},
   "pending_images": [],
-  "last_image_check": 1791466934,
+  "last_image_check": 1791481340,
   "seen_at": {
     "OP-14 蒼海の七傑": 1791451048,
     "OP-15 神の島の冒険": 1791451048,
