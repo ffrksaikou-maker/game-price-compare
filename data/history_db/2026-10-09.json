@@ -7,7 +7,7 @@
     "prices": {
       "rudeya": 5300,
       "runto": 6300,
-      "shinsoku": 6800,
+      "shinsoku": 7200,
       "kaitoriexpo": 7300
     }
   },
@@ -38,10 +38,10 @@
     "name": "ブースターパック「誇り高き戦闘民族」【FB-08】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 10600,
+    "max_price": 11000,
     "prices": {
       "rudeya": 8000,
-      "shinsoku": 10600
+      "shinsoku": 11000
     }
   },
   {
@@ -52,7 +52,7 @@
     "prices": {
       "homura": 24000,
       "rudeya": 19000,
-      "shinsoku": 22500,
+      "shinsoku": 22900,
       "kaitoriexpo": 22000
     }
   },
@@ -93,10 +93,10 @@
     "name": "ブースターパック「怒りの咆哮」【FB-03】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 8800,
+    "max_price": 9300,
     "prices": {
       "rudeya": 6000,
-      "shinsoku": 8800,
+      "shinsoku": 9300,
       "kaitoriexpo": 7500
     }
   },
