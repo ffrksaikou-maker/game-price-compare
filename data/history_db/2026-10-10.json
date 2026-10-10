@@ -5,7 +5,7 @@
     "retail_price": 5760,
     "max_price": 7300,
     "prices": {
-      "rudeya": 5300,
+      "rudeya": 5500,
       "runto": 6300,
       "shinsoku": 7200,
       "kaitoriexpo": 7300
@@ -17,7 +17,7 @@
     "retail_price": 5280,
     "max_price": 7000,
     "prices": {
-      "rudeya": 5500,
+      "rudeya": 5000,
       "runto": 7000,
       "shinsoku": 6000,
       "kaitoriexpo": 6500
@@ -40,7 +40,7 @@
     "retail_price": 5280,
     "max_price": 10600,
     "prices": {
-      "rudeya": 8000,
+      "rudeya": 8500,
       "shinsoku": 10600
     }
   },
@@ -51,7 +51,7 @@
     "max_price": 24000,
     "prices": {
       "homura": 24000,
-      "rudeya": 19000,
+      "rudeya": 19500,
       "shinsoku": 22500,
       "kaitoriexpo": 22000
     }
@@ -62,7 +62,7 @@
     "retail_price": 5280,
     "max_price": 10600,
     "prices": {
-      "rudeya": 7500,
+      "rudeya": 8000,
       "shinsoku": 10600,
       "kaitoriexpo": 10000
     }
@@ -84,7 +84,7 @@
     "retail_price": 5280,
     "max_price": 6600,
     "prices": {
-      "rudeya": 4300,
+      "rudeya": 4000,
       "shinsoku": 6600,
       "kaitoriexpo": 6500
     }
@@ -95,7 +95,7 @@
     "retail_price": 5280,
     "max_price": 9300,
     "prices": {
-      "rudeya": 6000,
+      "rudeya": 6300,
       "shinsoku": 9300,
       "kaitoriexpo": 7200
     }
@@ -117,7 +117,7 @@
     "retail_price": 5280,
     "max_price": 5900,
     "prices": {
-      "rudeya": 4500,
+      "rudeya": 3600,
       "shinsoku": 5900,
       "kaitoriexpo": 5500
     }
@@ -139,20 +139,20 @@
     "max_price": 100000,
     "prices": {
       "homura": 100000,
-      "rudeya": 73000
+      "rudeya": 78000
     }
   },
   {
     "name": "STORY BOOSTER 01【ST-01】",
     "category": "st",
     "retail_price": 6600,
-    "max_price": 11600,
+    "max_price": 11700,
     "prices": {
       "homura": 10800,
-      "rudeya": 8000,
+      "rudeya": 7600,
       "runto": 10800,
       "shinsoku": 9700,
-      "kaitoriexpo": 11600
+      "kaitoriexpo": 11700
     }
   },
   {
@@ -168,9 +168,9 @@
     "name": "スーパーダイバーズ アドバンスパック DRAGON BALL 40th Anniversary Edition",
     "category": "dv",
     "retail_price": 6600,
-    "max_price": 38000,
+    "max_price": 37000,
     "prices": {
-      "rudeya": 38000
+      "rudeya": 37000
     }
   }
 ]
