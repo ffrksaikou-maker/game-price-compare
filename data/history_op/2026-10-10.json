@@ -21,6 +21,7 @@
     "retail_price": 5280,
     "max_price": 9500,
     "prices": {
+      "morimori": 8500,
       "homura": 9500,
       "rudeya": 8600,
       "runto": 8500,
@@ -69,6 +70,7 @@
     "retail_price": 5280,
     "max_price": 18000,
     "prices": {
+      "morimori": 17300,
       "homura": 18000,
       "rudeya": 17500,
       "runto": 17200,
@@ -85,6 +87,7 @@
     "retail_price": 5280,
     "max_price": 14100,
     "prices": {
+      "morimori": 13600,
       "homura": 13800,
       "rudeya": 14100,
       "runto": 13000,
@@ -101,6 +104,7 @@
     "retail_price": 5280,
     "max_price": 30000,
     "prices": {
+      "morimori": 28500,
       "homura": 28500,
       "rudeya": 30000,
       "runto": 26000,
@@ -116,6 +120,7 @@
     "retail_price": 5280,
     "max_price": 10300,
     "prices": {
+      "morimori": 9600,
       "homura": 9600,
       "rudeya": 9700,
       "runto": 9800,
@@ -132,6 +137,7 @@
     "retail_price": 5280,
     "max_price": 17500,
     "prices": {
+      "morimori": 16500,
       "homura": 17000,
       "rudeya": 17000,
       "runto": 17000,
@@ -148,6 +154,7 @@
     "retail_price": 5280,
     "max_price": 10800,
     "prices": {
+      "morimori": 9200,
       "homura": 9400,
       "rudeya": 9400,
       "runto": 9500,
@@ -164,6 +171,7 @@
     "retail_price": 5280,
     "max_price": 15700,
     "prices": {
+      "morimori": 15500,
       "homura": 15500,
       "rudeya": 15700,
       "runto": 14500,
@@ -177,8 +185,9 @@
     "name": "ブースターパック「双璧の覇者」【OP-06】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 21200,
+    "max_price": 23500,
     "prices": {
+      "morimori": 23500,
       "homura": 21000,
       "rudeya": 21200,
       "runto": 18000,
@@ -192,8 +201,9 @@
     "name": "ブースターパック「新時代の主役」【OP-05】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 50000,
+    "max_price": 55800,
     "prices": {
+      "morimori": 55800,
       "homura": 50000,
       "rudeya": 45000,
       "runto": 47000,
@@ -209,6 +219,7 @@
     "retail_price": 5280,
     "max_price": 15000,
     "prices": {
+      "morimori": 14000,
       "homura": 14500,
       "rudeya": 14700,
       "runto": 14800,
@@ -225,6 +236,7 @@
     "retail_price": 4752,
     "max_price": 15300,
     "prices": {
+      "morimori": 13000,
       "homura": 12500,
       "rudeya": 15300,
       "runto": 12000,
@@ -241,6 +253,7 @@
     "retail_price": 4752,
     "max_price": 19300,
     "prices": {
+      "morimori": 17000,
       "homura": 17500,
       "rudeya": 19300,
       "runto": 16500,
@@ -257,6 +270,7 @@
     "retail_price": 4752,
     "max_price": 36300,
     "prices": {
+      "morimori": 35000,
       "homura": 36000,
       "rudeya": 36300,
       "runto": 30000,
@@ -273,6 +287,7 @@
     "retail_price": 5280,
     "max_price": 12700,
     "prices": {
+      "morimori": 10600,
       "homura": 11600,
       "rudeya": 11700,
       "runto": 12000,
@@ -289,6 +304,7 @@
     "retail_price": 5280,
     "max_price": 13300,
     "prices": {
+      "morimori": 11000,
       "homura": 13200,
       "rudeya": 12000,
       "runto": 13000,
@@ -305,6 +321,7 @@
     "retail_price": 5280,
     "max_price": 30600,
     "prices": {
+      "morimori": 30000,
       "homura": 30500,
       "rudeya": 30600,
       "runto": 30500,
@@ -320,6 +337,7 @@
     "retail_price": 5280,
     "max_price": 18000,
     "prices": {
+      "morimori": 16000,
       "homura": 16000,
       "rudeya": 16100,
       "runto": 12000,
@@ -336,6 +354,7 @@
     "retail_price": 5500,
     "max_price": 9700,
     "prices": {
+      "morimori": 9700,
       "homura": 9700,
       "rudeya": 9200,
       "runto": 9700,
@@ -351,6 +370,7 @@
     "retail_price": 5500,
     "max_price": 21000,
     "prices": {
+      "morimori": 20000,
       "homura": 20500,
       "rudeya": 20600,
       "runto": 20500,
