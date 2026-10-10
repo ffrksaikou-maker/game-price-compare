@@ -1,9 +1,8 @@
 """Scraper for 森森買取 (morimori-kaitori.jp).
 
-Uses Playwright to load the search page /search?sk=ポケモンカード
-which renders products via JavaScript. Scrolls/paginates to load all
-results. Products in div.product-item with name in
-h4.search-product-details-name and price in div[class*=price-normal-number].
+2026-10 のリニューアル後は商品が div.mm1551-prow の行で並び、通常買取価格は
+data-cond-new-price 属性に入る(data-price-disp-flg="1" は価格非表示)。
+ページ送りは ?page=N。商品リンクは /category/<サブカテゴリ>/product/<id>。
 """
 
 from __future__ import annotations
@@ -25,8 +24,11 @@ BASE = "https://www.morimori-kaitori.jp"
 # ポケカ側matcherはワンピを弾き、ワンピ側が拾う。(ラベル, URL)
 # ベイブレードは 1904001。/category/price-list/1904001 だと div.product-item が
 # 描画されずタイムアウトするため price-list を挟まない形を使う。
+# ポケカは 2026-10 からシングルカード(PSA鑑定品など)も扱い始め、検索にも
+# カテゴリにも混ざる。シングルはサブカテゴリ 2401009 に入るので除外する
+# (SINGLE_CATEGORIES / SINGLE_NAME_RE)。BOXは 2401001/2401002/2401010 と 2401 直下。
 TARGETS = [
-    ("ポケモン", f"{BASE}/search?sk={quote('ポケモンカード')}"),
+    ("ポケモン", f"{BASE}/category/2401"),
     ("ワンピ", f"{BASE}/category/2403"),
     ("ワンピ新弾", f"{BASE}/category/0112003"),
     ("ベイブレード", f"{BASE}/category/1904001"),
@@ -42,6 +44,14 @@ SEARCH_URL = TARGETS[0][1]  # 後方互換(_open_with_retry のデフォルト�
 # 5回×全カテゴリで約29分を消費してジョブごと落ちたため既定を 2 に下げた。
 # 一時的な H2 リセットを拾いたいときは環境変数で戻せる。
 OPEN_ATTEMPTS = int(os.environ.get("MORIMORI_OPEN_ATTEMPTS", "2") or 2)
+
+ROW_SELECTOR = "div.mm1551-prow"
+# シングルカードのサブカテゴリ。BOXの買取価格と誤マッチさせないため丸ごと捨てる。
+SINGLE_CATEGORIES = {"2401009"}
+# カテゴリ外に紛れたシングル用の保険(鑑定品・カード番号・レアリティ表記)
+SINGLE_NAME_RE = re.compile(
+    r"PSA|BGS|ARS|CGC|鑑定|\d{1,3}/[\w-]+|\d+-SV-P|(?:^|\s)(?:AR|SAR|SR|UR|HR|CHR|CSR)(?:\s|$)"
+)
 
 
 class MorimoriScraper(BaseScraper):
@@ -68,35 +78,28 @@ class MorimoriScraper(BaseScraper):
                 for label, target_url in TARGETS:
                     try:
                         page = self._open_with_retry(browser, target_url)
-                        page.wait_for_timeout(3000)
+                        prev_hrefs: list[str] = []
+                        for page_num in range(1, 30):
+                            if page_num > 1:
+                                sep = "&" if "?" in target_url else "?"
+                                url = f"{target_url}{sep}page={page_num}"
+                                page.goto(url, wait_until="domcontentloaded", timeout=60000)
+                                try:
+                                    page.wait_for_selector(ROW_SELECTOR, timeout=20000)
+                                except Exception:
+                                    break  # 最終ページの次は行が無い
 
-                        # Extract products from initial load
-                        count_before = len(items)
-                        self._extract_from_page(page, items, seen_names)
-                        logger.info(
-                            "%s: %s initial: %d new items",
-                            self.shop_name, label, len(items) - count_before,
-                        )
-
-                        # Click pagination to load more pages
-                        for page_num in range(2, 30):
-                            has_next = self._click_next_page(page, page_num)
-                            if not has_next:
-                                break
-
-                            page.wait_for_timeout(2000)
-
-                            page_before = len(items)
-                            self._extract_from_page(page, items, seen_names)
-                            new_count = len(items) - page_before
-
+                            before = len(items)
+                            hrefs = self._extract_from_page(page, items, seen_names)
+                            if not hrefs or hrefs == prev_hrefs:
+                                break  # 行なし / page指定が効かず同じページ
+                            prev_hrefs = hrefs
                             logger.info(
                                 "%s: %s page %d: %d new items (total %d)",
-                                self.shop_name, label, page_num, new_count,
-                                len(items),
+                                self.shop_name, label, page_num,
+                                len(items) - before, len(items),
                             )
-                            if new_count == 0:
-                                break
+                        page.context.close()
                     except Exception as e:
                         logger.error(
                             "%s: %s error: %s", self.shop_name, label, e,
@@ -112,68 +115,35 @@ class MorimoriScraper(BaseScraper):
 
     def _extract_from_page(
         self, page, items: list[ScrapedItem], seen: set[str],
-    ) -> None:
-        """Extract products from the current Playwright page DOM."""
-        products = page.evaluate(
-            r"""() => {
-                const results = [];
-                const items = document.querySelectorAll('div.product-item');
-                for (const item of items) {
-                    // 検索ページは h4.product-details-name、カテゴリページは
-                    // h5.product-details-name。タグ非依存で拾う。
-                    const nameEl = item.querySelector(
-                        '[class*="product-details-name"]'
-                    );
-                    // Price: 検索ページは price-normal-number クラス。
-                    let priceEl = item.querySelector(
-                        'div[class*="price-normal-number"]'
-                    ) || item.querySelector(
-                        'span[class*="price-normal-number"]'
-                    ) || item.querySelector(
-                        '[class*="price"] [class*="number"]'
-                    );
-                    // カテゴリページはクラス無し。「通常買取価格:」直後の数値を拾う
-                    // (預かり買取価格は採用しない)。
-                    if (!priceEl) {
-                        const m = item.innerText.match(/通常買取価格[:：]?\s*([\d,]+)\s*円/);
-                        if (nameEl && m) {
-                            results.push({
-                                name: nameEl.textContent.trim(),
-                                price: m[1]
-                            });
-                            continue;
-                        }
-                    }
-                    if (nameEl && priceEl) {
-                        results.push({
-                            name: nameEl.textContent.trim(),
-                            price: priceEl.textContent.trim()
-                        });
-                    } else if (nameEl) {
-                        // Fallback: try to find any price-like text
-                        const priceText = item.querySelector(
-                            '[class*="price"]'
-                        );
-                        if (priceText) {
-                            results.push({
-                                name: nameEl.textContent.trim(),
-                                price: priceText.textContent.trim()
-                            });
-                        }
-                    }
-                }
-                return results;
-            }"""
+    ) -> list[str]:
+        """Extract products from the current page. ページ上の全行の href を返す。"""
+        rows = page.evaluate(
+            r"""() => [...document.querySelectorAll('div.mm1551-prow')].map(r => {
+                const a = r.querySelector('.mm1551-prow__name a');
+                return {
+                    name: a ? a.textContent : '',
+                    href: a ? (a.getAttribute('href') || '') : '',
+                    price: r.dataset.condNewPrice || '',
+                    hidden: r.dataset.priceDispFlg === '1',
+                };
+            })"""
         )
-
-        for prod in products:
-            raw_name = prod["name"]
-            name = re.sub(r"\s+", " ", raw_name).strip()
-            price = self.parse_price(prod["price"])
-
+        skipped_single = 0
+        for row in rows:
+            name = re.sub(r"\s+", " ", row["name"]).strip()
+            m = re.search(r"/category/(\w+)/product/", row["href"])
+            if (m and m.group(1) in SINGLE_CATEGORIES) or SINGLE_NAME_RE.search(name):
+                skipped_single += 1
+                continue
+            if row["hidden"]:
+                continue
+            price = self.parse_price(row["price"])
             if name and price > 0 and name not in seen:
                 seen.add(name)
                 items.append(ScrapedItem(name=name, price=price))
+        if skipped_single:
+            logger.debug("%s: シングル %d 件を除外", self.shop_name, skipped_single)
+        return [row["href"] for row in rows]
 
     def _open_with_retry(self, browser, search_url: str = SEARCH_URL,
                          max_attempts: int = OPEN_ATTEMPTS):
@@ -197,7 +167,7 @@ class MorimoriScraper(BaseScraper):
             page = context.new_page()
             try:
                 page.goto(search_url, wait_until="domcontentloaded", timeout=60000)
-                page.wait_for_selector("div.product-item", timeout=30000)
+                page.wait_for_selector(ROW_SELECTOR, timeout=30000)
                 return page
             except Exception as e:
                 last_err = e
@@ -209,46 +179,3 @@ class MorimoriScraper(BaseScraper):
                 if attempt < max_attempts - 1:
                     time.sleep(backoff[min(attempt, len(backoff) - 1)])
         raise last_err if last_err else RuntimeError("open failed")
-
-    @staticmethod
-    def _click_next_page(page, page_num: int) -> bool:
-        """Click the next page button. Returns False if no more pages."""
-        # Try clicking numbered pagination link
-        result = page.evaluate(
-            """(pageNum) => {
-                // Look for pagination links
-                const links = document.querySelectorAll(
-                    '.pagination a, .page-link, a[href*="page="]'
-                );
-                for (const link of links) {
-                    const text = link.textContent.trim();
-                    if (text === String(pageNum)) {
-                        link.click();
-                        return true;
-                    }
-                }
-                // Look for "next" arrow/button
-                const nextBtns = document.querySelectorAll(
-                    'a.next, a[rel="next"], .pagination .next a, button.next'
-                );
-                for (const btn of nextBtns) {
-                    btn.click();
-                    return true;
-                }
-                // Look for "load more" / "もっと見る" button
-                const moreButtons = document.querySelectorAll(
-                    'button, a.load-more, .show-more'
-                );
-                for (const btn of moreButtons) {
-                    const text = btn.textContent.trim();
-                    if (text.includes('もっと') || text.includes('次') ||
-                        text.includes('more') || text.includes('More')) {
-                        btn.click();
-                        return true;
-                    }
-                }
-                return false;
-            }""",
-            page_num,
-        )
-        return bool(result)
