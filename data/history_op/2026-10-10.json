@@ -5,7 +5,7 @@
     "retail_price": 5760,
     "max_price": 10800,
     "prices": {
-      "homura": 10500,
+      "homura": 10600,
       "rudeya": 10500,
       "runto": 10500,
       "icchome": 10500,
@@ -25,11 +25,10 @@
       "rudeya": 8600,
       "runto": 8500,
       "icchome": 8000,
-      "oku": 8500,
+      "oku": 9500,
       "collect_tendo": 9200,
       "shinsoku": 8900,
-      "kaitoriexpo": 8200,
-      "morimori": 8500
+      "kaitoriexpo": 8200
     }
   },
   {
@@ -38,11 +37,11 @@
     "retail_price": 5280,
     "max_price": 8400,
     "prices": {
-      "homura": 7500,
+      "homura": 8000,
       "rudeya": 7600,
       "runto": 8000,
       "icchome": 7500,
-      "oku": 7500,
+      "oku": 8000,
       "collect_tendo": 7000,
       "shinsoku": 8000,
       "kaitoriexpo": 8400
@@ -54,11 +53,11 @@
     "retail_price": 5280,
     "max_price": 8900,
     "prices": {
-      "homura": 8000,
+      "homura": 8200,
       "rudeya": 8000,
       "runto": 8500,
       "icchome": 8000,
-      "oku": 8000,
+      "oku": 8200,
       "collect_tendo": 8000,
       "shinsoku": 8200,
       "kaitoriexpo": 8900
@@ -68,17 +67,16 @@
     "name": "ブースターパック「受け継がれる意志」【OP-13】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 17200,
+    "max_price": 18000,
     "prices": {
-      "homura": 17000,
+      "homura": 18000,
       "rudeya": 15000,
       "runto": 17200,
       "icchome": 11000,
-      "oku": 15000,
+      "oku": 17000,
       "collect_tendo": 15000,
       "shinsoku": 16800,
-      "kaitoriexpo": 16700,
-      "morimori": 15000
+      "kaitoriexpo": 16700
     }
   },
   {
@@ -94,8 +92,7 @@
       "oku": 13800,
       "collect_tendo": 14000,
       "shinsoku": 13900,
-      "kaitoriexpo": 12500,
-      "morimori": 13600
+      "kaitoriexpo": 12500
     }
   },
   {
@@ -110,8 +107,7 @@
       "icchome": 30000,
       "oku": 28500,
       "collect_tendo": 30000,
-      "shinsoku": 27600,
-      "morimori": 28500
+      "shinsoku": 27600
     }
   },
   {
@@ -127,8 +123,7 @@
       "oku": 9600,
       "collect_tendo": 10000,
       "shinsoku": 9300,
-      "kaitoriexpo": 10300,
-      "morimori": 9600
+      "kaitoriexpo": 10300
     }
   },
   {
@@ -144,8 +139,7 @@
       "oku": 16500,
       "collect_tendo": 17500,
       "shinsoku": 17000,
-      "kaitoriexpo": 16500,
-      "morimori": 16500
+      "kaitoriexpo": 16500
     }
   },
   {
@@ -161,8 +155,7 @@
       "oku": 9000,
       "collect_tendo": 10500,
       "shinsoku": 8800,
-      "kaitoriexpo": 10500,
-      "morimori": 9200
+      "kaitoriexpo": 10500
     }
   },
   {
@@ -173,44 +166,41 @@
     "prices": {
       "homura": 15500,
       "rudeya": 15700,
-      "runto": 14000,
+      "runto": 14500,
       "icchome": 15000,
       "oku": 15500,
       "shinsoku": 14200,
-      "kaitoriexpo": 14000,
-      "morimori": 15500
+      "kaitoriexpo": 14000
     }
   },
   {
     "name": "ブースターパック「双璧の覇者」【OP-06】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 23500,
+    "max_price": 21000,
     "prices": {
       "homura": 21000,
       "rudeya": 20800,
-      "runto": 17000,
+      "runto": 18000,
       "icchome": 17000,
       "oku": 20500,
       "shinsoku": 19100,
-      "kaitoriexpo": 17000,
-      "morimori": 23500
+      "kaitoriexpo": 17000
     }
   },
   {
     "name": "ブースターパック「新時代の主役」【OP-05】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 55800,
+    "max_price": 52000,
     "prices": {
       "homura": 50000,
       "rudeya": 45000,
-      "runto": 45000,
+      "runto": 47000,
       "icchome": 50000,
       "oku": 50000,
       "collect_tendo": 52000,
-      "shinsoku": 45500,
-      "morimori": 55800
+      "shinsoku": 45500
     }
   },
   {
@@ -226,8 +216,7 @@
       "oku": 13000,
       "collect_tendo": 15000,
       "shinsoku": 14600,
-      "kaitoriexpo": 15000,
-      "morimori": 14000
+      "kaitoriexpo": 15000
     }
   },
   {
@@ -243,8 +232,7 @@
       "oku": 12500,
       "collect_tendo": 14000,
       "shinsoku": 12600,
-      "kaitoriexpo": 15000,
-      "morimori": 13000
+      "kaitoriexpo": 15000
     }
   },
   {
@@ -253,15 +241,14 @@
     "retail_price": 4752,
     "max_price": 19300,
     "prices": {
-      "homura": 17000,
+      "homura": 17500,
       "rudeya": 19300,
-      "runto": 15000,
+      "runto": 16500,
       "icchome": 19000,
       "oku": 17000,
       "collect_tendo": 18000,
       "shinsoku": 17100,
-      "kaitoriexpo": 14800,
-      "morimori": 17000
+      "kaitoriexpo": 14800
     }
   },
   {
@@ -272,13 +259,12 @@
     "prices": {
       "homura": 36000,
       "rudeya": 35600,
-      "runto": 26000,
+      "runto": 30000,
       "icchome": 31000,
       "oku": 33000,
       "collect_tendo": 35000,
       "shinsoku": 34500,
-      "kaitoriexpo": 35000,
-      "morimori": 35000
+      "kaitoriexpo": 35000
     }
   },
   {
@@ -287,15 +273,14 @@
     "retail_price": 5280,
     "max_price": 12700,
     "prices": {
-      "homura": 11500,
+      "homura": 11600,
       "rudeya": 11700,
       "runto": 12000,
       "icchome": 11000,
       "oku": 11000,
       "collect_tendo": 12400,
       "shinsoku": 11600,
-      "kaitoriexpo": 12700,
-      "morimori": 10600
+      "kaitoriexpo": 12700
     }
   },
   {
@@ -311,8 +296,7 @@
       "oku": 12000,
       "collect_tendo": 13200,
       "shinsoku": 13300,
-      "kaitoriexpo": 12000,
-      "morimori": 11000
+      "kaitoriexpo": 12000
     }
   },
   {
@@ -327,8 +311,7 @@
       "icchome": 29000,
       "oku": 30000,
       "shinsoku": 28200,
-      "kaitoriexpo": 28000,
-      "morimori": 30000
+      "kaitoriexpo": 28000
     }
   },
   {
@@ -344,15 +327,14 @@
       "oku": 16000,
       "collect_tendo": 18000,
       "shinsoku": 16100,
-      "kaitoriexpo": 16000,
-      "morimori": 16000
+      "kaitoriexpo": 16000
     }
   },
   {
     "name": "プレミアムブースター「ONE PIECE CARD THE BEST vol.2」【PRB-02】",
     "category": "prb",
     "retail_price": 5500,
-    "max_price": 10000,
+    "max_price": 9700,
     "prices": {
       "homura": 9700,
       "rudeya": 9600,
@@ -360,8 +342,7 @@
       "icchome": 9000,
       "oku": 9500,
       "shinsoku": 9700,
-      "kaitoriexpo": 9000,
-      "morimori": 10000
+      "kaitoriexpo": 9000
     }
   },
   {
@@ -377,8 +358,7 @@
       "oku": 20500,
       "collect_tendo": 20000,
       "shinsoku": 20600,
-      "kaitoriexpo": 20500,
-      "morimori": 20000
+      "kaitoriexpo": 20500
     }
   },
   {

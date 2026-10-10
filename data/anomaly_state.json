@@ -7,7 +7,7 @@
   },
   "SV 強化拡張パック「黒炎の支配者」|kaitoriexpo": {
     "price": 4100,
-    "ref": 15000,
+    "ref": 15400,
     "ratio": 0.27,
     "drop": false
   },
@@ -22,11 +22,5 @@
     "ref": 7000,
     "ratio": 2.67,
     "drop": false
-  },
-  "MANGA BOOSTER 01【SB-01】|morimori": {
-    "price": 15000,
-    "ref": 86500,
-    "ratio": 0.17,
-    "drop": true
   }
 }
