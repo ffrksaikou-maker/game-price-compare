@@ -21,7 +21,7 @@
     "retail_price": 5280,
     "max_price": 9500,
     "prices": {
-      "morimori": 8500,
+      "morimori": 9500,
       "homura": 9500,
       "rudeya": 8600,
       "runto": 8500,
@@ -70,7 +70,7 @@
     "retail_price": 5280,
     "max_price": 18000,
     "prices": {
-      "morimori": 17300,
+      "morimori": 17500,
       "homura": 18000,
       "rudeya": 17500,
       "runto": 17200,
@@ -201,9 +201,9 @@
     "name": "ブースターパック「新時代の主役」【OP-05】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 55800,
+    "max_price": 50000,
     "prices": {
-      "morimori": 55800,
+      "morimori": 50000,
       "homura": 50000,
       "rudeya": 45000,
       "runto": 47000,
@@ -236,7 +236,7 @@
     "retail_price": 4752,
     "max_price": 15300,
     "prices": {
-      "morimori": 13000,
+      "morimori": 12500,
       "homura": 12500,
       "rudeya": 15300,
       "runto": 12000,
@@ -287,12 +287,12 @@
     "retail_price": 5280,
     "max_price": 12700,
     "prices": {
-      "morimori": 10600,
+      "morimori": 11600,
       "homura": 11600,
       "rudeya": 11700,
       "runto": 12000,
       "icchome": 11000,
-      "oku": 11000,
+      "oku": 11200,
       "collect_tendo": 12400,
       "shinsoku": 12100,
       "kaitoriexpo": 12700
@@ -304,12 +304,12 @@
     "retail_price": 5280,
     "max_price": 13200,
     "prices": {
-      "morimori": 11000,
+      "morimori": 13200,
       "homura": 13200,
       "rudeya": 12000,
       "runto": 13000,
       "icchome": 12000,
-      "oku": 12000,
+      "oku": 12500,
       "collect_tendo": 13200,
       "shinsoku": 13100,
       "kaitoriexpo": 12000
@@ -321,7 +321,7 @@
     "retail_price": 5280,
     "max_price": 30600,
     "prices": {
-      "morimori": 30000,
+      "morimori": 30500,
       "homura": 30500,
       "rudeya": 30600,
       "runto": 30500,
@@ -370,7 +370,7 @@
     "retail_price": 5500,
     "max_price": 21000,
     "prices": {
-      "morimori": 20000,
+      "morimori": 20500,
       "homura": 20500,
       "rudeya": 20600,
       "runto": 20500,
