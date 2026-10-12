@@ -11,10 +11,10 @@
       "runto": 61000,
       "icchome": 60000,
       "oku": 50000,
+      "kaikyo": 56000,
       "collect_tendo": 58000,
       "shinsoku": 58000,
-      "kaitoriexpo": 56000,
-      "kaikyo": 56000
+      "kaitoriexpo": 56000
     }
   },
   {
@@ -28,27 +28,27 @@
       "rudeya": 17600,
       "icchome": 17000,
       "oku": 16000,
+      "kaikyo": 16000,
       "collect_tendo": 18300,
       "shinsoku": 16100,
-      "kaitoriexpo": 17000,
-      "kaikyo": 16000
+      "kaitoriexpo": 17000
     }
   },
   {
     "name": "MEGA 拡張パック「30th CELEBRATION」",
     "category": "mega",
     "retail_price": 7200,
-    "max_price": 25300,
+    "max_price": 25000,
     "prices": {
-      "morimori": 25300,
+      "morimori": 25000,
       "homura": 25000,
       "rudeya": 22000,
       "runto": 25000,
       "icchome": 24500,
+      "kaikyo": 24000,
       "collect_tendo": 25000,
       "shinsoku": 25000,
-      "kaitoriexpo": 24800,
-      "kaikyo": 24000
+      "kaitoriexpo": 24800
     }
   },
   {
@@ -61,12 +61,12 @@
       "homura": 10500,
       "rudeya": 8700,
       "runto": 10100,
-      "icchome": 8800,
+      "icchome": 9500,
       "oku": 10000,
+      "kaikyo": 9000,
       "collect_tendo": 9200,
       "shinsoku": 10000,
-      "kaitoriexpo": 10000,
-      "kaikyo": 9000
+      "kaitoriexpo": 10000
     }
   },
   {
@@ -78,8 +78,8 @@
       "morimori": 9000,
       "homura": 9100,
       "rudeya": 6100,
-      "runto": 8500,
-      "icchome": 8500,
+      "runto": 9100,
+      "icchome": 9000,
       "oku": 8800,
       "collect_tendo": 9100,
       "shinsoku": 9000,
@@ -95,13 +95,13 @@
       "morimori": 8900,
       "homura": 9100,
       "rudeya": 7000,
-      "runto": 8300,
-      "icchome": 8500,
+      "runto": 8500,
+      "icchome": 9000,
       "oku": 8500,
+      "kaikyo": 7000,
       "collect_tendo": 8500,
       "shinsoku": 9000,
-      "kaitoriexpo": 9000,
-      "kaikyo": 7000
+      "kaitoriexpo": 9000
     }
   },
   {
@@ -114,12 +114,12 @@
       "homura": 8800,
       "rudeya": 7500,
       "runto": 8000,
-      "icchome": 8200,
+      "icchome": 8800,
       "oku": 8500,
+      "kaikyo": 7000,
       "collect_tendo": 8000,
       "shinsoku": 8600,
-      "kaitoriexpo": 8500,
-      "kaikyo": 7000
+      "kaitoriexpo": 8500
     }
   },
   {
@@ -128,16 +128,16 @@
     "retail_price": 5500,
     "max_price": 12700,
     "prices": {
-      "morimori": 12100,
+      "morimori": 12300,
       "homura": 12300,
       "rudeya": 10000,
-      "runto": 12000,
-      "icchome": 12200,
+      "runto": 12300,
+      "icchome": 12300,
       "oku": 11000,
+      "kaikyo": 9500,
       "collect_tendo": 12500,
       "shinsoku": 12200,
-      "kaitoriexpo": 12700,
-      "kaikyo": 9500
+      "kaitoriexpo": 12700
     }
   },
   {
@@ -146,16 +146,16 @@
     "retail_price": 5400,
     "max_price": 16600,
     "prices": {
-      "morimori": 15000,
+      "morimori": 15200,
       "homura": 15200,
       "rudeya": 12500,
-      "runto": 16000,
+      "runto": 16500,
       "icchome": 14500,
       "oku": 15000,
+      "kaikyo": 13500,
       "collect_tendo": 14000,
       "shinsoku": 15200,
-      "kaitoriexpo": 16600,
-      "kaikyo": 13500
+      "kaitoriexpo": 16600
     }
   },
   {
@@ -168,7 +168,7 @@
       "homura": 8200,
       "rudeya": 6700,
       "runto": 7500,
-      "icchome": 7800,
+      "icchome": 8000,
       "oku": 7800,
       "collect_tendo": 7600,
       "shinsoku": 8000,
@@ -181,16 +181,16 @@
     "retail_price": 5400,
     "max_price": 7700,
     "prices": {
-      "morimori": 7500,
+      "morimori": 7700,
       "homura": 7700,
       "rudeya": 6400,
       "runto": 7100,
-      "icchome": 7100,
+      "icchome": 7200,
       "oku": 7500,
+      "kaikyo": 6500,
       "collect_tendo": 7000,
       "shinsoku": 7500,
-      "kaitoriexpo": 7200,
-      "kaikyo": 6500
+      "kaitoriexpo": 7200
     }
   },
   {
@@ -225,11 +225,11 @@
     "retail_price": 5800,
     "max_price": 21000,
     "prices": {
-      "morimori": 20500,
+      "morimori": 20800,
       "homura": 20800,
       "rudeya": 19000,
       "runto": 19000,
-      "icchome": 19000,
+      "icchome": 20000,
       "collect_tendo": 19500,
       "shinsoku": 21000,
       "kaitoriexpo": 19000
@@ -241,11 +241,11 @@
     "retail_price": 5800,
     "max_price": 19000,
     "prices": {
-      "morimori": 18500,
+      "morimori": 18800,
       "homura": 18800,
       "rudeya": 17000,
       "runto": 18000,
-      "icchome": 17500,
+      "icchome": 18000,
       "collect_tendo": 18200,
       "shinsoku": 19000,
       "kaitoriexpo": 18000
@@ -257,11 +257,11 @@
     "retail_price": 5400,
     "max_price": 22000,
     "prices": {
-      "morimori": 21500,
+      "morimori": 22000,
       "homura": 22000,
       "rudeya": 17000,
       "runto": 21000,
-      "icchome": 20000,
+      "icchome": 21500,
       "collect_tendo": 21500,
       "shinsoku": 21800,
       "kaitoriexpo": 19800
@@ -293,7 +293,7 @@
       "homura": 11200,
       "rudeya": 8600,
       "runto": 10000,
-      "icchome": 10300,
+      "icchome": 10500,
       "collect_tendo": 10000,
       "shinsoku": 11100,
       "kaitoriexpo": 4200
@@ -305,15 +305,15 @@
     "retail_price": 5500,
     "max_price": 19000,
     "prices": {
-      "morimori": 18500,
+      "morimori": 19000,
       "homura": 19000,
       "rudeya": 15200,
       "runto": 17200,
-      "icchome": 17000,
+      "icchome": 17200,
+      "kaikyo": 13500,
       "collect_tendo": 18500,
       "shinsoku": 18800,
-      "kaitoriexpo": 17500,
-      "kaikyo": 13500
+      "kaitoriexpo": 17500
     }
   },
   {
@@ -339,7 +339,7 @@
     "max_price": 14500,
     "prices": {
       "morimori": 14000,
-      "homura": 14300,
+      "homura": 14500,
       "rudeya": 13500,
       "runto": 13500,
       "icchome": 13700,
@@ -357,7 +357,7 @@
       "homura": 11500,
       "rudeya": 10200,
       "runto": 10000,
-      "icchome": 10800,
+      "icchome": 11000,
       "collect_tendo": 11000,
       "shinsoku": 11500,
       "kaitoriexpo": 4200
@@ -373,7 +373,7 @@
       "homura": 11500,
       "rudeya": 10000,
       "runto": 10000,
-      "icchome": 10800,
+      "icchome": 11200,
       "collect_tendo": 9500,
       "shinsoku": 11500,
       "kaitoriexpo": 11300
@@ -453,11 +453,11 @@
       "homura": 17000,
       "rudeya": 14300,
       "runto": 15800,
-      "icchome": 15500,
+      "icchome": 17000,
+      "kaikyo": 12000,
       "collect_tendo": 17000,
       "shinsoku": 17000,
-      "kaitoriexpo": 16600,
-      "kaikyo": 12000
+      "kaitoriexpo": 16600
     }
   },
   {
@@ -470,7 +470,7 @@
       "homura": 11000,
       "rudeya": 10000,
       "runto": 10000,
-      "icchome": 10200,
+      "icchome": 11000,
       "collect_tendo": 9700,
       "shinsoku": 11000,
       "kaitoriexpo": 9300
@@ -486,7 +486,7 @@
       "homura": 9300,
       "rudeya": 8300,
       "runto": 8000,
-      "icchome": 8000,
+      "icchome": 9300,
       "collect_tendo": 8100,
       "shinsoku": 9500,
       "kaitoriexpo": 7200
@@ -502,7 +502,7 @@
       "homura": 15500,
       "rudeya": 13000,
       "runto": 13500,
-      "icchome": 14000,
+      "icchome": 15000,
       "collect_tendo": 14000,
       "shinsoku": 15200,
       "kaitoriexpo": 13500
@@ -518,7 +518,7 @@
       "homura": 16500,
       "rudeya": 12500,
       "runto": 15800,
-      "icchome": 15000,
+      "icchome": 16000,
       "collect_tendo": 15000,
       "shinsoku": 16800,
       "kaitoriexpo": 15800
@@ -531,13 +531,13 @@
     "max_price": 44000,
     "prices": {
       "morimori": 43000,
-      "homura": 43000,
+      "homura": 44000,
       "rudeya": 30000,
       "runto": 44000,
-      "icchome": 32000,
+      "icchome": 40000,
+      "kaikyo": 40000,
       "collect_tendo": 32000,
-      "shinsoku": 43000,
-      "kaikyo": 40000
+      "shinsoku": 43000
     }
   },
   {
@@ -550,7 +550,7 @@
       "homura": 10200,
       "rudeya": 9700,
       "runto": 9500,
-      "icchome": 10000,
+      "icchome": 10200,
       "collect_tendo": 9000,
       "shinsoku": 10200,
       "kaitoriexpo": 9800
@@ -563,10 +563,10 @@
     "max_price": 11000,
     "prices": {
       "morimori": 10600,
-      "homura": 10800,
+      "homura": 11000,
       "rudeya": 9000,
       "runto": 10300,
-      "icchome": 10500,
+      "icchome": 10800,
       "collect_tendo": 10000,
       "shinsoku": 11000,
       "kaitoriexpo": 10000
@@ -582,7 +582,7 @@
       "homura": 17000,
       "rudeya": 16600,
       "runto": 15300,
-      "icchome": 15500,
+      "icchome": 16500,
       "collect_tendo": 15500,
       "shinsoku": 16500,
       "kaitoriexpo": 14000
@@ -595,10 +595,10 @@
     "max_price": 12800,
     "prices": {
       "morimori": 11800,
-      "homura": 12500,
+      "homura": 12800,
       "rudeya": 11700,
       "runto": 11800,
-      "icchome": 11500,
+      "icchome": 11600,
       "collect_tendo": 11000,
       "shinsoku": 12800
     }
@@ -613,7 +613,7 @@
       "homura": 9500,
       "rudeya": 9200,
       "runto": 8800,
-      "icchome": 8800,
+      "icchome": 9500,
       "collect_tendo": 8400,
       "shinsoku": 9700
     }
@@ -625,10 +625,10 @@
     "max_price": 25500,
     "prices": {
       "morimori": 24100,
-      "homura": 24100,
+      "homura": 24500,
       "rudeya": 20000,
       "runto": 25500,
-      "icchome": 22500,
+      "icchome": 23000,
       "collect_tendo": 24500,
       "shinsoku": 24500
     }
@@ -680,9 +680,9 @@
     "prices": {
       "homura": 20500,
       "runto": 20000,
+      "kaikyo": 14500,
       "collect_tendo": 20000,
-      "shinsoku": 21000,
-      "kaikyo": 14500
+      "shinsoku": 21000
     }
   },
   {
@@ -982,7 +982,7 @@
       "homura": 13000,
       "rudeya": 10000,
       "runto": 13000,
-      "icchome": 11000,
+      "icchome": 12000,
       "shinsoku": 12000
     }
   },
@@ -995,7 +995,7 @@
       "homura": 14300,
       "rudeya": 10000,
       "runto": 13500,
-      "icchome": 11500,
+      "icchome": 13000,
       "collect_tendo": 13500,
       "shinsoku": 13500
     }
@@ -1009,7 +1009,7 @@
       "homura": 12800,
       "rudeya": 10000,
       "runto": 12500,
-      "icchome": 11000,
+      "icchome": 11500,
       "collect_tendo": 13000,
       "shinsoku": 13000
     }

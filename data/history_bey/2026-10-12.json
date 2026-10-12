@@ -6,7 +6,7 @@
     "max_price": 2700,
     "prices": {
       "morimori": 2300,
-      "rudeya": 2500,
+      "rudeya": 2300,
       "icchome": 2700
     }
   },
@@ -18,7 +18,7 @@
     "prices": {
       "morimori": 1800,
       "homura": 1700,
-      "rudeya": 1700,
+      "rudeya": 1600,
       "icchome": 2100
     }
   },
@@ -97,7 +97,7 @@
     "max_price": 2200,
     "prices": {
       "morimori": 1600,
-      "rudeya": 1400,
+      "rudeya": 1100,
       "icchome": 2200
     }
   },
@@ -139,9 +139,9 @@
     "name": "UX-04 バトルエントリーセットU",
     "category": "ux",
     "retail_price": 6050,
-    "max_price": 4000,
+    "max_price": 3000,
     "prices": {
-      "rudeya": 4000
+      "rudeya": 3000
     }
   },
   {
@@ -162,7 +162,7 @@
     "max_price": 2000,
     "prices": {
       "morimori": 1900,
-      "homura": 1400,
+      "homura": 1300,
       "rudeya": 1300,
       "icchome": 2000
     }
@@ -174,7 +174,7 @@
     "max_price": 1500,
     "prices": {
       "morimori": 1300,
-      "rudeya": 1000,
+      "rudeya": 900,
       "icchome": 1500
     }
   },
@@ -196,8 +196,8 @@
     "max_price": 4000,
     "prices": {
       "morimori": 4000,
-      "rudeya": 3500,
-      "icchome": 4000
+      "rudeya": 3000,
+      "icchome": 3500
     }
   },
   {
@@ -208,7 +208,6 @@
     "prices": {
       "morimori": 1300,
       "homura": 1000,
-      "rudeya": 1000,
       "icchome": 1500
     }
   },
@@ -263,7 +262,7 @@
     "prices": {
       "morimori": 1600,
       "homura": 1600,
-      "rudeya": 1400,
+      "rudeya": 900,
       "icchome": 1800
     }
   },
@@ -296,7 +295,6 @@
     "prices": {
       "morimori": 1100,
       "homura": 1000,
-      "rudeya": 800,
       "icchome": 1100
     }
   },
@@ -328,9 +326,9 @@
     "name": "BX-46 バトルエントリーセット∞",
     "category": "bx",
     "retail_price": 7500,
-    "max_price": 6000,
+    "max_price": 5000,
     "prices": {
-      "rudeya": 6000
+      "rudeya": 5000
     }
   },
   {
@@ -350,7 +348,6 @@
     "retail_price": 1400,
     "max_price": 1200,
     "prices": {
-      "rudeya": 1000,
       "icchome": 1200
     }
   },
@@ -360,7 +357,7 @@
     "retail_price": 1400,
     "max_price": 2800,
     "prices": {
-      "rudeya": 2000,
+      "rudeya": 2300,
       "icchome": 2800
     }
   },
@@ -414,7 +411,7 @@
     "max_price": 1500,
     "prices": {
       "morimori": 1000,
-      "rudeya": 1500,
+      "rudeya": 1400,
       "icchome": 1500
     }
   },
@@ -433,9 +430,9 @@
     "name": "CX-00 ドランブレイブS6-60V メタルコート:ブラック",
     "category": "limited",
     "retail_price": 1800,
-    "max_price": 4000,
+    "max_price": 3800,
     "prices": {
-      "rudeya": 4000
+      "rudeya": 3800
     }
   },
   {
@@ -444,7 +441,7 @@
     "retail_price": 2700,
     "max_price": 5200,
     "prices": {
-      "rudeya": 3500,
+      "rudeya": 2800,
       "icchome": 5200
     }
   },
@@ -455,7 +452,7 @@
     "max_price": 18700,
     "prices": {
       "homura": 7000,
-      "rudeya": 7000,
+      "rudeya": 5000,
       "icchome": 18700
     }
   },
