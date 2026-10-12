@@ -5,7 +5,7 @@
     "retail_price": 4500,
     "max_price": 2700,
     "prices": {
-      "morimori": 2300,
+      "morimori": 2100,
       "rudeya": 2300,
       "icchome": 2700
     }
@@ -193,9 +193,9 @@
     "name": "CX-16 スタートダッシュセットC",
     "category": "cx",
     "retail_price": 5650,
-    "max_price": 4000,
+    "max_price": 3500,
     "prices": {
-      "morimori": 4000,
+      "morimori": 3500,
       "rudeya": 3000,
       "icchome": 3500
     }
@@ -410,7 +410,7 @@
     "retail_price": 2620,
     "max_price": 1500,
     "prices": {
-      "morimori": 1000,
+      "morimori": 1200,
       "rudeya": 1400,
       "icchome": 1500
     }
