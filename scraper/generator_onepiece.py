@@ -59,7 +59,7 @@ except Exception:  # 記事データが読めない環境でも生成は続行
 # ハウツー記事(atari自動生成とは別枠・手動append)
 ONEPIECE_ARTICLES.append(
     ("hatsubai-schedule.html", "新弾発売スケジュール",
-     "EB-05(10/31・BOX5,760円)とOP-18(11月予定)の発売日をまとめ、OP-17からの定価改定と相場への影響を解説。"))
+     "EB-05(10/31・BOX5,760円)とOP-18(11/21)の発売日をまとめ、OP-17からの定価改定と相場への影響を解説。"))
 ONEPIECE_ARTICLES.append(
     ("kaitori-hikaku.html", "ワンピBOX買取比較・高く売るコツ",
      "最大10店舗の実データでワンピBOXを高く売るコツと店舗の選び方を解説。"))
@@ -72,6 +72,9 @@ ONEPIECE_ARTICLES.append(
 ONEPIECE_ARTICLES.append(
     ("op-17-forecast.html", "【予想】世界最強の戦士(OP-17) BOX相場3シナリオ",
      "8/22発売の4周年弾OP-17のBOX相場を過去弾の実データから3シナリオで予想。新レアリティL-SPと値上げの影響も解説。"))
+ONEPIECE_ARTICLES.append(
+    ("op-18-forecast.html", "【予想】神の支配(OP-18) BOX相場3シナリオ",
+     "11/21発売のOP-18を前作OP-17の答え合わせ(発売日2万→1か月で1.1万)と11月弾の実データから3シナリオで予想。"))
 ONEPIECE_ARTICLES.append(
     ("shikou-treasure-get.html", "4周年！四皇トレジャーゲット全7種",
      "8/22配布開始の4周年プロモパック全7種を解説。当たりのルフィP-099の相場と、未開封で売るか開封するかの期待値検証。"))
