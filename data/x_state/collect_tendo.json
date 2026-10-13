@@ -197,8 +197,6 @@
     "ハイクラスパック MEGA ドリームex 未開封BOX": 12500
   },
   "processed_urls": [
-    "https://pbs.twimg.com/media/HTmGAlHbYAATtYi?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HTIWFtTaYAAnceY?format=jpg&name=large",
     "https://pbs.twimg.com/media/HT66sYeaYAASpG_?format=jpg&name=large",
     "https://pbs.twimg.com/media/HUUkcjkaEAALY-y?format=jpg&name=large",
     "https://pbs.twimg.com/media/HUUjVl4bcAAnNJT?format=jpg&name=large",
@@ -246,16 +244,21 @@
     "https://pbs.twimg.com/media/HT1tTNXbIAAABBB?format=jpg&name=large",
     "https://pbs.twimg.com/media/HUZmZqibsAAxbmc?format=jpg&name=large",
     "https://pbs.twimg.com/media/HT65KmtbAAEclSO?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HUKx_mraMAAkvm7?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HUKx_mraMAAkvm7?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HTwNS74bcAAcl5F?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HTcA6vCaQAAu3Ex?format=jpg&name=large"
   ],
   "last_check": 1791867828,
   "ocr_fail_counts": {
     "https://pbs.twimg.com/media/HT6_El3bQAAIWzR?format=jpg&name=large": 2
   },
   "pending_images": [
-    "https://pbs.twimg.com/media/HT6_El3bQAAIWzR?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HT6_El3bQAAIWzR?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HUe6MsdboAAPIE4?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HUe4bQEacAAZQU4?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HUe5MD1aIAA_8nG?format=jpg&name=large"
   ],
-  "last_image_check": 1791855742,
+  "last_image_check": 1791870142,
   "seen_at": {
     "OP-14 蒼海の七傑": 1791860717,
     "OP-15 神の島の冒険": 1791860717,
