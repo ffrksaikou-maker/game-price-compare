@@ -715,6 +715,45 @@ SHOP_URLS = {
     "kaitoriexpo": "https://x.com/kaitoriexpo",
 }
 
+# 森森買取の紹介コード(インフルエンサー企画)。トップの紹介枠(template.html)と同じ値
+MORIMORI_REFERRAL_CODE = "InfA00191"
+
+# 森森の店舗ページにだけ差し込む紹介コード案内。ステマ規制によりPR表記必須
+MORIMORI_REFERRAL_SECTION = f"""<section id="referral" class="referral">
+<div class="referral-pr">PR</div>
+<h2>森森買取の紹介コード（1,000円クーポン×3枚）</h2>
+<p>森森買取の会員登録時に下記の紹介コードを入力して初回の買取を利用すると、<strong>1,000円クーポンが3枚（合計3,000円分）</strong>もらえます。</p>
+<div class="referral-code"><code id="refCode">{MORIMORI_REFERRAL_CODE}</code><button type="button" id="refCopy" onclick="copyRefCode()">コピー</button></div>
+<h3>クーポンがもらえるまでの流れ</h3>
+<ol>
+<li>森森買取の会員登録画面で、<strong>「ご紹介者様の会員番号」欄</strong>に紹介コード <strong>{MORIMORI_REFERRAL_CODE}</strong> を入力</li>
+<li>1回目の買取を申し込み、買取を完了させる</li>
+<li>初回の申請完了の<strong>翌月上旬</strong>に、1,000円クーポン×3枚が付与される</li>
+<li>2回目以降の買取で、<strong>1回につき1枚</strong>ずつ利用（最大3回分）</li>
+</ol>
+<div class="callout"><strong>ご注意:</strong> 初回の買取金額に1,000円が上乗せされるわけではありません。クーポンは初回買取の翌月に付与され、<strong>2回目以降の買取</strong>で使えます。3枚すべて使い切るには、初回を含めて計4回の買取が必要です。</div>
+<h3>クーポンの利用条件</h3>
+<ul>
+<li><strong>有効期限</strong>: なし</li>
+<li><strong>対象商品</strong>: 森森買取で買取可能な全商品（最低買取金額の条件なし）</li>
+<li><strong>利用上限</strong>: 1回の買取申請につき1枚まで</li>
+<li><strong>併用</strong>: 他の各種キャンペーンと併用可能</li>
+<li><strong>付与回数</strong>: お一人様1回限り</li>
+</ul>
+<h3>すでに会員の方</h3>
+<p>半年以上ご利用がない方は、<strong>「マイページ」＞「お客様情報の確認」</strong>の「ご紹介者様の会員番号」欄に紹介コードを追記できます。半年以内に利用がある方は対象外のため、編集できない仕様です。</p>
+<a href="https://www.morimori-kaitori.jp/" class="cta" target="_blank" rel="noopener noreferrer" onclick="gtag('event','shop_click',{{shop:'morimori',shop_name:'森森',from:'referral'}})">森森買取の公式サイトで会員登録する &rarr;</a>
+<p class="referral-note">※本セクションは森森買取の紹介プログラムによるプロモーションです。当サイトの買取価格比較・並び順の算出には影響しません。</p>
+</section>
+<script>
+function copyRefCode(){{
+  var b=document.getElementById("refCopy");
+  if(navigator.clipboard)navigator.clipboard.writeText("{MORIMORI_REFERRAL_CODE}").then(function(){{b.textContent="コピーしました";setTimeout(function(){{b.textContent="コピー"}},1500)}}).catch(function(){{}});
+  if(typeof gtag==="function")gtag('event','referral_copy',{{shop:'morimori'}});
+}}
+</script>
+"""
+
 # 店舗別ページ用プロフィール (shop-hikaku.html の記述を単一ソース化)
 SHOP_PROFILES = {
     "morimori": {
@@ -1798,6 +1837,14 @@ article li{margin-bottom:8px}
 .price-table a{color:var(--text);text-decoration:none}
 .price-table a:hover{color:var(--accent);text-decoration:underline}
 .best-badge{display:inline-block;font-size:10px;font-weight:700;color:#b45309;background:#fff7ed;border:1px solid #fbbf24;border-radius:4px;padding:1px 5px;margin-left:6px;vertical-align:middle}
+.referral{position:relative;background:#fffbeb;border:2px solid #f59e0b;border-radius:12px;padding:18px 20px;margin:20px 0}
+.referral h2{margin-top:0}
+.referral-pr{display:inline-block;background:#6b7280;color:#fff;font-size:11px;font-weight:700;padding:1px 8px;border-radius:4px;margin-bottom:6px}
+.referral-code{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:12px 0}
+.referral-code code{font-family:ui-monospace,Consolas,monospace;font-size:22px;font-weight:800;letter-spacing:1px;background:#fff;border:1px dashed #f59e0b;border-radius:8px;padding:6px 16px;user-select:all}
+.referral-code button{background:#f59e0b;color:#fff;border:0;border-radius:8px;padding:9px 16px;font-size:13px;font-weight:700;cursor:pointer}
+.referral ol,.referral ul{padding-left:1.4em;margin:8px 0}
+.referral-note{font-size:11px;color:#6b7280;margin-top:10px}
 .callout{background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:14px 18px;margin:14px 0;font-size:13px}
 .callout strong{color:#1d4ed8}
 .tags span{display:inline-block;font-size:11px;font-weight:700;color:#b45309;background:#fff7ed;border:1px solid #fbbf24;border-radius:999px;padding:2px 10px;margin-right:6px}
@@ -2003,6 +2050,8 @@ gtag('config', 'G-RPTS6CRTCS');
 <div class="stat-big">全{total}商品 / 最高値 {best_total}件</div>
 <div class="stat-sub">当サイトが毎日3回自動収集した{shop_n}店舗の買取価格をもとに、{name}の取扱商品と価格を一覧化しています。価格はすべて実測値です。</div>
 </div>
+
+{MORIMORI_REFERRAL_SECTION if shop_id == "morimori" else ""}
 
 <p>このページでは、<strong>{name}</strong>が買取対象としているポケモンカード{'・ONE PIECEカード' if has_op else ''}の未開封BOXについて、<strong>現在の買取価格を全{total}商品ぶん掲載</strong>しています。当サイトは{shop_n}店舗の買取ページを毎日3回自動で収集しているため、<strong>{name}が他店と比べて高いのか安いのか</strong>を商品単位で確認できます。</p>
 

@@ -242,6 +242,15 @@ details[open] .si-summary::after{transform:rotate(180deg)}
   .si-item h3{font-size:11px}
   .si-item p{font-size:11px}
 }
+.mori-ref{max-width:var(--table-width);margin:18px auto 0;padding:0 16px}
+.mori-ref-in{background:#fff;border:2px solid #f59e0b;border-radius:12px;padding:14px 18px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px}
+.mori-ref-pr{display:inline-block;background:#6b7280;color:#fff;font-size:10px;font-weight:700;padding:1px 7px;border-radius:4px;margin-right:6px;vertical-align:2px}
+.mori-ref-txt{flex:1 1 300px;font-size:13px;line-height:1.7}
+.mori-ref-txt b{color:#b45309}
+.mori-ref-code{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.mori-ref-code code{font-family:ui-monospace,Consolas,monospace;font-size:17px;font-weight:800;letter-spacing:1px;background:#fffbeb;border:1px dashed #f59e0b;border-radius:6px;padding:4px 12px;color:#111827;user-select:all}
+.mori-ref-code button{background:#f59e0b;color:#fff;border:0;border-radius:6px;padding:6px 12px;font-size:12px;font-weight:700;cursor:pointer}
+.mori-ref-more{font-size:12px;color:#b45309;font-weight:700;white-space:nowrap}
 .chusen-banner{max-width:var(--table-width);margin:22px auto 8px;padding:0 16px}
 .chusen-banner a{display:block;background:linear-gradient(135deg,var(--cb-a,#6366f1),var(--cb-b,#a855f7));border-radius:12px;padding:16px 20px;text-decoration:none;color:#fff;box-shadow:0 4px 14px var(--cb-sh,rgba(99,102,241,.35));transition:transform .12s,box-shadow .12s}
 .chusen-banner a:hover{transform:translateY(-2px);box-shadow:0 7px 20px var(--cb-sh,rgba(99,102,241,.45))}
@@ -336,6 +345,17 @@ details[open] .si-summary::after{transform:rotate(180deg)}
   </table>
 </div>
 
+<div class="mori-ref" id="morimori-code">
+  <div class="mori-ref-in">
+    <div class="mori-ref-txt"><span class="mori-ref-pr">PR</span><b>森森買取</b>の会員登録時に紹介コードを入力すると、初回買取の完了後に<b>1,000円クーポン×3枚</b>がもらえます（次回以降の買取で1回1枚・有効期限なし）。</div>
+    <div class="mori-ref-code">
+      <code id="moriCode">InfA00191</code>
+      <button type="button" id="moriCopy" onclick="copyMoriCode()">コピー</button>
+      <a class="mori-ref-more" href="shop/morimori.html#referral">使い方を見る &rarr;</a>
+    </div>
+  </div>
+</div>
+
 <div class="chusen-banner{{CB_CLASS}}">
   <a href="chusen-matome.html"><span class="cb-tag">受付中</span>{{NEW_BADGE}}<b>{{CB_TITLE}}</b>{{NEW_SUB}}<span class="cb-sub">対象商品の定価と現在の買取価格の差を毎日更新。当たったらいくら得かが一覧で分かります &rarr;</span></a>
 </div>
@@ -406,6 +426,7 @@ const S=["morimori","homura","icchome","runto","collect_tendo","shinsoku","oku",
 //  - all: 元のS順
 // 同数の場合は S の元の並び順を維持(タイブレーク)
 let S_SS = ["homura","runto","morimori","icchome","oku","rudeya","kaikyo","collect_tendo","shinsoku","kaitoriexpo"];
+const PIN_SHOP = "morimori";
 const SHOP_ORDER_CACHE = {};
 function computeShopOrder(cat) {
   if (typeof P === 'undefined') return [...S];
@@ -425,7 +446,9 @@ function computeShopOrder(cat) {
     }
     if (maxShop) best[maxShop]++;
   }
+  // 森森は紹介提携店のため、並び替えの対象外として常に左端に固定する
   const ordered = [...S].sort((a, b) =>
+    (b === PIN_SHOP) - (a === PIN_SHOP) ||
     listed[b] - listed[a] || best[b] - best[a] || S.indexOf(a) - S.indexOf(b));
   SHOP_ORDER_CACHE[cat] = ordered;
   return ordered;
@@ -434,6 +457,12 @@ function computeS_SS() {
   if (typeof P === 'undefined') return S_SS;
   S_SS = computeShopOrder('ss');
   return S_SS;
+}
+function copyMoriCode(){
+  const b=document.getElementById("moriCopy");
+  const done=()=>{b.textContent="コピーしました";setTimeout(()=>{b.textContent="コピー"},1500)};
+  if(navigator.clipboard)navigator.clipboard.writeText("InfA00191").then(done).catch(()=>{});
+  if(typeof gtag==="function")gtag('event','referral_copy',{shop:'morimori'});
 }
 const CL={"mega":"MEGA","sv":"SV","special":"スペシャルBOX","ss":"S&S ソード&シールド"};
 
