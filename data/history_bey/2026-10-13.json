@@ -17,9 +17,9 @@
     "max_price": 2100,
     "prices": {
       "morimori": 1800,
-      "homura": 1700,
       "rudeya": 1600,
-      "icchome": 2100
+      "icchome": 2100,
+      "homura": 1700
     }
   },
   {
@@ -40,9 +40,9 @@
     "max_price": 2500,
     "prices": {
       "morimori": 2500,
-      "homura": 2500,
       "rudeya": 2000,
-      "icchome": 2500
+      "icchome": 2500,
+      "homura": 2500
     }
   },
   {
@@ -85,9 +85,9 @@
     "max_price": 3800,
     "prices": {
       "morimori": 3800,
-      "homura": 2500,
       "rudeya": 3500,
-      "icchome": 3800
+      "icchome": 3800,
+      "homura": 2500
     }
   },
   {
@@ -130,9 +130,9 @@
     "max_price": 2000,
     "prices": {
       "morimori": 1600,
-      "homura": 1500,
       "rudeya": 1500,
-      "icchome": 2000
+      "icchome": 2000,
+      "homura": 1500
     }
   },
   {
@@ -162,9 +162,9 @@
     "max_price": 2000,
     "prices": {
       "morimori": 1900,
-      "homura": 1300,
       "rudeya": 1300,
-      "icchome": 2000
+      "icchome": 2000,
+      "homura": 1300
     }
   },
   {
@@ -207,8 +207,8 @@
     "max_price": 1500,
     "prices": {
       "morimori": 1300,
-      "homura": 1000,
-      "icchome": 1500
+      "icchome": 1500,
+      "homura": 1000
     }
   },
   {
@@ -261,9 +261,9 @@
     "max_price": 1800,
     "prices": {
       "morimori": 1600,
-      "homura": 1600,
       "rudeya": 900,
-      "icchome": 1800
+      "icchome": 1800,
+      "homura": 1600
     }
   },
   {
@@ -273,9 +273,9 @@
     "max_price": 2500,
     "prices": {
       "morimori": 2000,
-      "homura": 2000,
       "rudeya": 2500,
-      "icchome": 2000
+      "icchome": 2000,
+      "homura": 2000
     }
   },
   {
@@ -294,8 +294,8 @@
     "max_price": 1100,
     "prices": {
       "morimori": 1100,
-      "homura": 1000,
-      "icchome": 1100
+      "icchome": 1100,
+      "homura": 1000
     }
   },
   {
@@ -305,9 +305,9 @@
     "max_price": 2100,
     "prices": {
       "morimori": 1800,
-      "homura": 1800,
       "rudeya": 1300,
-      "icchome": 2100
+      "icchome": 2100,
+      "homura": 1800
     }
   },
   {
@@ -317,9 +317,9 @@
     "max_price": 1400,
     "prices": {
       "morimori": 1300,
-      "homura": 1300,
       "rudeya": 1400,
-      "icchome": 1400
+      "icchome": 1400,
+      "homura": 1300
     }
   },
   {
@@ -400,8 +400,8 @@
     "max_price": 5000,
     "prices": {
       "morimori": 4500,
-      "homura": 4500,
-      "icchome": 5000
+      "icchome": 5000,
+      "homura": 4500
     }
   },
   {
@@ -421,9 +421,9 @@
     "retail_price": 2500,
     "max_price": 9000,
     "prices": {
-      "homura": 9000,
       "rudeya": 7500,
-      "icchome": 4000
+      "icchome": 4000,
+      "homura": 9000
     }
   },
   {
@@ -451,9 +451,9 @@
     "retail_price": 6501,
     "max_price": 18700,
     "prices": {
-      "homura": 7000,
       "rudeya": 5000,
-      "icchome": 18700
+      "icchome": 18700,
+      "homura": 7000
     }
   },
   {
