@@ -3,7 +3,7 @@
     "name": "ブースターパック「世界最強の戦士」【OP-17】",
     "category": "op",
     "retail_price": 5760,
-    "max_price": 11300,
+    "max_price": 11200,
     "prices": {
       "rudeya": 10600,
       "runto": 10800,
@@ -11,7 +11,7 @@
       "oku": 10500,
       "collect_tendo": 8500,
       "shinsoku": 10500,
-      "kaitoriexpo": 11300,
+      "kaitoriexpo": 11200,
       "homura": 10600
     }
   },
@@ -19,7 +19,7 @@
     "name": "ブースターパック「決戦の刻」【OP-16】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 9800,
+    "max_price": 9600,
     "prices": {
       "morimori": 9500,
       "rudeya": 8600,
@@ -28,7 +28,7 @@
       "oku": 9500,
       "collect_tendo": 9600,
       "shinsoku": 8900,
-      "kaitoriexpo": 9800,
+      "kaitoriexpo": 9500,
       "homura": 9500
     }
   },
@@ -52,7 +52,7 @@
     "name": "ブースターパック「蒼海の七傑」【OP-14】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 9400,
+    "max_price": 9200,
     "prices": {
       "rudeya": 8200,
       "runto": 8700,
@@ -60,7 +60,7 @@
       "oku": 8200,
       "collect_tendo": 8400,
       "shinsoku": 8200,
-      "kaitoriexpo": 9400,
+      "kaitoriexpo": 9200,
       "homura": 8200
     }
   },
@@ -118,7 +118,7 @@
     "name": "ブースターパック「王族の血統」【OP-10】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 10700,
+    "max_price": 10500,
     "prices": {
       "morimori": 9600,
       "rudeya": 9700,
@@ -127,7 +127,7 @@
       "oku": 9600,
       "collect_tendo": 10000,
       "shinsoku": 9300,
-      "kaitoriexpo": 10700,
+      "kaitoriexpo": 10500,
       "homura": 9600
     }
   },
@@ -285,7 +285,7 @@
     "name": "エクストラブースター「EGGHEAD CRISIS」【EB-04】",
     "category": "eb",
     "retail_price": 5280,
-    "max_price": 13200,
+    "max_price": 13000,
     "prices": {
       "morimori": 11600,
       "rudeya": 11700,
@@ -294,7 +294,7 @@
       "oku": 11200,
       "collect_tendo": 12400,
       "shinsoku": 12100,
-      "kaitoriexpo": 13200,
+      "kaitoriexpo": 13000,
       "homura": 11600
     }
   },

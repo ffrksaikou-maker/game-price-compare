@@ -1,14 +1,26 @@
 {
+  "SV 拡張パック「バトルパートナーズ」|kaitoriexpo": {
+    "price": 4000,
+    "ref": 10500,
+    "ratio": 0.38,
+    "drop": false
+  },
   "SV 強化拡張パック「ステラミラクル」|kaitoriexpo": {
-    "price": 4200,
+    "price": 3900,
     "ref": 11250,
-    "ratio": 0.37,
+    "ratio": 0.35,
+    "drop": false
+  },
+  "SV 強化拡張パック「黒炎の支配者」|kaitoriexpo": {
+    "price": 4500,
+    "ref": 16800,
+    "ratio": 0.27,
     "drop": false
   },
   "S&S 拡張パック「反逆クラッシュ」|kaitoriexpo": {
-    "price": 6000,
+    "price": 6300,
     "ref": 38000,
-    "ratio": 0.16,
+    "ratio": 0.17,
     "drop": true
   },
   "UX-00 ベイキックオフセット FCバルセロナVer.|rudeya": {

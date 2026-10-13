@@ -12,7 +12,7 @@
       "oku": 50000,
       "collect_tendo": 58000,
       "shinsoku": 58000,
-      "kaitoriexpo": 57000,
+      "kaitoriexpo": 58000,
       "homura": 60000
     }
   },
@@ -30,7 +30,7 @@
       "kaikyo": 17000,
       "collect_tendo": 18300,
       "shinsoku": 16000,
-      "kaitoriexpo": 17000,
+      "kaitoriexpo": 17200,
       "homura": 17500
     }
   },
@@ -48,7 +48,7 @@
       "kaikyo": 25000,
       "collect_tendo": 25200,
       "shinsoku": 25200,
-      "kaitoriexpo": 25300,
+      "kaitoriexpo": 25000,
       "homura": 25000
     }
   },
@@ -66,7 +66,7 @@
       "kaikyo": 9500,
       "collect_tendo": 9200,
       "shinsoku": 10000,
-      "kaitoriexpo": 9400,
+      "kaitoriexpo": 9800,
       "homura": 10500
     }
   },
@@ -84,7 +84,7 @@
       "kaikyo": 8000,
       "collect_tendo": 9100,
       "shinsoku": 9000,
-      "kaitoriexpo": 8600,
+      "kaitoriexpo": 9100,
       "homura": 9100
     }
   },
@@ -120,7 +120,7 @@
       "kaikyo": 7000,
       "collect_tendo": 8500,
       "shinsoku": 8600,
-      "kaitoriexpo": 8600,
+      "kaitoriexpo": 8700,
       "homura": 8800
     }
   },
@@ -156,7 +156,7 @@
       "kaikyo": 17000,
       "collect_tendo": 14500,
       "shinsoku": 15300,
-      "kaitoriexpo": 16500,
+      "kaitoriexpo": 16600,
       "homura": 15200
     }
   },
@@ -192,7 +192,7 @@
       "kaikyo": 7000,
       "collect_tendo": 7400,
       "shinsoku": 7600,
-      "kaitoriexpo": 7500,
+      "kaitoriexpo": 7200,
       "homura": 7700
     }
   },
@@ -302,7 +302,7 @@
       "icchome": 11000,
       "collect_tendo": 10500,
       "shinsoku": 11300,
-      "kaitoriexpo": 4200,
+      "kaitoriexpo": 4000,
       "homura": 11200
     }
   },
@@ -369,7 +369,7 @@
       "kaikyo": 11000,
       "collect_tendo": 11500,
       "shinsoku": 11600,
-      "kaitoriexpo": 4200,
+      "kaitoriexpo": 3900,
       "homura": 11500
     }
   },
@@ -409,7 +409,7 @@
     "name": "SV 拡張パック「クリムゾンヘイズ」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 12500,
+    "max_price": 12300,
     "prices": {
       "morimori": 10800,
       "rudeya": 10200,
@@ -417,7 +417,7 @@
       "icchome": 11000,
       "collect_tendo": 12300,
       "shinsoku": 12300,
-      "kaitoriexpo": 12500,
+      "kaitoriexpo": 12000,
       "homura": 12200
     }
   },
@@ -530,7 +530,7 @@
       "icchome": 16000,
       "collect_tendo": 17500,
       "shinsoku": 16800,
-      "kaitoriexpo": 16300,
+      "kaitoriexpo": 4500,
       "homura": 17500
     }
   },
@@ -564,7 +564,7 @@
       "kaikyo": 10200,
       "collect_tendo": 9000,
       "shinsoku": 10400,
-      "kaitoriexpo": 9600,
+      "kaitoriexpo": 9500,
       "homura": 10200
     }
   },
@@ -744,7 +744,7 @@
       "runto": 12500,
       "collect_tendo": 9500,
       "shinsoku": 12100,
-      "kaitoriexpo": 12000,
+      "kaitoriexpo": 11800,
       "homura": 12000
     }
   },
@@ -770,7 +770,7 @@
       "runto": 29500,
       "collect_tendo": 28000,
       "shinsoku": 30000,
-      "kaitoriexpo": 22500,
+      "kaitoriexpo": 22000,
       "homura": 31000
     }
   },
@@ -783,7 +783,7 @@
       "rudeya": 45000,
       "runto": 51000,
       "shinsoku": 54000,
-      "kaitoriexpo": 52000,
+      "kaitoriexpo": 45000,
       "homura": 54000
     }
   },
@@ -796,7 +796,7 @@
       "runto": 48000,
       "collect_tendo": 45000,
       "shinsoku": 50000,
-      "kaitoriexpo": 46000,
+      "kaitoriexpo": 45000,
       "homura": 50000
     }
   },
