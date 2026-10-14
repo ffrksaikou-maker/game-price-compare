@@ -200,7 +200,6 @@
     "ポケモンカードゲーム ソード＆シールド ハイクラスパック VSTARユニバース": 25900
   },
   "processed_urls": [
-    "https://pbs.twimg.com/media/HSZHQ1bbwAAZLv0?format=jpg&name=large",
     "https://pbs.twimg.com/media/HUaBXqxacAAsjJ6?format=jpg&name=large",
     "https://pbs.twimg.com/media/HTCK3hSb0AAgvJV?format=png&name=large",
     "https://pbs.twimg.com/media/HT1tTNXbIAAABBB?format=jpg&name=large",
@@ -249,12 +248,13 @@
     "https://pbs.twimg.com/media/HTW2KHsacAABc1f?format=jpg&name=large",
     "https://pbs.twimg.com/media/HUUjVl4bcAAnNJT?format=jpg&name=large",
     "https://pbs.twimg.com/media/HUkPa5daIAAVjDe?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HUPkbGAacAAvKi-?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HUPkbGAacAAvKi-?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HT7Ic65boAAxIXw?format=jpg&name=large"
   ],
   "last_check": 1791964377,
   "ocr_fail_counts": {},
   "pending_images": [],
-  "last_image_check": 1791956540,
+  "last_image_check": 1791970945,
   "seen_at": {
     "OP-14 蒼海の七傑": 1791964377,
     "OP-15 神の島の冒険": 1791964377,
