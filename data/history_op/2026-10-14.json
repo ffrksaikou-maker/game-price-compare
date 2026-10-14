@@ -43,8 +43,8 @@
       "runto": 8500,
       "icchome": 7500,
       "oku": 8000,
-      "collect_tendo": 7200,
-      "shinsoku": 8000,
+      "collect_tendo": 8100,
+      "shinsoku": 8100,
       "kaitoriexpo": 9200
     }
   },
@@ -111,7 +111,7 @@
       "icchome": 28000,
       "oku": 28500,
       "collect_tendo": 30000,
-      "shinsoku": 28500
+      "shinsoku": 27800
     }
   },
   {
@@ -161,7 +161,7 @@
       "icchome": 9200,
       "oku": 9000,
       "collect_tendo": 10500,
-      "shinsoku": 8900,
+      "shinsoku": 9200,
       "kaitoriexpo": 10800
     }
   },
@@ -217,7 +217,7 @@
     "name": "ブースターパック「謀略の王国」【OP-04】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 15100,
+    "max_price": 15000,
     "prices": {
       "morimori": 14000,
       "homura": 15000,
@@ -226,7 +226,7 @@
       "icchome": 14000,
       "oku": 14500,
       "collect_tendo": 15000,
-      "shinsoku": 15100,
+      "shinsoku": 14300,
       "kaitoriexpo": 15000
     }
   },
@@ -260,7 +260,7 @@
       "icchome": 19000,
       "oku": 17000,
       "collect_tendo": 18000,
-      "shinsoku": 16200,
+      "shinsoku": 16000,
       "kaitoriexpo": 14800
     }
   },
@@ -277,7 +277,7 @@
       "icchome": 31000,
       "oku": 35000,
       "collect_tendo": 35000,
-      "shinsoku": 35000,
+      "shinsoku": 34000,
       "kaitoriexpo": 36500
     }
   },
@@ -311,7 +311,7 @@
       "icchome": 12000,
       "oku": 13000,
       "collect_tendo": 13200,
-      "shinsoku": 13300,
+      "shinsoku": 13100,
       "kaitoriexpo": 13500
     }
   },
@@ -344,7 +344,7 @@
       "icchome": 15500,
       "oku": 16000,
       "collect_tendo": 18000,
-      "shinsoku": 16100,
+      "shinsoku": 15600,
       "kaitoriexpo": 16500
     }
   },
@@ -377,7 +377,7 @@
       "icchome": 21000,
       "oku": 20500,
       "collect_tendo": 20000,
-      "shinsoku": 20000,
+      "shinsoku": 19100,
       "kaitoriexpo": 20800
     }
   },
