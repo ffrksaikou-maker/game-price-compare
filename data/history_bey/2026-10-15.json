@@ -14,12 +14,12 @@
     "name": "UX-20 グローリーワルキューレLF",
     "category": "ux",
     "retail_price": 2700,
-    "max_price": 2100,
+    "max_price": 2150,
     "prices": {
-      "morimori": 2100,
+      "morimori": 2150,
       "homura": 1700,
       "rudeya": 1600,
-      "icchome": 2100
+      "icchome": 2150
     }
   },
   {
@@ -49,11 +49,11 @@
     "name": "UX-17 メテオドラグーン3-70J",
     "category": "ux",
     "retail_price": 2300,
-    "max_price": 1600,
+    "max_price": 1200,
     "prices": {
       "morimori": 1200,
       "rudeya": 1000,
-      "icchome": 1600
+      "icchome": 1200
     }
   },
   {
@@ -219,7 +219,7 @@
     "retail_price": 2200,
     "max_price": 1800,
     "prices": {
-      "morimori": 1700,
+      "morimori": 1800,
       "rudeya": 1200,
       "icchome": 1800
     }
@@ -348,9 +348,9 @@
     "name": "BX-36 ランダムブースター ホエールウェーブセレクト",
     "category": "bx",
     "retail_price": 1400,
-    "max_price": 1100,
+    "max_price": 1200,
     "prices": {
-      "icchome": 1100
+      "icchome": 1200
     }
   },
   {
@@ -372,7 +372,7 @@
       "morimori": 800,
       "homura": 1000,
       "rudeya": 1000,
-      "icchome": 800
+      "icchome": 1000
     }
   },
   {
@@ -381,7 +381,7 @@
     "retail_price": 2420,
     "max_price": 2100,
     "prices": {
-      "morimori": 1800,
+      "morimori": 2000,
       "rudeya": 1500,
       "icchome": 2100
     }
@@ -411,22 +411,22 @@
     "name": "BX-00 ストームペガシス3-70RA",
     "category": "limited",
     "retail_price": 2620,
-    "max_price": 1500,
+    "max_price": 1425,
     "prices": {
       "morimori": 1200,
       "rudeya": 1400,
-      "icchome": 1500
+      "icchome": 1425
     }
   },
   {
     "name": "UX-00 サムライセイバー5-60K メタルコート:サムライブルー サッカー日本代表Ver.",
     "category": "limited",
     "retail_price": 2500,
-    "max_price": 9000,
+    "max_price": 9100,
     "prices": {
       "homura": 9000,
       "rudeya": 7500,
-      "icchome": 4000
+      "icchome": 9100
     }
   },
   {
