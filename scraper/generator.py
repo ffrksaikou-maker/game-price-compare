@@ -453,7 +453,16 @@ def _upcoming_product(products):
     return min(up, key=lambda p: p.release_date) if up else None
 
 
+# 抽選バナー用の表記。比較表の商品と抽選の単位が違うものだけ書く。
+# カードセットは表では9種セットを載せるが、Amazonの抽選(招待リクエスト)は1地方ずつ。
+UPCOMING_LABEL_OVERRIDES = {
+    "30th CELEBRATION カードセット 9種セット": "30th CELEBRATION カードセット",
+}
+
+
 def _upcoming_label(p) -> str:
+    if p.name in UPCOMING_LABEL_OVERRIDES:
+        return UPCOMING_LABEL_OVERRIDES[p.name]
     m = re.search(r"「(.+?)」", p.name)
     return m.group(1) if m else p.name
 
