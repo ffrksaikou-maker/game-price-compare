@@ -49,11 +49,11 @@
     "name": "UX-17 メテオドラグーン3-70J",
     "category": "ux",
     "retail_price": 2300,
-    "max_price": 1700,
+    "max_price": 1600,
     "prices": {
       "morimori": 1200,
       "rudeya": 1000,
-      "icchome": 1700
+      "icchome": 1600
     }
   },
   {
@@ -348,9 +348,9 @@
     "name": "BX-36 ランダムブースター ホエールウェーブセレクト",
     "category": "bx",
     "retail_price": 1400,
-    "max_price": 1300,
+    "max_price": 1100,
     "prices": {
-      "icchome": 1300
+      "icchome": 1100
     }
   },
   {
