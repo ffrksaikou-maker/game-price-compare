@@ -648,13 +648,13 @@
     "name": "S&S 拡張パック「パラダイムトリガー」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 19600,
+    "max_price": 19800,
     "prices": {
       "morimori": 19000,
       "homura": 19600,
       "runto": 18500,
       "collect_tendo": 17500,
-      "shinsoku": 19500
+      "shinsoku": 19800
     }
   },
   {
@@ -680,7 +680,7 @@
       "homura": 45000,
       "runto": 42000,
       "collect_tendo": 40000,
-      "shinsoku": 44000
+      "shinsoku": 45000
     }
   },
   {
@@ -756,7 +756,7 @@
       "homura": 20000,
       "runto": 20000,
       "collect_tendo": 18000,
-      "shinsoku": 19800,
+      "shinsoku": 20000,
       "kaitoriexpo": 16000
     }
   },
@@ -782,7 +782,7 @@
       "homura": 55000,
       "rudeya": 45000,
       "runto": 51000,
-      "shinsoku": 54000,
+      "shinsoku": 55000,
       "kaitoriexpo": 45000
     }
   },
@@ -803,12 +803,12 @@
     "name": "S&S 拡張パック「蒼空ストリーム」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 206000,
+    "max_price": 208000,
     "prices": {
       "homura": 206000,
       "runto": 190000,
       "collect_tendo": 190000,
-      "shinsoku": 206000
+      "shinsoku": 208000
     }
   },
   {

@@ -14,9 +14,9 @@
     "name": "UX-20 グローリーワルキューレLF",
     "category": "ux",
     "retail_price": 2700,
-    "max_price": 2150,
+    "max_price": 2200,
     "prices": {
-      "morimori": 2150,
+      "morimori": 2200,
       "homura": 1700,
       "rudeya": 1600,
       "icchome": 2150
@@ -117,10 +117,10 @@
     "name": "UX-09 サムライセイバー2-70L",
     "category": "ux",
     "retail_price": 3300,
-    "max_price": 3300,
+    "max_price": 3400,
     "prices": {
       "morimori": 2700,
-      "homura": 3300,
+      "homura": 3400,
       "rudeya": 2000,
       "icchome": 3200
     }
@@ -150,23 +150,23 @@
     "name": "UX-03 ウィザードロッド5-70DB",
     "category": "ux",
     "retail_price": 1400,
-    "max_price": 1500,
+    "max_price": 1300,
     "prices": {
       "morimori": 1100,
       "rudeya": 1300,
-      "icchome": 1500
+      "icchome": 1300
     }
   },
   {
     "name": "UX-01 ドランバスター1-60A",
     "category": "ux",
     "retail_price": 1980,
-    "max_price": 2000,
+    "max_price": 2100,
     "prices": {
       "morimori": 1900,
       "homura": 1300,
       "rudeya": 1300,
-      "icchome": 2000
+      "icchome": 2100
     }
   },
   {
@@ -199,7 +199,7 @@
     "prices": {
       "morimori": 3500,
       "rudeya": 3000,
-      "icchome": 3500
+      "icchome": 2100
     }
   },
   {
@@ -243,7 +243,7 @@
     "prices": {
       "morimori": 5300,
       "rudeya": 7000,
-      "icchome": 5300
+      "icchome": 7000
     }
   },
   {
@@ -367,10 +367,10 @@
     "name": "BX-34 コバルトドラグーン2-60C",
     "category": "bx",
     "retail_price": 2321,
-    "max_price": 1000,
+    "max_price": 1200,
     "prices": {
       "morimori": 800,
-      "homura": 1000,
+      "homura": 1200,
       "rudeya": 1000,
       "icchome": 1000
     }
@@ -413,7 +413,7 @@
     "retail_price": 2620,
     "max_price": 1425,
     "prices": {
-      "morimori": 1200,
+      "morimori": 1100,
       "rudeya": 1400,
       "icchome": 1425
     }
@@ -442,10 +442,10 @@
     "name": "CX-00 ペガサスブラストATr メタルコート:レッド",
     "category": "limited",
     "retail_price": 2700,
-    "max_price": 3120,
+    "max_price": 3500,
     "prices": {
       "rudeya": 2800,
-      "icchome": 3120
+      "icchome": 3500
     }
   },
   {
