@@ -578,6 +578,7 @@ SLUG_OVERRIDES = {
     # 商品を足すときは box/ に意味の通るファイル名が出ているか確認すること。
     "30th CELEBRATION FUTURISTIC BOX": "30th-celebration-futuristic-box",
     "30th CELEBRATION プレミアムデッキセット エーフィ・ブラッキー": "30th-celebration-premium-deck-set",
+    "30th CELEBRATION カードセット 9種セット": "30th-celebration-cardset",
     "MEGA スタートデッキ100「バトルコレクション」": "battle-collection",
     "S&S 拡張パック「25th ANNIVERSARY COLLECTION」": "25th-anniversary-collection",
     "S&S 拡張パック「ソード」": "sword",
@@ -941,7 +942,8 @@ def _short_product_name(name: str) -> str:
     # 末尾が汎用語だと商品を識別できない(「30th CELEBRATION FUTURISTIC BOX」が
     # 「BOX」になり、タイトルが「BOX BOX買取価格を…」になっていた)。
     # その場合だけシリーズ接頭辞を落とした全体を使う。
-    if tail in ("BOX", "box", "ボックス", "セット", "パック"):
+    # 「9種セット」も同様(30th CELEBRATION カードセット 9種セット)。
+    if tail in ("BOX", "box", "ボックス", "セット", "パック", "9種セット"):
         core = re.sub(r"^(MEGA|SV|S&S)\s+", "", name)
         # テンプレート側が「{short} BOX買取価格を…」と続けるため、
         # 末尾のBOXは落とさないと「BOX BOX買取価格」と重複する。
