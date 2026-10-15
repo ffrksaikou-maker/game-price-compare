@@ -3,11 +3,11 @@
     "name": "UX-21 ヘルズネザーデッキセット",
     "category": "ux",
     "retail_price": 4500,
-    "max_price": 2900,
+    "max_price": 2700,
     "prices": {
       "morimori": 1800,
       "rudeya": 2300,
-      "icchome": 2900
+      "icchome": 2700
     }
   },
   {
@@ -26,23 +26,23 @@
     "name": "UX-19 バレットグリフォンH",
     "category": "ux",
     "retail_price": 2600,
-    "max_price": 2500,
+    "max_price": 2600,
     "prices": {
       "morimori": 2100,
       "rudeya": 1900,
-      "icchome": 2500
+      "icchome": 2600
     }
   },
   {
     "name": "UX-18 ランダムブースターVol.8",
     "category": "ux",
     "retail_price": 1600,
-    "max_price": 2600,
+    "max_price": 2700,
     "prices": {
       "morimori": 2500,
       "homura": 2600,
       "rudeya": 2000,
-      "icchome": 2600
+      "icchome": 2700
     }
   },
   {
@@ -76,41 +76,41 @@
       "morimori": 5600,
       "homura": 7000,
       "rudeya": 5500,
-      "icchome": 4200
+      "icchome": 4900
     }
   },
   {
     "name": "UX-12 ランダムブースターVol.5",
     "category": "ux",
     "retail_price": 1400,
-    "max_price": 3900,
+    "max_price": 4000,
     "prices": {
       "morimori": 3800,
       "homura": 2500,
       "rudeya": 3500,
-      "icchome": 3900
+      "icchome": 4000
     }
   },
   {
     "name": "UX-11 インパクトドレイク9-60LR",
     "category": "ux",
     "retail_price": 2420,
-    "max_price": 2300,
+    "max_price": 2200,
     "prices": {
       "morimori": 1600,
       "rudeya": 1100,
-      "icchome": 2300
+      "icchome": 2200
     }
   },
   {
     "name": "UX-10 カスタマイズセットU",
     "category": "ux",
     "retail_price": 5700,
-    "max_price": 12000,
+    "max_price": 12100,
     "prices": {
       "morimori": 7000,
       "rudeya": 12000,
-      "icchome": 12000
+      "icchome": 12100
     }
   },
   {
@@ -122,7 +122,7 @@
       "morimori": 2700,
       "homura": 3400,
       "rudeya": 2000,
-      "icchome": 3200
+      "icchome": 3230
     }
   },
   {
@@ -367,10 +367,10 @@
     "name": "BX-34 コバルトドラグーン2-60C",
     "category": "bx",
     "retail_price": 2321,
-    "max_price": 1200,
+    "max_price": 2000,
     "prices": {
       "morimori": 800,
-      "homura": 1200,
+      "homura": 2000,
       "rudeya": 1000,
       "icchome": 1000
     }
