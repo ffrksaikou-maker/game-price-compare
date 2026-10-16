@@ -260,9 +260,11 @@
   "ocr_fail_counts": {},
   "pending_images": [
     "https://pbs.twimg.com/media/HUuSC1zagAELwE4?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HUPk-fVboAAvKjW?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HUKTXZfaYAAdGRH?format=jpg&name=large",
     "https://pbs.twimg.com/media/HTmGAlHbYAATtYi?format=jpg&name=large"
   ],
-  "last_image_check": 1792143737,
+  "last_image_check": 1792158142,
   "seen_at": {
     "OP-14 蒼海の七傑": 1792135549,
     "OP-15 神の島の冒険": 1792135549,
