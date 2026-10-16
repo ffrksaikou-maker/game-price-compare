@@ -1,13 +1,13 @@
 {
   "SV 拡張パック「バトルパートナーズ」|kaitoriexpo": {
     "price": 4000,
-    "ref": 11200,
-    "ratio": 0.36,
+    "ref": 11500,
+    "ratio": 0.35,
     "drop": false
   },
   "SV 強化拡張パック「ステラミラクル」|kaitoriexpo": {
     "price": 3900,
-    "ref": 11500,
+    "ref": 11600,
     "ratio": 0.34,
     "drop": false
   },
