@@ -7,7 +7,7 @@
     "prices": {
       "homura": 18000,
       "rudeya": 18000,
-      "icchome": 17500,
+      "icchome": 16500,
       "kaikyo": 17500,
       "kaitoriexpo": 19000
     }
@@ -25,7 +25,6 @@
       "icchome": 61000,
       "oku": 62000,
       "kaikyo": 61000,
-      "collect_tendo": 58000,
       "shinsoku": 58000,
       "kaitoriexpo": 60000
     }
@@ -43,7 +42,6 @@
       "icchome": 17500,
       "oku": 18500,
       "kaikyo": 17000,
-      "collect_tendo": 18300,
       "shinsoku": 16500,
       "kaitoriexpo": 17800
     }
@@ -80,7 +78,7 @@
       "oku": 10000,
       "kaikyo": 10200,
       "collect_tendo": 9200,
-      "shinsoku": 9800,
+      "shinsoku": 9700,
       "kaitoriexpo": 10300
     }
   },
@@ -134,7 +132,7 @@
       "oku": 9300,
       "kaikyo": 7000,
       "collect_tendo": 9300,
-      "shinsoku": 9300,
+      "shinsoku": 9200,
       "kaitoriexpo": 9100
     }
   },
@@ -152,7 +150,7 @@
       "oku": 12000,
       "kaikyo": 13000,
       "collect_tendo": 13300,
-      "shinsoku": 12800,
+      "shinsoku": 13000,
       "kaitoriexpo": 13300
     }
   },
@@ -188,7 +186,7 @@
       "oku": 8500,
       "kaikyo": 8200,
       "collect_tendo": 8500,
-      "shinsoku": 8400,
+      "shinsoku": 8300,
       "kaitoriexpo": 8500
     }
   },
@@ -206,7 +204,7 @@
       "oku": 8200,
       "kaikyo": 7000,
       "collect_tendo": 7600,
-      "shinsoku": 8100,
+      "shinsoku": 8000,
       "kaitoriexpo": 8200
     }
   },
@@ -301,7 +299,7 @@
       "icchome": 16000,
       "kaikyo": 15000,
       "collect_tendo": 17500,
-      "shinsoku": 17300,
+      "shinsoku": 17500,
       "kaitoriexpo": 17000
     }
   },
@@ -317,7 +315,7 @@
       "runto": 10500,
       "icchome": 10300,
       "collect_tendo": 11800,
-      "shinsoku": 11700,
+      "shinsoku": 11500,
       "kaitoriexpo": 4000
     }
   },
@@ -334,7 +332,7 @@
       "icchome": 19500,
       "kaikyo": 13500,
       "collect_tendo": 19400,
-      "shinsoku": 20500,
+      "shinsoku": 20300,
       "kaitoriexpo": 19500
     }
   },
@@ -512,7 +510,7 @@
       "runto": 9500,
       "icchome": 9500,
       "collect_tendo": 10300,
-      "shinsoku": 10300,
+      "shinsoku": 10200,
       "kaitoriexpo": 9000
     }
   },
@@ -1038,7 +1036,7 @@
       "runto": 12800,
       "icchome": 11500,
       "collect_tendo": 13000,
-      "shinsoku": 12400
+      "shinsoku": 12500
     }
   }
 ]
