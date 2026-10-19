@@ -71,12 +71,12 @@
     "name": "UX-15 シャークスケイルデッキセット",
     "category": "ux",
     "retail_price": 4200,
-    "max_price": 7000,
+    "max_price": 7200,
     "prices": {
       "morimori": 5600,
       "homura": 7000,
       "rudeya": 5500,
-      "icchome": 7000
+      "icchome": 7200
     }
   },
   {
@@ -400,11 +400,11 @@
     "name": "BX-09 ベイバトルパス",
     "category": "bx",
     "retail_price": 3300,
-    "max_price": 5000,
+    "max_price": 5100,
     "prices": {
       "morimori": 4500,
       "homura": 4500,
-      "icchome": 5000
+      "icchome": 5100
     }
   },
   {

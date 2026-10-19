@@ -5,9 +5,8 @@
     "retail_price": 5760,
     "max_price": 11800,
     "prices": {
-      "homura": 10800,
+      "homura": 10000,
       "rudeya": 11000,
-      "runto": 10500,
       "icchome": 10200,
       "oku": 10800,
       "collect_tendo": 8500,
@@ -54,7 +53,7 @@
     "retail_price": 5280,
     "max_price": 10000,
     "prices": {
-      "homura": 8800,
+      "homura": 9500,
       "rudeya": 8200,
       "runto": 9300,
       "icchome": 8500,
@@ -155,7 +154,7 @@
     "max_price": 11200,
     "prices": {
       "morimori": 9200,
-      "homura": 9600,
+      "homura": 10500,
       "rudeya": 9400,
       "runto": 10200,
       "icchome": 9200,
@@ -288,7 +287,7 @@
     "max_price": 13300,
     "prices": {
       "morimori": 11600,
-      "homura": 12500,
+      "homura": 13000,
       "rudeya": 11700,
       "runto": 12500,
       "icchome": 11500,

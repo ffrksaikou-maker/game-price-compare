@@ -21,7 +21,7 @@
       "homura": 60500,
       "rudeya": 60000,
       "runto": 60000,
-      "icchome": 61000,
+      "icchome": 60000,
       "oku": 60500,
       "kaikyo": 61000,
       "shinsoku": 57000,
@@ -53,7 +53,7 @@
     "prices": {
       "morimori": 25200,
       "homura": 25800,
-      "rudeya": 22500,
+      "rudeya": 23000,
       "runto": 25500,
       "icchome": 25000,
       "oku": 25800,
@@ -72,12 +72,12 @@
       "morimori": 9000,
       "homura": 9000,
       "rudeya": 8700,
-      "runto": 6500,
-      "icchome": 9300,
+      "runto": 9500,
+      "icchome": 8900,
       "oku": 9000,
-      "kaikyo": 10200,
+      "kaikyo": 9000,
       "collect_tendo": 9200,
-      "shinsoku": 9300,
+      "shinsoku": 9200,
       "kaitoriexpo": 10200
     }
   },
@@ -113,7 +113,7 @@
       "oku": 9800,
       "kaikyo": 7000,
       "collect_tendo": 8700,
-      "shinsoku": 9800,
+      "shinsoku": 9500,
       "kaitoriexpo": 9800
     }
   },
@@ -131,7 +131,7 @@
       "oku": 9000,
       "kaikyo": 7000,
       "collect_tendo": 9300,
-      "shinsoku": 9000,
+      "shinsoku": 8800,
       "kaitoriexpo": 9200
     }
   },
@@ -141,11 +141,11 @@
     "retail_price": 5500,
     "max_price": 13300,
     "prices": {
-      "morimori": 13100,
+      "morimori": 12900,
       "homura": 13000,
       "rudeya": 10000,
       "runto": 12800,
-      "icchome": 12900,
+      "icchome": 12800,
       "oku": 12000,
       "kaikyo": 13000,
       "collect_tendo": 13300,
@@ -177,7 +177,7 @@
     "retail_price": 5400,
     "max_price": 8500,
     "prices": {
-      "morimori": 8500,
+      "morimori": 8300,
       "homura": 8300,
       "rudeya": 6700,
       "runto": 7800,
@@ -289,7 +289,7 @@
     "name": "SV 強化拡張パック「熱風のアリーナ」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 18000,
+    "max_price": 18200,
     "prices": {
       "morimori": 16500,
       "homura": 18000,
@@ -298,7 +298,7 @@
       "icchome": 17000,
       "kaikyo": 15000,
       "collect_tendo": 17500,
-      "shinsoku": 18000,
+      "shinsoku": 18200,
       "kaitoriexpo": 17300
     }
   },
@@ -308,13 +308,13 @@
     "retail_price": 5400,
     "max_price": 11800,
     "prices": {
-      "morimori": 11300,
+      "morimori": 11000,
       "homura": 11000,
       "rudeya": 10000,
       "runto": 10500,
       "icchome": 10800,
       "collect_tendo": 11800,
-      "shinsoku": 11300,
+      "shinsoku": 11100,
       "kaitoriexpo": 4000
     }
   },
@@ -325,7 +325,7 @@
     "max_price": 20300,
     "prices": {
       "morimori": 20000,
-      "homura": 20300,
+      "homura": 20000,
       "rudeya": 19700,
       "runto": 19500,
       "icchome": 19500,
@@ -405,7 +405,7 @@
     "name": "SV 拡張パック「変幻の仮面」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 13000,
+    "max_price": 13100,
     "prices": {
       "morimori": 12500,
       "homura": 13000,
@@ -413,7 +413,7 @@
       "runto": 12000,
       "icchome": 12000,
       "collect_tendo": 13000,
-      "shinsoku": 13000,
+      "shinsoku": 13100,
       "kaitoriexpo": 12000
     }
   },
@@ -429,7 +429,7 @@
       "runto": 11500,
       "icchome": 12000,
       "collect_tendo": 13000,
-      "shinsoku": 12800,
+      "shinsoku": 13000,
       "kaitoriexpo": 12800
     }
   },
@@ -461,7 +461,7 @@
       "runto": 10500,
       "icchome": 11000,
       "collect_tendo": 11500,
-      "shinsoku": 11700,
+      "shinsoku": 11500,
       "kaitoriexpo": 11000
     }
   },
@@ -526,7 +526,7 @@
       "runto": 13500,
       "icchome": 15000,
       "collect_tendo": 15500,
-      "shinsoku": 15500,
+      "shinsoku": 15800,
       "kaitoriexpo": 14500
     }
   },
@@ -542,7 +542,7 @@
       "runto": 18000,
       "icchome": 18000,
       "collect_tendo": 18600,
-      "shinsoku": 18600,
+      "shinsoku": 18800,
       "kaitoriexpo": 4500
     }
   },
@@ -552,14 +552,14 @@
     "retail_price": 5400,
     "max_price": 52000,
     "prices": {
-      "morimori": 47000,
+      "morimori": 50000,
       "homura": 52000,
       "rudeya": 35000,
       "runto": 48500,
       "icchome": 46500,
       "kaikyo": 47000,
       "collect_tendo": 48000,
-      "shinsoku": 48500,
+      "shinsoku": 50000,
       "kaitoriexpo": 43000
     }
   },
@@ -567,7 +567,7 @@
     "name": "SV 拡張パック「クレイバースト」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 11000,
+    "max_price": 11100,
     "prices": {
       "morimori": 10000,
       "homura": 11000,
@@ -575,7 +575,7 @@
       "runto": 10000,
       "icchome": 10500,
       "collect_tendo": 9000,
-      "shinsoku": 11000,
+      "shinsoku": 11100,
       "kaitoriexpo": 10200
     }
   },
@@ -704,7 +704,7 @@
     "prices": {
       "homura": 21200,
       "runto": 22000,
-      "kaikyo": 15000,
+      "kaikyo": 15200,
       "collect_tendo": 21500,
       "shinsoku": 21000
     }
@@ -841,10 +841,10 @@
     "name": "S&S 強化拡張パック「イーブイヒーローズ」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 110000,
+    "max_price": 112000,
     "prices": {
       "homura": 105000,
-      "runto": 108000,
+      "runto": 112000,
       "collect_tendo": 105000,
       "shinsoku": 110000
     }
