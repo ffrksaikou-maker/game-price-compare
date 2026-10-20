@@ -17,7 +17,7 @@
     "max_price": 2200,
     "prices": {
       "morimori": 2200,
-      "homura": 1700,
+      "homura": 2000,
       "rudeya": 1600,
       "icchome": 2200
     }
@@ -29,7 +29,7 @@
     "max_price": 2900,
     "prices": {
       "morimori": 2100,
-      "rudeya": 1900,
+      "rudeya": 2500,
       "icchome": 2900
     }
   },
@@ -40,7 +40,7 @@
     "max_price": 2800,
     "prices": {
       "morimori": 2500,
-      "homura": 2600,
+      "homura": 2800,
       "rudeya": 2000,
       "icchome": 2800
     }
@@ -86,7 +86,7 @@
     "max_price": 4100,
     "prices": {
       "morimori": 3800,
-      "homura": 2500,
+      "homura": 4100,
       "rudeya": 3500,
       "icchome": 4100
     }
@@ -132,7 +132,7 @@
     "max_price": 2000,
     "prices": {
       "morimori": 1600,
-      "homura": 1500,
+      "homura": 1900,
       "rudeya": 1500,
       "icchome": 2000
     }
@@ -275,7 +275,7 @@
     "max_price": 2500,
     "prices": {
       "morimori": 2300,
-      "homura": 2000,
+      "homura": 2500,
       "rudeya": 2500,
       "icchome": 2500
     }
@@ -296,7 +296,7 @@
     "max_price": 1100,
     "prices": {
       "morimori": 1100,
-      "homura": 1000,
+      "homura": 1100,
       "icchome": 1100
     }
   },
@@ -320,7 +320,7 @@
     "prices": {
       "morimori": 1300,
       "homura": 1400,
-      "rudeya": 1400,
+      "rudeya": 1200,
       "icchome": 1400
     }
   },
@@ -358,10 +358,10 @@
     "name": "BX-34 コバルトドラグーン2-60C",
     "category": "bx",
     "retail_price": 2321,
-    "max_price": 2000,
+    "max_price": 2100,
     "prices": {
       "morimori": 800,
-      "homura": 2000,
+      "homura": 2100,
       "rudeya": 1000,
       "icchome": 2000
     }
@@ -415,7 +415,7 @@
     "retail_price": 2500,
     "max_price": 9100,
     "prices": {
-      "homura": 9000,
+      "homura": 9100,
       "rudeya": 7500,
       "icchome": 9100
     }
