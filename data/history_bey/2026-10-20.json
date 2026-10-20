@@ -5,7 +5,7 @@
     "retail_price": 4500,
     "max_price": 2700,
     "prices": {
-      "morimori": 1800,
+      "morimori": 2100,
       "rudeya": 2300,
       "icchome": 2700
     }
@@ -14,9 +14,9 @@
     "name": "UX-20 グローリーワルキューレLF",
     "category": "ux",
     "retail_price": 2700,
-    "max_price": 2200,
+    "max_price": 2250,
     "prices": {
-      "morimori": 2200,
+      "morimori": 2250,
       "homura": 2000,
       "rudeya": 1600,
       "icchome": 2200
@@ -28,7 +28,7 @@
     "retail_price": 2600,
     "max_price": 2900,
     "prices": {
-      "morimori": 2100,
+      "morimori": 2300,
       "rudeya": 2500,
       "icchome": 2900
     }
@@ -173,22 +173,22 @@
     "name": "CX-18 ランダムブースター ブラキオウィップセレクト",
     "category": "cx",
     "retail_price": 1600,
-    "max_price": 1600,
+    "max_price": 1700,
     "prices": {
       "morimori": 1300,
       "rudeya": 900,
-      "icchome": 1600
+      "icchome": 1700
     }
   },
   {
     "name": "CX-17 ランダムブースターVol.10",
     "category": "cx",
     "retail_price": 1600,
-    "max_price": 1700,
+    "max_price": 1800,
     "prices": {
       "morimori": 1000,
       "rudeya": 1000,
-      "icchome": 1700
+      "icchome": 1800
     }
   },
   {
@@ -413,11 +413,11 @@
     "name": "UX-00 サムライセイバー5-60K メタルコート:サムライブルー サッカー日本代表Ver.",
     "category": "limited",
     "retail_price": 2500,
-    "max_price": 9100,
+    "max_price": 9200,
     "prices": {
       "homura": 9100,
       "rudeya": 7500,
-      "icchome": 9100
+      "icchome": 9200
     }
   },
   {

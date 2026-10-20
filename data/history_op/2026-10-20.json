@@ -3,7 +3,7 @@
     "name": "ブースターパック「世界最強の戦士」【OP-17】",
     "category": "op",
     "retail_price": 5760,
-    "max_price": 10800,
+    "max_price": 10300,
     "prices": {
       "homura": 10000,
       "rudeya": 10200,
@@ -12,7 +12,7 @@
       "oku": 10000,
       "collect_tendo": 8500,
       "shinsoku": 9500,
-      "kaitoriexpo": 10800
+      "kaitoriexpo": 10300
     }
   },
   {
@@ -44,21 +44,21 @@
       "icchome": 8000,
       "oku": 8500,
       "collect_tendo": 7800,
-      "shinsoku": 8400,
-      "kaitoriexpo": 8500
+      "shinsoku": 8600,
+      "kaitoriexpo": 8800
     }
   },
   {
     "name": "ブースターパック「蒼海の七傑」【OP-14】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 9500,
+    "max_price": 9700,
     "prices": {
       "homura": 9500,
       "rudeya": 8700,
       "runto": 9500,
       "icchome": 8500,
-      "oku": 9500,
+      "oku": 9700,
       "collect_tendo": 8400,
       "shinsoku": 8900,
       "kaitoriexpo": 8800
@@ -94,7 +94,7 @@
       "icchome": 13000,
       "oku": 14000,
       "collect_tendo": 14000,
-      "shinsoku": 14200,
+      "shinsoku": 14700,
       "kaitoriexpo": 13800
     }
   },
@@ -144,7 +144,7 @@
       "icchome": 15000,
       "oku": 17000,
       "collect_tendo": 17500,
-      "shinsoku": 17000,
+      "shinsoku": 16800,
       "kaitoriexpo": 18000
     }
   },
@@ -285,7 +285,7 @@
     "name": "エクストラブースター「EGGHEAD CRISIS」【EB-04】",
     "category": "eb",
     "retail_price": 5280,
-    "max_price": 13200,
+    "max_price": 13300,
     "prices": {
       "morimori": 11600,
       "homura": 13000,
@@ -293,9 +293,9 @@
       "runto": 13000,
       "icchome": 11500,
       "oku": 12500,
-      "collect_tendo": 13000,
+      "collect_tendo": 13200,
       "shinsoku": 12300,
-      "kaitoriexpo": 13200
+      "kaitoriexpo": 13300
     }
   },
   {
@@ -311,7 +311,7 @@
       "icchome": 12500,
       "oku": 13000,
       "collect_tendo": 13600,
-      "shinsoku": 13100,
+      "shinsoku": 12900,
       "kaitoriexpo": 13000
     }
   },
@@ -352,7 +352,7 @@
     "name": "プレミアムブースター「ONE PIECE CARD THE BEST vol.2」【PRB-02】",
     "category": "prb",
     "retail_price": 5500,
-    "max_price": 10400,
+    "max_price": 10500,
     "prices": {
       "morimori": 9700,
       "homura": 10200,
@@ -361,8 +361,8 @@
       "icchome": 9000,
       "oku": 9500,
       "collect_tendo": 10400,
-      "shinsoku": 9700,
-      "kaitoriexpo": 10200
+      "shinsoku": 9800,
+      "kaitoriexpo": 10500
     }
   },
   {
@@ -378,8 +378,8 @@
       "icchome": 20000,
       "oku": 20500,
       "collect_tendo": 21000,
-      "shinsoku": 19400,
-      "kaitoriexpo": 21000
+      "shinsoku": 19800,
+      "kaitoriexpo": 20800
     }
   },
   {
