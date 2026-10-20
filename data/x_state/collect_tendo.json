@@ -213,10 +213,6 @@
     "拡張パック アビスアイ 未開封BOX": 9200
   },
   "processed_urls": [
-    "https://pbs.twimg.com/media/HTb9OBuaQAAQyYp?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HUAXNANaMAAJcps?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HUkPa5daIAAVjDe?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HT1tTNXbIAAABBB?format=jpg&name=large",
     "https://pbs.twimg.com/media/HUpGRxgboAAvQ5F?format=jpg&name=large",
     "https://pbs.twimg.com/media/HUuSujdaYAAjK1M?format=jpg&name=large",
     "https://pbs.twimg.com/media/HUUlilUbUAAam3c?format=jpg&name=large",
@@ -262,12 +258,18 @@
     "https://pbs.twimg.com/media/HTr4mL9agAAPQ5t?format=jpg&name=large",
     "https://pbs.twimg.com/media/HUUkCFebsAA5D-S?format=jpg&name=large",
     "https://pbs.twimg.com/media/HVC41pfaUAADpzY?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HUuTKbhaIAAKGcj?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HUuTKbhaIAAKGcj?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HU-CTZYa8AAJnEt?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HRBojmEa4AA8-2s?format=png&name=large",
+    "https://pbs.twimg.com/media/HUzol4KbQAAzB1G?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HUzncHVbkAABz1N?format=jpg&name=large"
   ],
   "last_check": 1792506480,
   "ocr_fail_counts": {},
-  "pending_images": [],
-  "last_image_check": 1792503753,
+  "pending_images": [
+    "https://pbs.twimg.com/media/HVDgOE2awAAvp5P?format=jpg&name=large"
+  ],
+  "last_image_check": 1792518145,
   "seen_at": {
     "OP-14 蒼海の七傑": 1792506480,
     "OP-15 神の島の冒険": 1792506480,
