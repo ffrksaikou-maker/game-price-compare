@@ -215,7 +215,6 @@
     "OP-13 受け継がれる": 18600
   },
   "processed_urls": [
-    "https://pbs.twimg.com/media/HUe5MD1aIAA_8nG?format=jpg&name=large",
     "https://pbs.twimg.com/media/HUKx_mraMAAkvm7?format=jpg&name=large",
     "https://pbs.twimg.com/media/HUpKYtJaEAAUTMv?format=jpg&name=large",
     "https://pbs.twimg.com/media/HUznsuiagAAVoSs?format=jpg&name=large",
@@ -264,12 +263,13 @@
     "https://pbs.twimg.com/media/HRBojmEa4AA8-2s?format=png&name=large",
     "https://pbs.twimg.com/media/HUUlilUbUAAam3c?format=jpg&name=large",
     "https://pbs.twimg.com/media/HT66sYeaYAASpG_?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HTXrCPobUAEq_8X?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HTXrCPobUAEq_8X?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HVC1_8XbgAAj4NN?format=jpg&name=large"
   ],
   "last_check": 1792593501,
   "ocr_fail_counts": {},
   "pending_images": [],
-  "last_image_check": 1792590144,
+  "last_image_check": 1792604548,
   "seen_at": {
     "OP-14 蒼海の七傑": 1792593501,
     "OP-15 神の島の冒険": 1792593501,
