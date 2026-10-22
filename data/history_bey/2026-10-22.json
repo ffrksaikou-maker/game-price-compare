@@ -170,6 +170,25 @@
     }
   },
   {
+    "name": "CX-20 カスタマイズセットC",
+    "category": "cx",
+    "retail_price": 6600,
+    "max_price": 8000,
+    "prices": {
+      "icchome": 8000
+    }
+  },
+  {
+    "name": "CX-19 ランダムブースター クロコトレッドセレクト",
+    "category": "cx",
+    "retail_price": 1600,
+    "max_price": 1400,
+    "prices": {
+      "homura": 1400,
+      "icchome": 1400
+    }
+  },
+  {
     "name": "CX-18 ランダムブースター ブラキオウィップセレクト",
     "category": "cx",
     "retail_price": 1600,
@@ -290,6 +309,26 @@
     }
   },
   {
+    "name": "BX-53 オールインワンセット",
+    "category": "bx",
+    "retail_price": 7480,
+    "max_price": 10500,
+    "prices": {
+      "homura": 8000,
+      "icchome": 10500
+    }
+  },
+  {
+    "name": "BX-52 ラスタードラグーン6-60LC",
+    "category": "bx",
+    "retail_price": 2300,
+    "max_price": 1200,
+    "prices": {
+      "homura": 1200,
+      "icchome": 1200
+    }
+  },
+  {
     "name": "BX-50 ランダムブースターVol.11",
     "category": "bx",
     "retail_price": 1600,
@@ -399,6 +438,15 @@
     }
   },
   {
+    "name": "CX-00 エヴァンゲリオンデッキセット",
+    "category": "limited",
+    "retail_price": 7500,
+    "max_price": 9200,
+    "prices": {
+      "icchome": 9200
+    }
+  },
+  {
     "name": "BX-00 ストームペガシス3-70RA",
     "category": "limited",
     "retail_price": 2620,
@@ -469,6 +517,15 @@
       "morimori": 5100,
       "icchome": 5100,
       "rudeya": 5000
+    }
+  },
+  {
+    "name": "UX-00 グローリーワルキューレLF メタルコート:ブルー",
+    "category": "limited",
+    "retail_price": 0,
+    "max_price": 11000,
+    "prices": {
+      "icchome": 11000
     }
   }
 ]
