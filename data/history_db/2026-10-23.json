@@ -5,10 +5,10 @@
     "retail_price": 5760,
     "max_price": 8000,
     "prices": {
+      "rudeya": 5500,
       "runto": 6800,
       "shinsoku": 7200,
-      "kaitoriexpo": 8000,
-      "rudeya": 5500
+      "kaitoriexpo": 8000
     }
   },
   {
@@ -17,8 +17,9 @@
     "retail_price": 5280,
     "max_price": 6500,
     "prices": {
-      "kaitoriexpo": 6500,
-      "rudeya": 5000
+      "rudeya": 5000,
+      "runto": 6500,
+      "kaitoriexpo": 6500
     }
   },
   {
@@ -28,8 +29,8 @@
     "max_price": 8000,
     "prices": {
       "homura": 7700,
-      "kaitoriexpo": 8000,
-      "rudeya": 5500
+      "rudeya": 5500,
+      "kaitoriexpo": 8000
     }
   },
   {
@@ -38,8 +39,8 @@
     "retail_price": 5280,
     "max_price": 11000,
     "prices": {
-      "shinsoku": 11000,
-      "rudeya": 8500
+      "rudeya": 8500,
+      "shinsoku": 11000
     }
   },
   {
@@ -49,9 +50,9 @@
     "max_price": 31400,
     "prices": {
       "homura": 24000,
+      "rudeya": 19500,
       "shinsoku": 31400,
-      "kaitoriexpo": 22000,
-      "rudeya": 19500
+      "kaitoriexpo": 22000
     }
   },
   {
@@ -60,9 +61,9 @@
     "retail_price": 5280,
     "max_price": 10200,
     "prices": {
+      "rudeya": 8000,
       "shinsoku": 9700,
-      "kaitoriexpo": 10200,
-      "rudeya": 8000
+      "kaitoriexpo": 10200
     }
   },
   {
@@ -71,9 +72,9 @@
     "retail_price": 5280,
     "max_price": 9300,
     "prices": {
+      "rudeya": 6000,
       "shinsoku": 8500,
-      "kaitoriexpo": 9300,
-      "rudeya": 6000
+      "kaitoriexpo": 9300
     }
   },
   {
@@ -82,9 +83,9 @@
     "retail_price": 5280,
     "max_price": 7400,
     "prices": {
+      "rudeya": 4000,
       "shinsoku": 6900,
-      "kaitoriexpo": 7400,
-      "rudeya": 4000
+      "kaitoriexpo": 7400
     }
   },
   {
@@ -93,9 +94,9 @@
     "retail_price": 5280,
     "max_price": 8800,
     "prices": {
+      "rudeya": 6300,
       "shinsoku": 8800,
-      "kaitoriexpo": 8800,
-      "rudeya": 6300
+      "kaitoriexpo": 8800
     }
   },
   {
@@ -104,9 +105,9 @@
     "retail_price": 5280,
     "max_price": 6800,
     "prices": {
+      "rudeya": 3600,
       "shinsoku": 6800,
-      "kaitoriexpo": 6400,
-      "rudeya": 3600
+      "kaitoriexpo": 6400
     }
   },
   {
@@ -115,9 +116,9 @@
     "retail_price": 5280,
     "max_price": 6800,
     "prices": {
+      "rudeya": 3600,
       "shinsoku": 6800,
-      "kaitoriexpo": 6800,
-      "rudeya": 3600
+      "kaitoriexpo": 6800
     }
   },
   {
@@ -128,8 +129,8 @@
     "prices": {
       "morimori": 19800,
       "homura": 50000,
-      "kaitoriexpo": 33000,
-      "rudeya": 37000
+      "rudeya": 37000,
+      "kaitoriexpo": 33000
     }
   },
   {
@@ -149,9 +150,9 @@
     "max_price": 12000,
     "prices": {
       "homura": 11100,
+      "rudeya": 6900,
       "shinsoku": 10100,
-      "kaitoriexpo": 12000,
-      "rudeya": 6900
+      "kaitoriexpo": 12000
     }
   },
   {

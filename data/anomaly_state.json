@@ -23,16 +23,16 @@
     "ratio": 0.17,
     "drop": true
   },
-  "UX-00 ベイキックオフセット FCバルセロナVer.|icchome": {
-    "price": 18700,
-    "ref": 6000,
-    "ratio": 3.12,
-    "drop": false
-  },
   "UX-00 ベイキックオフセット FCバルセロナVer.|rudeya": {
     "price": 5000,
     "ref": 12850,
     "ratio": 0.39,
+    "drop": false
+  },
+  "UX-00 ベイキックオフセット FCバルセロナVer.|icchome": {
+    "price": 18700,
+    "ref": 6000,
+    "ratio": 3.12,
     "drop": false
   },
   "MANGA BOOSTER 01【SB-01】|morimori": {
