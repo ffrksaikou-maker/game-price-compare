@@ -11,7 +11,7 @@
       "oku": 10000,
       "collect_tendo": 8500,
       "shinsoku": 9600,
-      "kaitoriexpo": 10000
+      "kaitoriexpo": 9500
     }
   },
   {
@@ -26,9 +26,9 @@
       "runto": 9500,
       "icchome": 9000,
       "oku": 9500,
-      "collect_tendo": 9400,
+      "collect_tendo": 9800,
       "shinsoku": 9000,
-      "kaitoriexpo": 9800
+      "kaitoriexpo": 9700
     }
   },
   {
@@ -61,7 +61,7 @@
       "oku": 9500,
       "collect_tendo": 8400,
       "shinsoku": 8900,
-      "kaitoriexpo": 9500
+      "kaitoriexpo": 9600
     }
   },
   {
@@ -152,7 +152,7 @@
     "name": "ブースターパック「二つの伝説」【OP-08】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 11100,
+    "max_price": 11200,
     "prices": {
       "morimori": 9200,
       "homura": 10500,
@@ -162,7 +162,7 @@
       "oku": 10000,
       "collect_tendo": 10500,
       "shinsoku": 9800,
-      "kaitoriexpo": 11100
+      "kaitoriexpo": 11200
     }
   },
   {
@@ -244,7 +244,7 @@
       "oku": 13000,
       "collect_tendo": 13000,
       "shinsoku": 13100,
-      "kaitoriexpo": 14600
+      "kaitoriexpo": 14500
     }
   },
   {
@@ -293,7 +293,7 @@
       "runto": 13500,
       "icchome": 11500,
       "oku": 13000,
-      "collect_tendo": 13200,
+      "collect_tendo": 13500,
       "shinsoku": 12700,
       "kaitoriexpo": 13500
     }
@@ -310,7 +310,7 @@
       "runto": 13500,
       "icchome": 12500,
       "oku": 13000,
-      "collect_tendo": 13000,
+      "collect_tendo": 13500,
       "shinsoku": 12600,
       "kaitoriexpo": 13100
     }
@@ -362,7 +362,7 @@
       "oku": 10000,
       "collect_tendo": 10400,
       "shinsoku": 10000,
-      "kaitoriexpo": 10200
+      "kaitoriexpo": 10300
     }
   },
   {
