@@ -94,11 +94,11 @@
     "name": "ブースターパック「怒りの咆哮」【FB-03】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 8800,
+    "max_price": 8400,
     "prices": {
       "rudeya": 6300,
       "shinsoku": 7400,
-      "kaitoriexpo": 8800
+      "kaitoriexpo": 8400
     }
   },
   {

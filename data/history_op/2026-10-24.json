@@ -12,7 +12,7 @@
       "oku": 9500,
       "collect_tendo": 8500,
       "shinsoku": 9500,
-      "kaitoriexpo": 9500
+      "kaitoriexpo": 9300
     }
   },
   {
@@ -28,7 +28,7 @@
       "oku": 9500,
       "collect_tendo": 9800,
       "shinsoku": 9000,
-      "kaitoriexpo": 9700
+      "kaitoriexpo": 9500
     }
   },
   {
@@ -43,7 +43,7 @@
       "icchome": 8000,
       "oku": 8500,
       "collect_tendo": 7800,
-      "shinsoku": 8700,
+      "shinsoku": 8600,
       "kaitoriexpo": 9200
     }
   },
@@ -59,8 +59,8 @@
       "icchome": 8800,
       "oku": 9500,
       "collect_tendo": 8400,
-      "shinsoku": 8900,
-      "kaitoriexpo": 9600
+      "shinsoku": 9200,
+      "kaitoriexpo": 9800
     }
   },
   {
@@ -76,7 +76,7 @@
       "icchome": 17000,
       "oku": 17500,
       "collect_tendo": 15400,
-      "shinsoku": 17800,
+      "shinsoku": 17700,
       "kaitoriexpo": 18700
     }
   },
@@ -93,7 +93,7 @@
       "icchome": 13000,
       "oku": 14000,
       "collect_tendo": 14000,
-      "shinsoku": 15100,
+      "shinsoku": 15400,
       "kaitoriexpo": 14500
     }
   },
@@ -117,7 +117,7 @@
     "name": "ブースターパック「王族の血統」【OP-10】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 10700,
+    "max_price": 10500,
     "prices": {
       "morimori": 9600,
       "homura": 9600,
@@ -126,8 +126,8 @@
       "icchome": 9500,
       "oku": 9500,
       "collect_tendo": 10000,
-      "shinsoku": 9600,
-      "kaitoriexpo": 10700
+      "shinsoku": 10300,
+      "kaitoriexpo": 10500
     }
   },
   {
@@ -143,7 +143,7 @@
       "icchome": 15000,
       "oku": 17000,
       "collect_tendo": 17300,
-      "shinsoku": 16600,
+      "shinsoku": 16800,
       "kaitoriexpo": 18000
     }
   },
@@ -151,7 +151,7 @@
     "name": "ブースターパック「二つの伝説」【OP-08】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 11200,
+    "max_price": 10800,
     "prices": {
       "morimori": 9200,
       "homura": 10500,
@@ -161,7 +161,7 @@
       "oku": 10500,
       "collect_tendo": 10500,
       "shinsoku": 9800,
-      "kaitoriexpo": 11200
+      "kaitoriexpo": 10800
     }
   },
   {
@@ -209,7 +209,7 @@
       "icchome": 50000,
       "oku": 47000,
       "collect_tendo": 45000,
-      "shinsoku": 42800
+      "shinsoku": 46000
     }
   },
   {
@@ -309,7 +309,7 @@
       "runto": 13500,
       "icchome": 12500,
       "oku": 12500,
-      "collect_tendo": 13500,
+      "collect_tendo": 13000,
       "shinsoku": 12600,
       "kaitoriexpo": 13100
     }
@@ -351,7 +351,7 @@
     "name": "プレミアムブースター「ONE PIECE CARD THE BEST vol.2」【PRB-02】",
     "category": "prb",
     "retail_price": 5500,
-    "max_price": 10400,
+    "max_price": 10500,
     "prices": {
       "morimori": 9700,
       "homura": 10300,
@@ -360,8 +360,8 @@
       "icchome": 9000,
       "oku": 10000,
       "collect_tendo": 10400,
-      "shinsoku": 10000,
-      "kaitoriexpo": 10300
+      "shinsoku": 9900,
+      "kaitoriexpo": 10500
     }
   },
   {

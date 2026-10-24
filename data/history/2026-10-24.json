@@ -3,13 +3,13 @@
     "name": "30th CELEBRATION カードセット 9種セット",
     "category": "mega",
     "retail_price": 10800,
-    "max_price": 17800,
+    "max_price": 18000,
     "prices": {
       "homura": 17700,
       "rudeya": 15500,
       "icchome": 17000,
       "kaikyo": 17000,
-      "kaitoriexpo": 17800
+      "kaitoriexpo": 18000
     }
   },
   {
@@ -42,7 +42,6 @@
       "oku": 16500,
       "kaikyo": 17000,
       "collect_tendo": 18500,
-      "shinsoku": 16500,
       "kaitoriexpo": 16500
     }
   },
@@ -55,29 +54,29 @@
       "morimori": 25200,
       "homura": 25500,
       "rudeya": 23000,
-      "runto": 25500,
+      "runto": 25200,
       "icchome": 25500,
       "oku": 25500,
       "kaikyo": 24000,
       "collect_tendo": 25200,
       "shinsoku": 25500,
-      "kaitoriexpo": 25500
+      "kaitoriexpo": 25000
     }
   },
   {
     "name": "MEGA 拡張パック「ストームエメラルダ」",
     "category": "mega",
     "retail_price": 6000,
-    "max_price": 9200,
+    "max_price": 9000,
     "prices": {
       "morimori": 9000,
       "homura": 9000,
       "rudeya": 8500,
       "runto": 9000,
-      "icchome": 8700,
+      "icchome": 8500,
       "oku": 9000,
       "kaikyo": 8500,
-      "collect_tendo": 9200,
+      "collect_tendo": 9000,
       "shinsoku": 9000,
       "kaitoriexpo": 9000
     }
@@ -86,7 +85,7 @@
     "name": "MEGA 拡張パック「アビスアイ」",
     "category": "mega",
     "retail_price": 6000,
-    "max_price": 9200,
+    "max_price": 9000,
     "prices": {
       "morimori": 8900,
       "homura": 9000,
@@ -97,7 +96,7 @@
       "kaikyo": 8000,
       "collect_tendo": 9000,
       "shinsoku": 8800,
-      "kaitoriexpo": 9200
+      "kaitoriexpo": 8500
     }
   },
   {
@@ -115,7 +114,7 @@
       "kaikyo": 7000,
       "collect_tendo": 9000,
       "shinsoku": 9500,
-      "kaitoriexpo": 9600
+      "kaitoriexpo": 9300
     }
   },
   {
@@ -133,25 +132,25 @@
       "kaikyo": 7000,
       "collect_tendo": 8400,
       "shinsoku": 8800,
-      "kaitoriexpo": 8700
+      "kaitoriexpo": 8500
     }
   },
   {
     "name": "MEGA ハイクラスパック「MEGAドリームex」",
     "category": "mega",
     "retail_price": 5500,
-    "max_price": 12900,
+    "max_price": 13000,
     "prices": {
       "morimori": 12700,
       "homura": 12700,
       "rudeya": 10000,
       "runto": 12800,
-      "icchome": 12800,
+      "icchome": 12600,
       "oku": 12700,
       "kaikyo": 12500,
       "collect_tendo": 12800,
       "shinsoku": 12500,
-      "kaitoriexpo": 12900
+      "kaitoriexpo": 13000
     }
   },
   {
@@ -168,8 +167,8 @@
       "oku": 18000,
       "kaikyo": 18000,
       "collect_tendo": 17700,
-      "shinsoku": 17800,
-      "kaitoriexpo": 17800
+      "shinsoku": 17500,
+      "kaitoriexpo": 17600
     }
   },
   {
@@ -265,7 +264,7 @@
       "kaikyo": 22000,
       "collect_tendo": 22000,
       "shinsoku": 22000,
-      "kaitoriexpo": 21500
+      "kaitoriexpo": 22000
     }
   },
   {
@@ -281,7 +280,7 @@
       "icchome": 24000,
       "collect_tendo": 23000,
       "shinsoku": 24000,
-      "kaitoriexpo": 22000
+      "kaitoriexpo": 23000
     }
   },
   {
@@ -298,7 +297,7 @@
       "kaikyo": 19500,
       "collect_tendo": 18800,
       "shinsoku": 18800,
-      "kaitoriexpo": 17600
+      "kaitoriexpo": 18500
     }
   },
   {
@@ -331,7 +330,7 @@
       "kaikyo": 19000,
       "collect_tendo": 19400,
       "shinsoku": 19500,
-      "kaitoriexpo": 20000
+      "kaitoriexpo": 19000
     }
   },
   {
@@ -355,7 +354,7 @@
     "name": "SV 強化拡張パック「楽園ドラゴーナ」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 15500,
+    "max_price": 15600,
     "prices": {
       "morimori": 15300,
       "homura": 15500,
@@ -364,8 +363,8 @@
       "icchome": 15000,
       "kaikyo": 14500,
       "collect_tendo": 15000,
-      "shinsoku": 15500,
-      "kaitoriexpo": 12800
+      "shinsoku": 15600,
+      "kaitoriexpo": 13000
     }
   },
   {
@@ -380,7 +379,7 @@
       "runto": 11000,
       "icchome": 11700,
       "kaikyo": 11000,
-      "collect_tendo": 11800,
+      "collect_tendo": 11400,
       "shinsoku": 12100,
       "kaitoriexpo": 3900
     }
@@ -414,7 +413,7 @@
       "icchome": 12000,
       "collect_tendo": 13500,
       "shinsoku": 13400,
-      "kaitoriexpo": 11800
+      "kaitoriexpo": 11500
     }
   },
   {
@@ -446,7 +445,7 @@
       "icchome": 12000,
       "collect_tendo": 12000,
       "shinsoku": 12500,
-      "kaitoriexpo": 10000
+      "kaitoriexpo": 10500
     }
   },
   {
@@ -462,7 +461,7 @@
       "icchome": 11100,
       "collect_tendo": 11000,
       "shinsoku": 11200,
-      "kaitoriexpo": 11000
+      "kaitoriexpo": 11300
     }
   },
   {
@@ -495,7 +494,7 @@
       "icchome": 11500,
       "collect_tendo": 11500,
       "shinsoku": 12000,
-      "kaitoriexpo": 10200
+      "kaitoriexpo": 10500
     }
   },
   {
@@ -510,8 +509,8 @@
       "runto": 9500,
       "icchome": 10000,
       "collect_tendo": 10600,
-      "shinsoku": 10400,
-      "kaitoriexpo": 9000
+      "shinsoku": 10300,
+      "kaitoriexpo": 9500
     }
   },
   {
@@ -560,7 +559,7 @@
       "kaikyo": 53000,
       "collect_tendo": 49000,
       "shinsoku": 48000,
-      "kaitoriexpo": 48000
+      "kaitoriexpo": 49000
     }
   },
   {
@@ -575,8 +574,8 @@
       "runto": 10000,
       "icchome": 10700,
       "collect_tendo": 9000,
-      "shinsoku": 11000,
-      "kaitoriexpo": 10200
+      "shinsoku": 10900,
+      "kaitoriexpo": 11000
     }
   },
   {
@@ -592,7 +591,7 @@
       "icchome": 11000,
       "collect_tendo": 12200,
       "shinsoku": 12200,
-      "kaitoriexpo": 10600
+      "kaitoriexpo": 10700
     }
   },
   {
@@ -608,7 +607,7 @@
       "icchome": 17000,
       "collect_tendo": 18300,
       "shinsoku": 18300,
-      "kaitoriexpo": 17000
+      "kaitoriexpo": 17500
     }
   },
   {
@@ -823,7 +822,7 @@
       "runto": 208000,
       "collect_tendo": 206000,
       "shinsoku": 210000,
-      "kaitoriexpo": 198000
+      "kaitoriexpo": 200000
     }
   },
   {
@@ -911,7 +910,7 @@
       "homura": 20600,
       "runto": 18500,
       "collect_tendo": 20000,
-      "shinsoku": 20000,
+      "shinsoku": 20500,
       "kaitoriexpo": 20000
     }
   },
