@@ -216,7 +216,6 @@
     "EB-03 ONE PIECE Heroines Edition": 13500
   },
   "processed_urls": [
-    "https://pbs.twimg.com/media/HVSXWWYbYAA7PYI?format=jpg&name=large",
     "https://pbs.twimg.com/media/HUPk-fVboAAvKjW?format=jpg&name=large",
     "https://pbs.twimg.com/media/HVNO__vbQAA-pgZ?format=jpg&name=large",
     "https://pbs.twimg.com/media/HVC1_8XbgAAj4NN?format=jpg&name=large",
@@ -265,7 +264,8 @@
     "https://pbs.twimg.com/media/HUpKYtJaEAAUTMv?format=jpg&name=large",
     "https://pbs.twimg.com/media/HTCK3hSb0AAgvJV?format=png&name=large",
     "https://pbs.twimg.com/media/HUZmyr_aoAACt5C?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HTXrCPobUAEq_8X?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HTXrCPobUAEq_8X?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HTr4mL9agAAPQ5t?format=jpg&name=large"
   ],
   "last_check": 1792827026,
   "ocr_fail_counts": {
@@ -274,9 +274,11 @@
   },
   "pending_images": [
     "https://pbs.twimg.com/media/HVXREvxagAASQuE?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HVXQ7L_bAAAMKzX?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HVXQ7L_bAAAMKzX?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HVX4-e6aUAAfhjh?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HUUhqvrbMAATnLQ?format=jpg&name=large"
   ],
-  "last_image_check": 1792820547,
+  "last_image_check": 1792834947,
   "seen_at": {
     "OP-14 蒼海の七傑": 1792827026,
     "OP-15 神の島の冒険": 1792827026,
