@@ -3,12 +3,12 @@
     "name": "UX-21 ヘルズネザーデッキセット",
     "category": "ux",
     "retail_price": 4500,
-    "max_price": 3100,
+    "max_price": 3200,
     "prices": {
       "morimori": 2900,
       "homura": 3000,
       "rudeya": 2300,
-      "icchome": 3100
+      "icchome": 3200
     }
   },
   {
@@ -27,23 +27,23 @@
     "name": "UX-19 バレットグリフォンH",
     "category": "ux",
     "retail_price": 2600,
-    "max_price": 3100,
+    "max_price": 3200,
     "prices": {
       "morimori": 3000,
       "rudeya": 2500,
-      "icchome": 3100
+      "icchome": 3200
     }
   },
   {
     "name": "UX-18 ランダムブースターVol.8",
     "category": "ux",
     "retail_price": 1600,
-    "max_price": 3100,
+    "max_price": 3200,
     "prices": {
       "morimori": 3000,
       "homura": 3000,
       "rudeya": 2000,
-      "icchome": 3100
+      "icchome": 3200
     }
   },
   {
@@ -84,34 +84,34 @@
     "name": "UX-12 ランダムブースターVol.5",
     "category": "ux",
     "retail_price": 1400,
-    "max_price": 4400,
+    "max_price": 4500,
     "prices": {
       "morimori": 4300,
       "homura": 4300,
       "rudeya": 3500,
-      "icchome": 4400
+      "icchome": 4500
     }
   },
   {
     "name": "UX-11 インパクトドレイク9-60LR",
     "category": "ux",
     "retail_price": 2420,
-    "max_price": 2600,
+    "max_price": 2700,
     "prices": {
       "morimori": 2100,
       "rudeya": 1100,
-      "icchome": 2600
+      "icchome": 2700
     }
   },
   {
     "name": "UX-10 カスタマイズセットU",
     "category": "ux",
     "retail_price": 5700,
-    "max_price": 12500,
+    "max_price": 12600,
     "prices": {
       "morimori": 12400,
       "rudeya": 12000,
-      "icchome": 12500
+      "icchome": 12600
     }
   },
   {
@@ -123,7 +123,7 @@
       "morimori": 2700,
       "homura": 3400,
       "rudeya": 2000,
-      "icchome": 3230
+      "icchome": 3400
     }
   },
   {
@@ -151,11 +151,11 @@
     "name": "UX-03 ウィザードロッド5-70DB",
     "category": "ux",
     "retail_price": 1400,
-    "max_price": 1300,
+    "max_price": 1900,
     "prices": {
       "morimori": 1100,
       "rudeya": 1300,
-      "icchome": 840
+      "icchome": 1900
     }
   },
   {
@@ -167,7 +167,7 @@
       "morimori": 1900,
       "homura": 2600,
       "rudeya": 1300,
-      "icchome": 2500
+      "icchome": 2600
     }
   },
   {
@@ -193,33 +193,33 @@
     "name": "CX-18 ランダムブースター ブラキオウィップセレクト",
     "category": "cx",
     "retail_price": 1600,
-    "max_price": 1900,
+    "max_price": 2000,
     "prices": {
       "morimori": 1700,
       "rudeya": 900,
-      "icchome": 1900
+      "icchome": 2000
     }
   },
   {
     "name": "CX-17 ランダムブースターVol.10",
     "category": "cx",
     "retail_price": 1600,
-    "max_price": 1900,
+    "max_price": 2000,
     "prices": {
       "morimori": 1900,
       "rudeya": 1000,
-      "icchome": 1900
+      "icchome": 2000
     }
   },
   {
     "name": "CX-16 スタートダッシュセットC",
     "category": "cx",
     "retail_price": 5650,
-    "max_price": 3000,
+    "max_price": 3100,
     "prices": {
       "morimori": 1900,
       "rudeya": 3000,
-      "icchome": 1860
+      "icchome": 3100
     }
   },
   {
@@ -237,22 +237,22 @@
     "name": "CX-13 バハムートブリッツBK1-50I",
     "category": "cx",
     "retail_price": 2200,
-    "max_price": 2000,
+    "max_price": 2100,
     "prices": {
       "morimori": 1900,
       "rudeya": 1200,
-      "icchome": 2000
+      "icchome": 2100
     }
   },
   {
     "name": "CX-12 フェニックスフレアZ9-80WW",
     "category": "cx",
     "retail_price": 1700,
-    "max_price": 2000,
+    "max_price": 2100,
     "prices": {
       "morimori": 1700,
       "rudeya": 2000,
-      "icchome": 1900
+      "icchome": 2100
     }
   },
   {
@@ -280,24 +280,24 @@
     "name": "CX-07 ペガサスブラストATr",
     "category": "cx",
     "retail_price": 2600,
-    "max_price": 2200,
+    "max_price": 2300,
     "prices": {
       "morimori": 1900,
       "homura": 2100,
       "rudeya": 900,
-      "icchome": 2200
+      "icchome": 2300
     }
   },
   {
     "name": "CX-05 ランダムブースターVol.6",
     "category": "cx",
     "retail_price": 1600,
-    "max_price": 2700,
+    "max_price": 2800,
     "prices": {
       "morimori": 2600,
       "homura": 2600,
       "rudeya": 2500,
-      "icchome": 2700
+      "icchome": 2800
     }
   },
   {
@@ -323,10 +323,10 @@
     "name": "BX-52 ラスタードラグーン6-60LC",
     "category": "bx",
     "retail_price": 2300,
-    "max_price": 1200,
+    "max_price": 2000,
     "prices": {
       "homura": 1200,
-      "icchome": 1200
+      "icchome": 2000
     }
   },
   {
@@ -349,7 +349,7 @@
       "morimori": 1800,
       "homura": 2400,
       "rudeya": 1300,
-      "icchome": 2100
+      "icchome": 2400
     }
   },
   {
@@ -361,7 +361,7 @@
       "morimori": 1300,
       "homura": 1700,
       "rudeya": 1200,
-      "icchome": 1400
+      "icchome": 1700
     }
   },
   {
@@ -382,6 +382,15 @@
       "morimori": 1700,
       "rudeya": 1500,
       "icchome": 1800
+    }
+  },
+  {
+    "name": "BX-36 ランダムブースター ホエールウェーブセレクト",
+    "category": "bx",
+    "retail_price": 1400,
+    "max_price": 1000,
+    "prices": {
+      "icchome": 1000
     }
   },
   {
@@ -483,10 +492,10 @@
     "name": "CX-00 ペガサスブラストATr メタルコート:レッド",
     "category": "limited",
     "retail_price": 2700,
-    "max_price": 2800,
+    "max_price": 3600,
     "prices": {
       "rudeya": 2800,
-      "icchome": 1680
+      "icchome": 3600
     }
   },
   {
