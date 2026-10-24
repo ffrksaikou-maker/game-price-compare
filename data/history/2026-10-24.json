@@ -7,8 +7,7 @@
     "prices": {
       "homura": 17700,
       "rudeya": 15500,
-      "runto": 17000,
-      "icchome": 16000,
+      "icchome": 17000,
       "kaikyo": 17000,
       "kaitoriexpo": 17800
     }
@@ -115,7 +114,7 @@
       "oku": 9600,
       "kaikyo": 7000,
       "collect_tendo": 9000,
-      "shinsoku": 9600,
+      "shinsoku": 9500,
       "kaitoriexpo": 9600
     }
   },
@@ -143,7 +142,7 @@
     "retail_price": 5500,
     "max_price": 12900,
     "prices": {
-      "morimori": 12900,
+      "morimori": 12700,
       "homura": 12700,
       "rudeya": 10000,
       "runto": 12800,
@@ -185,7 +184,7 @@
       "runto": 7800,
       "icchome": 8000,
       "collect_tendo": 8000,
-      "shinsoku": 8100,
+      "shinsoku": 8000,
       "kaitoriexpo": 7500
     }
   },
@@ -203,7 +202,7 @@
       "oku": 8100,
       "kaikyo": 7000,
       "collect_tendo": 7600,
-      "shinsoku": 8100,
+      "shinsoku": 8000,
       "kaitoriexpo": 8100
     }
   },
@@ -281,7 +280,7 @@
       "runto": 23000,
       "icchome": 24000,
       "collect_tendo": 23000,
-      "shinsoku": 24300,
+      "shinsoku": 24000,
       "kaitoriexpo": 22000
     }
   },
@@ -306,9 +305,9 @@
     "name": "SV 拡張パック「バトルパートナーズ」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 10800,
+    "max_price": 10500,
     "prices": {
-      "morimori": 10800,
+      "morimori": 10300,
       "homura": 10300,
       "rudeya": 10000,
       "runto": 10500,
@@ -398,7 +397,7 @@
       "runto": 11000,
       "icchome": 12000,
       "collect_tendo": 11800,
-      "shinsoku": 12400,
+      "shinsoku": 12300,
       "kaitoriexpo": 12700
     }
   },
@@ -479,7 +478,7 @@
       "icchome": 18500,
       "kaikyo": 17500,
       "collect_tendo": 17500,
-      "shinsoku": 18800,
+      "shinsoku": 18500,
       "kaitoriexpo": 18800
     }
   },
@@ -560,7 +559,7 @@
       "icchome": 46500,
       "kaikyo": 53000,
       "collect_tendo": 49000,
-      "shinsoku": 50000,
+      "shinsoku": 48000,
       "kaitoriexpo": 48000
     }
   },
@@ -662,10 +661,10 @@
     "name": "S&S 拡張パック「パラダイムトリガー」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 21100,
+    "max_price": 21200,
     "prices": {
       "morimori": 20000,
-      "homura": 21100,
+      "homura": 21200,
       "runto": 18500,
       "collect_tendo": 20000,
       "shinsoku": 21000,

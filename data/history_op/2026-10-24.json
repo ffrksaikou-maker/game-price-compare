@@ -35,12 +35,11 @@
     "name": "ブースターパック「神の島の冒険」【OP-15】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 9500,
+    "max_price": 9200,
     "prices": {
       "morimori": 8500,
       "homura": 8500,
       "rudeya": 8200,
-      "runto": 9500,
       "icchome": 8000,
       "oku": 8500,
       "collect_tendo": 7800,
