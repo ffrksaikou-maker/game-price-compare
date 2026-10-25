@@ -7,7 +7,7 @@
     "prices": {
       "rudeya": 5500,
       "runto": 7000,
-      "shinsoku": 4900,
+      "shinsoku": 5300,
       "kaitoriexpo": 8000
     }
   },
@@ -28,10 +28,9 @@
     "retail_price": 5280,
     "max_price": 8500,
     "prices": {
-      "homura": 7000,
+      "homura": 6500,
       "rudeya": 5500,
-      "runto": 8200,
-      "shinsoku": 5400,
+      "shinsoku": 5700,
       "kaitoriexpo": 8500
     }
   },
@@ -39,21 +38,21 @@
     "name": "ブースターパック「誇り高き戦闘民族」【FB-08】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 9400,
+    "max_price": 10000,
     "prices": {
       "rudeya": 8500,
-      "shinsoku": 9400
+      "shinsoku": 10000
     }
   },
   {
     "name": "ブースターパック「神龍への願い」【FB-07】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 26000,
+    "max_price": 32300,
     "prices": {
       "homura": 24000,
       "rudeya": 19500,
-      "shinsoku": 26000,
+      "shinsoku": 32300,
       "kaitoriexpo": 22000
     }
   },
@@ -64,7 +63,7 @@
     "max_price": 11000,
     "prices": {
       "rudeya": 8000,
-      "shinsoku": 8800,
+      "shinsoku": 9400,
       "kaitoriexpo": 11000
     }
   },
@@ -75,7 +74,7 @@
     "max_price": 9500,
     "prices": {
       "rudeya": 6000,
-      "shinsoku": 7200,
+      "shinsoku": 7600,
       "kaitoriexpo": 9500
     }
   },
@@ -86,7 +85,7 @@
     "max_price": 7600,
     "prices": {
       "rudeya": 4000,
-      "shinsoku": 5600,
+      "shinsoku": 5900,
       "kaitoriexpo": 7600
     }
   },
@@ -97,7 +96,7 @@
     "max_price": 8400,
     "prices": {
       "rudeya": 6300,
-      "shinsoku": 7600,
+      "shinsoku": 8100,
       "kaitoriexpo": 8400
     }
   },
@@ -108,7 +107,7 @@
     "max_price": 6500,
     "prices": {
       "rudeya": 3600,
-      "shinsoku": 5600,
+      "shinsoku": 5900,
       "kaitoriexpo": 6500
     }
   },
@@ -120,7 +119,7 @@
     "prices": {
       "rudeya": 3600,
       "runto": 6000,
-      "shinsoku": 5400,
+      "shinsoku": 5800,
       "kaitoriexpo": 7000
     }
   },
@@ -130,11 +129,11 @@
     "retail_price": 7920,
     "max_price": 50000,
     "prices": {
+      "morimori": 19800,
       "homura": 50000,
       "rudeya": 37000,
-      "shinsoku": 36000,
-      "kaitoriexpo": 33000,
-      "morimori": 19800
+      "shinsoku": 38300,
+      "kaitoriexpo": 33000
     }
   },
   {
@@ -154,9 +153,9 @@
     "retail_price": 6600,
     "max_price": 12000,
     "prices": {
-      "homura": 9800,
+      "homura": 9000,
       "rudeya": 6900,
-      "shinsoku": 7000,
+      "shinsoku": 7600,
       "kaitoriexpo": 12000
     }
   },
@@ -175,8 +174,8 @@
     "retail_price": 6600,
     "max_price": 37000,
     "prices": {
-      "rudeya": 37000,
-      "morimori": 25000
+      "morimori": 25000,
+      "rudeya": 37000
     }
   }
 ]
