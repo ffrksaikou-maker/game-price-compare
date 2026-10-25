@@ -8,7 +8,6 @@
       "homura": 17000,
       "rudeya": 15500,
       "icchome": 17000,
-      "kaikyo": 17000,
       "kaitoriexpo": 18000
     }
   },
@@ -16,14 +15,14 @@
     "name": "30th CELEBRATION FUTURISTIC BOX",
     "category": "mega",
     "retail_price": 27500,
-    "max_price": 61500,
+    "max_price": 61200,
     "prices": {
       "morimori": 31000,
       "homura": 61000,
       "rudeya": 59000,
       "runto": 61000,
       "icchome": 60000,
-      "oku": 61500,
+      "oku": 61200,
       "shinsoku": 57000,
       "kaitoriexpo": 56000
     }
@@ -39,7 +38,7 @@
       "rudeya": 16000,
       "runto": 16500,
       "icchome": 16500,
-      "oku": 16500,
+      "oku": 16200,
       "kaikyo": 17000,
       "collect_tendo": 18500,
       "shinsoku": 16500,
@@ -88,7 +87,7 @@
     "retail_price": 6000,
     "max_price": 9000,
     "prices": {
-      "morimori": 8900,
+      "morimori": 8800,
       "homura": 8800,
       "rudeya": 6500,
       "runto": 8600,
@@ -550,14 +549,14 @@
     "name": "SV 強化拡張パック「151」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 53000,
+    "max_price": 51000,
     "prices": {
       "morimori": 50000,
       "homura": 51000,
       "rudeya": 36500,
       "runto": 50000,
       "icchome": 46500,
-      "kaikyo": 53000,
+      "kaikyo": 48000,
       "collect_tendo": 49000,
       "shinsoku": 48000,
       "kaitoriexpo": 49000
@@ -606,6 +605,7 @@
       "rudeya": 17100,
       "runto": 17500,
       "icchome": 17000,
+      "kaikyo": 17000,
       "collect_tendo": 18300,
       "shinsoku": 18300,
       "kaitoriexpo": 17500
