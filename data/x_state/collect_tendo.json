@@ -218,10 +218,6 @@
     "マガシンフォニア": 7600
   },
   "processed_urls": [
-    "https://pbs.twimg.com/media/HUpKYtJaEAAUTMv?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HUuTKbhaIAAKGcj?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HVDgK57bAAAffhZ?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HVcappCbgAE6jYR?format=jpg&name=large",
     "https://pbs.twimg.com/media/HUPkbGAacAAvKi-?format=jpg&name=large",
     "https://pbs.twimg.com/media/HUUhqvrbMAATnLQ?format=jpg&name=large",
     "https://pbs.twimg.com/media/HU9z2lbbMAA75oz?format=jpg&name=large",
@@ -267,16 +263,22 @@
     "https://pbs.twimg.com/media/HT6_El3bQAAIWzR?format=jpg&name=large",
     "https://pbs.twimg.com/media/HVXREvxagAASQuE?format=jpg&name=large",
     "https://pbs.twimg.com/media/HVcbQ1YbsAAsTyU?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HUzoEIjaYAATELI?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HUzoEIjaYAATELI?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HVC41pfaUAADpzY?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HTcljXSacAAArGk?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HVSXWWYbYAA7PYI?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HUKx_mraMAAkvm7?format=jpg&name=large"
   ],
   "last_check": 1792914675,
   "ocr_fail_counts": {
     "https://pbs.twimg.com/media/HVcfishaYAAe7A_?format=jpg&name=large": 1
   },
   "pending_images": [
-    "https://pbs.twimg.com/media/HVcfishaYAAe7A_?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HVcfishaYAAe7A_?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HVcappCbgAE6jYR?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HVSdZ8HagAIqSy1?format=jpg&name=large"
   ],
-  "last_image_check": 1792906943,
+  "last_image_check": 1792921345,
   "seen_at": {
     "OP-14 蒼海の七傑": 1792914675,
     "OP-15 神の島の冒険": 1792914675,
