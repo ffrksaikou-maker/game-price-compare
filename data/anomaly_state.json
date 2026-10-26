@@ -1,13 +1,13 @@
 {
   "SV 強化拡張パック「ステラミラクル」|kaitoriexpo": {
     "price": 3900,
-    "ref": 11550,
-    "ratio": 0.34,
+    "ref": 11800,
+    "ratio": 0.33,
     "drop": false
   },
   "SV 強化拡張パック「黒炎の支配者」|kaitoriexpo": {
     "price": 4500,
-    "ref": 19000,
+    "ref": 18500,
     "ratio": 0.24,
     "drop": false
   },
@@ -31,7 +31,7 @@
   },
   "MANGA BOOSTER 01【SB-01】|morimori": {
     "price": 15000,
-    "ref": 90000,
+    "ref": 90400,
     "ratio": 0.17,
     "drop": true
   }
