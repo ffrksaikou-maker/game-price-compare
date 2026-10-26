@@ -39,10 +39,10 @@
       "runto": 16000,
       "icchome": 16000,
       "oku": 16200,
+      "kaikyo": 17000,
       "collect_tendo": 18500,
       "shinsoku": 16500,
-      "kaitoriexpo": 16000,
-      "kaikyo": 17000
+      "kaitoriexpo": 16000
     }
   },
   {
@@ -57,10 +57,10 @@
       "runto": 24500,
       "icchome": 24800,
       "oku": 25000,
+      "kaikyo": 23000,
       "collect_tendo": 25200,
       "shinsoku": 24000,
-      "kaitoriexpo": 24000,
-      "kaikyo": 23000
+      "kaitoriexpo": 24000
     }
   },
   {
@@ -75,10 +75,10 @@
       "runto": 8700,
       "icchome": 8500,
       "oku": 8800,
+      "kaikyo": 8500,
       "collect_tendo": 9200,
       "shinsoku": 8800,
-      "kaitoriexpo": 8600,
-      "kaikyo": 8500
+      "kaitoriexpo": 8600
     }
   },
   {
@@ -93,10 +93,10 @@
       "runto": 8000,
       "icchome": 8100,
       "oku": 8000,
+      "kaikyo": 8000,
       "collect_tendo": 9000,
       "shinsoku": 7800,
-      "kaitoriexpo": 8500,
-      "kaikyo": 8000
+      "kaitoriexpo": 8500
     }
   },
   {
@@ -111,10 +111,10 @@
       "runto": 8500,
       "icchome": 8800,
       "oku": 8800,
+      "kaikyo": 7000,
       "collect_tendo": 9000,
       "shinsoku": 8700,
-      "kaitoriexpo": 9200,
-      "kaikyo": 7000
+      "kaitoriexpo": 9200
     }
   },
   {
@@ -129,10 +129,10 @@
       "runto": 8300,
       "icchome": 8300,
       "oku": 8500,
+      "kaikyo": 7000,
       "collect_tendo": 8400,
       "shinsoku": 8000,
-      "kaitoriexpo": 8300,
-      "kaikyo": 7000
+      "kaitoriexpo": 8300
     }
   },
   {
@@ -147,10 +147,10 @@
       "runto": 12800,
       "icchome": 12300,
       "oku": 11500,
+      "kaikyo": 12500,
       "collect_tendo": 12800,
       "shinsoku": 12000,
-      "kaitoriexpo": 12100,
-      "kaikyo": 12500
+      "kaitoriexpo": 12100
     }
   },
   {
@@ -165,10 +165,10 @@
       "runto": 17500,
       "icchome": 17000,
       "oku": 17500,
+      "kaikyo": 18200,
       "collect_tendo": 17700,
       "shinsoku": 17000,
-      "kaitoriexpo": 17400,
-      "kaikyo": 18200
+      "kaitoriexpo": 17400
     }
   },
   {
@@ -199,10 +199,10 @@
       "runto": 7600,
       "icchome": 7800,
       "oku": 7800,
+      "kaikyo": 7000,
       "collect_tendo": 7600,
       "shinsoku": 7500,
-      "kaitoriexpo": 7300,
-      "kaikyo": 7000
+      "kaitoriexpo": 7300
     }
   },
   {
@@ -244,10 +244,10 @@
       "rudeya": 20000,
       "runto": 22500,
       "icchome": 23500,
+      "kaikyo": 24500,
       "collect_tendo": 24500,
       "shinsoku": 24500,
-      "kaitoriexpo": 22800,
-      "kaikyo": 24500
+      "kaitoriexpo": 22800
     }
   },
   {
@@ -261,10 +261,10 @@
       "rudeya": 19000,
       "runto": 20500,
       "icchome": 20500,
+      "kaikyo": 22000,
       "collect_tendo": 22000,
       "shinsoku": 21500,
-      "kaitoriexpo": 22200,
-      "kaikyo": 22000
+      "kaitoriexpo": 22200
     }
   },
   {
@@ -294,10 +294,10 @@
       "rudeya": 14000,
       "runto": 17000,
       "icchome": 18000,
+      "kaikyo": 19500,
       "collect_tendo": 18800,
       "shinsoku": 18500,
-      "kaitoriexpo": 18800,
-      "kaikyo": 19500
+      "kaitoriexpo": 18800
     }
   },
   {
@@ -327,10 +327,10 @@
       "rudeya": 19400,
       "runto": 19500,
       "icchome": 18500,
+      "kaikyo": 19000,
       "collect_tendo": 19400,
       "shinsoku": 18500,
-      "kaitoriexpo": 18500,
-      "kaikyo": 19000
+      "kaitoriexpo": 18500
     }
   },
   {
@@ -344,10 +344,10 @@
       "rudeya": 20000,
       "runto": 27000,
       "icchome": 26500,
+      "kaikyo": 26000,
       "collect_tendo": 27500,
       "shinsoku": 27800,
-      "kaitoriexpo": 22000,
-      "kaikyo": 26000
+      "kaitoriexpo": 22000
     }
   },
   {
@@ -361,10 +361,10 @@
       "rudeya": 15200,
       "runto": 14500,
       "icchome": 15000,
+      "kaikyo": 14500,
       "collect_tendo": 15000,
       "shinsoku": 15500,
-      "kaitoriexpo": 13000,
-      "kaikyo": 14500
+      "kaitoriexpo": 13000
     }
   },
   {
@@ -378,10 +378,10 @@
       "rudeya": 12000,
       "runto": 11000,
       "icchome": 11800,
+      "kaikyo": 11000,
       "collect_tendo": 11800,
       "shinsoku": 12100,
-      "kaitoriexpo": 3900,
-      "kaikyo": 11000
+      "kaitoriexpo": 3900
     }
   },
   {
@@ -475,10 +475,10 @@
       "rudeya": 18100,
       "runto": 18500,
       "icchome": 18000,
+      "kaikyo": 17500,
       "collect_tendo": 17500,
       "shinsoku": 17500,
-      "kaitoriexpo": 18200,
-      "kaikyo": 17500
+      "kaitoriexpo": 18200
     }
   },
   {
@@ -556,10 +556,10 @@
       "rudeya": 36500,
       "runto": 47000,
       "icchome": 46500,
+      "kaikyo": 48000,
       "collect_tendo": 49000,
       "shinsoku": 45000,
-      "kaitoriexpo": 48000,
-      "kaikyo": 48000
+      "kaitoriexpo": 48000
     }
   },
   {
@@ -605,10 +605,10 @@
       "rudeya": 17700,
       "runto": 17500,
       "icchome": 17500,
+      "kaikyo": 17000,
       "collect_tendo": 18300,
       "shinsoku": 18300,
-      "kaitoriexpo": 17500,
-      "kaikyo": 17000
+      "kaitoriexpo": 17500
     }
   },
   {
@@ -706,9 +706,9 @@
     "prices": {
       "homura": 21000,
       "runto": 20000,
+      "kaikyo": 15200,
       "collect_tendo": 21500,
-      "shinsoku": 20800,
-      "kaikyo": 15200
+      "shinsoku": 20800
     }
   },
   {
