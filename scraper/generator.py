@@ -494,6 +494,41 @@ def _cb_parts(products) -> dict:
         "{{CB_TITLE}}": title,
     }
 
+
+def _new_release_box(products) -> str:
+    """トップの新弾欄。発売前でAmazonの招待リクエスト対象(AMAZON_INVITE)の商品だけ出す。
+
+    Amazonの価格は載せない(アソシエイト規約でPA-API以外の価格表示は不可)。
+    発売日を過ぎれば自動で消える。
+    """
+    from scraper.build_pokeca_articles import AMAZON_INVITE, AMAZON_TAG
+    today = datetime.now(JST).date().isoformat()
+    asins = {key: asin for asin, key, _label, _retail in AMAZON_INVITE if key}
+    cards = ""
+    for p in sorted(products, key=lambda p: p.release_date or ""):
+        if not p.release_date or p.release_date <= today:
+            continue
+        asin = next((a for k, a in asins.items() if k in p.name), None)
+        if not asin:
+            continue
+        mm, dd = (int(x) for x in p.release_date.split("-")[1:])
+        retail = f"定価¥{p.retail_price:,}" if p.retail_price > 0 else "BOX定価は未発表"
+        cards += (
+            '<div class="nr-card">'
+            f'<div class="nr-head"><span class="nr-tag">新弾</span><b>{_upcoming_label(p)}</b>'
+            f'<span class="nr-date">{mm}月{dd}日発売｜{retail}</span></div>'
+            f'<p class="nr-desc">{p.desc}</p>'
+            f'<div class="nr-links"><a class="nr-btn" href="https://www.amazon.co.jp/dp/{asin}?tag={AMAZON_TAG}" '
+            'rel="nofollow sponsored" target="_blank">Amazonで招待をリクエスト &rarr;</a>'
+            '<a class="nr-more" href="chusen-matome.html">ほかの抽選も見る</a></div>'
+            '</div>'
+        )
+    if not cards:
+        return ""
+    return ('<div class="nr-box"><div class="nr-title">発売前の新弾<span class="nr-pr">PR</span></div>'
+            f'{cards}</div>')
+
+
 def generate_html(
     products: list[MasterProduct],
     template_path: Path | None = None,
@@ -538,6 +573,7 @@ def generate_html(
     html = html.replace("<!-- {{BLOG_LINKS}} -->", generate_blog_links())
     for _k, _v in _cb_parts(products).items():
         html = html.replace(_k, _v)
+    html = html.replace("<!-- {{NEW_RELEASE_BOX}} -->", _new_release_box(products))
 
     # Generate ranking page (before summary, so we can use the data)
     ranking_summary = _generate_ranking_summary(products, project_root)
