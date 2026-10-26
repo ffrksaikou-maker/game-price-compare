@@ -219,7 +219,6 @@
     "シャイニートレジャーex": 18500
   },
   "processed_urls": [
-    "https://pbs.twimg.com/media/HVSUOx7aYAAWTT4?format=jpg&name=large",
     "https://pbs.twimg.com/media/HUUlilUbUAAam3c?format=jpg&name=large",
     "https://pbs.twimg.com/media/HUPkbGAacAAvKi-?format=jpg&name=large",
     "https://pbs.twimg.com/media/HTcljXSacAAArGk?format=jpg&name=large",
@@ -268,16 +267,19 @@
     "https://pbs.twimg.com/media/HUzoEIjaYAATELI?format=jpg&name=large",
     "https://pbs.twimg.com/media/HVX4-e6aUAAfhjh?format=jpg&name=large",
     "https://pbs.twimg.com/media/HU4kvxWbkAAqUWh?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HUpICCfb0AAr_sp?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HUpICCfb0AAr_sp?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HUznsuiagAAVoSs?format=jpg&name=large"
   ],
   "last_check": 1792991068,
   "ocr_fail_counts": {
     "https://pbs.twimg.com/media/HVXREvxagAASQuE?format=jpg&name=large": 2
   },
   "pending_images": [
-    "https://pbs.twimg.com/media/HVXREvxagAASQuE?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HVXREvxagAASQuE?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HViBertaEAAUet3?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HVh0lOLaMAAZS7W?format=jpg&name=large"
   ],
-  "last_image_check": 1792978947,
+  "last_image_check": 1792993343,
   "seen_at": {
     "OP-14 蒼海の七傑": 1792914675,
     "OP-15 神の島の冒険": 1792914675,
