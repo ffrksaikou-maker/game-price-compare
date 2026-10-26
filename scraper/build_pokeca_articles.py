@@ -361,7 +361,8 @@ def _chusen_rows() -> list:
     rows = []
     for m in MASTER_PRODUCTS:
         rel = getattr(m, "release_date", "") or ""
-        if not rel or rel < limit or not m.retail_price:
+        # 定価未発表(0)の新弾は発売前の間だけ載せる。発売後は定価が入るまで外す(定価比が出せない)
+        if not rel or rel < limit or (not m.retail_price and rel <= date.today().isoformat()):
             continue
         price = cur.get(m.name, 0)
         rows.append({
@@ -382,8 +383,9 @@ def _chusen_table(rows: list) -> str:
     for r in rows:
         rel = r["rel"].replace("-", "/")
         if r["unreleased"]:
-            body += (f'<tr><td>{_esc(r["name"])}</td><td>{rel}</td>'
-                     f'<td class="num">\u00a5{r["retail"]:,}</td>'
+            retail_txt = f'¥{r["retail"]:,}' if r["retail"] > 0 else "未発表"
+            body += (f'<tr><td>{_esc(r["name"])} <span class="nav-new">新弾</span></td><td>{rel}</td>'
+                     f'<td class="num">{retail_txt}</td>'
                      f'<td class="num">発売前</td><td class="num">—</td><td class="num">—</td></tr>')
             continue
         cls = ' class="up"' if r["gain"] > 0 else ""
@@ -405,6 +407,7 @@ def _chusen_table(rows: list) -> str:
 # 照合キーが None のものは当サイトが価格を追跡していない商品で、表示名と定価を直接持たせる。
 AMAZON_INVITE_CHECKED = "2026年9月8日"
 AMAZON_INVITE = [
+    ("B0H4PQ6LR5", "ハドウシーカー", None, 0),  # 2026-10-26追加。11/27発売・招待リクエスト受付を確認
     ("B0GXCRBL5J", 'MEGA 拡張パック「30th CELEBRATION」', None, 0),
     ("B0GXCM4BCZ", "30th CELEBRATION プレミアムデッキセット", None, 0),
     ("B0GP928YDZ", "ストームエメラルダ", None, 0),
@@ -461,7 +464,8 @@ def _invite_rows() -> list:
         out.append({"asin": asin, "name": name, "retail": rt, "price": price,
                     "gain": price - rt if price and rt else 0,
                     "unreleased": bool(rel) and rel > date.today().isoformat()})
-    out.sort(key=lambda r: -r["gain"])
+    # 発売前の新弾を先頭に出す(差額がまだ0なので、差額順だと最下段に沈む)
+    out.sort(key=lambda r: (not r["unreleased"], -r["gain"]))
     return out
 
 
@@ -479,8 +483,10 @@ def _invite_table() -> str:
             price_txt = f'\u00a5{r["price"]:,}'
             gain_txt = (f'+\u00a5{r["gain"]:,}' if r["gain"] > 0 else f'\u00a5{r["gain"]:,}')
             cls = ' class="up"' if r["gain"] > 0 else ""
-        body += (f'<tr{cls}><td>{_esc(r["name"])}</td>'
-                 f'<td class="num">\u00a5{r["retail"]:,}</td>'
+        new = ' <span class="nav-new">\u65b0\u5f3e</span>' if r.get("unreleased") else ""
+        retail_txt = f'\u00a5{r["retail"]:,}' if r["retail"] > 0 else "\u672a\u767a\u8868"
+        body += (f'<tr{cls}><td>{_esc(r["name"])}{new}</td>'
+                 f'<td class="num">{retail_txt}</td>'
                  f'<td class="num{"" if r["price"] else " pre"}">{price_txt}</td>'
                  f'<td class="num {"gain" if r["gain"] > 0 else ("loss" if r["price"] else "pre")}">{gain_txt}</td>'
                  f'<td>{link}</td></tr>')

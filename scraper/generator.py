@@ -600,6 +600,7 @@ SLUG_OVERRIDES = {
 
 # Romanization map for common Pokemon TCG terms
 ROMAJI_MAP = {
+    "ハドウシーカー": "hadou-seeker",
     "ストームエメラルダ": "storm-emeralda",
     "アビスアイ": "abyss-eye",
     "ニンジャスピナー": "ninja-spinner",

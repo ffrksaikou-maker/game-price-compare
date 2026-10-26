@@ -159,6 +159,11 @@ class MatchConfig:
 # Master product list - canonical names and keywords for matching
 MASTER_PRODUCTS: list[MasterProduct] = [
     # ===== MEGA (新しい順) =====
+    # 定価0=未発表。公式(pokemon-card.com/ex/m7/)は1パック5枚200円のみ掲載で、BOXのパック数は
+    # 2026-10-26時点で未発表。前弾と同じ30パック6,000円で埋めないこと(仕様が変わる弾がある)。
+    MasterProduct("mega", 'MEGA 拡張パック「ハドウシーカー」', 0, "2026-11-27",
+                  desc="MEGAシリーズの拡張パック(M7)。メガルカリオZex・メガガブリアスZex・メガアブソルZexとサポート「コルニの本気」を収録。2026年11月27日発売、1パック5枚入り200円(税込)。",
+                  keywords=["ハドウシーカー", "HADOUSEEKER", "HADOU SEEKER", "MEGA 拡張パック ハドウ"]),
     # カードセット(2026-10-16発売)は1地方ずつ(各1,200円)と9種セットの両方が出回る。
     # 新発売なのでMEGAの先頭(表の並び=このリストの順)。拡張パックより前に置かないと「30th CELEBRATION カードセット カントー」が
     # 拡張パックBOXに入り、店ごとに安い方を残す仕様のためBOX価格を数千円に下げる。
