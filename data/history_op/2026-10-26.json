@@ -19,14 +19,14 @@
     "name": "ブースターパック「決戦の刻」【OP-16】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 10000,
+    "max_price": 9800,
     "prices": {
       "morimori": 9600,
       "homura": 9600,
       "rudeya": 9200,
       "icchome": 9000,
       "oku": 9500,
-      "collect_tendo": 10000,
+      "collect_tendo": 9800,
       "shinsoku": 8500,
       "kaitoriexpo": 9300
     }
@@ -302,7 +302,7 @@
     "name": "エクストラブースター「ONE PIECE Heroines Edition」【EB-03】",
     "category": "eb",
     "retail_price": 5280,
-    "max_price": 13200,
+    "max_price": 13500,
     "prices": {
       "morimori": 13200,
       "homura": 12200,
@@ -310,7 +310,7 @@
       "runto": 13000,
       "icchome": 12000,
       "oku": 12000,
-      "collect_tendo": 13000,
+      "collect_tendo": 13500,
       "shinsoku": 12300,
       "kaitoriexpo": 13100
     }
