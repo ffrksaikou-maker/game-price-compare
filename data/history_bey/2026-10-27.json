@@ -3,12 +3,12 @@
     "name": "UX-21 ヘルズネザーデッキセット",
     "category": "ux",
     "retail_price": 4500,
-    "max_price": 3400,
+    "max_price": 3500,
     "prices": {
-      "morimori": 3000,
+      "morimori": 3100,
       "homura": 3000,
       "rudeya": 2300,
-      "icchome": 3400
+      "icchome": 3500
     }
   },
   {
@@ -27,23 +27,23 @@
     "name": "UX-19 バレットグリフォンH",
     "category": "ux",
     "retail_price": 2600,
-    "max_price": 3200,
+    "max_price": 3300,
     "prices": {
       "morimori": 3100,
       "rudeya": 2500,
-      "icchome": 3200
+      "icchome": 3300
     }
   },
   {
     "name": "UX-18 ランダムブースターVol.8",
     "category": "ux",
     "retail_price": 1600,
-    "max_price": 3300,
+    "max_price": 3400,
     "prices": {
-      "morimori": 3000,
+      "morimori": 3200,
       "homura": 3000,
       "rudeya": 2000,
-      "icchome": 3300
+      "icchome": 3400
     }
   },
   {
@@ -54,7 +54,7 @@
     "prices": {
       "morimori": 1200,
       "rudeya": 1000,
-      "icchome": 1200
+      "icchome": 840
     }
   },
   {
@@ -84,23 +84,23 @@
     "name": "UX-12 ランダムブースターVol.5",
     "category": "ux",
     "retail_price": 1400,
-    "max_price": 4600,
+    "max_price": 4700,
     "prices": {
-      "morimori": 4300,
+      "morimori": 4500,
       "homura": 4300,
       "rudeya": 3500,
-      "icchome": 4600
+      "icchome": 4700
     }
   },
   {
     "name": "UX-11 インパクトドレイク9-60LR",
     "category": "ux",
     "retail_price": 2420,
-    "max_price": 2200,
+    "max_price": 2100,
     "prices": {
       "morimori": 2100,
       "rudeya": 1100,
-      "icchome": 2200
+      "icchome": 2090
     }
   },
   {
@@ -109,7 +109,7 @@
     "retail_price": 5700,
     "max_price": 12800,
     "prices": {
-      "morimori": 12400,
+      "morimori": 12500,
       "rudeya": 12000,
       "icchome": 12800
     }
@@ -118,12 +118,12 @@
     "name": "UX-09 サムライセイバー2-70L",
     "category": "ux",
     "retail_price": 3300,
-    "max_price": 3600,
+    "max_price": 3700,
     "prices": {
       "morimori": 2700,
       "homura": 3400,
       "rudeya": 2000,
-      "icchome": 3600
+      "icchome": 3700
     }
   },
   {
@@ -162,12 +162,12 @@
     "name": "UX-01 ドランバスター1-60A",
     "category": "ux",
     "retail_price": 1980,
-    "max_price": 2800,
+    "max_price": 2900,
     "prices": {
       "morimori": 1900,
       "homura": 2600,
       "rudeya": 1300,
-      "icchome": 2800
+      "icchome": 2900
     }
   },
   {
@@ -206,7 +206,7 @@
     "retail_price": 1600,
     "max_price": 2100,
     "prices": {
-      "morimori": 1900,
+      "morimori": 2000,
       "rudeya": 1000,
       "icchome": 2100
     }
@@ -215,11 +215,11 @@
     "name": "CX-16 スタートダッシュセットC",
     "category": "cx",
     "retail_price": 5650,
-    "max_price": 3100,
+    "max_price": 3000,
     "prices": {
       "morimori": 3000,
       "rudeya": 3000,
-      "icchome": 3100
+      "icchome": 1920
     }
   },
   {
@@ -237,11 +237,11 @@
     "name": "CX-13 バハムートブリッツBK1-50I",
     "category": "cx",
     "retail_price": 2200,
-    "max_price": 2200,
+    "max_price": 2300,
     "prices": {
-      "morimori": 1900,
+      "morimori": 2100,
       "rudeya": 1200,
-      "icchome": 2200
+      "icchome": 2300
     }
   },
   {
@@ -259,11 +259,11 @@
     "name": "CX-11 エンペラーマイトデッキセット",
     "category": "cx",
     "retail_price": 5000,
-    "max_price": 8300,
+    "max_price": 8400,
     "prices": {
       "morimori": 8100,
       "rudeya": 7000,
-      "icchome": 8300
+      "icchome": 8400
     }
   },
   {
@@ -292,12 +292,12 @@
     "name": "CX-05 ランダムブースターVol.6",
     "category": "cx",
     "retail_price": 1600,
-    "max_price": 3000,
+    "max_price": 3100,
     "prices": {
-      "morimori": 2600,
+      "morimori": 2900,
       "homura": 2600,
       "rudeya": 2500,
-      "icchome": 3000
+      "icchome": 3100
     }
   },
   {
@@ -483,10 +483,10 @@
     "name": "CX-00 ペガサスブラストATr メタルコート:レッド",
     "category": "limited",
     "retail_price": 2700,
-    "max_price": 3600,
+    "max_price": 2800,
     "prices": {
       "rudeya": 2800,
-      "icchome": 3600
+      "icchome": 2160
     }
   },
   {
