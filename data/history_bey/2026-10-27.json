@@ -96,11 +96,11 @@
     "name": "UX-11 インパクトドレイク9-60LR",
     "category": "ux",
     "retail_price": 2420,
-    "max_price": 2700,
+    "max_price": 2100,
     "prices": {
       "morimori": 2100,
       "rudeya": 1100,
-      "icchome": 2700
+      "icchome": 2100
     }
   },
   {
@@ -185,7 +185,7 @@
     "retail_price": 1600,
     "max_price": 1400,
     "prices": {
-      "homura": 1400,
+      "homura": 1200,
       "icchome": 1400
     }
   },
