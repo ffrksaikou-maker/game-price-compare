@@ -227,8 +227,6 @@
     "ポケモンセンター スペシャルBOX フクオカ": 13000
   },
   "processed_urls": [
-    "https://pbs.twimg.com/media/HU-CTZYa8AAJnEt?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HVC1Lq7b0AA6R8B?format=jpg&name=large",
     "https://pbs.twimg.com/media/HUuSujdaYAAjK1M?format=jpg&name=large",
     "https://pbs.twimg.com/media/HT6_El3bQAAIWzR?format=jpg&name=large",
     "https://pbs.twimg.com/media/HU4lTyebgAAJhMO?format=jpg&name=large",
@@ -276,12 +274,14 @@
     "https://pbs.twimg.com/media/HVcfishaYAAe7A_?format=jpg&name=large",
     "https://pbs.twimg.com/media/HUuTKbhaIAAKGcj?format=jpg&name=large",
     "https://pbs.twimg.com/media/HUKx_mraMAAkvm7?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HVXREvxagAASQuE?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HVXREvxagAASQuE?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HUZmyr_aoAACt5C?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HVDgOE2awAAvp5P?format=jpg&name=large"
   ],
   "last_check": 1793177346,
   "ocr_fail_counts": {},
   "pending_images": [],
-  "last_image_check": 1793166143,
+  "last_image_check": 1793180543,
   "seen_at": {
     "OP-14 蒼海の七傑": 1793177346,
     "OP-15 神の島の冒険": 1793177346,
