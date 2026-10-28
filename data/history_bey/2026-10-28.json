@@ -183,10 +183,10 @@
     "name": "CX-19 ランダムブースター クロコトレッドセレクト",
     "category": "cx",
     "retail_price": 1600,
-    "max_price": 1300,
+    "max_price": 1100,
     "prices": {
       "homura": 1000,
-      "icchome": 1300
+      "icchome": 1100
     }
   },
   {
