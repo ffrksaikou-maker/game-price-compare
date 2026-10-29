@@ -139,11 +139,11 @@
     "retail_price": 7920,
     "max_price": 50000,
     "prices": {
-      "morimori": 19800,
       "homura": 50000,
       "rudeya": 35000,
       "shinsoku": 38300,
-      "kaitoriexpo": 38000
+      "kaitoriexpo": 38000,
+      "morimori": 19800
     }
   },
   {
@@ -185,9 +185,9 @@
     "retail_price": 6600,
     "max_price": 31000,
     "prices": {
-      "morimori": 25000,
       "rudeya": 31000,
-      "kaitoriexpo": 30000
+      "kaitoriexpo": 30000,
+      "morimori": 25000
     }
   }
 ]
