@@ -231,9 +231,6 @@
     "メガシンフォニア (シュリンクなし)": 6500
   },
   "processed_urls": [
-    "https://pbs.twimg.com/media/HU4lTyebgAAJhMO?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HVH9bfzaIAA-j7j?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HVC1_8XbgAAj4NN?format=jpg&name=large",
     "https://pbs.twimg.com/media/HVcappCbgAE6jYR?format=jpg&name=large",
     "https://pbs.twimg.com/media/HVXREvxagAASQuE?format=jpg&name=large",
     "https://pbs.twimg.com/media/HUzoEIjaYAATELI?format=jpg&name=large",
@@ -280,12 +277,15 @@
     "https://pbs.twimg.com/media/HUuRQAhbEAAZUyH?format=jpg&name=large",
     "https://pbs.twimg.com/media/HUUi6kBacAAPgF6?format=jpg&name=large",
     "https://pbs.twimg.com/media/HVmpjmrbAAANlKJ?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HVsDlBDaEAApEJg?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HVsDlBDaEAApEJg?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HVsF1gibEAAVygP?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HU9z2lbbMAA75oz?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HUKx_mraMAAkvm7?format=jpg&name=large"
   ],
   "last_check": 1793263489,
   "ocr_fail_counts": {},
   "pending_images": [],
-  "last_image_check": 1793252540,
+  "last_image_check": 1793266940,
   "seen_at": {
     "OP-14 蒼海の七傑": 1793263489,
     "OP-15 神の島の冒険": 1793263489,
