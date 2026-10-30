@@ -72,12 +72,12 @@
     "retail_price": 5280,
     "max_price": 18700,
     "prices": {
-      "morimori": 18000,
+      "morimori": 17000,
       "homura": 17000,
       "rudeya": 17200,
       "runto": 17000,
       "icchome": 17000,
-      "oku": 17800,
+      "oku": 17500,
       "collect_tendo": 15400,
       "shinsoku": 16600,
       "kaitoriexpo": 18700
@@ -282,6 +282,15 @@
       "collect_tendo": 35000,
       "shinsoku": 33600,
       "kaitoriexpo": 36000
+    }
+  },
+  {
+    "name": "エクストラブースター「ONE PIECE Heroines Edition vol.2」【EB-05】",
+    "category": "eb",
+    "retail_price": 5760,
+    "max_price": 150000,
+    "prices": {
+      "runto": 150000
     }
   },
   {
