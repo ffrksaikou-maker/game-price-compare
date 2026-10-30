@@ -64,12 +64,12 @@
     "name": "ブースターパック「迫り来る脅威」【FB-06】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 11500,
+    "max_price": 11600,
     "prices": {
       "homura": 10000,
       "rudeya": 7600,
       "shinsoku": 9400,
-      "kaitoriexpo": 11500
+      "kaitoriexpo": 11600
     }
   },
   {
@@ -143,7 +143,7 @@
       "homura": 50000,
       "rudeya": 35000,
       "shinsoku": 38300,
-      "kaitoriexpo": 38000
+      "kaitoriexpo": 38500
     }
   },
   {
