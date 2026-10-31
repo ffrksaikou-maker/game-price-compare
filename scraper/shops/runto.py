@@ -144,7 +144,11 @@ class RuntoScraper(BaseScraper):
 
                 # If max price exceeds BOX range, it's likely a carton price.
                 # Fetch the product detail page to get the correct BOX variant price.
-                if price > MAX_BOX_PRICE and len(prices) > 1:
+                # 一覧に価格が1つしか出ていなくてもカートン価格のことがある
+                # (EB-05は発売直後にカートン価格だけが表示され16万円を拾った)。
+                # バリエーションの無い単品(高額な旧弾BOX等)は一覧の価格をそのまま使う。
+                is_variable = "product-type-variable" in product.get("class", [])
+                if price > MAX_BOX_PRICE and (len(prices) > 1 or is_variable):
                     link_el = product.select_one("a[href]")
                     if link_el:
                         product_url = link_el.get("href", "")
