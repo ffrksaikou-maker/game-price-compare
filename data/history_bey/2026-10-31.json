@@ -29,7 +29,7 @@
     "retail_price": 2600,
     "max_price": 3600,
     "prices": {
-      "morimori": 3200,
+      "morimori": 3300,
       "rudeya": 2500,
       "icchome": 3600
     }
@@ -84,34 +84,34 @@
     "name": "UX-12 ランダムブースターVol.5",
     "category": "ux",
     "retail_price": 1400,
-    "max_price": 5000,
+    "max_price": 5100,
     "prices": {
       "morimori": 4800,
       "homura": 4300,
       "rudeya": 3500,
-      "icchome": 5000
+      "icchome": 5100
     }
   },
   {
     "name": "UX-11 インパクトドレイク9-60LR",
     "category": "ux",
     "retail_price": 2420,
-    "max_price": 2100,
+    "max_price": 2200,
     "prices": {
       "morimori": 2100,
       "rudeya": 1100,
-      "icchome": 2100
+      "icchome": 2200
     }
   },
   {
     "name": "UX-10 カスタマイズセットU",
     "category": "ux",
     "retail_price": 5700,
-    "max_price": 13100,
+    "max_price": 13200,
     "prices": {
       "morimori": 12900,
       "rudeya": 12000,
-      "icchome": 13100
+      "icchome": 13200
     }
   },
   {
@@ -167,7 +167,7 @@
       "morimori": 1900,
       "homura": 2600,
       "rudeya": 1300,
-      "icchome": 2400
+      "icchome": 2600
     }
   },
   {
@@ -204,11 +204,11 @@
     "name": "CX-17 ランダムブースターVol.10",
     "category": "cx",
     "retail_price": 1600,
-    "max_price": 2500,
+    "max_price": 2600,
     "prices": {
       "morimori": 2200,
       "rudeya": 1000,
-      "icchome": 2500
+      "icchome": 2600
     }
   },
   {
@@ -239,7 +239,7 @@
     "retail_price": 2200,
     "max_price": 2400,
     "prices": {
-      "morimori": 2400,
+      "morimori": 2300,
       "rudeya": 1200,
       "icchome": 2400
     }
@@ -248,22 +248,22 @@
     "name": "CX-12 フェニックスフレアZ9-80WW",
     "category": "cx",
     "retail_price": 1700,
-    "max_price": 2600,
+    "max_price": 2700,
     "prices": {
       "morimori": 2100,
       "rudeya": 2000,
-      "icchome": 2600
+      "icchome": 2700
     }
   },
   {
     "name": "CX-11 エンペラーマイトデッキセット",
     "category": "cx",
     "retail_price": 5000,
-    "max_price": 8600,
+    "max_price": 8700,
     "prices": {
       "morimori": 8500,
       "rudeya": 7000,
-      "icchome": 8600
+      "icchome": 8700
     }
   },
   {
@@ -292,12 +292,12 @@
     "name": "CX-05 ランダムブースターVol.6",
     "category": "cx",
     "retail_price": 1600,
-    "max_price": 3300,
+    "max_price": 3400,
     "prices": {
       "morimori": 3200,
       "homura": 2600,
       "rudeya": 2500,
-      "icchome": 3300
+      "icchome": 3400
     }
   },
   {
@@ -421,7 +421,7 @@
     "retail_price": 2420,
     "max_price": 2100,
     "prices": {
-      "morimori": 1900,
+      "morimori": 2100,
       "homura": 2100,
       "rudeya": 1500,
       "icchome": 2100
@@ -441,11 +441,11 @@
     "name": "BX-09 ベイバトルパス",
     "category": "bx",
     "retail_price": 3300,
-    "max_price": 4600,
+    "max_price": 4500,
     "prices": {
       "morimori": 4500,
       "homura": 4500,
-      "icchome": 4600
+      "icchome": 4300
     }
   },
   {
