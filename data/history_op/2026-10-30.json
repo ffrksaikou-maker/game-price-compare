@@ -288,10 +288,8 @@
     "name": "エクストラブースター「ONE PIECE Heroines Edition vol.2」【EB-05】",
     "category": "eb",
     "retail_price": 5760,
-    "max_price": 150000,
-    "prices": {
-      "runto": 150000
-    }
+    "max_price": 0,
+    "prices": {}
   },
   {
     "name": "エクストラブースター「EGGHEAD CRISIS」【EB-04】",
