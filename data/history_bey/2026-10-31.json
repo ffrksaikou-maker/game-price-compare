@@ -72,12 +72,12 @@
     "name": "UX-15 シャークスケイルデッキセット",
     "category": "ux",
     "retail_price": 4200,
-    "max_price": 7000,
+    "max_price": 6400,
     "prices": {
       "morimori": 6300,
-      "homura": 7000,
+      "homura": 6000,
       "rudeya": 5500,
-      "icchome": 7000
+      "icchome": 6400
     }
   },
   {
@@ -100,7 +100,7 @@
     "prices": {
       "morimori": 2100,
       "rudeya": 1100,
-      "icchome": 2090
+      "icchome": 2100
     }
   },
   {
@@ -313,10 +313,10 @@
     "name": "BX-53 オールインワンセット",
     "category": "bx",
     "retail_price": 7480,
-    "max_price": 10500,
+    "max_price": 10800,
     "prices": {
       "homura": 8000,
-      "icchome": 10500
+      "icchome": 10800
     }
   },
   {
@@ -472,9 +472,9 @@
     "name": "UX-00 サムライセイバー5-60K メタルコート:サムライブルー サッカー日本代表Ver.",
     "category": "limited",
     "retail_price": 2500,
-    "max_price": 9200,
+    "max_price": 9000,
     "prices": {
-      "homura": 9200,
+      "homura": 9000,
       "rudeya": 7500,
       "icchome": 9000
     }
