@@ -118,12 +118,12 @@
     "name": "UX-09 サムライセイバー2-70L",
     "category": "ux",
     "retail_price": 3300,
-    "max_price": 3900,
+    "max_price": 3500,
     "prices": {
       "morimori": 2700,
       "homura": 3400,
       "rudeya": 2000,
-      "icchome": 3900
+      "icchome": 3500
     }
   },
   {
@@ -441,11 +441,11 @@
     "name": "BX-09 ベイバトルパス",
     "category": "bx",
     "retail_price": 3300,
-    "max_price": 5100,
+    "max_price": 4600,
     "prices": {
       "morimori": 4500,
       "homura": 4500,
-      "icchome": 5100
+      "icchome": 4600
     }
   },
   {
