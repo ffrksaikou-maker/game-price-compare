@@ -800,7 +800,7 @@
   </url>
   <url>
     <loc>https://pokeca-box-hikaku.com/box/30th-celebration.html</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -818,7 +818,7 @@
   </url>
   <url>
     <loc>https://pokeca-box-hikaku.com/box/ninja-spinner.html</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -854,13 +854,13 @@
   </url>
   <url>
     <loc>https://pokeca-box-hikaku.com/box/black-bolt-dx.html</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://pokeca-box-hikaku.com/box/white-flare-dx.html</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -998,7 +998,7 @@
   </url>
   <url>
     <loc>https://pokeca-box-hikaku.com/box/triplet-beat.html</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1064,13 +1064,13 @@
   </url>
   <url>
     <loc>https://pokeca-box-hikaku.com/box/battle-region.html</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://pokeca-box-hikaku.com/box/star-birth.html</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1304,6 +1304,12 @@
   </url>
   <url>
     <loc>https://pokeca-box-hikaku.com/monthly-ranking-2026-09.html</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://pokeca-box-hikaku.com/monthly-ranking-2026-10.html</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
