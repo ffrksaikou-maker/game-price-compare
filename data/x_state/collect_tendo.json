@@ -237,9 +237,6 @@
     "EB-05 ONE PIECE Heroines Edition vol.2": 12500
   },
   "processed_urls": [
-    "https://pbs.twimg.com/media/HVcfishaYAAe7A_?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HVsF1gibEAAVygP?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HUZmyr_aoAACt5C?format=jpg&name=large",
     "https://pbs.twimg.com/media/HUPkbGAacAAvKi-?format=jpg&name=large",
     "https://pbs.twimg.com/media/HVxNZuubgAAu3wn?format=jpg&name=large",
     "https://pbs.twimg.com/media/HTIWFtTaYAAnceY?format=jpg&name=large",
@@ -286,16 +283,20 @@
     "https://pbs.twimg.com/media/HVcaOSOasAA1HY6?format=jpg&name=large",
     "https://pbs.twimg.com/media/HViBertaEAAUet3?format=jpg&name=large",
     "https://pbs.twimg.com/media/HUUhqvrbMAATnLQ?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HVXREvxagAASQuE?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HVXREvxagAASQuE?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HUAeSYqa8AAJhzd?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HTr4mL9agAAPQ5t?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HUKwvkIacAA_RQo?format=jpg&name=large"
   ],
   "last_check": 1793525375,
   "ocr_fail_counts": {
     "https://pbs.twimg.com/media/HWAr47zbIAA8Fn0?format=jpg&name=large": 1
   },
   "pending_images": [
-    "https://pbs.twimg.com/media/HWAr47zbIAA8Fn0?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HWAr47zbIAA8Fn0?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HVxMuqsbcAApGkv?format=jpg&name=large"
   ],
-  "last_image_check": 1793511742,
+  "last_image_check": 1793526145,
   "seen_at": {
     "OP-14 蒼海の七傑": 1793525375,
     "OP-15 神の島の冒険": 1793525375,
