@@ -29,12 +29,12 @@
     "name": "ブースターパック「DUAL EVOLUTION」【FB-09】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 6300,
+    "max_price": 6100,
     "prices": {
       "homura": 6000,
       "rudeya": 4500,
       "runto": 6000,
-      "shinsoku": 6300,
+      "shinsoku": 6100,
       "kaitoriexpo": 6000
     }
   },
@@ -54,11 +54,11 @@
     "name": "ブースターパック「神龍への願い」【FB-07】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 29000,
+    "max_price": 28000,
     "prices": {
       "homura": 22500,
       "rudeya": 24000,
-      "shinsoku": 29000,
+      "shinsoku": 28000,
       "kaitoriexpo": 22000
     }
   },
@@ -70,7 +70,7 @@
     "prices": {
       "homura": 10000,
       "rudeya": 7600,
-      "shinsoku": 9400,
+      "shinsoku": 8300,
       "kaitoriexpo": 11000
     }
   },
@@ -131,7 +131,7 @@
       "homura": 6000,
       "rudeya": 4300,
       "runto": 6000,
-      "shinsoku": 5400,
+      "shinsoku": 5500,
       "kaitoriexpo": 6000
     }
   },
@@ -156,7 +156,7 @@
     "prices": {
       "homura": 100000,
       "rudeya": 80000,
-      "shinsoku": 95200
+      "shinsoku": 94900
     }
   },
   {
@@ -167,7 +167,7 @@
     "prices": {
       "rudeya": 6600,
       "runto": 9000,
-      "shinsoku": 7500,
+      "shinsoku": 7700,
       "kaitoriexpo": 9500
     }
   },

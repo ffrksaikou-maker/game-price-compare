@@ -50,17 +50,17 @@
     "name": "MEGA 拡張パック「30th CELEBRATION」",
     "category": "mega",
     "retail_price": 7200,
-    "max_price": 21000,
+    "max_price": 20900,
     "prices": {
       "morimori": 19500,
       "homura": 19800,
       "rudeya": 20000,
-      "runto": 21000,
+      "runto": 19500,
       "icchome": 20500,
       "oku": 19800,
       "kaikyo": 19000,
       "collect_tendo": 20900,
-      "shinsoku": 19500,
+      "shinsoku": 19000,
       "kaitoriexpo": 20500
     }
   },
@@ -95,7 +95,7 @@
       "icchome": 7500,
       "oku": 7500,
       "collect_tendo": 7300,
-      "shinsoku": 7600,
+      "shinsoku": 7500,
       "kaitoriexpo": 7000
     }
   },
@@ -167,7 +167,7 @@
       "oku": 17000,
       "kaikyo": 16200,
       "collect_tendo": 16500,
-      "shinsoku": 16500,
+      "shinsoku": 16000,
       "kaitoriexpo": 17000
     }
   },
@@ -183,7 +183,7 @@
       "runto": 7200,
       "icchome": 7500,
       "collect_tendo": 7000,
-      "shinsoku": 7200,
+      "shinsoku": 7000,
       "kaitoriexpo": 7300
     }
   },
@@ -201,7 +201,7 @@
       "oku": 7200,
       "kaikyo": 7000,
       "collect_tendo": 6700,
-      "shinsoku": 7000,
+      "shinsoku": 6800,
       "kaitoriexpo": 6400
     }
   },
@@ -231,7 +231,7 @@
       "rudeya": 19500,
       "runto": 22000,
       "icchome": 22000,
-      "shinsoku": 22000,
+      "shinsoku": 21000,
       "kaitoriexpo": 22500
     }
   },
@@ -248,7 +248,7 @@
       "icchome": 23000,
       "kaikyo": 24500,
       "collect_tendo": 23800,
-      "shinsoku": 23600,
+      "shinsoku": 23000,
       "kaitoriexpo": 22800
     }
   },
@@ -265,7 +265,7 @@
       "icchome": 21000,
       "kaikyo": 20000,
       "collect_tendo": 21300,
-      "shinsoku": 21300,
+      "shinsoku": 21000,
       "kaitoriexpo": 22000
     }
   },
@@ -314,7 +314,7 @@
       "runto": 9200,
       "icchome": 9200,
       "collect_tendo": 9000,
-      "shinsoku": 9000,
+      "shinsoku": 9100,
       "kaitoriexpo": 9800
     }
   },
@@ -330,7 +330,7 @@
       "runto": 18500,
       "icchome": 17000,
       "collect_tendo": 17500,
-      "shinsoku": 17500,
+      "shinsoku": 17000,
       "kaitoriexpo": 18500
     }
   },
@@ -552,7 +552,7 @@
     "retail_price": 5400,
     "max_price": 48000,
     "prices": {
-      "morimori": 42500,
+      "morimori": 42000,
       "homura": 42000,
       "rudeya": 36500,
       "runto": 42500,
@@ -567,7 +567,7 @@
     "name": "SV 拡張パック「クレイバースト」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 10900,
+    "max_price": 11000,
     "prices": {
       "morimori": 10800,
       "homura": 10800,
@@ -576,7 +576,7 @@
       "icchome": 10600,
       "kaikyo": 10500,
       "collect_tendo": 9000,
-      "shinsoku": 10800,
+      "shinsoku": 11000,
       "kaitoriexpo": 10500
     }
   },
@@ -640,7 +640,7 @@
       "runto": 9500,
       "icchome": 10500,
       "collect_tendo": 10300,
-      "shinsoku": 10300
+      "shinsoku": 10000
     }
   },
   {
