@@ -240,9 +240,6 @@
     "EB-05 Heroines Edition vol": 11800
   },
   "processed_urls": [
-    "https://pbs.twimg.com/media/HTcljXSacAAArGk?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HVxMuqsbcAApGkv?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HWAsXJTbYAAZUG0?format=jpg&name=large",
     "https://pbs.twimg.com/media/HVmsb2xbEAA0w-o?format=jpg&name=large",
     "https://pbs.twimg.com/media/HTr4mL9agAAPQ5t?format=jpg&name=large",
     "https://pbs.twimg.com/media/HUAeSYqa8AAJhzd?format=jpg&name=large",
@@ -289,14 +286,17 @@
     "https://pbs.twimg.com/media/HVsDlBDaEAApEJg?format=jpg&name=large",
     "https://pbs.twimg.com/media/HVxODBYbUAAR5To?format=jpg&name=large",
     "https://pbs.twimg.com/media/HVsF1gibEAAVygP?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HUznsuiagAAVoSs?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HUznsuiagAAVoSs?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HVcaOSOasAA1HY6?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HUPk-fVboAAvKjW?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HVmpjmrbAAANlKJ?format=jpg&name=large"
   ],
   "last_check": 1793612669,
   "ocr_fail_counts": {
     "https://pbs.twimg.com/media/HWAr47zbIAA8Fn0?format=jpg&name=large": 4
   },
   "pending_images": [],
-  "last_image_check": 1793598142,
+  "last_image_check": 1793626947,
   "seen_at": {
     "OP-14 蒼海の七傑": 1793612669,
     "OP-15 神の島の冒険": 1793612669,
