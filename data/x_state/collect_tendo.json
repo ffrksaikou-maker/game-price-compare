@@ -248,11 +248,6 @@
     "ONE PIECE Heroines Edition vol.2 PRECIOUS BOX (EB-05)": 18000
   },
   "processed_urls": [
-    "https://pbs.twimg.com/media/HVDrtjRawAAsWSo?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HVxMuqsbcAApGkv?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HUFABNLaIAAp_4f?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HUPk-fVboAAvKjW?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HVSXWWYbYAA7PYI?format=jpg&name=large",
     "https://pbs.twimg.com/media/HVmqsUyb0AAudbz?format=jpg&name=large",
     "https://pbs.twimg.com/media/HVcaOSOasAA1HY6?format=jpg&name=large",
     "https://pbs.twimg.com/media/HUpGRxgboAAvQ5F?format=jpg&name=large",
@@ -297,12 +292,17 @@
     "https://pbs.twimg.com/media/HUUlilUbUAAam3c?format=jpg&name=large",
     "https://pbs.twimg.com/media/HV70Dkeb0AAzm88?format=jpg&name=large",
     "https://pbs.twimg.com/media/HWK7d3AbAAAr8Nh?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HU9z2lbbMAA75oz?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HU9z2lbbMAA75oz?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HWF7Gs3bEAAprth?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HUUhqvrbMAATnLQ?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HTIWFtTaYAAnceY?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HVXQSIyboAAuV6l?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HVxODBYbUAAR5To?format=jpg&name=large"
   ],
   "last_check": 1793699280,
   "ocr_fail_counts": {},
   "pending_images": [],
-  "last_image_check": 1793698942,
+  "last_image_check": 1793713345,
   "seen_at": {
     "OP-14 蒼海の七傑": 1793675449,
     "OP-15 神の島の冒険": 1793699280,
