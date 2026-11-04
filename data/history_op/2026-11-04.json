@@ -3,23 +3,23 @@
     "name": "ブースターパック「世界最強の戦士」【OP-17】",
     "category": "op",
     "retail_price": 5760,
-    "max_price": 9500,
+    "max_price": 9600,
     "prices": {
       "homura": 9100,
       "rudeya": 9400,
       "runto": 9200,
       "icchome": 9200,
       "oku": 9100,
-      "collect_tendo": 8000,
+      "collect_tendo": 7800,
       "shinsoku": 9200,
-      "kaitoriexpo": 9500
+      "kaitoriexpo": 9600
     }
   },
   {
     "name": "ブースターパック「決戦の刻」【OP-16】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 9800,
+    "max_price": 8600,
     "prices": {
       "morimori": 8100,
       "homura": 8100,
@@ -27,7 +27,7 @@
       "runto": 8000,
       "icchome": 8300,
       "oku": 8000,
-      "collect_tendo": 9800,
+      "collect_tendo": 8600,
       "shinsoku": 7900,
       "kaitoriexpo": 8200
     }
@@ -36,15 +36,15 @@
     "name": "ブースターパック「神の島の冒険」【OP-15】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 8700,
+    "max_price": 8400,
     "prices": {
       "morimori": 7800,
       "homura": 7800,
       "rudeya": 8000,
       "runto": 8000,
-      "icchome": 8000,
+      "icchome": 7800,
       "oku": 8000,
-      "collect_tendo": 8700,
+      "collect_tendo": 8400,
       "shinsoku": 7700,
       "kaitoriexpo": 8000
     }
@@ -70,7 +70,7 @@
     "name": "ブースターパック「受け継がれる意志」【OP-13】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 17200,
+    "max_price": 15600,
     "prices": {
       "morimori": 15300,
       "homura": 15300,
@@ -78,7 +78,7 @@
       "runto": 15500,
       "icchome": 15500,
       "oku": 15200,
-      "collect_tendo": 17200,
+      "collect_tendo": 15500,
       "shinsoku": 15200,
       "kaitoriexpo": 15600
     }
@@ -121,7 +121,7 @@
     "name": "ブースターパック「王族の血統」【OP-10】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 10500,
+    "max_price": 11000,
     "prices": {
       "morimori": 9600,
       "homura": 9800,
@@ -129,9 +129,9 @@
       "runto": 10000,
       "icchome": 9500,
       "oku": 10000,
-      "collect_tendo": 10500,
+      "collect_tendo": 10000,
       "shinsoku": 10100,
-      "kaitoriexpo": 10500
+      "kaitoriexpo": 11000
     }
   },
   {
@@ -229,7 +229,7 @@
       "oku": 15000,
       "collect_tendo": 15500,
       "shinsoku": 13900,
-      "kaitoriexpo": 15500
+      "kaitoriexpo": 15000
     }
   },
   {
@@ -287,7 +287,7 @@
     "name": "エクストラブースター「ONE PIECE Heroines Edition vol.2」【EB-05】",
     "category": "eb",
     "retail_price": 5760,
-    "max_price": 13300,
+    "max_price": 13100,
     "prices": {
       "homura": 13000,
       "rudeya": 12400,
@@ -296,14 +296,14 @@
       "oku": 13000,
       "collect_tendo": 10000,
       "shinsoku": 13100,
-      "kaitoriexpo": 13300
+      "kaitoriexpo": 13000
     }
   },
   {
     "name": "エクストラブースター「EGGHEAD CRISIS」【EB-04】",
     "category": "eb",
     "retail_price": 5280,
-    "max_price": 13600,
+    "max_price": 13700,
     "prices": {
       "morimori": 13000,
       "homura": 13000,
@@ -311,7 +311,7 @@
       "runto": 13500,
       "icchome": 12000,
       "oku": 13500,
-      "collect_tendo": 13600,
+      "collect_tendo": 13700,
       "shinsoku": 12700,
       "kaitoriexpo": 13500
     }
@@ -326,9 +326,9 @@
       "homura": 11000,
       "rudeya": 11600,
       "runto": 12000,
-      "icchome": 12000,
+      "icchome": 11000,
       "oku": 11000,
-      "collect_tendo": 12000,
+      "collect_tendo": 11500,
       "shinsoku": 11500,
       "kaitoriexpo": 12000
     }
@@ -345,6 +345,7 @@
       "runto": 28500,
       "icchome": 29000,
       "oku": 28000,
+      "collect_tendo": 27000,
       "shinsoku": 27500,
       "kaitoriexpo": 25000
     }
@@ -387,7 +388,7 @@
     "name": "プレミアムブースター「ONE PIECE CARD THE BEST」【PRB-01】",
     "category": "prb",
     "retail_price": 5500,
-    "max_price": 21000,
+    "max_price": 20500,
     "prices": {
       "morimori": 20500,
       "homura": 20500,
@@ -397,7 +398,7 @@
       "oku": 20500,
       "collect_tendo": 20000,
       "shinsoku": 19500,
-      "kaitoriexpo": 21000
+      "kaitoriexpo": 20500
     }
   },
   {

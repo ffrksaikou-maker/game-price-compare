@@ -8,7 +8,7 @@
       "morimori": 3000,
       "homura": 3000,
       "rudeya": 2300,
-      "icchome": 3000
+      "icchome": 2800
     }
   },
   {
@@ -29,9 +29,9 @@
     "retail_price": 2600,
     "max_price": 2500,
     "prices": {
-      "morimori": 2400,
+      "morimori": 1000,
       "rudeya": 2500,
-      "icchome": 2200
+      "icchome": 1400
     }
   },
   {
@@ -164,10 +164,10 @@
     "retail_price": 1980,
     "max_price": 2600,
     "prices": {
-      "morimori": 1900,
+      "morimori": 1850,
       "homura": 2600,
       "rudeya": 1300,
-      "icchome": 2600
+      "icchome": 2400
     }
   },
   {
@@ -217,9 +217,9 @@
     "retail_price": 5650,
     "max_price": 3000,
     "prices": {
-      "morimori": 1900,
+      "morimori": 1800,
       "rudeya": 3000,
-      "icchome": 1920
+      "icchome": 1800
     }
   },
   {
@@ -239,7 +239,7 @@
     "retail_price": 2200,
     "max_price": 2000,
     "prices": {
-      "morimori": 1200,
+      "morimori": 1100,
       "rudeya": 1200,
       "icchome": 2000
     }
@@ -248,9 +248,9 @@
     "name": "CX-12 フェニックスフレアZ9-80WW",
     "category": "cx",
     "retail_price": 1700,
-    "max_price": 2300,
+    "max_price": 2000,
     "prices": {
-      "morimori": 2300,
+      "morimori": 1500,
       "rudeya": 2000,
       "icchome": 1750
     }
@@ -385,15 +385,6 @@
     }
   },
   {
-    "name": "BX-36 ランダムブースター ホエールウェーブセレクト",
-    "category": "bx",
-    "retail_price": 1400,
-    "max_price": 1000,
-    "prices": {
-      "icchome": 1000
-    }
-  },
-  {
     "name": "BX-35 ランダムブースターVol.4",
     "category": "bx",
     "retail_price": 1400,
@@ -409,7 +400,7 @@
     "retail_price": 2321,
     "max_price": 2200,
     "prices": {
-      "morimori": 800,
+      "morimori": 1900,
       "homura": 2200,
       "rudeya": 1000,
       "icchome": 2200
@@ -445,7 +436,7 @@
     "prices": {
       "morimori": 4500,
       "homura": 4500,
-      "icchome": 4500
+      "icchome": 2700
     }
   },
   {
@@ -492,10 +483,10 @@
     "name": "CX-00 ペガサスブラストATr メタルコート:レッド",
     "category": "limited",
     "retail_price": 2700,
-    "max_price": 3600,
+    "max_price": 3400,
     "prices": {
       "rudeya": 2800,
-      "icchome": 3600
+      "icchome": 3400
     }
   },
   {
