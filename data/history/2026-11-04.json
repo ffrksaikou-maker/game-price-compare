@@ -38,7 +38,7 @@
       "morimori": 15200,
       "homura": 15200,
       "rudeya": 13000,
-      "runto": 15000,
+      "runto": 15200,
       "icchome": 14000,
       "oku": 15000,
       "kaikyo": 15000,
@@ -58,7 +58,7 @@
       "runto": 19000,
       "icchome": 18000,
       "oku": 18000,
-      "kaikyo": 16000,
+      "kaikyo": 18000,
       "collect_tendo": 22000,
       "shinsoku": 18100,
       "kaitoriexpo": 19000
@@ -142,7 +142,7 @@
     "max_price": 12000,
     "prices": {
       "morimori": 11500,
-      "homura": 11400,
+      "homura": 11700,
       "rudeya": 10000,
       "runto": 11500,
       "icchome": 11200,
@@ -308,7 +308,7 @@
     "retail_price": 5400,
     "max_price": 9800,
     "prices": {
-      "morimori": 8800,
+      "morimori": 9200,
       "homura": 9200,
       "rudeya": 8000,
       "runto": 9000,
@@ -324,7 +324,7 @@
     "retail_price": 5500,
     "max_price": 18500,
     "prices": {
-      "morimori": 16500,
+      "morimori": 16000,
       "homura": 16000,
       "rudeya": 16500,
       "runto": 16000,
@@ -470,7 +470,7 @@
     "retail_price": 5500,
     "max_price": 17800,
     "prices": {
-      "morimori": 16000,
+      "morimori": 15800,
       "homura": 15800,
       "rudeya": 16000,
       "runto": 16000,
@@ -647,7 +647,7 @@
     "retail_price": 5500,
     "max_price": 26800,
     "prices": {
-      "morimori": 26500,
+      "morimori": 25800,
       "homura": 26800,
       "rudeya": 21000,
       "runto": 26800,
@@ -856,11 +856,11 @@
     "name": "S&S 拡張パック「白銀のランス」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 19000,
+    "max_price": 18500,
     "prices": {
       "homura": 18000,
       "runto": 16000,
-      "shinsoku": 19000
+      "shinsoku": 18500
     }
   },
   {

@@ -27,11 +27,11 @@
     "name": "UX-19 バレットグリフォンH",
     "category": "ux",
     "retail_price": 2600,
-    "max_price": 2900,
+    "max_price": 2500,
     "prices": {
-      "morimori": 2500,
+      "morimori": 2400,
       "rudeya": 2500,
-      "icchome": 2900
+      "icchome": 2200
     }
   },
   {
@@ -248,11 +248,11 @@
     "name": "CX-12 フェニックスフレアZ9-80WW",
     "category": "cx",
     "retail_price": 1700,
-    "max_price": 2500,
+    "max_price": 2300,
     "prices": {
       "morimori": 2300,
       "rudeya": 2000,
-      "icchome": 2500
+      "icchome": 1750
     }
   },
   {
@@ -270,10 +270,10 @@
     "name": "CX-08 ランダムブースターVol.7",
     "category": "cx",
     "retail_price": 1600,
-    "max_price": 2000,
+    "max_price": 1750,
     "prices": {
       "rudeya": 1400,
-      "icchome": 2000
+      "icchome": 1750
     }
   },
   {
@@ -349,7 +349,7 @@
       "morimori": 1800,
       "homura": 2200,
       "rudeya": 1300,
-      "icchome": 2200
+      "icchome": 2100
     }
   },
   {
