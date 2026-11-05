@@ -251,10 +251,6 @@
     "OP-14 至海の七傑": 9600
   },
   "processed_urls": [
-    "https://pbs.twimg.com/media/HUUlilUbUAAam3c?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HWQj2oNbEAAUQlc?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HVcbQ1YbsAAsTyU?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HVcappCbgAE6jYR?format=jpg&name=large",
     "https://pbs.twimg.com/media/HWK7d3AbAAAr8Nh?format=jpg&name=large",
     "https://pbs.twimg.com/media/HVmpjmrbAAANlKJ?format=jpg&name=large",
     "https://pbs.twimg.com/media/HVmqsUyb0AAudbz?format=jpg&name=large",
@@ -300,12 +296,19 @@
     "https://pbs.twimg.com/media/HVsDlBDaEAApEJg?format=jpg&name=large",
     "https://pbs.twimg.com/media/HVSdZ8HagAIqSy1?format=jpg&name=large",
     "https://pbs.twimg.com/media/HWK6I5QbIAAWYbK?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HU4kvxWbkAAqUWh?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HU4kvxWbkAAqUWh?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HVSUOx7aYAAWTT4?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HU9z2lbbMAA75oz?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HV7ccL-bQAA5DIE?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HWF7Gs3bEAAprth?format=jpg&name=large"
   ],
   "last_check": 1793847890,
   "ocr_fail_counts": {},
-  "pending_images": [],
-  "last_image_check": 1793842942,
+  "pending_images": [
+    "https://pbs.twimg.com/media/HWVOHWobMAAZc0p?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HWQj2oNbEAAUQlc?format=jpg&name=large"
+  ],
+  "last_image_check": 1793857342,
   "seen_at": {
     "OP-14 蒼海の七傑": 1793761491,
     "OP-15 神の島の冒険": 1793847890,
