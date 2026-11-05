@@ -252,8 +252,6 @@
     "白炎のアルカナ": 10000
   },
   "processed_urls": [
-    "https://pbs.twimg.com/media/HTr4mL9agAAPQ5t?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HVmqsUyb0AAudbz?format=jpg&name=large",
     "https://pbs.twimg.com/media/HWAr47zbIAA8Fn0?format=jpg&name=large",
     "https://pbs.twimg.com/media/HUuTKbhaIAAKGcj?format=jpg&name=large",
     "https://pbs.twimg.com/media/HUpGRxgboAAvQ5F?format=jpg&name=large",
@@ -301,12 +299,16 @@
     "https://pbs.twimg.com/media/HUAeSYqa8AAJhzd?format=jpg&name=large",
     "https://pbs.twimg.com/media/HWQI7gcbYAA4tLX?format=jpg&name=large",
     "https://pbs.twimg.com/media/HWK5iWxagAAuUUB?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HU9z2lbbMAA75oz?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HU9z2lbbMAA75oz?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HU4kvxWbkAAqUWh?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HWF7Gs3bEAAprth?format=jpg&name=large"
   ],
   "last_check": 1793871838,
   "ocr_fail_counts": {},
-  "pending_images": [],
-  "last_image_check": 1793857342,
+  "pending_images": [
+    "https://pbs.twimg.com/media/HWV9quGa0AAe_mJ?format=jpg&name=large"
+  ],
+  "last_image_check": 1793886144,
   "seen_at": {
     "OP-14 蒼海の七傑": 1793761491,
     "OP-15 神の島の冒険": 1793871838,
