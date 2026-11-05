@@ -5,7 +5,7 @@
     "retail_price": 4500,
     "max_price": 3000,
     "prices": {
-      "morimori": 3000,
+      "morimori": 2800,
       "homura": 3000,
       "rudeya": 2300,
       "icchome": 2800
@@ -18,7 +18,7 @@
     "max_price": 2300,
     "prices": {
       "morimori": 2300,
-      "homura": 2000,
+      "homura": 2300,
       "rudeya": 1600,
       "icchome": 2300
     }
@@ -121,7 +121,7 @@
     "max_price": 3600,
     "prices": {
       "morimori": 2700,
-      "homura": 3400,
+      "homura": 3600,
       "rudeya": 2000,
       "icchome": 3600
     }
@@ -162,12 +162,12 @@
     "name": "UX-01 ドランバスター1-60A",
     "category": "ux",
     "retail_price": 1980,
-    "max_price": 2600,
+    "max_price": 2000,
     "prices": {
       "morimori": 1850,
-      "homura": 2600,
+      "homura": 2000,
       "rudeya": 1300,
-      "icchome": 2400
+      "icchome": 1500
     }
   },
   {
@@ -237,11 +237,11 @@
     "name": "CX-13 バハムートブリッツBK1-50I",
     "category": "cx",
     "retail_price": 2200,
-    "max_price": 2000,
+    "max_price": 1200,
     "prices": {
       "morimori": 1100,
       "rudeya": 1200,
-      "icchome": 2000
+      "icchome": 1200
     }
   },
   {
@@ -313,10 +313,10 @@
     "name": "BX-53 オールインワンセット",
     "category": "bx",
     "retail_price": 7480,
-    "max_price": 10000,
+    "max_price": 9200,
     "prices": {
       "homura": 8000,
-      "icchome": 10000
+      "icchome": 9200
     }
   },
   {
@@ -349,7 +349,7 @@
       "morimori": 1800,
       "homura": 2200,
       "rudeya": 1300,
-      "icchome": 2100
+      "icchome": 1900
     }
   },
   {
@@ -495,7 +495,6 @@
     "retail_price": 6501,
     "max_price": 18700,
     "prices": {
-      "homura": 7000,
       "rudeya": 5000,
       "icchome": 18700
     }
