@@ -311,10 +311,10 @@
     "name": "BX-53 オールインワンセット",
     "category": "bx",
     "retail_price": 7480,
-    "max_price": 8800,
+    "max_price": 8500,
     "prices": {
       "homura": 8000,
-      "icchome": 8800
+      "icchome": 8500
     }
   },
   {
