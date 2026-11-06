@@ -256,9 +256,6 @@
     "30th CELEBRATION シュリンクつき 未開封BOX": 20000
   },
   "processed_urls": [
-    "https://pbs.twimg.com/media/HWadEIAaIAE688w?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HVmpjmrbAAANlKJ?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HTCK3hSb0AAgvJV?format=png&name=large",
     "https://pbs.twimg.com/media/HWK7d3AbAAAr8Nh?format=jpg&name=large",
     "https://pbs.twimg.com/media/HWApn6TbgAAYSdm?format=jpg&name=large",
     "https://pbs.twimg.com/media/HVh0lOLaMAAZS7W?format=jpg&name=large",
@@ -305,12 +302,19 @@
     "https://pbs.twimg.com/media/HWQLOyHagAAsO0b?format=jpg&name=large",
     "https://pbs.twimg.com/media/HWQj2oNbEAAUQlc?format=jpg&name=large",
     "https://pbs.twimg.com/media/HWV9quGa0AAe_mJ?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HU9z2lbbMAA75oz?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HU9z2lbbMAA75oz?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HUUhqvrbMAATnLQ?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HWVOHWobMAAZc0p?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HWQjEbPaIAACRAU?format=jpg&name=large"
   ],
   "last_check": 1793958138,
   "ocr_fail_counts": {},
-  "pending_images": [],
-  "last_image_check": 1793943745,
+  "pending_images": [
+    "https://pbs.twimg.com/media/HWbGWVlacAAK1CL?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HWadEIAaIAE688w?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HWanmOeaIAEDzHx?format=jpg&name=large"
+  ],
+  "last_image_check": 1793972543,
   "seen_at": {
     "OP-14 蒼海の七傑": 1793761491,
     "OP-15 神の島の冒険": 1793958138,
