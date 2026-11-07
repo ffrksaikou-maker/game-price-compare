@@ -9,10 +9,10 @@
       "homura": 9000,
       "rudeya": 9000,
       "icchome": 8900,
-      "oku": 8900,
       "collect_tendo": 7800,
       "shinsoku": 9100,
-      "kaitoriexpo": 9700
+      "kaitoriexpo": 9700,
+      "oku": 8900
     }
   },
   {
@@ -26,27 +26,27 @@
       "rudeya": 8200,
       "runto": 8000,
       "icchome": 8300,
-      "oku": 7600,
       "collect_tendo": 8600,
       "shinsoku": 8000,
-      "kaitoriexpo": 8000
+      "kaitoriexpo": 8200,
+      "oku": 7600
     }
   },
   {
     "name": "ブースターパック「神の島の冒険」【OP-15】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 8000,
+    "max_price": 8300,
     "prices": {
       "morimori": 7800,
       "homura": 7800,
       "rudeya": 7800,
       "runto": 8000,
       "icchome": 7800,
-      "oku": 7800,
-      "collect_tendo": 8000,
+      "collect_tendo": 8300,
       "shinsoku": 7600,
-      "kaitoriexpo": 7800
+      "kaitoriexpo": 7800,
+      "oku": 7800
     }
   },
   {
@@ -60,10 +60,10 @@
       "rudeya": 9300,
       "runto": 9500,
       "icchome": 9200,
-      "oku": 9500,
       "collect_tendo": 9200,
       "shinsoku": 8900,
-      "kaitoriexpo": 9300
+      "kaitoriexpo": 9300,
+      "oku": 9500
     }
   },
   {
@@ -77,10 +77,10 @@
       "rudeya": 15000,
       "runto": 15000,
       "icchome": 15000,
-      "oku": 15100,
       "collect_tendo": 15500,
       "shinsoku": 15100,
-      "kaitoriexpo": 15200
+      "kaitoriexpo": 15100,
+      "oku": 15100
     }
   },
   {
@@ -94,10 +94,10 @@
       "rudeya": 14500,
       "runto": 16000,
       "icchome": 13000,
-      "oku": 16000,
       "collect_tendo": 14000,
       "shinsoku": 15100,
-      "kaitoriexpo": 16000
+      "kaitoriexpo": 15800,
+      "oku": 16000
     }
   },
   {
@@ -111,10 +111,10 @@
       "rudeya": 25000,
       "runto": 25000,
       "icchome": 25000,
-      "oku": 25200,
       "collect_tendo": 26000,
       "shinsoku": 25100,
-      "kaitoriexpo": 25000
+      "kaitoriexpo": 25000,
+      "oku": 25200
     }
   },
   {
@@ -128,27 +128,27 @@
       "rudeya": 9600,
       "runto": 10000,
       "icchome": 9500,
-      "oku": 10000,
       "collect_tendo": 10000,
       "shinsoku": 10100,
-      "kaitoriexpo": 10500
+      "kaitoriexpo": 10500,
+      "oku": 10000
     }
   },
   {
     "name": "ブースターパック「新たなる皇帝」【OP-09】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 18000,
+    "max_price": 17500,
     "prices": {
       "morimori": 17100,
       "homura": 16700,
       "rudeya": 16000,
       "runto": 17000,
       "icchome": 15000,
-      "oku": 17000,
       "collect_tendo": 17300,
       "shinsoku": 16100,
-      "kaitoriexpo": 18000
+      "kaitoriexpo": 17500,
+      "oku": 17000
     }
   },
   {
@@ -162,10 +162,10 @@
       "rudeya": 9500,
       "runto": 10500,
       "icchome": 9200,
-      "oku": 11000,
       "collect_tendo": 10600,
       "shinsoku": 10200,
-      "kaitoriexpo": 11000
+      "kaitoriexpo": 10600,
+      "oku": 11000
     }
   },
   {
@@ -179,9 +179,9 @@
       "rudeya": 15200,
       "runto": 15000,
       "icchome": 15000,
-      "oku": 15000,
       "shinsoku": 13900,
-      "kaitoriexpo": 14800
+      "kaitoriexpo": 14800,
+      "oku": 15000
     }
   },
   {
@@ -195,8 +195,8 @@
       "rudeya": 19200,
       "runto": 18000,
       "icchome": 17000,
-      "oku": 19100,
-      "shinsoku": 19100
+      "shinsoku": 19100,
+      "oku": 19100
     }
   },
   {
@@ -210,9 +210,9 @@
       "rudeya": 38000,
       "runto": 40000,
       "icchome": 40000,
-      "oku": 40000,
       "collect_tendo": 45000,
-      "shinsoku": 40100
+      "shinsoku": 40100,
+      "oku": 40000
     }
   },
   {
@@ -226,10 +226,10 @@
       "rudeya": 15700,
       "runto": 15000,
       "icchome": 14000,
-      "oku": 15500,
       "collect_tendo": 15500,
       "shinsoku": 13900,
-      "kaitoriexpo": 15500
+      "kaitoriexpo": 15500,
+      "oku": 15500
     }
   },
   {
@@ -243,10 +243,10 @@
       "rudeya": 15300,
       "runto": 12000,
       "icchome": 15000,
-      "oku": 14500,
       "collect_tendo": 13000,
       "shinsoku": 13600,
-      "kaitoriexpo": 14500
+      "kaitoriexpo": 14500,
+      "oku": 14500
     }
   },
   {
@@ -260,10 +260,10 @@
       "rudeya": 19300,
       "runto": 16500,
       "icchome": 19000,
-      "oku": 17000,
       "collect_tendo": 18000,
       "shinsoku": 17100,
-      "kaitoriexpo": 16000
+      "kaitoriexpo": 16000,
+      "oku": 17000
     }
   },
   {
@@ -277,10 +277,10 @@
       "rudeya": 35300,
       "runto": 30000,
       "icchome": 31000,
-      "oku": 32500,
       "collect_tendo": 35000,
       "shinsoku": 32300,
-      "kaitoriexpo": 35500
+      "kaitoriexpo": 35500,
+      "oku": 32500
     }
   },
   {
@@ -293,10 +293,10 @@
       "rudeya": 12400,
       "runto": 13200,
       "icchome": 12800,
-      "oku": 13200,
       "collect_tendo": 10000,
       "shinsoku": 12100,
-      "kaitoriexpo": 13000
+      "kaitoriexpo": 13000,
+      "oku": 13200
     }
   },
   {
@@ -310,10 +310,10 @@
       "rudeya": 12100,
       "runto": 13000,
       "icchome": 12000,
-      "oku": 13000,
       "collect_tendo": 13700,
       "shinsoku": 12300,
-      "kaitoriexpo": 13500
+      "kaitoriexpo": 13500,
+      "oku": 13000
     }
   },
   {
@@ -327,10 +327,10 @@
       "rudeya": 11000,
       "runto": 11500,
       "icchome": 11000,
-      "oku": 12500,
       "collect_tendo": 11500,
       "shinsoku": 11000,
-      "kaitoriexpo": 12000
+      "kaitoriexpo": 12000,
+      "oku": 12500
     }
   },
   {
@@ -344,27 +344,27 @@
       "rudeya": 28000,
       "runto": 28000,
       "icchome": 29000,
-      "oku": 27800,
       "collect_tendo": 27000,
       "shinsoku": 26800,
-      "kaitoriexpo": 25000
+      "kaitoriexpo": 25000,
+      "oku": 27800
     }
   },
   {
     "name": "エクストラブースター「メモリアルコレクション」【EB-01】",
     "category": "eb",
     "retail_price": 5280,
-    "max_price": 20300,
+    "max_price": 19500,
     "prices": {
       "morimori": 16000,
       "homura": 19500,
       "rudeya": 16000,
       "runto": 12000,
       "icchome": 15500,
-      "oku": 15000,
       "collect_tendo": 16500,
       "shinsoku": 16100,
-      "kaitoriexpo": 20300
+      "kaitoriexpo": 18000,
+      "oku": 15000
     }
   },
   {
@@ -378,10 +378,10 @@
       "rudeya": 9500,
       "runto": 10400,
       "icchome": 9000,
-      "oku": 10000,
       "collect_tendo": 10600,
       "shinsoku": 9800,
-      "kaitoriexpo": 10000
+      "kaitoriexpo": 10000,
+      "oku": 10000
     }
   },
   {
@@ -395,10 +395,10 @@
       "rudeya": 20200,
       "runto": 20500,
       "icchome": 20000,
-      "oku": 20500,
       "collect_tendo": 20000,
       "shinsoku": 19700,
-      "kaitoriexpo": 20700
+      "kaitoriexpo": 20700,
+      "oku": 20500
     }
   },
   {

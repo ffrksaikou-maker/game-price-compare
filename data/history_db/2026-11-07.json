@@ -3,13 +3,13 @@
     "name": "ブースターパック「BRIGHTNESS OF HOPE」【FB-11】",
     "category": "fb",
     "retail_price": 5760,
-    "max_price": 6600,
+    "max_price": 6800,
     "prices": {
       "homura": 6000,
       "rudeya": 4000,
       "runto": 6200,
       "shinsoku": 5300,
-      "kaitoriexpo": 6600
+      "kaitoriexpo": 6800
     }
   },
   {
@@ -27,12 +27,12 @@
     "name": "ブースターパック「DUAL EVOLUTION」【FB-09】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 7000,
+    "max_price": 6500,
     "prices": {
       "rudeya": 4500,
       "runto": 6500,
       "shinsoku": 6100,
-      "kaitoriexpo": 7000
+      "kaitoriexpo": 6000
     }
   },
   {
@@ -44,7 +44,7 @@
       "homura": 11000,
       "rudeya": 8500,
       "shinsoku": 10800,
-      "kaitoriexpo": 10500
+      "kaitoriexpo": 7000
     }
   },
   {
@@ -56,19 +56,19 @@
       "homura": 22500,
       "rudeya": 24000,
       "shinsoku": 27000,
-      "kaitoriexpo": 23500
+      "kaitoriexpo": 24000
     }
   },
   {
     "name": "ブースターパック「迫り来る脅威」【FB-06】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 10200,
+    "max_price": 10500,
     "prices": {
       "homura": 10000,
       "rudeya": 7600,
       "shinsoku": 9500,
-      "kaitoriexpo": 10200
+      "kaitoriexpo": 10500
     }
   },
   {
@@ -141,7 +141,7 @@
       "homura": 50000,
       "rudeya": 35000,
       "shinsoku": 38300,
-      "kaitoriexpo": 50000
+      "kaitoriexpo": 44000
     }
   },
   {
@@ -165,7 +165,7 @@
       "rudeya": 6600,
       "runto": 9000,
       "shinsoku": 8100,
-      "kaitoriexpo": 8500
+      "kaitoriexpo": 9000
     }
   },
   {

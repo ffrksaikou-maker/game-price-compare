@@ -225,9 +225,9 @@
     "name": "CX-15 ラグナレイジFE4-55Y",
     "category": "cx",
     "retail_price": 1600,
-    "max_price": 1400,
+    "max_price": 1300,
     "prices": {
-      "morimori": 1400,
+      "morimori": 1100,
       "homura": 1000,
       "icchome": 1300
     }
@@ -344,7 +344,7 @@
     "retail_price": 2200,
     "max_price": 2200,
     "prices": {
-      "morimori": 1600,
+      "morimori": 1500,
       "homura": 2200,
       "rudeya": 1300,
       "icchome": 1800
