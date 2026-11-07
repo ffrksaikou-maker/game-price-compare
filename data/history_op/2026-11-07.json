@@ -8,7 +8,6 @@
       "morimori": 9000,
       "homura": 9000,
       "rudeya": 9000,
-      "runto": 9000,
       "icchome": 8900,
       "oku": 8900,
       "collect_tendo": 7800,
@@ -189,9 +188,9 @@
     "name": "ブースターパック「双璧の覇者」【OP-06】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 20500,
+    "max_price": 19200,
     "prices": {
-      "morimori": 20500,
+      "morimori": 19000,
       "homura": 19000,
       "rudeya": 19200,
       "runto": 18000,
@@ -206,7 +205,7 @@
     "retail_price": 5280,
     "max_price": 45000,
     "prices": {
-      "morimori": 43000,
+      "morimori": 40000,
       "homura": 40000,
       "rudeya": 38000,
       "runto": 40000,

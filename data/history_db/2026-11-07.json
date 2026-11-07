@@ -8,7 +8,7 @@
       "homura": 6000,
       "rudeya": 4000,
       "runto": 6200,
-      "shinsoku": 5400,
+      "shinsoku": 5300,
       "kaitoriexpo": 6600
     }
   },
@@ -16,10 +16,10 @@
     "name": "ブースターパック「CROSS FORCE」【FB-10】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 5300,
+    "max_price": 5600,
     "prices": {
       "rudeya": 4000,
-      "shinsoku": 5300,
+      "shinsoku": 5600,
       "kaitoriexpo": 5000
     }
   },
@@ -31,7 +31,7 @@
     "prices": {
       "rudeya": 4500,
       "runto": 6500,
-      "shinsoku": 6200,
+      "shinsoku": 6100,
       "kaitoriexpo": 7000
     }
   },
@@ -51,11 +51,11 @@
     "name": "ブースターパック「神龍への願い」【FB-07】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 29700,
+    "max_price": 27000,
     "prices": {
       "homura": 22500,
       "rudeya": 24000,
-      "shinsoku": 29700,
+      "shinsoku": 27000,
       "kaitoriexpo": 23500
     }
   },
@@ -67,7 +67,7 @@
     "prices": {
       "homura": 10000,
       "rudeya": 7600,
-      "shinsoku": 9900,
+      "shinsoku": 9500,
       "kaitoriexpo": 10200
     }
   },
@@ -123,11 +123,11 @@
     "name": "ブースターパック「覚醒の鼓動」【FB-01】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 6000,
+    "max_price": 6100,
     "prices": {
       "homura": 6000,
       "rudeya": 4300,
-      "shinsoku": 6000,
+      "shinsoku": 6100,
       "kaitoriexpo": 5800
     }
   },
@@ -140,7 +140,7 @@
       "morimori": 19800,
       "homura": 50000,
       "rudeya": 35000,
-      "shinsoku": 37400,
+      "shinsoku": 38300,
       "kaitoriexpo": 50000
     }
   },
@@ -152,7 +152,7 @@
     "prices": {
       "homura": 100000,
       "rudeya": 80000,
-      "shinsoku": 91000,
+      "shinsoku": 88400,
       "kaitoriexpo": 70000
     }
   },
@@ -164,7 +164,7 @@
     "prices": {
       "rudeya": 6600,
       "runto": 9000,
-      "shinsoku": 7500,
+      "shinsoku": 8100,
       "kaitoriexpo": 8500
     }
   },
