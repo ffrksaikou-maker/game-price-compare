@@ -68,8 +68,8 @@ NO_SHRINK_INDICATORS = [
 # (例「OP-07 500年後の未来」がポケカ「未来の一閃」に誤マッチ)。弾番号接頭辞も除外する。
 # 店により「OP-07」「OP07」両表記があるためハイフン有無の両形式を生成。
 _OP_SET_CODES = (
-    [f"OP-{i:02d}" for i in range(1, 19)] + [f"OP{i:02d}" for i in range(1, 19)]
-    + [f"EB-{i:02d}" for i in range(1, 6)] + [f"EB{i:02d}" for i in range(1, 6)]
+    [f"OP-{i:02d}" for i in range(1, 20)] + [f"OP{i:02d}" for i in range(1, 20)]
+    + [f"EB-{i:02d}" for i in range(1, 7)] + [f"EB{i:02d}" for i in range(1, 7)]
     + [f"PRB-{i:02d}" for i in range(1, 4)] + [f"PRB{i:02d}" for i in range(1, 4)]
 )
 # ベイブレードXの型番。店により「UX-19」だけ、あるいはJANコードだけの出品名があり
