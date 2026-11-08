@@ -3,9 +3,9 @@
     "name": "30th CELEBRATION カードセット 9種セット",
     "category": "mega",
     "retail_price": 10800,
-    "max_price": 14300,
+    "max_price": 14000,
     "prices": {
-      "homura": 14300,
+      "homura": 14000,
       "rudeya": 10800,
       "runto": 13000,
       "icchome": 13000,
@@ -139,17 +139,17 @@
     "name": "MEGA ハイクラスパック「MEGAドリームex」",
     "category": "mega",
     "retail_price": 5500,
-    "max_price": 11900,
+    "max_price": 12000,
     "prices": {
       "morimori": 11900,
-      "homura": 11900,
+      "homura": 12000,
       "rudeya": 10000,
       "runto": 11800,
       "icchome": 11800,
       "oku": 11200,
       "kaikyo": 11000,
       "collect_tendo": 11500,
-      "shinsoku": 11800,
+      "shinsoku": 12000,
       "kaitoriexpo": 11900
     }
   },
@@ -175,15 +175,15 @@
     "name": "MEGA 拡張パック「メガブレイブ」",
     "category": "mega",
     "retail_price": 5400,
-    "max_price": 7400,
+    "max_price": 7500,
     "prices": {
-      "morimori": 7200,
-      "homura": 7400,
+      "morimori": 7500,
+      "homura": 7500,
       "rudeya": 6500,
       "runto": 7200,
       "icchome": 7100,
       "kaikyo": 7300,
-      "collect_tendo": 6800,
+      "collect_tendo": 7000,
       "shinsoku": 7400,
       "kaitoriexpo": 7200
     }
@@ -210,10 +210,10 @@
     "name": "SV 拡張パックDX「ブラックボルト」",
     "category": "sv",
     "retail_price": 5800,
-    "max_price": 25000,
+    "max_price": 25600,
     "prices": {
       "morimori": 25000,
-      "homura": 25000,
+      "homura": 25600,
       "rudeya": 23000,
       "runto": 25000,
       "icchome": 24000,
@@ -232,7 +232,7 @@
       "rudeya": 20000,
       "runto": 21000,
       "icchome": 21000,
-      "shinsoku": 20500,
+      "shinsoku": 20800,
       "kaitoriexpo": 20000
     }
   },
@@ -290,10 +290,10 @@
     "name": "SV 強化拡張パック「熱風のアリーナ」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 18200,
+    "max_price": 18300,
     "prices": {
       "morimori": 18200,
-      "homura": 18200,
+      "homura": 18300,
       "rudeya": 14500,
       "runto": 17000,
       "icchome": 18000,
@@ -438,7 +438,7 @@
     "retail_price": 5400,
     "max_price": 12000,
     "prices": {
-      "morimori": 11800,
+      "morimori": 11600,
       "homura": 11600,
       "rudeya": 12000,
       "runto": 11800,
@@ -533,10 +533,10 @@
     "name": "SV 強化拡張パック「黒炎の支配者」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 19200,
+    "max_price": 19500,
     "prices": {
       "morimori": 19200,
-      "homura": 19200,
+      "homura": 19500,
       "rudeya": 16000,
       "runto": 18500,
       "icchome": 18500,
@@ -551,8 +551,8 @@
     "retail_price": 5400,
     "max_price": 45500,
     "prices": {
-      "morimori": 44000,
-      "homura": 44000,
+      "morimori": 45000,
+      "homura": 45000,
       "rudeya": 36500,
       "runto": 44000,
       "icchome": 41000,
@@ -600,7 +600,7 @@
     "retail_price": 5400,
     "max_price": 17800,
     "prices": {
-      "morimori": 17600,
+      "morimori": 17500,
       "homura": 17500,
       "rudeya": 17500,
       "runto": 17500,
@@ -615,10 +615,10 @@
     "name": "SV 拡張パック「スカーレットex」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 13600,
+    "max_price": 13800,
     "prices": {
-      "morimori": 13600,
-      "homura": 13600,
+      "morimori": 13800,
+      "homura": 13800,
       "rudeya": 13000,
       "runto": 13000,
       "icchome": 13000,
@@ -645,10 +645,10 @@
     "name": "S&S ハイクラスパック「VSTARユニバース」",
     "category": "ss",
     "retail_price": 5500,
-    "max_price": 27100,
+    "max_price": 27200,
     "prices": {
-      "morimori": 27100,
-      "homura": 27100,
+      "morimori": 27200,
+      "homura": 27200,
       "rudeya": 21000,
       "runto": 26800,
       "icchome": 26000,
@@ -661,10 +661,10 @@
     "name": "S&S 拡張パック「パラダイムトリガー」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 19500,
+    "max_price": 19600,
     "prices": {
-      "morimori": 19500,
-      "homura": 19500,
+      "morimori": 19600,
+      "homura": 19600,
       "runto": 19000,
       "collect_tendo": 19500,
       "shinsoku": 19000,
@@ -677,8 +677,8 @@
     "retail_price": 4950,
     "max_price": 11500,
     "prices": {
-      "morimori": 10600,
-      "homura": 11000,
+      "morimori": 11500,
+      "homura": 11200,
       "runto": 9500,
       "collect_tendo": 10000,
       "shinsoku": 11500,
@@ -708,7 +708,7 @@
       "runto": 21500,
       "kaikyo": 14500,
       "collect_tendo": 21000,
-      "shinsoku": 20000,
+      "shinsoku": 19000,
       "kaitoriexpo": 19200
     }
   },
@@ -742,9 +742,9 @@
     "name": "S&S 拡張パック「スペースジャグラー」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 13500,
+    "max_price": 14000,
     "prices": {
-      "homura": 13500,
+      "homura": 14000,
       "runto": 12500,
       "collect_tendo": 12600,
       "shinsoku": 13500,
@@ -811,7 +811,7 @@
       "homura": 58000,
       "runto": 54000,
       "collect_tendo": 57000,
-      "shinsoku": 57000,
+      "shinsoku": 58000,
       "kaitoriexpo": 49000
     }
   },
@@ -844,9 +844,9 @@
     "name": "S&S 強化拡張パック「イーブイヒーローズ」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 122000,
+    "max_price": 123000,
     "prices": {
-      "homura": 121000,
+      "homura": 123000,
       "runto": 115000,
       "collect_tendo": 110000,
       "shinsoku": 122000,
@@ -923,9 +923,9 @@
     "name": "S&S 拡張パック「仰天のボルテッカー」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 48500,
+    "max_price": 49000,
     "prices": {
-      "homura": 48500,
+      "homura": 49000,
       "collect_tendo": 38000,
       "shinsoku": 47000,
       "kaitoriexpo": 40500
@@ -979,7 +979,7 @@
     "retail_price": 4950,
     "max_price": 90000,
     "prices": {
-      "homura": 85000,
+      "homura": 90000,
       "shinsoku": 90000,
       "kaitoriexpo": 84000
     }
@@ -1040,7 +1040,7 @@
     "retail_price": 2090,
     "max_price": 13000,
     "prices": {
-      "homura": 10000,
+      "homura": 10500,
       "rudeya": 10000,
       "runto": 10000,
       "icchome": 10000,

@@ -51,11 +51,11 @@
     "name": "ブースターパック「神龍への願い」【FB-07】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 32200,
+    "max_price": 30400,
     "prices": {
       "homura": 22500,
       "rudeya": 24000,
-      "shinsoku": 32200,
+      "shinsoku": 30400,
       "kaitoriexpo": 24000
     }
   },
