@@ -129,10 +129,10 @@
     "name": "UX-08 シルバーウルフ3-80FB",
     "category": "ux",
     "retail_price": 2080,
-    "max_price": 1900,
+    "max_price": 1800,
     "prices": {
       "morimori": 1600,
-      "homura": 1900,
+      "homura": 1800,
       "rudeya": 1500,
       "icchome": 1800
     }
@@ -342,10 +342,10 @@
     "name": "BX-49 ドランストライク4-50FF",
     "category": "bx",
     "retail_price": 2200,
-    "max_price": 2200,
+    "max_price": 2000,
     "prices": {
       "morimori": 1500,
-      "homura": 2200,
+      "homura": 2000,
       "rudeya": 1300,
       "icchome": 1800
     }
