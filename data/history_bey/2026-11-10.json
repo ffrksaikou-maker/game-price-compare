@@ -162,10 +162,10 @@
     "name": "UX-01 ドランバスター1-60A",
     "category": "ux",
     "retail_price": 1980,
-    "max_price": 2000,
+    "max_price": 1600,
     "prices": {
       "morimori": 1550,
-      "homura": 2000,
+      "homura": 1600,
       "rudeya": 1300,
       "icchome": 1500
     }
@@ -343,10 +343,10 @@
     "name": "BX-49 ドランストライク4-50FF",
     "category": "bx",
     "retail_price": 2200,
-    "max_price": 2000,
+    "max_price": 1800,
     "prices": {
       "morimori": 1500,
-      "homura": 2000,
+      "homura": 1800,
       "rudeya": 1300,
       "icchome": 1800
     }
