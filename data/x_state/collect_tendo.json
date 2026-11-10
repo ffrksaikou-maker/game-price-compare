@@ -262,10 +262,6 @@
     "OP-14 亜海の七煌": 10000
   },
   "processed_urls": [
-    "https://pbs.twimg.com/media/HUAeSYqa8AAJhzd?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HUuSujdaYAAjK1M?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HVcaOSOasAA1HY6?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HWfwjU6a4AAcOsH?format=jpg&name=large",
     "https://pbs.twimg.com/media/HWp1NuWa0AAJEvQ?format=jpg&name=large",
     "https://pbs.twimg.com/media/HWK7d3AbAAAr8Nh?format=jpg&name=large",
     "https://pbs.twimg.com/media/HUKwvkIacAA_RQo?format=jpg&name=large",
@@ -311,12 +307,16 @@
     "https://pbs.twimg.com/media/HWAr47zbIAA8Fn0?format=jpg&name=large",
     "https://pbs.twimg.com/media/HVxMuqsbcAApGkv?format=jpg&name=large",
     "https://pbs.twimg.com/media/HU4kvxWbkAAqUWh?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HWfxDGYasAAzs5s?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HWfxDGYasAAzs5s?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HV2XxNSb0AAxX_o?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HWQJ9w8aQAAASxE?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HWaegQUbQAAgmEI?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HWGMsvja4AA70H1?format=jpg&name=large"
   ],
   "last_check": 1794305360,
   "ocr_fail_counts": {},
   "pending_images": [],
-  "last_image_check": 1794303744,
+  "last_image_check": 1794318147,
   "seen_at": {
     "OP-14 蒼海の七傑": 1794305360,
     "OP-15 神の島の冒険": 1794305360,
