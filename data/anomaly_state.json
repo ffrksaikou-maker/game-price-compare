@@ -1,4 +1,16 @@
 {
+  "30th CELEBRATION FUTURISTIC BOX|kaitoriexpo": {
+    "price": 470000,
+    "ref": 47500,
+    "ratio": 9.89,
+    "drop": true
+  },
+  "SV 強化拡張パック「ステラミラクル」|kaitoriexpo": {
+    "price": 3600,
+    "ref": 11400,
+    "ratio": 0.32,
+    "drop": false
+  },
   "MANGA BOOSTER 01【SB-01】|morimori": {
     "price": 15000,
     "ref": 84150,
