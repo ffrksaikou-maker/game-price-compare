@@ -261,7 +261,6 @@
     "ストームエメラルダ シュリンクつき(未開封BOX)": 9000
   },
   "processed_urls": [
-    "https://pbs.twimg.com/media/HWK8JaWbAAAjEaF?format=jpg&name=large",
     "https://pbs.twimg.com/media/HWfl5eSagAAC51t?format=jpg&name=large",
     "https://pbs.twimg.com/media/HUKwvkIacAA_RQo?format=jpg&name=large",
     "https://pbs.twimg.com/media/HWbGWVlacAAK1CL?format=jpg&name=large",
@@ -310,12 +309,17 @@
     "https://pbs.twimg.com/media/HWQjEbPaIAACRAU?format=jpg&name=large",
     "https://pbs.twimg.com/media/HV70Dkeb0AAzm88?format=jpg&name=large",
     "https://pbs.twimg.com/media/HU9z2lbbMAA75oz?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HVxNZuubgAAu3wn?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HVxNZuubgAAu3wn?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HWAsXJTbYAAZUG0?format=jpg&name=large"
   ],
   "last_check": 1794279894,
   "ocr_fail_counts": {},
-  "pending_images": [],
-  "last_image_check": 1794274943,
+  "pending_images": [
+    "https://pbs.twimg.com/media/HWvXp_QaIAAfDpQ?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HWu-2mDbkAAo7qO?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HWvABSqaEAAr6qv?format=jpg&name=large"
+  ],
+  "last_image_check": 1794289344,
   "seen_at": {
     "OP-14 蒼海の七傑": 1794129804,
     "OP-15 神の島の冒険": 1794279894,
