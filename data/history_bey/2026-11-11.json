@@ -161,12 +161,12 @@
     "name": "UX-01 ドランバスター1-60A",
     "category": "ux",
     "retail_price": 1980,
-    "max_price": 1600,
+    "max_price": 2000,
     "prices": {
       "morimori": 1550,
       "homura": 1600,
       "rudeya": 1300,
-      "icchome": 1380
+      "icchome": 2000
     }
   },
   {
@@ -452,7 +452,7 @@
     "retail_price": 2620,
     "max_price": 1500,
     "prices": {
-      "morimori": 1400,
+      "morimori": 1500,
       "rudeya": 1400,
       "icchome": 1500
     }
