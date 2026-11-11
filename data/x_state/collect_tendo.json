@@ -263,7 +263,6 @@
     "幻幻の仮面": 12200
   },
   "processed_urls": [
-    "https://pbs.twimg.com/media/HWfwoBOb0AAVC7u?format=jpg&name=large",
     "https://pbs.twimg.com/media/HWGMsvja4AA70H1?format=jpg&name=large",
     "https://pbs.twimg.com/media/HWfw15OasAAB1KB?format=jpg&name=large",
     "https://pbs.twimg.com/media/HUKwvkIacAA_RQo?format=jpg&name=large",
@@ -312,12 +311,16 @@
     "https://pbs.twimg.com/media/HWanLY5aEAAeiJ2?format=jpg&name=large",
     "https://pbs.twimg.com/media/HWAsXJTbYAAZUG0?format=jpg&name=large",
     "https://pbs.twimg.com/media/HWvuliWbgAAZdLx?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HWkt9_9acAA8vUh?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HWkt9_9acAA8vUh?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HU9z2lbbMAA75oz?format=jpg&name=large"
   ],
   "last_check": 1794390064,
   "ocr_fail_counts": {},
-  "pending_images": [],
-  "last_image_check": 1794375747,
+  "pending_images": [
+    "https://pbs.twimg.com/media/HW0_oGdbMAAY13H?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HW0_Gj5a0AAGUI_?format=jpg&name=large"
+  ],
+  "last_image_check": 1794390145,
   "seen_at": {
     "OP-14 蒼海の七傑": 1794305360,
     "OP-15 神の島の冒険": 1794390064,
