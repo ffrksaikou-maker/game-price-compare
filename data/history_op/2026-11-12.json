@@ -1,0 +1,413 @@
+[
+  {
+    "name": "ブースターパック「世界最強の戦士」【OP-17】",
+    "category": "op",
+    "retail_price": 5760,
+    "max_price": 9000,
+    "prices": {
+      "morimori": 8800,
+      "homura": 8800,
+      "rudeya": 8800,
+      "runto": 8500,
+      "icchome": 8500,
+      "oku": 8800,
+      "collect_tendo": 7800,
+      "shinsoku": 8900,
+      "kaitoriexpo": 9000
+    }
+  },
+  {
+    "name": "ブースターパック「決戦の刻」【OP-16】",
+    "category": "op",
+    "retail_price": 5280,
+    "max_price": 8700,
+    "prices": {
+      "morimori": 8500,
+      "homura": 8500,
+      "rudeya": 8000,
+      "runto": 8500,
+      "icchome": 7800,
+      "oku": 8000,
+      "collect_tendo": 8700,
+      "shinsoku": 8000,
+      "kaitoriexpo": 8400
+    }
+  },
+  {
+    "name": "ブースターパック「神の島の冒険」【OP-15】",
+    "category": "op",
+    "retail_price": 5280,
+    "max_price": 8500,
+    "prices": {
+      "morimori": 8000,
+      "homura": 8000,
+      "rudeya": 7900,
+      "runto": 8000,
+      "icchome": 7800,
+      "oku": 8000,
+      "collect_tendo": 8500,
+      "shinsoku": 7800,
+      "kaitoriexpo": 7800
+    }
+  },
+  {
+    "name": "ブースターパック「蒼海の七傑」【OP-14】",
+    "category": "op",
+    "retail_price": 5280,
+    "max_price": 9800,
+    "prices": {
+      "morimori": 9400,
+      "homura": 9400,
+      "rudeya": 9400,
+      "runto": 9000,
+      "icchome": 9500,
+      "oku": 9800,
+      "collect_tendo": 9200,
+      "shinsoku": 8900,
+      "kaitoriexpo": 9500
+    }
+  },
+  {
+    "name": "ブースターパック「受け継がれる意志」【OP-13】",
+    "category": "op",
+    "retail_price": 5280,
+    "max_price": 15300,
+    "prices": {
+      "morimori": 14400,
+      "homura": 14400,
+      "rudeya": 14600,
+      "runto": 15000,
+      "icchome": 14500,
+      "oku": 15100,
+      "collect_tendo": 15300,
+      "shinsoku": 15100,
+      "kaitoriexpo": 15000
+    }
+  },
+  {
+    "name": "ブースターパック「師弟の絆」【OP-12】",
+    "category": "op",
+    "retail_price": 5280,
+    "max_price": 16000,
+    "prices": {
+      "morimori": 15800,
+      "homura": 16000,
+      "rudeya": 14500,
+      "runto": 16000,
+      "icchome": 13000,
+      "oku": 16000,
+      "collect_tendo": 15000,
+      "shinsoku": 14700,
+      "kaitoriexpo": 16000
+    }
+  },
+  {
+    "name": "ブースターパック「神速の拳」【OP-11】",
+    "category": "op",
+    "retail_price": 5280,
+    "max_price": 26000,
+    "prices": {
+      "morimori": 24800,
+      "homura": 24800,
+      "rudeya": 24600,
+      "runto": 25000,
+      "icchome": 24500,
+      "oku": 25000,
+      "collect_tendo": 26000,
+      "shinsoku": 25100,
+      "kaitoriexpo": 20000
+    }
+  },
+  {
+    "name": "ブースターパック「王族の血統」【OP-10】",
+    "category": "op",
+    "retail_price": 5280,
+    "max_price": 10800,
+    "prices": {
+      "morimori": 10000,
+      "homura": 10600,
+      "rudeya": 10000,
+      "runto": 10000,
+      "icchome": 9500,
+      "oku": 10500,
+      "collect_tendo": 10800,
+      "shinsoku": 9900,
+      "kaitoriexpo": 10800
+    }
+  },
+  {
+    "name": "ブースターパック「新たなる皇帝」【OP-09】",
+    "category": "op",
+    "retail_price": 5280,
+    "max_price": 17300,
+    "prices": {
+      "morimori": 16700,
+      "homura": 16700,
+      "rudeya": 15800,
+      "runto": 17000,
+      "icchome": 15000,
+      "oku": 17000,
+      "collect_tendo": 17300,
+      "shinsoku": 16700,
+      "kaitoriexpo": 17000
+    }
+  },
+  {
+    "name": "ブースターパック「二つの伝説」【OP-08】",
+    "category": "op",
+    "retail_price": 5280,
+    "max_price": 11000,
+    "prices": {
+      "morimori": 11000,
+      "homura": 11000,
+      "rudeya": 9900,
+      "runto": 10500,
+      "icchome": 9200,
+      "oku": 10000,
+      "collect_tendo": 11000,
+      "shinsoku": 10200,
+      "kaitoriexpo": 11000
+    }
+  },
+  {
+    "name": "ブースターパック「500年後の未来」【OP-07】",
+    "category": "op",
+    "retail_price": 5280,
+    "max_price": 15200,
+    "prices": {
+      "morimori": 15100,
+      "homura": 15100,
+      "rudeya": 15200,
+      "runto": 15000,
+      "icchome": 15000,
+      "oku": 15000,
+      "shinsoku": 13900,
+      "kaitoriexpo": 14500
+    }
+  },
+  {
+    "name": "ブースターパック「双璧の覇者」【OP-06】",
+    "category": "op",
+    "retail_price": 5280,
+    "max_price": 19100,
+    "prices": {
+      "morimori": 19000,
+      "homura": 19000,
+      "rudeya": 19100,
+      "runto": 18000,
+      "icchome": 17000,
+      "oku": 19000,
+      "shinsoku": 19100
+    }
+  },
+  {
+    "name": "ブースターパック「新時代の主役」【OP-05】",
+    "category": "op",
+    "retail_price": 5280,
+    "max_price": 42500,
+    "prices": {
+      "morimori": 40000,
+      "homura": 40000,
+      "rudeya": 36000,
+      "runto": 40000,
+      "icchome": 40000,
+      "oku": 40000,
+      "collect_tendo": 42500,
+      "shinsoku": 40100,
+      "kaitoriexpo": 40000
+    }
+  },
+  {
+    "name": "ブースターパック「謀略の王国」【OP-04】",
+    "category": "op",
+    "retail_price": 5280,
+    "max_price": 15700,
+    "prices": {
+      "morimori": 15500,
+      "homura": 15500,
+      "rudeya": 15700,
+      "runto": 15000,
+      "icchome": 14000,
+      "oku": 15500,
+      "collect_tendo": 15500,
+      "shinsoku": 13900,
+      "kaitoriexpo": 15500
+    }
+  },
+  {
+    "name": "ブースターパック「強大な敵」【OP-03】",
+    "category": "op",
+    "retail_price": 4752,
+    "max_price": 15200,
+    "prices": {
+      "morimori": 14500,
+      "homura": 14500,
+      "rudeya": 15200,
+      "runto": 12000,
+      "icchome": 15000,
+      "oku": 14500,
+      "collect_tendo": 14500,
+      "shinsoku": 13600,
+      "kaitoriexpo": 14500
+    }
+  },
+  {
+    "name": "ブースターパック「頂上決戦」【OP-02】",
+    "category": "op",
+    "retail_price": 4752,
+    "max_price": 18000,
+    "prices": {
+      "morimori": 17000,
+      "homura": 17000,
+      "rudeya": 17300,
+      "runto": 16500,
+      "icchome": 15000,
+      "oku": 17000,
+      "collect_tendo": 18000,
+      "shinsoku": 17100,
+      "kaitoriexpo": 14800
+    }
+  },
+  {
+    "name": "ブースターパック「ROMANCE DAWN」【OP-01】",
+    "category": "op",
+    "retail_price": 4752,
+    "max_price": 35000,
+    "prices": {
+      "morimori": 32000,
+      "homura": 31000,
+      "rudeya": 31300,
+      "runto": 30000,
+      "icchome": 31000,
+      "oku": 32000,
+      "collect_tendo": 33000,
+      "shinsoku": 29600,
+      "kaitoriexpo": 35000
+    }
+  },
+  {
+    "name": "エクストラブースター「ONE PIECE Heroines Edition vol.2」【EB-05】",
+    "category": "eb",
+    "retail_price": 5760,
+    "max_price": 12300,
+    "prices": {
+      "homura": 12300,
+      "rudeya": 11500,
+      "runto": 12000,
+      "icchome": 11000,
+      "oku": 12100,
+      "collect_tendo": 10000,
+      "shinsoku": 11500,
+      "kaitoriexpo": 11500
+    }
+  },
+  {
+    "name": "エクストラブースター「EGGHEAD CRISIS」【EB-04】",
+    "category": "eb",
+    "retail_price": 5280,
+    "max_price": 13500,
+    "prices": {
+      "morimori": 13000,
+      "homura": 13000,
+      "rudeya": 12100,
+      "runto": 13000,
+      "icchome": 12000,
+      "oku": 13000,
+      "collect_tendo": 13500,
+      "shinsoku": 12300,
+      "kaitoriexpo": 13200
+    }
+  },
+  {
+    "name": "エクストラブースター「ONE PIECE Heroines Edition」【EB-03】",
+    "category": "eb",
+    "retail_price": 5280,
+    "max_price": 12000,
+    "prices": {
+      "morimori": 11200,
+      "homura": 11200,
+      "rudeya": 11000,
+      "runto": 11500,
+      "icchome": 11000,
+      "oku": 11500,
+      "collect_tendo": 12000,
+      "shinsoku": 11400,
+      "kaitoriexpo": 11000
+    }
+  },
+  {
+    "name": "エクストラブースター「Anime 25th collection」【EB-02】",
+    "category": "eb",
+    "retail_price": 5280,
+    "max_price": 28000,
+    "prices": {
+      "morimori": 26300,
+      "homura": 26300,
+      "rudeya": 26100,
+      "runto": 28000,
+      "icchome": 26000,
+      "oku": 27500,
+      "collect_tendo": 27000,
+      "shinsoku": 25900
+    }
+  },
+  {
+    "name": "エクストラブースター「メモリアルコレクション」【EB-01】",
+    "category": "eb",
+    "retail_price": 5280,
+    "max_price": 20000,
+    "prices": {
+      "morimori": 20000,
+      "homura": 20000,
+      "rudeya": 18000,
+      "runto": 15000,
+      "icchome": 15000,
+      "oku": 15000,
+      "collect_tendo": 16500,
+      "shinsoku": 18200,
+      "kaitoriexpo": 19000
+    }
+  },
+  {
+    "name": "プレミアムブースター「ONE PIECE CARD THE BEST vol.2」【PRB-02】",
+    "category": "prb",
+    "retail_price": 5500,
+    "max_price": 10600,
+    "prices": {
+      "morimori": 10200,
+      "homura": 10200,
+      "rudeya": 9500,
+      "runto": 10500,
+      "icchome": 9000,
+      "oku": 10000,
+      "collect_tendo": 10600,
+      "shinsoku": 10100,
+      "kaitoriexpo": 10000
+    }
+  },
+  {
+    "name": "プレミアムブースター「ONE PIECE CARD THE BEST」【PRB-01】",
+    "category": "prb",
+    "retail_price": 5500,
+    "max_price": 20700,
+    "prices": {
+      "morimori": 20700,
+      "homura": 20700,
+      "rudeya": 20200,
+      "runto": 20500,
+      "icchome": 20000,
+      "oku": 20500,
+      "shinsoku": 19700,
+      "kaitoriexpo": 20600
+    }
+  },
+  {
+    "name": "スタートデッキEX ルフィ＆エース【ST-30】",
+    "category": "st",
+    "retail_price": 1980,
+    "max_price": 2000,
+    "prices": {
+      "rudeya": 2000
+    }
+  }
+]
