@@ -203,9 +203,9 @@
     "name": "CX-17 ランダムブースターVol.10",
     "category": "cx",
     "retail_price": 1600,
-    "max_price": 2200,
+    "max_price": 2150,
     "prices": {
-      "morimori": 2200,
+      "morimori": 2000,
       "rudeya": 1000,
       "icchome": 2150
     }
@@ -268,10 +268,10 @@
     "name": "CX-08 ランダムブースターVol.7",
     "category": "cx",
     "retail_price": 1600,
-    "max_price": 1750,
+    "max_price": 2000,
     "prices": {
       "rudeya": 1400,
-      "icchome": 1750
+      "icchome": 2000
     }
   },
   {
@@ -383,6 +383,15 @@
     }
   },
   {
+    "name": "BX-36 ランダムブースター ホエールウェーブセレクト",
+    "category": "bx",
+    "retail_price": 1400,
+    "max_price": 1000,
+    "prices": {
+      "icchome": 1000
+    }
+  },
+  {
     "name": "BX-35 ランダムブースターVol.4",
     "category": "bx",
     "retail_price": 1400,
@@ -413,7 +422,7 @@
       "morimori": 2100,
       "homura": 2200,
       "rudeya": 1500,
-      "icchome": 2100
+      "icchome": 2200
     }
   },
   {
@@ -465,7 +474,7 @@
     "prices": {
       "homura": 9000,
       "rudeya": 7500,
-      "icchome": 8500
+      "icchome": 9000
     }
   },
   {
@@ -522,9 +531,9 @@
     "name": "UX-00 グローリーワルキューレLF メタルコート:ブルー",
     "category": "limited",
     "retail_price": 0,
-    "max_price": 11000,
+    "max_price": 10000,
     "prices": {
-      "icchome": 11000
+      "icchome": 10000
     }
   }
 ]
