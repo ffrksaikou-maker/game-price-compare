@@ -321,6 +321,52 @@ def _cb_title() -> str:
     label = f'{code.group(1)}「{short}」' if code else p.name
     return f'新弾{_esc(label)}が抽選受付中｜Amazon抽選まとめ' 
 
+def _short_label(name: str) -> str:
+    """'ブースターパック「神の支配」【OP-18】' → 'OP-18「神の支配」'。"""
+    code = re.search(r"【([A-Z]+-\d+)】", name)
+    m = re.search(r"「(.+?)」", name)
+    return f'{code.group(1)}「{m.group(1)}」' if code and m else name
+
+
+def _new_release_box() -> str:
+    """トップの「発売前の新弾」欄。発売前でAmazon抽選(AMAZON_INVITE)のある弾だけ出す。
+
+    Amazonの価格は載せない(アソシエイト規約でPA-API以外の価格表示は不可)。
+    前の弾の「定価→いまの最高買取」を添えて、当たった場合の価値を示す。発売日を過ぎれば自動で消える。
+    """
+    from scraper.build_onepiece_articles import _invite_rows, _amazon_dp
+    rows = _invite_rows()
+    up = sorted((r for r in rows if r["unreleased"]), key=lambda r: r["release"])
+    if not up:
+        return ""
+    ref = max((r for r in rows if not r["unreleased"] and r["price"] > r["retail"] > 0),
+              key=lambda r: r["release"], default=None)
+    ref_html = ""
+    if ref:
+        ref_html = (f'<p class="nr-ref">参考：ひとつ前の抽選弾 {_esc(_short_label(ref["name"]))} は定価¥{ref["retail"]:,}に対し、'
+                    f'いまの最高買取は<strong>¥{ref["price"]:,}({ref["price"] / ref["retail"]:.2f}倍)</strong>。'
+                    '発売前の抽選は<strong>定価で買える数少ないチャンス</strong>です。</p>')
+    from scraper.products_onepiece import ONEPIECE_PRODUCTS
+    cards = ""
+    for r in up:
+        p = next((m for m in ONEPIECE_PRODUCTS if m.name == r["name"]), None)
+        mm, dd = (int(x) for x in r["release"].split("-")[1:])
+        retail = f"定価¥{r['retail']:,}" if r["retail"] > 0 else "BOX定価は未発表"
+        label = _short_label(r["name"])
+        cards += (
+            '<div class="nr-card">'
+            f'<div class="nr-head"><span class="nr-tag">新弾</span><b>{_esc(label)}</b>'
+            f'<span class="nr-date">{mm}月{dd}日発売｜{retail}</span></div>'
+            f'<p class="nr-desc">{_esc(p.desc) if p else ""}Amazonで招待リクエスト(抽選)を受付中です。</p>'
+            f'<div class="nr-links"><a class="nr-btn" href="{_amazon_dp(r["asin"])}" '
+            'rel="nofollow sponsored" target="_blank">Amazonで招待をリクエスト &rarr;</a>'
+            '<a class="nr-more" href="onepiece/chusen-matome.html">ほかの抽選も見る</a></div>'
+            '</div>'
+        )
+    return ('<div class="nr-box"><div class="nr-title">発売前の新弾<span class="nr-pr">PR</span></div>'
+            f'{ref_html}{cards}</div>')
+
+
 def generate_onepiece_html(products: list[MasterProduct]) -> str:
     template_path = PROJECT_ROOT / "onepiece-template.html"
     output_path = PROJECT_ROOT / "onepiece.html"
@@ -338,6 +384,7 @@ def generate_onepiece_html(products: list[MasterProduct]) -> str:
     html = html.replace("{{NEW_SUB}}", _new_sub())
     html = html.replace("{{CB_CLASS}}", _cb_class())
     html = html.replace("{{CB_TITLE}}", _cb_title())
+    html = html.replace("<!-- {{NEW_RELEASE_BOX}} -->", _new_release_box())
     html = html.replace("<!-- {{BLOG_LINKS}} -->", _article_links_block())
     html = html.replace("<!-- {{RANKING_SUMMARY}} -->", _weekly_summary_block(products))
 
