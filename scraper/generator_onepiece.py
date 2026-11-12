@@ -265,12 +265,18 @@ def _ai_summary(products: list[MasterProduct]) -> str:
 
 
 
+def _in_invite(p) -> bool:
+    """Amazon抽選(AMAZON_INVITE)に載っている弾か。バナーは抽選のある弾だけを名指しする。"""
+    from scraper.build_onepiece_articles import AMAZON_INVITE
+    return any(key in p.name for _, key in AMAZON_INVITE)
+
+
 def _new_badge() -> str:
     """未発売の弾があればバナーに出すバッジを返す。発売後は自動で消える。"""
     from scraper.products_onepiece import ONEPIECE_PRODUCTS
     today = datetime.now(timezone(timedelta(hours=9))).date().isoformat()
     up = [p for p in ONEPIECE_PRODUCTS
-          if (getattr(p, "release_date", "") or "") > today]
+          if (getattr(p, "release_date", "") or "") > today and _in_invite(p)]
     if not up:
         return ""
     latest = max(up, key=lambda p: p.release_date)
@@ -283,7 +289,7 @@ def _upcoming_product():
     from scraper.products_onepiece import ONEPIECE_PRODUCTS
     today = datetime.now(timezone(timedelta(hours=9))).date().isoformat()
     up = [p for p in ONEPIECE_PRODUCTS
-          if (getattr(p, "release_date", "") or "") > today]
+          if (getattr(p, "release_date", "") or "") > today and _in_invite(p)]
     return max(up, key=lambda p: p.release_date) if up else None
 
 

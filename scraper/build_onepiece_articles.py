@@ -3197,6 +3197,7 @@ def _chusen_table(rows: list) -> str:
 # ASINは商品ページのIDなので、招待受付が終わっても通常販売ページとして生きる(死にリンクにならない)。
 AMAZON_INVITE_CHECKED = "2026年9月12日"
 AMAZON_INVITE = [
+    ("B0HMZ9WLVZ", "EB-06"),
     ("B0HFVPJF4Q", "OP-18"),
     ("B0HB3JQ6P4", "EB-05"),
     ("B0FJ7Z6RML", "EB-03"),
