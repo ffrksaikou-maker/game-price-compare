@@ -267,11 +267,6 @@
     "BASE SHOPリミテッドカードコレクションvol.1": 3000
   },
   "processed_urls": [
-    "https://pbs.twimg.com/media/HVxMuqsbcAApGkv?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HWAsXJTbYAAZUG0?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HW5W-sXbEAAJ1WD?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HUPkbGAacAAvKi-?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HVXQ7L_bAAAMKzX?format=jpg&name=large",
     "https://pbs.twimg.com/media/HVxODBYbUAAR5To?format=jpg&name=large",
     "https://pbs.twimg.com/media/HW0KelBbQAAZeRo?format=jpg&name=large",
     "https://pbs.twimg.com/media/HW-rayfb0AA5S92?format=jpg&name=large",
@@ -316,12 +311,17 @@
     "https://pbs.twimg.com/media/HWkt9_9acAA8vUh?format=jpg&name=large",
     "https://pbs.twimg.com/media/HWaegQUbQAAgmEI?format=jpg&name=large",
     "https://pbs.twimg.com/media/HW5W-soaoAEfgFF?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HW5W-seboAAMJ_h?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HW5W-seboAAMJ_h?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HWQLOyHagAAsO0b?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HVh0lOLaMAAZS7W?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HWfw15OasAAB1KB?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HWkvwuJacAAXIUD?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HW5YrPcaMAAygPP?format=jpg&name=large"
   ],
   "last_check": 1794563728,
   "ocr_fail_counts": {},
   "pending_images": [],
-  "last_image_check": 1794562944,
+  "last_image_check": 1794577346,
   "seen_at": {
     "OP-14 蒼海の七傑": 1794563728,
     "OP-15 神の島の冒険": 1794563728,
