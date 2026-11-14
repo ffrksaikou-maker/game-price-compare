@@ -26,12 +26,12 @@
     "name": "ブースターパック「DUAL EVOLUTION」【FB-09】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 7400,
+    "max_price": 7200,
     "prices": {
       "rudeya": 4500,
       "runto": 7200,
       "shinsoku": 6500,
-      "kaitoriexpo": 7400
+      "kaitoriexpo": 7000
     }
   },
   {
@@ -55,7 +55,7 @@
       "homura": 22500,
       "rudeya": 24000,
       "shinsoku": 33600,
-      "kaitoriexpo": 25100
+      "kaitoriexpo": 25000
     }
   },
   {
@@ -134,13 +134,12 @@
     "name": "MANGA BOOSTER 02【SB-02】",
     "category": "sb",
     "retail_price": 7920,
-    "max_price": 50000,
+    "max_price": 44000,
     "prices": {
-      "morimori": 19800,
-      "homura": 50000,
       "rudeya": 35000,
       "shinsoku": 37000,
-      "kaitoriexpo": 44000
+      "kaitoriexpo": 44000,
+      "morimori": 19800
     }
   },
   {
@@ -182,9 +181,9 @@
     "retail_price": 6600,
     "max_price": 31000,
     "prices": {
-      "morimori": 25000,
       "rudeya": 31000,
-      "kaitoriexpo": 25000
+      "kaitoriexpo": 25000,
+      "morimori": 25000
     }
   }
 ]
