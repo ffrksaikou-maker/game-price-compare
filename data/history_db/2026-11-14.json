@@ -6,7 +6,8 @@
     "max_price": 7000,
     "prices": {
       "rudeya": 4000,
-      "shinsoku": 5400,
+      "runto": 6500,
+      "shinsoku": 5700,
       "kaitoriexpo": 7000
     }
   },
@@ -17,7 +18,7 @@
     "max_price": 6000,
     "prices": {
       "rudeya": 4000,
-      "shinsoku": 5500,
+      "shinsoku": 5300,
       "kaitoriexpo": 6000
     }
   },
@@ -29,7 +30,7 @@
     "prices": {
       "rudeya": 4500,
       "runto": 7200,
-      "shinsoku": 6400,
+      "shinsoku": 6500,
       "kaitoriexpo": 7400
     }
   },
@@ -41,7 +42,7 @@
     "prices": {
       "homura": 11000,
       "rudeya": 8500,
-      "shinsoku": 10400,
+      "shinsoku": 9900,
       "kaitoriexpo": 9000
     }
   },
@@ -138,7 +139,7 @@
       "morimori": 19800,
       "homura": 50000,
       "rudeya": 35000,
-      "shinsoku": 37400,
+      "shinsoku": 37000,
       "kaitoriexpo": 44000
     }
   },
@@ -146,10 +147,10 @@
     "name": "MANGA BOOSTER 01【SB-01】",
     "category": "sb",
     "retail_price": 7920,
-    "max_price": 80800,
+    "max_price": 82400,
     "prices": {
       "rudeya": 80000,
-      "shinsoku": 80800,
+      "shinsoku": 82400,
       "kaitoriexpo": 70000
     }
   },
@@ -162,7 +163,7 @@
       "homura": 8500,
       "rudeya": 6600,
       "runto": 9300,
-      "shinsoku": 7900,
+      "shinsoku": 7800,
       "kaitoriexpo": 9400
     }
   },
