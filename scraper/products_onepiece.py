@@ -71,7 +71,7 @@ ONEPIECE_CONFIG = MatchConfig(
 ONEPIECE_PRODUCTS: list[MasterProduct] = [
     # ---- 通常ブースター OP ----
     MasterProduct("op", 'ブースターパック「応答せよ、世界」【OP-19】', 5760, "2027-02-27",
-                  desc="通常ブースター第19弾。全126+1種。",
+                  desc="通常ブースター第19弾。テーマは「エッグヘッド」。全126+1種。",
                   keywords=["応答せよ、世界", "応答せよ世界", "OP-19", "OP19"]),
     MasterProduct("op", 'ブースターパック「神の支配」【OP-18】', 5760, "2026-11-21",
                   desc="通常ブースター第18弾。ウォーターセブンと神の騎士団がテーマ。シークレットレアに天野喜孝の描き下ろしパラレルが収録される。",
@@ -147,7 +147,7 @@ ONEPIECE_PRODUCTS: list[MasterProduct] = [
 
     # ---- エクストラブースター EB ----
     MasterProduct("eb", 'エクストラブースター「EAST BLUE」【EB-06】', 5760, "2027-01-30",
-                  desc="エクストラブースター第6弾。全67+1種。",
+                  desc="エクストラブースター第6弾。テーマは「東の海(イーストブルー)」で、懐かしのキャラクターが多数登場する。全67+1種。",
                   keywords=["EB-06", "EB06", "EAST BLUE", "イーストブルー"]),
     MasterProduct("eb", 'エクストラブースター「ONE PIECE Heroines Edition vol.2」【EB-05】', 5760, "2026-10-31",
                   desc="エクストラブースター第5弾。女性キャラを集めた Heroines Edition の第2弾。1パック240円×24パックでBOX定価5,760円と、EB-04(220円×24=5,280円)から値上げされた。",

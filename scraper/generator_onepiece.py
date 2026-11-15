@@ -111,6 +111,9 @@ ONEPIECE_ARTICLES.append(
 ONEPIECE_ARTICLES.append(
     ("round1-promo.html", "ラウンドワン プロモ全10種",
      "10/17まで配布中のROUND1プロモ全10種の相場。1位ルフィ約1.1万、7月末比で10種すべてが平均64%下落。"))
+ONEPIECE_ARTICLES.append(
+    ("eb-06-forecast.html", "【予想】EAST BLUE(EB-06) BOX相場3シナリオ",
+     "1/30発売のEB-06を、前作EB-05の初動(発売日1.15万→8日目1.35万→2週間で1.15万)と1月のEBの実績から3シナリオで予想。"))
 
 
 def _article_links_block() -> str:
