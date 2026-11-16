@@ -531,9 +531,9 @@
     "name": "UX-00 グローリーワルキューレLF メタルコート:ブルー",
     "category": "limited",
     "retail_price": 0,
-    "max_price": 10000,
+    "max_price": 9300,
     "prices": {
-      "icchome": 10000
+      "icchome": 9300
     }
   }
 ]
