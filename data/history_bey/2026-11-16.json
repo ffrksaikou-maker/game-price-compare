@@ -15,12 +15,12 @@
     "name": "UX-20 グローリーワルキューレLF",
     "category": "ux",
     "retail_price": 2700,
-    "max_price": 2400,
+    "max_price": 2300,
     "prices": {
       "morimori": 2300,
       "homura": 2300,
       "rudeya": 1600,
-      "icchome": 2400
+      "icchome": 2200
     }
   },
   {
@@ -161,12 +161,12 @@
     "name": "UX-01 ドランバスター1-60A",
     "category": "ux",
     "retail_price": 1980,
-    "max_price": 2000,
+    "max_price": 1800,
     "prices": {
       "morimori": 1550,
       "homura": 1600,
       "rudeya": 1300,
-      "icchome": 2000
+      "icchome": 1800
     }
   },
   {
@@ -225,11 +225,11 @@
     "name": "CX-15 ラグナレイジFE4-55Y",
     "category": "cx",
     "retail_price": 1600,
-    "max_price": 1300,
+    "max_price": 1200,
     "prices": {
       "morimori": 1000,
       "homura": 1000,
-      "icchome": 1300
+      "icchome": 1200
     }
   },
   {
@@ -347,7 +347,7 @@
       "morimori": 1500,
       "homura": 1800,
       "rudeya": 1300,
-      "icchome": 1800
+      "icchome": 1600
     }
   },
   {
@@ -443,7 +443,7 @@
     "prices": {
       "morimori": 2900,
       "homura": 4500,
-      "icchome": 1640
+      "icchome": 1340
     }
   },
   {
@@ -490,10 +490,10 @@
     "name": "CX-00 ペガサスブラストATr メタルコート:レッド",
     "category": "limited",
     "retail_price": 2700,
-    "max_price": 3200,
+    "max_price": 2900,
     "prices": {
       "rudeya": 2800,
-      "icchome": 3200
+      "icchome": 2900
     }
   },
   {

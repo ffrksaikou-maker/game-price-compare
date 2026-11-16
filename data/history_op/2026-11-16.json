@@ -8,6 +8,7 @@
       "morimori": 8500,
       "homura": 9000,
       "rudeya": 8800,
+      "runto": 8800,
       "icchome": 8500,
       "oku": 8300,
       "collect_tendo": 7000,
@@ -71,7 +72,7 @@
     "retail_price": 5280,
     "max_price": 15000,
     "prices": {
-      "morimori": 12200,
+      "morimori": 12500,
       "homura": 12500,
       "rudeya": 14600,
       "runto": 14000,
@@ -291,6 +292,7 @@
     "prices": {
       "homura": 11200,
       "rudeya": 11500,
+      "runto": 11000,
       "icchome": 10500,
       "oku": 11200,
       "collect_tendo": 8000,

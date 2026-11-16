@@ -704,10 +704,10 @@
     "name": "S&S 強化拡張パック「ポケモンGO」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 21500,
+    "max_price": 21000,
     "prices": {
       "homura": 20000,
-      "runto": 21500,
+      "runto": 20500,
       "kaikyo": 12000,
       "collect_tendo": 21000,
       "shinsoku": 19000,
@@ -721,7 +721,7 @@
     "max_price": 21000,
     "prices": {
       "homura": 20000,
-      "runto": 21000,
+      "runto": 20500,
       "collect_tendo": 21000,
       "shinsoku": 20000,
       "kaitoriexpo": 20500
@@ -783,10 +783,10 @@
     "name": "S&S ハイクラスパック「VMAXクライマックス」",
     "category": "ss",
     "retail_price": 5500,
-    "max_price": 29500,
+    "max_price": 29800,
     "prices": {
       "homura": 29500,
-      "runto": 29500,
+      "runto": 29800,
       "collect_tendo": 29500,
       "shinsoku": 29000,
       "kaitoriexpo": 29000
