@@ -355,7 +355,7 @@
     "name": "エクストラブースター「メモリアルコレクション」【EB-01】",
     "category": "eb",
     "retail_price": 5280,
-    "max_price": 20000,
+    "max_price": 20200,
     "prices": {
       "morimori": 20000,
       "homura": 20000,
@@ -363,7 +363,7 @@
       "runto": 15000,
       "icchome": 15000,
       "oku": 15000,
-      "collect_tendo": 16500,
+      "collect_tendo": 20200,
       "shinsoku": 18200,
       "kaitoriexpo": 20000
     }
