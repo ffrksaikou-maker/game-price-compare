@@ -2052,6 +2052,7 @@ def _build_shop_page_html(
 <meta name="twitter:description" content="{desc}">
 <title>{title}</title>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831186943118320" crossorigin="anonymous"></script>
+<script src="/ad-bottom.js" defer></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPTS6CRTCS"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -2496,6 +2497,7 @@ def generate_articles_page(project_root: Path, update_date: str) -> None:
 <meta name="twitter:image" content="https://pokeca-box-hikaku.com/ogp.png">
 <title>記事一覧（全{total}本）｜ポケカ買取チェッカー</title>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831186943118320" crossorigin="anonymous"></script>
+<script src="/ad-bottom.js" defer></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPTS6CRTCS"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -2942,6 +2944,7 @@ new Chart(document.getElementById('{canvas_id}'), {{
 {ranking_jsonld}
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831186943118320" crossorigin="anonymous"></script>
+<script src="/ad-bottom.js" defer></script>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPTS6CRTCS"></script>
 <script>
@@ -3748,6 +3751,7 @@ def _build_category_page_html(
 <meta name="twitter:image" content="https://pokeca-box-hikaku.com/ogp.jpg">
 <title>{config['title']}｜ポケカ買取チェッカー</title>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831186943118320" crossorigin="anonymous"></script>
+<script src="/ad-bottom.js" defer></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPTS6CRTCS"></script>
 <script>
 window.dataLayer = window.dataLayer || [];

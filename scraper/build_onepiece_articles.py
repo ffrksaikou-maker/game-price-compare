@@ -3795,6 +3795,7 @@ def _render(a: dict, articles: list, box: dict) -> str:
 <meta name="twitter:image" content="{BASE}/ogp.jpg">
 <title>{_esc(a['title'])}｜ワンピ買取チェッカー</title>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831186943118320" crossorigin="anonymous"></script>
+<script src="/ad-bottom.js" defer></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPTS6CRTCS"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -3945,6 +3946,7 @@ def _render_howto(h: dict, atari_articles: list, box: dict | None = None) -> str
 <meta name="twitter:image" content="{BASE}/ogp.jpg">
 <title>{_esc(h['title'])}｜ワンピ買取チェッカー</title>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831186943118320" crossorigin="anonymous"></script>
+<script src="/ad-bottom.js" defer></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPTS6CRTCS"></script>
 <script>
 window.dataLayer = window.dataLayer || [];

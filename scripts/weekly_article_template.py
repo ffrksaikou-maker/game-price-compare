@@ -419,6 +419,7 @@ new Chart(document.getElementById('{canvas_id}').getContext('2d'), {{
 <title>{article_headline}｜ポケカ買取チェッカー</title>
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831186943118320" crossorigin="anonymous"></script>
+<script src="/ad-bottom.js" defer></script>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPTS6CRTCS"></script>
 <script>
@@ -650,6 +651,7 @@ def build_weekly_index_html(week_entries: list[dict]) -> str:
 <meta property="og:site_name" content="ポケカ買取チェッカー">
 <title>週間値動き記事アーカイブ｜ポケカ買取チェッカー</title>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831186943118320" crossorigin="anonymous"></script>
+<script src="/ad-bottom.js" defer></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPTS6CRTCS"></script>
 <script>
 window.dataLayer = window.dataLayer || [];

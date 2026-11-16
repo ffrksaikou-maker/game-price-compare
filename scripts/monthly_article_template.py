@@ -292,6 +292,7 @@ def build_monthly_html(
 <meta name="twitter:image" content="https://pokeca-box-hikaku.com/ogp.jpg">
 <title>{title}｜ポケカ買取チェッカー</title>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831186943118320" crossorigin="anonymous"></script>
+<script src="/ad-bottom.js" defer></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPTS6CRTCS"></script>
 <script>
 window.dataLayer = window.dataLayer || [];

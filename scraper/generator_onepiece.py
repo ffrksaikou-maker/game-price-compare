@@ -887,6 +887,7 @@ def generate_onepiece_weekly(products: list[MasterProduct], update_date: str) ->
 <meta name="twitter:image" content="https://pokeca-box-hikaku.com/ogp.jpg">
 <title>ワンピBOX 週間値動きランキング｜ワンピ買取チェッカー</title>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831186943118320" crossorigin="anonymous"></script>
+<script src="/ad-bottom.js" defer></script>
 <style>
 body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans","Yu Gothic",sans-serif;background:#f6f7fb;color:#111827;line-height:1.7;margin:0}}
 .gswitch{{display:flex;align-items:center;justify-content:center;gap:8px;padding:11px 16px;font-size:14px;font-weight:800;text-decoration:none;color:#fff;background:linear-gradient(135deg,#4aa3ff,#1e88e5)}}
@@ -1019,6 +1020,7 @@ def generate_onepiece_weekly_articles(products: list[MasterProduct]) -> None:
 <meta name="twitter:card" content="summary_large_image">
 <title>ワンピBOX 週間値動きランキング【{iso[0]}年 第{iso[1]}週】｜ワンピ買取チェッカー</title>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831186943118320" crossorigin="anonymous"></script>
+<script src="/ad-bottom.js" defer></script>
 <script type="application/ld+json">{blog_ld}</script>
 <style>{_WK_STYLE}</style></head><body>
 <a class="gswitch" href="/">◀ ポケモンカードの買取比較はこちら</a>
@@ -1065,6 +1067,7 @@ def _write_onepiece_weekly_index(wk_dir: Path, current_week: str | None) -> None
 <link rel="canonical" href="https://pokeca-box-hikaku.com/onepiece/weekly/index.html">
 <title>ワンピBOX 週間値動きランキング 記事アーカイブ｜ワンピ買取チェッカー</title>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831186943118320" crossorigin="anonymous"></script>
+<script src="/ad-bottom.js" defer></script>
 <style>{_WK_STYLE}</style></head><body>
 <a class="gswitch" href="/">◀ ポケモンカードの買取比較はこちら</a>
 <div class="header"><a href="/onepiece"><span class="site-title">ワンピ買取チェッカー</span></a></div>
