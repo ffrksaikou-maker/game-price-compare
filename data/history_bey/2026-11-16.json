@@ -17,7 +17,7 @@
     "retail_price": 2700,
     "max_price": 2300,
     "prices": {
-      "morimori": 2300,
+      "morimori": 2200,
       "homura": 2300,
       "rudeya": 1600,
       "icchome": 2200
@@ -344,7 +344,7 @@
     "retail_price": 2200,
     "max_price": 1800,
     "prices": {
-      "morimori": 1500,
+      "morimori": 1300,
       "homura": 1800,
       "rudeya": 1300,
       "icchome": 1600
@@ -450,9 +450,9 @@
     "name": "CX-00 エヴァンゲリオンデッキセット",
     "category": "limited",
     "retail_price": 7500,
-    "max_price": 9200,
+    "max_price": 9400,
     "prices": {
-      "icchome": 9200
+      "icchome": 9400
     }
   },
   {
@@ -461,7 +461,7 @@
     "retail_price": 2620,
     "max_price": 1500,
     "prices": {
-      "morimori": 1500,
+      "morimori": 1400,
       "rudeya": 1400,
       "icchome": 1500
     }
@@ -531,9 +531,9 @@
     "name": "UX-00 グローリーワルキューレLF メタルコート:ブルー",
     "category": "limited",
     "retail_price": 0,
-    "max_price": 9300,
+    "max_price": 8300,
     "prices": {
-      "icchome": 9300
+      "icchome": 8300
     }
   }
 ]

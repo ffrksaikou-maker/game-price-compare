@@ -8,10 +8,10 @@
       "homura": 14000,
       "rudeya": 10800,
       "runto": 13000,
-      "icchome": 12800,
+      "icchome": 12500,
       "kaikyo": 14000,
       "collect_tendo": 15000,
-      "shinsoku": 15000,
+      "shinsoku": 13000,
       "kaitoriexpo": 13500
     }
   },
@@ -23,7 +23,7 @@
     "prices": {
       "morimori": 31000,
       "homura": 44000,
-      "rudeya": 42000,
+      "rudeya": 40000,
       "runto": 45000,
       "icchome": 44000,
       "oku": 42000,
@@ -40,7 +40,7 @@
     "prices": {
       "morimori": 10500,
       "homura": 13000,
-      "rudeya": 10000,
+      "rudeya": 8000,
       "runto": 13000,
       "icchome": 11500,
       "oku": 11000,
@@ -57,7 +57,7 @@
     "prices": {
       "morimori": 17000,
       "homura": 17000,
-      "rudeya": 17000,
+      "rudeya": 14000,
       "runto": 17000,
       "icchome": 17000,
       "oku": 17000,
@@ -148,7 +148,7 @@
       "morimori": 10500,
       "homura": 10500,
       "rudeya": 10000,
-      "runto": 11000,
+      "runto": 10500,
       "icchome": 10500,
       "oku": 10000,
       "kaikyo": 10000,
@@ -166,7 +166,7 @@
       "morimori": 16000,
       "homura": 16000,
       "rudeya": 14000,
-      "runto": 16400,
+      "runto": 16500,
       "icchome": 15800,
       "oku": 16500,
       "kaikyo": 16300,
@@ -647,12 +647,12 @@
     "name": "S&S ハイクラスパック「VSTARユニバース」",
     "category": "ss",
     "retail_price": 5500,
-    "max_price": 27500,
+    "max_price": 27000,
     "prices": {
       "morimori": 26000,
       "homura": 26000,
       "rudeya": 21000,
-      "runto": 27500,
+      "runto": 27000,
       "icchome": 25500,
       "collect_tendo": 26500,
       "shinsoku": 26000,
@@ -1020,21 +1020,21 @@
       "runto": 9000,
       "kaikyo": 9500,
       "collect_tendo": 10000,
-      "shinsoku": 9100
+      "shinsoku": 8800
     }
   },
   {
     "name": "スペシャルBOX ヒロシマ",
     "category": "special",
     "retail_price": 2090,
-    "max_price": 11100,
+    "max_price": 11000,
     "prices": {
       "homura": 10800,
       "rudeya": 10000,
       "runto": 10500,
       "kaikyo": 10000,
       "collect_tendo": 11000,
-      "shinsoku": 11100
+      "shinsoku": 11000
     }
   },
   {
@@ -1048,7 +1048,7 @@
       "runto": 9000,
       "kaikyo": 9800,
       "collect_tendo": 10500,
-      "shinsoku": 9200
+      "shinsoku": 9100
     }
   }
 ]
