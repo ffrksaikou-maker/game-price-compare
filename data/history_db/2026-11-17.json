@@ -7,7 +7,7 @@
     "prices": {
       "rudeya": 4000,
       "runto": 6500,
-      "shinsoku": 5900,
+      "shinsoku": 5800,
       "kaitoriexpo": 7000
     }
   },
@@ -18,7 +18,7 @@
     "max_price": 6000,
     "prices": {
       "rudeya": 4000,
-      "shinsoku": 5500,
+      "shinsoku": 5600,
       "kaitoriexpo": 6000
     }
   },
@@ -90,7 +90,7 @@
     "prices": {
       "homura": 7000,
       "rudeya": 4000,
-      "shinsoku": 6300,
+      "shinsoku": 6700,
       "kaitoriexpo": 7400
     }
   },
