@@ -17,6 +17,7 @@
     "retail_price": 5280,
     "max_price": 6000,
     "prices": {
+      "morimori": 4000,
       "rudeya": 4000,
       "shinsoku": 5600,
       "kaitoriexpo": 6000
@@ -28,6 +29,7 @@
     "retail_price": 5280,
     "max_price": 7200,
     "prices": {
+      "morimori": 4550,
       "rudeya": 4500,
       "runto": 7200,
       "shinsoku": 6600,
@@ -146,10 +148,10 @@
     "name": "MANGA BOOSTER 01【SB-01】",
     "category": "sb",
     "retail_price": 7920,
-    "max_price": 82300,
+    "max_price": 82200,
     "prices": {
       "rudeya": 80000,
-      "shinsoku": 82300,
+      "shinsoku": 82200,
       "kaitoriexpo": 70000
     }
   },
@@ -159,6 +161,7 @@
     "retail_price": 6600,
     "max_price": 9500,
     "prices": {
+      "morimori": 6050,
       "homura": 8800,
       "rudeya": 6600,
       "runto": 9500,
