@@ -405,10 +405,10 @@
     "name": "BX-34 コバルトドラグーン2-60C",
     "category": "bx",
     "retail_price": 2321,
-    "max_price": 2200,
+    "max_price": 2000,
     "prices": {
       "morimori": 1500,
-      "homura": 2200,
+      "homura": 2000,
       "rudeya": 1000,
       "icchome": 1900
     }
@@ -439,10 +439,9 @@
     "name": "BX-09 ベイバトルパス",
     "category": "bx",
     "retail_price": 3300,
-    "max_price": 4500,
+    "max_price": 2900,
     "prices": {
       "morimori": 2900,
-      "homura": 4500,
       "icchome": 1340
     }
   },
