@@ -273,12 +273,6 @@
     "ポケモンセンター フクオカ": 10700
   },
   "processed_urls": [
-    "https://pbs.twimg.com/media/HWQj2oNbEAAUQlc?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HWu-2mDbkAAo7qO?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HXYnl6tbAAANMjO?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HXYfHPVaEAASuCn?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HWfu_VwbUAABcCR?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HXDqpGKbcAATkoD?format=jpg&name=large",
     "https://pbs.twimg.com/media/HWp1NuWa0AAJEvQ?format=jpg&name=large",
     "https://pbs.twimg.com/media/HWvXp_QaIAAfDpQ?format=jpg&name=large",
     "https://pbs.twimg.com/media/HVXREvxagAASQuE?format=jpg&name=large",
@@ -322,12 +316,23 @@
     "https://pbs.twimg.com/media/HW5YrPcaMAAygPP?format=jpg&name=large",
     "https://pbs.twimg.com/media/HXYfYtGakAACodc?format=jpg&name=large",
     "https://pbs.twimg.com/media/HWkvwuJacAAXIUD?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HTIWFtTaYAAnceY?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HTIWFtTaYAAnceY?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HW-raymagAAXHvO?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HWVOHWobMAAZc0p?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HXDqpGQaUAA8s4U?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HWkt9_9acAA8vUh?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HWaegQUbQAAgmEI?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HW-rayfb0AA5S92?format=jpg&name=large"
   ],
   "last_check": 1794997616,
   "ocr_fail_counts": {},
-  "pending_images": [],
-  "last_image_check": 1794994942,
+  "pending_images": [
+    "https://pbs.twimg.com/media/HXYnzdvbQAE1GXv?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HXYnl6tbAAANMjO?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HXYfHPVaEAASuCn?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HXYTpglbsAANQlu?format=jpg&name=large"
+  ],
+  "last_image_check": 1795009342,
   "seen_at": {
     "OP-14 蒼海の七傑": 1794997616,
     "OP-15 神の島の冒険": 1794997616,
