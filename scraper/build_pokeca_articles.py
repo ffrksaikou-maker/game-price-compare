@@ -55,6 +55,7 @@ article li::before{content:"";position:absolute;left:4px;top:11px;width:7px;heig
 td.gain{color:#047857;font-weight:800}
 td.loss{color:#b91c1c;font-weight:700}
 td.pre{color:#9ca3af}
+.data-table.gr td.num{white-space:nowrap}
 .data-table tr.up td{background:#f0fdf4}
 .data-table tr.up:hover td{background:#dcfce7}
 .callout{border-left:4px solid #3b82f6}
@@ -494,10 +495,257 @@ def _invite_table() -> str:
             '<th class="num">現在の最高買取</th><th class="num">差額</th>'
             '<th>Amazon</th></tr></thead>'
             f'<tbody>{body}</tbody></table>')
+# ---------------------------------------------------------------- 相場下落ランキング
+
+GR_WINDOW_DAYS = 30
+
+
+def _gr_rows(directory: Path, link_fn) -> list:
+    """商品ごとの 最新買取 / 30日前比 / 記録上の最高値からの下落率 / 定価比 を返す。
+
+    最高値は3日連続で付いた水準(3日移動最小の最大)を採る。1日だけの取得異常で
+    架空の天井ができ、下落率が誇張されるのを防ぐため。
+    """
+    files = sorted(directory.glob("*.json"))
+    if len(files) < 2:
+        return []
+    series = []
+    for f in files:
+        try:
+            d = date.fromisoformat(f.stem)
+        except ValueError:
+            continue
+        data = json.loads(f.read_text(encoding="utf-8"))
+        series.append((d, {r["name"]: r for r in data}))
+    latest_d, latest = series[-1]
+    target = latest_d - timedelta(days=GR_WINDOW_DAYS)
+    old_d, old = series[0]
+    for d, m in series:
+        if d <= target:
+            old_d, old = d, m
+    rows = []
+    for name, r in latest.items():
+        now = r.get("max_price", 0)
+        if now <= 0 or "スタートデッキ" in name:
+            continue
+        vals = [(d, m.get(name, {}).get("max_price", 0)) for d, m in series]
+        peak, peak_d = 0, None
+        for i in range(1, len(vals) - 1):
+            trio = [vals[i - 1][1], vals[i][1], vals[i + 1][1]]
+            if min(trio) <= 0:
+                continue
+            lv = min(trio)
+            if lv > peak:
+                peak, peak_d = lv, vals[i][0]
+        if peak < now:
+            peak, peak_d = now, latest_d
+        o = old.get(name, {}).get("max_price", 0)
+        retail = r.get("retail_price", 0) or 0
+        rows.append({
+            "name": name, "now": now, "old": o,
+            "pct": (now - o) / o * 100 if o > 0 else None,
+            "peak": peak, "peak_d": peak_d,
+            "from_peak": (now - peak) / peak * 100 if peak else 0,
+            "retail": retail, "mult": now / retail if retail else 0,
+            "link": link_fn(name),
+        })
+    return rows
+
+
+def _gr_link_pk(name: str) -> str:
+    from scraper.generator import _generate_slug
+    s = _generate_slug(name)
+    return f"box/{s}.html" if (ROOT / "box" / f"{s}.html").exists() else ""
+
+
+def _gr_link_op(name: str) -> str:
+    from scraper.generator_onepiece import _slug
+    s = _slug(name)
+    return (f"onepiece/box/{s}.html"
+            if (ROOT / "onepiece" / "box" / f"{s}.html").exists() else "")
+
+
+def _gr_name(r: dict) -> str:
+    if r["link"]:
+        return f'<a href="{r["link"]}" style="color:var(--accent)">{_esc(r["name"])}</a>'
+    return _esc(r["name"])
+
+
+def _gr_pct_cell(p) -> str:
+    if p is None:
+        return '<td class="num pre">—</td>'
+    cls = " gain" if p > 1 else (" loss" if p < -1 else "")
+    return f'<td class="num{cls}">{p:+.1f}%</td>'
+
+
+GR_SHOW = 10  # 最初に見せる行数。残りは折りたたむ(スマホで表が長くなりすぎるため)
+
+
+def _gr_table(rows: list, mode: str) -> str:
+    """mode: 'm30'=30日前比が主 / 'peak'=最高値からの下落が主 / 'mult'=定価比が主
+
+    主役の数値を商品名のすぐ右に置く。スマホでは表が横スクロールになり、
+    右端の列は見落とされやすいため。
+    """
+    sub = 'style="font-size:10.5px;color:#6b7280"'
+
+    def _row(i: int, r: dict) -> str:
+        mult = f'{r["mult"]:.2f}倍' if r["mult"] else "—"
+        if mode == "m30":
+            cols = (_gr_pct_cell(r["pct"])
+                    + f'<td class="num">¥{r["old"]:,}<br><span {sub}>→</span> ¥{r["now"]:,}</td>'
+                    + f'<td class="num">{mult}</td>')
+        elif mode == "peak":
+            cols = (_gr_pct_cell(r["from_peak"])
+                    + f'<td class="num">¥{r["peak"]:,}<span {sub}>({r["peak_d"].month}/{r["peak_d"].day})</span>'
+                    f'<br><span {sub}>→</span> ¥{r["now"]:,}</td>'
+                    + f'<td class="num">{mult}</td>')
+        else:
+            retail = f'¥{r["retail"]:,}' if r["retail"] else "—"
+            cols = (f'<td class="num"><strong>{mult}</strong></td>'
+                    + f'<td class="num">{retail}<br><span {sub}>→</span> ¥{r["now"]:,}</td>'
+                    + _gr_pct_cell(r["from_peak"]))
+        return (f'<tr><td>{i}</td><td style="min-width:9.5em">{_gr_name(r)}</td>'
+                f'{cols}</tr>')
+
+    head = {
+        "m30": '<th class="num">変化率</th><th class="num">30日前→最新</th><th class="num">定価比</th>',
+        "peak": '<th class="num">最高値比</th><th class="num">最高値(日付)→最新</th><th class="num">定価比</th>',
+        "mult": '<th class="num">定価比</th><th class="num">定価 / 最新買取</th><th class="num">最高値比</th>',
+    }[mode]
+
+    def _tbl(part: list, start: int) -> str:
+        body = "".join(_row(start + k, r) for k, r in enumerate(part))
+        return ('<div style="overflow-x:auto;-webkit-overflow-scrolling:touch">'
+                '<table class="data-table gr" style="min-width:440px"><thead><tr>'
+                f'<th>#</th><th>BOX</th>{head}</tr></thead><tbody>{body}</tbody></table></div>')
+
+    html = _tbl(rows[:GR_SHOW], 1)
+    if len(rows) > GR_SHOW:
+        html += ('<details style="margin:8px 0 16px"><summary style="cursor:pointer;'
+                 'font-size:13px;color:var(--accent);font-weight:700">'
+                 f'{GR_SHOW + 1}位以降({len(rows) - GR_SHOW}件)を見る</summary>'
+                 + _tbl(rows[GR_SHOW:], GR_SHOW + 1) + '</details>')
+    return html
+
+
+def _gr_fill(text: str, key: str, rows: list, limit: int) -> str:
+    """{{GR_<key>_*}} を埋める。key は PK / OP。"""
+    if not rows:
+        return text
+    m30 = [r for r in rows if r["pct"] is not None]
+    down = sorted([r for r in m30 if r["pct"] < -1], key=lambda r: r["pct"])
+    up = sorted([r for r in m30 if r["pct"] > 1], key=lambda r: -r["pct"])
+    avg = sum(r["pct"] for r in m30) / len(m30) if m30 else 0
+    by_peak = sorted(rows, key=lambda r: r["from_peak"])
+    by_mult = sorted([r for r in rows if r["mult"]], key=lambda r: r["mult"])
+    n_down, n_up = len(down), len(up)
+    if n_down >= n_up * 2:
+        trend = "値下がりした商品が値上がりの2倍以上あり、全体として下げが優勢です"
+    elif n_up >= n_down * 2:
+        trend = "値上がりした商品が値下がりの2倍以上あり、全体として上げが優勢です"
+    elif n_down > n_up and avg <= -1:
+        trend = "値下がりした商品が値上がりを上回り、平均でもマイナスで、全体として下げ寄りです"
+    elif n_up > n_down and avg >= 1:
+        trend = "値上がりした商品が値下がりを上回り、平均でもプラスで、全体として上げ寄りです"
+    else:
+        trend = "値上がりと値下がりが拮抗しており、方向感ははっきりしていません"
+    months = {}
+    for r in rows:
+        if r["from_peak"] < -1:
+            k = (r["peak_d"].year, r["peak_d"].month)
+            months[k] = months.get(k, 0) + 1
+    if months:
+        (py, pm), pn = max(months.items(), key=lambda kv: kv[1])
+    else:
+        py, pm, pn = 0, 0, 0
+    deep = [r for r in rows if r["from_peak"] <= -20]
+    rep = {
+        "N": str(len(m30)), "DOWN": str(n_down), "UP": str(n_up),
+        "FLAT": str(len(m30) - n_down - n_up),
+        "AVG": f"{avg:+.1f}%", "TREND": trend,
+        "DEEP_N": str(len(deep)), "ALL_N": str(len(rows)),
+        "PEAK_MONTH": f"{py}年{pm}月" if pm else "—", "PEAK_MONTH_N": str(pn),
+        "TABLE_DOWN": _gr_table(down[:limit], "m30") if down else "<p>直近30日で1%以上値下がりした商品はありません。</p>",
+        "TABLE_UP": _gr_table(up[:5], "m30") if up else "<p>直近30日で1%以上値上がりした商品はありません。</p>",
+        "TABLE_PEAK": _gr_table(by_peak[:limit], "peak"),
+        "TABLE_MULT": _gr_table(by_mult[:limit], "mult"),
+        "MULT_UNDER15_N": str(sum(1 for r in by_mult if r["mult"] < 1.5)),
+        "MULT_UNDER1_N": str(sum(1 for r in by_mult if r["mult"] < 1)),
+    }
+    if down:
+        rep["TOP_NAME"] = down[0]["name"]
+        rep["TOP_PCT"] = f'{down[0]["pct"]:+.1f}%'
+        rep["TOP_NOW"] = f'¥{down[0]["now"]:,}'
+        rep["TOP_OLD"] = f'¥{down[0]["old"]:,}'
+    else:
+        rep.update(TOP_NAME="該当なし", TOP_PCT="—", TOP_NOW="—", TOP_OLD="—")
+    if up:
+        rep["UP1_NAME"] = up[0]["name"]
+        rep["UP1_PCT"] = f'{up[0]["pct"]:+.1f}%'
+    else:
+        rep.update(UP1_NAME="該当なし", UP1_PCT="—")
+    p0 = by_peak[0]
+    rep["PEAK1_NAME"] = p0["name"]
+    rep["PEAK1_PCT"] = f'{p0["from_peak"]:+.1f}%'
+    rep["PEAK1_PEAK"] = f'¥{p0["peak"]:,}'
+    rep["PEAK1_NOW"] = f'¥{p0["now"]:,}'
+    for k, v in rep.items():
+        text = text.replace("{{GR_%s_%s}}" % (key, k), v)
+    return text
+
+
+def _gr_mult_sentence(pk: list, op: list) -> str:
+    def cnt(rows, th):
+        return sum(1 for r in rows if r["mult"] and r["mult"] < th)
+    u15 = (cnt(pk, 1.5), cnt(op, 1.5))
+    u1 = (cnt(pk, 1.0), cnt(op, 1.0))
+
+    def pair(c):
+        parts = [f"{lab}{n}商品" for lab, n in (("ポケカ", c[0]), ("ワンピ", c[1])) if n]
+        return "・".join(parts)
+    if any(u15):
+        s1 = f"現在、定価比1.5倍未満まで下がっているのは{pair(u15)}です。"
+    else:
+        s1 = "現在、定価比1.5倍未満まで下がっている商品はありません。"
+    if any(u1):
+        s2 = f"定価を下回っている(定価割れ)商品は{pair(u1)}です。"
+    else:
+        s2 = "定価を下回っている(定価割れ)商品はまだありません。"
+    return s1 + s2
+
+
+def _gr_placeholders(text: str) -> str:
+    pk = _gr_rows(HISTORY_DIR, _gr_link_pk)
+    op = _gr_rows(HISTORY_OP_DIR, _gr_link_op)
+    text = text.replace("{{GR_MULT_SENTENCE}}", _gr_mult_sentence(pk, op))
+    text = _gr_fill(text, "PK", pk, 15)
+    text = _gr_fill(text, "OP", op, 10)
+    files = sorted(HISTORY_DIR.glob("*.json"))
+    if files:
+        d1 = date.fromisoformat(files[-1].stem)
+        d0 = d1 - timedelta(days=GR_WINDOW_DAYS)
+        text = text.replace("{{GR_DATE}}", f"{d1.year}年{d1.month}月{d1.day}日")
+        text = text.replace("{{GR_PERIOD}}",
+                            f"{d0.month}月{d0.day}日→{d1.month}月{d1.day}日")
+    first = sorted(HISTORY_DIR.glob("*.json"))
+    first_op = sorted(HISTORY_OP_DIR.glob("*.json"))
+    if first:
+        d = date.fromisoformat(first[0].stem)
+        text = text.replace("{{GR_PK_SINCE}}", f"{d.year}年{d.month}月")
+    if first_op:
+        d = date.fromisoformat(first_op[0].stem)
+        text = text.replace("{{GR_OP_SINCE}}", f"{d.year}年{d.month}月")
+    return text
+
+
 def _placeholders(text: str) -> str:
     """記事テキストの {{...}} を実データで置換する。"""
     if "{{" not in text:
         return text
+
+    if "{{GR_" in text:
+        text = _gr_placeholders(text)
 
     text = AZ_RE.sub(lambda m: _amazon_dp(m.group(1)), text)
 
@@ -868,6 +1116,7 @@ POKECA_ARTICLES: list[dict] = [
      'disclaimer': '本記事の買取価格は、当サイトが最大10店舗から自動取得した実データです。表示は取得時点のスナップショットで、相場は需給・再販・各店の在庫状況により日々変動します。金額は目安であり、特定の買取価格を保証するものではありません。定価はメーカー希望小売価格(税込)で、実売価格とは異なります。掲載店舗数は当サイトが価格を取得できた店舗の数で、その商品を扱う店の総数ではありません。売買の判断はご自身の責任で行ってください。',
      'related': '<li><a href="index.html">ポケカBOX買取価格比較トップ</a> — 全商品の店舗別価格を毎日更新</li>\n'
                 '<li><a href="ranking.html">週間価格変化ランキング</a> — 直近で値上がり・値下がりしたBOX</li>\n'
+                '<li><a href="souba-geraku.html">BOX相場 下落ランキング</a> — 直近30日・最高値からの下落率を毎日更新</li>\n'
                 '<li><a href="box-age-multiple.html">発売から何年で何倍になるか</a> — 経過月数と定価比の関係</li>\n'
                 '<li><a href="shop-price-gap.html">同じBOXでも店で買取価格はどれだけ違うか</a> — 店舗差の実測</li>\n'
                 '<li><a href="ss-box-list.html">S&amp;S全BOX一覧</a> — 上位を独占する絶版世代の一覧</li>',
@@ -923,6 +1172,7 @@ POKECA_ARTICLES: list[dict] = [
         "disclaimer": "本記事のBOX買取価格は、当サイトが最大10店舗から自動取得した実データです。各商品の「最高買取価格」(掲載店舗のうち最も高い店の価格)を用いており、店舗ごとの価格差や掲載店舗の増減による変動を含みます。集計対象は<strong>起点の日に価格が存在した商品</strong>に固定しています(期間ごとに対象商品が変わると上昇・下落の比較が成立しないため)。値動きの<strong>理由</strong>については、再販の実施状況などを網羅的に確認できないため断定していません。相場は今後も変動し、本記事の傾向が継続することを保証するものではありません。売買の判断はご自身の責任で行ってください。",
         "related": '<li><a href="index.html">ポケカBOX買取価格比較トップ</a> — 全BOXの買取価格を最大10店舗で横断比較(毎日更新)</li>\n'
                    '<li><a href="ranking.html">週間価格変化ランキング</a> — 直近の値上がり・値下がりを毎日自動更新</li>\n'
+                   '<li><a href="souba-geraku.html">BOX相場 下落ランキング</a> — 直近30日・最高値からの下落率を毎日更新</li>\n'
                    '<li><a href="price-pattern-guide.html">BOX買取価格の5段階パターン</a> — 発売から絶版までの相場推移フェーズ解説</li>\n'
                    '<li><a href="sv-box-list.html">SV全BOX一覧</a> / <a href="mega-box-list.html">MEGA全BOX一覧</a> — シリーズ別の買取価格一覧</li>\n'
                    '<li><a href="/onepiece/box-price-pattern.html">ワンピBOX相場の値動きパターン</a> — 同じ手法でワンピースカードを分析した記事</li>\n'
@@ -1039,7 +1289,8 @@ POKECA_ARTICLES: list[dict] = [
                    '<li><a href="price-pattern-guide.html">BOX買取価格の5段階パターン</a> — 発売から絶版までの相場推移フェーズ解説</li>\n'
                    '<li><a href="sv-box-list.html">SV全BOX一覧</a> / <a href="ss-box-list.html">S&amp;S全BOX一覧</a> — シリーズ別の買取価格一覧</li>\n'
                    '<li><a href="kaitori-tips.html">BOX買取のコツ</a> — 高く売るための実践ポイント</li>\n'
-                   '<li><a href="ranking.html">週間価格変化ランキング</a> — 直近の値上がり・値下がりを毎日自動更新</li>',
+                   '<li><a href="ranking.html">週間価格変化ランキング</a> — 直近の値上がり・値下がりを毎日自動更新</li>\n'
+                   '<li><a href="souba-geraku.html">BOX相場 下落ランキング</a> — 直近30日・最高値からの下落率を毎日更新</li>',
         "body": """<p>「ポケカのBOXは寝かせておけば上がる」とよく言われますが、<strong>実際にはどのくらいの期間で、どのくらい上がるのか</strong>。当サイトが最大10店舗から毎日自動取得しているBOX買取の実データで検証しました。</p>
 
 <p>指標は<strong>定価比(現在の最高買取価格 ÷ 定価)</strong>です。発売からの経過月数ごとに{{PK_AGE_N}}商品を集計すると、単純な右肩上がりではない推移が見えてきます。</p>
@@ -1130,6 +1381,7 @@ POKECA_ARTICLES: list[dict] = [
                    '<li><a href="kaitori-tips.html">BOX買取のコツ</a> — 高く売るための実践ポイント</li>\n'
                    '<li><a href="box-price-trend.html">BOX相場の値動きレポート</a> — いつ売るかの判断材料</li>\n'
                    '<li><a href="ranking.html">週間価格変化ランキング</a> — 直近の値上がり・値下がりを毎日自動更新</li>\n'
+                   '<li><a href="souba-geraku.html">BOX相場 下落ランキング</a> — 直近30日・最高値からの下落率を毎日更新</li>\n'
                    '<li><a href="mercari-hikaku.html">メルカリ・スニダン比較</a> — 買取店以外の売却先との比較</li>',
         "body": """<p>「BOXを売るなら、どこの店でも大して変わらないだろう」——そう思って1店だけで決めていませんか。</p>
 
@@ -1208,6 +1460,88 @@ POKECA_ARTICLES: list[dict] = [
              "a": "差額が中央値の{{PK_GAP_MED_YEN}}程度だと送料や手数料で相殺される可能性もあります。一方、本記事の集計では万円単位の差がある商品も複数あり、そうした商品なら多少手間をかけても高い店を選ぶ価値があります。差額を先に把握してから動くのが効率的です。"},
             {"q": "この価格で必ず買い取ってもらえますか？",
              "a": "保証はできません。本記事の数値は各店が公表している買取価格の比較で、実際の査定額はシュリンクの有無・外箱の状態・まとめ売りの点数などにより上下します。また価格は日々変動するため、発送や来店の直前にもう一度ご確認ください。"},
+        ],
+    },
+    {
+        "slug": "souba-geraku",
+        "crumb": "ポケカ・ワンピBOX相場の下落ランキング",
+        "date": "2026-11-19",
+        "date_jp": "2026年11月19日",
+        "title": "ポケカ・ワンピBOX相場の下落ランキング｜30日で何%下がった?最高値比と定価比(毎日更新)",
+        "h1": "ポケカ・ワンピBOX相場の下落ランキング(毎日更新)",
+        "meta_desc": "ポケモンカードとワンピースカードの未開封BOX買取相場がどれだけ下がっているかを、当サイトが毎日自動取得している実データで集計。ポケカは直近30日で{{GR_PK_N}}商品中{{GR_PK_DOWN}}商品が値下がり(平均{{GR_PK_AVG}})、ワンピは{{GR_OP_N}}商品中{{GR_OP_DOWN}}商品が値下がり(平均{{GR_OP_AVG}})。下落率ランキング、記録上の最高値からの下落率、定価に近づいたBOXの一覧を毎日更新します。",
+        "og_title": "ポケカ・ワンピBOX相場の下落ランキング(毎日更新)",
+        "og_desc": "直近30日でポケカ{{GR_PK_DOWN}}/{{GR_PK_N}}商品、ワンピ{{GR_OP_DOWN}}/{{GR_OP_N}}商品が値下がり。下落率・最高値比・定価比を実データで毎日更新。",
+        "meta_line": "BOX買取相場の下落率(当サイト実データ・毎日更新)",
+        "hero_label": "直近30日({{GR_PERIOD}})の値下がり商品数",
+        "hero_big": "値下がり <span style='white-space:nowrap'>ポケカ{{GR_PK_DOWN}}/{{GR_PK_N}}商品</span>・<span style='white-space:nowrap'>ワンピ{{GR_OP_DOWN}}/{{GR_OP_N}}商品</span>",
+        "hero_sub": "平均変化率はポケカ{{GR_PK_AVG}}、ワンピ{{GR_OP_AVG}}。最大の下落はポケカが{{GR_PK_TOP_NAME}}({{GR_PK_TOP_PCT}})、ワンピが{{GR_OP_TOP_NAME}}({{GR_OP_TOP_PCT}})です。",
+        "disclaimer": "本記事の買取価格は、当サイトが複数の買取店から自動取得した実データです。各商品の「最高買取価格」(掲載店舗のうち最も高い店の価格)を用いており、店舗の掲載状況の変化による変動を含みます。スタートデッキはBOX商品ではないため集計から除いています。「最高値」は当サイトの記録開始(ポケカ{{GR_PK_SINCE}}・ワンピ{{GR_OP_SINCE}})以降に3日以上続いた最も高い水準で、それ以前の価格は含みません。値動きの理由は網羅的に確認できないため断定していません。本記事は将来の価格を予想・保証するものではなく、売買の判断はご自身の責任で行ってください。",
+        "related": '<li><a href="index.html">ポケカBOX買取価格比較トップ</a> — 全BOXの買取価格を店舗横断で毎日更新</li>\n'
+                   '<li><a href="/onepiece">ワンピBOX買取価格比較</a> — ワンピースカードの全BOXを店舗横断で比較</li>\n'
+                   '<li><a href="ranking.html">週間価格変化ランキング</a> — 直近7日の値上がり・値下がり</li>\n'
+                   '<li><a href="box-price-trend.html">ポケカBOX相場の値動きレポート</a> — 長期と直近で結論が変わる理由</li>\n'
+                   '<li><a href="/onepiece/box-price-pattern.html">ワンピBOX相場の値動きパターン</a> — ワンピの弾ごとの値動きの型</li>\n'
+                   '<li><a href="kougaku-box-ranking.html">高額BOX買取ランキング</a> — 最高買取の高い順と定価比</li>\n'
+                   '<li><a href="price-pattern-guide.html">BOX買取価格の5段階パターン</a> — 発売から絶版までの相場推移</li>',
+        "body": """<p>「最近ポケカもワンピも相場が下がっている」と感じている方は多いはずです。実際にどれだけ下がっているのかを、<strong>当サイトが毎日自動取得しているBOX買取の実データ</strong>で数えました。数値は毎日自動で更新されます(最新: {{GR_DATE}})。</p>
+
+<div class="callout"><strong>3行まとめ:</strong><br>
+・ポケカは直近30日で<strong>{{GR_PK_N}}商品中{{GR_PK_DOWN}}商品が値下がり</strong>(値上がり{{GR_PK_UP}}・平均{{GR_PK_AVG}})。{{GR_PK_TREND}}。<br>
+・ワンピは<strong>{{GR_OP_N}}商品中{{GR_OP_DOWN}}商品が値下がり</strong>(値上がり{{GR_OP_UP}}・平均{{GR_OP_AVG}})。{{GR_OP_TREND}}。<br>
+・記録上の最高値から20%以上下がっているBOXは、ポケカ{{GR_PK_DEEP_N}}商品・ワンピ{{GR_OP_DEEP_N}}商品</div>
+
+<h2>ポケカ 直近30日の下落ランキング</h2>
+<p>{{GR_PERIOD}}の30日間で、最高買取価格が1%以上下がった商品を下落率の大きい順に並べました。最大の下落は<strong>{{GR_PK_TOP_NAME}}</strong>で、{{GR_PK_TOP_OLD}}から{{GR_PK_TOP_NOW}}へ<strong>{{GR_PK_TOP_PCT}}</strong>です。</p>
+{{GR_PK_TABLE_DOWN}}
+
+<h2>ワンピ 直近30日の下落ランキング</h2>
+<p>同じ30日間のワンピースカードです。最大の下落は<strong>{{GR_OP_TOP_NAME}}</strong>で、{{GR_OP_TOP_OLD}}から{{GR_OP_TOP_NOW}}へ<strong>{{GR_OP_TOP_PCT}}</strong>でした。</p>
+{{GR_OP_TABLE_DOWN}}
+
+<h2>最高値からどれだけ下がったか</h2>
+<p>30日間の比較だけでは、もっと前から下げ続けている商品の下げ幅が見えません。そこで<strong>当サイトの記録上の最高値</strong>(3日以上続いた最も高い水準)と比べました。</p>
+<h3>ポケカ(記録開始: {{GR_PK_SINCE}})</h3>
+<p>最高値から最も下がっているのは<strong>{{GR_PK_PEAK1_NAME}}</strong>で、{{GR_PK_PEAK1_PEAK}}から{{GR_PK_PEAK1_NOW}}へ<strong>{{GR_PK_PEAK1_PCT}}</strong>です。最高値を付けた時期は<strong>{{GR_PK_PEAK_MONTH}}</strong>が最も多く、{{GR_PK_PEAK_MONTH_N}}商品が集中しています。</p>
+{{GR_PK_TABLE_PEAK}}
+<h3>ワンピ(記録開始: {{GR_OP_SINCE}})</h3>
+<p>ワンピで最高値から最も下がっているのは<strong>{{GR_OP_PEAK1_NAME}}</strong>で、{{GR_OP_PEAK1_PEAK}}から{{GR_OP_PEAK1_NOW}}へ<strong>{{GR_OP_PEAK1_PCT}}</strong>です。最高値の時期は<strong>{{GR_OP_PEAK_MONTH}}</strong>が最も多く、{{GR_OP_PEAK_MONTH_N}}商品でした。</p>
+{{GR_OP_TABLE_PEAK}}
+<div class="callout"><strong>読むときの注意:</strong> 最高値は当サイトが価格を記録し始めてからの値です。それ以前にもっと高かった商品もあります。また発売直後に最高値を付けて下がるのは新弾ではよくある動きで、<a href="price-pattern-guide.html">BOX買取価格の5段階パターン</a>で解説している「発売直後のピーク→落ち着き」にあたる場合があります。</div>
+
+<h2>定価に近づいているBOX</h2>
+<p>相場が下がると、<strong>買取価格が定価に近い商品</strong>が増えます。定価比(最新の最高買取÷定価)が低い順に並べました。{{GR_MULT_SENTENCE}}</p>
+<h3>ポケカ</h3>
+{{GR_PK_TABLE_MULT}}
+<h3>ワンピ</h3>
+{{GR_OP_TABLE_MULT}}
+<p>定価に近いBOXは、定価で手に入れた場合に買取価格との差が小さい商品です。ただし定価で買えるかどうかは抽選・在庫次第で、ここから上がるか下がるかを示すものではありません。</p>
+
+<h2>逆に値上がりしたBOX</h2>
+<p>全面安というわけではなく、30日間で値上がりした商品もあります。ポケカの最大の上昇は<strong>{{GR_PK_UP1_NAME}}({{GR_PK_UP1_PCT}})</strong>、ワンピは<strong>{{GR_OP_UP1_NAME}}({{GR_OP_UP1_PCT}})</strong>です。</p>
+<h3>ポケカ 上昇TOP5</h3>
+{{GR_PK_TABLE_UP}}
+<h3>ワンピ 上昇TOP5</h3>
+{{GR_OP_TABLE_UP}}
+
+<h2>相場が下がっているときに確認したいこと</h2>
+<ul>
+<li><strong>売るなら店舗差を見る</strong>: 相場が下がる局面では、店によって値下げのタイミングがずれます。同じBOXでも高い店が残っていることがあるので、<a href="index.html">ポケカの比較表</a>・<a href="/onepiece">ワンピの比較表</a>で最高値の店を確認してください</li>
+<li><strong>1店だけの価格で判断しない</strong>: 掲載店舗が少ない商品は、1店の値下げだけで最高買取が大きく動きます。個別ページで店舗ごとの価格を見るのが確実です</li>
+<li><strong>短期と長期を分けて見る</strong>: 30日では下げていても、1年単位では上がっている商品もあります。期間で結論が変わる点は<a href="box-price-trend.html">値動きレポート</a>で詳しく扱っています</li>
+</ul>
+""",
+        "faq": [
+            {"q": "ポケカのBOX相場は今下がっていますか？",
+             "a": "当サイトの実データでは、直近30日({{GR_PERIOD}})で{{GR_PK_N}}商品中{{GR_PK_DOWN}}商品の最高買取価格が下がり、値上がりは{{GR_PK_UP}}商品、平均変化率は{{GR_PK_AVG}}でした。{{GR_PK_TREND}}。"},
+            {"q": "ワンピースカードのBOX相場は下がっていますか？",
+             "a": "直近30日で{{GR_OP_N}}商品中{{GR_OP_DOWN}}商品が値下がりし、値上がりは{{GR_OP_UP}}商品、平均変化率は{{GR_OP_AVG}}でした。{{GR_OP_TREND}}。"},
+            {"q": "一番下がっているBOXはどれですか？",
+             "a": "直近30日の下落率では、ポケカが{{GR_PK_TOP_NAME}}({{GR_PK_TOP_PCT}})、ワンピが{{GR_OP_TOP_NAME}}({{GR_OP_TOP_PCT}})です。当サイトの記録上の最高値と比べると、ポケカは{{GR_PK_PEAK1_NAME}}({{GR_PK_PEAK1_PCT}})、ワンピは{{GR_OP_PEAK1_NAME}}({{GR_OP_PEAK1_PCT}})が最も下がっています。"},
+            {"q": "相場はどこまで下がりますか？今が底ですか？",
+             "a": "将来の価格は予想できません。本記事は過去から現在までの実データを示すもので、底や買い時を判断するものではありません。参考として、{{GR_MULT_SENTENCE}}"},
+            {"q": "このデータはいつ更新されますか？",
+             "a": "当サイトは各買取店の価格を毎日自動で取得しており、本記事の数値もそのデータから毎日自動で更新されます。現在の数値は{{GR_DATE}}時点のものです。"},
         ],
     },
 ]

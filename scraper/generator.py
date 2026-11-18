@@ -111,6 +111,7 @@ def get_box_image_url(slug: str) -> str:
 # Blog articles (newest first) - 記事追加時はここに1行足すだけ
 BLOG_ARTICLES = [
     {"url": "hadou-seeker-forecast.html", "title": "【発売前予想】ハドウシーカー BOX相場3シナリオ｜前作の答え合わせ付き", "desc": "11/27発売のハドウシーカー(メガルカリオZex)のBOX相場を、同じ1パック200円の前作アビスアイ・ストームエメラルダが発売後にたどった実データから予想。弱気¥7,500・中立¥11,500・強気¥16,000(発売1〜2か月後・11/15見直し)。前作ストームエメラルダは発売日¥25,000からほぼ3か月で¥9,200まで下落した答え合わせも掲載。", "date": "2026-10-26"},
+    {"url": "souba-geraku.html", "title": "ポケカ・ワンピBOX相場の下落ランキング｜30日で何%下がった?(毎日更新)", "desc": "ポケカとワンピの未開封BOX買取相場が直近30日でどれだけ下がったかを実データで毎日集計。下落率ランキング、記録上の最高値からの下落率、定価に近づいたBOXの一覧。", "date": "2026-11-19"},
     {"url": "box-hokan.html", "title": "ポケカBOXの保管方法｜シュリンクを剥がすと買取はいくら落ちるか", "desc": "シュリンク付きとシュリンクなしの買取価格を38商品ぶん集計。下落率の平均は12.3%、最大はポケモンカード151の9,000円で、弾によって-2.7%から-24.4%まで開きます。湿気による反り、2026年8月の記録的大雨をふまえた置き場所のリスク、BOXローダーや防湿庫まで実データで整理。", "date": "2026-09-11"},
     {"url": "chusen-matome.html", "title": "ポケカBOX 抽選販売まとめ｜当たったら定価からいくら得か", "desc": "Amazonの招待リクエスト(抽選)を受け付けている商品を一覧化し、当サイトが最大10店舗から毎日自動収集している定価と買取実データの差額を並べて掲載。抽選をやっている店舗の特徴と、応募する価値の判断材料までまとめています。", "date": "2026-09-08"},
     {"url": "30th-cardset-forecast.html", "title": "【10/16発売】30th CELEBRATION カードセット9種セットの相場予想｜買取はいくら？", "desc": "9種セット(定価¥10,800)の発売1か月後の最高買取を弱気¥14,000・中立¥19,000・強気¥25,000と予想。発売前の「10万円」予想に対し、実際の取引はメルカリ成約約¥26,500・取引相場¥20,700。付属18パックのBOX換算¥23,400、当選率93.8%とメルカリ出品禁止、9月の30周年3商品が発売後に上がった実データから解説。", "date": "2026-10-15"},
@@ -2081,6 +2082,7 @@ gtag('config', 'G-RPTS6CRTCS');
 <a href="../mega-box-list.html">📋 MEGA全BOX一覧</a>
 <a href="../ss-box-list.html">📋 S&amp;S全BOX一覧</a>
 <a href="../ranking.html">📊 週間価格変化ランキング</a>
+<a href="../souba-geraku.html">📉 BOX相場 下落ランキング</a>
 <div class="article-nav-sub">買取の基礎</div>
 <a class="nav-push" href="../chusen-matome.html">🎯 Amazon抽選まとめ</a>
 <a class="nav-push" href="../box-hokan.html">📦 BOXの保管方法</a>
@@ -2230,6 +2232,7 @@ def _update_sitemap(
         ("/box-age-multiple.html", "daily", "0.9", today),
         ("/shop-price-gap.html", "daily", "0.9", today),
         ("/kougaku-box-ranking.html", "daily", "0.9", today),
+        ("/souba-geraku.html", "daily", "0.9", today),
         ("/psa-kaitori-hikaku.html", "monthly", "0.8", "2026-10-13"),
         ("/chusen-matome.html", "daily", "0.9", today),
         ("/box-hokan.html", "daily", "0.9", today),
@@ -3021,6 +3024,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"メイリオ","Hiragino Sans
 <a href="mega-box-list.html">📋 MEGA全BOX一覧</a>
 <a href="ss-box-list.html">📋 S&S全BOX一覧</a>
 <a href="ranking.html">📊 週間価格変化ランキング</a>
+<a href="souba-geraku.html">📉 BOX相場 下落ランキング</a>
 <div class="article-nav-sub">買取の基礎</div>
 <a href="kaitori-tips.html">BOX買取のコツ</a>
 <a href="shop-hikaku.html">10店舗比較</a>
@@ -3413,6 +3417,7 @@ def _build_category_crosslinks(current_cat_id: str) -> str:
     # Also link to weekly ranking and home
     parts.append('<a href="weekly/">🔥 今週の値動きランキング</a>')
     parts.append('<a href="ranking.html">📊 週間価格変化ランキング</a>')
+    parts.append('<a href="souba-geraku.html">📉 BOX相場 下落ランキング</a>')
     return "\n".join(parts)
 
 
@@ -3863,6 +3868,7 @@ article p{{font-size:14px;margin-bottom:14px}}
 <a href="mega-box-list.html">📋 MEGA全BOX一覧</a>
 <a href="ss-box-list.html">📋 S&S全BOX一覧</a>
 <a href="ranking.html">📊 週間価格変化ランキング</a>
+<a href="souba-geraku.html">📉 BOX相場 下落ランキング</a>
 <div class="article-nav-sub">買取の基礎</div>
 <a href="kaitori-tips.html">BOX買取のコツ</a>
 <a href="shop-hikaku.html">10店舗比較</a>
