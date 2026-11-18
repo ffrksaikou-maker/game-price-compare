@@ -18,7 +18,7 @@
     "max_price": 2400,
     "prices": {
       "morimori": 2400,
-      "homura": 2300,
+      "homura": 2400,
       "rudeya": 1600,
       "icchome": 2400
     }
@@ -175,6 +175,7 @@
     "retail_price": 6600,
     "max_price": 8500,
     "prices": {
+      "homura": 8500,
       "icchome": 8500
     }
   },
@@ -343,10 +344,10 @@
     "name": "BX-49 ドランストライク4-50FF",
     "category": "bx",
     "retail_price": 2200,
-    "max_price": 1800,
+    "max_price": 1700,
     "prices": {
       "morimori": 1300,
-      "homura": 1800,
+      "homura": 1700,
       "rudeya": 1300,
       "icchome": 1600
     }
