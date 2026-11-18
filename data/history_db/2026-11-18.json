@@ -17,10 +17,10 @@
     "retail_price": 5280,
     "max_price": 6000,
     "prices": {
+      "morimori": 4000,
       "rudeya": 4000,
       "shinsoku": 5600,
-      "kaitoriexpo": 6000,
-      "morimori": 4000
+      "kaitoriexpo": 6000
     }
   },
   {
@@ -29,11 +29,11 @@
     "retail_price": 5280,
     "max_price": 7300,
     "prices": {
+      "morimori": 4550,
       "rudeya": 4500,
       "runto": 7300,
       "shinsoku": 6600,
-      "kaitoriexpo": 7000,
-      "morimori": 4550
+      "kaitoriexpo": 7000
     }
   },
   {
@@ -52,11 +52,11 @@
     "name": "ブースターパック「神龍への願い」【FB-07】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 33100,
+    "max_price": 32700,
     "prices": {
       "homura": 24000,
       "rudeya": 24000,
-      "shinsoku": 33100,
+      "shinsoku": 32700,
       "kaitoriexpo": 25000
     }
   },
@@ -68,7 +68,7 @@
     "prices": {
       "homura": 11500,
       "rudeya": 7600,
-      "shinsoku": 9500,
+      "shinsoku": 8800,
       "kaitoriexpo": 11500
     }
   },
@@ -138,20 +138,20 @@
     "retail_price": 7920,
     "max_price": 44000,
     "prices": {
+      "morimori": 19800,
       "rudeya": 35000,
       "shinsoku": 37000,
-      "kaitoriexpo": 44000,
-      "morimori": 19800
+      "kaitoriexpo": 44000
     }
   },
   {
     "name": "MANGA BOOSTER 01【SB-01】",
     "category": "sb",
     "retail_price": 7920,
-    "max_price": 82200,
+    "max_price": 81600,
     "prices": {
       "rudeya": 80000,
-      "shinsoku": 82200,
+      "shinsoku": 81600,
       "kaitoriexpo": 70000
     }
   },
@@ -161,12 +161,12 @@
     "retail_price": 6600,
     "max_price": 9500,
     "prices": {
+      "morimori": 6050,
       "homura": 9100,
       "rudeya": 6600,
       "runto": 9500,
       "shinsoku": 7800,
-      "kaitoriexpo": 9500,
-      "morimori": 6050
+      "kaitoriexpo": 9500
     }
   },
   {
@@ -184,9 +184,9 @@
     "retail_price": 6600,
     "max_price": 31000,
     "prices": {
+      "morimori": 25000,
       "rudeya": 31000,
-      "kaitoriexpo": 25000,
-      "morimori": 25000
+      "kaitoriexpo": 25000
     }
   }
 ]
