@@ -273,9 +273,6 @@
     "ポケモンセンター フクオカ": 10700
   },
   "processed_urls": [
-    "https://pbs.twimg.com/media/HW-raymagAAXHvO?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HW5W-sga4AAGP7D?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HWAz-rca8AAvVyK?format=jpg&name=large",
     "https://pbs.twimg.com/media/HVsDlBDaEAApEJg?format=jpg&name=large",
     "https://pbs.twimg.com/media/HWQJ9w8aQAAASxE?format=jpg&name=large",
     "https://pbs.twimg.com/media/HVXQSIyboAAuV6l?format=jpg&name=large",
@@ -322,12 +319,24 @@
     "https://pbs.twimg.com/media/HXOLUCSbgAA5R20?format=jpg&name=large",
     "https://pbs.twimg.com/media/HVh0lOLaMAAZS7W?format=jpg&name=large",
     "https://pbs.twimg.com/media/HW-rayfb0AA5S92?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HW0_Gj5a0AAGUI_?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HW0_Gj5a0AAGUI_?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HXD5zftb0AA2in6?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HWbGWVlacAAK1CL?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HVxODBYbUAAR5To?format=jpg&name=large"
   ],
   "last_check": 1795057479,
   "ocr_fail_counts": {},
-  "pending_images": [],
-  "last_image_check": 1795052543,
+  "pending_images": [
+    "https://pbs.twimg.com/media/HXdpIhYbMAAJU4j?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HXda5vpa8AEsADT?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HXdbpE8bYAE7Jll?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HXdaNIvakAEQmKq?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HXdbd0caIAAIlxi?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HXdbK-UaMAAMNSU?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HXdaNIwbsAATzWA?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HXdaNIwaYAA6BU_?format=jpg&name=large"
+  ],
+  "last_image_check": 1795066947,
   "seen_at": {
     "OP-14 蒼海の七傑": 1794997616,
     "OP-15 神の島の冒険": 1794997616,
