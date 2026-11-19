@@ -3,7 +3,7 @@
     "name": "ブースターパック「世界最強の戦士」【OP-17】",
     "category": "op",
     "retail_price": 5760,
-    "max_price": 8800,
+    "max_price": 8500,
     "prices": {
       "homura": 7500,
       "rudeya": 8100,
@@ -12,7 +12,7 @@
       "oku": 7500,
       "collect_tendo": 6500,
       "shinsoku": 6500,
-      "kaitoriexpo": 8800
+      "kaitoriexpo": 8500
     }
   },
   {
@@ -28,7 +28,7 @@
       "oku": 8500,
       "collect_tendo": 8800,
       "shinsoku": 7800,
-      "kaitoriexpo": 8000
+      "kaitoriexpo": 8400
     }
   },
   {
@@ -44,7 +44,7 @@
       "oku": 8300,
       "collect_tendo": 8400,
       "shinsoku": 7600,
-      "kaitoriexpo": 7800
+      "kaitoriexpo": 8300
     }
   },
   {
@@ -61,14 +61,14 @@
       "oku": 9000,
       "collect_tendo": 9600,
       "shinsoku": 8800,
-      "kaitoriexpo": 9600
+      "kaitoriexpo": 9500
     }
   },
   {
     "name": "ブースターパック「受け継がれる意志」【OP-13】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 15500,
+    "max_price": 15000,
     "prices": {
       "morimori": 11800,
       "homura": 12000,
@@ -78,7 +78,7 @@
       "oku": 12000,
       "collect_tendo": 14000,
       "shinsoku": 14100,
-      "kaitoriexpo": 15500
+      "kaitoriexpo": 15000
     }
   },
   {
@@ -119,7 +119,7 @@
     "name": "ブースターパック「王族の血統」【OP-10】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 11200,
+    "max_price": 11300,
     "prices": {
       "morimori": 10000,
       "homura": 11200,
@@ -129,7 +129,7 @@
       "oku": 11200,
       "collect_tendo": 11200,
       "shinsoku": 11100,
-      "kaitoriexpo": 11000
+      "kaitoriexpo": 11300
     }
   },
   {
@@ -245,7 +245,7 @@
       "oku": 15200,
       "collect_tendo": 15500,
       "shinsoku": 12100,
-      "kaitoriexpo": 14500
+      "kaitoriexpo": 15000
     }
   },
   {
@@ -262,7 +262,7 @@
       "oku": 17500,
       "collect_tendo": 18000,
       "shinsoku": 16900,
-      "kaitoriexpo": 16500
+      "kaitoriexpo": 17000
     }
   },
   {
@@ -286,17 +286,17 @@
     "name": "エクストラブースター「ONE PIECE Heroines Edition vol.2」【EB-05】",
     "category": "eb",
     "retail_price": 5760,
-    "max_price": 11400,
+    "max_price": 11300,
     "prices": {
       "morimori": 10000,
       "homura": 10700,
       "rudeya": 9000,
       "runto": 10500,
       "icchome": 10300,
-      "oku": 11000,
+      "oku": 10700,
       "collect_tendo": 8000,
       "shinsoku": 10100,
-      "kaitoriexpo": 11400
+      "kaitoriexpo": 11300
     }
   },
   {
@@ -330,7 +330,7 @@
       "oku": 11000,
       "collect_tendo": 11500,
       "shinsoku": 10600,
-      "kaitoriexpo": 11500
+      "kaitoriexpo": 11200
     }
   },
   {
@@ -379,7 +379,7 @@
       "icchome": 9000,
       "collect_tendo": 10600,
       "shinsoku": 10100,
-      "kaitoriexpo": 10000
+      "kaitoriexpo": 10500
     }
   },
   {
