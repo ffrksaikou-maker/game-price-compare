@@ -3,12 +3,12 @@
     "name": "ブースターパック「BRIGHTNESS OF HOPE」【FB-11】",
     "category": "fb",
     "retail_price": 5760,
-    "max_price": 6000,
+    "max_price": 6700,
     "prices": {
       "rudeya": 4000,
       "runto": 6000,
       "shinsoku": 5400,
-      "kaitoriexpo": 6000
+      "kaitoriexpo": 6700
     }
   },
   {
@@ -45,7 +45,7 @@
       "homura": 11000,
       "rudeya": 8500,
       "shinsoku": 9900,
-      "kaitoriexpo": 9500
+      "kaitoriexpo": 9800
     }
   },
   {
@@ -136,12 +136,12 @@
     "name": "MANGA BOOSTER 02【SB-02】",
     "category": "sb",
     "retail_price": 7920,
-    "max_price": 44000,
+    "max_price": 37000,
     "prices": {
       "morimori": 19800,
       "rudeya": 35000,
       "shinsoku": 37000,
-      "kaitoriexpo": 44000
+      "kaitoriexpo": 30000
     }
   },
   {
@@ -152,21 +152,21 @@
     "prices": {
       "rudeya": 80000,
       "shinsoku": 81000,
-      "kaitoriexpo": 70000
+      "kaitoriexpo": 67000
     }
   },
   {
     "name": "STORY BOOSTER 01【ST-01】",
     "category": "st",
     "retail_price": 6600,
-    "max_price": 9600,
+    "max_price": 9700,
     "prices": {
       "morimori": 6050,
       "homura": 9600,
       "rudeya": 6600,
       "runto": 9000,
       "shinsoku": 7800,
-      "kaitoriexpo": 9500
+      "kaitoriexpo": 9700
     }
   },
   {
@@ -186,7 +186,7 @@
     "prices": {
       "morimori": 25000,
       "rudeya": 31000,
-      "kaitoriexpo": 25000
+      "kaitoriexpo": 26000
     }
   }
 ]
