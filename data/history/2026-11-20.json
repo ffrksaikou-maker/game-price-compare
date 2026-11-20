@@ -56,11 +56,11 @@
     "max_price": 19000,
     "prices": {
       "morimori": 18800,
-      "homura": 19000,
+      "homura": 18700,
       "rudeya": 14000,
-      "runto": 18000,
-      "icchome": 18700,
-      "oku": 19000,
+      "runto": 18500,
+      "icchome": 18600,
+      "oku": 18700,
       "kaikyo": 16000,
       "collect_tendo": 19000,
       "shinsoku": 18000,
@@ -81,7 +81,7 @@
       "oku": 8000,
       "kaikyo": 6500,
       "collect_tendo": 8100,
-      "shinsoku": 8100,
+      "shinsoku": 8200,
       "kaitoriexpo": 7900
     }
   },
@@ -153,7 +153,7 @@
       "oku": 11000,
       "kaikyo": 10000,
       "collect_tendo": 11600,
-      "shinsoku": 11500,
+      "shinsoku": 11600,
       "kaitoriexpo": 11000
     }
   },
@@ -343,10 +343,10 @@
     "name": "SV 拡張パック「超電ブレイカー」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 27000,
+    "max_price": 28000,
     "prices": {
       "morimori": 26800,
-      "homura": 27000,
+      "homura": 28000,
       "rudeya": 20000,
       "runto": 26600,
       "icchome": 26000,
@@ -416,7 +416,7 @@
       "runto": 11500,
       "icchome": 11500,
       "collect_tendo": 11400,
-      "shinsoku": 11800,
+      "shinsoku": 11900,
       "kaitoriexpo": 11600
     }
   },
@@ -446,7 +446,7 @@
       "morimori": 11300,
       "homura": 11500,
       "rudeya": 12000,
-      "runto": 11500,
+      "runto": 12000,
       "icchome": 11500,
       "collect_tendo": 11500,
       "shinsoku": 11600,
@@ -611,7 +611,7 @@
       "icchome": 17000,
       "kaikyo": 17000,
       "collect_tendo": 17800,
-      "shinsoku": 17500,
+      "shinsoku": 18000,
       "kaitoriexpo": 17500
     }
   },
@@ -627,7 +627,7 @@
       "runto": 13000,
       "icchome": 13000,
       "collect_tendo": 13000,
-      "shinsoku": 13600
+      "shinsoku": 13800
     }
   },
   {
@@ -642,7 +642,7 @@
       "runto": 9500,
       "icchome": 9500,
       "collect_tendo": 10300,
-      "shinsoku": 10500
+      "shinsoku": 10600
     }
   },
   {
@@ -657,7 +657,7 @@
       "runto": 27500,
       "icchome": 25500,
       "collect_tendo": 27000,
-      "shinsoku": 26000,
+      "shinsoku": 26500,
       "kaitoriexpo": 26000
     }
   },
@@ -759,12 +759,12 @@
     "name": "S&S 強化拡張パック「バトルリージョン」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 12500,
+    "max_price": 12800,
     "prices": {
       "homura": 12500,
       "runto": 12500,
       "collect_tendo": 12000,
-      "shinsoku": 12500,
+      "shinsoku": 12800,
       "kaitoriexpo": 12500
     }
   },
@@ -777,7 +777,7 @@
       "homura": 21000,
       "runto": 20500,
       "collect_tendo": 20000,
-      "shinsoku": 20800,
+      "shinsoku": 21000,
       "kaitoriexpo": 18000
     }
   },
