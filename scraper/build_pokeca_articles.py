@@ -1624,6 +1624,12 @@ def _render(a: dict) -> str:
 <script type="application/ld+json">{json.dumps(faq_ld, ensure_ascii=False)}</script>
 <style>{sh['css']}{EXTRA_CSS}</style>
 {sh['scripts']}
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){{dataLayer.push(arguments);}}
+gtag('js', new Date());
+gtag('config', 'G-RPTS6CRTCS');
+</script>
 </head>
 <body>
 <div class="header"><a href="index.html"><span class="site-title">ポケカ買取チェッカー</span></a></div>
@@ -1653,6 +1659,8 @@ def _render(a: dict) -> str:
 </ul>
 
 <div class="disclaimer"><strong>ご注意:</strong> {_placeholders(a['disclaimer'])}</div>
+
+<p class="xpromo" style="margin-top:20px">iPhoneを売るなら → <a href="https://chuko-iphone.com/?utm_source=pokeca-box-hikaku&amp;utm_medium=referral&amp;utm_campaign=crosspromo" target="_blank" rel="noopener" onclick="window.gtag&amp;&amp;gtag('event','crosspromo_click',{{to:'chuko-iphone',place:'article',transport_type:'beacon'}})">中古iPhone価格ナビ</a>(買取・販売価格を14店で毎日比較)</p>
 
 <div class="ad">
   <a href="https://h.accesstrade.net/sp/cc?rk=0100p4pe00opz3" rel="nofollow" referrerpolicy="no-referrer-when-downgrade"><img src="https://h.accesstrade.net/sp/rr?rk=0100p4pe00opz3" alt="トレトク" border="0" width="640" height="100" loading="lazy" decoding="async" style="max-width:100%;height:auto"></a>
