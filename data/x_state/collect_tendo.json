@@ -279,8 +279,6 @@
     "30th スペシャルデッキセットMEGA": 4600
   },
   "processed_urls": [
-    "https://pbs.twimg.com/media/HXdbK-UaMAAMNSU?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HXDqpGNbIAAPusP?format=jpg&name=large",
     "https://pbs.twimg.com/media/HUznsuiagAAVoSs?format=jpg&name=large",
     "https://pbs.twimg.com/media/HUKwvkIacAA_RQo?format=jpg&name=large",
     "https://pbs.twimg.com/media/HVh0lOLaMAAZS7W?format=jpg&name=large",
@@ -328,14 +326,23 @@
     "https://pbs.twimg.com/media/HWVOHWobMAAZc0p?format=jpg&name=large",
     "https://pbs.twimg.com/media/HXifh0VaAAA8GAz?format=jpg&name=large",
     "https://pbs.twimg.com/media/HXdbpE8bYAE7Jll?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HXilCBLbAAABy1z?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HXilCBLbAAABy1z?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HXdaNIwaYAA6BU_?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HXD5zftb0AA2in6?format=jpg&name=large"
   ],
   "last_check": 1795237723,
   "ocr_fail_counts": {
     "https://pbs.twimg.com/media/HXith7ybMAAkPR6?format=jpg&name=large": 3
   },
-  "pending_images": [],
-  "last_image_check": 1795225345,
+  "pending_images": [
+    "https://pbs.twimg.com/media/HXnpwXwbAAEYkjH?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HXnpwXpaAAAXeFK?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HXnpwXsacAAr60G?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HXnpwXrbwAAJsfQ?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HXnpwXtaQAArjhd?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HXnpwXrasAA2US3?format=jpg&name=large"
+  ],
+  "last_image_check": 1795239741,
   "seen_at": {
     "OP-14 蒼海の七傑": 1795169801,
     "OP-15 神の島の冒険": 1795169801,
