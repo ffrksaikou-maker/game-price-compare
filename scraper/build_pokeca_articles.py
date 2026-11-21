@@ -1660,7 +1660,7 @@ gtag('config', 'G-RPTS6CRTCS');
 
 <div class="disclaimer"><strong>ご注意:</strong> {_placeholders(a['disclaimer'])}</div>
 
-<p class="xpromo" style="margin-top:20px">iPhoneを売るなら → <a href="https://chuko-iphone.com/?utm_source=pokeca-box-hikaku&amp;utm_medium=referral&amp;utm_campaign=crosspromo" target="_blank" rel="noopener" onclick="window.gtag&amp;&amp;gtag('event','crosspromo_click',{{to:'chuko-iphone',place:'article',transport_type:'beacon'}})">中古iPhone価格ナビ</a>(買取・販売価格を14店で毎日比較)</p>
+<p class="xpromo" style="margin-top:20px">中古iPhoneを売るなら → <a href="https://chuko-iphone.com/?utm_source=pokeca-box-hikaku&amp;utm_medium=referral&amp;utm_campaign=crosspromo" target="_blank" rel="noopener" onclick="window.gtag&amp;&amp;gtag('event','crosspromo_click',{{to:'chuko-iphone',place:'article',transport_type:'beacon'}})">中古iPhone価格ナビ</a>(買取・販売価格を14店で毎日比較)</p>
 
 <div class="ad">
   <a href="https://h.accesstrade.net/sp/cc?rk=0100p4pe00opz3" rel="nofollow" referrerpolicy="no-referrer-when-downgrade"><img src="https://h.accesstrade.net/sp/rr?rk=0100p4pe00opz3" alt="トレトク" border="0" width="640" height="100" loading="lazy" decoding="async" style="max-width:100%;height:auto"></a>
