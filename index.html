@@ -1860,6 +1860,14 @@ details[open] .si-summary::after{transform:rotate(180deg)}
 .mori-ref-code code{font-family:ui-monospace,Consolas,monospace;font-size:17px;font-weight:800;letter-spacing:1px;background:#fffbeb;border:1px dashed #f59e0b;border-radius:6px;padding:4px 12px;color:#111827;user-select:all}
 .mori-ref-code button{background:#f59e0b;color:#fff;border:0;border-radius:6px;padding:6px 12px;font-size:12px;font-weight:700;cursor:pointer}
 .mori-ref-more{font-size:12px;color:#b45309;font-weight:700;white-space:nowrap}
+.xp-ad{max-width:var(--table-width);margin:8px auto 0;padding:0 16px}
+.xp-ad-in{background:#fafafa;border:1px solid #e5e7eb;border-radius:10px;padding:7px 14px;display:flex;flex-wrap:wrap;align-items:center;gap:4px 14px;font-size:12px;line-height:1.6;color:#4b5563}
+.xp-ad-txt{flex:1 1 260px}
+.xp-ad-txt b{color:#374151}
+.xp-ad-go{font-size:12px;font-weight:700;color:#2563eb;text-decoration:none;white-space:nowrap}
+.xp-ad-go:hover{text-decoration:underline}
+.xp-ad-pr{display:inline-block;background:#6b7280;color:#fff;font-size:10px;font-weight:700;padding:1px 7px;border-radius:4px;margin-right:6px;vertical-align:2px}
+@media(max-width:600px){.xp-ad-in{display:block;padding:6px 12px}.xp-ad-txt{display:inline}.xp-ad-go{margin-left:6px;display:inline-block;padding:4px 0}}
 .chusen-banner{max-width:var(--table-width);margin:22px auto 8px;padding:0 16px}
 .chusen-banner a{display:block;background:linear-gradient(135deg,var(--cb-a,#6366f1),var(--cb-b,#a855f7));border-radius:12px;padding:16px 20px;text-decoration:none;color:#fff;box-shadow:0 4px 14px var(--cb-sh,rgba(99,102,241,.35));transition:transform .12s,box-shadow .12s}
 .chusen-banner a:hover{transform:translateY(-2px);box-shadow:0 7px 20px var(--cb-sh,rgba(99,102,241,.45))}
@@ -1975,6 +1983,13 @@ details[open] .si-summary::after{transform:rotate(180deg)}
       <button type="button" id="moriCopy" onclick="copyMoriCode()">コピー</button>
       <a class="mori-ref-more" href="shop/morimori.html#referral">使い方を見る &rarr;</a>
     </div>
+  </div>
+</div>
+
+<div class="xp-ad">
+  <div class="xp-ad-in">
+    <div class="xp-ad-txt"><span class="xp-ad-pr">PR</span><b>iPhoneを売るなら</b>、14店の買取・販売価格を毎日比較できる<b>中古iPhone価格ナビ</b></div>
+    <a class="xp-ad-go" href="https://chuko-iphone.com/?utm_source=pokeca-box-hikaku&amp;utm_medium=referral&amp;utm_campaign=crosspromo" target="_blank" rel="noopener sponsored" onclick="window.gtag&&gtag('event','crosspromo_click',{to:'chuko-iphone',place:'top',transport_type:'beacon'})">価格を比べる &rarr;</a>
   </div>
 </div>
 
