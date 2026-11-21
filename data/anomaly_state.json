@@ -1,10 +1,4 @@
 {
-  "SV 拡張パック「バトルパートナーズ」|kaitoriexpo": {
-    "price": 4000,
-    "ref": 10100,
-    "ratio": 0.4,
-    "drop": false
-  },
   "SV 強化拡張パック「ステラミラクル」|kaitoriexpo": {
     "price": 3700,
     "ref": 11200,
@@ -13,7 +7,7 @@
   },
   "MANGA BOOSTER 01【SB-01】|morimori": {
     "price": 15000,
-    "ref": 80000,
+    "ref": 79900,
     "ratio": 0.19,
     "drop": true
   }
