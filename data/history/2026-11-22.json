@@ -57,7 +57,7 @@
       "morimori": 17300,
       "homura": 17500,
       "rudeya": 14000,
-      "runto": 17500,
+      "runto": 17000,
       "icchome": 17800,
       "oku": 17500,
       "kaikyo": 16000,
@@ -80,7 +80,7 @@
       "oku": 8100,
       "kaikyo": 6500,
       "collect_tendo": 7800,
-      "shinsoku": 8100,
+      "shinsoku": 8000,
       "kaitoriexpo": 8300
     }
   },
@@ -152,7 +152,7 @@
       "oku": 10800,
       "kaikyo": 10000,
       "collect_tendo": 11400,
-      "shinsoku": 11500,
+      "shinsoku": 11300,
       "kaitoriexpo": 11400
     }
   },
@@ -368,7 +368,7 @@
       "icchome": 15600,
       "kaikyo": 15000,
       "collect_tendo": 15800,
-      "shinsoku": 15200,
+      "shinsoku": 15300,
       "kaitoriexpo": 15200
     }
   },
@@ -384,7 +384,7 @@
       "runto": 11000,
       "icchome": 11300,
       "collect_tendo": 11200,
-      "shinsoku": 11300,
+      "shinsoku": 11400,
       "kaitoriexpo": 3700
     }
   },
@@ -400,7 +400,7 @@
       "runto": 11000,
       "icchome": 11200,
       "collect_tendo": 11200,
-      "shinsoku": 11100,
+      "shinsoku": 11200,
       "kaitoriexpo": 11000
     }
   },
@@ -457,7 +457,7 @@
     "name": "SV 拡張パック「サイバージャッジ」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 10700,
+    "max_price": 10800,
     "prices": {
       "morimori": 10400,
       "homura": 10700,
@@ -465,7 +465,7 @@
       "runto": 10000,
       "icchome": 10700,
       "collect_tendo": 10500,
-      "shinsoku": 10700,
+      "shinsoku": 10800,
       "kaitoriexpo": 10000
     }
   },
@@ -529,7 +529,7 @@
       "runto": 14000,
       "icchome": 14300,
       "collect_tendo": 14600,
-      "shinsoku": 14500,
+      "shinsoku": 14700,
       "kaitoriexpo": 14100
     }
   },
@@ -570,7 +570,7 @@
     "name": "SV 拡張パック「クレイバースト」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 10500,
+    "max_price": 10600,
     "prices": {
       "morimori": 10300,
       "homura": 10500,
@@ -578,7 +578,7 @@
       "runto": 10500,
       "icchome": 10500,
       "collect_tendo": 9500,
-      "shinsoku": 10500,
+      "shinsoku": 10600,
       "kaitoriexpo": 10100
     }
   },
@@ -657,7 +657,7 @@
       "runto": 27500,
       "icchome": 26500,
       "collect_tendo": 27000,
-      "shinsoku": 26500,
+      "shinsoku": 26800,
       "kaitoriexpo": 26000
     }
   },
@@ -772,12 +772,12 @@
     "name": "S&S 拡張パック「スターバース」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 21000,
+    "max_price": 21100,
     "prices": {
       "homura": 21000,
       "runto": 20500,
       "collect_tendo": 20000,
-      "shinsoku": 21000,
+      "shinsoku": 21100,
       "kaitoriexpo": 18000
     }
   },
