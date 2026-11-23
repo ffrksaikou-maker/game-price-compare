@@ -3,11 +3,11 @@
     "name": "ブースターパック「BRIGHTNESS OF HOPE」【FB-11】",
     "category": "fb",
     "retail_price": 5760,
-    "max_price": 5500,
+    "max_price": 5300,
     "prices": {
       "rudeya": 3800,
       "shinsoku": 5300,
-      "kaitoriexpo": 5500
+      "kaitoriexpo": 5200
     }
   },
   {
@@ -51,11 +51,11 @@
     "name": "ブースターパック「神龍への願い」【FB-07】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 31000,
+    "max_price": 30500,
     "prices": {
       "homura": 24500,
       "rudeya": 24000,
-      "shinsoku": 31000,
+      "shinsoku": 30500,
       "kaitoriexpo": 25000
     }
   },
@@ -79,7 +79,7 @@
     "prices": {
       "homura": 8800,
       "rudeya": 6000,
-      "shinsoku": 7700,
+      "shinsoku": 7800,
       "kaitoriexpo": 7500
     }
   },
@@ -99,12 +99,12 @@
     "name": "ブースターパック「怒りの咆哮」【FB-03】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 8300,
+    "max_price": 8000,
     "prices": {
       "homura": 8000,
       "rudeya": 6000,
       "shinsoku": 7700,
-      "kaitoriexpo": 8300
+      "kaitoriexpo": 8000
     }
   },
   {
@@ -128,31 +128,31 @@
       "homura": 5100,
       "rudeya": 4300,
       "shinsoku": 6000,
-      "kaitoriexpo": 6000
+      "kaitoriexpo": 5500
     }
   },
   {
     "name": "MANGA BOOSTER 02【SB-02】",
     "category": "sb",
     "retail_price": 7920,
-    "max_price": 44000,
+    "max_price": 35700,
     "prices": {
       "morimori": 19800,
       "rudeya": 32000,
-      "shinsoku": 36100,
-      "kaitoriexpo": 44000
+      "shinsoku": 35700,
+      "kaitoriexpo": 30000
     }
   },
   {
     "name": "MANGA BOOSTER 01【SB-01】",
     "category": "sb",
     "retail_price": 7920,
-    "max_price": 75700,
+    "max_price": 73100,
     "prices": {
       "morimori": 15000,
       "rudeya": 73000,
-      "shinsoku": 75700,
-      "kaitoriexpo": 70000
+      "shinsoku": 73100,
+      "kaitoriexpo": 67000
     }
   },
   {
@@ -165,7 +165,7 @@
       "homura": 9600,
       "rudeya": 5000,
       "runto": 8500,
-      "shinsoku": 7200,
+      "shinsoku": 7500,
       "kaitoriexpo": 9500
     }
   },

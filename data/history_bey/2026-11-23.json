@@ -17,7 +17,7 @@
     "retail_price": 2700,
     "max_price": 2400,
     "prices": {
-      "morimori": 1600,
+      "morimori": 2400,
       "homura": 2400,
       "rudeya": 1600,
       "icchome": 2400
@@ -129,12 +129,12 @@
     "name": "UX-08 シルバーウルフ3-80FB",
     "category": "ux",
     "retail_price": 2080,
-    "max_price": 1800,
+    "max_price": 2000,
     "prices": {
       "morimori": 1600,
       "homura": 1800,
       "rudeya": 1500,
-      "icchome": 1800
+      "icchome": 2000
     }
   },
   {
@@ -237,10 +237,10 @@
     "name": "CX-13 バハムートブリッツBK1-50I",
     "category": "cx",
     "retail_price": 2200,
-    "max_price": 1500,
+    "max_price": 1700,
     "prices": {
       "rudeya": 1200,
-      "icchome": 1500
+      "icchome": 1700
     }
   },
   {
@@ -312,11 +312,11 @@
     "name": "BX-53 オールインワンセット",
     "category": "bx",
     "retail_price": 7480,
-    "max_price": 8000,
+    "max_price": 8200,
     "prices": {
       "morimori": 4500,
       "homura": 8000,
-      "icchome": 8000
+      "icchome": 8200
     }
   },
   {
@@ -356,12 +356,12 @@
     "name": "BX-48 ランダムブースターVol.9",
     "category": "bx",
     "retail_price": 1600,
-    "max_price": 1700,
+    "max_price": 1800,
     "prices": {
       "morimori": 1300,
       "homura": 1700,
       "rudeya": 1200,
-      "icchome": 1700
+      "icchome": 1800
     }
   },
   {
