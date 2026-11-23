@@ -285,8 +285,6 @@
     "OP-18 神の支配": 9300
   },
   "processed_urls": [
-    "https://pbs.twimg.com/media/HW_HwlOakAAo_6m?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HXDqpGQaoAAJSTI?format=jpg&name=large",
     "https://pbs.twimg.com/media/HVxODBYbUAAR5To?format=jpg&name=large",
     "https://pbs.twimg.com/media/HXifh0Ta4AAye4i?format=jpg&name=large",
     "https://pbs.twimg.com/media/HXdbpE8bYAE7Jll?format=jpg&name=large",
@@ -334,7 +332,9 @@
     "https://pbs.twimg.com/media/HXnpwXtaQAArjhd?format=jpg&name=large",
     "https://pbs.twimg.com/media/HXsvYm7a4AAInFO?format=jpg&name=large",
     "https://pbs.twimg.com/media/HXOLUCSbgAA5R20?format=jpg&name=large",
-    "https://pbs.twimg.com/media/HWp1NuWa0AAJEvQ?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HWp1NuWa0AAJEvQ?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HWkvwuJacAAXIUD?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HUKwvkIacAA_RQo?format=jpg&name=large"
   ],
   "last_check": 1795410269,
   "ocr_fail_counts": {
@@ -342,9 +342,13 @@
     "https://pbs.twimg.com/media/HW5YrPcaMAAygPP?format=jpg&name=large": 1
   },
   "pending_images": [
-    "https://pbs.twimg.com/media/HW5YrPcaMAAygPP?format=jpg&name=large"
+    "https://pbs.twimg.com/media/HW5YrPcaMAAygPP?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HXx2pDwbsAEjk3Y?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HXx2pDubAAE5-Z7?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HXx2pDva0AA2E2U?format=jpg&name=large",
+    "https://pbs.twimg.com/media/HXx2pDvbMAAodFT?format=jpg&name=large"
   ],
-  "last_image_check": 1795398149,
+  "last_image_check": 1795412544,
   "seen_at": {
     "OP-14 蒼海の七傑": 1795255356,
     "OP-15 神の島の冒険": 1795341667,
