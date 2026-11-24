@@ -3,11 +3,11 @@
     "name": "ブースターパック「BRIGHTNESS OF HOPE」【FB-11】",
     "category": "fb",
     "retail_price": 5760,
-    "max_price": 5200,
+    "max_price": 5500,
     "prices": {
       "rudeya": 3800,
-      "shinsoku": 5200,
-      "kaitoriexpo": 5200
+      "shinsoku": 5100,
+      "kaitoriexpo": 5500
     }
   },
   {
@@ -26,13 +26,13 @@
     "name": "ブースターパック「DUAL EVOLUTION」【FB-09】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 7000,
+    "max_price": 6600,
     "prices": {
       "morimori": 4550,
       "rudeya": 4500,
       "runto": 6500,
-      "shinsoku": 6300,
-      "kaitoriexpo": 7000
+      "shinsoku": 6600,
+      "kaitoriexpo": 6500
     }
   },
   {
@@ -67,8 +67,8 @@
     "prices": {
       "homura": 11600,
       "rudeya": 6000,
-      "shinsoku": 7800,
-      "kaitoriexpo": 11500
+      "shinsoku": 7700,
+      "kaitoriexpo": 11600
     }
   },
   {
@@ -114,7 +114,7 @@
     "max_price": 6200,
     "prices": {
       "rudeya": 3900,
-      "shinsoku": 5900,
+      "shinsoku": 5800,
       "kaitoriexpo": 6200
     }
   },
@@ -122,12 +122,12 @@
     "name": "ブースターパック「覚醒の鼓動」【FB-01】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 6000,
+    "max_price": 6100,
     "prices": {
       "homura": 5100,
       "rudeya": 4300,
-      "shinsoku": 6000,
-      "kaitoriexpo": 5500
+      "shinsoku": 5900,
+      "kaitoriexpo": 6100
     }
   },
   {
@@ -136,7 +136,7 @@
     "retail_price": 7920,
     "max_price": 40000,
     "prices": {
-      "morimori": 19800,
+      "morimori": 24400,
       "homura": 40000,
       "rudeya": 32000,
       "shinsoku": 34000,
@@ -147,11 +147,11 @@
     "name": "MANGA BOOSTER 01【SB-01】",
     "category": "sb",
     "retail_price": 7920,
-    "max_price": 74000,
+    "max_price": 73000,
     "prices": {
       "morimori": 15000,
       "rudeya": 73000,
-      "shinsoku": 74000,
+      "shinsoku": 68000,
       "kaitoriexpo": 67000
     }
   },
@@ -159,14 +159,14 @@
     "name": "STORY BOOSTER 01【ST-01】",
     "category": "st",
     "retail_price": 6600,
-    "max_price": 9600,
+    "max_price": 9700,
     "prices": {
-      "morimori": 6050,
+      "morimori": 6000,
       "homura": 9600,
       "rudeya": 5000,
-      "runto": 8500,
-      "shinsoku": 7500,
-      "kaitoriexpo": 9500
+      "runto": 9000,
+      "shinsoku": 7600,
+      "kaitoriexpo": 9700
     }
   },
   {
