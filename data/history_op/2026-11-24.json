@@ -8,9 +8,9 @@
       "morimori": 7500,
       "homura": 7500,
       "rudeya": 7500,
-      "icchome": 7800,
+      "icchome": 7500,
       "collect_tendo": 8000,
-      "shinsoku": 7500,
+      "shinsoku": 7200,
       "kaitoriexpo": 7800
     }
   },
@@ -22,7 +22,6 @@
     "prices": {
       "homura": 6500,
       "rudeya": 7150,
-      "runto": 7000,
       "icchome": 6800,
       "collect_tendo": 6000,
       "shinsoku": 6800,
@@ -340,7 +339,7 @@
       "homura": 10000,
       "rudeya": 10000,
       "runto": 10000,
-      "icchome": 11000,
+      "icchome": 10000,
       "collect_tendo": 10500,
       "shinsoku": 10100,
       "kaitoriexpo": 11300,

@@ -62,7 +62,7 @@
       "icchome": 16500,
       "kaikyo": 17100,
       "collect_tendo": 17000,
-      "shinsoku": 16500,
+      "shinsoku": 16000,
       "kaitoriexpo": 16500
     }
   },
@@ -88,12 +88,12 @@
     "name": "MEGA 拡張パック「アビスアイ」",
     "category": "mega",
     "retail_price": 6000,
-    "max_price": 7700,
+    "max_price": 7600,
     "prices": {
       "morimori": 7300,
       "homura": 7500,
       "rudeya": 6000,
-      "runto": 7700,
+      "runto": 7500,
       "icchome": 7500,
       "kaikyo": 6500,
       "collect_tendo": 7600,
@@ -115,7 +115,7 @@
       "icchome": 8500,
       "kaikyo": 6500,
       "collect_tendo": 8100,
-      "shinsoku": 8500,
+      "shinsoku": 8300,
       "kaitoriexpo": 8200,
       "oku": 8600
     }
@@ -151,7 +151,7 @@
       "icchome": 11500,
       "kaikyo": 11500,
       "collect_tendo": 11400,
-      "shinsoku": 11300,
+      "shinsoku": 11200,
       "kaitoriexpo": 11200,
       "oku": 10800
     }
@@ -169,7 +169,7 @@
       "icchome": 16500,
       "kaikyo": 16400,
       "collect_tendo": 16400,
-      "shinsoku": 16300,
+      "shinsoku": 16200,
       "kaitoriexpo": 16300,
       "oku": 16800
     }
@@ -187,7 +187,7 @@
       "icchome": 7300,
       "kaikyo": 7000,
       "collect_tendo": 7700,
-      "shinsoku": 7300,
+      "shinsoku": 7200,
       "kaitoriexpo": 7700,
       "oku": 7600
     }
@@ -205,7 +205,7 @@
       "icchome": 7000,
       "kaikyo": 6500,
       "collect_tendo": 7100,
-      "shinsoku": 7000,
+      "shinsoku": 6800,
       "kaitoriexpo": 7000,
       "oku": 7200
     }
@@ -310,7 +310,7 @@
     "name": "SV 拡張パック「バトルパートナーズ」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 10100,
+    "max_price": 10000,
     "prices": {
       "morimori": 9800,
       "homura": 10000,
@@ -318,7 +318,7 @@
       "runto": 9500,
       "icchome": 10000,
       "collect_tendo": 9600,
-      "shinsoku": 10100,
+      "shinsoku": 10000,
       "kaitoriexpo": 4000
     }
   },
@@ -406,7 +406,7 @@
     "name": "SV 拡張パック「変幻の仮面」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 11700,
+    "max_price": 11600,
     "prices": {
       "morimori": 10800,
       "homura": 11000,
@@ -414,7 +414,7 @@
       "runto": 11500,
       "icchome": 11200,
       "collect_tendo": 11400,
-      "shinsoku": 11700,
+      "shinsoku": 11500,
       "kaitoriexpo": 11600
     }
   },
@@ -495,7 +495,7 @@
       "runto": 11000,
       "icchome": 11000,
       "collect_tendo": 10000,
-      "shinsoku": 11000,
+      "shinsoku": 10800,
       "kaitoriexpo": 11000
     }
   },
@@ -535,7 +535,7 @@
     "name": "SV 強化拡張パック「黒炎の支配者」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 19000,
+    "max_price": 18800,
     "prices": {
       "morimori": 18600,
       "homura": 18800,
@@ -543,7 +543,7 @@
       "runto": 18500,
       "icchome": 18800,
       "collect_tendo": 18800,
-      "shinsoku": 19000,
+      "shinsoku": 18800,
       "kaitoriexpo": 18800
     }
   },
@@ -568,7 +568,7 @@
     "name": "SV 拡張パック「クレイバースト」",
     "category": "sv",
     "retail_price": 5400,
-    "max_price": 10600,
+    "max_price": 10700,
     "prices": {
       "morimori": 10300,
       "homura": 10300,
@@ -576,7 +576,7 @@
       "runto": 10500,
       "icchome": 10500,
       "collect_tendo": 9500,
-      "shinsoku": 10600,
+      "shinsoku": 10700,
       "kaitoriexpo": 10000
     }
   },
