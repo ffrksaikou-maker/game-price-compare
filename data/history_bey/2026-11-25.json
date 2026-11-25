@@ -52,7 +52,7 @@
     "retail_price": 2300,
     "max_price": 1700,
     "prices": {
-      "morimori": 1050,
+      "morimori": 1000,
       "rudeya": 1000,
       "icchome": 1700
     }
@@ -74,7 +74,7 @@
     "retail_price": 4200,
     "max_price": 6400,
     "prices": {
-      "morimori": 5550,
+      "morimori": 5400,
       "homura": 6400,
       "rudeya": 5500,
       "icchome": 6400
@@ -164,7 +164,7 @@
     "retail_price": 1980,
     "max_price": 1600,
     "prices": {
-      "morimori": 1350,
+      "morimori": 1200,
       "homura": 1300,
       "rudeya": 1300,
       "icchome": 1600
@@ -196,7 +196,7 @@
     "retail_price": 1600,
     "max_price": 1800,
     "prices": {
-      "morimori": 1650,
+      "morimori": 1700,
       "rudeya": 1300,
       "icchome": 1800
     }
@@ -207,7 +207,7 @@
     "retail_price": 1600,
     "max_price": 2300,
     "prices": {
-      "morimori": 1850,
+      "morimori": 1500,
       "rudeya": 1000,
       "icchome": 2300
     }
@@ -251,7 +251,7 @@
     "retail_price": 1700,
     "max_price": 2000,
     "prices": {
-      "morimori": 1600,
+      "morimori": 1500,
       "rudeya": 2000,
       "icchome": 1800
     }
@@ -348,7 +348,7 @@
     "retail_price": 2200,
     "max_price": 2000,
     "prices": {
-      "morimori": 1500,
+      "morimori": 1300,
       "homura": 2000,
       "rudeya": 1300,
       "icchome": 1600
@@ -381,7 +381,7 @@
     "retail_price": 1500,
     "max_price": 1800,
     "prices": {
-      "morimori": 1650,
+      "morimori": 1700,
       "rudeya": 1500,
       "icchome": 1800
     }
@@ -411,7 +411,7 @@
     "retail_price": 2321,
     "max_price": 1900,
     "prices": {
-      "morimori": 1500,
+      "morimori": 1400,
       "homura": 1900,
       "rudeya": 1000,
       "icchome": 1900
@@ -443,9 +443,9 @@
     "name": "BX-09 ベイバトルパス",
     "category": "bx",
     "retail_price": 3300,
-    "max_price": 1700,
+    "max_price": 1600,
     "prices": {
-      "morimori": 1700,
+      "morimori": 1600,
       "icchome": 840
     }
   },
@@ -464,7 +464,7 @@
     "retail_price": 2620,
     "max_price": 1600,
     "prices": {
-      "morimori": 1500,
+      "morimori": 1400,
       "rudeya": 1400,
       "icchome": 1600
     }
