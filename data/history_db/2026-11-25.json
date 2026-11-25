@@ -3,36 +3,35 @@
     "name": "ブースターパック「BRIGHTNESS OF HOPE」【FB-11】",
     "category": "fb",
     "retail_price": 5760,
-    "max_price": 5500,
+    "max_price": 5600,
     "prices": {
       "rudeya": 3800,
-      "shinsoku": 5100,
-      "kaitoriexpo": 5500
+      "shinsoku": 4800,
+      "kaitoriexpo": 5600
     }
   },
   {
     "name": "ブースターパック「CROSS FORCE」【FB-10】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 6000,
+    "max_price": 5500,
     "prices": {
-      "morimori": 4000,
       "rudeya": 3800,
-      "shinsoku": 5200,
-      "kaitoriexpo": 6000
+      "shinsoku": 4900,
+      "kaitoriexpo": 5500,
+      "morimori": 4000
     }
   },
   {
     "name": "ブースターパック「DUAL EVOLUTION」【FB-09】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 6500,
+    "max_price": 6600,
     "prices": {
-      "morimori": 4550,
       "rudeya": 4500,
-      "runto": 6500,
-      "shinsoku": 6500,
-      "kaitoriexpo": 6500
+      "shinsoku": 6000,
+      "kaitoriexpo": 6600,
+      "morimori": 4550
     }
   },
   {
@@ -43,7 +42,7 @@
     "prices": {
       "homura": 11000,
       "rudeya": 8000,
-      "shinsoku": 9900,
+      "shinsoku": 9400,
       "kaitoriexpo": 10000
     }
   },
@@ -51,11 +50,11 @@
     "name": "ブースターパック「神龍への願い」【FB-07】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 30400,
+    "max_price": 29700,
     "prices": {
       "homura": 24500,
       "rudeya": 24000,
-      "shinsoku": 30400,
+      "shinsoku": 29700,
       "kaitoriexpo": 25000
     }
   },
@@ -67,7 +66,7 @@
     "prices": {
       "homura": 11600,
       "rudeya": 6000,
-      "shinsoku": 7700,
+      "shinsoku": 7300,
       "kaitoriexpo": 11600
     }
   },
@@ -75,11 +74,11 @@
     "name": "ブースターパック「未知なる冒険」【FB-05】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 8800,
+    "max_price": 8000,
     "prices": {
-      "homura": 8800,
+      "homura": 8000,
       "rudeya": 6000,
-      "shinsoku": 7700,
+      "shinsoku": 7400,
       "kaitoriexpo": 7500
     }
   },
@@ -91,8 +90,8 @@
     "prices": {
       "homura": 7600,
       "rudeya": 4500,
-      "shinsoku": 6700,
-      "kaitoriexpo": 7500
+      "shinsoku": 6300,
+      "kaitoriexpo": 6900
     }
   },
   {
@@ -103,7 +102,7 @@
     "prices": {
       "homura": 8100,
       "rudeya": 6000,
-      "shinsoku": 7700,
+      "shinsoku": 7300,
       "kaitoriexpo": 8000
     }
   },
@@ -114,7 +113,7 @@
     "max_price": 6200,
     "prices": {
       "rudeya": 3900,
-      "shinsoku": 5700,
+      "shinsoku": 5400,
       "kaitoriexpo": 6200
     }
   },
@@ -122,25 +121,25 @@
     "name": "ブースターパック「覚醒の鼓動」【FB-01】",
     "category": "fb",
     "retail_price": 5280,
-    "max_price": 5900,
+    "max_price": 5600,
     "prices": {
-      "homura": 5100,
+      "homura": 5000,
       "rudeya": 4300,
-      "shinsoku": 5900,
-      "kaitoriexpo": 5500
+      "shinsoku": 5600,
+      "kaitoriexpo": 5400
     }
   },
   {
     "name": "MANGA BOOSTER 02【SB-02】",
     "category": "sb",
     "retail_price": 7920,
-    "max_price": 40000,
+    "max_price": 32000,
     "prices": {
-      "morimori": 24400,
-      "homura": 40000,
+      "homura": 30000,
       "rudeya": 32000,
-      "shinsoku": 33600,
-      "kaitoriexpo": 30000
+      "shinsoku": 31800,
+      "kaitoriexpo": 30000,
+      "morimori": 24400
     }
   },
   {
@@ -150,7 +149,7 @@
     "max_price": 73000,
     "prices": {
       "rudeya": 73000,
-      "shinsoku": 68000,
+      "shinsoku": 62400,
       "kaitoriexpo": 67000
     }
   },
@@ -160,12 +159,12 @@
     "retail_price": 6600,
     "max_price": 9700,
     "prices": {
-      "morimori": 6000,
-      "homura": 9600,
+      "homura": 9500,
       "rudeya": 5000,
       "runto": 9000,
-      "shinsoku": 7600,
-      "kaitoriexpo": 9700
+      "shinsoku": 7100,
+      "kaitoriexpo": 9700,
+      "morimori": 6000
     }
   },
   {
@@ -183,9 +182,9 @@
     "retail_price": 6600,
     "max_price": 28000,
     "prices": {
-      "morimori": 25000,
       "rudeya": 28000,
-      "kaitoriexpo": 27000
+      "kaitoriexpo": 27000,
+      "morimori": 25000
     }
   }
 ]
