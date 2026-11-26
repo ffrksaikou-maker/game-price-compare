@@ -122,7 +122,7 @@ jobs:
             ninja-spinner-spotlight.html rocket-dan-no-eiko-spotlight.html \
             mega-ex-spotlight.html mega-brave-spotlight.html \
             battle-collection-spotlight.html \
-            abyss-eye-forecast.html storm-emeralda-forecast.html
+            abyss-eye-forecast.html storm-emeralda-forecast.html hadou-seeker-forecast.html
           git diff --staged --quiet || git commit -m "Update prices $(TZ=Asia/Tokyo date +%Y-%m-%d_%H:%M)"
           git stash --include-untracked
           # run が重なると生成物どうしが衝突して rebase が止まり、
