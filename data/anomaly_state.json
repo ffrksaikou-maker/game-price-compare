@@ -1,8 +1,8 @@
 {
-  "SV 強化拡張パック「ステラミラクル」|kaitoriexpo": {
-    "price": 3700,
-    "ref": 11000,
-    "ratio": 0.34,
-    "drop": false
+  "エクストラブースター「メモリアルコレクション」【EB-01】|kaitoriexpo": {
+    "price": 1500,
+    "ref": 19100,
+    "ratio": 0.08,
+    "drop": true
   }
 }

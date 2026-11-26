@@ -3,11 +3,11 @@
     "name": "ブースターパック「BRIGHTNESS OF HOPE」【FB-11】",
     "category": "fb",
     "retail_price": 5760,
-    "max_price": 5600,
+    "max_price": 5500,
     "prices": {
       "rudeya": 3800,
       "shinsoku": 4800,
-      "kaitoriexpo": 5600
+      "kaitoriexpo": 5500
     }
   },
   {
@@ -16,10 +16,10 @@
     "retail_price": 5280,
     "max_price": 5500,
     "prices": {
-      "morimori": 4000,
       "rudeya": 3800,
       "shinsoku": 4800,
-      "kaitoriexpo": 5500
+      "kaitoriexpo": 5500,
+      "morimori": 4000
     }
   },
   {
@@ -28,10 +28,10 @@
     "retail_price": 5280,
     "max_price": 6600,
     "prices": {
-      "morimori": 4550,
       "rudeya": 4500,
       "shinsoku": 6000,
-      "kaitoriexpo": 6600
+      "kaitoriexpo": 6600,
+      "morimori": 4550
     }
   },
   {
@@ -55,7 +55,7 @@
       "homura": 24500,
       "rudeya": 24000,
       "shinsoku": 29600,
-      "kaitoriexpo": 25000
+      "kaitoriexpo": 24500
     }
   },
   {
@@ -91,7 +91,7 @@
       "homura": 7600,
       "rudeya": 4500,
       "shinsoku": 6300,
-      "kaitoriexpo": 6900
+      "kaitoriexpo": 6500
     }
   },
   {
@@ -126,7 +126,7 @@
       "homura": 5000,
       "rudeya": 4300,
       "shinsoku": 5500,
-      "kaitoriexpo": 5400
+      "kaitoriexpo": 5200
     }
   },
   {
@@ -135,10 +135,10 @@
     "retail_price": 7920,
     "max_price": 32000,
     "prices": {
-      "morimori": 24400,
       "rudeya": 32000,
       "shinsoku": 31200,
-      "kaitoriexpo": 30000
+      "kaitoriexpo": 30000,
+      "morimori": 24400
     }
   },
   {
@@ -156,14 +156,14 @@
     "name": "STORY BOOSTER 01【ST-01】",
     "category": "st",
     "retail_price": 6600,
-    "max_price": 9700,
+    "max_price": 9600,
     "prices": {
-      "morimori": 6000,
       "homura": 9200,
       "rudeya": 5000,
       "runto": 9000,
       "shinsoku": 7100,
-      "kaitoriexpo": 9700
+      "kaitoriexpo": 9600,
+      "morimori": 6000
     }
   },
   {
@@ -181,9 +181,9 @@
     "retail_price": 6600,
     "max_price": 28000,
     "prices": {
-      "morimori": 25000,
       "rudeya": 28000,
-      "kaitoriexpo": 27000
+      "kaitoriexpo": 27000,
+      "morimori": 25000
     }
   }
 ]
