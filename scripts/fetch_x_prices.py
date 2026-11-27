@@ -334,7 +334,7 @@ def _merge_state(ours: dict, theirs: dict) -> dict:
         seen[k] = max(v, seen.get(k, 0))
     merged["seen_at"] = {k: v for k, v in seen.items() if k in merged["items"]}
     done = list(dict.fromkeys(ours.get("processed_urls", [])
-                              + theirs.get("processed_urls", [])))[-50:]
+                              + theirs.get("processed_urls", [])))[-200:]
     merged["processed_urls"] = done
     merged["pending_images"] = [
         u for u in dict.fromkeys(ours.get("pending_images", [])

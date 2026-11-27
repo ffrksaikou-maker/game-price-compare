@@ -96,17 +96,19 @@ class CollectTendoScraper(BaseScraper):
             return []
 
         state = self._load_state()
-        seen_urls = set(state.get("processed_urls", []))
+        processed_list: list[str] = list(state.get("processed_urls", []))
+        seen_urls = set(processed_list)
 
         # Step 1: Playwrightで画像URL取得
         image_urls = self._fetch_recent_image_urls(auth_token, ct0)
-        if not image_urls:
-            # CIからXを開くとCloudflareのボット検証で止まる。その場合は
-            # ローカル(scripts/fetch_x_prices.py)が集めておいた画像URLを使う。
-            image_urls = state.get("pending_images", [])
-            if image_urls:
-                logger.info("CollectTendo: using %d image URLs collected locally",
-                            len(image_urls))
+        # ローカル(scripts/fetch_x_prices.py)が集めた未処理画像は、CIがXを
+        # 開けた場合も必ず足す。以前はCIが開けると先頭4枚だけを見て未処理分を
+        # 無視していたため、価格表の1枚目が読まれずに残った(2026-11-28)。
+        pending = state.get("pending_images", [])
+        if pending:
+            logger.info("CollectTendo: adding %d image URLs collected locally",
+                        len(pending))
+        image_urls = list(dict.fromkeys(list(image_urls) + list(pending)))
         if not image_urls:
             logger.warning("CollectTendo: no images found, returning cached items")
             return self._items_from_state(state)
@@ -141,8 +143,10 @@ class CollectTendoScraper(BaseScraper):
                     continue
                 logger.warning("CollectTendo: OCR empty %d times, giving up", MAX_OCR_RETRIES)
                 seen_urls.add(url)
+                processed_list.append(url)
                 continue
             fail_counts.pop(url, None)
+            processed_list.append(url)
             for name, price in extracted.items():
                 if price > 0 and price > new_items.get(name, 0):
                     new_items[name] = price
@@ -168,8 +172,10 @@ class CollectTendoScraper(BaseScraper):
         for _n in cached_items:
             seen_at.setdefault(_n, now)
         state["seen_at"] = {k: v for k, v in seen_at.items() if k in cached_items}
-        # processed_urls は最新50件まで保持(古いのは破棄)
-        state["processed_urls"] = list(seen_urls)[-50:]
+        # processed_urls は処理順を保って最新200件まで保持(古いのから破棄)。
+        # 以前は set を list 化して切っていたため順序が不定で、最近の画像が
+        # 既読から落ちて再OCRされ、古い価格で上書きされる恐れがあった。
+        state["processed_urls"] = list(dict.fromkeys(processed_list))[-200:]
         state["ocr_fail_counts"] = {
             u: c for u, c in fail_counts.items() if u in image_urls
         }
