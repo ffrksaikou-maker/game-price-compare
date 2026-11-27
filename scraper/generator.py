@@ -110,6 +110,7 @@ def get_box_image_url(slug: str) -> str:
 
 # Blog articles (newest first) - 記事追加時はここに1行足すだけ
 BLOG_ARTICLES = [
+    {"url": "hadou-seeker-atari-guide.html", "title": "ハドウシーカー 当たりカードランキング・封入率｜メガルカリオZex MURは約4万円", "desc": "11/27発売ハドウシーカーの当たりカードランキングと封入率。看板メガルカリオZex MURは買取約4万円(約50BOXに1枚)、SAR6種は1,000〜7,000円。1BOX開封の期待値は買取ベースで約3,000円で、発売日のBOX買取¥6,300〜¥8,100の半分以下。", "date": "2026-11-27"},
     {"url": "hadou-seeker-forecast.html", "title": "ハドウシーカー BOX買取価格【発売日】最高¥8,100・全店比較｜発売前予想の答え合わせ", "desc": "11/27発売のハドウシーカーの発売日BOX買取を9店舗比較。最高はEXPO¥8,100(定価比1.35倍)、多くの店は発売日のうちに¥6,300〜¥7,200へ下落で、前作アビスアイ¥13,500・ストームエメラルダ¥25,000を大きく下回る初値。発売前3シナリオの答え合わせで弱気¥7,500が最有力に。", "date": "2026-11-27"},
     {"url": "souba-geraku.html", "title": "ポケカ・ワンピBOX相場の下落ランキング｜30日で何%下がった?(毎日更新)", "desc": "ポケカとワンピの未開封BOX買取相場が直近30日でどれだけ下がったかを実データで毎日集計。下落率ランキング、記録上の最高値からの下落率、定価に近づいたBOXの一覧。", "date": "2026-11-19"},
     {"url": "box-hokan.html", "title": "ポケカBOXの保管方法｜シュリンクを剥がすと買取はいくら落ちるか", "desc": "シュリンク付きとシュリンクなしの買取価格を38商品ぶん集計。下落率の平均は12.3%、最大はポケモンカード151の9,000円で、弾によって-2.7%から-24.4%まで開きます。湿気による反り、2026年8月の記録的大雨をふまえた置き場所のリスク、BOXローダーや防湿庫まで実データで整理。", "date": "2026-09-11"},
@@ -1273,6 +1274,7 @@ def _build_box_narrative(
         "black-bolt-dx": ("dx-vs-normal-guide.html", "拡張パックDXと通常版はどちらを買うべきか"),
         "white-flare-dx": ("dx-vs-normal-guide.html", "拡張パックDXと通常版はどちらを買うべきか"),
         "abyss-eye": ("abyss-eye-atari-guide.html", "アビスアイ 当たりカードランキング・封入率完全ガイド"),
+        "hadou-seeker": ("hadou-seeker-atari-guide.html", "ハドウシーカー 当たりカードランキング・封入率完全ガイド"),
         "mega-ex": ("mega-ex-atari-guide.html", "MEGAドリームex 当たりカードランキング・封入率完全ガイド"),
         "inferno": ("inferno-x-atari-guide.html", "インフェルノX 当たりカードランキング・封入率完全ガイド"),
         "mega-brave": ("mega-brave-atari-guide.html", "メガブレイブ 当たりカードランキング・封入率完全ガイド"),
@@ -2253,6 +2255,7 @@ def _update_sitemap(
         ("/storm-emeralda-forecast.html", "monthly", "0.8", "2026-07-19"),
         ("/30th-cardset-forecast.html", "weekly", "0.9", "2026-10-15"),
         ("/hadou-seeker-forecast.html", "daily", "0.9", "2026-11-27"),
+        ("/hadou-seeker-atari-guide.html", "weekly", "0.8", "2026-11-27"),
         ("/30th-cardset-atari-guide.html", "monthly", "0.9", "2026-10-09"),
         ("/rgb-mew-guide.html", "monthly", "0.9", "2026-09-24"),
         ("/30th-celebration-review.html", "monthly", "0.9", "2026-09-22"),
