@@ -1753,6 +1753,20 @@ td.qi input{width:52px;padding:3px 4px;border:1.5px solid var(--border);border-r
 td.qi input:focus{outline:none;border-color:#6366f1;box-shadow:0 0 0 2px rgba(99,102,241,.2)}
 td.qi input::-webkit-inner-spin-button{opacity:1}
 .ib{font-size:12px;padding:5px 14px;border:1.5px solid #8b5cf6;border-radius:20px;background:#f5f3ff;color:#6d28d9;cursor:pointer;transition:all .15s;white-space:nowrap;font-weight:600;-webkit-tap-highlight-color:transparent}
+.bulk{max-width:1240px;margin:10px auto 4px;padding:14px 16px;background:#faf5ff;border:1px solid #ddd6fe;border-radius:12px}
+.bulk h2{font-size:15px;font-weight:800;color:#5b21b6;margin:0 0 4px}
+.bulk .bk-lead{font-size:12px;color:#6b7280;margin:0 0 10px;line-height:1.6}
+.bulk .bk-best{font-size:13px;margin:0 0 8px}
+.bulk .bk-best strong{color:#6d28d9;font-size:15px}
+.bulk .bk-tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.bulk table{width:100%;border-collapse:collapse;font-size:13px;background:#fff;border-radius:8px;overflow:hidden}
+.bulk th,.bulk td{padding:8px 10px;border-bottom:1px solid #ede9fe;white-space:nowrap;text-align:left}
+.bulk th{font-size:11px;color:#6b7280;background:#f5f3ff;font-weight:700}
+.bulk td.n{text-align:right;font-variant-numeric:tabular-nums}
+.bulk tr.top td{background:#ede9fe;font-weight:700}
+.bulk .ok{display:inline-block;margin-left:6px;padding:1px 7px;border-radius:10px;background:#7c3aed;color:#fff;font-size:10px;font-weight:700}
+.bulk a{color:#6d28d9;font-weight:700}
+.bulk .bk-note{font-size:11px;color:#6b7280;margin:8px 0 0;line-height:1.6}
 .ib:hover{background:#ede9fe}.ib.active{background:#7c3aed;color:#fff;border-color:#7c3aed}
 
 /* Legend / footer */
@@ -1962,6 +1976,7 @@ details[open] .si-summary::after{transform:rotate(180deg)}
   </div>
 </div>
 
+<section class="bulk" id="bulk" style="display:none" aria-live="polite"></section>
 <div class="lg">
   <div class="li"><span class="ls" style="background:var(--mega)"></span>MEGA</div>
   <div class="li"><span class="ls" style="background:var(--sv)"></span>SV</div>
@@ -2371,6 +2386,62 @@ function render(){
   SO.forEach(function(s){if(scThs[s])thr.appendChild(scThs[s])});
   document.querySelectorAll("thead th.inv-col").forEach(function(th){th.style.display=invMode?"":"none"});
   if(invMode)updateTotal();
+  renderBulk();
+}
+
+// ===== まとめ売り比較(資産モード) =====
+// 入力した個数を1店舗にまとめて売った場合の買取総額を店ごとに並べる
+function renderBulk(){
+  const el=document.getElementById("bulk");
+  if(!el)return;
+  if(!invMode){el.style.display="none";return}
+  el.style.display="";
+  el.textContent="";
+  const h=document.createElement("h2");h.textContent="📦 まとめ売り比較｜1店舗にまとめて売るといくら？";el.appendChild(h);
+  const inv=loadInv();
+  const items=P.filter(x=>(inv[x.n]||0)>0);
+  const lead=document.createElement("p");lead.className="bk-lead";
+  if(!items.length){lead.textContent="下の表の「個数」に手持ちのBOX数を入れると、なるべく1店舗にまとめて売った場合の合計が店ごとにここに出ます。";el.appendChild(lead);return}
+  const boxes=items.reduce((a,x)=>a+inv[x.n],0);
+  lead.textContent=items.length+"種類・計"+boxes+"BOXを、なるべく1店舗にまとめて売った場合の合計です。その店が買い取らない種類は、一番高い店で売る計算にしています。";
+  el.appendChild(lead);
+  const names={},links={};
+  document.querySelectorAll("thead th.sc").forEach(function(th){names[th.dataset.s]=th.textContent.trim();const a=th.querySelector("a");if(a)links[th.dataset.s]=a.href});
+  const shops=S.filter(s=>vs.has(s));
+  let best=0;
+  items.forEach(x=>{const ap=shops.filter(s=>x.p[s]>0).map(s=>x.p[s]);if(ap.length)best+=Math.max(...ap)*inv[x.n]});
+  const bestOf=x=>{const ap=shops.filter(s=>x.p[s]>0).map(s=>x.p[s]);return ap.length?Math.max(...ap):0};
+  const rows=shops.map(s=>{let t=0,c=0;items.forEach(x=>{if(x.p[s]>0){t+=x.p[s]*inv[x.n];c++}else{t+=bestOf(x)*inv[x.n]}});return{s:s,t:t,c:c}}).filter(r=>r.c>0);
+  rows.sort((a,b)=>b.t-a.t||b.c-a.c);
+  const bp=document.createElement("p");bp.className="bk-best";
+  bp.appendChild(document.createTextNode("BOXごとに一番高い店へ分けて売った場合: "));
+  const bs=document.createElement("strong");bs.textContent=fp(best);bp.appendChild(bs);
+  el.appendChild(bp);
+  const tw=document.createElement("div");tw.className="bk-tw";
+  const tb=document.createElement("table");
+  const th=document.createElement("thead");
+  th.innerHTML="<tr><th>買取店</th><th style=\"text-align:right\">合計</th><th style=\"text-align:right\">分けた場合との差</th><th>この店で売る</th></tr>";
+  tb.appendChild(th);
+  const bd=document.createElement("tbody");
+  rows.forEach(function(r,i){
+    const tr=document.createElement("tr");
+    if(i===0)tr.className="top";
+    const t1=document.createElement("td");
+    if(links[r.s]){const a=document.createElement("a");a.href=links[r.s];a.target="_blank";a.rel="noopener noreferrer";a.textContent=names[r.s]||r.s;a.addEventListener("click",function(){if(typeof gtag==="function")gtag('event','bulk_sell_click',{shop:r.s,full:r.c===items.length?1:0})});t1.appendChild(a)}
+    else t1.textContent=names[r.s]||r.s;
+    tr.appendChild(t1);
+    const t2=document.createElement("td");t2.className="n";t2.textContent=fp(r.t);tr.appendChild(t2);
+    const t3=document.createElement("td");t3.className="n";const d=r.t-best;t3.textContent=d===0?"±¥0":"-¥"+Math.abs(d).toLocaleString();tr.appendChild(t3);
+    const t4=document.createElement("td");t4.textContent=r.c+"/"+items.length+"種"+(r.c<items.length?" +他店"+(items.length-r.c)+"種":"");
+    if(r.c===items.length){const o=document.createElement("span");o.className="ok";o.textContent="全種OK";t4.appendChild(o)}
+    tr.appendChild(t4);
+    bd.appendChild(tr);
+  });
+  tb.appendChild(bd);tw.appendChild(tb);el.appendChild(tw);
+  const nt=document.createElement("p");nt.className="bk-note";
+  nt.textContent="※合計の高い順です。送料・振込手数料・まとめ売りの上乗せは含みません。価格は各店の掲載価格(1日3回更新)で、在庫状況や数量によって変わることがあります。売る前に各店の条件をご確認ください。";
+  el.appendChild(nt);
+  if(typeof gtag==="function"&&!renderBulk._sent){renderBulk._sent=1;gtag('event','bulk_compare_view',{kinds:items.length,boxes:boxes})}
 }
 
 // ===== Event listeners =====
