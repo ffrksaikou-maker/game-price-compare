@@ -61,11 +61,11 @@
     "name": "UX-16 ランダムブースター クロックミラージュセレクト",
     "category": "ux",
     "retail_price": 1400,
-    "max_price": 3300,
+    "max_price": 2800,
     "prices": {
-      "morimori": 3300,
+      "morimori": 2500,
       "rudeya": 2800,
-      "icchome": 3300
+      "icchome": 2000
     }
   },
   {
@@ -174,10 +174,10 @@
     "name": "CX-20 カスタマイズセットC",
     "category": "cx",
     "retail_price": 6600,
-    "max_price": 9100,
+    "max_price": 9000,
     "prices": {
       "homura": 9000,
-      "icchome": 9100
+      "icchome": 8000
     }
   },
   {
@@ -207,7 +207,7 @@
     "retail_price": 1600,
     "max_price": 1600,
     "prices": {
-      "morimori": 1450,
+      "morimori": 1300,
       "rudeya": 1000,
       "icchome": 1600
     }
@@ -314,11 +314,11 @@
     "name": "BX-53 オールインワンセット",
     "category": "bx",
     "retail_price": 7480,
-    "max_price": 8200,
+    "max_price": 8000,
     "prices": {
       "morimori": 4500,
       "homura": 8000,
-      "icchome": 8200
+      "icchome": 7500
     }
   },
   {
@@ -348,7 +348,7 @@
     "retail_price": 2200,
     "max_price": 1900,
     "prices": {
-      "morimori": 1300,
+      "morimori": 1200,
       "homura": 1900,
       "rudeya": 1300,
       "icchome": 1600
