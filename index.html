@@ -2411,8 +2411,8 @@ function renderBulk(){
   const boxes=items.reduce((a,x)=>a+inv[x.n],0);
   lead.textContent=items.length+"種類・計"+boxes+"BOXを、なるべく1店舗にまとめて売った場合の合計です。その店が買い取らない種類は、一番高い店で売る計算にしています。";
   el.appendChild(lead);
-  const names={},links={};
-  document.querySelectorAll("thead th.sc").forEach(function(th){names[th.dataset.s]=th.textContent.trim();const a=th.querySelector("a");if(a)links[th.dataset.s]=a.href});
+  const names={morimori:"森森",homura:"ホムラ",icchome:"一丁目",runto:"ラントゥ",collect_tendo:"コレクト",shinsoku:"シンソク",oku:"オク",rudeya:"ルデヤ",kaikyo:"海峡",kaitoriexpo:"EXPO"},links={};
+  document.querySelectorAll("thead th.sc").forEach(function(th){const a=th.querySelector("a");if(a)links[th.dataset.s]=a.href});
   const shops=S.filter(s=>vs.has(s));
   let best=0;
   items.forEach(x=>{const ap=shops.filter(s=>x.p[s]>0).map(s=>x.p[s]);if(ap.length)best+=Math.max(...ap)*inv[x.n]});
@@ -2433,6 +2433,7 @@ function renderBulk(){
     const tr=document.createElement("tr");
     if(i===0)tr.className="top";
     const t1=document.createElement("td");
+    if(!links[r.s])links[r.s]="shop/"+r.s+".html";
     if(links[r.s]){const a=document.createElement("a");a.href=links[r.s];a.target="_blank";a.rel="noopener noreferrer";a.textContent=names[r.s]||r.s;a.addEventListener("click",function(){if(typeof gtag==="function")gtag('event','bulk_sell_click',{shop:r.s,full:r.c===items.length?1:0})});t1.appendChild(a)}
     else t1.textContent=names[r.s]||r.s;
     tr.appendChild(t1);
