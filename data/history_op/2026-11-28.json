@@ -3,7 +3,7 @@
     "name": "ブースターパック「神の支配」【OP-18】",
     "category": "op",
     "retail_price": 5760,
-    "max_price": 6700,
+    "max_price": 6300,
     "prices": {
       "morimori": 5800,
       "homura": 5800,
@@ -12,7 +12,7 @@
       "icchome": 5600,
       "collect_tendo": 5500,
       "shinsoku": 5900,
-      "kaitoriexpo": 6700
+      "kaitoriexpo": 6300
     }
   },
   {
@@ -162,8 +162,7 @@
       "icchome": 15000,
       "oku": 16500,
       "collect_tendo": 17000,
-      "shinsoku": 15600,
-      "kaitoriexpo": 15800
+      "shinsoku": 15600
     }
   },
   {
@@ -195,8 +194,7 @@
       "runto": 14000,
       "icchome": 15000,
       "oku": 14600,
-      "shinsoku": 13400,
-      "kaitoriexpo": 13500
+      "shinsoku": 13400
     }
   },
   {
@@ -285,7 +283,7 @@
     "name": "ブースターパック「ROMANCE DAWN」【OP-01】",
     "category": "op",
     "retail_price": 4752,
-    "max_price": 35000,
+    "max_price": 31300,
     "prices": {
       "morimori": 30500,
       "homura": 30800,
@@ -294,8 +292,7 @@
       "icchome": 31000,
       "oku": 30500,
       "collect_tendo": 31000,
-      "shinsoku": 30500,
-      "kaitoriexpo": 35000
+      "shinsoku": 30500
     }
   },
   {
