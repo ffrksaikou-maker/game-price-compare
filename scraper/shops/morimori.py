@@ -31,6 +31,10 @@ TARGETS = [
     ("ポケモン", f"{BASE}/category/2401"),
     ("ワンピ", f"{BASE}/category/2403"),
     ("ワンピ新弾", f"{BASE}/category/0112003"),
+    # ポケカの新弾は発売直後 category/2401 に出ず 0112001(未開封ボックス新着)にだけ
+    # 載る(2026-11-27 ハドウシーカーで判明)。カートン・パック単品も混ざるため
+    # NEW_ARRIVAL_EXCLUDE_RE で落とす。
+    ("ポケモン新弾", f"{BASE}/category/0112001"),
     ("ベイブレード", f"{BASE}/category/1904001"),
     # ドラゴンボールは category/2404 に2件しか無く、MANGA BOOSTER は
     # category/24 側にあるため、両方をまとめて拾える検索を使う。
@@ -48,6 +52,9 @@ OPEN_ATTEMPTS = int(os.environ.get("MORIMORI_OPEN_ATTEMPTS", "2") or 2)
 ROW_SELECTOR = "div.mm1551-prow"
 # シングルカードのサブカテゴリ。BOXの買取価格と誤マッチさせないため丸ごと捨てる。
 SINGLE_CATEGORIES = {"2401009"}
+# 新着カテゴリ 0112001 に混ざるカートン・パック単品(例: "Carton タッグボルト SM9", "レイジングサーフpack")
+NEW_ARRIVAL_CATEGORIES = {"0112001"}
+NEW_ARRIVAL_EXCLUDE_RE = re.compile(r"(?i)carton|カートン|pack(?:\s|$)")
 # カテゴリ外に紛れたシングル用の保険(鑑定品・カード番号・レアリティ表記)
 SINGLE_NAME_RE = re.compile(
     r"PSA|BGS|ARS|CGC|鑑定|\d{1,3}/[\w-]+|\d+-SV-P|(?:^|\s)(?:AR|SAR|SR|UR|HR|CHR|CSR)(?:\s|$)"
@@ -134,6 +141,8 @@ class MorimoriScraper(BaseScraper):
             m = re.search(r"/category/(\w+)/product/", row["href"])
             if (m and m.group(1) in SINGLE_CATEGORIES) or SINGLE_NAME_RE.search(name):
                 skipped_single += 1
+                continue
+            if m and m.group(1) in NEW_ARRIVAL_CATEGORIES and NEW_ARRIVAL_EXCLUDE_RE.search(name):
                 continue
             if row["hidden"]:
                 continue
