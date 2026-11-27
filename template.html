@@ -123,7 +123,7 @@ td.qi input{width:52px;padding:3px 4px;border:1.5px solid var(--border);border-r
 td.qi input:focus{outline:none;border-color:#6366f1;box-shadow:0 0 0 2px rgba(99,102,241,.2)}
 td.qi input::-webkit-inner-spin-button{opacity:1}
 .ib{font-size:12px;padding:5px 14px;border:1.5px solid #8b5cf6;border-radius:20px;background:#f5f3ff;color:#6d28d9;cursor:pointer;transition:all .15s;white-space:nowrap;font-weight:600;-webkit-tap-highlight-color:transparent}
-.bulk{max-width:1240px;margin:10px auto 4px;padding:14px 16px;background:#faf5ff;border:1px solid #ddd6fe;border-radius:12px}
+.bulk{scroll-margin-top:calc(var(--fbar-h) + 8px);max-width:1240px;margin:10px auto 4px;padding:14px 16px;background:#faf5ff;border:1px solid #ddd6fe;border-radius:12px}
 .bulk h2{font-size:15px;font-weight:800;color:#5b21b6;margin:0 0 4px}
 .bulk .bk-lead{font-size:12px;color:#6b7280;margin:0 0 10px;line-height:1.6}
 .bulk .bk-best{font-size:13px;margin:0 0 8px}
@@ -340,6 +340,7 @@ details[open] .si-summary::after{transform:rotate(180deg)}
   </div>
   <div class="fg">
     <button class="ib" id="invBtn">資産モード</button>
+    <button class="ib" id="bulkBtn">まとめ売り</button>
   </div>
   <div class="fg inv-fg" id="invBar" style="display:none">
     <span class="inv-tag">資産合計 <span class="inv-total" id="invTotal">¥0</span></span>
@@ -529,11 +530,13 @@ function esc(s){
   return d.innerHTML;
 }
 
-let cc="",vs=new Set(S),sm=false,invMode=false;
-const INV_KEY="pokeca_inventory";
+let cc="",vs=new Set(S),sm=false,invMode=false,bulkMode=false;
+const INV_KEY="pokeca_inventory",BULK_KEY="pokeca_bulk";
 function fp(v){if(!v||v===0)return"-";return"\u00a5"+v.toLocaleString()}
-function loadInv(){try{return JSON.parse(localStorage.getItem(INV_KEY))||{}}catch(e){return{}}}
-function saveInv(inv){localStorage.setItem(INV_KEY,JSON.stringify(inv))}
+// まとめ売りの個数は資産モードと別に保存する(資産モードの数字を書き換えない)
+function curKey(){return bulkMode?BULK_KEY:INV_KEY}
+function loadInv(k){try{return JSON.parse(localStorage.getItem(k||curKey()))||{}}catch(e){return{}}}
+function saveInv(inv){try{localStorage.setItem(curKey(),JSON.stringify(inv))}catch(e){}}
 function getQty(name){return loadInv()[name]||0}
 function setQty(name,q){const inv=loadInv();if(q>0)inv[name]=q;else delete inv[name];saveInv(inv)}
 function updateTotal(){
@@ -667,14 +670,17 @@ function render(){
 function renderBulk(){
   const el=document.getElementById("bulk");
   if(!el)return;
-  if(!invMode){el.style.display="none";return}
+  if(!bulkMode){el.style.display="none";return}
   el.style.display="";
   el.textContent="";
   const h=document.createElement("h2");h.textContent="📦 まとめ売り比較｜1店舗にまとめて売るといくら？";el.appendChild(h);
   const inv=loadInv();
   const items=P.filter(x=>(inv[x.n]||0)>0);
   const lead=document.createElement("p");lead.className="bk-lead";
-  if(!items.length){lead.textContent="下の表の「個数」に手持ちのBOX数を入れると、なるべく1店舗にまとめて売った場合の合計が店ごとにここに出ます。";el.appendChild(lead);return}
+  if(!items.length){lead.textContent="下の表の「個数」に売りたいBOXの数を入れると、なるべく1店舗にまとめて売った場合の合計が店ごとにここに出ます。";el.appendChild(lead);
+    const src=loadInv(INV_KEY);
+    if(Object.keys(src).length){const cb=document.createElement("button");cb.className="ib";cb.type="button";cb.textContent="資産モードの個数を読み込む";cb.addEventListener("click",function(){saveInv(src);render()});el.appendChild(cb)}
+    return}
   const boxes=items.reduce((a,x)=>a+inv[x.n],0);
   lead.textContent=items.length+"種類・計"+boxes+"BOXを、なるべく1店舗にまとめて売った場合の合計です。その店が買い取らない種類は、一番高い店で売る計算にしています。";
   el.appendChild(lead);
@@ -756,12 +762,17 @@ document.getElementById("srt").addEventListener("click",function(){
   render();
 });
 
-document.getElementById("invBtn").addEventListener("click",function(){
-  invMode=!invMode;
-  this.classList.toggle("active",invMode);
-  document.getElementById("invBar").style.display=invMode?"":"none";
+// 資産モード=個数と合計 / まとめ売り=個数と店ごとのまとめ売り比較(個数は共通)
+function setMode(inv,bulk){
+  invMode=inv||bulk;bulkMode=bulk;
+  document.getElementById("invBtn").classList.toggle("active",inv&&!bulk);
+  document.getElementById("bulkBtn").classList.toggle("active",bulk);
+  document.getElementById("invBar").style.display=(inv&&!bulk)?"":"none";
   render();
-});
+  if(bulk){const b=document.getElementById("bulk");if(b&&b.scrollIntoView)b.scrollIntoView({behavior:"smooth",block:"start"})}
+}
+document.getElementById("invBtn").addEventListener("click",function(){setMode(!(invMode&&!bulkMode),false)});
+document.getElementById("bulkBtn").addEventListener("click",function(){setMode(false,!bulkMode)});
 
 // ===== Init =====
 // Measure fbar height on load and resize
