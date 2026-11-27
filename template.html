@@ -656,11 +656,11 @@ function render(){
   tb.appendChild(frag);
   document.getElementById("rc").textContent=cnt;
   // Reorder thead shop columns to match SO
-  var thr=document.querySelector("thead tr");
+  var thr=document.querySelector("#mt thead tr");
   var scThs={};
-  document.querySelectorAll("thead th.sc").forEach(function(th){scThs[th.dataset.s]=th;th.style.display=vs.has(th.dataset.s)?"":"none"});
+  document.querySelectorAll("#mt thead th.sc").forEach(function(th){scThs[th.dataset.s]=th;th.style.display=vs.has(th.dataset.s)?"":"none"});
   SO.forEach(function(s){if(scThs[s])thr.appendChild(scThs[s])});
-  document.querySelectorAll("thead th.inv-col").forEach(function(th){th.style.display=invMode?"":"none"});
+  document.querySelectorAll("#mt thead th.inv-col").forEach(function(th){th.style.display=invMode?"":"none"});
   if(invMode)updateTotal();
   renderBulk();
 }
@@ -685,7 +685,7 @@ function renderBulk(){
   lead.textContent=items.length+"種類・計"+boxes+"BOXを、なるべく1店舗にまとめて売った場合の合計です。その店が買い取らない種類は、一番高い店で売る計算にしています。";
   el.appendChild(lead);
   const names={morimori:"森森",homura:"ホムラ",icchome:"一丁目",runto:"ラントゥ",collect_tendo:"コレクト",shinsoku:"シンソク",oku:"オク",rudeya:"ルデヤ",kaikyo:"海峡",kaitoriexpo:"EXPO"},links={};
-  document.querySelectorAll("thead th.sc").forEach(function(th){const a=th.querySelector("a");if(a)links[th.dataset.s]=a.href});
+  document.querySelectorAll("#mt thead th.sc").forEach(function(th){const a=th.querySelector("a");if(a)links[th.dataset.s]=a.href});
   const shops=S.filter(s=>vs.has(s));
   let best=0;
   items.forEach(x=>{const ap=shops.filter(s=>x.p[s]>0).map(s=>x.p[s]);if(ap.length)best+=Math.max(...ap)*inv[x.n]});
