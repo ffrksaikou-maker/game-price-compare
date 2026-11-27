@@ -130,10 +130,11 @@ def do_login() -> int:
     return 0 if n else 1
 
 
-def fetch_texts(username: str, headless: bool, url: str | None = None) -> list[str]:
+def fetch_texts(username: str, headless: bool, url: str | None = None) -> list[tuple[str, str]]:
+    """(投稿日時ISO, 本文) のリストを返す。日時が取れない場合は空文字。"""
     from playwright.sync_api import sync_playwright
 
-    texts: list[str] = []
+    texts: list[tuple[str, str]] = []
     with sync_playwright() as p:
         ctx = _launch(p, headless)
         page = ctx.pages[0] if ctx.pages else ctx.new_page()
@@ -151,18 +152,21 @@ def fetch_texts(username: str, headless: bool, url: str | None = None) -> list[s
             page.wait_for_timeout(1500)
             # Xのタイムラインは仮想スクロールで、下へ進むと上のツイートがDOMから
             # 消える。まとめて取ると取りこぼすので、スクロールしながら毎回集める。
-            seen: dict[str, str] = {}
+            seen: dict[str, str] = {}  # 本文 -> 投稿日時
             status_urls: list[str] = []
             # f=live は新しい順。深追いすると古い価格表まで拾うので浅くする。
             for _ in range(2):
                 chunk = page.evaluate(
                     """() => Array.from(
                         document.querySelectorAll('article[data-testid="tweet"]')
-                    ).map(a => a.innerText)"""
+                    ).map(a => {
+                        const tm = a.querySelector('time');
+                        return [tm ? tm.getAttribute('datetime') : '', a.innerText];
+                    })"""
                 ) or []
-                for t in chunk:
+                for ts, t in chunk:
                     if t and t not in seen:
-                        seen[t] = t
+                        seen[t] = ts or ""
                 # 長い価格表は一覧だと「さらに表示」で切られるので、
                 # 個別ページで全文を取り直すためURLを控える。
                 links = page.evaluate(
@@ -177,24 +181,26 @@ def fetch_texts(username: str, headless: bool, url: str | None = None) -> list[s
                 page.wait_for_timeout(1100)
 
             # 個別ページの全文を優先する(集計は先勝ちなので前に置く)
-            full: list[str] = []
+            full: list[tuple[str, str]] = []
             for h in status_urls[:6]:
                 try:
                     page.goto(h, wait_until="domcontentloaded", timeout=45000)
                     page.wait_for_selector('article[data-testid="tweet"]', timeout=15000)
                     page.wait_for_timeout(1200)
-                    txt = page.evaluate(
+                    ts, txt = page.evaluate(
                         """() => {
                             const a = document.querySelector('article[data-testid="tweet"]');
-                            return a ? a.innerText : '';
+                            if (!a) return ['', ''];
+                            const tm = a.querySelector('time');
+                            return [tm ? tm.getAttribute('datetime') : '', a.innerText];
                         }"""
                     )
                     if txt:
-                        full.append(txt)
+                        full.append((ts or "", txt))
                 except Exception:
                     continue
             print(f"    個別ページ {len(full)}/{len(status_urls)}件で全文取得", flush=True)
-            texts = full + list(seen.values())
+            texts = full + [(ts, t) for t, ts in seen.items()]
         finally:
             ctx.close()
     return texts
@@ -432,7 +438,7 @@ def main() -> int:
 
     for username, state_name, keywords in ACCOUNTS:
         print(f"--- @{username} ---", flush=True)
-        texts: list[str] = []
+        texts: list[tuple[str, str]] = []
         for kw in keywords:
             q = quote(f"from:{username} {kw}")
             got = fetch_texts(username, headless=not args.show,
@@ -442,10 +448,13 @@ def main() -> int:
         if not texts:
             print("  ツイートを取得できなかった")
             continue
-        # texts は新しい順。最初に出た値を採用する(先勝ち)。max だと
-        # 過去の高かった頃の価格表が残り続けてしまう。
+        # 検索ジャンルをまたいで投稿日時の新しい順に並べ、最初に出た値を採用する
+        # (先勝ち)。以前はジャンル別の結果を連結しただけで、別ジャンル検索に
+        # 出た古い価格表が新しい価格表より先に来て勝っていた(2026-11-28)。
+        # 同じ日時なら全文(個別ページ)を優先するため安定ソートにする。
+        texts.sort(key=lambda x: x[0] or "", reverse=True)
         found: dict = {}
-        for t in texts:
+        for _ts, t in texts:
             for n, v in parse_tweet_text(t).items():
                 found.setdefault(n, v)
         added = update_state(state_name, found)
