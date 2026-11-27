@@ -10,8 +10,8 @@
       "rudeya": 6200,
       "runto": 6200,
       "icchome": 6000,
-      "oku": 6200,
-      "collect_tendo": 5800,
+      "oku": 5800,
+      "collect_tendo": 5500,
       "shinsoku": 6500,
       "kaitoriexpo": 8100
     }
@@ -25,7 +25,7 @@
       "homura": 6000,
       "rudeya": 6500,
       "icchome": 6300,
-      "oku": 6200,
+      "oku": 6000,
       "collect_tendo": 5500,
       "shinsoku": 6300,
       "kaitoriexpo": 6500
@@ -43,7 +43,7 @@
       "runto": 7500,
       "icchome": 8000,
       "oku": 8000,
-      "collect_tendo": 8200,
+      "collect_tendo": 8100,
       "shinsoku": 7500,
       "kaitoriexpo": 8800
     }
@@ -69,7 +69,7 @@
     "name": "ブースターパック「蒼海の七傑」【OP-14】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 9000,
+    "max_price": 8800,
     "prices": {
       "morimori": 7800,
       "homura": 8000,
@@ -77,7 +77,7 @@
       "runto": 8000,
       "icchome": 8800,
       "oku": 8800,
-      "collect_tendo": 9000,
+      "collect_tendo": 8800,
       "shinsoku": 7500,
       "kaitoriexpo": 8300
     }
@@ -94,7 +94,7 @@
       "runto": 12000,
       "icchome": 12000,
       "oku": 12000,
-      "collect_tendo": 13700,
+      "collect_tendo": 13500,
       "shinsoku": 12100,
       "kaitoriexpo": 15000
     }
@@ -305,12 +305,12 @@
     "retail_price": 5760,
     "max_price": 9200,
     "prices": {
-      "morimori": 8000,
+      "morimori": 7500,
       "homura": 7500,
       "rudeya": 7700,
       "runto": 7500,
       "icchome": 8000,
-      "oku": 8400,
+      "oku": 7500,
       "collect_tendo": 7000,
       "shinsoku": 8100,
       "kaitoriexpo": 9200
