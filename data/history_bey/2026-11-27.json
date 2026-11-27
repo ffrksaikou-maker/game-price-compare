@@ -174,10 +174,10 @@
     "name": "CX-20 カスタマイズセットC",
     "category": "cx",
     "retail_price": 6600,
-    "max_price": 9500,
+    "max_price": 9100,
     "prices": {
       "homura": 9000,
-      "icchome": 9500
+      "icchome": 9100
     }
   },
   {
@@ -443,9 +443,9 @@
     "name": "BX-09 ベイバトルパス",
     "category": "bx",
     "retail_price": 3300,
-    "max_price": 900,
+    "max_price": 800,
     "prices": {
-      "morimori": 900,
+      "morimori": 800,
       "icchome": 800
     }
   },
