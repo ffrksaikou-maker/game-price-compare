@@ -1019,45 +1019,42 @@
     "name": "スペシャルBOX トウホク",
     "category": "special",
     "retail_price": 2090,
-    "max_price": 20400,
+    "max_price": 11200,
     "prices": {
       "homura": 11200,
       "rudeya": 10000,
       "runto": 10500,
       "kaikyo": 9500,
       "collect_tendo": 10000,
-      "shinsoku": 9600,
-      "kaitoriexpo": 20400
+      "shinsoku": 9600
     }
   },
   {
     "name": "スペシャルBOX ヒロシマ",
     "category": "special",
     "retail_price": 2090,
-    "max_price": 22900,
+    "max_price": 11600,
     "prices": {
       "homura": 11600,
       "rudeya": 10000,
       "runto": 10500,
       "kaikyo": 10000,
       "collect_tendo": 10900,
-      "shinsoku": 11000,
-      "kaitoriexpo": 22900
+      "shinsoku": 11000
     }
   },
   {
     "name": "スペシャルBOX フクオカ",
     "category": "special",
     "retail_price": 2090,
-    "max_price": 19700,
+    "max_price": 10200,
     "prices": {
       "homura": 10200,
       "rudeya": 10000,
       "runto": 9000,
       "kaikyo": 9800,
       "collect_tendo": 10000,
-      "shinsoku": 10000,
-      "kaitoriexpo": 19700
+      "shinsoku": 10000
     }
   }
 ]
