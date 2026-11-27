@@ -169,6 +169,12 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://pokeca-box-hikaku.com/hadou-seeker-atari-guide.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://pokeca-box-hikaku.com/30th-cardset-atari-guide.html</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
@@ -818,7 +824,7 @@
   </url>
   <url>
     <loc>https://pokeca-box-hikaku.com/box/storm-emeralda.html</loc>
-    <lastmod>2026-11-27</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -860,7 +866,7 @@
   </url>
   <url>
     <loc>https://pokeca-box-hikaku.com/box/mega-sinfonia.html</loc>
-    <lastmod>2026-11-27</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -884,7 +890,7 @@
   </url>
   <url>
     <loc>https://pokeca-box-hikaku.com/box/white-flare.html</loc>
-    <lastmod>2026-11-24</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -914,13 +920,13 @@
   </url>
   <url>
     <loc>https://pokeca-box-hikaku.com/box/chouden-breaker.html</loc>
-    <lastmod>2026-11-25</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://pokeca-box-hikaku.com/box/rakuen-dragona.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -938,7 +944,7 @@
   </url>
   <url>
     <loc>https://pokeca-box-hikaku.com/box/hengen-no-kamen.html</loc>
-    <lastmod>2026-11-24</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1220,7 +1226,7 @@
   </url>
   <url>
     <loc>https://pokeca-box-hikaku.com/box/fukuoka.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>

@@ -10,7 +10,6 @@
       "rudeya": 6200,
       "runto": 6200,
       "icchome": 5600,
-      "oku": 5800,
       "collect_tendo": 5500,
       "shinsoku": 5900,
       "kaitoriexpo": 6700
@@ -20,11 +19,10 @@
     "name": "ブースターパック「世界最強の戦士」【OP-17】",
     "category": "op",
     "retail_price": 5760,
-    "max_price": 6800,
+    "max_price": 6500,
     "prices": {
       "homura": 6000,
       "rudeya": 6500,
-      "runto": 6800,
       "icchome": 6300,
       "oku": 6000,
       "collect_tendo": 5500,
@@ -311,9 +309,8 @@
       "rudeya": 7700,
       "runto": 7500,
       "icchome": 7200,
-      "oku": 7500,
       "collect_tendo": 6500,
-      "shinsoku": 8100,
+      "shinsoku": 7600,
       "kaitoriexpo": 8200
     }
   },
@@ -419,10 +416,9 @@
     "name": "スタートデッキEX ルフィ＆エース【ST-30】",
     "category": "st",
     "retail_price": 1980,
-    "max_price": 3200,
+    "max_price": 1800,
     "prices": {
-      "rudeya": 1800,
-      "kaitoriexpo": 3200
+      "rudeya": 1800
     }
   }
 ]
