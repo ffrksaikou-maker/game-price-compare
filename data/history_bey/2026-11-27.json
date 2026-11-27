@@ -445,7 +445,6 @@
     "retail_price": 3300,
     "max_price": 800,
     "prices": {
-      "morimori": 800,
       "icchome": 800
     }
   },

@@ -79,7 +79,7 @@
       "kaikyo": 16000,
       "collect_tendo": 17700,
       "shinsoku": 15500,
-      "kaitoriexpo": 15500
+      "kaitoriexpo": 15700
     }
   },
   {
@@ -186,7 +186,7 @@
       "kaikyo": 16400,
       "collect_tendo": 16000,
       "shinsoku": 15500,
-      "kaitoriexpo": 15800
+      "kaitoriexpo": 15500
     }
   },
   {
@@ -204,7 +204,7 @@
       "kaikyo": 7000,
       "collect_tendo": 7800,
       "shinsoku": 6800,
-      "kaitoriexpo": 6800
+      "kaitoriexpo": 7000
     }
   },
   {
@@ -286,7 +286,7 @@
       "kaikyo": 21500,
       "collect_tendo": 21600,
       "shinsoku": 21000,
-      "kaitoriexpo": 21000
+      "kaitoriexpo": 21300
     }
   },
   {
@@ -337,7 +337,7 @@
       "oku": 9500,
       "collect_tendo": 9500,
       "shinsoku": 9500,
-      "kaitoriexpo": 9200
+      "kaitoriexpo": 9500
     }
   },
   {
@@ -371,7 +371,7 @@
       "oku": 26800,
       "collect_tendo": 26900,
       "shinsoku": 26800,
-      "kaitoriexpo": 25500
+      "kaitoriexpo": 26500
     }
   },
   {
@@ -456,7 +456,7 @@
       "oku": 11500,
       "collect_tendo": 11500,
       "shinsoku": 11600,
-      "kaitoriexpo": 12000
+      "kaitoriexpo": 11700
     }
   },
   {
@@ -524,7 +524,7 @@
       "oku": 9500,
       "collect_tendo": 11000,
       "shinsoku": 9600,
-      "kaitoriexpo": 10500
+      "kaitoriexpo": 10300
     }
   },
   {
@@ -558,7 +558,7 @@
       "oku": 14300,
       "collect_tendo": 14000,
       "shinsoku": 14300,
-      "kaitoriexpo": 14000
+      "kaitoriexpo": 14100
     }
   },
   {
@@ -575,7 +575,7 @@
       "oku": 18200,
       "collect_tendo": 18500,
       "shinsoku": 18200,
-      "kaitoriexpo": 18000
+      "kaitoriexpo": 18500
     }
   },
   {
@@ -593,7 +593,7 @@
       "kaikyo": 46000,
       "collect_tendo": 43000,
       "shinsoku": 42000,
-      "kaitoriexpo": 42000
+      "kaitoriexpo": 44500
     }
   },
   {
@@ -610,7 +610,7 @@
       "oku": 10000,
       "collect_tendo": 9000,
       "shinsoku": 10100,
-      "kaitoriexpo": 10000
+      "kaitoriexpo": 10100
     }
   },
   {
@@ -645,7 +645,7 @@
       "kaikyo": 17000,
       "collect_tendo": 17000,
       "shinsoku": 17800,
-      "kaitoriexpo": 17000
+      "kaitoriexpo": 17200
     }
   },
   {
@@ -694,7 +694,7 @@
       "oku": 26500,
       "collect_tendo": 26500,
       "shinsoku": 26500,
-      "kaitoriexpo": 26000
+      "kaitoriexpo": 26300
     }
   },
   {
@@ -736,7 +736,7 @@
       "runto": 47000,
       "collect_tendo": 45000,
       "shinsoku": 46500,
-      "kaitoriexpo": 45000
+      "kaitoriexpo": 42000
     }
   },
   {
@@ -763,7 +763,7 @@
       "runto": 20500,
       "collect_tendo": 19500,
       "shinsoku": 19600,
-      "kaitoriexpo": 19000
+      "kaitoriexpo": 19800
     }
   },
   {
@@ -802,7 +802,7 @@
       "runto": 12500,
       "collect_tendo": 11500,
       "shinsoku": 12900,
-      "kaitoriexpo": 12500
+      "kaitoriexpo": 12600
     }
   },
   {
@@ -828,7 +828,7 @@
       "runto": 29000,
       "collect_tendo": 29000,
       "shinsoku": 28500,
-      "kaitoriexpo": 25000
+      "kaitoriexpo": 28000
     }
   },
   {
@@ -851,19 +851,19 @@
       "homura": 57000,
       "collect_tendo": 56000,
       "shinsoku": 58000,
-      "kaitoriexpo": 52000
+      "kaitoriexpo": 54000
     }
   },
   {
     "name": "S&S 拡張パック「蒼空ストリーム」",
     "category": "ss",
     "retail_price": 4950,
-    "max_price": 221000,
+    "max_price": 222000,
     "prices": {
       "homura": 215000,
       "collect_tendo": 217000,
       "shinsoku": 221000,
-      "kaitoriexpo": 215000
+      "kaitoriexpo": 222000
     }
   },
   {
@@ -897,7 +897,7 @@
     "prices": {
       "homura": 18000,
       "shinsoku": 18100,
-      "kaitoriexpo": 16500
+      "kaitoriexpo": 18000
     }
   },
   {
@@ -908,7 +908,7 @@
     "prices": {
       "homura": 20000,
       "shinsoku": 20500,
-      "kaitoriexpo": 19000
+      "kaitoriexpo": 18000
     }
   },
   {
@@ -956,7 +956,7 @@
       "runto": 19000,
       "collect_tendo": 19000,
       "shinsoku": 20000,
-      "kaitoriexpo": 19000
+      "kaitoriexpo": 19500
     }
   },
   {
@@ -1009,8 +1009,7 @@
     "max_price": 44000,
     "prices": {
       "homura": 38000,
-      "shinsoku": 44000,
-      "kaitoriexpo": 38000
+      "shinsoku": 44000
     }
   },
   {
