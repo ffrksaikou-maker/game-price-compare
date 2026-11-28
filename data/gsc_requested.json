@@ -27,6 +27,10 @@
   "requested_at": "2026-09-27T11:32:48+09:00",
   "result": "indexed"
  },
+ "https://pokeca-box-hikaku.com/30th-chusen-guide.html": {
+  "requested_at": "2026-11-28T14:40:56+09:00",
+  "result": "requested"
+ },
  "https://pokeca-box-hikaku.com/about.html": {
   "requested_at": "2026-08-22T08:44:43+09:00",
   "result": "requested"
@@ -571,6 +575,10 @@
   "requested_at": "2026-09-07T16:37:45+09:00",
   "result": "requested"
  },
+ "https://pokeca-box-hikaku.com/onepiece/eb-06-forecast.html": {
+  "requested_at": "2026-11-28T14:40:56+09:00",
+  "result": "requested"
+ },
  "https://pokeca-box-hikaku.com/onepiece/eb02-luffy-comipara.html": {
   "requested_at": "2026-08-27T06:18:55+09:00",
   "result": "requested"
@@ -601,6 +609,10 @@
  },
  "https://pokeca-box-hikaku.com/onepiece/op-17-atari-guide.html": {
   "requested_at": "2026-08-23T06:42:01+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/onepiece/op-19-forecast.html": {
+  "requested_at": "2026-11-28T14:40:56+09:00",
   "result": "requested"
  },
  "https://pokeca-box-hikaku.com/onepiece/red-comipara-guide.html": {
@@ -641,6 +653,10 @@
  },
  "https://pokeca-box-hikaku.com/opened-card-selling.html": {
   "requested_at": "2026-08-23T07:07:00+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/pack-neage-2027.html": {
+  "requested_at": "2026-11-28T14:40:56+09:00",
   "result": "requested"
  },
  "https://pokeca-box-hikaku.com/pigeot-sar-guide.html": {
@@ -800,8 +816,8 @@
   "result": "indexed"
  },
  "https://pokeca-box-hikaku.com/storm-emeralda-spotlight.html": {
-  "requested_at": "2026-08-25T20:55:42+09:00",
-  "result": "indexed"
+  "requested_at": "2026-11-28T14:40:56+09:00",
+  "result": "requested"
  },
  "https://pokeca-box-hikaku.com/sv-box-list.html": {
   "requested_at": "2026-08-21T15:50:57+09:00",
