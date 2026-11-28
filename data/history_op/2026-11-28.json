@@ -5,13 +5,14 @@
     "retail_price": 5760,
     "max_price": 6300,
     "prices": {
-      "morimori": 5800,
-      "homura": 5800,
+      "morimori": 5500,
+      "homura": 5500,
       "rudeya": 6200,
-      "runto": 6200,
+      "runto": 6000,
       "icchome": 5600,
+      "oku": 5500,
       "collect_tendo": 5500,
-      "shinsoku": 5900,
+      "shinsoku": 6000,
       "kaitoriexpo": 6300
     }
   },
@@ -21,12 +22,13 @@
     "retail_price": 5760,
     "max_price": 6500,
     "prices": {
-      "homura": 6000,
+      "homura": 5800,
       "rudeya": 6500,
+      "runto": 6500,
       "icchome": 6300,
-      "oku": 6000,
+      "oku": 5800,
       "collect_tendo": 5500,
-      "shinsoku": 6300,
+      "shinsoku": 6000,
       "kaitoriexpo": 6500
     }
   },
@@ -37,13 +39,13 @@
     "max_price": 8300,
     "prices": {
       "morimori": 7800,
-      "homura": 7800,
+      "homura": 7700,
       "rudeya": 8000,
       "runto": 7500,
       "icchome": 8000,
-      "oku": 8000,
+      "oku": 7700,
       "collect_tendo": 8000,
-      "shinsoku": 7500,
+      "shinsoku": 7800,
       "kaitoriexpo": 8300
     }
   },
@@ -58,7 +60,7 @@
       "rudeya": 8000,
       "runto": 7500,
       "icchome": 8200,
-      "oku": 8000,
+      "oku": 7800,
       "collect_tendo": 8000,
       "shinsoku": 7400,
       "kaitoriexpo": 7800
@@ -75,9 +77,9 @@
       "rudeya": 8800,
       "runto": 8000,
       "icchome": 8800,
-      "oku": 8800,
+      "oku": 8000,
       "collect_tendo": 8800,
-      "shinsoku": 7500,
+      "shinsoku": 7900,
       "kaitoriexpo": 8000
     }
   },
@@ -111,7 +113,7 @@
       "icchome": 13000,
       "oku": 15600,
       "collect_tendo": 15800,
-      "shinsoku": 14700,
+      "shinsoku": 14300,
       "kaitoriexpo": 15600
     }
   },
@@ -160,9 +162,9 @@
       "rudeya": 15100,
       "runto": 15500,
       "icchome": 15000,
-      "oku": 16500,
+      "oku": 16000,
       "collect_tendo": 17000,
-      "shinsoku": 15600
+      "shinsoku": 15200
     }
   },
   {
@@ -178,7 +180,7 @@
       "icchome": 9200,
       "oku": 11000,
       "collect_tendo": 11200,
-      "shinsoku": 10700,
+      "shinsoku": 10200,
       "kaitoriexpo": 11500
     }
   },
@@ -258,7 +260,7 @@
       "icchome": 15000,
       "oku": 15500,
       "collect_tendo": 16000,
-      "shinsoku": 12100,
+      "shinsoku": 14100,
       "kaitoriexpo": 15500
     }
   },
@@ -292,7 +294,7 @@
       "icchome": 31000,
       "oku": 30500,
       "collect_tendo": 31000,
-      "shinsoku": 30500
+      "shinsoku": 29600
     }
   },
   {
@@ -301,13 +303,13 @@
     "retail_price": 5760,
     "max_price": 8200,
     "prices": {
-      "morimori": 7500,
-      "homura": 7500,
+      "morimori": 6000,
+      "homura": 6000,
       "rudeya": 7700,
-      "runto": 7500,
-      "icchome": 7200,
+      "icchome": 6500,
+      "oku": 6000,
       "collect_tendo": 6500,
-      "shinsoku": 7600,
+      "shinsoku": 7500,
       "kaitoriexpo": 8200
     }
   },
@@ -318,7 +320,7 @@
     "max_price": 14300,
     "prices": {
       "morimori": 13600,
-      "homura": 14200,
+      "homura": 14000,
       "rudeya": 12500,
       "runto": 13000,
       "icchome": 13000,
@@ -339,7 +341,7 @@
       "rudeya": 10000,
       "runto": 10000,
       "icchome": 10000,
-      "oku": 9800,
+      "oku": 9600,
       "collect_tendo": 10500,
       "shinsoku": 10100,
       "kaitoriexpo": 10000
@@ -358,7 +360,7 @@
       "icchome": 26000,
       "oku": 23000,
       "collect_tendo": 25000,
-      "shinsoku": 25100,
+      "shinsoku": 23100,
       "kaitoriexpo": 23000
     }
   },
@@ -385,12 +387,11 @@
     "max_price": 9800,
     "prices": {
       "morimori": 9600,
-      "homura": 9600,
+      "homura": 9200,
       "rudeya": 9100,
-      "runto": 9000,
       "icchome": 9000,
       "collect_tendo": 9800,
-      "shinsoku": 9700,
+      "shinsoku": 9300,
       "kaitoriexpo": 9600
     }
   },
@@ -405,7 +406,7 @@
       "rudeya": 20200,
       "runto": 19000,
       "icchome": 20000,
-      "shinsoku": 19100,
+      "shinsoku": 18100,
       "kaitoriexpo": 20000
     }
   },
