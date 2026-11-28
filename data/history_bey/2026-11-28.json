@@ -5,10 +5,10 @@
     "retail_price": 4500,
     "max_price": 3000,
     "prices": {
+      "morimori": 3000,
       "homura": 3000,
       "rudeya": 2300,
-      "icchome": 3000,
-      "morimori": 3000
+      "icchome": 3000
     }
   },
   {
@@ -17,10 +17,10 @@
     "retail_price": 2700,
     "max_price": 2400,
     "prices": {
+      "morimori": 2300,
       "homura": 2400,
       "rudeya": 1600,
-      "icchome": 2200,
-      "morimori": 2300
+      "icchome": 2200
     }
   },
   {
@@ -29,9 +29,9 @@
     "retail_price": 2600,
     "max_price": 2500,
     "prices": {
+      "morimori": 2000,
       "rudeya": 2500,
-      "icchome": 2000,
-      "morimori": 2000
+      "icchome": 2000
     }
   },
   {
@@ -40,10 +40,10 @@
     "retail_price": 1600,
     "max_price": 3000,
     "prices": {
+      "morimori": 3000,
       "homura": 3000,
       "rudeya": 2000,
-      "icchome": 3000,
-      "morimori": 3000
+      "icchome": 3000
     }
   },
   {
@@ -52,9 +52,9 @@
     "retail_price": 2300,
     "max_price": 1800,
     "prices": {
+      "morimori": 1750,
       "rudeya": 1000,
-      "icchome": 1800,
-      "morimori": 1750
+      "icchome": 1800
     }
   },
   {
@@ -63,21 +63,21 @@
     "retail_price": 1400,
     "max_price": 2800,
     "prices": {
+      "morimori": 2000,
       "rudeya": 2800,
-      "icchome": 2000,
-      "morimori": 2000
+      "icchome": 2000
     }
   },
   {
     "name": "UX-15 シャークスケイルデッキセット",
     "category": "ux",
     "retail_price": 4200,
-    "max_price": 6400,
+    "max_price": 6500,
     "prices": {
+      "morimori": 5500,
       "homura": 6400,
       "rudeya": 5500,
-      "icchome": 6400,
-      "morimori": 5500
+      "icchome": 6500
     }
   },
   {
@@ -86,10 +86,10 @@
     "retail_price": 1400,
     "max_price": 5100,
     "prices": {
+      "morimori": 5100,
       "homura": 4300,
       "rudeya": 3500,
-      "icchome": 5100,
-      "morimori": 5100
+      "icchome": 5100
     }
   },
   {
@@ -98,9 +98,9 @@
     "retail_price": 2420,
     "max_price": 2100,
     "prices": {
+      "morimori": 2050,
       "rudeya": 1100,
-      "icchome": 2100,
-      "morimori": 2050
+      "icchome": 2100
     }
   },
   {
@@ -109,9 +109,9 @@
     "retail_price": 5700,
     "max_price": 13200,
     "prices": {
+      "morimori": 13200,
       "rudeya": 12000,
-      "icchome": 13200,
-      "morimori": 13200
+      "icchome": 13200
     }
   },
   {
@@ -120,10 +120,10 @@
     "retail_price": 3300,
     "max_price": 3600,
     "prices": {
+      "morimori": 3250,
       "homura": 3600,
       "rudeya": 2000,
-      "icchome": 3600,
-      "morimori": 3250
+      "icchome": 3600
     }
   },
   {
@@ -132,10 +132,10 @@
     "retail_price": 2080,
     "max_price": 2000,
     "prices": {
+      "morimori": 1600,
       "homura": 1800,
       "rudeya": 1500,
-      "icchome": 2000,
-      "morimori": 1600
+      "icchome": 2000
     }
   },
   {
@@ -153,9 +153,9 @@
     "retail_price": 1400,
     "max_price": 1800,
     "prices": {
+      "morimori": 1200,
       "rudeya": 1300,
-      "icchome": 1800,
-      "morimori": 1200
+      "icchome": 1800
     }
   },
   {
@@ -164,10 +164,10 @@
     "retail_price": 1980,
     "max_price": 1300,
     "prices": {
+      "morimori": 1200,
       "homura": 1300,
       "rudeya": 1300,
-      "icchome": 1300,
-      "morimori": 1200
+      "icchome": 1300
     }
   },
   {
@@ -177,7 +177,7 @@
     "max_price": 9000,
     "prices": {
       "homura": 9000,
-      "icchome": 7800
+      "icchome": 7400
     }
   },
   {
@@ -196,9 +196,9 @@
     "retail_price": 1600,
     "max_price": 1800,
     "prices": {
+      "morimori": 1700,
       "rudeya": 1300,
-      "icchome": 1800,
-      "morimori": 1700
+      "icchome": 1800
     }
   },
   {
@@ -207,9 +207,9 @@
     "retail_price": 1600,
     "max_price": 1200,
     "prices": {
+      "morimori": 900,
       "rudeya": 1000,
-      "icchome": 1200,
-      "morimori": 900
+      "icchome": 1200
     }
   },
   {
@@ -218,9 +218,9 @@
     "retail_price": 5650,
     "max_price": 3000,
     "prices": {
+      "morimori": 1800,
       "rudeya": 3000,
-      "icchome": 2800,
-      "morimori": 1800
+      "icchome": 2800
     }
   },
   {
@@ -229,9 +229,9 @@
     "retail_price": 1600,
     "max_price": 1400,
     "prices": {
+      "morimori": 1000,
       "homura": 1000,
-      "icchome": 1400,
-      "morimori": 1000
+      "icchome": 1400
     }
   },
   {
@@ -240,9 +240,9 @@
     "retail_price": 2200,
     "max_price": 1850,
     "prices": {
+      "morimori": 1850,
       "rudeya": 1200,
-      "icchome": 1700,
-      "morimori": 1850
+      "icchome": 1700
     }
   },
   {
@@ -251,9 +251,9 @@
     "retail_price": 1700,
     "max_price": 2000,
     "prices": {
+      "morimori": 1500,
       "rudeya": 2000,
-      "icchome": 1800,
-      "morimori": 1500
+      "icchome": 1800
     }
   },
   {
@@ -262,9 +262,9 @@
     "retail_price": 5000,
     "max_price": 8700,
     "prices": {
+      "morimori": 8700,
       "rudeya": 7000,
-      "icchome": 8700,
-      "morimori": 8700
+      "icchome": 8700
     }
   },
   {
@@ -283,10 +283,10 @@
     "retail_price": 2600,
     "max_price": 2300,
     "prices": {
+      "morimori": 2100,
       "homura": 2100,
       "rudeya": 900,
-      "icchome": 2300,
-      "morimori": 2100
+      "icchome": 2300
     }
   },
   {
@@ -295,10 +295,10 @@
     "retail_price": 1600,
     "max_price": 2600,
     "prices": {
+      "morimori": 2600,
       "homura": 2600,
       "rudeya": 2500,
-      "icchome": 2600,
-      "morimori": 2600
+      "icchome": 2600
     }
   },
   {
@@ -316,9 +316,9 @@
     "retail_price": 7480,
     "max_price": 8000,
     "prices": {
+      "morimori": 4500,
       "homura": 8000,
-      "icchome": 7500,
-      "morimori": 4500
+      "icchome": 7500
     }
   },
   {
@@ -337,9 +337,9 @@
     "retail_price": 1600,
     "max_price": 1100,
     "prices": {
+      "morimori": 1100,
       "homura": 1100,
-      "icchome": 1100,
-      "morimori": 1100
+      "icchome": 1100
     }
   },
   {
@@ -348,10 +348,10 @@
     "retail_price": 2200,
     "max_price": 1900,
     "prices": {
+      "morimori": 1200,
       "homura": 1900,
       "rudeya": 1300,
-      "icchome": 1600,
-      "morimori": 1300
+      "icchome": 1600
     }
   },
   {
@@ -360,10 +360,10 @@
     "retail_price": 1600,
     "max_price": 1800,
     "prices": {
+      "morimori": 1250,
       "homura": 1800,
       "rudeya": 1200,
-      "icchome": 1800,
-      "morimori": 1250
+      "icchome": 1800
     }
   },
   {
@@ -381,9 +381,9 @@
     "retail_price": 1500,
     "max_price": 1800,
     "prices": {
+      "morimori": 1700,
       "rudeya": 1500,
-      "icchome": 1800,
-      "morimori": 1700
+      "icchome": 1800
     }
   },
   {
@@ -411,10 +411,10 @@
     "retail_price": 2321,
     "max_price": 1900,
     "prices": {
+      "morimori": 1400,
       "homura": 1900,
       "rudeya": 1000,
-      "icchome": 1900,
-      "morimori": 1400
+      "icchome": 1800
     }
   },
   {
@@ -423,10 +423,10 @@
     "retail_price": 2420,
     "max_price": 2200,
     "prices": {
+      "morimori": 2100,
       "homura": 2200,
       "rudeya": 1500,
-      "icchome": 2200,
-      "morimori": 2100
+      "icchome": 2200
     }
   },
   {
@@ -435,17 +435,18 @@
     "retail_price": 2750,
     "max_price": 2100,
     "prices": {
-      "icchome": 2100,
-      "morimori": 2100
+      "morimori": 2100,
+      "icchome": 2100
     }
   },
   {
     "name": "BX-09 ベイバトルパス",
     "category": "bx",
     "retail_price": 3300,
-    "max_price": 800,
+    "max_price": 1000,
     "prices": {
-      "icchome": 800
+      "morimori": 900,
+      "icchome": 1000
     }
   },
   {
@@ -463,9 +464,9 @@
     "retail_price": 2620,
     "max_price": 1600,
     "prices": {
+      "morimori": 1400,
       "rudeya": 1400,
-      "icchome": 1600,
-      "morimori": 1400
+      "icchome": 1600
     }
   },
   {
@@ -524,9 +525,9 @@
     "retail_price": 1600,
     "max_price": 5100,
     "prices": {
+      "morimori": 5100,
       "rudeya": 5000,
-      "icchome": 5100,
-      "morimori": 5100
+      "icchome": 5100
     }
   },
   {
