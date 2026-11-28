@@ -20,7 +20,7 @@
     "name": "ブースターパック「世界最強の戦士」【OP-17】",
     "category": "op",
     "retail_price": 5760,
-    "max_price": 6500,
+    "max_price": 6600,
     "prices": {
       "homura": 5800,
       "rudeya": 6500,
@@ -29,14 +29,14 @@
       "oku": 5800,
       "collect_tendo": 5500,
       "shinsoku": 6000,
-      "kaitoriexpo": 6500
+      "kaitoriexpo": 6600
     }
   },
   {
     "name": "ブースターパック「決戦の刻」【OP-16】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 8300,
+    "max_price": 8000,
     "prices": {
       "morimori": 7800,
       "homura": 7700,
@@ -46,7 +46,7 @@
       "oku": 7700,
       "collect_tendo": 8000,
       "shinsoku": 7800,
-      "kaitoriexpo": 8300
+      "kaitoriexpo": 8000
     }
   },
   {
@@ -171,7 +171,7 @@
     "name": "ブースターパック「二つの伝説」【OP-08】",
     "category": "op",
     "retail_price": 5280,
-    "max_price": 11500,
+    "max_price": 11200,
     "prices": {
       "morimori": 11000,
       "homura": 11000,
@@ -181,7 +181,7 @@
       "oku": 11000,
       "collect_tendo": 11200,
       "shinsoku": 10200,
-      "kaitoriexpo": 11500
+      "kaitoriexpo": 11000
     }
   },
   {
@@ -244,7 +244,7 @@
       "oku": 15500,
       "collect_tendo": 15800,
       "shinsoku": 14000,
-      "kaitoriexpo": 15700
+      "kaitoriexpo": 15600
     }
   },
   {
@@ -268,7 +268,7 @@
     "name": "ブースターパック「頂上決戦」【OP-02】",
     "category": "op",
     "retail_price": 4752,
-    "max_price": 18100,
+    "max_price": 18000,
     "prices": {
       "morimori": 17500,
       "homura": 18000,
@@ -278,7 +278,7 @@
       "oku": 18000,
       "collect_tendo": 18000,
       "shinsoku": 16500,
-      "kaitoriexpo": 18100
+      "kaitoriexpo": 18000
     }
   },
   {
@@ -301,7 +301,7 @@
     "name": "エクストラブースター「ONE PIECE Heroines Edition vol.2」【EB-05】",
     "category": "eb",
     "retail_price": 5760,
-    "max_price": 8200,
+    "max_price": 7700,
     "prices": {
       "morimori": 6000,
       "homura": 6000,
@@ -309,8 +309,7 @@
       "icchome": 6500,
       "oku": 6000,
       "collect_tendo": 6500,
-      "shinsoku": 7500,
-      "kaitoriexpo": 8200
+      "shinsoku": 6100
     }
   },
   {
@@ -361,7 +360,7 @@
       "oku": 23000,
       "collect_tendo": 25000,
       "shinsoku": 23100,
-      "kaitoriexpo": 23000
+      "kaitoriexpo": 22000
     }
   },
   {
