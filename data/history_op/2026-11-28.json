@@ -3,7 +3,7 @@
     "name": "ブースターパック「神の支配」【OP-18】",
     "category": "op",
     "retail_price": 5760,
-    "max_price": 6300,
+    "max_price": 6600,
     "prices": {
       "morimori": 5500,
       "homura": 5500,
@@ -13,7 +13,7 @@
       "oku": 5500,
       "collect_tendo": 5500,
       "shinsoku": 6000,
-      "kaitoriexpo": 6300
+      "kaitoriexpo": 6600
     }
   },
   {
