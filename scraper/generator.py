@@ -110,6 +110,8 @@ def get_box_image_url(slug: str) -> str:
 
 # Blog articles (newest first) - 記事追加時はここに1行足すだけ
 BLOG_ARTICLES = [
+    {"url": "30th-chusen-guide.html", "title": "30th CELEBRATION 抽選(12/1〜12/7)｜当選したら売る？持つ？3商品の買取価格と利益", "desc": "ポケモンセンターオンラインの30周年記念商品の抽選(12/1〜12/7)の日程・条件と当選時の損益を10店舗実データで解説。最高買取は拡張パックBOX¥16,000(定価の2.22倍)・FUTURISTIC BOX¥45,000(1.64倍)・プレミアムデッキセット¥11,000(1.77倍)。3商品とも発売後のピークから約4割下落中で、お届けは最大2027年9月。定価割れまでの距離と売る/持つの判断材料を整理。", "date": "2026-11-28"},
+    {"url": "pack-neage-2027.html", "title": "ポケカ拡張パックが2027年5月から230円に｜旧弾BOXの買取相場は上がる？前回の値上げを実データで検証", "desc": "2027年5月発売分から拡張パックが200円→230円に。前回(2026年5月 180→200円)の値上げ前後で旧弾の拡張パックBOX20商品の買取を当サイト実データで検証。施行直前まで平均+38.6%、施行後1か月は-8.3%。ただし値上げ対象外の強化拡張パックも+28.6%上がっており、値上げだけで旧弾が上がるとは言えません。200円になってからのBOXは定価比1.17倍。", "date": "2026-11-28"},
     {"url": "hadou-seeker-atari-guide.html", "title": "ハドウシーカー 当たりカードランキング・封入率｜メガルカリオZex MURは約4万円", "desc": "11/27発売ハドウシーカーの当たりカードランキングと封入率。看板メガルカリオZex MURは買取約4万円(約50BOXに1枚)、SAR6種は1,000〜7,000円。1BOX開封の期待値は買取ベースで約3,000円で、発売日のBOX買取¥6,300〜¥8,100の半分以下。", "date": "2026-11-27"},
     {"url": "hadou-seeker-forecast.html", "title": "ハドウシーカー BOX買取価格【発売日】最高¥8,100・全店比較｜発売前予想の答え合わせ", "desc": "11/27発売のハドウシーカーの発売日BOX買取を9店舗比較。最高はEXPO¥8,100(定価比1.35倍)、多くの店は発売日のうちに¥6,300〜¥7,200へ下落で、前作アビスアイ¥13,500・ストームエメラルダ¥25,000を大きく下回る初値。発売前3シナリオの答え合わせで弱気¥7,500が最有力に。", "date": "2026-11-27"},
     {"url": "souba-geraku.html", "title": "ポケカ・ワンピBOX相場の下落ランキング｜30日で何%下がった?(毎日更新)", "desc": "ポケカとワンピの未開封BOX買取相場が直近30日でどれだけ下がったかを実データで毎日集計。下落率ランキング、記録上の最高値からの下落率、定価に近づいたBOXの一覧。", "date": "2026-11-19"},
@@ -1634,7 +1636,20 @@ def generate_product_pages(
 
         # Replace all placeholders
         html = template
-        html = html.replace("{{PRODUCT_SHORT}}", _short_product_name(p.name))
+        # 検索結果のタイトル。「〇〇 定価」「〇〇 未開封box 買取」の検索で表示されても
+        # 「最高値はどこ」では答えが見えずCTRが0〜1%だった(2026-11 GSC)。答え(最高額と定価)を
+        # タイトルに出す。価格は1日3回の更新で変わる。
+        _short = _short_product_name(p.name)
+        if max_price > 0:
+            _t = f"{_short} BOX買取価格【最高{_format_price(max_price)}】"
+            _t += (f"定価{_format_price(p.retail_price)}・{shop_count}店舗比較"
+                   if p.retail_price > 0 else f"{shop_count}店舗比較")
+        else:
+            _t = f"{_short} BOX買取価格を{shop_count}店舗比較"
+            if p.retail_price > 0:
+                _t += f"｜定価{_format_price(p.retail_price)}"
+        html = html.replace("{{SEO_TITLE}}", _t)
+        html = html.replace("{{PRODUCT_SHORT}}", _short)
         html = html.replace("{{PRODUCT_NAME}}", p.name)
         html = html.replace("{{PRODUCT_DESC}}", p.desc or "")
         # 当たりカードセクション
@@ -1945,7 +1960,12 @@ def _build_shop_page_html(
     # 比較であることを出す。「一覧【全N商品】」表記のときCTRが0.1%まで落ちていた
     # 店舗数は SHOP_IDS から取る。店を増やしたときに数字が置き去りになるため
     shop_n = len(SHOP_IDS)
-    title = f"{name}は高い？{scope}BOX{total}商品を{shop_n}店舗と価格比較"
+    # 2026-11: 「〇〇は高い？」でも「ラントゥ買取」系の検索(月約3,700表示・順位7)で
+    # CTRが0.1%のままだった。店名で探す人は「今日のその店の価格」を見たいので、
+    # 価格表であることと更新日を先頭に出す。
+    _md = update_date[5:10].replace("-", "/").lstrip("0").replace("/0", "/") if len(update_date) >= 10 else ""
+    title = (f"{name}の買取価格表【{_md}更新】{scope}BOX{total}商品を{shop_n}店舗と比較"
+             if _md else f"{name}の買取価格表｜{scope}BOX{total}商品を{shop_n}店舗と比較")
     desc = (
         f"{name}の買取価格は他店より高いのか。ポケモンカード"
         f"{'・ワンピースカード' if has_op else ''}未開封BOX全{total}商品を{shop_n}店舗と比較したところ、"
@@ -2256,6 +2276,8 @@ def _update_sitemap(
         ("/30th-cardset-forecast.html", "weekly", "0.9", "2026-10-15"),
         ("/hadou-seeker-forecast.html", "daily", "0.9", "2026-11-27"),
         ("/hadou-seeker-atari-guide.html", "weekly", "0.8", "2026-11-27"),
+        ("/30th-chusen-guide.html", "weekly", "0.9", "2026-11-28"),
+        ("/pack-neage-2027.html", "weekly", "0.8", "2026-11-28"),
         ("/30th-cardset-atari-guide.html", "monthly", "0.9", "2026-10-09"),
         ("/rgb-mew-guide.html", "monthly", "0.9", "2026-09-24"),
         ("/30th-celebration-review.html", "monthly", "0.9", "2026-09-22"),

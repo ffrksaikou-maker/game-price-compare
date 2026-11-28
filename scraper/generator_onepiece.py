@@ -114,6 +114,9 @@ ONEPIECE_ARTICLES.append(
 ONEPIECE_ARTICLES.append(
     ("eb-06-forecast.html", "【予想】EAST BLUE(EB-06) BOX相場3シナリオ",
      "1/30発売のEB-06を、前作EB-05の初動(発売日1.15万→8日目1.35万→2週間で1.15万)と1月のEBの実績から3シナリオで予想。"))
+ONEPIECE_ARTICLES.append(
+    ("op-19-forecast.html", "【予想】応答せよ、世界(OP-19) BOX相場3シナリオ",
+     "2/27発売のエッグヘッド弾OP-19を、前作OP-18(発売日1.08万→1週間で6,300円)とOP-17の着地から3シナリオで予想。"))
 
 
 def _article_links_block() -> str:
@@ -710,6 +713,12 @@ def generate_onepiece_box_pages(products: list[MasterProduct], update_date: str)
 
         page = template
         for k, v in {
+            "{{SEO_TITLE}}": _esc(
+                f"{_short_label(p.name)} BOX買取価格【最高{_format_price(max_price)}】"
+                + (f"定価{_format_price(p.retail_price)}・" if p.retail_price else "")
+                + f"{shop_count}店舗比較"
+                if max_price > 0 else
+                f"{_short_label(p.name)} BOX買取価格比較・価格推移｜ワンピ買取チェッカー"),
             "{{PRODUCT_NAME}}": _esc(p.name), "{{SLUG}}": slug,
             "{{ROBOTS}}": "index, follow", "{{JSONLD}}": jsonld,
             "{{FAQ_SECTION}}": faq_html,

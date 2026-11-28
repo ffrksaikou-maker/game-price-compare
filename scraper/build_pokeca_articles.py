@@ -1483,7 +1483,9 @@ POKECA_ARTICLES: list[dict] = [
                    '<li><a href="box-price-trend.html">ポケカBOX相場の値動きレポート</a> — 長期と直近で結論が変わる理由</li>\n'
                    '<li><a href="/onepiece/box-price-pattern.html">ワンピBOX相場の値動きパターン</a> — ワンピの弾ごとの値動きの型</li>\n'
                    '<li><a href="kougaku-box-ranking.html">高額BOX買取ランキング</a> — 最高買取の高い順と定価比</li>\n'
-                   '<li><a href="price-pattern-guide.html">BOX買取価格の5段階パターン</a> — 発売から絶版までの相場推移</li>',
+                   '<li><a href="price-pattern-guide.html">BOX買取価格の5段階パターン</a> — 発売から絶版までの相場推移</li>
+'
+                   '<li><a href="pack-neage-2027.html">拡張パック230円値上げと旧弾BOX相場</a> — 前回の値上げ前後の実データ検証</li>',
         "body": """<p>「最近ポケカもワンピも相場が下がっている」と感じている方は多いはずです。実際にどれだけ下がっているのかを、<strong>当サイトが毎日自動取得しているBOX買取の実データ</strong>で数えました。数値は毎日自動で更新されます(最新: {{GR_DATE}})。</p>
 
 <div class="callout"><strong>3行まとめ:</strong><br>
