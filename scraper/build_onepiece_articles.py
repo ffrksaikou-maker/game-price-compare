@@ -3839,6 +3839,86 @@ def _positioning_section(a: dict, articles: list, box: dict) -> str:
 """
 
 
+# 当たりガイドの「BOX買取の推移」表で使う基準日。history_op にその日のファイルが
+# 無ければ直後の日を使う。最後の列は常に最新ファイル。
+TREND_POINTS = ("2026-07-14", "2026-08-25", "2026-10-01", "2026-11-01")
+
+
+def _box_trend_section(a: dict) -> str:
+    """当サイト実データ(history_op)から本弾BOXの最高買取の推移表を作る。
+
+    GSCで「クロール済み-インデックス未登録」になった当たりガイドに、他サイトに無い
+    一次データを足すためのもの(2026-11-28)。記事dictに "trend": True がある弾だけ出す。
+    """
+    code = a["slug"].upper()
+    files = sorted(HISTORY_OP_DIR.glob("*.json"))
+    if not files:
+        return ""
+
+    def price_in(path) -> int:
+        try:
+            rows = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            return 0
+        for r in rows:
+            name = r.get("name", "")
+            if f"【{code}】" in name and "カートン" not in name:
+                return int(r.get("max_price") or 0)
+        return 0
+
+    picks = []
+    for d in TREND_POINTS:
+        f = next((p for p in files if p.stem >= d), None)
+        if f is not None and f != files[-1]:
+            picks.append(f)
+    picks.append(files[-1])
+    seen, pts = set(), []
+    for f in picks:
+        if f.stem in seen:
+            continue
+        seen.add(f.stem)
+        v = price_in(f)
+        if v:
+            pts.append((f.stem, v))
+    if len(pts) < 2:
+        return ""
+    retail = a.get("retail") or 0
+    peak = max(v for _, v in pts)
+    rows = []
+    for i, (d, v) in enumerate(pts):
+        y, m, dd = d.split("-")
+        mult = f"約{v / retail:.1f}倍" if retail else "—"
+        last = i == len(pts) - 1
+        rows.append((f'<tr class="best">' if last else '<tr>')
+                    + f'<td>{int(m)}月{int(dd)}日{"(最新)" if last else ""}</td>'
+                    f'<td class="price">¥{v:,}</td><td class="price">{mult}</td></tr>')
+    first_v, last_v = pts[0][1], pts[-1][1]
+    chg = (last_v - first_v) / first_v * 100
+    fd = pts[0][0].split("-")
+    if chg <= -5:
+        trend_txt = (f'{int(fd[1])}月{int(fd[2])}日の¥{first_v:,}から<strong>{chg:+.0f}%</strong>下げています。'
+                     'ワンピBOXは2026年8月末から全体に下落しており(<a href="box-price-pattern.html">全弾の値動き</a>)、本弾もその流れの中にあります。')
+    elif chg >= 5:
+        trend_txt = (f'{int(fd[1])}月{int(fd[2])}日の¥{first_v:,}から<strong>{chg:+.0f}%</strong>上げています。'
+                     'ワンピBOXの多くが8月末から下げた中で、上げている数少ない弾です(<a href="box-price-pattern.html">全弾の値動き</a>)。')
+    else:
+        trend_txt = (f'{int(fd[1])}月{int(fd[2])}日の¥{first_v:,}から<strong>{chg:+.0f}%</strong>とほぼ横ばいです。'
+                     'ワンピBOXの多くが8月末から下げた中で、底堅い動きです(<a href="box-price-pattern.html">全弾の値動き</a>)。')
+    if peak > last_v and peak != first_v:
+        trend_txt += f' この期間の最高は¥{peak:,}でした。'
+    return f"""
+<h2>BOX買取の推移｜当サイト実データ</h2>
+<p>当サイトが最大10店舗から毎日自動取得している<strong>{_esc(a["box_name"])}</strong>の未開封BOX(シュリンク付き)最高買取の推移です。定価比は定価¥{retail:,}に対する倍率です。</p>
+<table class="price-table">
+<thead><tr><th>時点</th><th style="text-align:right">最高買取</th><th style="text-align:right">定価比</th></tr></thead>
+<tbody>
+{"".join(rows)}
+</tbody>
+</table>
+<p>{trend_txt}</p>
+"""
+
+
 def _asof(a: dict) -> str:
     return CARD_ASOF_OVERRIDE.get(a["slug"], CARD_ASOF)
 
@@ -3901,6 +3981,8 @@ def _guide_faq(a: dict, box_max: int, box_n: int) -> tuple:
               "シュリンク付き・外箱がきれいな状態を保つことも条件になります。"),
     })
 
+    items.extend(a.get("faq_x") or [])
+
     ld = {
         "@context": "https://schema.org", "@type": "FAQPage",
         "mainEntity": [{"@type": "Question", "name": it["q"],
@@ -3951,6 +4033,10 @@ def _render(a: dict, articles: list, box: dict) -> str:
         asof=_asof(a), box_asof=_box_asof(),
         ranking_table=_ranking_table(a["ranking"]))
     body += _positioning_section(a, articles, box)
+    if a.get("trend"):
+        body += _box_trend_section(a)
+    if a.get("extra_html"):
+        body += a["extra_html"]
 
     # 公式BOX/パック画像がある弾のみ hero 左に画像(無い弾はテキストheroのまま)
     _stats = (
