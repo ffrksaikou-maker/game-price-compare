@@ -127,6 +127,10 @@
   "requested_at": "2026-08-31T06:05:04+09:00",
   "result": "requested"
  },
+ "https://pokeca-box-hikaku.com/box/hadou-seeker.html": {
+  "requested_at": "2026-11-28T13:58:28+09:00",
+  "result": "requested"
+ },
  "https://pokeca-box-hikaku.com/box/inferno.html": {
   "requested_at": "2026-08-21T15:50:57+09:00",
   "result": "requested"
@@ -369,6 +373,10 @@
  },
  "https://pokeca-box-hikaku.com/erika-sar-guide.html": {
   "requested_at": "2026-08-16T07:17:00+09:00",
+  "result": "requested"
+ },
+ "https://pokeca-box-hikaku.com/hadou-seeker-forecast.html": {
+  "requested_at": "2026-11-28T13:58:28+09:00",
   "result": "requested"
  },
  "https://pokeca-box-hikaku.com/hengen-no-kamen-atari-guide.html": {

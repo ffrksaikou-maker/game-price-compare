@@ -94,6 +94,9 @@ def remaining(pending: list[tuple[str, int]], state: dict[str, dict]) -> list[st
                 stamp = datetime.fromisoformat(entry["requested_at"])
             except (KeyError, ValueError):
                 stamp = None
+            # 手で追記した記録はタイムゾーンなしのことがある(比較で落ちていた)
+            if stamp and stamp.tzinfo is None:
+                stamp = stamp.replace(tzinfo=JST)
             if stamp and stamp > fresh_after:
                 continue
         targets.append((priority, url))
